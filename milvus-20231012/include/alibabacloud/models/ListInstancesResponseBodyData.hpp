@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RunningTime, runningTime_);
       DARABONBA_PTR_TO_JSON(SgId, sgId_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VswId, vswId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -55,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RunningTime, runningTime_);
       DARABONBA_PTR_FROM_JSON(SgId, sgId_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VswId, vswId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -74,7 +76,7 @@ namespace Models
         && return this->beginTime_ == nullptr && return this->clusterInfo_ == nullptr && return this->clusterName_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr
         && return this->instanceStatus_ == nullptr && return this->nodeType_ == nullptr && return this->openPublicNet_ == nullptr && return this->packageType_ == nullptr && return this->payType_ == nullptr
         && return this->productCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->runningTime_ == nullptr && return this->sgId_ == nullptr
-        && return this->tags_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->tags_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr && return this->zoneId_ == nullptr; };
     // autoBackup Field Functions 
     bool hasAutoBackup() const { return this->autoBackup_ != nullptr;};
     void deleteAutoBackup() { this->autoBackup_ = nullptr;};
@@ -198,6 +200,13 @@ namespace Models
     inline ListInstancesResponseBodyData& setTags(vector<Models::ListInstancesResponseBodyDataTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline ListInstancesResponseBodyData& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -264,6 +273,7 @@ namespace Models
     // The security group ID.
     std::shared_ptr<string> sgId_ = nullptr;
     std::shared_ptr<vector<Models::ListInstancesResponseBodyDataTags>> tags_ = nullptr;
+    std::shared_ptr<string> version_ = nullptr;
     // The virtual private cloud (VPC) ID.
     std::shared_ptr<string> vpcId_ = nullptr;
     // The ID of the vSwitch.

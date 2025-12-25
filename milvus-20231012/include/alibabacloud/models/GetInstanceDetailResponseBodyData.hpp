@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETINSTANCEDETAILRESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfo.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyDataHighAvailability.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataMeasureConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataTags.hpp>
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableHa, enableHa_);
       DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+      DARABONBA_PTR_TO_JSON(HighAvailability, highAvailability_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_TO_JSON(KmsKeyId, kmsKeyId_);
@@ -60,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableHa, enableHa_);
       DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+      DARABONBA_PTR_FROM_JSON(HighAvailability, highAvailability_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_FROM_JSON(KmsKeyId, kmsKeyId_);
@@ -96,11 +99,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclId_ == nullptr
         && return this->beginTime_ == nullptr && return this->bucketName_ == nullptr && return this->bucketPath_ == nullptr && return this->clusterInfo_ == nullptr && return this->clusterName_ == nullptr
-        && return this->enableHa_ == nullptr && return this->encrypted_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceStatus_ == nullptr
-        && return this->kmsKeyId_ == nullptr && return this->measureConfig_ == nullptr && return this->multiZoneMode_ == nullptr && return this->nodeType_ == nullptr && return this->openPublicNet_ == nullptr
-        && return this->packageType_ == nullptr && return this->payType_ == nullptr && return this->productCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->runningTime_ == nullptr && return this->sgId_ == nullptr && return this->tags_ == nullptr && return this->templateVersion_ == nullptr && return this->userConfig_ == nullptr
-        && return this->vSwitches_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->enableHa_ == nullptr && return this->encrypted_ == nullptr && return this->expireTime_ == nullptr && return this->highAvailability_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceStatus_ == nullptr && return this->kmsKeyId_ == nullptr && return this->measureConfig_ == nullptr && return this->multiZoneMode_ == nullptr && return this->nodeType_ == nullptr
+        && return this->openPublicNet_ == nullptr && return this->packageType_ == nullptr && return this->payType_ == nullptr && return this->productCode_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->runningTime_ == nullptr && return this->sgId_ == nullptr && return this->tags_ == nullptr && return this->templateVersion_ == nullptr
+        && return this->userConfig_ == nullptr && return this->vSwitches_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // aclId Field Functions 
     bool hasAclId() const { return this->aclId_ != nullptr;};
     void deleteAclId() { this->aclId_ = nullptr;};
@@ -164,6 +168,15 @@ namespace Models
     void deleteExpireTime() { this->expireTime_ = nullptr;};
     inline int64_t expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
     inline GetInstanceDetailResponseBodyData& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+    // highAvailability Field Functions 
+    bool hasHighAvailability() const { return this->highAvailability_ != nullptr;};
+    void deleteHighAvailability() { this->highAvailability_ = nullptr;};
+    inline const Models::GetInstanceDetailResponseBodyDataHighAvailability & highAvailability() const { DARABONBA_PTR_GET_CONST(highAvailability_, Models::GetInstanceDetailResponseBodyDataHighAvailability) };
+    inline Models::GetInstanceDetailResponseBodyDataHighAvailability highAvailability() { DARABONBA_PTR_GET(highAvailability_, Models::GetInstanceDetailResponseBodyDataHighAvailability) };
+    inline GetInstanceDetailResponseBodyData& setHighAvailability(const Models::GetInstanceDetailResponseBodyDataHighAvailability & highAvailability) { DARABONBA_PTR_SET_VALUE(highAvailability_, highAvailability) };
+    inline GetInstanceDetailResponseBodyData& setHighAvailability(Models::GetInstanceDetailResponseBodyDataHighAvailability && highAvailability) { DARABONBA_PTR_SET_RVALUE(highAvailability_, highAvailability) };
 
 
     // instanceId Field Functions 
@@ -343,6 +356,7 @@ namespace Models
     std::shared_ptr<string> encrypted_ = nullptr;
     // The expiration time.
     std::shared_ptr<int64_t> expireTime_ = nullptr;
+    std::shared_ptr<Models::GetInstanceDetailResponseBodyDataHighAvailability> highAvailability_ = nullptr;
     // The ID of the instance.
     std::shared_ptr<string> instanceId_ = nullptr;
     // The instance status. Valid values:

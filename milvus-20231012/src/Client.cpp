@@ -156,6 +156,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
     body["autoBackup"] = request.autoBackup();
   }
 
+  if (!!request.hasAutoRenew()) {
+    body["autoRenew"] = request.autoRenew();
+  }
+
   if (!!request.hasComponents()) {
     body["components"] = request.components();
   }
@@ -184,8 +188,16 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
     body["instanceName"] = request.instanceName();
   }
 
+  if (!!request.hasIsMultiAzStorage()) {
+    body["isMultiAzStorage"] = request.isMultiAzStorage();
+  }
+
   if (!!request.hasKmsKeyId()) {
     body["kmsKeyId"] = request.kmsKeyId();
+  }
+
+  if (!!request.hasLoadReplicas()) {
+    body["loadReplicas"] = request.loadReplicas();
   }
 
   if (!!request.hasMultiZoneMode()) {
@@ -202,6 +214,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 
   if (!!request.hasPaymentType()) {
     body["paymentType"] = request.paymentType();
+  }
+
+  if (!!request.hasPromotionNo()) {
+    body["promotionNo"] = request.promotionNo();
   }
 
   if (!!request.hasResourceGroupId()) {

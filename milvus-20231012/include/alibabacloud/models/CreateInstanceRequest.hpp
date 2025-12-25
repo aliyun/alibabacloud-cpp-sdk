@@ -19,6 +19,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(autoBackup, autoBackup_);
+      DARABONBA_PTR_TO_JSON(autoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(components, components_);
       DARABONBA_PTR_TO_JSON(configuration, configuration_);
       DARABONBA_PTR_TO_JSON(dbAdminPassword, dbAdminPassword_);
@@ -26,11 +27,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(encrypted, encrypted_);
       DARABONBA_PTR_TO_JSON(ha, ha_);
       DARABONBA_PTR_TO_JSON(instanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(isMultiAzStorage, isMultiAzStorage_);
       DARABONBA_PTR_TO_JSON(kmsKeyId, kmsKeyId_);
+      DARABONBA_PTR_TO_JSON(loadReplicas, loadReplicas_);
       DARABONBA_PTR_TO_JSON(multiZoneMode, multiZoneMode_);
       DARABONBA_PTR_TO_JSON(paymentDuration, paymentDuration_);
       DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
+      DARABONBA_PTR_TO_JSON(promotionNo, promotionNo_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(vSwitchIds, vSwitchIds_);
@@ -41,6 +45,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(autoBackup, autoBackup_);
+      DARABONBA_PTR_FROM_JSON(autoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(components, components_);
       DARABONBA_PTR_FROM_JSON(configuration, configuration_);
       DARABONBA_PTR_FROM_JSON(dbAdminPassword, dbAdminPassword_);
@@ -48,11 +53,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(encrypted, encrypted_);
       DARABONBA_PTR_FROM_JSON(ha, ha_);
       DARABONBA_PTR_FROM_JSON(instanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(isMultiAzStorage, isMultiAzStorage_);
       DARABONBA_PTR_FROM_JSON(kmsKeyId, kmsKeyId_);
+      DARABONBA_PTR_FROM_JSON(loadReplicas, loadReplicas_);
       DARABONBA_PTR_FROM_JSON(multiZoneMode, multiZoneMode_);
       DARABONBA_PTR_FROM_JSON(paymentDuration, paymentDuration_);
       DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
+      DARABONBA_PTR_FROM_JSON(promotionNo, promotionNo_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(vSwitchIds, vSwitchIds_);
@@ -72,10 +80,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->autoBackup_ == nullptr && return this->components_ == nullptr && return this->configuration_ == nullptr && return this->dbAdminPassword_ == nullptr && return this->dbVersion_ == nullptr
-        && return this->encrypted_ == nullptr && return this->ha_ == nullptr && return this->instanceName_ == nullptr && return this->kmsKeyId_ == nullptr && return this->multiZoneMode_ == nullptr
-        && return this->paymentDuration_ == nullptr && return this->paymentDurationUnit_ == nullptr && return this->paymentType_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr
-        && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr && return this->clientToken_ == nullptr; };
+        && return this->autoBackup_ == nullptr && return this->autoRenew_ == nullptr && return this->components_ == nullptr && return this->configuration_ == nullptr && return this->dbAdminPassword_ == nullptr
+        && return this->dbVersion_ == nullptr && return this->encrypted_ == nullptr && return this->ha_ == nullptr && return this->instanceName_ == nullptr && return this->isMultiAzStorage_ == nullptr
+        && return this->kmsKeyId_ == nullptr && return this->loadReplicas_ == nullptr && return this->multiZoneMode_ == nullptr && return this->paymentDuration_ == nullptr && return this->paymentDurationUnit_ == nullptr
+        && return this->paymentType_ == nullptr && return this->promotionNo_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr && return this->vSwitchIds_ == nullptr
+        && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr && return this->clientToken_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -88,6 +97,13 @@ namespace Models
     void deleteAutoBackup() { this->autoBackup_ = nullptr;};
     inline bool autoBackup() const { DARABONBA_PTR_GET_DEFAULT(autoBackup_, false) };
     inline CreateInstanceRequest& setAutoBackup(bool autoBackup) { DARABONBA_PTR_SET_VALUE(autoBackup_, autoBackup) };
+
+
+    // autoRenew Field Functions 
+    bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
+    void deleteAutoRenew() { this->autoRenew_ = nullptr;};
+    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline CreateInstanceRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // components Field Functions 
@@ -141,11 +157,25 @@ namespace Models
     inline CreateInstanceRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
+    // isMultiAzStorage Field Functions 
+    bool hasIsMultiAzStorage() const { return this->isMultiAzStorage_ != nullptr;};
+    void deleteIsMultiAzStorage() { this->isMultiAzStorage_ = nullptr;};
+    inline bool isMultiAzStorage() const { DARABONBA_PTR_GET_DEFAULT(isMultiAzStorage_, false) };
+    inline CreateInstanceRequest& setIsMultiAzStorage(bool isMultiAzStorage) { DARABONBA_PTR_SET_VALUE(isMultiAzStorage_, isMultiAzStorage) };
+
+
     // kmsKeyId Field Functions 
     bool hasKmsKeyId() const { return this->kmsKeyId_ != nullptr;};
     void deleteKmsKeyId() { this->kmsKeyId_ = nullptr;};
     inline string kmsKeyId() const { DARABONBA_PTR_GET_DEFAULT(kmsKeyId_, "") };
     inline CreateInstanceRequest& setKmsKeyId(string kmsKeyId) { DARABONBA_PTR_SET_VALUE(kmsKeyId_, kmsKeyId) };
+
+
+    // loadReplicas Field Functions 
+    bool hasLoadReplicas() const { return this->loadReplicas_ != nullptr;};
+    void deleteLoadReplicas() { this->loadReplicas_ = nullptr;};
+    inline int32_t loadReplicas() const { DARABONBA_PTR_GET_DEFAULT(loadReplicas_, 0) };
+    inline CreateInstanceRequest& setLoadReplicas(int32_t loadReplicas) { DARABONBA_PTR_SET_VALUE(loadReplicas_, loadReplicas) };
 
 
     // multiZoneMode Field Functions 
@@ -174,6 +204,13 @@ namespace Models
     void deletePaymentType() { this->paymentType_ = nullptr;};
     inline string paymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
     inline CreateInstanceRequest& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
+
+
+    // promotionNo Field Functions 
+    bool hasPromotionNo() const { return this->promotionNo_ != nullptr;};
+    void deletePromotionNo() { this->promotionNo_ = nullptr;};
+    inline string promotionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionNo_, "") };
+    inline CreateInstanceRequest& setPromotionNo(string promotionNo) { DARABONBA_PTR_SET_VALUE(promotionNo_, promotionNo) };
 
 
     // resourceGroupId Field Functions 
@@ -225,6 +262,7 @@ namespace Models
   protected:
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<bool> autoBackup_ = nullptr;
+    std::shared_ptr<bool> autoRenew_ = nullptr;
     std::shared_ptr<vector<CreateInstanceRequestComponents>> components_ = nullptr;
     std::shared_ptr<string> configuration_ = nullptr;
     std::shared_ptr<string> dbAdminPassword_ = nullptr;
@@ -233,12 +271,15 @@ namespace Models
     std::shared_ptr<bool> encrypted_ = nullptr;
     std::shared_ptr<bool> ha_ = nullptr;
     std::shared_ptr<string> instanceName_ = nullptr;
+    std::shared_ptr<bool> isMultiAzStorage_ = nullptr;
     std::shared_ptr<string> kmsKeyId_ = nullptr;
+    std::shared_ptr<int32_t> loadReplicas_ = nullptr;
     std::shared_ptr<string> multiZoneMode_ = nullptr;
     std::shared_ptr<int32_t> paymentDuration_ = nullptr;
     std::shared_ptr<string> paymentDurationUnit_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> paymentType_ = nullptr;
+    std::shared_ptr<string> promotionNo_ = nullptr;
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<vector<CreateInstanceRequestTags>> tags_ = nullptr;
     std::shared_ptr<vector<CreateInstanceRequestVSwitchIds>> vSwitchIds_ = nullptr;

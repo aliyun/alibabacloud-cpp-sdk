@@ -2,7 +2,11 @@
 #ifndef ALIBABACLOUD_MILVUS20231012MODEL_HPP_
 #define ALIBABACLOUD_MILVUS20231012MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DbVersionDetail.hpp>
 #include <alibabacloud/models/InstanceDetail.hpp>
+#include <alibabacloud/models/MigrationSource.hpp>
+#include <alibabacloud/models/PromotionInfo.hpp>
+#include <alibabacloud/models/PriceInfo.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
@@ -56,9 +60,15 @@
 #include <alibabacloud/models/UpdatePublicNetworkStatusRequest.hpp>
 #include <alibabacloud/models/UpdatePublicNetworkStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdatePublicNetworkStatusResponse.hpp>
+#include <alibabacloud/models/DbVersionDetailSpecsComponentSpecs.hpp>
+#include <alibabacloud/models/DbVersionDetailSpecs.hpp>
 #include <alibabacloud/models/InstanceDetailComponents.hpp>
 #include <alibabacloud/models/InstanceDetailTags.hpp>
 #include <alibabacloud/models/InstanceDetailVSwitchIds.hpp>
+#include <alibabacloud/models/MigrationSourceAuthInfo.hpp>
+#include <alibabacloud/models/MigrationSourceEndpoint.hpp>
+#include <alibabacloud/models/PriceInfoPriceModules.hpp>
+#include <alibabacloud/models/PriceInfoRules.hpp>
 #include <alibabacloud/models/CreateInstanceRequestComponents.hpp>
 #include <alibabacloud/models/CreateInstanceRequestTags.hpp>
 #include <alibabacloud/models/CreateInstanceRequestVSwitchIds.hpp>
@@ -66,6 +76,7 @@
 #include <alibabacloud/models/DescribeAccessControlListResponseBodyData.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfo.hpp>
+#include <alibabacloud/models/GetInstanceDetailResponseBodyDataHighAvailability.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataMeasureConfig.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataTags.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataVSwitches.hpp>
