@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Region, region_);
@@ -28,6 +30,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_FROM_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
@@ -45,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architectureType_ != nullptr
-        && this->chargeType_ != nullptr && this->instanceId_ != nullptr && this->pageIndex_ != nullptr && this->pageSize_ != nullptr && this->region_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->architectureType_ == nullptr
+        && return this->chargeType_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->namespaceName_ == nullptr && return this->pageIndex_ == nullptr
+        && return this->pageSize_ == nullptr && return this->region_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};
@@ -67,6 +71,20 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInstancesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline DescribeInstancesRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // namespaceName Field Functions 
+    bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
+    void deleteNamespaceName() { this->namespaceName_ = nullptr;};
+    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline DescribeInstancesRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
     // pageIndex Field Functions 
@@ -110,6 +128,8 @@ namespace Models
     std::shared_ptr<string> architectureType_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> instanceName_ = nullptr;
+    std::shared_ptr<string> namespaceName_ = nullptr;
     std::shared_ptr<int32_t> pageIndex_ = nullptr;
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // This parameter is required.

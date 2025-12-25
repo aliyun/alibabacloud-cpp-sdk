@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architectureType_ != nullptr
-        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->duration_ != nullptr && this->extra_ != nullptr && this->ha_ != nullptr
-        && this->haResourceSpec_ != nullptr && this->instanceName_ != nullptr && this->pricingCycle_ != nullptr && this->promotionCode_ != nullptr && this->region_ != nullptr
-        && this->resourceSpec_ != nullptr && this->storage_ != nullptr && this->usePromotionCode_ != nullptr && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->architectureType_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->duration_ == nullptr && return this->extra_ == nullptr && return this->ha_ == nullptr
+        && return this->haResourceSpec_ == nullptr && return this->instanceName_ == nullptr && return this->pricingCycle_ == nullptr && return this->promotionCode_ == nullptr && return this->region_ == nullptr
+        && return this->resourceSpec_ == nullptr && return this->storage_ == nullptr && return this->usePromotionCode_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};

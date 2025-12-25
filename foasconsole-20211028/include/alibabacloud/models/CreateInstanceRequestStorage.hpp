@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fullyManaged_ != nullptr
-        && this->oss_ != nullptr; };
+    virtual bool empty() const override { return this->fullyManaged_ == nullptr
+        && return this->oss_ == nullptr; };
     // fullyManaged Field Functions 
     bool hasFullyManaged() const { return this->fullyManaged_ != nullptr;};
     void deleteFullyManaged() { this->fullyManaged_ = nullptr;};

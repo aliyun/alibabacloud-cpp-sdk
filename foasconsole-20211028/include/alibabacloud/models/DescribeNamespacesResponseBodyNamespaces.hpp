@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticResourceSpec_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->guaranteedResourceSpec_ != nullptr && this->ha_ != nullptr && this->namespace_ != nullptr
-        && this->resourceSpec_ != nullptr && this->resourceUsed_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->elasticResourceSpec_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->guaranteedResourceSpec_ == nullptr && return this->ha_ == nullptr && return this->namespace_ == nullptr
+        && return this->resourceSpec_ == nullptr && return this->resourceUsed_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // elasticResourceSpec Field Functions 
     bool hasElasticResourceSpec() const { return this->elasticResourceSpec_ != nullptr;};
     void deleteElasticResourceSpec() { this->elasticResourceSpec_ = nullptr;};

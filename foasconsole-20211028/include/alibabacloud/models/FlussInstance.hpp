@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterState_ != nullptr
-        && this->clusterStatus_ != nullptr && this->consoleUrl_ != nullptr && this->diskSize_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->orderState_ != nullptr && this->regionId_ != nullptr && this->resourceCreateTime_ != nullptr && this->resourceExpiredTime_ != nullptr && this->tabletServerModel_ != nullptr
-        && this->tabletServerNum_ != nullptr && this->tabletServerType_ != nullptr && this->uid_ != nullptr && this->vSwitches_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterState_ == nullptr
+        && return this->clusterStatus_ == nullptr && return this->consoleUrl_ == nullptr && return this->diskSize_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->orderState_ == nullptr && return this->regionId_ == nullptr && return this->resourceCreateTime_ == nullptr && return this->resourceExpiredTime_ == nullptr && return this->tabletServerModel_ == nullptr
+        && return this->tabletServerNum_ == nullptr && return this->tabletServerType_ == nullptr && return this->uid_ == nullptr && return this->vSwitches_ == nullptr && return this->vpcId_ == nullptr; };
     // clusterState Field Functions 
     bool hasClusterState() const { return this->clusterState_ != nullptr;};
     void deleteClusterState() { this->clusterState_ = nullptr;};

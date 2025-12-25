@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->availableIpAddressCount_ != nullptr
-        && this->description_ != nullptr && this->regionId_ != nullptr && this->vSwitchCidr_ != nullptr && this->vSwitchId_ != nullptr && this->vSwitchName_ != nullptr
-        && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->availableIpAddressCount_ == nullptr
+        && return this->description_ == nullptr && return this->regionId_ == nullptr && return this->vSwitchCidr_ == nullptr && return this->vSwitchId_ == nullptr && return this->vSwitchName_ == nullptr
+        && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // availableIpAddressCount Field Functions 
     bool hasAvailableIpAddressCount() const { return this->availableIpAddressCount_ != nullptr;};
     void deleteAvailableIpAddressCount() { this->availableIpAddressCount_ = nullptr;};

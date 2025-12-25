@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->duration_ != nullptr
-        && this->instanceId_ != nullptr && this->isAutoRenew_ != nullptr && this->namespaceResourceSpecsShrink_ != nullptr && this->pricingCycle_ != nullptr && this->promotionCode_ != nullptr
-        && this->region_ != nullptr && this->usePromotionCode_ != nullptr; };
+    virtual bool empty() const override { return this->duration_ == nullptr
+        && return this->instanceId_ == nullptr && return this->isAutoRenew_ == nullptr && return this->namespaceResourceSpecsShrink_ == nullptr && return this->pricingCycle_ == nullptr && return this->promotionCode_ == nullptr
+        && return this->region_ == nullptr && return this->usePromotionCode_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};

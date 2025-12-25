@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterUsedResources, clusterUsedResources_);
       DARABONBA_PTR_TO_JSON(ClusterUsedStorage, clusterUsedStorage_);
       DARABONBA_PTR_TO_JSON(Elastic, elastic_);
+      DARABONBA_PTR_TO_JSON(ElasticInstanceId, elasticInstanceId_);
       DARABONBA_PTR_TO_JSON(ElasticOrderState, elasticOrderState_);
       DARABONBA_PTR_TO_JSON(ElasticResourceSpec, elasticResourceSpec_);
       DARABONBA_PTR_TO_JSON(Ha, ha_);
@@ -74,6 +75,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterUsedResources, clusterUsedResources_);
       DARABONBA_PTR_FROM_JSON(ClusterUsedStorage, clusterUsedStorage_);
       DARABONBA_PTR_FROM_JSON(Elastic, elastic_);
+      DARABONBA_PTR_FROM_JSON(ElasticInstanceId, elasticInstanceId_);
       DARABONBA_PTR_FROM_JSON(ElasticOrderState, elasticOrderState_);
       DARABONBA_PTR_FROM_JSON(ElasticResourceSpec, elasticResourceSpec_);
       DARABONBA_PTR_FROM_JSON(Ha, ha_);
@@ -113,14 +115,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ansm_ != nullptr
-        && this->architectureType_ != nullptr && this->askClusterId_ != nullptr && this->chargeType_ != nullptr && this->clusterState_ != nullptr && this->clusterStatus_ != nullptr
-        && this->clusterUsedResources_ != nullptr && this->clusterUsedStorage_ != nullptr && this->elastic_ != nullptr && this->elasticOrderState_ != nullptr && this->elasticResourceSpec_ != nullptr
-        && this->ha_ != nullptr && this->haResourceSpec_ != nullptr && this->haVSwitchIds_ != nullptr && this->haVSwitchInfo_ != nullptr && this->haZoneId_ != nullptr
-        && this->hostAliases_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->monitorType_ != nullptr && this->orderState_ != nullptr
-        && this->ossInfo_ != nullptr && this->region_ != nullptr && this->resourceCreateTime_ != nullptr && this->resourceExpiredTime_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceSpec_ != nullptr && this->storage_ != nullptr && this->tags_ != nullptr && this->uid_ != nullptr
-        && this->vSwitchIds_ != nullptr && this->vSwitchInfo_ != nullptr && this->vpcId_ != nullptr && this->vpcInfo_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->ansm_ == nullptr
+        && return this->architectureType_ == nullptr && return this->askClusterId_ == nullptr && return this->chargeType_ == nullptr && return this->clusterState_ == nullptr && return this->clusterStatus_ == nullptr
+        && return this->clusterUsedResources_ == nullptr && return this->clusterUsedStorage_ == nullptr && return this->elastic_ == nullptr && return this->elasticInstanceId_ == nullptr && return this->elasticOrderState_ == nullptr
+        && return this->elasticResourceSpec_ == nullptr && return this->ha_ == nullptr && return this->haResourceSpec_ == nullptr && return this->haVSwitchIds_ == nullptr && return this->haVSwitchInfo_ == nullptr
+        && return this->haZoneId_ == nullptr && return this->hostAliases_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->monitorType_ == nullptr
+        && return this->orderState_ == nullptr && return this->ossInfo_ == nullptr && return this->region_ == nullptr && return this->resourceCreateTime_ == nullptr && return this->resourceExpiredTime_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceSpec_ == nullptr && return this->storage_ == nullptr && return this->tags_ == nullptr
+        && return this->uid_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vSwitchInfo_ == nullptr && return this->vpcId_ == nullptr && return this->vpcInfo_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // ansm Field Functions 
     bool hasAnsm() const { return this->ansm_ != nullptr;};
     void deleteAnsm() { this->ansm_ = nullptr;};
@@ -188,6 +191,13 @@ namespace Models
     void deleteElastic() { this->elastic_ = nullptr;};
     inline bool elastic() const { DARABONBA_PTR_GET_DEFAULT(elastic_, false) };
     inline DescribeInstancesResponseBodyInstances& setElastic(bool elastic) { DARABONBA_PTR_SET_VALUE(elastic_, elastic) };
+
+
+    // elasticInstanceId Field Functions 
+    bool hasElasticInstanceId() const { return this->elasticInstanceId_ != nullptr;};
+    void deleteElasticInstanceId() { this->elasticInstanceId_ = nullptr;};
+    inline string elasticInstanceId() const { DARABONBA_PTR_GET_DEFAULT(elasticInstanceId_, "") };
+    inline DescribeInstancesResponseBodyInstances& setElasticInstanceId(string elasticInstanceId) { DARABONBA_PTR_SET_VALUE(elasticInstanceId_, elasticInstanceId) };
 
 
     // elasticOrderState Field Functions 
@@ -413,6 +423,7 @@ namespace Models
     std::shared_ptr<Models::DescribeInstancesResponseBodyInstancesClusterUsedResources> clusterUsedResources_ = nullptr;
     std::shared_ptr<Models::DescribeInstancesResponseBodyInstancesClusterUsedStorage> clusterUsedStorage_ = nullptr;
     std::shared_ptr<bool> elastic_ = nullptr;
+    std::shared_ptr<string> elasticInstanceId_ = nullptr;
     std::shared_ptr<string> elasticOrderState_ = nullptr;
     std::shared_ptr<Models::DescribeInstancesResponseBodyInstancesElasticResourceSpec> elasticResourceSpec_ = nullptr;
     std::shared_ptr<bool> ha_ = nullptr;

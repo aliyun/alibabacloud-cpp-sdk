@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DepreciateInfo, depreciateInfo_);
       DARABONBA_PTR_TO_JSON(DiscountAmount, discountAmount_);
       DARABONBA_PTR_TO_JSON(IsContractActivity, isContractActivity_);
+      DARABONBA_PTR_TO_JSON(LxRequestId, lxRequestId_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(OptionalPromotions, optionalPromotions_);
       DARABONBA_PTR_TO_JSON(OriginalAmount, originalAmount_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DepreciateInfo, depreciateInfo_);
       DARABONBA_PTR_FROM_JSON(DiscountAmount, discountAmount_);
       DARABONBA_PTR_FROM_JSON(IsContractActivity, isContractActivity_);
+      DARABONBA_PTR_FROM_JSON(LxRequestId, lxRequestId_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(OptionalPromotions, optionalPromotions_);
       DARABONBA_PTR_FROM_JSON(OriginalAmount, originalAmount_);
@@ -55,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->currency_ != nullptr && this->depreciateInfo_ != nullptr && this->discountAmount_ != nullptr && this->isContractActivity_ != nullptr && this->message_ != nullptr
-        && this->optionalPromotions_ != nullptr && this->originalAmount_ != nullptr && this->rules_ != nullptr && this->standDiscountPrice_ != nullptr && this->standPrice_ != nullptr
-        && this->tradeAmount_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->currency_ == nullptr && return this->depreciateInfo_ == nullptr && return this->discountAmount_ == nullptr && return this->isContractActivity_ == nullptr && return this->lxRequestId_ == nullptr
+        && return this->message_ == nullptr && return this->optionalPromotions_ == nullptr && return this->originalAmount_ == nullptr && return this->rules_ == nullptr && return this->standDiscountPrice_ == nullptr
+        && return this->standPrice_ == nullptr && return this->tradeAmount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -94,6 +96,13 @@ namespace Models
     void deleteIsContractActivity() { this->isContractActivity_ = nullptr;};
     inline bool isContractActivity() const { DARABONBA_PTR_GET_DEFAULT(isContractActivity_, false) };
     inline QueryCreateInstancePriceResponseBodyPriceInfo& setIsContractActivity(bool isContractActivity) { DARABONBA_PTR_SET_VALUE(isContractActivity_, isContractActivity) };
+
+
+    // lxRequestId Field Functions 
+    bool hasLxRequestId() const { return this->lxRequestId_ != nullptr;};
+    void deleteLxRequestId() { this->lxRequestId_ = nullptr;};
+    inline string lxRequestId() const { DARABONBA_PTR_GET_DEFAULT(lxRequestId_, "") };
+    inline QueryCreateInstancePriceResponseBodyPriceInfo& setLxRequestId(string lxRequestId) { DARABONBA_PTR_SET_VALUE(lxRequestId_, lxRequestId) };
 
 
     // message Field Functions 
@@ -155,6 +164,7 @@ namespace Models
     std::shared_ptr<Models::QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo> depreciateInfo_ = nullptr;
     std::shared_ptr<float> discountAmount_ = nullptr;
     std::shared_ptr<bool> isContractActivity_ = nullptr;
+    std::shared_ptr<string> lxRequestId_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;
     std::shared_ptr<vector<Models::QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions>> optionalPromotions_ = nullptr;
     std::shared_ptr<float> originalAmount_ = nullptr;

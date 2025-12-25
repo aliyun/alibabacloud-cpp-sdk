@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architectureType_ != nullptr
-        && this->autoRenew_ != nullptr && this->chargeType_ != nullptr && this->duration_ != nullptr && this->extra_ != nullptr && this->ha_ != nullptr
-        && this->haResourceSpecShrink_ != nullptr && this->haVSwitchIdsShrink_ != nullptr && this->instanceName_ != nullptr && this->monitorType_ != nullptr && this->pricingCycle_ != nullptr
-        && this->promotionCode_ != nullptr && this->region_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceSpecShrink_ != nullptr && this->storageShrink_ != nullptr
-        && this->tagShrink_ != nullptr && this->usePromotionCode_ != nullptr && this->vSwitchIdsShrink_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->architectureType_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->duration_ == nullptr && return this->extra_ == nullptr && return this->ha_ == nullptr
+        && return this->haResourceSpecShrink_ == nullptr && return this->haVSwitchIdsShrink_ == nullptr && return this->instanceName_ == nullptr && return this->monitorType_ == nullptr && return this->pricingCycle_ == nullptr
+        && return this->promotionCode_ == nullptr && return this->region_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceSpecShrink_ == nullptr && return this->storageShrink_ == nullptr
+        && return this->tagShrink_ == nullptr && return this->usePromotionCode_ == nullptr && return this->vSwitchIdsShrink_ == nullptr && return this->vpcId_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};

@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->namespaces_ != nullptr
-        && this->pageIndex_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr && this->totalCount_ != nullptr
-        && this->totalPage_ != nullptr; };
+    virtual bool empty() const override { return this->namespaces_ == nullptr
+        && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->totalCount_ == nullptr
+        && return this->totalPage_ == nullptr; };
     // namespaces Field Functions 
     bool hasNamespaces() const { return this->namespaces_ != nullptr;};
     void deleteNamespaces() { this->namespaces_ = nullptr;};
