@@ -14,12 +14,14 @@ namespace Models
   class SearchInfoRequestWebFilters : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchInfoRequestWebFilters& obj) { 
+      DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(IncludeSites, includeSites_);
       DARABONBA_PTR_TO_JSON(Query, query_);
       DARABONBA_PTR_TO_JSON(ResultLimit, resultLimit_);
       DARABONBA_PTR_TO_JSON(ScoreThreshold, scoreThreshold_);
     };
     friend void from_json(const Darabonba::Json& j, SearchInfoRequestWebFilters& obj) { 
+      DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(IncludeSites, includeSites_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
       DARABONBA_PTR_FROM_JSON(ResultLimit, resultLimit_);
@@ -36,8 +38,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->includeSites_ == nullptr
-        && return this->query_ == nullptr && return this->resultLimit_ == nullptr && return this->scoreThreshold_ == nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->includeSites_ == nullptr && return this->query_ == nullptr && return this->resultLimit_ == nullptr && return this->scoreThreshold_ == nullptr; };
+    // category Field Functions 
+    bool hasCategory() const { return this->category_ != nullptr;};
+    void deleteCategory() { this->category_ = nullptr;};
+    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline SearchInfoRequestWebFilters& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
     // includeSites Field Functions 
     bool hasIncludeSites() const { return this->includeSites_ != nullptr;};
     void deleteIncludeSites() { this->includeSites_ = nullptr;};
@@ -69,6 +78,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> category_ = nullptr;
     std::shared_ptr<vector<string>> includeSites_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> query_ = nullptr;
