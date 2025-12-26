@@ -40,6 +40,9 @@
 #include <alibabacloud/models/GetBroadcastTemplateRequest.hpp>
 #include <alibabacloud/models/GetBroadcastTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetBroadcastTemplateResponse.hpp>
+#include <alibabacloud/models/GetTtsVoiceByIdCustomRequest.hpp>
+#include <alibabacloud/models/GetTtsVoiceByIdCustomResponseBody.hpp>
+#include <alibabacloud/models/GetTtsVoiceByIdCustomResponse.hpp>
 #include <alibabacloud/models/GetTrainPicAvatarStatusRequest.hpp>
 #include <alibabacloud/models/GetTrainPicAvatarStatusResponseBody.hpp>
 #include <alibabacloud/models/GetTrainPicAvatarStatusResponse.hpp>
@@ -73,6 +76,7 @@
 #include <alibabacloud/models/CreateNoTrainPicAvatarResponseBodyData.hpp>
 #include <alibabacloud/models/CreateTtsVoiceCustomResponseBodyData.hpp>
 #include <alibabacloud/models/CreateTrainPicAvatarResponseBodyData.hpp>
+#include <alibabacloud/models/GetTtsVoiceByIdCustomResponseBodyData.hpp>
 #include <alibabacloud/models/GetTrainPicAvatarStatusResponseBodyData.hpp>
 #include <alibabacloud/models/GetUploadPolicyResponseBodyDataOssPolicy.hpp>
 #include <alibabacloud/models/GetUploadPolicyResponseBodyData.hpp>

@@ -630,6 +630,51 @@ GetBroadcastTemplateResponse Client::getBroadcastTemplate(const GetBroadcastTemp
 }
 
 /**
+ * @summary 根据ID获取TTS音色
+ *
+ * @param request GetTTSVoiceByIdCustomRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTTSVoiceByIdCustomResponse
+ */
+GetTTSVoiceByIdCustomResponse Client::getTTSVoiceByIdCustomWithOptions(const GetTTSVoiceByIdCustomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVoiceId()) {
+    query["voiceId"] = request.voiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTTSVoiceByIdCustom"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/voice/getTTSVoiceById")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTTSVoiceByIdCustomResponse>();
+}
+
+/**
+ * @summary 根据ID获取TTS音色
+ *
+ * @param request GetTTSVoiceByIdCustomRequest
+ * @return GetTTSVoiceByIdCustomResponse
+ */
+GetTTSVoiceByIdCustomResponse Client::getTTSVoiceByIdCustom(const GetTTSVoiceByIdCustomRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTTSVoiceByIdCustomWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询图片训练数字人的状态
  *
  * @param request GetTrainPicAvatarStatusRequest

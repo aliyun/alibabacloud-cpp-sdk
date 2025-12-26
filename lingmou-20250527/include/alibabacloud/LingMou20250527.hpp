@@ -219,6 +219,24 @@ namespace LingMou20250527
       Models::GetBroadcastTemplateResponse getBroadcastTemplate(const Models::GetBroadcastTemplateRequest &request);
 
       /**
+       * @summary 根据ID获取TTS音色
+       *
+       * @param request GetTTSVoiceByIdCustomRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTTSVoiceByIdCustomResponse
+       */
+      Models::GetTTSVoiceByIdCustomResponse getTTSVoiceByIdCustomWithOptions(const Models::GetTTSVoiceByIdCustomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据ID获取TTS音色
+       *
+       * @param request GetTTSVoiceByIdCustomRequest
+       * @return GetTTSVoiceByIdCustomResponse
+       */
+      Models::GetTTSVoiceByIdCustomResponse getTTSVoiceByIdCustom(const Models::GetTTSVoiceByIdCustomRequest &request);
+
+      /**
        * @summary 查询图片训练数字人的状态
        *
        * @param request GetTrainPicAvatarStatusRequest
