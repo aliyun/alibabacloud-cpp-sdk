@@ -21,6 +21,23 @@ namespace WafOpenapi20211001
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 地址簿添加地址
+       *
+       * @param request AddAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddAddressResponse
+       */
+      Models::AddAddressResponse addAddressWithOptions(const Models::AddAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 地址簿添加地址
+       *
+       * @param request AddAddressRequest
+       * @return AddAddressResponse
+       */
+      Models::AddAddressResponse addAddress(const Models::AddAddressRequest &request);
+
+      /**
        * @summary Changes the resource group to which a protected object belongs.
        *
        * @param request ChangeResourceGroupRequest
@@ -36,6 +53,23 @@ namespace WafOpenapi20211001
        * @return ChangeResourceGroupResponse
        */
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
+
+      /**
+       * @summary 地址簿清空所有地址
+       *
+       * @param request ClearAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClearAddressResponse
+       */
+      Models::ClearAddressResponse clearAddressWithOptions(const Models::ClearAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 地址簿清空所有地址
+       *
+       * @param request ClearAddressRequest
+       * @return ClearAddressResponse
+       */
+      Models::ClearAddressResponse clearAddress(const Models::ClearAddressRequest &request);
 
       /**
        * @summary Clears an IP address blacklist for major event protection.
@@ -365,6 +399,23 @@ namespace WafOpenapi20211001
       Models::CreateSM2CertResponse createSM2Cert(const Models::CreateSM2CertRequest &request);
 
       /**
+       * @summary 地址簿添加地址
+       *
+       * @param request DeleteAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAddressResponse
+       */
+      Models::DeleteAddressResponse deleteAddressWithOptions(const Models::DeleteAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 地址簿添加地址
+       *
+       * @param request DeleteAddressRequest
+       * @return DeleteAddressResponse
+       */
+      Models::DeleteAddressResponse deleteAddress(const Models::DeleteAddressRequest &request);
+
+      /**
        * @summary Deletes multiple risks detected by the API security module at a time.
        *
        * @param request DeleteApisecAbnormalsRequest
@@ -637,6 +688,23 @@ namespace WafOpenapi20211001
       Models::DescribeAccountDelegatedStatusResponse describeAccountDelegatedStatus(const Models::DescribeAccountDelegatedStatusRequest &request);
 
       /**
+       * @summary 分页查询地址簿IP
+       *
+       * @param request DescribeAddressesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAddressesResponse
+       */
+      Models::DescribeAddressesResponse describeAddressesWithOptions(const Models::DescribeAddressesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询地址簿IP
+       *
+       * @param request DescribeAddressesRequest
+       * @return DescribeAddressesResponse
+       */
+      Models::DescribeAddressesResponse describeAddresses(const Models::DescribeAddressesRequest &request);
+
+      /**
        * @summary 查询实例信息
        *
        * @param request DescribeAlarmBannerRequest
@@ -805,6 +873,23 @@ namespace WafOpenapi20211001
        * @return DescribeApisecEventsResponse
        */
       Models::DescribeApisecEventsResponse describeApisecEvents(const Models::DescribeApisecEventsRequest &request);
+
+      /**
+       * @summary 查询API安全样例信息
+       *
+       * @param request DescribeApisecExamplesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApisecExamplesResponse
+       */
+      Models::DescribeApisecExamplesResponse describeApisecExamplesWithOptions(const Models::DescribeApisecExamplesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询API安全样例信息
+       *
+       * @param request DescribeApisecExamplesRequest
+       * @return DescribeApisecExamplesResponse
+       */
+      Models::DescribeApisecExamplesResponse describeApisecExamples(const Models::DescribeApisecExamplesRequest &request);
 
       /**
        * @summary Queries the configurations of API security log subscription.
@@ -2216,6 +2301,23 @@ namespace WafOpenapi20211001
        * @return DescribePunishedDomainsResponse
        */
       Models::DescribePunishedDomainsResponse describePunishedDomains(const Models::DescribePunishedDomainsRequest &request);
+
+      /**
+       * @summary 分页查询关联规则
+       *
+       * @param request DescribeRelatedDefenseRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRelatedDefenseRulesResponse
+       */
+      Models::DescribeRelatedDefenseRulesResponse describeRelatedDefenseRulesWithOptions(const Models::DescribeRelatedDefenseRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询关联规则
+       *
+       * @param request DescribeRelatedDefenseRulesRequest
+       * @return DescribeRelatedDefenseRulesResponse
+       */
+      Models::DescribeRelatedDefenseRulesResponse describeRelatedDefenseRules(const Models::DescribeRelatedDefenseRulesRequest &request);
 
       /**
        * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.

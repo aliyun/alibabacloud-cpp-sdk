@@ -62,6 +62,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 地址簿添加地址
+ *
+ * @param request AddAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddAddressResponse
+ */
+AddAddressResponse Client::addAddressWithOptions(const AddAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddressList()) {
+    query["AddressList"] = request.addressList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddAddress"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddAddressResponse>();
+}
+
+/**
+ * @summary 地址簿添加地址
+ *
+ * @param request AddAddressRequest
+ * @return AddAddressResponse
+ */
+AddAddressResponse Client::addAddress(const AddAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addAddressWithOptions(request, runtime);
+}
+
+/**
  * @summary Changes the resource group to which a protected object belongs.
  *
  * @param request ChangeResourceGroupRequest
@@ -117,6 +171,56 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return changeResourceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 地址簿清空所有地址
+ *
+ * @param request ClearAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClearAddressResponse
+ */
+ClearAddressResponse Client::clearAddressWithOptions(const ClearAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClearAddress"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClearAddressResponse>();
+}
+
+/**
+ * @summary 地址簿清空所有地址
+ *
+ * @param request ClearAddressRequest
+ * @return ClearAddressResponse
+ */
+ClearAddressResponse Client::clearAddress(const ClearAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clearAddressWithOptions(request, runtime);
 }
 
 /**
@@ -1446,6 +1550,60 @@ CreateSM2CertResponse Client::createSM2Cert(const CreateSM2CertRequest &request)
 }
 
 /**
+ * @summary 地址簿添加地址
+ *
+ * @param request DeleteAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAddressResponse
+ */
+DeleteAddressResponse Client::deleteAddressWithOptions(const DeleteAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddressList()) {
+    query["AddressList"] = request.addressList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAddress"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAddressResponse>();
+}
+
+/**
+ * @summary 地址簿添加地址
+ *
+ * @param request DeleteAddressRequest
+ * @return DeleteAddressResponse
+ */
+DeleteAddressResponse Client::deleteAddress(const DeleteAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAddressWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes multiple risks detected by the API security module at a time.
  *
  * @param request DeleteApisecAbnormalsRequest
@@ -2362,6 +2520,72 @@ DescribeAccountDelegatedStatusResponse Client::describeAccountDelegatedStatus(co
 }
 
 /**
+ * @summary 分页查询地址簿IP
+ *
+ * @param request DescribeAddressesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAddressesResponse
+ */
+DescribeAddressesResponse Client::describeAddressesWithOptions(const DescribeAddressesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddressLike()) {
+    query["AddressLike"] = request.addressLike();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAddresses"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAddressesResponse>();
+}
+
+/**
+ * @summary 分页查询地址簿IP
+ *
+ * @param request DescribeAddressesRequest
+ * @return DescribeAddressesResponse
+ */
+DescribeAddressesResponse Client::describeAddresses(const DescribeAddressesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAddressesWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询实例信息
  *
  * @param request DescribeAlarmBannerRequest
@@ -3167,6 +3391,88 @@ DescribeApisecEventsResponse Client::describeApisecEventsWithOptions(const Descr
 DescribeApisecEventsResponse Client::describeApisecEvents(const DescribeApisecEventsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeApisecEventsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询API安全样例信息
+ *
+ * @param request DescribeApisecExamplesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApisecExamplesResponse
+ */
+DescribeApisecExamplesResponse Client::describeApisecExamplesWithOptions(const DescribeApisecExamplesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAbnormalTag()) {
+    query["AbnormalTag"] = request.abnormalTag();
+  }
+
+  if (!!request.hasApiId()) {
+    query["ApiId"] = request.apiId();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasExampleType()) {
+    query["ExampleType"] = request.exampleType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRequestSensitiveTypeList()) {
+    query["RequestSensitiveTypeList"] = request.requestSensitiveTypeList();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasResponseSensitiveTypeList()) {
+    query["ResponseSensitiveTypeList"] = request.responseSensitiveTypeList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApisecExamples"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApisecExamplesResponse>();
+}
+
+/**
+ * @summary 查询API安全样例信息
+ *
+ * @param request DescribeApisecExamplesRequest
+ * @return DescribeApisecExamplesResponse
+ */
+DescribeApisecExamplesResponse Client::describeApisecExamples(const DescribeApisecExamplesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApisecExamplesWithOptions(request, runtime);
 }
 
 /**
@@ -8303,6 +8609,76 @@ DescribePunishedDomainsResponse Client::describePunishedDomainsWithOptions(const
 DescribePunishedDomainsResponse Client::describePunishedDomains(const DescribePunishedDomainsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePunishedDomainsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询关联规则
+ *
+ * @param request DescribeRelatedDefenseRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRelatedDefenseRulesResponse
+ */
+DescribeRelatedDefenseRulesResponse Client::describeRelatedDefenseRulesWithOptions(const DescribeRelatedDefenseRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDefenseScene()) {
+    query["DefenseScene"] = request.defenseScene();
+  }
+
+  if (!!request.hasDefenseType()) {
+    query["DefenseType"] = request.defenseType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRelatedDefenseRules"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRelatedDefenseRulesResponse>();
+}
+
+/**
+ * @summary 分页查询关联规则
+ *
+ * @param request DescribeRelatedDefenseRulesRequest
+ * @return DescribeRelatedDefenseRulesResponse
+ */
+DescribeRelatedDefenseRulesResponse Client::describeRelatedDefenseRules(const DescribeRelatedDefenseRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRelatedDefenseRulesWithOptions(request, runtime);
 }
 
 /**

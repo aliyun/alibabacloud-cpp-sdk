@@ -2,9 +2,15 @@
 #ifndef ALIBABACLOUD_WAFOPENAPI20211001MODEL_HPP_
 #define ALIBABACLOUD_WAFOPENAPI20211001MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddAddressRequest.hpp>
+#include <alibabacloud/models/AddAddressResponseBody.hpp>
+#include <alibabacloud/models/AddAddressResponse.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
+#include <alibabacloud/models/ClearAddressRequest.hpp>
+#include <alibabacloud/models/ClearAddressResponseBody.hpp>
+#include <alibabacloud/models/ClearAddressResponse.hpp>
 #include <alibabacloud/models/ClearMajorProtectionBlackIpRequest.hpp>
 #include <alibabacloud/models/ClearMajorProtectionBlackIpResponseBody.hpp>
 #include <alibabacloud/models/ClearMajorProtectionBlackIpResponse.hpp>
@@ -65,6 +71,9 @@
 #include <alibabacloud/models/CreateSm2CertRequest.hpp>
 #include <alibabacloud/models/CreateSm2CertResponseBody.hpp>
 #include <alibabacloud/models/CreateSm2CertResponse.hpp>
+#include <alibabacloud/models/DeleteAddressRequest.hpp>
+#include <alibabacloud/models/DeleteAddressResponseBody.hpp>
+#include <alibabacloud/models/DeleteAddressResponse.hpp>
 #include <alibabacloud/models/DeleteApisecAbnormalsRequest.hpp>
 #include <alibabacloud/models/DeleteApisecAbnormalsResponseBody.hpp>
 #include <alibabacloud/models/DeleteApisecAbnormalsResponse.hpp>
@@ -113,6 +122,9 @@
 #include <alibabacloud/models/DescribeAccountDelegatedStatusRequest.hpp>
 #include <alibabacloud/models/DescribeAccountDelegatedStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeAccountDelegatedStatusResponse.hpp>
+#include <alibabacloud/models/DescribeAddressesRequest.hpp>
+#include <alibabacloud/models/DescribeAddressesResponseBody.hpp>
+#include <alibabacloud/models/DescribeAddressesResponse.hpp>
 #include <alibabacloud/models/DescribeAlarmBannerRequest.hpp>
 #include <alibabacloud/models/DescribeAlarmBannerResponseBody.hpp>
 #include <alibabacloud/models/DescribeAlarmBannerResponse.hpp>
@@ -143,6 +155,9 @@
 #include <alibabacloud/models/DescribeApisecEventsRequest.hpp>
 #include <alibabacloud/models/DescribeApisecEventsResponseBody.hpp>
 #include <alibabacloud/models/DescribeApisecEventsResponse.hpp>
+#include <alibabacloud/models/DescribeApisecExamplesRequest.hpp>
+#include <alibabacloud/models/DescribeApisecExamplesResponseBody.hpp>
+#include <alibabacloud/models/DescribeApisecExamplesResponse.hpp>
 #include <alibabacloud/models/DescribeApisecLogDeliveriesRequest.hpp>
 #include <alibabacloud/models/DescribeApisecLogDeliveriesResponseBody.hpp>
 #include <alibabacloud/models/DescribeApisecLogDeliveriesResponse.hpp>
@@ -395,6 +410,9 @@
 #include <alibabacloud/models/DescribePunishedDomainsRequest.hpp>
 #include <alibabacloud/models/DescribePunishedDomainsResponseBody.hpp>
 #include <alibabacloud/models/DescribePunishedDomainsResponse.hpp>
+#include <alibabacloud/models/DescribeRelatedDefenseRulesRequest.hpp>
+#include <alibabacloud/models/DescribeRelatedDefenseRulesResponseBody.hpp>
+#include <alibabacloud/models/DescribeRelatedDefenseRulesResponse.hpp>
 #include <alibabacloud/models/DescribeResourceInstanceCertsRequest.hpp>
 #include <alibabacloud/models/DescribeResourceInstanceCertsResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceInstanceCertsResponse.hpp>
@@ -705,6 +723,7 @@
 #include <alibabacloud/models/CreateDomainResponseBodyDomainInfo.hpp>
 #include <alibabacloud/models/DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDetails.hpp>
 #include <alibabacloud/models/DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources.hpp>
+#include <alibabacloud/models/DescribeAddressesResponseBodyAddressList.hpp>
 #include <alibabacloud/models/DescribeAlarmBannerResponseBodyBannerStatus.hpp>
 #include <alibabacloud/models/DescribeAlarmListResponseBodyAlarms.hpp>
 #include <alibabacloud/models/DescribeApiExportsResponseBodyApiExports.hpp>
@@ -714,6 +733,9 @@
 #include <alibabacloud/models/DescribeApisecAssetTrendResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApisecEventDomainStatisticResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApisecEventsResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeApisecExamplesResponseBodyExamplesRequestSensitiveData.hpp>
+#include <alibabacloud/models/DescribeApisecExamplesResponseBodyExamplesResponseSensitiveData.hpp>
+#include <alibabacloud/models/DescribeApisecExamplesResponseBodyExamples.hpp>
 #include <alibabacloud/models/DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs.hpp>
 #include <alibabacloud/models/DescribeApisecMatchedHostsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApisecProtectionGroupsResponseBodyData.hpp>
@@ -818,6 +840,7 @@
 #include <alibabacloud/models/DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates.hpp>
 #include <alibabacloud/models/DescribeProductInstancesResponseBodyProductInstancesResourcePorts.hpp>
 #include <alibabacloud/models/DescribeProductInstancesResponseBodyProductInstances.hpp>
+#include <alibabacloud/models/DescribeRelatedDefenseRulesResponseBodyRules.hpp>
 #include <alibabacloud/models/DescribeResourceInstanceCertsResponseBodyCerts.hpp>
 #include <alibabacloud/models/DescribeResourceLogDeliveryStatusResponseBodyLogConfigs.hpp>
 #include <alibabacloud/models/DescribeResourceLogStatusResponseBodyResult.hpp>
