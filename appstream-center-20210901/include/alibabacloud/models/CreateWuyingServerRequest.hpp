@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostName, hostName_);
       DARABONBA_PTR_TO_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+      DARABONBA_PTR_TO_JSON(MaxPrice, maxPrice_);
       DARABONBA_PTR_TO_JSON(NetworkStrategyType, networkStrategyType_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(Password, password_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_TO_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_TO_JSON(ServerPortRange, serverPortRange_);
+      DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
@@ -52,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostName, hostName_);
       DARABONBA_PTR_FROM_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+      DARABONBA_PTR_FROM_JSON(MaxPrice, maxPrice_);
       DARABONBA_PTR_FROM_JSON(NetworkStrategyType, networkStrategyType_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
@@ -61,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_FROM_JSON(ServerInstanceType, serverInstanceType_);
       DARABONBA_PTR_FROM_JSON(ServerPortRange, serverPortRange_);
+      DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
@@ -81,10 +85,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
         && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bandwidth_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr
-        && return this->dataDisk_ == nullptr && return this->hostName_ == nullptr && return this->idempotenceToken_ == nullptr && return this->imageId_ == nullptr && return this->networkStrategyType_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr
-        && return this->savingPlanId_ == nullptr && return this->serverInstanceType_ == nullptr && return this->serverPortRange_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr
-        && return this->systemDiskSize_ == nullptr && return this->vSwitchIds_ == nullptr && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerName_ == nullptr; };
+        && return this->dataDisk_ == nullptr && return this->hostName_ == nullptr && return this->idempotenceToken_ == nullptr && return this->imageId_ == nullptr && return this->maxPrice_ == nullptr
+        && return this->networkStrategyType_ == nullptr && return this->officeSiteId_ == nullptr && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
+        && return this->promotionId_ == nullptr && return this->savingPlanId_ == nullptr && return this->serverInstanceType_ == nullptr && return this->serverPortRange_ == nullptr && return this->subPayType_ == nullptr
+        && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->vSwitchIds_ == nullptr && return this->virtualNodePoolId_ == nullptr
+        && return this->wuyingServerName_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -157,6 +162,13 @@ namespace Models
     inline CreateWuyingServerRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
+    // maxPrice Field Functions 
+    bool hasMaxPrice() const { return this->maxPrice_ != nullptr;};
+    void deleteMaxPrice() { this->maxPrice_ = nullptr;};
+    inline float maxPrice() const { DARABONBA_PTR_GET_DEFAULT(maxPrice_, 0.0) };
+    inline CreateWuyingServerRequest& setMaxPrice(float maxPrice) { DARABONBA_PTR_SET_VALUE(maxPrice_, maxPrice) };
+
+
     // networkStrategyType Field Functions 
     bool hasNetworkStrategyType() const { return this->networkStrategyType_ != nullptr;};
     void deleteNetworkStrategyType() { this->networkStrategyType_ = nullptr;};
@@ -218,6 +230,13 @@ namespace Models
     void deleteServerPortRange() { this->serverPortRange_ = nullptr;};
     inline string serverPortRange() const { DARABONBA_PTR_GET_DEFAULT(serverPortRange_, "") };
     inline CreateWuyingServerRequest& setServerPortRange(string serverPortRange) { DARABONBA_PTR_SET_VALUE(serverPortRange_, serverPortRange) };
+
+
+    // subPayType Field Functions 
+    bool hasSubPayType() const { return this->subPayType_ != nullptr;};
+    void deleteSubPayType() { this->subPayType_ = nullptr;};
+    inline string subPayType() const { DARABONBA_PTR_GET_DEFAULT(subPayType_, "") };
+    inline CreateWuyingServerRequest& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
 
 
     // systemDiskCategory Field Functions 
@@ -288,6 +307,7 @@ namespace Models
     std::shared_ptr<string> idempotenceToken_ = nullptr;
     // The ID of the image.
     std::shared_ptr<string> imageId_ = nullptr;
+    std::shared_ptr<float> maxPrice_ = nullptr;
     // The type of the network policy (in invitational preview).
     std::shared_ptr<string> networkStrategyType_ = nullptr;
     // The office network IDs.
@@ -311,6 +331,7 @@ namespace Models
     // Workstation specifications.
     std::shared_ptr<string> serverInstanceType_ = nullptr;
     std::shared_ptr<string> serverPortRange_ = nullptr;
+    std::shared_ptr<string> subPayType_ = nullptr;
     // The system disk category.
     // 
     // Valid values:

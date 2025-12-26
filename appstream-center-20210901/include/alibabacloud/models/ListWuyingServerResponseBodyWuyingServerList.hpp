@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(ImageName, imageName_);
       DARABONBA_PTR_TO_JSON(InstanceInfoList, instanceInfoList_);
+      DARABONBA_PTR_TO_JSON(MaxPrice, maxPrice_);
       DARABONBA_PTR_TO_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
       DARABONBA_PTR_TO_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
@@ -51,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
       DARABONBA_PTR_FROM_JSON(InstanceInfoList, instanceInfoList_);
+      DARABONBA_PTR_FROM_JSON(MaxPrice, maxPrice_);
       DARABONBA_PTR_FROM_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
@@ -59,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
       DARABONBA_PTR_FROM_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
@@ -79,10 +83,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addVirtualNodePoolStatus_ == nullptr
         && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr && return this->createTime_ == nullptr && return this->dataDisk_ == nullptr && return this->expiredTime_ == nullptr
-        && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->instanceInfoList_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr && return this->osType_ == nullptr && return this->securityGroupIds_ == nullptr && return this->serverInstanceTypeInfo_ == nullptr
-        && return this->status_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->virtualNodePoolId_ == nullptr
-        && return this->wuyingServerId_ == nullptr && return this->wuyingServerName_ == nullptr; };
+        && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->instanceInfoList_ == nullptr && return this->maxPrice_ == nullptr && return this->networkInterfaceIp_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr && return this->osType_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->serverInstanceTypeInfo_ == nullptr && return this->status_ == nullptr && return this->subPayType_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr
+        && return this->systemDiskSize_ == nullptr && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerId_ == nullptr && return this->wuyingServerName_ == nullptr; };
     // addVirtualNodePoolStatus Field Functions 
     bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
     void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};
@@ -150,6 +154,13 @@ namespace Models
     inline ListWuyingServerResponseBodyWuyingServerList& setInstanceInfoList(vector<Models::ListWuyingServerResponseBodyWuyingServerListInstanceInfoList> && instanceInfoList) { DARABONBA_PTR_SET_RVALUE(instanceInfoList_, instanceInfoList) };
 
 
+    // maxPrice Field Functions 
+    bool hasMaxPrice() const { return this->maxPrice_ != nullptr;};
+    void deleteMaxPrice() { this->maxPrice_ = nullptr;};
+    inline float maxPrice() const { DARABONBA_PTR_GET_DEFAULT(maxPrice_, 0.0) };
+    inline ListWuyingServerResponseBodyWuyingServerList& setMaxPrice(float maxPrice) { DARABONBA_PTR_SET_VALUE(maxPrice_, maxPrice) };
+
+
     // networkInterfaceIp Field Functions 
     bool hasNetworkInterfaceIp() const { return this->networkInterfaceIp_ != nullptr;};
     void deleteNetworkInterfaceIp() { this->networkInterfaceIp_ = nullptr;};
@@ -208,6 +219,13 @@ namespace Models
     void deleteStatus() { this->status_ = nullptr;};
     inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListWuyingServerResponseBodyWuyingServerList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // subPayType Field Functions 
+    bool hasSubPayType() const { return this->subPayType_ != nullptr;};
+    void deleteSubPayType() { this->subPayType_ = nullptr;};
+    inline string subPayType() const { DARABONBA_PTR_GET_DEFAULT(subPayType_, "") };
+    inline ListWuyingServerResponseBodyWuyingServerList& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
 
 
     // systemDiskCategory Field Functions 
@@ -270,6 +288,7 @@ namespace Models
     std::shared_ptr<string> imageName_ = nullptr;
     // The list of information about the workstation instance.
     std::shared_ptr<vector<Models::ListWuyingServerResponseBodyWuyingServerListInstanceInfoList>> instanceInfoList_ = nullptr;
+    std::shared_ptr<float> maxPrice_ = nullptr;
     // The private IP address.
     std::shared_ptr<string> networkInterfaceIp_ = nullptr;
     // The ID of the office network.
@@ -285,6 +304,7 @@ namespace Models
     std::shared_ptr<Models::ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo> serverInstanceTypeInfo_ = nullptr;
     // The status of the workstation.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> subPayType_ = nullptr;
     // The type of the system disk.
     std::shared_ptr<string> systemDiskCategory_ = nullptr;
     // The performance level (PL) of the system disk.

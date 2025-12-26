@@ -551,6 +551,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
     body["ImageId"] = request.imageId();
   }
 
+  if (!!request.hasMaxPrice()) {
+    body["MaxPrice"] = request.maxPrice();
+  }
+
   if (!!request.hasNetworkStrategyType()) {
     body["NetworkStrategyType"] = request.networkStrategyType();
   }
@@ -585,6 +589,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
 
   if (!!request.hasServerPortRange()) {
     body["ServerPortRange"] = request.serverPortRange();
+  }
+
+  if (!!request.hasSubPayType()) {
+    body["SubPayType"] = request.subPayType();
   }
 
   if (!!request.hasSystemDiskCategory()) {
