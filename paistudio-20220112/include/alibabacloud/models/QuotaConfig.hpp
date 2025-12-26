@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DefaultGPUDriver, defaultGPUDriver_);
       DARABONBA_PTR_TO_JSON(EnableGPUShare, enableGPUShare_);
       DARABONBA_PTR_TO_JSON(EnablePreemptSubquotaWorkloads, enablePreemptSubquotaWorkloads_);
+      DARABONBA_PTR_TO_JSON(EnableSelfQuotaPreemption, enableSelfQuotaPreemption_);
       DARABONBA_PTR_TO_JSON(EnableSubQuotaPreemption, enableSubQuotaPreemption_);
       DARABONBA_PTR_TO_JSON(EniCacheConfig, eniCacheConfig_);
       DARABONBA_PTR_TO_JSON(OversoldUsageInfo, oversoldUsageInfo_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DefaultGPUDriver, defaultGPUDriver_);
       DARABONBA_PTR_FROM_JSON(EnableGPUShare, enableGPUShare_);
       DARABONBA_PTR_FROM_JSON(EnablePreemptSubquotaWorkloads, enablePreemptSubquotaWorkloads_);
+      DARABONBA_PTR_FROM_JSON(EnableSelfQuotaPreemption, enableSelfQuotaPreemption_);
       DARABONBA_PTR_FROM_JSON(EnableSubQuotaPreemption, enableSubQuotaPreemption_);
       DARABONBA_PTR_FROM_JSON(EniCacheConfig, eniCacheConfig_);
       DARABONBA_PTR_FROM_JSON(OversoldUsageInfo, oversoldUsageInfo_);
@@ -69,9 +71,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ACS_ == nullptr
-        && return this->clusterId_ == nullptr && return this->defaultGPUDriver_ == nullptr && return this->enableGPUShare_ == nullptr && return this->enablePreemptSubquotaWorkloads_ == nullptr && return this->enableSubQuotaPreemption_ == nullptr
-        && return this->eniCacheConfig_ == nullptr && return this->oversoldUsageInfo_ == nullptr && return this->resourceSpecs_ == nullptr && return this->sandboxCacheConfig_ == nullptr && return this->selfQuotaPreemptionConfig_ == nullptr
-        && return this->subQuotaPreemptionConfig_ == nullptr && return this->supportGPUDrivers_ == nullptr && return this->supportRDMA_ == nullptr && return this->useCase_ == nullptr && return this->userVpc_ == nullptr; };
+        && return this->clusterId_ == nullptr && return this->defaultGPUDriver_ == nullptr && return this->enableGPUShare_ == nullptr && return this->enablePreemptSubquotaWorkloads_ == nullptr && return this->enableSelfQuotaPreemption_ == nullptr
+        && return this->enableSubQuotaPreemption_ == nullptr && return this->eniCacheConfig_ == nullptr && return this->oversoldUsageInfo_ == nullptr && return this->resourceSpecs_ == nullptr && return this->sandboxCacheConfig_ == nullptr
+        && return this->selfQuotaPreemptionConfig_ == nullptr && return this->subQuotaPreemptionConfig_ == nullptr && return this->supportGPUDrivers_ == nullptr && return this->supportRDMA_ == nullptr && return this->useCase_ == nullptr
+        && return this->userVpc_ == nullptr; };
     // ACS Field Functions 
     bool hasACS() const { return this->ACS_ != nullptr;};
     void deleteACS() { this->ACS_ = nullptr;};
@@ -107,6 +110,13 @@ namespace Models
     void deleteEnablePreemptSubquotaWorkloads() { this->enablePreemptSubquotaWorkloads_ = nullptr;};
     inline bool enablePreemptSubquotaWorkloads() const { DARABONBA_PTR_GET_DEFAULT(enablePreemptSubquotaWorkloads_, false) };
     inline QuotaConfig& setEnablePreemptSubquotaWorkloads(bool enablePreemptSubquotaWorkloads) { DARABONBA_PTR_SET_VALUE(enablePreemptSubquotaWorkloads_, enablePreemptSubquotaWorkloads) };
+
+
+    // enableSelfQuotaPreemption Field Functions 
+    bool hasEnableSelfQuotaPreemption() const { return this->enableSelfQuotaPreemption_ != nullptr;};
+    void deleteEnableSelfQuotaPreemption() { this->enableSelfQuotaPreemption_ = nullptr;};
+    inline bool enableSelfQuotaPreemption() const { DARABONBA_PTR_GET_DEFAULT(enableSelfQuotaPreemption_, false) };
+    inline QuotaConfig& setEnableSelfQuotaPreemption(bool enableSelfQuotaPreemption) { DARABONBA_PTR_SET_VALUE(enableSelfQuotaPreemption_, enableSelfQuotaPreemption) };
 
 
     // enableSubQuotaPreemption Field Functions 
@@ -208,6 +218,7 @@ namespace Models
     std::shared_ptr<string> defaultGPUDriver_ = nullptr;
     std::shared_ptr<bool> enableGPUShare_ = nullptr;
     std::shared_ptr<bool> enablePreemptSubquotaWorkloads_ = nullptr;
+    std::shared_ptr<bool> enableSelfQuotaPreemption_ = nullptr;
     std::shared_ptr<bool> enableSubQuotaPreemption_ = nullptr;
     std::shared_ptr<EniCacheConfig> eniCacheConfig_ = nullptr;
     std::shared_ptr<OversoldUsageConfig> oversoldUsageInfo_ = nullptr;
