@@ -272,6 +272,7 @@
 #include <alibabacloud/models/ListPrometheusVirtualInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListPrometheusVirtualInstancesResponse.hpp>
 #include <alibabacloud/models/ListServicesRequest.hpp>
+#include <alibabacloud/models/ListServicesShrinkRequest.hpp>
 #include <alibabacloud/models/ListServicesResponseBody.hpp>
 #include <alibabacloud/models/ListServicesResponse.hpp>
 #include <alibabacloud/models/ListThreadsRequest.hpp>
@@ -406,6 +407,7 @@
 #include <alibabacloud/models/CreatePrometheusViewRequestPrometheusInstances.hpp>
 #include <alibabacloud/models/CreatePrometheusViewRequestTags.hpp>
 #include <alibabacloud/models/CreatePrometheusVirtualInstanceResponseBodyInstance.hpp>
+#include <alibabacloud/models/CreateServiceRequestTags.hpp>
 #include <alibabacloud/models/CreateThreadRequestVariables.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 #include <alibabacloud/models/GetAddonResponseBodyDataDashboards.hpp>
@@ -446,6 +448,7 @@
 #include <alibabacloud/models/GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances.hpp>
 #include <alibabacloud/models/GetPrometheusViewResponseBodyPrometheusViewTags.hpp>
 #include <alibabacloud/models/GetPrometheusViewResponseBodyPrometheusView.hpp>
+#include <alibabacloud/models/GetServiceResponseBodyServiceTags.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyService.hpp>
 #include <alibabacloud/models/GetServiceObservabilityResponseBodyEntryPointInfo.hpp>
 #include <alibabacloud/models/GetThreadResponseBodyVariables.hpp>
@@ -522,6 +525,7 @@
 #include <alibabacloud/models/ListPrometheusViewsResponseBodyPrometheusViewsTags.hpp>
 #include <alibabacloud/models/ListPrometheusViewsResponseBodyPrometheusViews.hpp>
 #include <alibabacloud/models/ListPrometheusVirtualInstancesResponseBodyInstances.hpp>
+#include <alibabacloud/models/ListServicesRequestTags.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServices.hpp>
 #include <alibabacloud/models/ListThreadsRequestFilter.hpp>
 #include <alibabacloud/models/ListThreadsResponseBodyThreadsVariables.hpp>

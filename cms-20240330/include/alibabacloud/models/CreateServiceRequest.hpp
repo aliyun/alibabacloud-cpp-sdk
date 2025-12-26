@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATESERVICEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATESERVICEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateServiceRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,18 +19,22 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(pid, pid_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(serviceName, serviceName_);
       DARABONBA_PTR_TO_JSON(serviceStatus, serviceStatus_);
       DARABONBA_PTR_TO_JSON(serviceType, serviceType_);
+      DARABONBA_PTR_TO_JSON(tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, CreateServiceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(attributes, attributes_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(pid, pid_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(serviceName, serviceName_);
       DARABONBA_PTR_FROM_JSON(serviceStatus, serviceStatus_);
       DARABONBA_PTR_FROM_JSON(serviceType, serviceType_);
+      DARABONBA_PTR_FROM_JSON(tags, tags_);
     };
     CreateServiceRequest() = default ;
     CreateServiceRequest(const CreateServiceRequest &) = default ;
@@ -42,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributes_ == nullptr
-        && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->pid_ == nullptr && return this->serviceName_ == nullptr && return this->serviceStatus_ == nullptr
-        && return this->serviceType_ == nullptr; };
+        && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->pid_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serviceName_ == nullptr
+        && return this->serviceStatus_ == nullptr && return this->serviceType_ == nullptr && return this->tags_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -72,6 +78,13 @@ namespace Models
     inline CreateServiceRequest& setPid(string pid) { DARABONBA_PTR_SET_VALUE(pid_, pid) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CreateServiceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
@@ -93,6 +106,15 @@ namespace Models
     inline CreateServiceRequest& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CreateServiceRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateServiceRequestTags>) };
+    inline vector<CreateServiceRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateServiceRequestTags>) };
+    inline CreateServiceRequest& setTags(const vector<CreateServiceRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateServiceRequest& setTags(vector<CreateServiceRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
   protected:
     // Extended attributes.
     std::shared_ptr<string> attributes_ = nullptr;
@@ -102,6 +124,7 @@ namespace Models
     std::shared_ptr<string> displayName_ = nullptr;
     // Application ID, generally not required to be specified.
     std::shared_ptr<string> pid_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
     // Service name
     // 
     // This parameter is required.
@@ -112,6 +135,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> serviceType_ = nullptr;
+    std::shared_ptr<vector<CreateServiceRequestTags>> tags_ = nullptr;
   };
 
   } // namespace Models

@@ -873,6 +873,10 @@ CreateServiceResponse Client::createServiceWithOptions(const string &workspace, 
     body["pid"] = request.pid();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.resourceGroupId();
+  }
+
   if (!!request.hasServiceName()) {
     body["serviceName"] = request.serviceName();
   }
@@ -883,6 +887,10 @@ CreateServiceResponse Client::createServiceWithOptions(const string &workspace, 
 
   if (!!request.hasServiceType()) {
     body["serviceType"] = request.serviceType();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.tags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3932,13 +3940,19 @@ ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstances(co
 /**
  * @summary List Resource Services
  *
- * @param request ListServicesRequest
+ * @param tmpReq ListServicesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListServicesResponse
  */
-ListServicesResponse Client::listServicesWithOptions(const string &workspace, const ListServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListServicesResponse Client::listServicesWithOptions(const string &workspace, const ListServicesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListServicesShrinkRequest request = ListServicesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.maxResults();
@@ -3948,8 +3962,20 @@ ListServicesResponse Client::listServicesWithOptions(const string &workspace, co
     query["nextToken"] = request.nextToken();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasServiceName()) {
+    query["serviceName"] = request.serviceName();
+  }
+
   if (!!request.hasServiceType()) {
     query["serviceType"] = request.serviceType();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["tags"] = request.tagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

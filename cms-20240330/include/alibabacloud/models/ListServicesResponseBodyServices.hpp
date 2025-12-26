@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(pid, pid_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
       DARABONBA_PTR_TO_JSON(serviceName, serviceName_);
       DARABONBA_PTR_TO_JSON(serviceStatus, serviceStatus_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(pid, pid_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(serviceName, serviceName_);
       DARABONBA_PTR_FROM_JSON(serviceStatus, serviceStatus_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributes_ == nullptr
-        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->pid_ == nullptr && return this->serviceId_ == nullptr
-        && return this->serviceName_ == nullptr && return this->serviceStatus_ == nullptr && return this->serviceType_ == nullptr && return this->workspace_ == nullptr; };
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->pid_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->serviceId_ == nullptr && return this->serviceName_ == nullptr && return this->serviceStatus_ == nullptr && return this->serviceType_ == nullptr && return this->workspace_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     void deletePid() { this->pid_ = nullptr;};
     inline string pid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
     inline ListServicesResponseBodyServices& setPid(string pid) { DARABONBA_PTR_SET_VALUE(pid_, pid) };
+
+
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline ListServicesResponseBodyServices& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // serviceId Field Functions 
@@ -131,6 +140,7 @@ namespace Models
     std::shared_ptr<string> displayName_ = nullptr;
     // Historical compatible ARMS application ID
     std::shared_ptr<string> pid_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
     // Service ID
     std::shared_ptr<string> serviceId_ = nullptr;
     // Service name

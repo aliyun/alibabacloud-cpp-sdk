@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GETSERVICERESPONSEBODYSERVICE_HPP_
 #define ALIBABACLOUD_MODELS_GETSERVICERESPONSEBODYSERVICE_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/GetServiceResponseBodyServiceTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,10 +21,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(pid, pid_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
       DARABONBA_PTR_TO_JSON(serviceName, serviceName_);
       DARABONBA_PTR_TO_JSON(serviceStatus, serviceStatus_);
       DARABONBA_PTR_TO_JSON(serviceType, serviceType_);
+      DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, GetServiceResponseBodyService& obj) { 
@@ -32,10 +36,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(pid, pid_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(serviceName, serviceName_);
       DARABONBA_PTR_FROM_JSON(serviceStatus, serviceStatus_);
       DARABONBA_PTR_FROM_JSON(serviceType, serviceType_);
+      DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(workspace, workspace_);
     };
     GetServiceResponseBodyService() = default ;
@@ -51,7 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributes_ == nullptr
         && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->pid_ == nullptr && return this->regionId_ == nullptr
-        && return this->serviceId_ == nullptr && return this->serviceName_ == nullptr && return this->serviceStatus_ == nullptr && return this->serviceType_ == nullptr && return this->workspace_ == nullptr; };
+        && return this->resourceGroupId_ == nullptr && return this->serviceId_ == nullptr && return this->serviceName_ == nullptr && return this->serviceStatus_ == nullptr && return this->serviceType_ == nullptr
+        && return this->tags_ == nullptr && return this->workspace_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -94,6 +101,13 @@ namespace Models
     inline GetServiceResponseBodyService& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline GetServiceResponseBodyService& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
@@ -122,6 +136,15 @@ namespace Models
     inline GetServiceResponseBodyService& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<Models::GetServiceResponseBodyServiceTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Models::GetServiceResponseBodyServiceTags>) };
+    inline vector<Models::GetServiceResponseBodyServiceTags> tags() { DARABONBA_PTR_GET(tags_, vector<Models::GetServiceResponseBodyServiceTags>) };
+    inline GetServiceResponseBodyService& setTags(const vector<Models::GetServiceResponseBodyServiceTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline GetServiceResponseBodyService& setTags(vector<Models::GetServiceResponseBodyServiceTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
@@ -142,6 +165,7 @@ namespace Models
     std::shared_ptr<string> pid_ = nullptr;
     // Region ID
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
     // Service ID.
     std::shared_ptr<string> serviceId_ = nullptr;
     // Service name
@@ -150,6 +174,7 @@ namespace Models
     std::shared_ptr<string> serviceStatus_ = nullptr;
     // Service type.
     std::shared_ptr<string> serviceType_ = nullptr;
+    std::shared_ptr<vector<Models::GetServiceResponseBodyServiceTags>> tags_ = nullptr;
     // Workspace name
     std::shared_ptr<string> workspace_ = nullptr;
   };

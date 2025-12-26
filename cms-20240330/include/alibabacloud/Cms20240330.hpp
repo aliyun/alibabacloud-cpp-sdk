@@ -1403,12 +1403,12 @@ namespace Cms20240330
       /**
        * @summary List Resource Services
        *
-       * @param request ListServicesRequest
+       * @param tmpReq ListServicesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListServicesResponse
        */
-      Models::ListServicesResponse listServicesWithOptions(const string &workspace, const Models::ListServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListServicesResponse listServicesWithOptions(const string &workspace, const Models::ListServicesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary List Resource Services
