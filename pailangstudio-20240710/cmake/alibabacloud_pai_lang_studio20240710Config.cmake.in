@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_pai_lang_studio20240710Targets.cmake")
+check_required_components("alibabacloud_pai_lang_studio20240710")
