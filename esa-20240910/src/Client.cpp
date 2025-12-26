@@ -9564,6 +9564,52 @@ GetKvAccountResponse Client::getKvAccount() {
 }
 
 /**
+ * @summary 查询Key-Value对的某个Key的详情
+ *
+ * @param request GetKvDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKvDetailResponse
+ */
+GetKvDetailResponse Client::getKvDetailWithOptions(const GetKvDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKey()) {
+    query["Key"] = request.key();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKvDetail"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKvDetailResponse>();
+}
+
+/**
+ * @summary 查询Key-Value对的某个Key的详情
+ *
+ * @param request GetKvDetailRequest
+ * @return GetKvDetailResponse
+ */
+GetKvDetailResponse Client::getKvDetail(const GetKvDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKvDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a namespace in your Alibaba Cloud account.
  *
  * @param request GetKvNamespaceRequest

@@ -3226,6 +3226,23 @@ namespace ESA20240910
       Models::GetKvAccountResponse getKvAccount();
 
       /**
+       * @summary 查询Key-Value对的某个Key的详情
+       *
+       * @param request GetKvDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKvDetailResponse
+       */
+      Models::GetKvDetailResponse getKvDetailWithOptions(const Models::GetKvDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Key-Value对的某个Key的详情
+       *
+       * @param request GetKvDetailRequest
+       * @return GetKvDetailResponse
+       */
+      Models::GetKvDetailResponse getKvDetail(const Models::GetKvDetailRequest &request);
+
+      /**
        * @summary Queries the information about a namespace in your Alibaba Cloud account.
        *
        * @param request GetKvNamespaceRequest

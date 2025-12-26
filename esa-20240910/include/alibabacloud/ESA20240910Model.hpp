@@ -552,6 +552,9 @@
 #include <alibabacloud/models/GetKvResponse.hpp>
 #include <alibabacloud/models/GetKvAccountResponseBody.hpp>
 #include <alibabacloud/models/GetKvAccountResponse.hpp>
+#include <alibabacloud/models/GetKvDetailRequest.hpp>
+#include <alibabacloud/models/GetKvDetailResponseBody.hpp>
+#include <alibabacloud/models/GetKvDetailResponse.hpp>
 #include <alibabacloud/models/GetKvNamespaceRequest.hpp>
 #include <alibabacloud/models/GetKvNamespaceResponseBody.hpp>
 #include <alibabacloud/models/GetKvNamespaceResponse.hpp>
