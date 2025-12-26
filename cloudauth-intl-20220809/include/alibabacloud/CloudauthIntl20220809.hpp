@@ -23,6 +23,25 @@ namespace CloudauthIntl20220809
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 人脸图片入库
+       *
+       * @param request AddFaceRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddFaceRecordResponse
+       */
+      Models::AddFaceRecordResponse addFaceRecordWithOptions(const Models::AddFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 人脸图片入库
+       *
+       * @param request AddFaceRecordRequest
+       * @return AddFaceRecordResponse
+       */
+      Models::AddFaceRecordResponse addFaceRecord(const Models::AddFaceRecordRequest &request);
+
+      Models::AddFaceRecordResponse addFaceRecordAdvance(const Models::AddFaceRecordAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @summary Address Similarity Comparison
        *
        * @description API for comparing two addresses, standardizing and checking address consistency.

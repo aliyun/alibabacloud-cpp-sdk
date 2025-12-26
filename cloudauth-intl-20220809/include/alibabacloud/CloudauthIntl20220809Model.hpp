@@ -2,6 +2,10 @@
 #ifndef ALIBABACLOUD_CLOUDAUTHINTL20220809MODEL_HPP_
 #define ALIBABACLOUD_CLOUDAUTHINTL20220809MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddFaceRecordRequest.hpp>
+#include <alibabacloud/models/AddFaceRecordAdvanceRequest.hpp>
+#include <alibabacloud/models/AddFaceRecordResponseBody.hpp>
+#include <alibabacloud/models/AddFaceRecordResponse.hpp>
 #include <alibabacloud/models/AddressCompareIntlRequest.hpp>
 #include <alibabacloud/models/AddressCompareIntlResponseBody.hpp>
 #include <alibabacloud/models/AddressCompareIntlResponse.hpp>
@@ -118,6 +122,7 @@
 #include <alibabacloud/models/TempOssUrlIntlRequest.hpp>
 #include <alibabacloud/models/TempOssUrlIntlResponseBody.hpp>
 #include <alibabacloud/models/TempOssUrlIntlResponse.hpp>
+#include <alibabacloud/models/AddFaceRecordResponseBodyResult.hpp>
 #include <alibabacloud/models/AddressCompareIntlResponseBodyResult.hpp>
 #include <alibabacloud/models/AddressVerifyIntlResponseBodyResultObject.hpp>
 #include <alibabacloud/models/AddressVerifyV2IntlResponseBodyResult.hpp>

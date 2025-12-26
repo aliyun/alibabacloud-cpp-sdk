@@ -131,6 +131,158 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 人脸图片入库
+ *
+ * @param request AddFaceRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddFaceRecordResponse
+ */
+AddFaceRecordResponse Client::addFaceRecordWithOptions(const AddFaceRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFaceGroupCode()) {
+    body["FaceGroupCode"] = request.faceGroupCode();
+  }
+
+  if (!!request.hasFacePicture()) {
+    body["FacePicture"] = request.facePicture();
+  }
+
+  if (!!request.hasFacePictureFile()) {
+    body["FacePictureFile"] = request.facePictureFile();
+  }
+
+  if (!!request.hasFacePictureUrl()) {
+    body["FacePictureUrl"] = request.facePictureUrl();
+  }
+
+  if (!!request.hasFaceQualityCheck()) {
+    body["FaceQualityCheck"] = request.faceQualityCheck();
+  }
+
+  if (!!request.hasMerchantUserId()) {
+    body["MerchantUserId"] = request.merchantUserId();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.productCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AddFaceRecord"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddFaceRecordResponse>();
+}
+
+/**
+ * @summary 人脸图片入库
+ *
+ * @param request AddFaceRecordRequest
+ * @return AddFaceRecordResponse
+ */
+AddFaceRecordResponse Client::addFaceRecord(const AddFaceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addFaceRecordWithOptions(request, runtime);
+}
+
+AddFaceRecordResponse Client::addFaceRecordAdvance(const AddFaceRecordAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.accessKeyId();
+  string accessKeySecret = credentialModel.accessKeySecret();
+  string securityToken = credentialModel.securityToken();
+  string credentialType = credentialModel.type();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  AddFaceRecordRequest addFaceRecordReq = AddFaceRecordRequest();
+  Utils::Utils::convert(request, addFaceRecordReq);
+  if (!!request.hasFacePictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.facePictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    addFaceRecordReq.setFacePictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  AddFaceRecordResponse addFaceRecordResp = addFaceRecordWithOptions(addFaceRecordReq, runtime);
+  return addFaceRecordResp;
+}
+
+/**
  * @summary Address Similarity Comparison
  *
  * @description API for comparing two addresses, standardizing and checking address consistency.
