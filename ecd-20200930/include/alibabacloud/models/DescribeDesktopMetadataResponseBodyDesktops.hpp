@@ -20,11 +20,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
       DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
+      DARABONBA_PTR_TO_JSON(DesktopType, desktopType_);
       DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(LocalName, localName_);
       DARABONBA_PTR_TO_JSON(ManagementFlags, managementFlags_);
+      DARABONBA_PTR_TO_JSON(MemberEniIp, memberEniIp_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
@@ -37,11 +40,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
       DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
+      DARABONBA_PTR_FROM_JSON(DesktopType, desktopType_);
       DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(LocalName, localName_);
       DARABONBA_PTR_FROM_JSON(ManagementFlags, managementFlags_);
+      DARABONBA_PTR_FROM_JSON(MemberEniIp, memberEniIp_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
@@ -60,8 +66,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chargeType_ == nullptr
         && return this->creationTime_ == nullptr && return this->desktopGroupId_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopStatus_ == nullptr
-        && return this->expiredTime_ == nullptr && return this->imageId_ == nullptr && return this->localName_ == nullptr && return this->managementFlags_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceGroupName_ == nullptr && return this->startTime_ == nullptr; };
+        && return this->desktopType_ == nullptr && return this->expiredTime_ == nullptr && return this->imageId_ == nullptr && return this->localName_ == nullptr && return this->managementFlags_ == nullptr
+        && return this->memberEniIp_ == nullptr && return this->officeSiteId_ == nullptr && return this->platform_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceGroupName_ == nullptr && return this->startTime_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -104,6 +111,13 @@ namespace Models
     inline DescribeDesktopMetadataResponseBodyDesktops& setDesktopStatus(string desktopStatus) { DARABONBA_PTR_SET_VALUE(desktopStatus_, desktopStatus) };
 
 
+    // desktopType Field Functions 
+    bool hasDesktopType() const { return this->desktopType_ != nullptr;};
+    void deleteDesktopType() { this->desktopType_ = nullptr;};
+    inline string desktopType() const { DARABONBA_PTR_GET_DEFAULT(desktopType_, "") };
+    inline DescribeDesktopMetadataResponseBodyDesktops& setDesktopType(string desktopType) { DARABONBA_PTR_SET_VALUE(desktopType_, desktopType) };
+
+
     // expiredTime Field Functions 
     bool hasExpiredTime() const { return this->expiredTime_ != nullptr;};
     void deleteExpiredTime() { this->expiredTime_ = nullptr;};
@@ -134,11 +148,25 @@ namespace Models
     inline DescribeDesktopMetadataResponseBodyDesktops& setManagementFlags(vector<string> && managementFlags) { DARABONBA_PTR_SET_RVALUE(managementFlags_, managementFlags) };
 
 
+    // memberEniIp Field Functions 
+    bool hasMemberEniIp() const { return this->memberEniIp_ != nullptr;};
+    void deleteMemberEniIp() { this->memberEniIp_ = nullptr;};
+    inline string memberEniIp() const { DARABONBA_PTR_GET_DEFAULT(memberEniIp_, "") };
+    inline DescribeDesktopMetadataResponseBodyDesktops& setMemberEniIp(string memberEniIp) { DARABONBA_PTR_SET_VALUE(memberEniIp_, memberEniIp) };
+
+
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
     inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline DescribeDesktopMetadataResponseBodyDesktops& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+
+
+    // platform Field Functions 
+    bool hasPlatform() const { return this->platform_ != nullptr;};
+    void deletePlatform() { this->platform_ = nullptr;};
+    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline DescribeDesktopMetadataResponseBodyDesktops& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
     // regionId Field Functions 
@@ -176,11 +204,14 @@ namespace Models
     std::shared_ptr<string> desktopId_ = nullptr;
     std::shared_ptr<string> desktopName_ = nullptr;
     std::shared_ptr<string> desktopStatus_ = nullptr;
+    std::shared_ptr<string> desktopType_ = nullptr;
     std::shared_ptr<string> expiredTime_ = nullptr;
     std::shared_ptr<string> imageId_ = nullptr;
     std::shared_ptr<string> localName_ = nullptr;
     std::shared_ptr<vector<string>> managementFlags_ = nullptr;
+    std::shared_ptr<string> memberEniIp_ = nullptr;
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    std::shared_ptr<string> platform_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> resourceGroupName_ = nullptr;

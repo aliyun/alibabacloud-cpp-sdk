@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeDesktopTypesResponseBodyDesktopTypes& obj) { 
       DARABONBA_PTR_TO_JSON(CpuCount, cpuCount_);
       DARABONBA_PTR_TO_JSON(DataDiskSize, dataDiskSize_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DesktopTypeId, desktopTypeId_);
       DARABONBA_PTR_TO_JSON(DesktopTypeStatus, desktopTypeStatus_);
       DARABONBA_PTR_TO_JSON(GpuCount, gpuCount_);
@@ -31,6 +32,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeDesktopTypesResponseBodyDesktopTypes& obj) { 
       DARABONBA_PTR_FROM_JSON(CpuCount, cpuCount_);
       DARABONBA_PTR_FROM_JSON(DataDiskSize, dataDiskSize_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DesktopTypeId, desktopTypeId_);
       DARABONBA_PTR_FROM_JSON(DesktopTypeStatus, desktopTypeStatus_);
       DARABONBA_PTR_FROM_JSON(GpuCount, gpuCount_);
@@ -55,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpuCount_ == nullptr
-        && return this->dataDiskSize_ == nullptr && return this->desktopTypeId_ == nullptr && return this->desktopTypeStatus_ == nullptr && return this->gpuCount_ == nullptr && return this->gpuMemory_ == nullptr
-        && return this->gpuSpec_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->maxSessionCount_ == nullptr && return this->memorySize_ == nullptr && return this->scopes_ == nullptr
-        && return this->stockState_ == nullptr && return this->systemDiskSize_ == nullptr; };
+        && return this->dataDiskSize_ == nullptr && return this->description_ == nullptr && return this->desktopTypeId_ == nullptr && return this->desktopTypeStatus_ == nullptr && return this->gpuCount_ == nullptr
+        && return this->gpuMemory_ == nullptr && return this->gpuSpec_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->maxSessionCount_ == nullptr && return this->memorySize_ == nullptr
+        && return this->scopes_ == nullptr && return this->stockState_ == nullptr && return this->systemDiskSize_ == nullptr; };
     // cpuCount Field Functions 
     bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
     void deleteCpuCount() { this->cpuCount_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deleteDataDiskSize() { this->dataDiskSize_ = nullptr;};
     inline string dataDiskSize() const { DARABONBA_PTR_GET_DEFAULT(dataDiskSize_, "") };
     inline DescribeDesktopTypesResponseBodyDesktopTypes& setDataDiskSize(string dataDiskSize) { DARABONBA_PTR_SET_VALUE(dataDiskSize_, dataDiskSize) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline DescribeDesktopTypesResponseBodyDesktopTypes& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // desktopTypeId Field Functions 
@@ -156,6 +165,7 @@ namespace Models
     std::shared_ptr<string> cpuCount_ = nullptr;
     // The size of the data disk. Unit: GiB.
     std::shared_ptr<string> dataDiskSize_ = nullptr;
+    std::shared_ptr<string> description_ = nullptr;
     // The ID of the cloud desktop type.
     std::shared_ptr<string> desktopTypeId_ = nullptr;
     // The status of the cloud desktop type. If SUFFICIENT is returned, the number of cloud desktops of the type is sufficient.
