@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->namespace_ == nullptr && return this->type_ == nullptr && return this->action_ == nullptr; };
+        && this->namespace_ == nullptr && this->type_ == nullptr && this->action_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeTriggerRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline DescribeTriggerRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeTriggerRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline DescribeTriggerRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // The application name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The namespace to which the application belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The type of trigger. Valid values:
     // 
     // *   `deployment`: performs actions on Deployments.
@@ -82,13 +82,13 @@ namespace Models
     // Default value: `deployment`.
     // 
     // If you do not set this parameter, triggers are not filtered by type.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The action that the trigger performs. Set the value to redeploy.
     // 
     // `redeploy`: redeploys the resources specified by `project_id`.
     // 
     // If you do not specify this parameter, triggers are not filtered by action.
-    std::shared_ptr<string> action_ = nullptr;
+    shared_ptr<string> action_ {};
   };
 
   } // namespace Models

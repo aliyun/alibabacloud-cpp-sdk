@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->enableFilter_ == nullptr && return this->language_ == nullptr && return this->level_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
-        && return this->targetType_ == nullptr; };
+        && this->enableFilter_ == nullptr && this->language_ == nullptr && this->level_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->targetType_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline GetClusterInspectReportDetailRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // enableFilter Field Functions 
     bool hasEnableFilter() const { return this->enableFilter_ != nullptr;};
     void deleteEnableFilter() { this->enableFilter_ = nullptr;};
-    inline bool enableFilter() const { DARABONBA_PTR_GET_DEFAULT(enableFilter_, false) };
+    inline bool getEnableFilter() const { DARABONBA_PTR_GET_DEFAULT(enableFilter_, false) };
     inline GetClusterInspectReportDetailRequest& setEnableFilter(bool enableFilter) { DARABONBA_PTR_SET_VALUE(enableFilter_, enableFilter) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline GetClusterInspectReportDetailRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // level Field Functions 
     bool hasLevel() const { return this->level_ != nullptr;};
     void deleteLevel() { this->level_ = nullptr;};
-    inline string level() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+    inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
     inline GetClusterInspectReportDetailRequest& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline GetClusterInspectReportDetailRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline GetClusterInspectReportDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline GetClusterInspectReportDetailRequest& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
@@ -101,27 +101,27 @@ namespace Models
     // *   stability: Business stability
     // *   limitation: Service limits
     // *   cost: Cost optimization
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // Inspection results filtering. If this parameter is set to true, only abnormal inspection items are returned.
-    std::shared_ptr<bool> enableFilter_ = nullptr;
+    shared_ptr<bool> enableFilter_ {};
     // The query language.
     // 
     // *   zh_CN
     // *   en_US
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The level of the inspection item. Valid values:
     // 
     // *   advice: Suggestions
     // *   warning: Low severity
     // *   error: Medium severity
     // *   critical: High severity
-    std::shared_ptr<string> level_ = nullptr;
+    shared_ptr<string> level_ {};
     // The maximum number of entries per page. Maximum value: 50.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The token that is used to display the returned tags on multiple pages.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The type of the inspection object. Only items that meet the targetType parameter are returned.
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<string> targetType_ {};
   };
 
   } // namespace Models

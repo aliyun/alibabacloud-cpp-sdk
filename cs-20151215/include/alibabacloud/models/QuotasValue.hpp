@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->quota_ == nullptr
-        && return this->operationCode_ == nullptr && return this->adjustable_ == nullptr && return this->unit_ == nullptr; };
+        && this->operationCode_ == nullptr && this->adjustable_ == nullptr && this->unit_ == nullptr; };
     // quota Field Functions 
     bool hasQuota() const { return this->quota_ != nullptr;};
     void deleteQuota() { this->quota_ = nullptr;};
-    inline string quota() const { DARABONBA_PTR_GET_DEFAULT(quota_, "") };
+    inline string getQuota() const { DARABONBA_PTR_GET_DEFAULT(quota_, "") };
     inline QuotasValue& setQuota(string quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
 
 
     // operationCode Field Functions 
     bool hasOperationCode() const { return this->operationCode_ != nullptr;};
     void deleteOperationCode() { this->operationCode_ = nullptr;};
-    inline string operationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
+    inline string getOperationCode() const { DARABONBA_PTR_GET_DEFAULT(operationCode_, "") };
     inline QuotasValue& setOperationCode(string operationCode) { DARABONBA_PTR_SET_VALUE(operationCode_, operationCode) };
 
 
     // adjustable Field Functions 
     bool hasAdjustable() const { return this->adjustable_ != nullptr;};
     void deleteAdjustable() { this->adjustable_ = nullptr;};
-    inline bool adjustable() const { DARABONBA_PTR_GET_DEFAULT(adjustable_, false) };
+    inline bool getAdjustable() const { DARABONBA_PTR_GET_DEFAULT(adjustable_, false) };
     inline QuotasValue& setAdjustable(bool adjustable) { DARABONBA_PTR_SET_VALUE(adjustable_, adjustable) };
 
 
     // unit Field Functions 
     bool hasUnit() const { return this->unit_ != nullptr;};
     void deleteUnit() { this->unit_ = nullptr;};
-    inline string unit() const { DARABONBA_PTR_GET_DEFAULT(unit_, "") };
+    inline string getUnit() const { DARABONBA_PTR_GET_DEFAULT(unit_, "") };
     inline QuotasValue& setUnit(string unit) { DARABONBA_PTR_SET_VALUE(unit_, unit) };
 
 
   protected:
     // The value of the quota. If the quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
-    std::shared_ptr<string> quota_ = nullptr;
+    shared_ptr<string> quota_ {};
     // The quota code.
-    std::shared_ptr<string> operationCode_ = nullptr;
+    shared_ptr<string> operationCode_ {};
     // Indicates whether the quota is adjustable.
-    std::shared_ptr<bool> adjustable_ = nullptr;
+    shared_ptr<bool> adjustable_ {};
     // The unit.
-    std::shared_ptr<string> unit_ = nullptr;
+    shared_ptr<string> unit_ {};
   };
 
   } // namespace Models

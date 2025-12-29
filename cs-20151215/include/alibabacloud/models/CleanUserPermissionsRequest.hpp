@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterIds_ == nullptr
-        && return this->force_ == nullptr; };
+        && this->force_ == nullptr; };
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline const vector<string> & clusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
-    inline vector<string> clusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
+    inline const vector<string> & getClusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
+    inline vector<string> getClusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
     inline CleanUserPermissionsRequest& setClusterIds(const vector<string> & clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
     inline CleanUserPermissionsRequest& setClusterIds(vector<string> && clusterIds) { DARABONBA_PTR_SET_RVALUE(clusterIds_, clusterIds) };
 
@@ -46,18 +46,18 @@ namespace Models
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline CleanUserPermissionsRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
   protected:
     // The cluster IDs. If you specify a list of cluster IDs, only the kubeconfig files and RBAC permissions of the clusters that belong to the current user in the list are revoked.
-    std::shared_ptr<vector<string>> clusterIds_ = nullptr;
+    shared_ptr<vector<string>> clusterIds_ {};
     // Specifies whether to forcefully delete the specified kubeconfig files. Valid values:
     // 
     // *   false (default): checks the cluster access records within the previous seven days before deleting the kubeconfig files. The kubeconfig files are not deleted if cluster access records are found or fail to be retrieved.
     // *   true: forcefully deletes the kubeconfig files without checking the cluster access records.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

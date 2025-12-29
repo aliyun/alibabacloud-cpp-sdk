@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && return this->category_ == nullptr && return this->description_ == nullptr && return this->isDeleted_ == nullptr && return this->name_ == nullptr && return this->noConfig_ == nullptr
-        && return this->severity_ == nullptr && return this->template_ == nullptr; };
+        && this->category_ == nullptr && this->description_ == nullptr && this->isDeleted_ == nullptr && this->name_ == nullptr && this->noConfig_ == nullptr
+        && this->severity_ == nullptr && this->template_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline DescribePolicyDetailsResponseBody& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline DescribePolicyDetailsResponseBody& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribePolicyDetailsResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // isDeleted Field Functions 
     bool hasIsDeleted() const { return this->isDeleted_ != nullptr;};
     void deleteIsDeleted() { this->isDeleted_ = nullptr;};
-    inline int32_t isDeleted() const { DARABONBA_PTR_GET_DEFAULT(isDeleted_, 0) };
+    inline int32_t getIsDeleted() const { DARABONBA_PTR_GET_DEFAULT(isDeleted_, 0) };
     inline DescribePolicyDetailsResponseBody& setIsDeleted(int32_t isDeleted) { DARABONBA_PTR_SET_VALUE(isDeleted_, isDeleted) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribePolicyDetailsResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // noConfig Field Functions 
     bool hasNoConfig() const { return this->noConfig_ != nullptr;};
     void deleteNoConfig() { this->noConfig_ = nullptr;};
-    inline int32_t noConfig() const { DARABONBA_PTR_GET_DEFAULT(noConfig_, 0) };
+    inline int32_t getNoConfig() const { DARABONBA_PTR_GET_DEFAULT(noConfig_, 0) };
     inline DescribePolicyDetailsResponseBody& setNoConfig(int32_t noConfig) { DARABONBA_PTR_SET_VALUE(noConfig_, noConfig) };
 
 
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
-    inline string severity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+    inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
     inline DescribePolicyDetailsResponseBody& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline DescribePolicyDetailsResponseBody& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
@@ -107,31 +107,31 @@ namespace Models
     // 
     // *   `enforce`: blocks deployments that match the policy.
     // *   `inform`: generates alerts for deployments that match the policy.
-    std::shared_ptr<string> action_ = nullptr;
+    shared_ptr<string> action_ {};
     // The type of the policy.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The description of the policy.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Indicates whether the policy is deleted. Valid values:
     // 
     // *   0: The policy is not deleted.
     // *   1: The policy is deleted.
-    std::shared_ptr<int32_t> isDeleted_ = nullptr;
+    shared_ptr<int32_t> isDeleted_ {};
     // The name of the policy.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Indicates whether parameters are required. Valid values:
     // 
     // *   0: Parameters are required.
     // *   1: Parameters are optional.
-    std::shared_ptr<int32_t> noConfig_ = nullptr;
+    shared_ptr<int32_t> noConfig_ {};
     // The severity level of the policy. Valid values:
     // 
     // *   `high`
     // *   `medium`
     // *   `low`
-    std::shared_ptr<string> severity_ = nullptr;
+    shared_ptr<string> severity_ {};
     // The content of the policy.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
   };
 
   } // namespace Models

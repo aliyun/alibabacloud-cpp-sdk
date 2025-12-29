@@ -67,15 +67,15 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->architectures_ == nullptr
-        && return this->burstPerformanceOption_ == nullptr && return this->core_ == nullptr && return this->cores_ == nullptr && return this->cpuArchitectures_ == nullptr && return this->excludedInstanceTypes_ == nullptr
-        && return this->instanceCategories_ == nullptr && return this->instanceFamilyLevel_ == nullptr && return this->instanceTypeFamilies_ == nullptr && return this->maxCpuCores_ == nullptr && return this->maxMemorySize_ == nullptr
-        && return this->maxPrice_ == nullptr && return this->maximumGpuAmount_ == nullptr && return this->memory_ == nullptr && return this->minCpuCores_ == nullptr && return this->minMemorySize_ == nullptr
-        && return this->minimumEniIpv6AddressQuantity_ == nullptr && return this->minimumEniPrivateIpAddressQuantity_ == nullptr && return this->minimumEniQuantity_ == nullptr; };
+        && this->burstPerformanceOption_ == nullptr && this->core_ == nullptr && this->cores_ == nullptr && this->cpuArchitectures_ == nullptr && this->excludedInstanceTypes_ == nullptr
+        && this->instanceCategories_ == nullptr && this->instanceFamilyLevel_ == nullptr && this->instanceTypeFamilies_ == nullptr && this->maxCpuCores_ == nullptr && this->maxMemorySize_ == nullptr
+        && this->maxPrice_ == nullptr && this->maximumGpuAmount_ == nullptr && this->memory_ == nullptr && this->minCpuCores_ == nullptr && this->minMemorySize_ == nullptr
+        && this->minimumEniIpv6AddressQuantity_ == nullptr && this->minimumEniPrivateIpAddressQuantity_ == nullptr && this->minimumEniQuantity_ == nullptr; };
     // architectures Field Functions 
     bool hasArchitectures() const { return this->architectures_ != nullptr;};
     void deleteArchitectures() { this->architectures_ = nullptr;};
-    inline const vector<string> & architectures() const { DARABONBA_PTR_GET_CONST(architectures_, vector<string>) };
-    inline vector<string> architectures() { DARABONBA_PTR_GET(architectures_, vector<string>) };
+    inline const vector<string> & getArchitectures() const { DARABONBA_PTR_GET_CONST(architectures_, vector<string>) };
+    inline vector<string> getArchitectures() { DARABONBA_PTR_GET(architectures_, vector<string>) };
     inline InstancePatterns& setArchitectures(const vector<string> & architectures) { DARABONBA_PTR_SET_VALUE(architectures_, architectures) };
     inline InstancePatterns& setArchitectures(vector<string> && architectures) { DARABONBA_PTR_SET_RVALUE(architectures_, architectures) };
 
@@ -83,29 +83,29 @@ namespace Models
     // burstPerformanceOption Field Functions 
     bool hasBurstPerformanceOption() const { return this->burstPerformanceOption_ != nullptr;};
     void deleteBurstPerformanceOption() { this->burstPerformanceOption_ = nullptr;};
-    inline string burstPerformanceOption() const { DARABONBA_PTR_GET_DEFAULT(burstPerformanceOption_, "") };
+    inline string getBurstPerformanceOption() const { DARABONBA_PTR_GET_DEFAULT(burstPerformanceOption_, "") };
     inline InstancePatterns& setBurstPerformanceOption(string burstPerformanceOption) { DARABONBA_PTR_SET_VALUE(burstPerformanceOption_, burstPerformanceOption) };
 
 
     // core Field Functions 
     bool hasCore() const { return this->core_ != nullptr;};
     void deleteCore() { this->core_ = nullptr;};
-    inline int64_t core() const { DARABONBA_PTR_GET_DEFAULT(core_, 0L) };
+    inline int64_t getCore() const { DARABONBA_PTR_GET_DEFAULT(core_, 0L) };
     inline InstancePatterns& setCore(int64_t core) { DARABONBA_PTR_SET_VALUE(core_, core) };
 
 
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};
-    inline int64_t cores() const { DARABONBA_PTR_GET_DEFAULT(cores_, 0L) };
+    inline int64_t getCores() const { DARABONBA_PTR_GET_DEFAULT(cores_, 0L) };
     inline InstancePatterns& setCores(int64_t cores) { DARABONBA_PTR_SET_VALUE(cores_, cores) };
 
 
     // cpuArchitectures Field Functions 
     bool hasCpuArchitectures() const { return this->cpuArchitectures_ != nullptr;};
     void deleteCpuArchitectures() { this->cpuArchitectures_ = nullptr;};
-    inline const vector<string> & cpuArchitectures() const { DARABONBA_PTR_GET_CONST(cpuArchitectures_, vector<string>) };
-    inline vector<string> cpuArchitectures() { DARABONBA_PTR_GET(cpuArchitectures_, vector<string>) };
+    inline const vector<string> & getCpuArchitectures() const { DARABONBA_PTR_GET_CONST(cpuArchitectures_, vector<string>) };
+    inline vector<string> getCpuArchitectures() { DARABONBA_PTR_GET(cpuArchitectures_, vector<string>) };
     inline InstancePatterns& setCpuArchitectures(const vector<string> & cpuArchitectures) { DARABONBA_PTR_SET_VALUE(cpuArchitectures_, cpuArchitectures) };
     inline InstancePatterns& setCpuArchitectures(vector<string> && cpuArchitectures) { DARABONBA_PTR_SET_RVALUE(cpuArchitectures_, cpuArchitectures) };
 
@@ -113,8 +113,8 @@ namespace Models
     // excludedInstanceTypes Field Functions 
     bool hasExcludedInstanceTypes() const { return this->excludedInstanceTypes_ != nullptr;};
     void deleteExcludedInstanceTypes() { this->excludedInstanceTypes_ = nullptr;};
-    inline const vector<string> & excludedInstanceTypes() const { DARABONBA_PTR_GET_CONST(excludedInstanceTypes_, vector<string>) };
-    inline vector<string> excludedInstanceTypes() { DARABONBA_PTR_GET(excludedInstanceTypes_, vector<string>) };
+    inline const vector<string> & getExcludedInstanceTypes() const { DARABONBA_PTR_GET_CONST(excludedInstanceTypes_, vector<string>) };
+    inline vector<string> getExcludedInstanceTypes() { DARABONBA_PTR_GET(excludedInstanceTypes_, vector<string>) };
     inline InstancePatterns& setExcludedInstanceTypes(const vector<string> & excludedInstanceTypes) { DARABONBA_PTR_SET_VALUE(excludedInstanceTypes_, excludedInstanceTypes) };
     inline InstancePatterns& setExcludedInstanceTypes(vector<string> && excludedInstanceTypes) { DARABONBA_PTR_SET_RVALUE(excludedInstanceTypes_, excludedInstanceTypes) };
 
@@ -122,8 +122,8 @@ namespace Models
     // instanceCategories Field Functions 
     bool hasInstanceCategories() const { return this->instanceCategories_ != nullptr;};
     void deleteInstanceCategories() { this->instanceCategories_ = nullptr;};
-    inline const vector<string> & instanceCategories() const { DARABONBA_PTR_GET_CONST(instanceCategories_, vector<string>) };
-    inline vector<string> instanceCategories() { DARABONBA_PTR_GET(instanceCategories_, vector<string>) };
+    inline const vector<string> & getInstanceCategories() const { DARABONBA_PTR_GET_CONST(instanceCategories_, vector<string>) };
+    inline vector<string> getInstanceCategories() { DARABONBA_PTR_GET(instanceCategories_, vector<string>) };
     inline InstancePatterns& setInstanceCategories(const vector<string> & instanceCategories) { DARABONBA_PTR_SET_VALUE(instanceCategories_, instanceCategories) };
     inline InstancePatterns& setInstanceCategories(vector<string> && instanceCategories) { DARABONBA_PTR_SET_RVALUE(instanceCategories_, instanceCategories) };
 
@@ -131,15 +131,15 @@ namespace Models
     // instanceFamilyLevel Field Functions 
     bool hasInstanceFamilyLevel() const { return this->instanceFamilyLevel_ != nullptr;};
     void deleteInstanceFamilyLevel() { this->instanceFamilyLevel_ = nullptr;};
-    inline string instanceFamilyLevel() const { DARABONBA_PTR_GET_DEFAULT(instanceFamilyLevel_, "") };
+    inline string getInstanceFamilyLevel() const { DARABONBA_PTR_GET_DEFAULT(instanceFamilyLevel_, "") };
     inline InstancePatterns& setInstanceFamilyLevel(string instanceFamilyLevel) { DARABONBA_PTR_SET_VALUE(instanceFamilyLevel_, instanceFamilyLevel) };
 
 
     // instanceTypeFamilies Field Functions 
     bool hasInstanceTypeFamilies() const { return this->instanceTypeFamilies_ != nullptr;};
     void deleteInstanceTypeFamilies() { this->instanceTypeFamilies_ = nullptr;};
-    inline const vector<string> & instanceTypeFamilies() const { DARABONBA_PTR_GET_CONST(instanceTypeFamilies_, vector<string>) };
-    inline vector<string> instanceTypeFamilies() { DARABONBA_PTR_GET(instanceTypeFamilies_, vector<string>) };
+    inline const vector<string> & getInstanceTypeFamilies() const { DARABONBA_PTR_GET_CONST(instanceTypeFamilies_, vector<string>) };
+    inline vector<string> getInstanceTypeFamilies() { DARABONBA_PTR_GET(instanceTypeFamilies_, vector<string>) };
     inline InstancePatterns& setInstanceTypeFamilies(const vector<string> & instanceTypeFamilies) { DARABONBA_PTR_SET_VALUE(instanceTypeFamilies_, instanceTypeFamilies) };
     inline InstancePatterns& setInstanceTypeFamilies(vector<string> && instanceTypeFamilies) { DARABONBA_PTR_SET_RVALUE(instanceTypeFamilies_, instanceTypeFamilies) };
 
@@ -147,93 +147,93 @@ namespace Models
     // maxCpuCores Field Functions 
     bool hasMaxCpuCores() const { return this->maxCpuCores_ != nullptr;};
     void deleteMaxCpuCores() { this->maxCpuCores_ = nullptr;};
-    inline int64_t maxCpuCores() const { DARABONBA_PTR_GET_DEFAULT(maxCpuCores_, 0L) };
+    inline int64_t getMaxCpuCores() const { DARABONBA_PTR_GET_DEFAULT(maxCpuCores_, 0L) };
     inline InstancePatterns& setMaxCpuCores(int64_t maxCpuCores) { DARABONBA_PTR_SET_VALUE(maxCpuCores_, maxCpuCores) };
 
 
     // maxMemorySize Field Functions 
     bool hasMaxMemorySize() const { return this->maxMemorySize_ != nullptr;};
     void deleteMaxMemorySize() { this->maxMemorySize_ = nullptr;};
-    inline float maxMemorySize() const { DARABONBA_PTR_GET_DEFAULT(maxMemorySize_, 0.0) };
+    inline float getMaxMemorySize() const { DARABONBA_PTR_GET_DEFAULT(maxMemorySize_, 0.0) };
     inline InstancePatterns& setMaxMemorySize(float maxMemorySize) { DARABONBA_PTR_SET_VALUE(maxMemorySize_, maxMemorySize) };
 
 
     // maxPrice Field Functions 
     bool hasMaxPrice() const { return this->maxPrice_ != nullptr;};
     void deleteMaxPrice() { this->maxPrice_ = nullptr;};
-    inline float maxPrice() const { DARABONBA_PTR_GET_DEFAULT(maxPrice_, 0.0) };
+    inline float getMaxPrice() const { DARABONBA_PTR_GET_DEFAULT(maxPrice_, 0.0) };
     inline InstancePatterns& setMaxPrice(float maxPrice) { DARABONBA_PTR_SET_VALUE(maxPrice_, maxPrice) };
 
 
     // maximumGpuAmount Field Functions 
     bool hasMaximumGpuAmount() const { return this->maximumGpuAmount_ != nullptr;};
     void deleteMaximumGpuAmount() { this->maximumGpuAmount_ = nullptr;};
-    inline int64_t maximumGpuAmount() const { DARABONBA_PTR_GET_DEFAULT(maximumGpuAmount_, 0L) };
+    inline int64_t getMaximumGpuAmount() const { DARABONBA_PTR_GET_DEFAULT(maximumGpuAmount_, 0L) };
     inline InstancePatterns& setMaximumGpuAmount(int64_t maximumGpuAmount) { DARABONBA_PTR_SET_VALUE(maximumGpuAmount_, maximumGpuAmount) };
 
 
     // memory Field Functions 
     bool hasMemory() const { return this->memory_ != nullptr;};
     void deleteMemory() { this->memory_ = nullptr;};
-    inline float memory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0.0) };
+    inline float getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0.0) };
     inline InstancePatterns& setMemory(float memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
     // minCpuCores Field Functions 
     bool hasMinCpuCores() const { return this->minCpuCores_ != nullptr;};
     void deleteMinCpuCores() { this->minCpuCores_ = nullptr;};
-    inline int64_t minCpuCores() const { DARABONBA_PTR_GET_DEFAULT(minCpuCores_, 0L) };
+    inline int64_t getMinCpuCores() const { DARABONBA_PTR_GET_DEFAULT(minCpuCores_, 0L) };
     inline InstancePatterns& setMinCpuCores(int64_t minCpuCores) { DARABONBA_PTR_SET_VALUE(minCpuCores_, minCpuCores) };
 
 
     // minMemorySize Field Functions 
     bool hasMinMemorySize() const { return this->minMemorySize_ != nullptr;};
     void deleteMinMemorySize() { this->minMemorySize_ = nullptr;};
-    inline float minMemorySize() const { DARABONBA_PTR_GET_DEFAULT(minMemorySize_, 0.0) };
+    inline float getMinMemorySize() const { DARABONBA_PTR_GET_DEFAULT(minMemorySize_, 0.0) };
     inline InstancePatterns& setMinMemorySize(float minMemorySize) { DARABONBA_PTR_SET_VALUE(minMemorySize_, minMemorySize) };
 
 
     // minimumEniIpv6AddressQuantity Field Functions 
     bool hasMinimumEniIpv6AddressQuantity() const { return this->minimumEniIpv6AddressQuantity_ != nullptr;};
     void deleteMinimumEniIpv6AddressQuantity() { this->minimumEniIpv6AddressQuantity_ = nullptr;};
-    inline int64_t minimumEniIpv6AddressQuantity() const { DARABONBA_PTR_GET_DEFAULT(minimumEniIpv6AddressQuantity_, 0L) };
+    inline int64_t getMinimumEniIpv6AddressQuantity() const { DARABONBA_PTR_GET_DEFAULT(minimumEniIpv6AddressQuantity_, 0L) };
     inline InstancePatterns& setMinimumEniIpv6AddressQuantity(int64_t minimumEniIpv6AddressQuantity) { DARABONBA_PTR_SET_VALUE(minimumEniIpv6AddressQuantity_, minimumEniIpv6AddressQuantity) };
 
 
     // minimumEniPrivateIpAddressQuantity Field Functions 
     bool hasMinimumEniPrivateIpAddressQuantity() const { return this->minimumEniPrivateIpAddressQuantity_ != nullptr;};
     void deleteMinimumEniPrivateIpAddressQuantity() { this->minimumEniPrivateIpAddressQuantity_ = nullptr;};
-    inline int64_t minimumEniPrivateIpAddressQuantity() const { DARABONBA_PTR_GET_DEFAULT(minimumEniPrivateIpAddressQuantity_, 0L) };
+    inline int64_t getMinimumEniPrivateIpAddressQuantity() const { DARABONBA_PTR_GET_DEFAULT(minimumEniPrivateIpAddressQuantity_, 0L) };
     inline InstancePatterns& setMinimumEniPrivateIpAddressQuantity(int64_t minimumEniPrivateIpAddressQuantity) { DARABONBA_PTR_SET_VALUE(minimumEniPrivateIpAddressQuantity_, minimumEniPrivateIpAddressQuantity) };
 
 
     // minimumEniQuantity Field Functions 
     bool hasMinimumEniQuantity() const { return this->minimumEniQuantity_ != nullptr;};
     void deleteMinimumEniQuantity() { this->minimumEniQuantity_ = nullptr;};
-    inline int64_t minimumEniQuantity() const { DARABONBA_PTR_GET_DEFAULT(minimumEniQuantity_, 0L) };
+    inline int64_t getMinimumEniQuantity() const { DARABONBA_PTR_GET_DEFAULT(minimumEniQuantity_, 0L) };
     inline InstancePatterns& setMinimumEniQuantity(int64_t minimumEniQuantity) { DARABONBA_PTR_SET_VALUE(minimumEniQuantity_, minimumEniQuantity) };
 
 
   protected:
-    std::shared_ptr<vector<string>> architectures_ = nullptr;
-    std::shared_ptr<string> burstPerformanceOption_ = nullptr;
-    std::shared_ptr<int64_t> core_ = nullptr;
-    std::shared_ptr<int64_t> cores_ = nullptr;
-    std::shared_ptr<vector<string>> cpuArchitectures_ = nullptr;
-    std::shared_ptr<vector<string>> excludedInstanceTypes_ = nullptr;
-    std::shared_ptr<vector<string>> instanceCategories_ = nullptr;
-    std::shared_ptr<string> instanceFamilyLevel_ = nullptr;
-    std::shared_ptr<vector<string>> instanceTypeFamilies_ = nullptr;
-    std::shared_ptr<int64_t> maxCpuCores_ = nullptr;
-    std::shared_ptr<float> maxMemorySize_ = nullptr;
-    std::shared_ptr<float> maxPrice_ = nullptr;
-    std::shared_ptr<int64_t> maximumGpuAmount_ = nullptr;
-    std::shared_ptr<float> memory_ = nullptr;
-    std::shared_ptr<int64_t> minCpuCores_ = nullptr;
-    std::shared_ptr<float> minMemorySize_ = nullptr;
-    std::shared_ptr<int64_t> minimumEniIpv6AddressQuantity_ = nullptr;
-    std::shared_ptr<int64_t> minimumEniPrivateIpAddressQuantity_ = nullptr;
-    std::shared_ptr<int64_t> minimumEniQuantity_ = nullptr;
+    shared_ptr<vector<string>> architectures_ {};
+    shared_ptr<string> burstPerformanceOption_ {};
+    shared_ptr<int64_t> core_ {};
+    shared_ptr<int64_t> cores_ {};
+    shared_ptr<vector<string>> cpuArchitectures_ {};
+    shared_ptr<vector<string>> excludedInstanceTypes_ {};
+    shared_ptr<vector<string>> instanceCategories_ {};
+    shared_ptr<string> instanceFamilyLevel_ {};
+    shared_ptr<vector<string>> instanceTypeFamilies_ {};
+    shared_ptr<int64_t> maxCpuCores_ {};
+    shared_ptr<float> maxMemorySize_ {};
+    shared_ptr<float> maxPrice_ {};
+    shared_ptr<int64_t> maximumGpuAmount_ {};
+    shared_ptr<float> memory_ {};
+    shared_ptr<int64_t> minCpuCores_ {};
+    shared_ptr<float> minMemorySize_ {};
+    shared_ptr<int64_t> minimumEniIpv6AddressQuantity_ {};
+    shared_ptr<int64_t> minimumEniPrivateIpAddressQuantity_ {};
+    shared_ptr<int64_t> minimumEniQuantity_ {};
   };
 
   } // namespace Models

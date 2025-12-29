@@ -34,8 +34,8 @@ namespace Models
     // contactGroupIds Field Functions 
     bool hasContactGroupIds() const { return this->contactGroupIds_ != nullptr;};
     void deleteContactGroupIds() { this->contactGroupIds_ = nullptr;};
-    inline const vector<int64_t> & contactGroupIds() const { DARABONBA_PTR_GET_CONST(contactGroupIds_, vector<int64_t>) };
-    inline vector<int64_t> contactGroupIds() { DARABONBA_PTR_GET(contactGroupIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getContactGroupIds() const { DARABONBA_PTR_GET_CONST(contactGroupIds_, vector<int64_t>) };
+    inline vector<int64_t> getContactGroupIds() { DARABONBA_PTR_GET(contactGroupIds_, vector<int64_t>) };
     inline DeleteAlertContactGroupRequest& setContactGroupIds(const vector<int64_t> & contactGroupIds) { DARABONBA_PTR_SET_VALUE(contactGroupIds_, contactGroupIds) };
     inline DeleteAlertContactGroupRequest& setContactGroupIds(vector<int64_t> && contactGroupIds) { DARABONBA_PTR_SET_RVALUE(contactGroupIds_, contactGroupIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The list of alert contact group IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> contactGroupIds_ = nullptr;
+    shared_ptr<vector<int64_t>> contactGroupIds_ {};
   };
 
   } // namespace Models

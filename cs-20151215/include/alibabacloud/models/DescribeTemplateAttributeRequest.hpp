@@ -33,7 +33,7 @@ namespace Models
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline string templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
     inline DescribeTemplateAttributeRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   If the value of the parameter is not `kubernetes`, the template is not displayed on the Templates page in the console. We recommend that you set the parameter to `kubernetes`.
     // 
     // Default value: `kubernetes`.
-    std::shared_ptr<string> templateType_ = nullptr;
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertRuleGroupName_ == nullptr
-        && return this->alertRuleName_ == nullptr; };
+        && this->alertRuleName_ == nullptr; };
     // alertRuleGroupName Field Functions 
     bool hasAlertRuleGroupName() const { return this->alertRuleGroupName_ != nullptr;};
     void deleteAlertRuleGroupName() { this->alertRuleGroupName_ = nullptr;};
-    inline string alertRuleGroupName() const { DARABONBA_PTR_GET_DEFAULT(alertRuleGroupName_, "") };
+    inline string getAlertRuleGroupName() const { DARABONBA_PTR_GET_DEFAULT(alertRuleGroupName_, "") };
     inline StartAlertRequest& setAlertRuleGroupName(string alertRuleGroupName) { DARABONBA_PTR_SET_VALUE(alertRuleGroupName_, alertRuleGroupName) };
 
 
     // alertRuleName Field Functions 
     bool hasAlertRuleName() const { return this->alertRuleName_ != nullptr;};
     void deleteAlertRuleName() { this->alertRuleName_ = nullptr;};
-    inline string alertRuleName() const { DARABONBA_PTR_GET_DEFAULT(alertRuleName_, "") };
+    inline string getAlertRuleName() const { DARABONBA_PTR_GET_DEFAULT(alertRuleName_, "") };
     inline StartAlertRequest& setAlertRuleName(string alertRuleName) { DARABONBA_PTR_SET_VALUE(alertRuleName_, alertRuleName) };
 
 
   protected:
     // The name of the alert rule group.
-    std::shared_ptr<string> alertRuleGroupName_ = nullptr;
+    shared_ptr<string> alertRuleGroupName_ {};
     // The name of the alert rule.
-    std::shared_ptr<string> alertRuleName_ = nullptr;
+    shared_ptr<string> alertRuleName_ {};
   };
 
   } // namespace Models

@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && return this->instanceName_ == nullptr && return this->namespaces_ == nullptr && return this->parameters_ == nullptr; };
+        && this->instanceName_ == nullptr && this->namespaces_ == nullptr && this->parameters_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline ModifyPolicyInstanceRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline ModifyPolicyInstanceRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // namespaces Field Functions 
     bool hasNamespaces() const { return this->namespaces_ != nullptr;};
     void deleteNamespaces() { this->namespaces_ = nullptr;};
-    inline const vector<string> & namespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
-    inline vector<string> namespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
+    inline const vector<string> & getNamespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
+    inline vector<string> getNamespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
     inline ModifyPolicyInstanceRequest& setNamespaces(const vector<string> & namespaces) { DARABONBA_PTR_SET_VALUE(namespaces_, namespaces) };
     inline ModifyPolicyInstanceRequest& setNamespaces(vector<string> && namespaces) { DARABONBA_PTR_SET_RVALUE(namespaces_, namespaces) };
 
@@ -64,10 +64,10 @@ namespace Models
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline ModifyPolicyInstanceRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline ModifyPolicyInstanceRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline ModifyPolicyInstanceRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
   protected:
@@ -75,13 +75,13 @@ namespace Models
     // 
     // *   `deny`: Deployments that match the policy are denied.
     // *   `warn`: Alerts are generated for deployments that match the policy.
-    std::shared_ptr<string> action_ = nullptr;
+    shared_ptr<string> action_ {};
     // The ID of the policy instance.
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
     // The namespaces to which the policy is applied. The policy is applied to all namespaces if this parameter is left empty.
-    std::shared_ptr<vector<string>> namespaces_ = nullptr;
+    shared_ptr<vector<string>> namespaces_ {};
     // The parameters of the policy instance. For more information, see [Predefined security policies of ACK](https://help.aliyun.com/document_detail/359819.html).
-    Darabonba::Json parameters_ = nullptr;
+    Darabonba::Json parameters_ {};
   };
 
   } // namespace Models

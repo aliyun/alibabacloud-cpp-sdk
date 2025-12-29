@@ -39,55 +39,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespace_ == nullptr
-        && return this->protection_ == nullptr && return this->requestId_ == nullptr && return this->resourceType_ == nullptr && return this->resources_ == nullptr; };
+        && this->protection_ == nullptr && this->requestId_ == nullptr && this->resourceType_ == nullptr && this->resources_ == nullptr; };
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline UpdateResourcesDeleteProtectionResponseBody& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // protection Field Functions 
     bool hasProtection() const { return this->protection_ != nullptr;};
     void deleteProtection() { this->protection_ = nullptr;};
-    inline string protection() const { DARABONBA_PTR_GET_DEFAULT(protection_, "") };
+    inline string getProtection() const { DARABONBA_PTR_GET_DEFAULT(protection_, "") };
     inline UpdateResourcesDeleteProtectionResponseBody& setProtection(string protection) { DARABONBA_PTR_SET_VALUE(protection_, protection) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateResourcesDeleteProtectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline UpdateResourcesDeleteProtectionResponseBody& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline const vector<string> & resources() const { DARABONBA_PTR_GET_CONST(resources_, vector<string>) };
-    inline vector<string> resources() { DARABONBA_PTR_GET(resources_, vector<string>) };
+    inline const vector<string> & getResources() const { DARABONBA_PTR_GET_CONST(resources_, vector<string>) };
+    inline vector<string> getResources() { DARABONBA_PTR_GET(resources_, vector<string>) };
     inline UpdateResourcesDeleteProtectionResponseBody& setResources(const vector<string> & resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
     inline UpdateResourcesDeleteProtectionResponseBody& setResources(vector<string> && resources) { DARABONBA_PTR_SET_RVALUE(resources_, resources) };
 
 
   protected:
     // The namespace to which the resource belongs.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // Indicates the status of deletion protection. A value of true indicates that deletion protection is enabled and a value of false indicates that deletion protection is disabled.
-    std::shared_ptr<string> protection_ = nullptr;
+    shared_ptr<string> protection_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The type of resource for which deletion protection is enabled or disabled.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // The list of resources whose deletion protection status is updated.
-    std::shared_ptr<vector<string>> resources_ = nullptr;
+    shared_ptr<vector<string>> resources_ {};
   };
 
   } // namespace Models

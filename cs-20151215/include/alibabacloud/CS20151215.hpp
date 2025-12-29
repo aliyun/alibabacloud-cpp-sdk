@@ -1597,6 +1597,24 @@ namespace CS20151215
       Models::InstallClusterAddonsResponse installClusterAddons(const string &ClusterId, const Models::InstallClusterAddonsRequest &request);
 
       /**
+       * @summary 为ACK集群节点池安装节点组件
+       *
+       * @param request InstallNodePoolComponentsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallNodePoolComponentsResponse
+       */
+      Models::InstallNodePoolComponentsResponse installNodePoolComponentsWithOptions(const string &clusterId, const string &nodePoolId, const Models::InstallNodePoolComponentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为ACK集群节点池安装节点组件
+       *
+       * @param request InstallNodePoolComponentsRequest
+       * @return InstallNodePoolComponentsResponse
+       */
+      Models::InstallNodePoolComponentsResponse installNodePoolComponents(const string &clusterId, const string &nodePoolId, const Models::InstallNodePoolComponentsRequest &request);
+
+      /**
        * @summary Queries the available components based on specific conditions such as the region, cluster type, cluster subtype defined by cluster profile, and cluster version and queries the detailed information about a component. The information includes whether the component is managed, the supported custom parameter schema, and compatible operating system architecture.
        *
        * @param request ListAddonsRequest
@@ -2455,6 +2473,24 @@ namespace CS20151215
        * @return UpdateK8sClusterUserConfigExpireResponse
        */
       Models::UpdateK8sClusterUserConfigExpireResponse updateK8sClusterUserConfigExpire(const string &ClusterId, const Models::UpdateK8sClusterUserConfigExpireRequest &request);
+
+      /**
+       * @summary 更新节点组件
+       *
+       * @param request UpdateNodePoolComponentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNodePoolComponentResponse
+       */
+      Models::UpdateNodePoolComponentResponse updateNodePoolComponentWithOptions(const string &clusterId, const string &nodepoolId, const Models::UpdateNodePoolComponentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新节点组件
+       *
+       * @param request UpdateNodePoolComponentRequest
+       * @return UpdateNodePoolComponentResponse
+       */
+      Models::UpdateNodePoolComponentResponse updateNodePoolComponent(const string &clusterId, const string &nodepoolId, const Models::UpdateNodePoolComponentRequest &request);
 
       /**
        * @summary Updates the deletion protection status of the specified resources. You can enable or disable deletion protection for namespaces and Services. You can call this operation to enable deletion protection for namespaces or Services that involve businesses-critical and sensitive data to avoid incurring maintenance costs caused by accidental namespace or Service deletion.

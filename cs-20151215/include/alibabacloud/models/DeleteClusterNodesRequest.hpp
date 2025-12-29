@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->drainNode_ == nullptr
-        && return this->nodes_ == nullptr && return this->releaseNode_ == nullptr; };
+        && this->nodes_ == nullptr && this->releaseNode_ == nullptr; };
     // drainNode Field Functions 
     bool hasDrainNode() const { return this->drainNode_ != nullptr;};
     void deleteDrainNode() { this->drainNode_ = nullptr;};
-    inline bool drainNode() const { DARABONBA_PTR_GET_DEFAULT(drainNode_, false) };
+    inline bool getDrainNode() const { DARABONBA_PTR_GET_DEFAULT(drainNode_, false) };
     inline DeleteClusterNodesRequest& setDrainNode(bool drainNode) { DARABONBA_PTR_SET_VALUE(drainNode_, drainNode) };
 
 
     // nodes Field Functions 
     bool hasNodes() const { return this->nodes_ != nullptr;};
     void deleteNodes() { this->nodes_ = nullptr;};
-    inline const vector<string> & nodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
-    inline vector<string> nodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
+    inline const vector<string> & getNodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
+    inline vector<string> getNodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
     inline DeleteClusterNodesRequest& setNodes(const vector<string> & nodes) { DARABONBA_PTR_SET_VALUE(nodes_, nodes) };
     inline DeleteClusterNodesRequest& setNodes(vector<string> && nodes) { DARABONBA_PTR_SET_RVALUE(nodes_, nodes) };
 
@@ -55,7 +55,7 @@ namespace Models
     // releaseNode Field Functions 
     bool hasReleaseNode() const { return this->releaseNode_ != nullptr;};
     void deleteReleaseNode() { this->releaseNode_ = nullptr;};
-    inline bool releaseNode() const { DARABONBA_PTR_GET_DEFAULT(releaseNode_, false) };
+    inline bool getReleaseNode() const { DARABONBA_PTR_GET_DEFAULT(releaseNode_, false) };
     inline DeleteClusterNodesRequest& setReleaseNode(bool releaseNode) { DARABONBA_PTR_SET_VALUE(releaseNode_, releaseNode) };
 
 
@@ -66,11 +66,11 @@ namespace Models
     // *   `false`: skips removing pods.
     // 
     // Default value: `false`
-    std::shared_ptr<bool> drainNode_ = nullptr;
+    shared_ptr<bool> drainNode_ {};
     // The list of nodes to remove. You must specify the node names used in the cluster, for example, `cn-hangzhou.192.168.xx.xx`.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> nodes_ = nullptr;
+    shared_ptr<vector<string>> nodes_ {};
     // Specifies whether to release the ECS instances. Valid values:
     // 
     // *   `true`: releases the ECS instances.
@@ -81,7 +81,7 @@ namespace Models
     // **
     // 
     // **Notes** Unsupported for subscription ECS instances.
-    std::shared_ptr<bool> releaseNode_ = nullptr;
+    shared_ptr<bool> releaseNode_ {};
   };
 
   } // namespace Models

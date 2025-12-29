@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disabledCheckItems_ == nullptr
-        && return this->enabled_ == nullptr && return this->recurrence_ == nullptr && return this->requestId_ == nullptr; };
+        && this->enabled_ == nullptr && this->recurrence_ == nullptr && this->requestId_ == nullptr; };
     // disabledCheckItems Field Functions 
     bool hasDisabledCheckItems() const { return this->disabledCheckItems_ != nullptr;};
     void deleteDisabledCheckItems() { this->disabledCheckItems_ = nullptr;};
-    inline const vector<string> & disabledCheckItems() const { DARABONBA_PTR_GET_CONST(disabledCheckItems_, vector<string>) };
-    inline vector<string> disabledCheckItems() { DARABONBA_PTR_GET(disabledCheckItems_, vector<string>) };
+    inline const vector<string> & getDisabledCheckItems() const { DARABONBA_PTR_GET_CONST(disabledCheckItems_, vector<string>) };
+    inline vector<string> getDisabledCheckItems() { DARABONBA_PTR_GET(disabledCheckItems_, vector<string>) };
     inline GetClusterInspectConfigResponseBody& setDisabledCheckItems(const vector<string> & disabledCheckItems) { DARABONBA_PTR_SET_VALUE(disabledCheckItems_, disabledCheckItems) };
     inline GetClusterInspectConfigResponseBody& setDisabledCheckItems(vector<string> && disabledCheckItems) { DARABONBA_PTR_SET_RVALUE(disabledCheckItems_, disabledCheckItems) };
 
@@ -50,33 +50,33 @@ namespace Models
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline GetClusterInspectConfigResponseBody& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // recurrence Field Functions 
     bool hasRecurrence() const { return this->recurrence_ != nullptr;};
     void deleteRecurrence() { this->recurrence_ = nullptr;};
-    inline string recurrence() const { DARABONBA_PTR_GET_DEFAULT(recurrence_, "") };
+    inline string getRecurrence() const { DARABONBA_PTR_GET_DEFAULT(recurrence_, "") };
     inline GetClusterInspectConfigResponseBody& setRecurrence(string recurrence) { DARABONBA_PTR_SET_VALUE(recurrence_, recurrence) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetClusterInspectConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The list of disabled inspection items.
-    std::shared_ptr<vector<string>> disabledCheckItems_ = nullptr;
+    shared_ptr<vector<string>> disabledCheckItems_ {};
     // Specifies whether to enable inspection.
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<bool> enabled_ {};
     // The inspection schedule defined through the RFC5545 Recurrence Rule syntax. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT and UNTIL are not supported.
-    std::shared_ptr<string> recurrence_ = nullptr;
+    shared_ptr<string> recurrence_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

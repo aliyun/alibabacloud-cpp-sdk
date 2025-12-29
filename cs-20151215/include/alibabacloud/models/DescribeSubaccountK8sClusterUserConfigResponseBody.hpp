@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->expiration_ == nullptr; };
+        && this->expiration_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline DescribeSubaccountK8sClusterUserConfigResponseBody& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // expiration Field Functions 
     bool hasExpiration() const { return this->expiration_ != nullptr;};
     void deleteExpiration() { this->expiration_ = nullptr;};
-    inline string expiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+    inline string getExpiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
     inline DescribeSubaccountK8sClusterUserConfigResponseBody& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The cluster kubeconfig file. For more information about how to view the kubeconfig file content, see [Configure cluster credentials](https://help.aliyun.com/document_detail/86494.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The expiration date of the kubeconfig file. The value is the UTC time displayed in RFC3339 format.
-    std::shared_ptr<string> expiration_ = nullptr;
+    shared_ptr<string> expiration_ {};
   };
 
   } // namespace Models

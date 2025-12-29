@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->created_ == nullptr && return this->diagnosisId_ == nullptr && return this->finished_ == nullptr && return this->message_ == nullptr && return this->result_ == nullptr
-        && return this->status_ == nullptr && return this->target_ == nullptr && return this->type_ == nullptr; };
+        && this->created_ == nullptr && this->diagnosisId_ == nullptr && this->finished_ == nullptr && this->message_ == nullptr && this->result_ == nullptr
+        && this->status_ == nullptr && this->target_ == nullptr && this->type_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int64_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
+    inline int64_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
     inline GetClusterDiagnosisResultResponseBody& setCode(int64_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // created Field Functions 
     bool hasCreated() const { return this->created_ != nullptr;};
     void deleteCreated() { this->created_ = nullptr;};
-    inline string created() const { DARABONBA_PTR_GET_DEFAULT(created_, "") };
+    inline string getCreated() const { DARABONBA_PTR_GET_DEFAULT(created_, "") };
     inline GetClusterDiagnosisResultResponseBody& setCreated(string created) { DARABONBA_PTR_SET_VALUE(created_, created) };
 
 
     // diagnosisId Field Functions 
     bool hasDiagnosisId() const { return this->diagnosisId_ != nullptr;};
     void deleteDiagnosisId() { this->diagnosisId_ = nullptr;};
-    inline string diagnosisId() const { DARABONBA_PTR_GET_DEFAULT(diagnosisId_, "") };
+    inline string getDiagnosisId() const { DARABONBA_PTR_GET_DEFAULT(diagnosisId_, "") };
     inline GetClusterDiagnosisResultResponseBody& setDiagnosisId(string diagnosisId) { DARABONBA_PTR_SET_VALUE(diagnosisId_, diagnosisId) };
 
 
     // finished Field Functions 
     bool hasFinished() const { return this->finished_ != nullptr;};
     void deleteFinished() { this->finished_ = nullptr;};
-    inline string finished() const { DARABONBA_PTR_GET_DEFAULT(finished_, "") };
+    inline string getFinished() const { DARABONBA_PTR_GET_DEFAULT(finished_, "") };
     inline GetClusterDiagnosisResultResponseBody& setFinished(string finished) { DARABONBA_PTR_SET_VALUE(finished_, finished) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetClusterDiagnosisResultResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline string result() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+    inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
     inline GetClusterDiagnosisResultResponseBody& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int64_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0L) };
+    inline int64_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0L) };
     inline GetClusterDiagnosisResultResponseBody& setStatus(int64_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline GetClusterDiagnosisResultResponseBody& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetClusterDiagnosisResultResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -116,25 +116,25 @@ namespace Models
     // 
     // *   0: the diagnostic is completed.
     // *   1: the diagnostic failed.
-    std::shared_ptr<int64_t> code_ = nullptr;
+    shared_ptr<int64_t> code_ {};
     // The time when the diagnostic is initiated.
-    std::shared_ptr<string> created_ = nullptr;
+    shared_ptr<string> created_ {};
     // The diagnostic ID.
-    std::shared_ptr<string> diagnosisId_ = nullptr;
+    shared_ptr<string> diagnosisId_ {};
     // The time when the diagnostic is completed.
-    std::shared_ptr<string> finished_ = nullptr;
+    shared_ptr<string> finished_ {};
     // The diagnostic status information.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The diagnostic result.
-    std::shared_ptr<string> result_ = nullptr;
+    shared_ptr<string> result_ {};
     // The status of the diagnostic. Valid values:
     // 
     // *   0: The diagnostic is created.
     // *   1: The diagnostic is running.
     // *   2: The diagnostic is completed.
-    std::shared_ptr<int64_t> status_ = nullptr;
+    shared_ptr<int64_t> status_ {};
     // The diagnostic object.
-    std::shared_ptr<string> target_ = nullptr;
+    shared_ptr<string> target_ {};
     // The type of the diagnostic.
     // 
     // Valid values:
@@ -146,7 +146,7 @@ namespace Models
     // *   pod
     // *   service
     // *   network
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // contactIdsShrink Field Functions 
     bool hasContactIdsShrink() const { return this->contactIdsShrink_ != nullptr;};
     void deleteContactIdsShrink() { this->contactIdsShrink_ = nullptr;};
-    inline string contactIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(contactIdsShrink_, "") };
+    inline string getContactIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(contactIdsShrink_, "") };
     inline DeleteAlertContactShrinkRequest& setContactIdsShrink(string contactIdsShrink) { DARABONBA_PTR_SET_VALUE(contactIdsShrink_, contactIdsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The list of alert contact IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> contactIdsShrink_ = nullptr;
+    shared_ptr<string> contactIdsShrink_ {};
   };
 
   } // namespace Models

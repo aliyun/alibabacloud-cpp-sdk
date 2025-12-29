@@ -33,13 +33,13 @@ namespace Models
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline DeleteClusterNodepoolRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
   protected:
     // Specifies whether to forcefully delete the node pool.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

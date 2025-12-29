@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expireHour_ == nullptr
-        && return this->user_ == nullptr; };
+        && this->user_ == nullptr; };
     // expireHour Field Functions 
     bool hasExpireHour() const { return this->expireHour_ != nullptr;};
     void deleteExpireHour() { this->expireHour_ = nullptr;};
-    inline int64_t expireHour() const { DARABONBA_PTR_GET_DEFAULT(expireHour_, 0L) };
+    inline int64_t getExpireHour() const { DARABONBA_PTR_GET_DEFAULT(expireHour_, 0L) };
     inline UpdateK8sClusterUserConfigExpireRequest& setExpireHour(int64_t expireHour) { DARABONBA_PTR_SET_VALUE(expireHour_, expireHour) };
 
 
     // user Field Functions 
     bool hasUser() const { return this->user_ != nullptr;};
     void deleteUser() { this->user_ = nullptr;};
-    inline string user() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
+    inline string getUser() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
     inline UpdateK8sClusterUserConfigExpireRequest& setUser(string user) { DARABONBA_PTR_SET_VALUE(user_, user) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // Valid values: [1, 1876000]. The maximum value is 100 years.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> expireHour_ = nullptr;
+    shared_ptr<int64_t> expireHour_ {};
     // The RAM user ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> user_ = nullptr;
+    shared_ptr<string> user_ {};
   };
 
   } // namespace Models

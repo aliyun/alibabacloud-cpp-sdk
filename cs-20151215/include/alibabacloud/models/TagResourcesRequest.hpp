@@ -38,19 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->resourceIds_ == nullptr && return this->resourceType_ == nullptr && return this->tags_ == nullptr; };
+        && this->resourceIds_ == nullptr && this->resourceType_ == nullptr && this->tags_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline TagResourcesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceIds Field Functions 
     bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
     void deleteResourceIds() { this->resourceIds_ = nullptr;};
-    inline const vector<string> & resourceIds() const { DARABONBA_PTR_GET_CONST(resourceIds_, vector<string>) };
-    inline vector<string> resourceIds() { DARABONBA_PTR_GET(resourceIds_, vector<string>) };
+    inline const vector<string> & getResourceIds() const { DARABONBA_PTR_GET_CONST(resourceIds_, vector<string>) };
+    inline vector<string> getResourceIds() { DARABONBA_PTR_GET(resourceIds_, vector<string>) };
     inline TagResourcesRequest& setResourceIds(const vector<string> & resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
     inline TagResourcesRequest& setResourceIds(vector<string> && resourceIds) { DARABONBA_PTR_SET_RVALUE(resourceIds_, resourceIds) };
 
@@ -58,15 +58,15 @@ namespace Models
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline TagResourcesRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<Tag> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Tag>) };
-    inline vector<Tag> tags() { DARABONBA_PTR_GET(tags_, vector<Tag>) };
+    inline const vector<Tag> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Tag>) };
+    inline vector<Tag> getTags() { DARABONBA_PTR_GET(tags_, vector<Tag>) };
     inline TagResourcesRequest& setTags(const vector<Tag> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline TagResourcesRequest& setTags(vector<Tag> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
@@ -75,15 +75,15 @@ namespace Models
     // The ID of the region in which the resource resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The list of resource IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> resourceIds_ = nullptr;
+    shared_ptr<vector<string>> resourceIds_ {};
     // The type of resources that you want to label. Set the value to `CLUSTER`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // The tags that you want to add to the resources in key-value pairs. You can add up to 20 key-value pairs. Note:
     // 
     // *   The values cannot be empty strings. A value must be 1 to 128 characters in length.
@@ -91,7 +91,7 @@ namespace Models
     // *   A key or value cannot contain `http://` or `https://`.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<Tag>> tags_ = nullptr;
+    shared_ptr<vector<Tag>> tags_ {};
   };
 
   } // namespace Models

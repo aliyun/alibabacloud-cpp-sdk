@@ -34,8 +34,8 @@ namespace Models
     // componentIds Field Functions 
     bool hasComponentIds() const { return this->componentIds_ != nullptr;};
     void deleteComponentIds() { this->componentIds_ = nullptr;};
-    inline const vector<string> & componentIds() const { DARABONBA_PTR_GET_CONST(componentIds_, vector<string>) };
-    inline vector<string> componentIds() { DARABONBA_PTR_GET(componentIds_, vector<string>) };
+    inline const vector<string> & getComponentIds() const { DARABONBA_PTR_GET_CONST(componentIds_, vector<string>) };
+    inline vector<string> getComponentIds() { DARABONBA_PTR_GET(componentIds_, vector<string>) };
     inline DescribeClusterAddonsUpgradeStatusRequest& setComponentIds(const vector<string> & componentIds) { DARABONBA_PTR_SET_VALUE(componentIds_, componentIds) };
     inline DescribeClusterAddonsUpgradeStatusRequest& setComponentIds(vector<string> && componentIds) { DARABONBA_PTR_SET_RVALUE(componentIds_, componentIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The list of component names.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> componentIds_ = nullptr;
+    shared_ptr<vector<string>> componentIds_ {};
   };
 
   } // namespace Models

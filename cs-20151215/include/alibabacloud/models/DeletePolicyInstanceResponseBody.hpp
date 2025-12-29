@@ -34,15 +34,15 @@ namespace Models
     // instances Field Functions 
     bool hasInstances() const { return this->instances_ != nullptr;};
     void deleteInstances() { this->instances_ = nullptr;};
-    inline const vector<string> & instances() const { DARABONBA_PTR_GET_CONST(instances_, vector<string>) };
-    inline vector<string> instances() { DARABONBA_PTR_GET(instances_, vector<string>) };
+    inline const vector<string> & getInstances() const { DARABONBA_PTR_GET_CONST(instances_, vector<string>) };
+    inline vector<string> getInstances() { DARABONBA_PTR_GET(instances_, vector<string>) };
     inline DeletePolicyInstanceResponseBody& setInstances(const vector<string> & instances) { DARABONBA_PTR_SET_VALUE(instances_, instances) };
     inline DeletePolicyInstanceResponseBody& setInstances(vector<string> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
 
   protected:
     // A list of policy instances.
-    std::shared_ptr<vector<string>> instances_ = nullptr;
+    shared_ptr<vector<string>> instances_ {};
   };
 
   } // namespace Models

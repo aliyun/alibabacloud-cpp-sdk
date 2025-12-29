@@ -33,12 +33,12 @@ namespace Models
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline DescribeClusterAddonMetadataRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

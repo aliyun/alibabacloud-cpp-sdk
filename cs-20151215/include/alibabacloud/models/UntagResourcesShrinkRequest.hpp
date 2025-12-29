@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->all_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceIdsShrink_ == nullptr && return this->resourceType_ == nullptr && return this->tagKeysShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceIdsShrink_ == nullptr && this->resourceType_ == nullptr && this->tagKeysShrink_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
-    inline bool all() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
+    inline bool getAll() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
     inline UntagResourcesShrinkRequest& setAll(bool all) { DARABONBA_PTR_SET_VALUE(all_, all) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UntagResourcesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceIdsShrink Field Functions 
     bool hasResourceIdsShrink() const { return this->resourceIdsShrink_ != nullptr;};
     void deleteResourceIdsShrink() { this->resourceIdsShrink_ = nullptr;};
-    inline string resourceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceIdsShrink_, "") };
+    inline string getResourceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceIdsShrink_, "") };
     inline UntagResourcesShrinkRequest& setResourceIdsShrink(string resourceIdsShrink) { DARABONBA_PTR_SET_VALUE(resourceIdsShrink_, resourceIdsShrink) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline UntagResourcesShrinkRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // tagKeysShrink Field Functions 
     bool hasTagKeysShrink() const { return this->tagKeysShrink_ != nullptr;};
     void deleteTagKeysShrink() { this->tagKeysShrink_ = nullptr;};
-    inline string tagKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(tagKeysShrink_, "") };
+    inline string getTagKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(tagKeysShrink_, "") };
     inline UntagResourcesShrinkRequest& setTagKeysShrink(string tagKeysShrink) { DARABONBA_PTR_SET_VALUE(tagKeysShrink_, tagKeysShrink) };
 
 
@@ -79,23 +79,23 @@ namespace Models
     // 
     // *   `true`: Remove all custom labels.
     // *   `false`: Do not remove all custom labels.
-    std::shared_ptr<bool> all_ = nullptr;
+    shared_ptr<bool> all_ {};
     // The region ID of the resources.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The list of resource IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceIdsShrink_ = nullptr;
+    shared_ptr<string> resourceIdsShrink_ {};
     // The type of resource. Set the value to `CLUSTER`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // The list of keys of the labels that you want to remove.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tagKeysShrink_ = nullptr;
+    shared_ptr<string> tagKeysShrink_ {};
   };
 
   } // namespace Models

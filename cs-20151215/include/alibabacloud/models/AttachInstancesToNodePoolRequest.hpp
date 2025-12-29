@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->formatDisk_ == nullptr
-        && return this->instances_ == nullptr && return this->keepInstanceName_ == nullptr && return this->password_ == nullptr; };
+        && this->instances_ == nullptr && this->keepInstanceName_ == nullptr && this->password_ == nullptr; };
     // formatDisk Field Functions 
     bool hasFormatDisk() const { return this->formatDisk_ != nullptr;};
     void deleteFormatDisk() { this->formatDisk_ = nullptr;};
-    inline bool formatDisk() const { DARABONBA_PTR_GET_DEFAULT(formatDisk_, false) };
+    inline bool getFormatDisk() const { DARABONBA_PTR_GET_DEFAULT(formatDisk_, false) };
     inline AttachInstancesToNodePoolRequest& setFormatDisk(bool formatDisk) { DARABONBA_PTR_SET_VALUE(formatDisk_, formatDisk) };
 
 
     // instances Field Functions 
     bool hasInstances() const { return this->instances_ != nullptr;};
     void deleteInstances() { this->instances_ = nullptr;};
-    inline const vector<string> & instances() const { DARABONBA_PTR_GET_CONST(instances_, vector<string>) };
-    inline vector<string> instances() { DARABONBA_PTR_GET(instances_, vector<string>) };
+    inline const vector<string> & getInstances() const { DARABONBA_PTR_GET_CONST(instances_, vector<string>) };
+    inline vector<string> getInstances() { DARABONBA_PTR_GET(instances_, vector<string>) };
     inline AttachInstancesToNodePoolRequest& setInstances(const vector<string> & instances) { DARABONBA_PTR_SET_VALUE(instances_, instances) };
     inline AttachInstancesToNodePoolRequest& setInstances(vector<string> && instances) { DARABONBA_PTR_SET_RVALUE(instances_, instances) };
 
@@ -57,14 +57,14 @@ namespace Models
     // keepInstanceName Field Functions 
     bool hasKeepInstanceName() const { return this->keepInstanceName_ != nullptr;};
     void deleteKeepInstanceName() { this->keepInstanceName_ = nullptr;};
-    inline bool keepInstanceName() const { DARABONBA_PTR_GET_DEFAULT(keepInstanceName_, false) };
+    inline bool getKeepInstanceName() const { DARABONBA_PTR_GET_DEFAULT(keepInstanceName_, false) };
     inline AttachInstancesToNodePoolRequest& setKeepInstanceName(bool keepInstanceName) { DARABONBA_PTR_SET_VALUE(keepInstanceName_, keepInstanceName) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline AttachInstancesToNodePoolRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
@@ -82,18 +82,18 @@ namespace Models
     // *   If no data disk is attached to the ECS instances, the system does not purchase a new data disk.
     // 
     // > If you choose to store container data and images on a data disk and the data disk is already mounted to the ECS instance, the existing data on the data disk will be cleared. You can back up the disk to avoid data loss.
-    std::shared_ptr<bool> formatDisk_ = nullptr;
+    shared_ptr<bool> formatDisk_ {};
     // The IDs of the instances to be added.
-    std::shared_ptr<vector<string>> instances_ = nullptr;
+    shared_ptr<vector<string>> instances_ {};
     // Specifies whether to retain the instance name. Valid values:
     // 
     // *   `true`: retains the instance name.
     // *   `false`: does not retain the instance name.
     // 
     // Default value: `true`.
-    std::shared_ptr<bool> keepInstanceName_ = nullptr;
+    shared_ptr<bool> keepInstanceName_ {};
     // The SSH password that is used to log on to the instance.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
   };
 
   } // namespace Models

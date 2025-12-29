@@ -2,9 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTCLUSTERKUBECONFIGSTATESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTCLUSTERKUBECONFIGSTATESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListClusterKubeconfigStatesResponseBodyPage.hpp>
 #include <vector>
-#include <alibabacloud/models/ListClusterKubeconfigStatesResponseBodyStates.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,31 +32,209 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class States : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const States& obj) { 
+        DARABONBA_PTR_TO_JSON(account_display_name, accountDisplayName_);
+        DARABONBA_PTR_TO_JSON(account_id, accountId_);
+        DARABONBA_PTR_TO_JSON(account_name, accountName_);
+        DARABONBA_PTR_TO_JSON(account_state, accountState_);
+        DARABONBA_PTR_TO_JSON(account_type, accountType_);
+        DARABONBA_PTR_TO_JSON(cert_expire_time, certExpireTime_);
+        DARABONBA_PTR_TO_JSON(cert_state, certState_);
+        DARABONBA_PTR_TO_JSON(revokable, revokable_);
+      };
+      friend void from_json(const Darabonba::Json& j, States& obj) { 
+        DARABONBA_PTR_FROM_JSON(account_display_name, accountDisplayName_);
+        DARABONBA_PTR_FROM_JSON(account_id, accountId_);
+        DARABONBA_PTR_FROM_JSON(account_name, accountName_);
+        DARABONBA_PTR_FROM_JSON(account_state, accountState_);
+        DARABONBA_PTR_FROM_JSON(account_type, accountType_);
+        DARABONBA_PTR_FROM_JSON(cert_expire_time, certExpireTime_);
+        DARABONBA_PTR_FROM_JSON(cert_state, certState_);
+        DARABONBA_PTR_FROM_JSON(revokable, revokable_);
+      };
+      States() = default ;
+      States(const States &) = default ;
+      States(States &&) = default ;
+      States(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~States() = default ;
+      States& operator=(const States &) = default ;
+      States& operator=(States &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->accountDisplayName_ == nullptr
+        && this->accountId_ == nullptr && this->accountName_ == nullptr && this->accountState_ == nullptr && this->accountType_ == nullptr && this->certExpireTime_ == nullptr
+        && this->certState_ == nullptr && this->revokable_ == nullptr; };
+      // accountDisplayName Field Functions 
+      bool hasAccountDisplayName() const { return this->accountDisplayName_ != nullptr;};
+      void deleteAccountDisplayName() { this->accountDisplayName_ = nullptr;};
+      inline string getAccountDisplayName() const { DARABONBA_PTR_GET_DEFAULT(accountDisplayName_, "") };
+      inline States& setAccountDisplayName(string accountDisplayName) { DARABONBA_PTR_SET_VALUE(accountDisplayName_, accountDisplayName) };
+
+
+      // accountId Field Functions 
+      bool hasAccountId() const { return this->accountId_ != nullptr;};
+      void deleteAccountId() { this->accountId_ = nullptr;};
+      inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+      inline States& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+      // accountName Field Functions 
+      bool hasAccountName() const { return this->accountName_ != nullptr;};
+      void deleteAccountName() { this->accountName_ = nullptr;};
+      inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+      inline States& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+      // accountState Field Functions 
+      bool hasAccountState() const { return this->accountState_ != nullptr;};
+      void deleteAccountState() { this->accountState_ = nullptr;};
+      inline string getAccountState() const { DARABONBA_PTR_GET_DEFAULT(accountState_, "") };
+      inline States& setAccountState(string accountState) { DARABONBA_PTR_SET_VALUE(accountState_, accountState) };
+
+
+      // accountType Field Functions 
+      bool hasAccountType() const { return this->accountType_ != nullptr;};
+      void deleteAccountType() { this->accountType_ = nullptr;};
+      inline string getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+      inline States& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
+      // certExpireTime Field Functions 
+      bool hasCertExpireTime() const { return this->certExpireTime_ != nullptr;};
+      void deleteCertExpireTime() { this->certExpireTime_ = nullptr;};
+      inline string getCertExpireTime() const { DARABONBA_PTR_GET_DEFAULT(certExpireTime_, "") };
+      inline States& setCertExpireTime(string certExpireTime) { DARABONBA_PTR_SET_VALUE(certExpireTime_, certExpireTime) };
+
+
+      // certState Field Functions 
+      bool hasCertState() const { return this->certState_ != nullptr;};
+      void deleteCertState() { this->certState_ = nullptr;};
+      inline string getCertState() const { DARABONBA_PTR_GET_DEFAULT(certState_, "") };
+      inline States& setCertState(string certState) { DARABONBA_PTR_SET_VALUE(certState_, certState) };
+
+
+      // revokable Field Functions 
+      bool hasRevokable() const { return this->revokable_ != nullptr;};
+      void deleteRevokable() { this->revokable_ = nullptr;};
+      inline bool getRevokable() const { DARABONBA_PTR_GET_DEFAULT(revokable_, false) };
+      inline States& setRevokable(bool revokable) { DARABONBA_PTR_SET_VALUE(revokable_, revokable) };
+
+
+    protected:
+      // The displayed name or role name of the RAM user.
+      shared_ptr<string> accountDisplayName_ {};
+      // The ID of an Alibaba Cloud account, RAM user, or RAM role.
+      shared_ptr<string> accountId_ {};
+      // The logon name or role name of the RAM user.
+      shared_ptr<string> accountName_ {};
+      // The status of the account.
+      // 
+      // *   Active: The account is active.
+      // *   InActive: The account is locked.
+      // *   Deleted: The account is deleted.
+      shared_ptr<string> accountState_ {};
+      // The type of the account.
+      // 
+      // *   RootAccount: Alibaba Cloud account.
+      // *   RamUser: RAM user.
+      // *   RamRole: RAM role.
+      shared_ptr<string> accountType_ {};
+      // The expiration time of the client certificate for the kubeconfig file.
+      shared_ptr<string> certExpireTime_ {};
+      // The status of the client certificate for the kubeconfig file.
+      // 
+      // *   Unexpired: The certificate is not expired.
+      // *   Expired: The certificate is expired.
+      // *   Unknown: The status of the certificate is unknown.
+      shared_ptr<string> certState_ {};
+      // Indicates whether the client certificate for the kubeconfig file can be revoked.
+      shared_ptr<bool> revokable_ {};
+    };
+
+    class Page : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Page& obj) { 
+        DARABONBA_PTR_TO_JSON(page_number, pageNumber_);
+        DARABONBA_PTR_TO_JSON(page_size, pageSize_);
+        DARABONBA_PTR_TO_JSON(total_count, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Page& obj) { 
+        DARABONBA_PTR_FROM_JSON(page_number, pageNumber_);
+        DARABONBA_PTR_FROM_JSON(page_size, pageSize_);
+        DARABONBA_PTR_FROM_JSON(total_count, totalCount_);
+      };
+      Page() = default ;
+      Page(const Page &) = default ;
+      Page(Page &&) = default ;
+      Page(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Page() = default ;
+      Page& operator=(const Page &) = default ;
+      Page& operator=(Page &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->totalCount_ == nullptr; };
+      // pageNumber Field Functions 
+      bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+      void deletePageNumber() { this->pageNumber_ = nullptr;};
+      inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+      inline Page& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline Page& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline Page& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      // The page number.
+      shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
+      shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries returned.
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->page_ == nullptr
-        && return this->states_ == nullptr; };
+        && this->states_ == nullptr; };
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline const ListClusterKubeconfigStatesResponseBodyPage & page() const { DARABONBA_PTR_GET_CONST(page_, ListClusterKubeconfigStatesResponseBodyPage) };
-    inline ListClusterKubeconfigStatesResponseBodyPage page() { DARABONBA_PTR_GET(page_, ListClusterKubeconfigStatesResponseBodyPage) };
-    inline ListClusterKubeconfigStatesResponseBody& setPage(const ListClusterKubeconfigStatesResponseBodyPage & page) { DARABONBA_PTR_SET_VALUE(page_, page) };
-    inline ListClusterKubeconfigStatesResponseBody& setPage(ListClusterKubeconfigStatesResponseBodyPage && page) { DARABONBA_PTR_SET_RVALUE(page_, page) };
+    inline const ListClusterKubeconfigStatesResponseBody::Page & getPage() const { DARABONBA_PTR_GET_CONST(page_, ListClusterKubeconfigStatesResponseBody::Page) };
+    inline ListClusterKubeconfigStatesResponseBody::Page getPage() { DARABONBA_PTR_GET(page_, ListClusterKubeconfigStatesResponseBody::Page) };
+    inline ListClusterKubeconfigStatesResponseBody& setPage(const ListClusterKubeconfigStatesResponseBody::Page & page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+    inline ListClusterKubeconfigStatesResponseBody& setPage(ListClusterKubeconfigStatesResponseBody::Page && page) { DARABONBA_PTR_SET_RVALUE(page_, page) };
 
 
     // states Field Functions 
     bool hasStates() const { return this->states_ != nullptr;};
     void deleteStates() { this->states_ = nullptr;};
-    inline const vector<ListClusterKubeconfigStatesResponseBodyStates> & states() const { DARABONBA_PTR_GET_CONST(states_, vector<ListClusterKubeconfigStatesResponseBodyStates>) };
-    inline vector<ListClusterKubeconfigStatesResponseBodyStates> states() { DARABONBA_PTR_GET(states_, vector<ListClusterKubeconfigStatesResponseBodyStates>) };
-    inline ListClusterKubeconfigStatesResponseBody& setStates(const vector<ListClusterKubeconfigStatesResponseBodyStates> & states) { DARABONBA_PTR_SET_VALUE(states_, states) };
-    inline ListClusterKubeconfigStatesResponseBody& setStates(vector<ListClusterKubeconfigStatesResponseBodyStates> && states) { DARABONBA_PTR_SET_RVALUE(states_, states) };
+    inline const vector<ListClusterKubeconfigStatesResponseBody::States> & getStates() const { DARABONBA_PTR_GET_CONST(states_, vector<ListClusterKubeconfigStatesResponseBody::States>) };
+    inline vector<ListClusterKubeconfigStatesResponseBody::States> getStates() { DARABONBA_PTR_GET(states_, vector<ListClusterKubeconfigStatesResponseBody::States>) };
+    inline ListClusterKubeconfigStatesResponseBody& setStates(const vector<ListClusterKubeconfigStatesResponseBody::States> & states) { DARABONBA_PTR_SET_VALUE(states_, states) };
+    inline ListClusterKubeconfigStatesResponseBody& setStates(vector<ListClusterKubeconfigStatesResponseBody::States> && states) { DARABONBA_PTR_SET_RVALUE(states_, states) };
 
 
   protected:
     // The pagination information.
-    std::shared_ptr<ListClusterKubeconfigStatesResponseBodyPage> page_ = nullptr;
+    shared_ptr<ListClusterKubeconfigStatesResponseBody::Page> page_ {};
     // The status list of the kubeconfig files associated with the cluster.
-    std::shared_ptr<vector<ListClusterKubeconfigStatesResponseBodyStates>> states_ = nullptr;
+    shared_ptr<vector<ListClusterKubeconfigStatesResponseBody::States>> states_ {};
   };
 
   } // namespace Models

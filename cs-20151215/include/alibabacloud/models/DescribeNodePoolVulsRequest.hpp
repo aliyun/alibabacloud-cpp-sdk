@@ -33,7 +33,7 @@ namespace Models
     // necessity Field Functions 
     bool hasNecessity() const { return this->necessity_ != nullptr;};
     void deleteNecessity() { this->necessity_ = nullptr;};
-    inline string necessity() const { DARABONBA_PTR_GET_DEFAULT(necessity_, "") };
+    inline string getNecessity() const { DARABONBA_PTR_GET_DEFAULT(necessity_, "") };
     inline DescribeNodePoolVulsRequest& setNecessity(string necessity) { DARABONBA_PTR_SET_VALUE(necessity_, necessity) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // *   `asap`: high
     // *   `later`: medium
     // *   `nntf`: low
-    std::shared_ptr<string> necessity_ = nullptr;
+    shared_ptr<string> necessity_ {};
   };
 
   } // namespace Models

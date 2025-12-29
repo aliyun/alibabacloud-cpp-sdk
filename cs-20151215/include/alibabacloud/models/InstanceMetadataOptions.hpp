@@ -33,12 +33,12 @@ namespace Models
     // httpTokens Field Functions 
     bool hasHttpTokens() const { return this->httpTokens_ != nullptr;};
     void deleteHttpTokens() { this->httpTokens_ = nullptr;};
-    inline string httpTokens() const { DARABONBA_PTR_GET_DEFAULT(httpTokens_, "") };
+    inline string getHttpTokens() const { DARABONBA_PTR_GET_DEFAULT(httpTokens_, "") };
     inline InstanceMetadataOptions& setHttpTokens(string httpTokens) { DARABONBA_PTR_SET_VALUE(httpTokens_, httpTokens) };
 
 
   protected:
-    std::shared_ptr<string> httpTokens_ = nullptr;
+    shared_ptr<string> httpTokens_ {};
   };
 
   } // namespace Models

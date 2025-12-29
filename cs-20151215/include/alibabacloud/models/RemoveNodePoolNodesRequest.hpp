@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->concurrency_ == nullptr
-        && return this->drainNode_ == nullptr && return this->instanceIds_ == nullptr && return this->nodes_ == nullptr && return this->releaseNode_ == nullptr; };
+        && this->drainNode_ == nullptr && this->instanceIds_ == nullptr && this->nodes_ == nullptr && this->releaseNode_ == nullptr; };
     // concurrency Field Functions 
     bool hasConcurrency() const { return this->concurrency_ != nullptr;};
     void deleteConcurrency() { this->concurrency_ = nullptr;};
-    inline bool concurrency() const { DARABONBA_PTR_GET_DEFAULT(concurrency_, false) };
+    inline bool getConcurrency() const { DARABONBA_PTR_GET_DEFAULT(concurrency_, false) };
     inline RemoveNodePoolNodesRequest& setConcurrency(bool concurrency) { DARABONBA_PTR_SET_VALUE(concurrency_, concurrency) };
 
 
     // drainNode Field Functions 
     bool hasDrainNode() const { return this->drainNode_ != nullptr;};
     void deleteDrainNode() { this->drainNode_ = nullptr;};
-    inline bool drainNode() const { DARABONBA_PTR_GET_DEFAULT(drainNode_, false) };
+    inline bool getDrainNode() const { DARABONBA_PTR_GET_DEFAULT(drainNode_, false) };
     inline RemoveNodePoolNodesRequest& setDrainNode(bool drainNode) { DARABONBA_PTR_SET_VALUE(drainNode_, drainNode) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline RemoveNodePoolNodesRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline RemoveNodePoolNodesRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -66,8 +66,8 @@ namespace Models
     // nodes Field Functions 
     bool hasNodes() const { return this->nodes_ != nullptr;};
     void deleteNodes() { this->nodes_ = nullptr;};
-    inline const vector<string> & nodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
-    inline vector<string> nodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
+    inline const vector<string> & getNodes() const { DARABONBA_PTR_GET_CONST(nodes_, vector<string>) };
+    inline vector<string> getNodes() { DARABONBA_PTR_GET(nodes_, vector<string>) };
     inline RemoveNodePoolNodesRequest& setNodes(const vector<string> & nodes) { DARABONBA_PTR_SET_VALUE(nodes_, nodes) };
     inline RemoveNodePoolNodesRequest& setNodes(vector<string> && nodes) { DARABONBA_PTR_SET_RVALUE(nodes_, nodes) };
 
@@ -75,31 +75,31 @@ namespace Models
     // releaseNode Field Functions 
     bool hasReleaseNode() const { return this->releaseNode_ != nullptr;};
     void deleteReleaseNode() { this->releaseNode_ = nullptr;};
-    inline bool releaseNode() const { DARABONBA_PTR_GET_DEFAULT(releaseNode_, false) };
+    inline bool getReleaseNode() const { DARABONBA_PTR_GET_DEFAULT(releaseNode_, false) };
     inline RemoveNodePoolNodesRequest& setReleaseNode(bool releaseNode) { DARABONBA_PTR_SET_VALUE(releaseNode_, releaseNode) };
 
 
   protected:
     // Whether to remove concurrently.
-    std::shared_ptr<bool> concurrency_ = nullptr;
+    shared_ptr<bool> concurrency_ {};
     // Specifies whether to drain the nodes that you want to remove. Valid values:
     // 
     // *   true: drain the nodes that you want to remove.
     // *   false: do not drain the nodes that you want to remove.
-    std::shared_ptr<bool> drainNode_ = nullptr;
+    shared_ptr<bool> drainNode_ {};
     // A list of instances that you want to remove.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // This parameter is deprecated.
     // 
     // A list of nodes that you want to remove.
     // 
     // >  This parameter is deprecated. Use instance_ids instead.
-    std::shared_ptr<vector<string>> nodes_ = nullptr;
+    shared_ptr<vector<string>> nodes_ {};
     // Specifies whether to release the nodes after they are removed. Valid values:
     // 
     // *   true: release the nodes after they are removed.
     // *   false: do not release the nodes after they are removed.
-    std::shared_ptr<bool> releaseNode_ = nullptr;
+    shared_ptr<bool> releaseNode_ {};
   };
 
   } // namespace Models

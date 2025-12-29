@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->privateIpAddress_ == nullptr
-        && return this->temporaryDurationMinutes_ == nullptr; };
+        && this->temporaryDurationMinutes_ == nullptr; };
     // privateIpAddress Field Functions 
     bool hasPrivateIpAddress() const { return this->privateIpAddress_ != nullptr;};
     void deletePrivateIpAddress() { this->privateIpAddress_ = nullptr;};
-    inline bool privateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, false) };
+    inline bool getPrivateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, false) };
     inline DescribeClusterUserKubeconfigRequest& setPrivateIpAddress(bool privateIpAddress) { DARABONBA_PTR_SET_VALUE(privateIpAddress_, privateIpAddress) };
 
 
     // temporaryDurationMinutes Field Functions 
     bool hasTemporaryDurationMinutes() const { return this->temporaryDurationMinutes_ != nullptr;};
     void deleteTemporaryDurationMinutes() { this->temporaryDurationMinutes_ = nullptr;};
-    inline int64_t temporaryDurationMinutes() const { DARABONBA_PTR_GET_DEFAULT(temporaryDurationMinutes_, 0L) };
+    inline int64_t getTemporaryDurationMinutes() const { DARABONBA_PTR_GET_DEFAULT(temporaryDurationMinutes_, 0L) };
     inline DescribeClusterUserKubeconfigRequest& setTemporaryDurationMinutes(int64_t temporaryDurationMinutes) { DARABONBA_PTR_SET_VALUE(temporaryDurationMinutes_, temporaryDurationMinutes) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   `false`: obtains the kubeconfig file that is used to connect to the master instance over the Internet.
     // 
     // Default value: `false`
-    std::shared_ptr<bool> privateIpAddress_ = nullptr;
+    shared_ptr<bool> privateIpAddress_ {};
     // The validity period of the temporary kubeconfig file. Unit: minutes. Valid values: 15 to 4320 (3 days).
     // 
     // **
     // 
     // **Usage notes** If you do not specify this parameter, the system specifies a longer validity period. The validity period is returned in the `expiration` parameter.
-    std::shared_ptr<int64_t> temporaryDurationMinutes_ = nullptr;
+    shared_ptr<int64_t> temporaryDurationMinutes_ {};
   };
 
   } // namespace Models

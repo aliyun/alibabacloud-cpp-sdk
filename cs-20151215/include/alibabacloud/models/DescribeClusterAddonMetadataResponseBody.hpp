@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configSchema_ == nullptr
-        && return this->name_ == nullptr && return this->version_ == nullptr; };
+        && this->name_ == nullptr && this->version_ == nullptr; };
     // configSchema Field Functions 
     bool hasConfigSchema() const { return this->configSchema_ != nullptr;};
     void deleteConfigSchema() { this->configSchema_ = nullptr;};
-    inline string configSchema() const { DARABONBA_PTR_GET_DEFAULT(configSchema_, "") };
+    inline string getConfigSchema() const { DARABONBA_PTR_GET_DEFAULT(configSchema_, "") };
     inline DescribeClusterAddonMetadataResponseBody& setConfigSchema(string configSchema) { DARABONBA_PTR_SET_VALUE(configSchema_, configSchema) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeClusterAddonMetadataResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline DescribeClusterAddonMetadataResponseBody& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
     // The component schema parameters.
-    std::shared_ptr<string> configSchema_ = nullptr;
+    shared_ptr<string> configSchema_ {};
     // The component name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The component version.
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

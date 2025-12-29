@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disabledCheckItems_ == nullptr
-        && return this->enabled_ == nullptr && return this->scheduleTime_ == nullptr; };
+        && this->enabled_ == nullptr && this->scheduleTime_ == nullptr; };
     // disabledCheckItems Field Functions 
     bool hasDisabledCheckItems() const { return this->disabledCheckItems_ != nullptr;};
     void deleteDisabledCheckItems() { this->disabledCheckItems_ = nullptr;};
-    inline const vector<string> & disabledCheckItems() const { DARABONBA_PTR_GET_CONST(disabledCheckItems_, vector<string>) };
-    inline vector<string> disabledCheckItems() { DARABONBA_PTR_GET(disabledCheckItems_, vector<string>) };
+    inline const vector<string> & getDisabledCheckItems() const { DARABONBA_PTR_GET_CONST(disabledCheckItems_, vector<string>) };
+    inline vector<string> getDisabledCheckItems() { DARABONBA_PTR_GET(disabledCheckItems_, vector<string>) };
     inline UpdateClusterInspectConfigRequest& setDisabledCheckItems(const vector<string> & disabledCheckItems) { DARABONBA_PTR_SET_VALUE(disabledCheckItems_, disabledCheckItems) };
     inline UpdateClusterInspectConfigRequest& setDisabledCheckItems(vector<string> && disabledCheckItems) { DARABONBA_PTR_SET_RVALUE(disabledCheckItems_, disabledCheckItems) };
 
@@ -48,24 +48,24 @@ namespace Models
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline UpdateClusterInspectConfigRequest& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // scheduleTime Field Functions 
     bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
     void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
-    inline string scheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
+    inline string getScheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
     inline UpdateClusterInspectConfigRequest& setScheduleTime(string scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
 
 
   protected:
     // The list of disabled inspection check items.
-    std::shared_ptr<vector<string>> disabledCheckItems_ = nullptr;
+    shared_ptr<vector<string>> disabledCheckItems_ {};
     // Specifies whether to enable cluster inspection.
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<bool> enabled_ {};
     // The inspection period defined using RFC5545 Recurrence Rule. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT or UNTIL is not supported.
-    std::shared_ptr<string> scheduleTime_ = nullptr;
+    shared_ptr<string> scheduleTime_ {};
   };
 
   } // namespace Models

@@ -45,62 +45,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arch_ == nullptr
-        && return this->expired_ == nullptr && return this->formatDisk_ == nullptr && return this->keepInstanceName_ == nullptr && return this->nodepoolId_ == nullptr && return this->oneTimeToken_ == nullptr
-        && return this->options_ == nullptr && return this->rdsInstances_ == nullptr; };
+        && this->expired_ == nullptr && this->formatDisk_ == nullptr && this->keepInstanceName_ == nullptr && this->nodepoolId_ == nullptr && this->oneTimeToken_ == nullptr
+        && this->options_ == nullptr && this->rdsInstances_ == nullptr; };
     // arch Field Functions 
     bool hasArch() const { return this->arch_ != nullptr;};
     void deleteArch() { this->arch_ = nullptr;};
-    inline string arch() const { DARABONBA_PTR_GET_DEFAULT(arch_, "") };
+    inline string getArch() const { DARABONBA_PTR_GET_DEFAULT(arch_, "") };
     inline DescribeClusterAttachScriptsRequest& setArch(string arch) { DARABONBA_PTR_SET_VALUE(arch_, arch) };
 
 
     // expired Field Functions 
     bool hasExpired() const { return this->expired_ != nullptr;};
     void deleteExpired() { this->expired_ = nullptr;};
-    inline int64_t expired() const { DARABONBA_PTR_GET_DEFAULT(expired_, 0L) };
+    inline int64_t getExpired() const { DARABONBA_PTR_GET_DEFAULT(expired_, 0L) };
     inline DescribeClusterAttachScriptsRequest& setExpired(int64_t expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
 
 
     // formatDisk Field Functions 
     bool hasFormatDisk() const { return this->formatDisk_ != nullptr;};
     void deleteFormatDisk() { this->formatDisk_ = nullptr;};
-    inline bool formatDisk() const { DARABONBA_PTR_GET_DEFAULT(formatDisk_, false) };
+    inline bool getFormatDisk() const { DARABONBA_PTR_GET_DEFAULT(formatDisk_, false) };
     inline DescribeClusterAttachScriptsRequest& setFormatDisk(bool formatDisk) { DARABONBA_PTR_SET_VALUE(formatDisk_, formatDisk) };
 
 
     // keepInstanceName Field Functions 
     bool hasKeepInstanceName() const { return this->keepInstanceName_ != nullptr;};
     void deleteKeepInstanceName() { this->keepInstanceName_ = nullptr;};
-    inline bool keepInstanceName() const { DARABONBA_PTR_GET_DEFAULT(keepInstanceName_, false) };
+    inline bool getKeepInstanceName() const { DARABONBA_PTR_GET_DEFAULT(keepInstanceName_, false) };
     inline DescribeClusterAttachScriptsRequest& setKeepInstanceName(bool keepInstanceName) { DARABONBA_PTR_SET_VALUE(keepInstanceName_, keepInstanceName) };
 
 
     // nodepoolId Field Functions 
     bool hasNodepoolId() const { return this->nodepoolId_ != nullptr;};
     void deleteNodepoolId() { this->nodepoolId_ = nullptr;};
-    inline string nodepoolId() const { DARABONBA_PTR_GET_DEFAULT(nodepoolId_, "") };
+    inline string getNodepoolId() const { DARABONBA_PTR_GET_DEFAULT(nodepoolId_, "") };
     inline DescribeClusterAttachScriptsRequest& setNodepoolId(string nodepoolId) { DARABONBA_PTR_SET_VALUE(nodepoolId_, nodepoolId) };
 
 
     // oneTimeToken Field Functions 
     bool hasOneTimeToken() const { return this->oneTimeToken_ != nullptr;};
     void deleteOneTimeToken() { this->oneTimeToken_ = nullptr;};
-    inline bool oneTimeToken() const { DARABONBA_PTR_GET_DEFAULT(oneTimeToken_, false) };
+    inline bool getOneTimeToken() const { DARABONBA_PTR_GET_DEFAULT(oneTimeToken_, false) };
     inline DescribeClusterAttachScriptsRequest& setOneTimeToken(bool oneTimeToken) { DARABONBA_PTR_SET_VALUE(oneTimeToken_, oneTimeToken) };
 
 
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline string options() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
     inline DescribeClusterAttachScriptsRequest& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
     // rdsInstances Field Functions 
     bool hasRdsInstances() const { return this->rdsInstances_ != nullptr;};
     void deleteRdsInstances() { this->rdsInstances_ = nullptr;};
-    inline const vector<string> & rdsInstances() const { DARABONBA_PTR_GET_CONST(rdsInstances_, vector<string>) };
-    inline vector<string> rdsInstances() { DARABONBA_PTR_GET(rdsInstances_, vector<string>) };
+    inline const vector<string> & getRdsInstances() const { DARABONBA_PTR_GET_CONST(rdsInstances_, vector<string>) };
+    inline vector<string> getRdsInstances() { DARABONBA_PTR_GET(rdsInstances_, vector<string>) };
     inline DescribeClusterAttachScriptsRequest& setRdsInstances(const vector<string> & rdsInstances) { DARABONBA_PTR_SET_VALUE(rdsInstances_, rdsInstances) };
     inline DescribeClusterAttachScriptsRequest& setRdsInstances(vector<string> && rdsInstances) { DARABONBA_PTR_SET_RVALUE(rdsInstances_, rdsInstances) };
 
@@ -111,9 +111,9 @@ namespace Models
     // Default value: `amd64`.
     // 
     // >  This parameter is required if you want to add a node to an ACK Edge cluster.
-    std::shared_ptr<string> arch_ = nullptr;
+    shared_ptr<string> arch_ {};
     // The expiration time of the token that is generated. The value is a UNIX timestamp. For example, a value of 1739980800 indicates 00:00:00 (UTC+8) on February 20, 2025.
-    std::shared_ptr<int64_t> expired_ = nullptr;
+    shared_ptr<int64_t> expired_ {};
     // Specifies whether to mount data disks to an existing instance when you manually add this instance to the cluster. You can use data disks to store container data and images. Valid values:
     // 
     // *   `true`: mounts data disks to the instance that you want to add. After a data disk is mounted, the original data on the disk is erased. Back up data before you mount a data disk.
@@ -125,25 +125,25 @@ namespace Models
     // 
     // *   If the Elastic Compute Service (ECS) instances are already mounted with data disks and the file system of the last data disk is uninitialized, the system automatically formats this data disk to ext4 and uses the disk to store the data in the /var/lib/docker and /var/lib/kubelet directories.
     // *   If no data disk is mounted to the ECS instance, the system does not purchase a new data disk.
-    std::shared_ptr<bool> formatDisk_ = nullptr;
+    shared_ptr<bool> formatDisk_ {};
     // Specifies whether to retain the name of an existing instance when it is added to the cluster. If you do not retain the instance name, the instance is renamed in the `worker-k8s-for-cs-<clusterid>` format. Valid values:
     // 
     // *   `true`: retains the instance name.
     // *   `false`: does not retain the instance name.
     // 
     // Default value: `true`.
-    std::shared_ptr<bool> keepInstanceName_ = nullptr;
+    shared_ptr<bool> keepInstanceName_ {};
     // The ID of the node pool to which you want to add an existing node.
     // 
     // >  If you do not specify a node pool ID, the node is added to the default node pool.
-    std::shared_ptr<string> nodepoolId_ = nullptr;
-    std::shared_ptr<bool> oneTimeToken_ = nullptr;
+    shared_ptr<string> nodepoolId_ {};
+    shared_ptr<bool> oneTimeToken_ {};
     // The node configurations for the node that you want to add.
     // 
     // >  This parameter is required if you want to add a node to an ACK Edge cluster.
-    std::shared_ptr<string> options_ = nullptr;
+    shared_ptr<string> options_ {};
     // A list of ApsaraDB RDS instances. ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
-    std::shared_ptr<vector<string>> rdsInstances_ = nullptr;
+    shared_ptr<vector<string>> rdsInstances_ {};
   };
 
   } // namespace Models

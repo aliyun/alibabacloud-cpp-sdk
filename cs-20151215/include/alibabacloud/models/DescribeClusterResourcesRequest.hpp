@@ -33,13 +33,13 @@ namespace Models
     // withAddonResources Field Functions 
     bool hasWithAddonResources() const { return this->withAddonResources_ != nullptr;};
     void deleteWithAddonResources() { this->withAddonResources_ = nullptr;};
-    inline bool withAddonResources() const { DARABONBA_PTR_GET_DEFAULT(withAddonResources_, false) };
+    inline bool getWithAddonResources() const { DARABONBA_PTR_GET_DEFAULT(withAddonResources_, false) };
     inline DescribeClusterResourcesRequest& setWithAddonResources(bool withAddonResources) { DARABONBA_PTR_SET_VALUE(withAddonResources_, withAddonResources) };
 
 
   protected:
     // Specifies whether to query the resources created by cluster components.
-    std::shared_ptr<bool> withAddonResources_ = nullptr;
+    shared_ptr<bool> withAddonResources_ {};
   };
 
   } // namespace Models

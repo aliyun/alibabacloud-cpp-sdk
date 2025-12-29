@@ -33,7 +33,7 @@ namespace Models
     // componentIdsShrink Field Functions 
     bool hasComponentIdsShrink() const { return this->componentIdsShrink_ != nullptr;};
     void deleteComponentIdsShrink() { this->componentIdsShrink_ = nullptr;};
-    inline string componentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(componentIdsShrink_, "") };
+    inline string getComponentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(componentIdsShrink_, "") };
     inline DescribeClusterAddonsUpgradeStatusShrinkRequest& setComponentIdsShrink(string componentIdsShrink) { DARABONBA_PTR_SET_VALUE(componentIdsShrink_, componentIdsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The list of component names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> componentIdsShrink_ = nullptr;
+    shared_ptr<string> componentIdsShrink_ {};
   };
 
   } // namespace Models

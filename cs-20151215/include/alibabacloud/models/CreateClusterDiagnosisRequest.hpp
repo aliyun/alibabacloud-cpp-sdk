@@ -32,20 +32,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->target_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline     const Darabonba::Json & target() const { DARABONBA_GET(target_) };
-    Darabonba::Json & target() { DARABONBA_GET(target_) };
+    inline     const Darabonba::Json & getTarget() const { DARABONBA_GET(target_) };
+    Darabonba::Json & getTarget() { DARABONBA_GET(target_) };
     inline CreateClusterDiagnosisRequest& setTarget(const Darabonba::Json & target) { DARABONBA_SET_VALUE(target_, target) };
-    inline CreateClusterDiagnosisRequest& setTarget(Darabonba::Json & target) { DARABONBA_SET_RVALUE(target_, target) };
+    inline CreateClusterDiagnosisRequest& setTarget(Darabonba::Json && target) { DARABONBA_SET_RVALUE(target_, target) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateClusterDiagnosisRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -75,7 +75,7 @@ namespace Models
     // service
     // 
     //     {"namespace": "kube-system", "name": "nginx-ingress-lb"}
-    Darabonba::Json target_ = nullptr;
+    Darabonba::Json target_ {};
     // The type of the diagnostic.
     // 
     // Valid values:
@@ -87,7 +87,7 @@ namespace Models
     // *   pod
     // *   service
     // *   network
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

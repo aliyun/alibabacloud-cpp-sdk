@@ -35,15 +35,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const vector<Tag> & body() const { DARABONBA_PTR_GET_CONST(body_, vector<Tag>) };
-    inline vector<Tag> body() { DARABONBA_PTR_GET(body_, vector<Tag>) };
+    inline const vector<Tag> & getBody() const { DARABONBA_PTR_GET_CONST(body_, vector<Tag>) };
+    inline vector<Tag> getBody() { DARABONBA_PTR_GET(body_, vector<Tag>) };
     inline ModifyClusterTagsRequest& setBody(const vector<Tag> & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline ModifyClusterTagsRequest& setBody(vector<Tag> && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The data of the tags that you want to modify.
-    std::shared_ptr<vector<Tag>> body_ = nullptr;
+    shared_ptr<vector<Tag>> body_ {};
   };
 
   } // namespace Models

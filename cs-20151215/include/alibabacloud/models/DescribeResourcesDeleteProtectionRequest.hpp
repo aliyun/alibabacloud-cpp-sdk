@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespace_ == nullptr
-        && return this->resources_ == nullptr; };
+        && this->resources_ == nullptr; };
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline DescribeResourcesDeleteProtectionRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline string resources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
+    inline string getResources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
     inline DescribeResourcesDeleteProtectionRequest& setResources(string resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The namespace in which the resources that you want to query reside.
     // 
     // This parameter is required when you set resource_type to services. Default value: default.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The names of the resources that you want to query. Separate multiple resource names with commas (,).
     // 
     // *   When you set resource_type to namespaces, you must specify namespace names. If you leave this parameter empty, all namespaces in the cluster are queried.
     // *   If you set resource_type to services, you must specify Service names.
-    std::shared_ptr<string> resources_ = nullptr;
+    shared_ptr<string> resources_ {};
   };
 
   } // namespace Models

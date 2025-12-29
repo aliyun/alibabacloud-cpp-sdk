@@ -33,13 +33,13 @@ namespace Models
     // nodepoolName Field Functions 
     bool hasNodepoolName() const { return this->nodepoolName_ != nullptr;};
     void deleteNodepoolName() { this->nodepoolName_ = nullptr;};
-    inline string nodepoolName() const { DARABONBA_PTR_GET_DEFAULT(nodepoolName_, "") };
+    inline string getNodepoolName() const { DARABONBA_PTR_GET_DEFAULT(nodepoolName_, "") };
     inline DescribeClusterNodePoolsRequest& setNodepoolName(string nodepoolName) { DARABONBA_PTR_SET_VALUE(nodepoolName_, nodepoolName) };
 
 
   protected:
     // Node pool name.
-    std::shared_ptr<string> nodepoolName_ = nullptr;
+    shared_ptr<string> nodepoolName_ {};
   };
 
   } // namespace Models

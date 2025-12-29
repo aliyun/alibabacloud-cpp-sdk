@@ -62,56 +62,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coolDownDuration_ == nullptr
-        && return this->daemonsetEvictionForNodes_ == nullptr && return this->expander_ == nullptr && return this->gpuUtilizationThreshold_ == nullptr && return this->maxGracefulTerminationSec_ == nullptr && return this->minReplicaCount_ == nullptr
-        && return this->priorities_ == nullptr && return this->recycleNodeDeletionEnabled_ == nullptr && return this->scaleDownEnabled_ == nullptr && return this->scaleUpFromZero_ == nullptr && return this->scalerType_ == nullptr
-        && return this->scanInterval_ == nullptr && return this->skipNodesWithLocalStorage_ == nullptr && return this->skipNodesWithSystemPods_ == nullptr && return this->unneededDuration_ == nullptr && return this->utilizationThreshold_ == nullptr; };
+        && this->daemonsetEvictionForNodes_ == nullptr && this->expander_ == nullptr && this->gpuUtilizationThreshold_ == nullptr && this->maxGracefulTerminationSec_ == nullptr && this->minReplicaCount_ == nullptr
+        && this->priorities_ == nullptr && this->recycleNodeDeletionEnabled_ == nullptr && this->scaleDownEnabled_ == nullptr && this->scaleUpFromZero_ == nullptr && this->scalerType_ == nullptr
+        && this->scanInterval_ == nullptr && this->skipNodesWithLocalStorage_ == nullptr && this->skipNodesWithSystemPods_ == nullptr && this->unneededDuration_ == nullptr && this->utilizationThreshold_ == nullptr; };
     // coolDownDuration Field Functions 
     bool hasCoolDownDuration() const { return this->coolDownDuration_ != nullptr;};
     void deleteCoolDownDuration() { this->coolDownDuration_ = nullptr;};
-    inline string coolDownDuration() const { DARABONBA_PTR_GET_DEFAULT(coolDownDuration_, "") };
+    inline string getCoolDownDuration() const { DARABONBA_PTR_GET_DEFAULT(coolDownDuration_, "") };
     inline CreateAutoscalingConfigRequest& setCoolDownDuration(string coolDownDuration) { DARABONBA_PTR_SET_VALUE(coolDownDuration_, coolDownDuration) };
 
 
     // daemonsetEvictionForNodes Field Functions 
     bool hasDaemonsetEvictionForNodes() const { return this->daemonsetEvictionForNodes_ != nullptr;};
     void deleteDaemonsetEvictionForNodes() { this->daemonsetEvictionForNodes_ = nullptr;};
-    inline bool daemonsetEvictionForNodes() const { DARABONBA_PTR_GET_DEFAULT(daemonsetEvictionForNodes_, false) };
+    inline bool getDaemonsetEvictionForNodes() const { DARABONBA_PTR_GET_DEFAULT(daemonsetEvictionForNodes_, false) };
     inline CreateAutoscalingConfigRequest& setDaemonsetEvictionForNodes(bool daemonsetEvictionForNodes) { DARABONBA_PTR_SET_VALUE(daemonsetEvictionForNodes_, daemonsetEvictionForNodes) };
 
 
     // expander Field Functions 
     bool hasExpander() const { return this->expander_ != nullptr;};
     void deleteExpander() { this->expander_ = nullptr;};
-    inline string expander() const { DARABONBA_PTR_GET_DEFAULT(expander_, "") };
+    inline string getExpander() const { DARABONBA_PTR_GET_DEFAULT(expander_, "") };
     inline CreateAutoscalingConfigRequest& setExpander(string expander) { DARABONBA_PTR_SET_VALUE(expander_, expander) };
 
 
     // gpuUtilizationThreshold Field Functions 
     bool hasGpuUtilizationThreshold() const { return this->gpuUtilizationThreshold_ != nullptr;};
     void deleteGpuUtilizationThreshold() { this->gpuUtilizationThreshold_ = nullptr;};
-    inline string gpuUtilizationThreshold() const { DARABONBA_PTR_GET_DEFAULT(gpuUtilizationThreshold_, "") };
+    inline string getGpuUtilizationThreshold() const { DARABONBA_PTR_GET_DEFAULT(gpuUtilizationThreshold_, "") };
     inline CreateAutoscalingConfigRequest& setGpuUtilizationThreshold(string gpuUtilizationThreshold) { DARABONBA_PTR_SET_VALUE(gpuUtilizationThreshold_, gpuUtilizationThreshold) };
 
 
     // maxGracefulTerminationSec Field Functions 
     bool hasMaxGracefulTerminationSec() const { return this->maxGracefulTerminationSec_ != nullptr;};
     void deleteMaxGracefulTerminationSec() { this->maxGracefulTerminationSec_ = nullptr;};
-    inline int32_t maxGracefulTerminationSec() const { DARABONBA_PTR_GET_DEFAULT(maxGracefulTerminationSec_, 0) };
+    inline int32_t getMaxGracefulTerminationSec() const { DARABONBA_PTR_GET_DEFAULT(maxGracefulTerminationSec_, 0) };
     inline CreateAutoscalingConfigRequest& setMaxGracefulTerminationSec(int32_t maxGracefulTerminationSec) { DARABONBA_PTR_SET_VALUE(maxGracefulTerminationSec_, maxGracefulTerminationSec) };
 
 
     // minReplicaCount Field Functions 
     bool hasMinReplicaCount() const { return this->minReplicaCount_ != nullptr;};
     void deleteMinReplicaCount() { this->minReplicaCount_ = nullptr;};
-    inline int32_t minReplicaCount() const { DARABONBA_PTR_GET_DEFAULT(minReplicaCount_, 0) };
+    inline int32_t getMinReplicaCount() const { DARABONBA_PTR_GET_DEFAULT(minReplicaCount_, 0) };
     inline CreateAutoscalingConfigRequest& setMinReplicaCount(int32_t minReplicaCount) { DARABONBA_PTR_SET_VALUE(minReplicaCount_, minReplicaCount) };
 
 
     // priorities Field Functions 
     bool hasPriorities() const { return this->priorities_ != nullptr;};
     void deletePriorities() { this->priorities_ = nullptr;};
-    inline const map<string, vector<string>> & priorities() const { DARABONBA_PTR_GET_CONST(priorities_, map<string, vector<string>>) };
-    inline map<string, vector<string>> priorities() { DARABONBA_PTR_GET(priorities_, map<string, vector<string>>) };
+    inline const map<string, vector<string>> & getPriorities() const { DARABONBA_PTR_GET_CONST(priorities_, map<string, vector<string>>) };
+    inline map<string, vector<string>> getPriorities() { DARABONBA_PTR_GET(priorities_, map<string, vector<string>>) };
     inline CreateAutoscalingConfigRequest& setPriorities(const map<string, vector<string>> & priorities) { DARABONBA_PTR_SET_VALUE(priorities_, priorities) };
     inline CreateAutoscalingConfigRequest& setPriorities(map<string, vector<string>> && priorities) { DARABONBA_PTR_SET_RVALUE(priorities_, priorities) };
 
@@ -119,128 +119,128 @@ namespace Models
     // recycleNodeDeletionEnabled Field Functions 
     bool hasRecycleNodeDeletionEnabled() const { return this->recycleNodeDeletionEnabled_ != nullptr;};
     void deleteRecycleNodeDeletionEnabled() { this->recycleNodeDeletionEnabled_ = nullptr;};
-    inline bool recycleNodeDeletionEnabled() const { DARABONBA_PTR_GET_DEFAULT(recycleNodeDeletionEnabled_, false) };
+    inline bool getRecycleNodeDeletionEnabled() const { DARABONBA_PTR_GET_DEFAULT(recycleNodeDeletionEnabled_, false) };
     inline CreateAutoscalingConfigRequest& setRecycleNodeDeletionEnabled(bool recycleNodeDeletionEnabled) { DARABONBA_PTR_SET_VALUE(recycleNodeDeletionEnabled_, recycleNodeDeletionEnabled) };
 
 
     // scaleDownEnabled Field Functions 
     bool hasScaleDownEnabled() const { return this->scaleDownEnabled_ != nullptr;};
     void deleteScaleDownEnabled() { this->scaleDownEnabled_ = nullptr;};
-    inline bool scaleDownEnabled() const { DARABONBA_PTR_GET_DEFAULT(scaleDownEnabled_, false) };
+    inline bool getScaleDownEnabled() const { DARABONBA_PTR_GET_DEFAULT(scaleDownEnabled_, false) };
     inline CreateAutoscalingConfigRequest& setScaleDownEnabled(bool scaleDownEnabled) { DARABONBA_PTR_SET_VALUE(scaleDownEnabled_, scaleDownEnabled) };
 
 
     // scaleUpFromZero Field Functions 
     bool hasScaleUpFromZero() const { return this->scaleUpFromZero_ != nullptr;};
     void deleteScaleUpFromZero() { this->scaleUpFromZero_ = nullptr;};
-    inline bool scaleUpFromZero() const { DARABONBA_PTR_GET_DEFAULT(scaleUpFromZero_, false) };
+    inline bool getScaleUpFromZero() const { DARABONBA_PTR_GET_DEFAULT(scaleUpFromZero_, false) };
     inline CreateAutoscalingConfigRequest& setScaleUpFromZero(bool scaleUpFromZero) { DARABONBA_PTR_SET_VALUE(scaleUpFromZero_, scaleUpFromZero) };
 
 
     // scalerType Field Functions 
     bool hasScalerType() const { return this->scalerType_ != nullptr;};
     void deleteScalerType() { this->scalerType_ = nullptr;};
-    inline string scalerType() const { DARABONBA_PTR_GET_DEFAULT(scalerType_, "") };
+    inline string getScalerType() const { DARABONBA_PTR_GET_DEFAULT(scalerType_, "") };
     inline CreateAutoscalingConfigRequest& setScalerType(string scalerType) { DARABONBA_PTR_SET_VALUE(scalerType_, scalerType) };
 
 
     // scanInterval Field Functions 
     bool hasScanInterval() const { return this->scanInterval_ != nullptr;};
     void deleteScanInterval() { this->scanInterval_ = nullptr;};
-    inline string scanInterval() const { DARABONBA_PTR_GET_DEFAULT(scanInterval_, "") };
+    inline string getScanInterval() const { DARABONBA_PTR_GET_DEFAULT(scanInterval_, "") };
     inline CreateAutoscalingConfigRequest& setScanInterval(string scanInterval) { DARABONBA_PTR_SET_VALUE(scanInterval_, scanInterval) };
 
 
     // skipNodesWithLocalStorage Field Functions 
     bool hasSkipNodesWithLocalStorage() const { return this->skipNodesWithLocalStorage_ != nullptr;};
     void deleteSkipNodesWithLocalStorage() { this->skipNodesWithLocalStorage_ = nullptr;};
-    inline bool skipNodesWithLocalStorage() const { DARABONBA_PTR_GET_DEFAULT(skipNodesWithLocalStorage_, false) };
+    inline bool getSkipNodesWithLocalStorage() const { DARABONBA_PTR_GET_DEFAULT(skipNodesWithLocalStorage_, false) };
     inline CreateAutoscalingConfigRequest& setSkipNodesWithLocalStorage(bool skipNodesWithLocalStorage) { DARABONBA_PTR_SET_VALUE(skipNodesWithLocalStorage_, skipNodesWithLocalStorage) };
 
 
     // skipNodesWithSystemPods Field Functions 
     bool hasSkipNodesWithSystemPods() const { return this->skipNodesWithSystemPods_ != nullptr;};
     void deleteSkipNodesWithSystemPods() { this->skipNodesWithSystemPods_ = nullptr;};
-    inline bool skipNodesWithSystemPods() const { DARABONBA_PTR_GET_DEFAULT(skipNodesWithSystemPods_, false) };
+    inline bool getSkipNodesWithSystemPods() const { DARABONBA_PTR_GET_DEFAULT(skipNodesWithSystemPods_, false) };
     inline CreateAutoscalingConfigRequest& setSkipNodesWithSystemPods(bool skipNodesWithSystemPods) { DARABONBA_PTR_SET_VALUE(skipNodesWithSystemPods_, skipNodesWithSystemPods) };
 
 
     // unneededDuration Field Functions 
     bool hasUnneededDuration() const { return this->unneededDuration_ != nullptr;};
     void deleteUnneededDuration() { this->unneededDuration_ = nullptr;};
-    inline string unneededDuration() const { DARABONBA_PTR_GET_DEFAULT(unneededDuration_, "") };
+    inline string getUnneededDuration() const { DARABONBA_PTR_GET_DEFAULT(unneededDuration_, "") };
     inline CreateAutoscalingConfigRequest& setUnneededDuration(string unneededDuration) { DARABONBA_PTR_SET_VALUE(unneededDuration_, unneededDuration) };
 
 
     // utilizationThreshold Field Functions 
     bool hasUtilizationThreshold() const { return this->utilizationThreshold_ != nullptr;};
     void deleteUtilizationThreshold() { this->utilizationThreshold_ = nullptr;};
-    inline string utilizationThreshold() const { DARABONBA_PTR_GET_DEFAULT(utilizationThreshold_, "") };
+    inline string getUtilizationThreshold() const { DARABONBA_PTR_GET_DEFAULT(utilizationThreshold_, "") };
     inline CreateAutoscalingConfigRequest& setUtilizationThreshold(string utilizationThreshold) { DARABONBA_PTR_SET_VALUE(utilizationThreshold_, utilizationThreshold) };
 
 
   protected:
     // The waiting time before the auto scaling feature performs a scale-in activity. It is an interval between the time when the scale-in threshold is reached and the time when the scale-in activity (reducing the number of pods) starts. Unit: minutes. Default value: 10.
-    std::shared_ptr<string> coolDownDuration_ = nullptr;
+    shared_ptr<string> coolDownDuration_ {};
     // Specifies whether to evict pods created by DaemonSets when the cluster autoscaler performs a scale-in activity. Valid values:
     // 
     // *   `true`: evicts DaemonSet pods.
     // *   `false`: does not evict DaemonSet pods.
-    std::shared_ptr<bool> daemonsetEvictionForNodes_ = nullptr;
+    shared_ptr<bool> daemonsetEvictionForNodes_ {};
     // The node pool scale-out policy. Valid values:
     // 
     // *   `least-waste`: the default policy. If multiple node pools meet the requirement, this policy selects the node pool that will have the least idle resources after the scale-out activity is completed.
     // *   `random`: the random policy. If multiple node pools meet the requirement, this policy selects a random node pool for the scale-out activity.
     // *   `priority`: the priority-based policy If multiple node pools meet the requirement, this policy selects the node pool with the highest priority for the scale-out activity. The priority setting is stored in the ConfigMap named `cluster-autoscaler-priority-expander` in the kube-system namespace. When a scale-out activity is triggered, the policy obtains the node pool priorities from the ConfigMap based on the node pool IDs and then selects the node pool with the highest priority for the scale-out activity.
-    std::shared_ptr<string> expander_ = nullptr;
+    shared_ptr<string> expander_ {};
     // The scale-in threshold of GPU utilization. This threshold specifies the ratio of the GPU resources that are requested by pods to the total GPU resources on the node.
     // 
     // A scale-in activity is performed only when the CPU utilization, memory utilization, and GPU utilization of a GPU-accelerated node are lower than the scale-in threshold of GPU utilization.
-    std::shared_ptr<string> gpuUtilizationThreshold_ = nullptr;
+    shared_ptr<string> gpuUtilizationThreshold_ {};
     // The maximum amount of time to wait for pods on a node to terminate during a scale-in activity. Unit: seconds.
-    std::shared_ptr<int32_t> maxGracefulTerminationSec_ = nullptr;
+    shared_ptr<int32_t> maxGracefulTerminationSec_ {};
     // The minimum number of pods allowed in each ReplicaSet before a scale-in activity is performed.
-    std::shared_ptr<int32_t> minReplicaCount_ = nullptr;
+    shared_ptr<int32_t> minReplicaCount_ {};
     // Auto-scaling priority configuration. After creating a node pool with elasticity enabled, you can choose whether to configure a priority strategy and priority settings through [Enabling Node Auto-scaling](https://help.aliyun.com/document_detail/119099.html). This allows you to set priorities for the specified auto-scaling node pool scaling group. The priority value range is [1, 100] and must be a positive integer.
-    std::shared_ptr<map<string, vector<string>>> priorities_ = nullptr;
+    shared_ptr<map<string, vector<string>>> priorities_ {};
     // Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false Valid values:
     // 
     // *   `true`: deletes the corresponding Kubernetes node objects after nodes are removed in swift mode. We recommend that you do not set the value to true because data inconsistency may occur in Kubernetes objects.
     // *   `false`: retains the corresponding Kubernetes node objects after nodes are removed in swift mode.
-    std::shared_ptr<bool> recycleNodeDeletionEnabled_ = nullptr;
+    shared_ptr<bool> recycleNodeDeletionEnabled_ {};
     // Specifies whether to allow node scale-in activities. Valid values:
     // 
     // *   `true`: allows node scale-in activities.
     // *   `false`: does not allow node scale-in activities.
-    std::shared_ptr<bool> scaleDownEnabled_ = nullptr;
+    shared_ptr<bool> scaleDownEnabled_ {};
     // Specifies whether the cluster autoscaler performs a scale-out activity when the number of ready nodes in the cluster is 0. Default value: true. Valid values:
     // 
     // *   `true`: performs a scale-out activity.
     // *   `false`: does not perform a scale-out activity.
-    std::shared_ptr<bool> scaleUpFromZero_ = nullptr;
+    shared_ptr<bool> scaleUpFromZero_ {};
     // Elastic component type, default is goatscaler for cluster version 1.24 and above, and cluster-autoscaler below that. Values:
     // 
     // - `goatscaler`: Instant elasticity. 
     // - `cluster-autoscaler`: Auto-scaling.
-    std::shared_ptr<string> scalerType_ = nullptr;
+    shared_ptr<string> scalerType_ {};
     // The interval at which the system scans for events that trigger scaling activities. Unit: seconds. Default value: 60.
-    std::shared_ptr<string> scanInterval_ = nullptr;
+    shared_ptr<string> scanInterval_ {};
     // Specifies whether the cluster autoscaler scales in nodes that host pods mounted with local volumes, such as EmptyDir or HostPath volumes. Valid values:
     // 
     // *   `true`: does not allow the cluster autoscaler to scale in these nodes.
     // *   `false`: allows the cluster autoscaler to scale in these nodes.
-    std::shared_ptr<bool> skipNodesWithLocalStorage_ = nullptr;
+    shared_ptr<bool> skipNodesWithLocalStorage_ {};
     // Specifies whether the cluster autoscaler scales in nodes that host pods in the kube-system namespace. This parameter does not take effect on pods created by DaemonSets and mirror pods. Valid values:
     // 
     // *   `true`: does not allow the cluster autoscaler to scale in these nodes.
     // *   `false`: allows the cluster autoscaler to scale in these nodes.
-    std::shared_ptr<bool> skipNodesWithSystemPods_ = nullptr;
+    shared_ptr<bool> skipNodesWithSystemPods_ {};
     // The cooldown period. After the autoscaler performs a scale-out activity, the autoscaler waits a cooldown period before it can perform a scale-in activity. Newly added nodes can be removed in scale-in activities only after the cooldown period ends. Unit: minutes.
-    std::shared_ptr<string> unneededDuration_ = nullptr;
+    shared_ptr<string> unneededDuration_ {};
     // The scale-in threshold. This threshold specifies the ratio of the resources that are requested by pods to the total resources on the node.
     // 
     // A scale-in activity is performed only when the CPU utilization and memory utilization of a node are lower than the scale-in threshold.
-    std::shared_ptr<string> utilizationThreshold_ = nullptr;
+    shared_ptr<string> utilizationThreshold_ {};
   };
 
   } // namespace Models

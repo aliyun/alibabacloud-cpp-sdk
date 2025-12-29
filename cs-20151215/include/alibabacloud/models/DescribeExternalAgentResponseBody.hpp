@@ -33,13 +33,13 @@ namespace Models
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline DescribeExternalAgentResponseBody& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
   protected:
     // The agent configurations in the YAML format.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->disabled_ == nullptr && return this->name_ == nullptr && return this->version_ == nullptr; };
+        && this->disabled_ == nullptr && this->name_ == nullptr && this->version_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline Addon& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // disabled Field Functions 
     bool hasDisabled() const { return this->disabled_ != nullptr;};
     void deleteDisabled() { this->disabled_ = nullptr;};
-    inline bool disabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
+    inline bool getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
     inline Addon& setDisabled(bool disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Addon& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline Addon& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<bool> disabled_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> config_ {};
+    shared_ptr<bool> disabled_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

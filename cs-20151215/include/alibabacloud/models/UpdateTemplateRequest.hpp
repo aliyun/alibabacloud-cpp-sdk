@@ -38,56 +38,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->tags_ == nullptr && return this->template_ == nullptr && return this->templateType_ == nullptr; };
+        && this->name_ == nullptr && this->tags_ == nullptr && this->template_ == nullptr && this->templateType_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateTemplateRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateTemplateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline UpdateTemplateRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline UpdateTemplateRequest& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline string templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
     inline UpdateTemplateRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
   protected:
     // The description of the template.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the template.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The label of the template.
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
     // The YAML content of the template.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
     // The type of template. This parameter can be set to a custom value.
     // 
     // *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
     // *   If the parameter is set to `compose`, the template is displayed on the Container Service - Swarm page in the console. Container Service for Swarm is deprecated.
-    std::shared_ptr<string> templateType_ = nullptr;
+    shared_ptr<string> templateType_ {};
   };
 
   } // namespace Models
