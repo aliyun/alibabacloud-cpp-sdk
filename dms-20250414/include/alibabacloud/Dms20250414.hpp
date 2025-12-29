@@ -276,6 +276,23 @@ namespace Dms20250414
       Models::DeleteDataLakeTableResponse deleteDataLakeTable(const Models::DeleteDataLakeTableRequest &request);
 
       /**
+       * @summary DescribeCustomAgent
+       *
+       * @param request DescribeCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCustomAgentResponse
+       */
+      Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeCustomAgent
+       *
+       * @param request DescribeCustomAgentRequest
+       * @return DescribeCustomAgentResponse
+       */
+      Models::DescribeCustomAgentResponse describeCustomAgent(const Models::DescribeCustomAgentRequest &request);
+
+      /**
        * @summary DescribeDataAgentSession
        *
        * @param request DescribeDataAgentSessionRequest
@@ -470,6 +487,23 @@ namespace Dms20250414
        * @return ListAirflowsResponse
        */
       Models::ListAirflowsResponse listAirflows(const Models::ListAirflowsRequest &request);
+
+      /**
+       * @summary ListCustomAgent
+       *
+       * @param request ListCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomAgentResponse
+       */
+      Models::ListCustomAgentResponse listCustomAgentWithOptions(const Models::ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListCustomAgent
+       *
+       * @param request ListCustomAgentRequest
+       * @return ListCustomAgentResponse
+       */
+      Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
 
       /**
        * @summary 获取uc的数据库目录列表

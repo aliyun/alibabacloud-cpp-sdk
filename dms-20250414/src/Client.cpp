@@ -1033,6 +1033,52 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTable(const DeleteDataLakeTabl
 }
 
 /**
+ * @summary DescribeCustomAgent
+ *
+ * @param request DescribeCustomAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCustomAgentResponse
+ */
+DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.customAgentId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCustomAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCustomAgentResponse>();
+}
+
+/**
+ * @summary DescribeCustomAgent
+ *
+ * @param request DescribeCustomAgentRequest
+ * @return DescribeCustomAgentResponse
+ */
+DescribeCustomAgentResponse Client::describeCustomAgent(const DescribeCustomAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCustomAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary DescribeDataAgentSession
  *
  * @param request DescribeDataAgentSessionRequest
@@ -1691,6 +1737,68 @@ ListAirflowsResponse Client::listAirflowsWithOptions(const ListAirflowsRequest &
 ListAirflowsResponse Client::listAirflows(const ListAirflowsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAirflowsWithOptions(request, runtime);
+}
+
+/**
+ * @summary ListCustomAgent
+ *
+ * @param request ListCustomAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomAgentResponse
+ */
+ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasQueryAllReleased()) {
+    query["QueryAllReleased"] = request.queryAllReleased();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.searchKey();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomAgentResponse>();
+}
+
+/**
+ * @summary ListCustomAgent
+ *
+ * @param request ListCustomAgentRequest
+ * @return ListCustomAgentResponse
+ */
+ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomAgentWithOptions(request, runtime);
 }
 
 /**
