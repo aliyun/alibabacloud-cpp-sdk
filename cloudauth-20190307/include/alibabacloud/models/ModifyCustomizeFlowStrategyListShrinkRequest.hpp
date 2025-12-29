@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->productType_ == nullptr
-        && return this->strategyObjectShrink_ == nullptr; };
+        && this->strategyObjectShrink_ == nullptr; };
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ModifyCustomizeFlowStrategyListShrinkRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // strategyObjectShrink Field Functions 
     bool hasStrategyObjectShrink() const { return this->strategyObjectShrink_ != nullptr;};
     void deleteStrategyObjectShrink() { this->strategyObjectShrink_ = nullptr;};
-    inline string strategyObjectShrink() const { DARABONBA_PTR_GET_DEFAULT(strategyObjectShrink_, "") };
+    inline string getStrategyObjectShrink() const { DARABONBA_PTR_GET_DEFAULT(strategyObjectShrink_, "") };
     inline ModifyCustomizeFlowStrategyListShrinkRequest& setStrategyObjectShrink(string strategyObjectShrink) { DARABONBA_PTR_SET_VALUE(strategyObjectShrink_, strategyObjectShrink) };
 
 
   protected:
     // Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade real person), all others have been phased out.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // Strategy list.
-    std::shared_ptr<string> strategyObjectShrink_ = nullptr;
+    shared_ptr<string> strategyObjectShrink_ {};
   };
 
   } // namespace Models

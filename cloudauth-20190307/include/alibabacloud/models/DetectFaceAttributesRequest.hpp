@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->materialValue_ == nullptr; };
+        && this->materialValue_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline DetectFaceAttributesRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // materialValue Field Functions 
     bool hasMaterialValue() const { return this->materialValue_ != nullptr;};
     void deleteMaterialValue() { this->materialValue_ = nullptr;};
-    inline string materialValue() const { DARABONBA_PTR_GET_DEFAULT(materialValue_, "") };
+    inline string getMaterialValue() const { DARABONBA_PTR_GET_DEFAULT(materialValue_, "") };
     inline DetectFaceAttributesRequest& setMaterialValue(string materialValue) { DARABONBA_PTR_SET_VALUE(materialValue_, materialValue) };
 
 
   protected:
     // Identifier for the business scenario using real-person authentication services.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // The photo to be detected, see the instructions for uploading image addresses for format description. A maximum of 5 faces can be detected in a single image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> materialValue_ = nullptr;
+    shared_ptr<string> materialValue_ {};
   };
 
   } // namespace Models

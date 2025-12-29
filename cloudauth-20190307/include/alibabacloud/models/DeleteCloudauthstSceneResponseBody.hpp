@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resultObject_ == nullptr; };
+        && this->resultObject_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteCloudauthstSceneResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultObject Field Functions 
     bool hasResultObject() const { return this->resultObject_ != nullptr;};
     void deleteResultObject() { this->resultObject_ = nullptr;};
-    inline bool resultObject() const { DARABONBA_PTR_GET_DEFAULT(resultObject_, false) };
+    inline bool getResultObject() const { DARABONBA_PTR_GET_DEFAULT(resultObject_, false) };
     inline DeleteCloudauthstSceneResponseBody& setResultObject(bool resultObject) { DARABONBA_PTR_SET_VALUE(resultObject_, resultObject) };
 
 
   protected:
     // ID of this request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Return result.
-    std::shared_ptr<bool> resultObject_ = nullptr;
+    shared_ptr<bool> resultObject_ {};
   };
 
   } // namespace Models

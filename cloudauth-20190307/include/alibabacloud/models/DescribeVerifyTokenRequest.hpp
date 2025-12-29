@@ -58,111 +58,111 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->bizType_ == nullptr && return this->callbackSeed_ == nullptr && return this->callbackUrl_ == nullptr && return this->faceRetainedImageUrl_ == nullptr && return this->failedRedirectUrl_ == nullptr
-        && return this->idCardBackImageUrl_ == nullptr && return this->idCardFrontImageUrl_ == nullptr && return this->idCardNumber_ == nullptr && return this->name_ == nullptr && return this->passedRedirectUrl_ == nullptr
-        && return this->userId_ == nullptr && return this->userIp_ == nullptr && return this->userPhoneNumber_ == nullptr && return this->userRegistTime_ == nullptr; };
+        && this->bizType_ == nullptr && this->callbackSeed_ == nullptr && this->callbackUrl_ == nullptr && this->faceRetainedImageUrl_ == nullptr && this->failedRedirectUrl_ == nullptr
+        && this->idCardBackImageUrl_ == nullptr && this->idCardFrontImageUrl_ == nullptr && this->idCardNumber_ == nullptr && this->name_ == nullptr && this->passedRedirectUrl_ == nullptr
+        && this->userId_ == nullptr && this->userIp_ == nullptr && this->userPhoneNumber_ == nullptr && this->userRegistTime_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline DescribeVerifyTokenRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline DescribeVerifyTokenRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // callbackSeed Field Functions 
     bool hasCallbackSeed() const { return this->callbackSeed_ != nullptr;};
     void deleteCallbackSeed() { this->callbackSeed_ = nullptr;};
-    inline string callbackSeed() const { DARABONBA_PTR_GET_DEFAULT(callbackSeed_, "") };
+    inline string getCallbackSeed() const { DARABONBA_PTR_GET_DEFAULT(callbackSeed_, "") };
     inline DescribeVerifyTokenRequest& setCallbackSeed(string callbackSeed) { DARABONBA_PTR_SET_VALUE(callbackSeed_, callbackSeed) };
 
 
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
-    inline string callbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
+    inline string getCallbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
     inline DescribeVerifyTokenRequest& setCallbackUrl(string callbackUrl) { DARABONBA_PTR_SET_VALUE(callbackUrl_, callbackUrl) };
 
 
     // faceRetainedImageUrl Field Functions 
     bool hasFaceRetainedImageUrl() const { return this->faceRetainedImageUrl_ != nullptr;};
     void deleteFaceRetainedImageUrl() { this->faceRetainedImageUrl_ = nullptr;};
-    inline string faceRetainedImageUrl() const { DARABONBA_PTR_GET_DEFAULT(faceRetainedImageUrl_, "") };
+    inline string getFaceRetainedImageUrl() const { DARABONBA_PTR_GET_DEFAULT(faceRetainedImageUrl_, "") };
     inline DescribeVerifyTokenRequest& setFaceRetainedImageUrl(string faceRetainedImageUrl) { DARABONBA_PTR_SET_VALUE(faceRetainedImageUrl_, faceRetainedImageUrl) };
 
 
     // failedRedirectUrl Field Functions 
     bool hasFailedRedirectUrl() const { return this->failedRedirectUrl_ != nullptr;};
     void deleteFailedRedirectUrl() { this->failedRedirectUrl_ = nullptr;};
-    inline string failedRedirectUrl() const { DARABONBA_PTR_GET_DEFAULT(failedRedirectUrl_, "") };
+    inline string getFailedRedirectUrl() const { DARABONBA_PTR_GET_DEFAULT(failedRedirectUrl_, "") };
     inline DescribeVerifyTokenRequest& setFailedRedirectUrl(string failedRedirectUrl) { DARABONBA_PTR_SET_VALUE(failedRedirectUrl_, failedRedirectUrl) };
 
 
     // idCardBackImageUrl Field Functions 
     bool hasIdCardBackImageUrl() const { return this->idCardBackImageUrl_ != nullptr;};
     void deleteIdCardBackImageUrl() { this->idCardBackImageUrl_ = nullptr;};
-    inline string idCardBackImageUrl() const { DARABONBA_PTR_GET_DEFAULT(idCardBackImageUrl_, "") };
+    inline string getIdCardBackImageUrl() const { DARABONBA_PTR_GET_DEFAULT(idCardBackImageUrl_, "") };
     inline DescribeVerifyTokenRequest& setIdCardBackImageUrl(string idCardBackImageUrl) { DARABONBA_PTR_SET_VALUE(idCardBackImageUrl_, idCardBackImageUrl) };
 
 
     // idCardFrontImageUrl Field Functions 
     bool hasIdCardFrontImageUrl() const { return this->idCardFrontImageUrl_ != nullptr;};
     void deleteIdCardFrontImageUrl() { this->idCardFrontImageUrl_ = nullptr;};
-    inline string idCardFrontImageUrl() const { DARABONBA_PTR_GET_DEFAULT(idCardFrontImageUrl_, "") };
+    inline string getIdCardFrontImageUrl() const { DARABONBA_PTR_GET_DEFAULT(idCardFrontImageUrl_, "") };
     inline DescribeVerifyTokenRequest& setIdCardFrontImageUrl(string idCardFrontImageUrl) { DARABONBA_PTR_SET_VALUE(idCardFrontImageUrl_, idCardFrontImageUrl) };
 
 
     // idCardNumber Field Functions 
     bool hasIdCardNumber() const { return this->idCardNumber_ != nullptr;};
     void deleteIdCardNumber() { this->idCardNumber_ = nullptr;};
-    inline string idCardNumber() const { DARABONBA_PTR_GET_DEFAULT(idCardNumber_, "") };
+    inline string getIdCardNumber() const { DARABONBA_PTR_GET_DEFAULT(idCardNumber_, "") };
     inline DescribeVerifyTokenRequest& setIdCardNumber(string idCardNumber) { DARABONBA_PTR_SET_VALUE(idCardNumber_, idCardNumber) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeVerifyTokenRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // passedRedirectUrl Field Functions 
     bool hasPassedRedirectUrl() const { return this->passedRedirectUrl_ != nullptr;};
     void deletePassedRedirectUrl() { this->passedRedirectUrl_ = nullptr;};
-    inline string passedRedirectUrl() const { DARABONBA_PTR_GET_DEFAULT(passedRedirectUrl_, "") };
+    inline string getPassedRedirectUrl() const { DARABONBA_PTR_GET_DEFAULT(passedRedirectUrl_, "") };
     inline DescribeVerifyTokenRequest& setPassedRedirectUrl(string passedRedirectUrl) { DARABONBA_PTR_SET_VALUE(passedRedirectUrl_, passedRedirectUrl) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DescribeVerifyTokenRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userIp Field Functions 
     bool hasUserIp() const { return this->userIp_ != nullptr;};
     void deleteUserIp() { this->userIp_ = nullptr;};
-    inline string userIp() const { DARABONBA_PTR_GET_DEFAULT(userIp_, "") };
+    inline string getUserIp() const { DARABONBA_PTR_GET_DEFAULT(userIp_, "") };
     inline DescribeVerifyTokenRequest& setUserIp(string userIp) { DARABONBA_PTR_SET_VALUE(userIp_, userIp) };
 
 
     // userPhoneNumber Field Functions 
     bool hasUserPhoneNumber() const { return this->userPhoneNumber_ != nullptr;};
     void deleteUserPhoneNumber() { this->userPhoneNumber_ = nullptr;};
-    inline string userPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(userPhoneNumber_, "") };
+    inline string getUserPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(userPhoneNumber_, "") };
     inline DescribeVerifyTokenRequest& setUserPhoneNumber(string userPhoneNumber) { DARABONBA_PTR_SET_VALUE(userPhoneNumber_, userPhoneNumber) };
 
 
     // userRegistTime Field Functions 
     bool hasUserRegistTime() const { return this->userRegistTime_ != nullptr;};
     void deleteUserRegistTime() { this->userRegistTime_ = nullptr;};
-    inline int64_t userRegistTime() const { DARABONBA_PTR_GET_DEFAULT(userRegistTime_, 0L) };
+    inline int64_t getUserRegistTime() const { DARABONBA_PTR_GET_DEFAULT(userRegistTime_, 0L) };
     inline DescribeVerifyTokenRequest& setUserRegistTime(int64_t userRegistTime) { DARABONBA_PTR_SET_VALUE(userRegistTime_, userRegistTime) };
 
 
@@ -172,37 +172,37 @@ namespace Models
     // > Different BizIds are required for different verification tasks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizId_ = nullptr;
+    shared_ptr<string> bizId_ {};
     // Identifier for the business scenario using the real person authentication service. Please refer to [Business Settings](https://help.aliyun.com/document_detail/127885.html) and complete the creation in the console first.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // Callback seed.
-    std::shared_ptr<string> callbackSeed_ = nullptr;
+    shared_ptr<string> callbackSeed_ {};
     // Callback URL.
-    std::shared_ptr<string> callbackUrl_ = nullptr;
+    shared_ptr<string> callbackUrl_ {};
     // HTTP or HTTPS link to the retained portrait photo.
-    std::shared_ptr<string> faceRetainedImageUrl_ = nullptr;
+    shared_ptr<string> faceRetainedImageUrl_ {};
     // Redirect URL for failed verification.
-    std::shared_ptr<string> failedRedirectUrl_ = nullptr;
+    shared_ptr<string> failedRedirectUrl_ {};
     // HTTP or HTTPS link to the national emblem side of the ID card image.
-    std::shared_ptr<string> idCardBackImageUrl_ = nullptr;
+    shared_ptr<string> idCardBackImageUrl_ {};
     // HTTP or HTTPS link to the portrait side of the ID card image.
-    std::shared_ptr<string> idCardFrontImageUrl_ = nullptr;
+    shared_ptr<string> idCardFrontImageUrl_ {};
     // ID card number.
-    std::shared_ptr<string> idCardNumber_ = nullptr;
+    shared_ptr<string> idCardNumber_ {};
     // Name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Redirect URL upon successful verification.
-    std::shared_ptr<string> passedRedirectUrl_ = nullptr;
+    shared_ptr<string> passedRedirectUrl_ {};
     // ID of the end user, such as the account ID of the end user.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // User IP.
-    std::shared_ptr<string> userIp_ = nullptr;
+    shared_ptr<string> userIp_ {};
     // User phone number.
-    std::shared_ptr<string> userPhoneNumber_ = nullptr;
+    shared_ptr<string> userPhoneNumber_ {};
     // User registration time. Expressed in timestamp format, unit: milliseconds.
-    std::shared_ptr<int64_t> userRegistTime_ = nullptr;
+    shared_ptr<int64_t> userRegistTime_ {};
   };
 
   } // namespace Models

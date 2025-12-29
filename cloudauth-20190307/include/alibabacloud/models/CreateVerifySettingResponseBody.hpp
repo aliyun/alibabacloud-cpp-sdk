@@ -39,55 +39,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizName_ == nullptr
-        && return this->bizType_ == nullptr && return this->requestId_ == nullptr && return this->solution_ == nullptr && return this->stepList_ == nullptr; };
+        && this->bizType_ == nullptr && this->requestId_ == nullptr && this->solution_ == nullptr && this->stepList_ == nullptr; };
     // bizName Field Functions 
     bool hasBizName() const { return this->bizName_ != nullptr;};
     void deleteBizName() { this->bizName_ = nullptr;};
-    inline string bizName() const { DARABONBA_PTR_GET_DEFAULT(bizName_, "") };
+    inline string getBizName() const { DARABONBA_PTR_GET_DEFAULT(bizName_, "") };
     inline CreateVerifySettingResponseBody& setBizName(string bizName) { DARABONBA_PTR_SET_VALUE(bizName_, bizName) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CreateVerifySettingResponseBody& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateVerifySettingResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // solution Field Functions 
     bool hasSolution() const { return this->solution_ != nullptr;};
     void deleteSolution() { this->solution_ = nullptr;};
-    inline string solution() const { DARABONBA_PTR_GET_DEFAULT(solution_, "") };
+    inline string getSolution() const { DARABONBA_PTR_GET_DEFAULT(solution_, "") };
     inline CreateVerifySettingResponseBody& setSolution(string solution) { DARABONBA_PTR_SET_VALUE(solution_, solution) };
 
 
     // stepList Field Functions 
     bool hasStepList() const { return this->stepList_ != nullptr;};
     void deleteStepList() { this->stepList_ = nullptr;};
-    inline const vector<string> & stepList() const { DARABONBA_PTR_GET_CONST(stepList_, vector<string>) };
-    inline vector<string> stepList() { DARABONBA_PTR_GET(stepList_, vector<string>) };
+    inline const vector<string> & getStepList() const { DARABONBA_PTR_GET_CONST(stepList_, vector<string>) };
+    inline vector<string> getStepList() { DARABONBA_PTR_GET(stepList_, vector<string>) };
     inline CreateVerifySettingResponseBody& setStepList(const vector<string> & stepList) { DARABONBA_PTR_SET_VALUE(stepList_, stepList) };
     inline CreateVerifySettingResponseBody& setStepList(vector<string> && stepList) { DARABONBA_PTR_SET_RVALUE(stepList_, stepList) };
 
 
   protected:
     // Verification scenario name.
-    std::shared_ptr<string> bizName_ = nullptr;
+    shared_ptr<string> bizName_ {};
     // Verification scenario identifier.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // ID of this request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Authentication solution name.
-    std::shared_ptr<string> solution_ = nullptr;
+    shared_ptr<string> solution_ {};
     // Authentication steps
-    std::shared_ptr<vector<string>> stepList_ = nullptr;
+    shared_ptr<vector<string>> stepList_ {};
   };
 
   } // namespace Models

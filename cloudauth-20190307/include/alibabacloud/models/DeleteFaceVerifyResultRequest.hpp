@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certifyId_ == nullptr
-        && return this->deleteAfterQuery_ == nullptr; };
+        && this->deleteAfterQuery_ == nullptr; };
     // certifyId Field Functions 
     bool hasCertifyId() const { return this->certifyId_ != nullptr;};
     void deleteCertifyId() { this->certifyId_ = nullptr;};
-    inline string certifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
+    inline string getCertifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
     inline DeleteFaceVerifyResultRequest& setCertifyId(string certifyId) { DARABONBA_PTR_SET_VALUE(certifyId_, certifyId) };
 
 
     // deleteAfterQuery Field Functions 
     bool hasDeleteAfterQuery() const { return this->deleteAfterQuery_ != nullptr;};
     void deleteDeleteAfterQuery() { this->deleteAfterQuery_ = nullptr;};
-    inline string deleteAfterQuery() const { DARABONBA_PTR_GET_DEFAULT(deleteAfterQuery_, "") };
+    inline string getDeleteAfterQuery() const { DARABONBA_PTR_GET_DEFAULT(deleteAfterQuery_, "") };
     inline DeleteFaceVerifyResultRequest& setDeleteAfterQuery(string deleteAfterQuery) { DARABONBA_PTR_SET_VALUE(deleteAfterQuery_, deleteAfterQuery) };
 
 
   protected:
     // Unique identifier for real-person authentication.
-    std::shared_ptr<string> certifyId_ = nullptr;
+    shared_ptr<string> certifyId_ {};
     // Whether deletion depends on having already obtained relevant data from the corresponding authentication process.
     // 
     // - Y: Required. To successfully delete the related data, you must have obtained the processing result through the DescribeFaceVerify interface.
     // - N: Not required (default). For pure server-side API integration, you can directly pass N.
-    std::shared_ptr<string> deleteAfterQuery_ = nullptr;
+    shared_ptr<string> deleteAfterQuery_ {};
   };
 
   } // namespace Models

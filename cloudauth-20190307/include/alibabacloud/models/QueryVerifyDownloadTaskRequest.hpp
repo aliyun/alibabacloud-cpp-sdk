@@ -33,13 +33,13 @@ namespace Models
     // downloadTaskId Field Functions 
     bool hasDownloadTaskId() const { return this->downloadTaskId_ != nullptr;};
     void deleteDownloadTaskId() { this->downloadTaskId_ = nullptr;};
-    inline string downloadTaskId() const { DARABONBA_PTR_GET_DEFAULT(downloadTaskId_, "") };
+    inline string getDownloadTaskId() const { DARABONBA_PTR_GET_DEFAULT(downloadTaskId_, "") };
     inline QueryVerifyDownloadTaskRequest& setDownloadTaskId(string downloadTaskId) { DARABONBA_PTR_SET_VALUE(downloadTaskId_, downloadTaskId) };
 
 
   protected:
     // Download task ID.
-    std::shared_ptr<string> downloadTaskId_ = nullptr;
+    shared_ptr<string> downloadTaskId_ {};
   };
 
   } // namespace Models

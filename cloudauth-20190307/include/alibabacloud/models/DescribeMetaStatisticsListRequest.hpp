@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->api_ == nullptr
-        && return this->endDate_ == nullptr && return this->startDate_ == nullptr; };
+        && this->endDate_ == nullptr && this->startDate_ == nullptr; };
     // api Field Functions 
     bool hasApi() const { return this->api_ != nullptr;};
     void deleteApi() { this->api_ = nullptr;};
-    inline string api() const { DARABONBA_PTR_GET_DEFAULT(api_, "") };
+    inline string getApi() const { DARABONBA_PTR_GET_DEFAULT(api_, "") };
     inline DescribeMetaStatisticsListRequest& setApi(string api) { DARABONBA_PTR_SET_VALUE(api_, api) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline int64_t endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
+    inline int64_t getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
     inline DescribeMetaStatisticsListRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline int64_t startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
+    inline int64_t getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
     inline DescribeMetaStatisticsListRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> api_ = nullptr;
+    shared_ptr<string> api_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> endDate_ = nullptr;
+    shared_ptr<int64_t> endDate_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startDate_ = nullptr;
+    shared_ptr<int64_t> startDate_ {};
   };
 
   } // namespace Models

@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mobiles_ == nullptr
-        && return this->paramType_ == nullptr; };
+        && this->paramType_ == nullptr; };
     // mobiles Field Functions 
     bool hasMobiles() const { return this->mobiles_ != nullptr;};
     void deleteMobiles() { this->mobiles_ = nullptr;};
-    inline string mobiles() const { DARABONBA_PTR_GET_DEFAULT(mobiles_, "") };
+    inline string getMobiles() const { DARABONBA_PTR_GET_DEFAULT(mobiles_, "") };
     inline MobileDetectRequest& setMobiles(string mobiles) { DARABONBA_PTR_SET_VALUE(mobiles_, mobiles) };
 
 
     // paramType Field Functions 
     bool hasParamType() const { return this->paramType_ != nullptr;};
     void deleteParamType() { this->paramType_ = nullptr;};
-    inline string paramType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+    inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
     inline MobileDetectRequest& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
 
 
   protected:
     // List of phone numbers.
-    std::shared_ptr<string> mobiles_ = nullptr;
+    shared_ptr<string> mobiles_ {};
     // Encryption method:
     // - normal: plaintext, no encryption
     // - md5: MD5 encryption
-    std::shared_ptr<string> paramType_ = nullptr;
+    shared_ptr<string> paramType_ {};
   };
 
   } // namespace Models

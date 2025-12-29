@@ -33,7 +33,7 @@ namespace Models
     // sceneId Field Functions 
     bool hasSceneId() const { return this->sceneId_ != nullptr;};
     void deleteSceneId() { this->sceneId_ = nullptr;};
-    inline string sceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
     inline DeleteCloudauthstSceneRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // ID of the scene to be deleted.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sceneId_ = nullptr;
+    shared_ptr<string> sceneId_ {};
   };
 
   } // namespace Models

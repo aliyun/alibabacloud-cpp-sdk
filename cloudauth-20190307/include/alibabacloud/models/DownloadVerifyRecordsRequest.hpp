@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizParam_ == nullptr
-        && return this->productType_ == nullptr; };
+        && this->productType_ == nullptr; };
     // bizParam Field Functions 
     bool hasBizParam() const { return this->bizParam_ != nullptr;};
     void deleteBizParam() { this->bizParam_ = nullptr;};
-    inline string bizParam() const { DARABONBA_PTR_GET_DEFAULT(bizParam_, "") };
+    inline string getBizParam() const { DARABONBA_PTR_GET_DEFAULT(bizParam_, "") };
     inline DownloadVerifyRecordsRequest& setBizParam(string bizParam) { DARABONBA_PTR_SET_VALUE(bizParam_, bizParam) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline DownloadVerifyRecordsRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -78,13 +78,13 @@ namespace Models
     //   - **VEHICLE_INSURE_DATE**: Vehicle insurance date inquiry
     //   - **VEHICLE_CHECK**: Vehicle factor verification
     // - **ProductCode** (Information Verification): Same as Code
-    std::shared_ptr<string> bizParam_ = nullptr;
+    shared_ptr<string> bizParam_ {};
     // Product type:
     // - **FINANCE_VERIFY**: Financial-level real-person authentication
     // - **SMART_VERIFY**: Enhanced real-person authentication (discontinued)
     // - **FACE_VERIFY**: Real-person authentication (discontinued)
     // - **INFO_CHECK_STATISTICS**: Information verification
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

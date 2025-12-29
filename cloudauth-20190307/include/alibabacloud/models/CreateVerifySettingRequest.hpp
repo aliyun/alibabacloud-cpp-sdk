@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizName_ == nullptr
-        && return this->bizType_ == nullptr && return this->guideStep_ == nullptr && return this->privacyStep_ == nullptr && return this->resultStep_ == nullptr && return this->solution_ == nullptr; };
+        && this->bizType_ == nullptr && this->guideStep_ == nullptr && this->privacyStep_ == nullptr && this->resultStep_ == nullptr && this->solution_ == nullptr; };
     // bizName Field Functions 
     bool hasBizName() const { return this->bizName_ != nullptr;};
     void deleteBizName() { this->bizName_ = nullptr;};
-    inline string bizName() const { DARABONBA_PTR_GET_DEFAULT(bizName_, "") };
+    inline string getBizName() const { DARABONBA_PTR_GET_DEFAULT(bizName_, "") };
     inline CreateVerifySettingRequest& setBizName(string bizName) { DARABONBA_PTR_SET_VALUE(bizName_, bizName) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CreateVerifySettingRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // guideStep Field Functions 
     bool hasGuideStep() const { return this->guideStep_ != nullptr;};
     void deleteGuideStep() { this->guideStep_ = nullptr;};
-    inline bool guideStep() const { DARABONBA_PTR_GET_DEFAULT(guideStep_, false) };
+    inline bool getGuideStep() const { DARABONBA_PTR_GET_DEFAULT(guideStep_, false) };
     inline CreateVerifySettingRequest& setGuideStep(bool guideStep) { DARABONBA_PTR_SET_VALUE(guideStep_, guideStep) };
 
 
     // privacyStep Field Functions 
     bool hasPrivacyStep() const { return this->privacyStep_ != nullptr;};
     void deletePrivacyStep() { this->privacyStep_ = nullptr;};
-    inline bool privacyStep() const { DARABONBA_PTR_GET_DEFAULT(privacyStep_, false) };
+    inline bool getPrivacyStep() const { DARABONBA_PTR_GET_DEFAULT(privacyStep_, false) };
     inline CreateVerifySettingRequest& setPrivacyStep(bool privacyStep) { DARABONBA_PTR_SET_VALUE(privacyStep_, privacyStep) };
 
 
     // resultStep Field Functions 
     bool hasResultStep() const { return this->resultStep_ != nullptr;};
     void deleteResultStep() { this->resultStep_ = nullptr;};
-    inline bool resultStep() const { DARABONBA_PTR_GET_DEFAULT(resultStep_, false) };
+    inline bool getResultStep() const { DARABONBA_PTR_GET_DEFAULT(resultStep_, false) };
     inline CreateVerifySettingRequest& setResultStep(bool resultStep) { DARABONBA_PTR_SET_VALUE(resultStep_, resultStep) };
 
 
     // solution Field Functions 
     bool hasSolution() const { return this->solution_ != nullptr;};
     void deleteSolution() { this->solution_ = nullptr;};
-    inline string solution() const { DARABONBA_PTR_GET_DEFAULT(solution_, "") };
+    inline string getSolution() const { DARABONBA_PTR_GET_DEFAULT(solution_, "") };
     inline CreateVerifySettingRequest& setSolution(string solution) { DARABONBA_PTR_SET_VALUE(solution_, solution) };
 
 
@@ -87,21 +87,21 @@ namespace Models
     // Verification scenario name, supporting Chinese, English, numbers, and hyphens (-), with a maximum of 20 characters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizName_ = nullptr;
+    shared_ptr<string> bizName_ {};
     // Verification scenario identifier, supporting English letters, numbers, and hyphens (-), with a maximum of 20 characters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // Whether to use the system\\"s default guide page.
-    std::shared_ptr<bool> guideStep_ = nullptr;
+    shared_ptr<bool> guideStep_ {};
     // Whether to use the system\\"s default authorization page.
-    std::shared_ptr<bool> privacyStep_ = nullptr;
+    shared_ptr<bool> privacyStep_ {};
     // Whether to use the system\\"s default result page.
-    std::shared_ptr<bool> resultStep_ = nullptr;
+    shared_ptr<bool> resultStep_ {};
     // The name of the authentication solution to use, such as **RPBasic**, **RPBioOnly**, etc. For all supported authentication solutions, see [Authentication Solutions](https://help.aliyun.com/document_detail/127521.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> solution_ = nullptr;
+    shared_ptr<string> solution_ {};
   };
 
   } // namespace Models

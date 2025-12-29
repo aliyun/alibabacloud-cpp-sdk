@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credName_ == nullptr
-        && return this->credType_ == nullptr && return this->imageFile_ == nullptr && return this->imageUrl_ == nullptr && return this->merchantId_ == nullptr && return this->productCode_ == nullptr; };
+        && this->credType_ == nullptr && this->imageFile_ == nullptr && this->imageUrl_ == nullptr && this->merchantId_ == nullptr && this->productCode_ == nullptr; };
     // credName Field Functions 
     bool hasCredName() const { return this->credName_ != nullptr;};
     void deleteCredName() { this->credName_ = nullptr;};
-    inline string credName() const { DARABONBA_PTR_GET_DEFAULT(credName_, "") };
+    inline string getCredName() const { DARABONBA_PTR_GET_DEFAULT(credName_, "") };
     inline CredentialProductVerifyV2Request& setCredName(string credName) { DARABONBA_PTR_SET_VALUE(credName_, credName) };
 
 
     // credType Field Functions 
     bool hasCredType() const { return this->credType_ != nullptr;};
     void deleteCredType() { this->credType_ = nullptr;};
-    inline string credType() const { DARABONBA_PTR_GET_DEFAULT(credType_, "") };
+    inline string getCredType() const { DARABONBA_PTR_GET_DEFAULT(credType_, "") };
     inline CredentialProductVerifyV2Request& setCredType(string credType) { DARABONBA_PTR_SET_VALUE(credType_, credType) };
 
 
     // imageFile Field Functions 
     bool hasImageFile() const { return this->imageFile_ != nullptr;};
     void deleteImageFile() { this->imageFile_ = nullptr;};
-    inline string imageFile() const { DARABONBA_PTR_GET_DEFAULT(imageFile_, "") };
+    inline string getImageFile() const { DARABONBA_PTR_GET_DEFAULT(imageFile_, "") };
     inline CredentialProductVerifyV2Request& setImageFile(string imageFile) { DARABONBA_PTR_SET_VALUE(imageFile_, imageFile) };
 
 
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
-    inline string imageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
+    inline string getImageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
     inline CredentialProductVerifyV2Request& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
     // merchantId Field Functions 
     bool hasMerchantId() const { return this->merchantId_ != nullptr;};
     void deleteMerchantId() { this->merchantId_ = nullptr;};
-    inline string merchantId() const { DARABONBA_PTR_GET_DEFAULT(merchantId_, "") };
+    inline string getMerchantId() const { DARABONBA_PTR_GET_DEFAULT(merchantId_, "") };
     inline CredentialProductVerifyV2Request& setMerchantId(string merchantId) { DARABONBA_PTR_SET_VALUE(merchantId_, merchantId) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline CredentialProductVerifyV2Request& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
@@ -87,22 +87,22 @@ namespace Models
     // Credential name: Only supports value 0501 (product image).
     // 
     // This parameter is required.
-    std::shared_ptr<string> credName_ = nullptr;
+    shared_ptr<string> credName_ {};
     // Credential type: Only supports value 05 (product image).
     // 
     // This parameter is required.
-    std::shared_ptr<string> credType_ = nullptr;
+    shared_ptr<string> credType_ {};
     // InputStream object of the image.
-    std::shared_ptr<string> imageFile_ = nullptr;
+    shared_ptr<string> imageFile_ {};
     // URL of the image.
-    std::shared_ptr<string> imageUrl_ = nullptr;
+    shared_ptr<string> imageUrl_ {};
     // Merchant ID.
-    std::shared_ptr<string> merchantId_ = nullptr;
+    shared_ptr<string> merchantId_ {};
     // Invocation mode:
     // Only supports value ANTI_FAKE_CHECK.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
   };
 
   } // namespace Models

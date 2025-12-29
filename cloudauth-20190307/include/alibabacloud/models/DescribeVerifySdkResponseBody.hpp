@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->sdkUrl_ == nullptr; };
+        && this->sdkUrl_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVerifySDKResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sdkUrl Field Functions 
     bool hasSdkUrl() const { return this->sdkUrl_ != nullptr;};
     void deleteSdkUrl() { this->sdkUrl_ = nullptr;};
-    inline string sdkUrl() const { DARABONBA_PTR_GET_DEFAULT(sdkUrl_, "") };
+    inline string getSdkUrl() const { DARABONBA_PTR_GET_DEFAULT(sdkUrl_, "") };
     inline DescribeVerifySDKResponseBody& setSdkUrl(string sdkUrl) { DARABONBA_PTR_SET_VALUE(sdkUrl_, sdkUrl) };
 
 
   protected:
     // The ID of this request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The SDK download URL. When not empty, it indicates that the generation is complete.
-    std::shared_ptr<string> sdkUrl_ = nullptr;
+    shared_ptr<string> sdkUrl_ {};
   };
 
   } // namespace Models

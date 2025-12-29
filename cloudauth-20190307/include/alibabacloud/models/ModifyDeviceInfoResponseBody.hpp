@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->beginDay_ == nullptr
-        && return this->bizType_ == nullptr && return this->deviceId_ == nullptr && return this->expiredDay_ == nullptr && return this->requestId_ == nullptr && return this->userDeviceId_ == nullptr; };
+        && this->bizType_ == nullptr && this->deviceId_ == nullptr && this->expiredDay_ == nullptr && this->requestId_ == nullptr && this->userDeviceId_ == nullptr; };
     // beginDay Field Functions 
     bool hasBeginDay() const { return this->beginDay_ != nullptr;};
     void deleteBeginDay() { this->beginDay_ = nullptr;};
-    inline string beginDay() const { DARABONBA_PTR_GET_DEFAULT(beginDay_, "") };
+    inline string getBeginDay() const { DARABONBA_PTR_GET_DEFAULT(beginDay_, "") };
     inline ModifyDeviceInfoResponseBody& setBeginDay(string beginDay) { DARABONBA_PTR_SET_VALUE(beginDay_, beginDay) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline ModifyDeviceInfoResponseBody& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // deviceId Field Functions 
     bool hasDeviceId() const { return this->deviceId_ != nullptr;};
     void deleteDeviceId() { this->deviceId_ = nullptr;};
-    inline string deviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
+    inline string getDeviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
     inline ModifyDeviceInfoResponseBody& setDeviceId(string deviceId) { DARABONBA_PTR_SET_VALUE(deviceId_, deviceId) };
 
 
     // expiredDay Field Functions 
     bool hasExpiredDay() const { return this->expiredDay_ != nullptr;};
     void deleteExpiredDay() { this->expiredDay_ = nullptr;};
-    inline string expiredDay() const { DARABONBA_PTR_GET_DEFAULT(expiredDay_, "") };
+    inline string getExpiredDay() const { DARABONBA_PTR_GET_DEFAULT(expiredDay_, "") };
     inline ModifyDeviceInfoResponseBody& setExpiredDay(string expiredDay) { DARABONBA_PTR_SET_VALUE(expiredDay_, expiredDay) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyDeviceInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // userDeviceId Field Functions 
     bool hasUserDeviceId() const { return this->userDeviceId_ != nullptr;};
     void deleteUserDeviceId() { this->userDeviceId_ = nullptr;};
-    inline string userDeviceId() const { DARABONBA_PTR_GET_DEFAULT(userDeviceId_, "") };
+    inline string getUserDeviceId() const { DARABONBA_PTR_GET_DEFAULT(userDeviceId_, "") };
     inline ModifyDeviceInfoResponseBody& setUserDeviceId(string userDeviceId) { DARABONBA_PTR_SET_VALUE(userDeviceId_, userDeviceId) };
 
 
   protected:
     // If the Duration in the request parameters is not empty, this field represents the start time of the authorization after the device validity period has been extended. One year of Duration is calculated as 365 days. Example: 20180101.
-    std::shared_ptr<string> beginDay_ = nullptr;
+    shared_ptr<string> beginDay_ {};
     // Corresponds to the BizType in the request parameters.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // Corresponds to the DeviceId in the request parameters.
-    std::shared_ptr<string> deviceId_ = nullptr;
+    shared_ptr<string> deviceId_ {};
     // If the Duration in the request parameters is not empty, this field represents the expiration time of the authorization after the device validity period has been extended. One year of Duration is calculated as 365 days. Example: 20180101.
-    std::shared_ptr<string> expiredDay_ = nullptr;
+    shared_ptr<string> expiredDay_ {};
     // The ID of this request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Corresponds to the UserDeviceId in the request parameters.
-    std::shared_ptr<string> userDeviceId_ = nullptr;
+    shared_ptr<string> userDeviceId_ {};
   };
 
   } // namespace Models

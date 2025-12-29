@@ -33,7 +33,7 @@ namespace Models
     // sceneConfigId Field Functions 
     bool hasSceneConfigId() const { return this->sceneConfigId_ != nullptr;};
     void deleteSceneConfigId() { this->sceneConfigId_ = nullptr;};
-    inline int64_t sceneConfigId() const { DARABONBA_PTR_GET_DEFAULT(sceneConfigId_, 0L) };
+    inline int64_t getSceneConfigId() const { DARABONBA_PTR_GET_DEFAULT(sceneConfigId_, 0L) };
     inline DeleteSceneConfigRequest& setSceneConfigId(int64_t sceneConfigId) { DARABONBA_PTR_SET_VALUE(sceneConfigId_, sceneConfigId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // ID of the intent authentication configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> sceneConfigId_ = nullptr;
+    shared_ptr<int64_t> sceneConfigId_ {};
   };
 
   } // namespace Models

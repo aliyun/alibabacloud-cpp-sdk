@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sourceImageType_ == nullptr
-        && return this->sourceImageValue_ == nullptr && return this->targetImageType_ == nullptr && return this->targetImageValue_ == nullptr; };
+        && this->sourceImageValue_ == nullptr && this->targetImageType_ == nullptr && this->targetImageValue_ == nullptr; };
     // sourceImageType Field Functions 
     bool hasSourceImageType() const { return this->sourceImageType_ != nullptr;};
     void deleteSourceImageType() { this->sourceImageType_ = nullptr;};
-    inline string sourceImageType() const { DARABONBA_PTR_GET_DEFAULT(sourceImageType_, "") };
+    inline string getSourceImageType() const { DARABONBA_PTR_GET_DEFAULT(sourceImageType_, "") };
     inline CompareFacesRequest& setSourceImageType(string sourceImageType) { DARABONBA_PTR_SET_VALUE(sourceImageType_, sourceImageType) };
 
 
     // sourceImageValue Field Functions 
     bool hasSourceImageValue() const { return this->sourceImageValue_ != nullptr;};
     void deleteSourceImageValue() { this->sourceImageValue_ = nullptr;};
-    inline string sourceImageValue() const { DARABONBA_PTR_GET_DEFAULT(sourceImageValue_, "") };
+    inline string getSourceImageValue() const { DARABONBA_PTR_GET_DEFAULT(sourceImageValue_, "") };
     inline CompareFacesRequest& setSourceImageValue(string sourceImageValue) { DARABONBA_PTR_SET_VALUE(sourceImageValue_, sourceImageValue) };
 
 
     // targetImageType Field Functions 
     bool hasTargetImageType() const { return this->targetImageType_ != nullptr;};
     void deleteTargetImageType() { this->targetImageType_ = nullptr;};
-    inline string targetImageType() const { DARABONBA_PTR_GET_DEFAULT(targetImageType_, "") };
+    inline string getTargetImageType() const { DARABONBA_PTR_GET_DEFAULT(targetImageType_, "") };
     inline CompareFacesRequest& setTargetImageType(string targetImageType) { DARABONBA_PTR_SET_VALUE(targetImageType_, targetImageType) };
 
 
     // targetImageValue Field Functions 
     bool hasTargetImageValue() const { return this->targetImageValue_ != nullptr;};
     void deleteTargetImageValue() { this->targetImageValue_ = nullptr;};
-    inline string targetImageValue() const { DARABONBA_PTR_GET_DEFAULT(targetImageValue_, "") };
+    inline string getTargetImageValue() const { DARABONBA_PTR_GET_DEFAULT(targetImageValue_, "") };
     inline CompareFacesRequest& setTargetImageValue(string targetImageValue) { DARABONBA_PTR_SET_VALUE(targetImageValue_, targetImageValue) };
 
 
@@ -70,16 +70,16 @@ namespace Models
     // 
     // - **FacePic**: User\\"s face photo
     // - **IDPic**: Headshot from the user\\"s second-generation ID card chip (typically obtained and decoded by a second-generation ID card reader)
-    std::shared_ptr<string> sourceImageType_ = nullptr;
+    shared_ptr<string> sourceImageType_ {};
     // Address of Image 1. Please refer to the instructions on uploading image addresses.
-    std::shared_ptr<string> sourceImageValue_ = nullptr;
+    shared_ptr<string> sourceImageValue_ {};
     // Type of Image 2, with values:
     // 
     // - **FacePic**: User\\"s face photo
     // - **IDPic**: Headshot from the user\\"s second-generation ID card chip (typically obtained and decoded by a second-generation ID card reader)
-    std::shared_ptr<string> targetImageType_ = nullptr;
+    shared_ptr<string> targetImageType_ {};
     // Address of Image 2. Please refer to the instructions on uploading image addresses.
-    std::shared_ptr<string> targetImageValue_ = nullptr;
+    shared_ptr<string> targetImageValue_ {};
   };
 
   } // namespace Models

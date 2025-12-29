@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failReasons_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // failReasons Field Functions 
     bool hasFailReasons() const { return this->failReasons_ != nullptr;};
     void deleteFailReasons() { this->failReasons_ = nullptr;};
-    inline     const Darabonba::Json & failReasons() const { DARABONBA_GET(failReasons_) };
-    Darabonba::Json & failReasons() { DARABONBA_GET(failReasons_) };
+    inline     const Darabonba::Json & getFailReasons() const { DARABONBA_GET(failReasons_) };
+    Darabonba::Json & getFailReasons() { DARABONBA_GET(failReasons_) };
     inline DescribePageSettingResponseBody& setFailReasons(const Darabonba::Json & failReasons) { DARABONBA_SET_VALUE(failReasons_, failReasons) };
-    inline DescribePageSettingResponseBody& setFailReasons(Darabonba::Json & failReasons) { DARABONBA_SET_RVALUE(failReasons_, failReasons) };
+    inline DescribePageSettingResponseBody& setFailReasons(Darabonba::Json && failReasons) { DARABONBA_SET_RVALUE(failReasons_, failReasons) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePageSettingResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Failure reasons.
-    Darabonba::Json failReasons_ = nullptr;
+    Darabonba::Json failReasons_ {};
     // The ID of this request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

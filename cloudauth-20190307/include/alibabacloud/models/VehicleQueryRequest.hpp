@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->paramType_ == nullptr
-        && return this->vehicleNum_ == nullptr && return this->vehicleType_ == nullptr; };
+        && this->vehicleNum_ == nullptr && this->vehicleType_ == nullptr; };
     // paramType Field Functions 
     bool hasParamType() const { return this->paramType_ != nullptr;};
     void deleteParamType() { this->paramType_ = nullptr;};
-    inline string paramType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+    inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
     inline VehicleQueryRequest& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
 
 
     // vehicleNum Field Functions 
     bool hasVehicleNum() const { return this->vehicleNum_ != nullptr;};
     void deleteVehicleNum() { this->vehicleNum_ = nullptr;};
-    inline string vehicleNum() const { DARABONBA_PTR_GET_DEFAULT(vehicleNum_, "") };
+    inline string getVehicleNum() const { DARABONBA_PTR_GET_DEFAULT(vehicleNum_, "") };
     inline VehicleQueryRequest& setVehicleNum(string vehicleNum) { DARABONBA_PTR_SET_VALUE(vehicleNum_, vehicleNum) };
 
 
     // vehicleType Field Functions 
     bool hasVehicleType() const { return this->vehicleType_ != nullptr;};
     void deleteVehicleType() { this->vehicleType_ = nullptr;};
-    inline string vehicleType() const { DARABONBA_PTR_GET_DEFAULT(vehicleType_, "") };
+    inline string getVehicleType() const { DARABONBA_PTR_GET_DEFAULT(vehicleType_, "") };
     inline VehicleQueryRequest& setVehicleType(string vehicleType) { DARABONBA_PTR_SET_VALUE(vehicleType_, vehicleType) };
 
 
@@ -61,15 +61,15 @@ namespace Models
     // 
     // - **normal**: Unencrypted.
     // - **md5**: MD5 encrypted.
-    std::shared_ptr<string> paramType_ = nullptr;
+    shared_ptr<string> paramType_ {};
     // License plate number
     // 
     // > 
     // > - When paramType is set to normal, enter the plain text.
     // > - When paramType is set to md5, enter the unencrypted part of the license plate number except for the last two characters + the MD5 (32 lowercase) encryption of the last two characters of the license plate.
-    std::shared_ptr<string> vehicleNum_ = nullptr;
+    shared_ptr<string> vehicleNum_ {};
     // Vehicle type
-    std::shared_ptr<string> vehicleType_ = nullptr;
+    shared_ptr<string> vehicleType_ {};
   };
 
   } // namespace Models

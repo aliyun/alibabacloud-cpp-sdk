@@ -33,7 +33,7 @@ namespace Models
     // certifyId Field Functions 
     bool hasCertifyId() const { return this->certifyId_ != nullptr;};
     void deleteCertifyId() { this->certifyId_ = nullptr;};
-    inline string certifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
+    inline string getCertifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
     inline DescribeCardVerifyRequest& setCertifyId(string certifyId) { DARABONBA_PTR_SET_VALUE(certifyId_, certifyId) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // You must first call the initialization interface InitCardVerify to submit an authentication request in order to get the authentication request ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> certifyId_ = nullptr;
+    shared_ptr<string> certifyId_ {};
   };
 
   } // namespace Models

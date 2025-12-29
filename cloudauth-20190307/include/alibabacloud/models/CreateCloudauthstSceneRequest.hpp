@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->productCode_ == nullptr
-        && return this->sceneName_ == nullptr && return this->storeImage_ == nullptr; };
+        && this->sceneName_ == nullptr && this->storeImage_ == nullptr; };
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline CreateCloudauthstSceneRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // sceneName Field Functions 
     bool hasSceneName() const { return this->sceneName_ != nullptr;};
     void deleteSceneName() { this->sceneName_ = nullptr;};
-    inline string sceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
+    inline string getSceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
     inline CreateCloudauthstSceneRequest& setSceneName(string sceneName) { DARABONBA_PTR_SET_VALUE(sceneName_, sceneName) };
 
 
     // storeImage Field Functions 
     bool hasStoreImage() const { return this->storeImage_ != nullptr;};
     void deleteStoreImage() { this->storeImage_ = nullptr;};
-    inline string storeImage() const { DARABONBA_PTR_GET_DEFAULT(storeImage_, "") };
+    inline string getStoreImage() const { DARABONBA_PTR_GET_DEFAULT(storeImage_, "") };
     inline CreateCloudauthstSceneRequest& setStoreImage(string storeImage) { DARABONBA_PTR_SET_VALUE(storeImage_, storeImage) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // Product code.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // Scene name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sceneName_ = nullptr;
+    shared_ptr<string> sceneName_ {};
     // Whether to deliver the files generated from the authentication to the customer\\"s OSS:
     // - **Y**: Enable
     // - **N**: Disable
-    std::shared_ptr<string> storeImage_ = nullptr;
+    shared_ptr<string> storeImage_ {};
   };
 
   } // namespace Models

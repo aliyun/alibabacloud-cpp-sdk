@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEPAGEFACEVERIFYDATARESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribePageFaceVerifyDataResponseBodyItems.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,93 +46,181 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Items : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(Date, date_);
+        DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
+        DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
+        DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
+        DARABONBA_PTR_TO_JSON(SuccessCount, successCount_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(Date, date_);
+        DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
+        DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
+        DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
+        DARABONBA_PTR_FROM_JSON(SuccessCount, successCount_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      Items() = default ;
+      Items(const Items &) = default ;
+      Items(Items &&) = default ;
+      Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Items() = default ;
+      Items& operator=(const Items &) = default ;
+      Items& operator=(Items &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->date_ == nullptr
+        && this->productCode_ == nullptr && this->sceneId_ == nullptr && this->sceneName_ == nullptr && this->successCount_ == nullptr && this->totalCount_ == nullptr; };
+      // date Field Functions 
+      bool hasDate() const { return this->date_ != nullptr;};
+      void deleteDate() { this->date_ = nullptr;};
+      inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+      inline Items& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+
+
+      // productCode Field Functions 
+      bool hasProductCode() const { return this->productCode_ != nullptr;};
+      void deleteProductCode() { this->productCode_ = nullptr;};
+      inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+      inline Items& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
+      // sceneId Field Functions 
+      bool hasSceneId() const { return this->sceneId_ != nullptr;};
+      void deleteSceneId() { this->sceneId_ = nullptr;};
+      inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+      inline Items& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
+      // sceneName Field Functions 
+      bool hasSceneName() const { return this->sceneName_ != nullptr;};
+      void deleteSceneName() { this->sceneName_ = nullptr;};
+      inline string getSceneName() const { DARABONBA_PTR_GET_DEFAULT(sceneName_, "") };
+      inline Items& setSceneName(string sceneName) { DARABONBA_PTR_SET_VALUE(sceneName_, sceneName) };
+
+
+      // successCount Field Functions 
+      bool hasSuccessCount() const { return this->successCount_ != nullptr;};
+      void deleteSuccessCount() { this->successCount_ = nullptr;};
+      inline string getSuccessCount() const { DARABONBA_PTR_GET_DEFAULT(successCount_, "") };
+      inline Items& setSuccessCount(string successCount) { DARABONBA_PTR_SET_VALUE(successCount_, successCount) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline string getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
+      inline Items& setTotalCount(string totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      // Date.
+      shared_ptr<string> date_ {};
+      // Product scheme code, please refer to the financial-grade real-person help documentation.
+      shared_ptr<string> productCode_ {};
+      // Scene ID.
+      shared_ptr<string> sceneId_ {};
+      // Scene name.
+      shared_ptr<string> sceneName_ {};
+      // Number of successful calls.
+      shared_ptr<string> successCount_ {};
+      // Total count.
+      shared_ptr<string> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->currentPage_ == nullptr && return this->items_ == nullptr && return this->message_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr && return this->totalCount_ == nullptr && return this->totalPage_ == nullptr; };
+        && this->currentPage_ == nullptr && this->items_ == nullptr && this->message_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr && this->totalCount_ == nullptr && this->totalPage_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<DescribePageFaceVerifyDataResponseBodyItems> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribePageFaceVerifyDataResponseBodyItems>) };
-    inline vector<DescribePageFaceVerifyDataResponseBodyItems> items() { DARABONBA_PTR_GET(items_, vector<DescribePageFaceVerifyDataResponseBodyItems>) };
-    inline DescribePageFaceVerifyDataResponseBody& setItems(const vector<DescribePageFaceVerifyDataResponseBodyItems> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
-    inline DescribePageFaceVerifyDataResponseBody& setItems(vector<DescribePageFaceVerifyDataResponseBodyItems> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+    inline const vector<DescribePageFaceVerifyDataResponseBody::Items> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribePageFaceVerifyDataResponseBody::Items>) };
+    inline vector<DescribePageFaceVerifyDataResponseBody::Items> getItems() { DARABONBA_PTR_GET(items_, vector<DescribePageFaceVerifyDataResponseBody::Items>) };
+    inline DescribePageFaceVerifyDataResponseBody& setItems(const vector<DescribePageFaceVerifyDataResponseBody::Items> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline DescribePageFaceVerifyDataResponseBody& setItems(vector<DescribePageFaceVerifyDataResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline string totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
+    inline string getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setTotalCount(string totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
     // totalPage Field Functions 
     bool hasTotalPage() const { return this->totalPage_ != nullptr;};
     void deleteTotalPage() { this->totalPage_ = nullptr;};
-    inline string totalPage() const { DARABONBA_PTR_GET_DEFAULT(totalPage_, "") };
+    inline string getTotalPage() const { DARABONBA_PTR_GET_DEFAULT(totalPage_, "") };
     inline DescribePageFaceVerifyDataResponseBody& setTotalPage(string totalPage) { DARABONBA_PTR_SET_VALUE(totalPage_, totalPage) };
 
 
   protected:
     // Return code
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Current page number.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // List of returned data.
-    std::shared_ptr<vector<DescribePageFaceVerifyDataResponseBodyItems>> items_ = nullptr;
+    shared_ptr<vector<DescribePageFaceVerifyDataResponseBody::Items>> items_ {};
     // Return message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // Number of items per page.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // ID of this request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Whether the response was successful.
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<string> success_ {};
     // Total count.
-    std::shared_ptr<string> totalCount_ = nullptr;
+    shared_ptr<string> totalCount_ {};
     // Total number of pages.
-    std::shared_ptr<string> totalPage_ = nullptr;
+    shared_ptr<string> totalPage_ {};
   };
 
   } // namespace Models

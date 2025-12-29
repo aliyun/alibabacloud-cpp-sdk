@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mobile_ == nullptr
-        && return this->paramType_ == nullptr && return this->userName_ == nullptr; };
+        && this->paramType_ == nullptr && this->userName_ == nullptr; };
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline Mobile2MetaVerifyRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // paramType Field Functions 
     bool hasParamType() const { return this->paramType_ != nullptr;};
     void deleteParamType() { this->paramType_ = nullptr;};
-    inline string paramType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+    inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
     inline Mobile2MetaVerifyRequest& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline Mobile2MetaVerifyRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
@@ -62,19 +62,19 @@ namespace Models
     // - When paramType is md5: input the encrypted phone number.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mobile_ = nullptr;
+    shared_ptr<string> mobile_ {};
     // Encryption method:
     // - normal: plaintext without encryption
     // - md5: MD5 encryption
     // 
     // This parameter is required.
-    std::shared_ptr<string> paramType_ = nullptr;
+    shared_ptr<string> paramType_ {};
     // Name:
     // - When paramType is normal: input the plaintext name.
     // - When paramType is md5: input the encrypted name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

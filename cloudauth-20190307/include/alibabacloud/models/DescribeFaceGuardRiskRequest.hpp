@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->deviceToken_ == nullptr && return this->outerOrderNo_ == nullptr && return this->productCode_ == nullptr; };
+        && this->deviceToken_ == nullptr && this->outerOrderNo_ == nullptr && this->productCode_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline DescribeFaceGuardRiskRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // deviceToken Field Functions 
     bool hasDeviceToken() const { return this->deviceToken_ != nullptr;};
     void deleteDeviceToken() { this->deviceToken_ = nullptr;};
-    inline string deviceToken() const { DARABONBA_PTR_GET_DEFAULT(deviceToken_, "") };
+    inline string getDeviceToken() const { DARABONBA_PTR_GET_DEFAULT(deviceToken_, "") };
     inline DescribeFaceGuardRiskRequest& setDeviceToken(string deviceToken) { DARABONBA_PTR_SET_VALUE(deviceToken_, deviceToken) };
 
 
     // outerOrderNo Field Functions 
     bool hasOuterOrderNo() const { return this->outerOrderNo_ != nullptr;};
     void deleteOuterOrderNo() { this->outerOrderNo_ = nullptr;};
-    inline string outerOrderNo() const { DARABONBA_PTR_GET_DEFAULT(outerOrderNo_, "") };
+    inline string getOuterOrderNo() const { DARABONBA_PTR_GET_DEFAULT(outerOrderNo_, "") };
     inline DescribeFaceGuardRiskRequest& setOuterOrderNo(string outerOrderNo) { DARABONBA_PTR_SET_VALUE(outerOrderNo_, outerOrderNo) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline DescribeFaceGuardRiskRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
   protected:
     // Authentication ID
-    std::shared_ptr<string> bizId_ = nullptr;
+    shared_ptr<string> bizId_ {};
     // Risk identification - device token.
-    std::shared_ptr<string> deviceToken_ = nullptr;
+    shared_ptr<string> deviceToken_ {};
     // This identifier is used for subsequent troubleshooting, and you need to ensure that this value is unique in your business.
     // 
     // Supports the use of English letters (including uppercase and lowercase) and numbers, with a maximum length of 32 characters.
-    std::shared_ptr<string> outerOrderNo_ = nullptr;
+    shared_ptr<string> outerOrderNo_ {};
     // Product code, fixed value: FACE_GUARD
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
   };
 
   } // namespace Models

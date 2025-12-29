@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mobile_ == nullptr
-        && return this->paramType_ == nullptr; };
+        && this->paramType_ == nullptr; };
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline MobileOnlineStatusRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // paramType Field Functions 
     bool hasParamType() const { return this->paramType_ != nullptr;};
     void deleteParamType() { this->paramType_ = nullptr;};
-    inline string paramType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+    inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
     inline MobileOnlineStatusRequest& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
 
 
@@ -52,12 +52,12 @@ namespace Models
     // 
     // - When `paramType` is `normal`: provide the plaintext mobile number.
     // - When `paramType` is `md5`: provide the encrypted mobile number.
-    std::shared_ptr<string> mobile_ = nullptr;
+    shared_ptr<string> mobile_ {};
     // Parameter type:
     // 
     // - normal: unencrypted.
     // - md5: md5 encrypted.
-    std::shared_ptr<string> paramType_ = nullptr;
+    shared_ptr<string> paramType_ {};
   };
 
   } // namespace Models

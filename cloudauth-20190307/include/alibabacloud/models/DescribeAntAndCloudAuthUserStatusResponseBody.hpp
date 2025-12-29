@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->antcloudauthEnabled_ == nullptr
-        && return this->cloudauthEnabled_ == nullptr && return this->cloudauthstEnabled_ == nullptr && return this->inforverifyEnabled_ == nullptr && return this->requestId_ == nullptr; };
+        && this->cloudauthEnabled_ == nullptr && this->cloudauthstEnabled_ == nullptr && this->inforverifyEnabled_ == nullptr && this->requestId_ == nullptr; };
     // antcloudauthEnabled Field Functions 
     bool hasAntcloudauthEnabled() const { return this->antcloudauthEnabled_ != nullptr;};
     void deleteAntcloudauthEnabled() { this->antcloudauthEnabled_ = nullptr;};
-    inline bool antcloudauthEnabled() const { DARABONBA_PTR_GET_DEFAULT(antcloudauthEnabled_, false) };
+    inline bool getAntcloudauthEnabled() const { DARABONBA_PTR_GET_DEFAULT(antcloudauthEnabled_, false) };
     inline DescribeAntAndCloudAuthUserStatusResponseBody& setAntcloudauthEnabled(bool antcloudauthEnabled) { DARABONBA_PTR_SET_VALUE(antcloudauthEnabled_, antcloudauthEnabled) };
 
 
     // cloudauthEnabled Field Functions 
     bool hasCloudauthEnabled() const { return this->cloudauthEnabled_ != nullptr;};
     void deleteCloudauthEnabled() { this->cloudauthEnabled_ = nullptr;};
-    inline bool cloudauthEnabled() const { DARABONBA_PTR_GET_DEFAULT(cloudauthEnabled_, false) };
+    inline bool getCloudauthEnabled() const { DARABONBA_PTR_GET_DEFAULT(cloudauthEnabled_, false) };
     inline DescribeAntAndCloudAuthUserStatusResponseBody& setCloudauthEnabled(bool cloudauthEnabled) { DARABONBA_PTR_SET_VALUE(cloudauthEnabled_, cloudauthEnabled) };
 
 
     // cloudauthstEnabled Field Functions 
     bool hasCloudauthstEnabled() const { return this->cloudauthstEnabled_ != nullptr;};
     void deleteCloudauthstEnabled() { this->cloudauthstEnabled_ = nullptr;};
-    inline bool cloudauthstEnabled() const { DARABONBA_PTR_GET_DEFAULT(cloudauthstEnabled_, false) };
+    inline bool getCloudauthstEnabled() const { DARABONBA_PTR_GET_DEFAULT(cloudauthstEnabled_, false) };
     inline DescribeAntAndCloudAuthUserStatusResponseBody& setCloudauthstEnabled(bool cloudauthstEnabled) { DARABONBA_PTR_SET_VALUE(cloudauthstEnabled_, cloudauthstEnabled) };
 
 
     // inforverifyEnabled Field Functions 
     bool hasInforverifyEnabled() const { return this->inforverifyEnabled_ != nullptr;};
     void deleteInforverifyEnabled() { this->inforverifyEnabled_ = nullptr;};
-    inline bool inforverifyEnabled() const { DARABONBA_PTR_GET_DEFAULT(inforverifyEnabled_, false) };
+    inline bool getInforverifyEnabled() const { DARABONBA_PTR_GET_DEFAULT(inforverifyEnabled_, false) };
     inline DescribeAntAndCloudAuthUserStatusResponseBody& setInforverifyEnabled(bool inforverifyEnabled) { DARABONBA_PTR_SET_VALUE(inforverifyEnabled_, inforverifyEnabled) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAntAndCloudAuthUserStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -78,21 +78,21 @@ namespace Models
     // Indicates whether financial-grade real-person authentication is activated. Values:
     // - **true**: Activated
     // - **false**: Not activated
-    std::shared_ptr<bool> antcloudauthEnabled_ = nullptr;
+    shared_ptr<bool> antcloudauthEnabled_ {};
     // Indicates whether real-person authentication is activated. Values:
     // - **true**: Activated
     // - **false**: Not activated
-    std::shared_ptr<bool> cloudauthEnabled_ = nullptr;
+    shared_ptr<bool> cloudauthEnabled_ {};
     // Indicates whether the enhanced version of real-person authentication is activated. Values:
     // - **true**: Activated
     // - **false**: Not activated
-    std::shared_ptr<bool> cloudauthstEnabled_ = nullptr;
+    shared_ptr<bool> cloudauthstEnabled_ {};
     // Indicates whether information verification is activated. Values:
     // - **true**: Activated
     // - **false**: Not activated
-    std::shared_ptr<bool> inforverifyEnabled_ = nullptr;
+    shared_ptr<bool> inforverifyEnabled_ {};
     // The ID of this request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

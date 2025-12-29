@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authYears_ == nullptr
-        && return this->bizType_ == nullptr && return this->test_ == nullptr && return this->userDeviceId_ == nullptr; };
+        && this->bizType_ == nullptr && this->test_ == nullptr && this->userDeviceId_ == nullptr; };
     // authYears Field Functions 
     bool hasAuthYears() const { return this->authYears_ != nullptr;};
     void deleteAuthYears() { this->authYears_ = nullptr;};
-    inline int32_t authYears() const { DARABONBA_PTR_GET_DEFAULT(authYears_, 0) };
+    inline int32_t getAuthYears() const { DARABONBA_PTR_GET_DEFAULT(authYears_, 0) };
     inline CreateAuthKeyRequest& setAuthYears(int32_t authYears) { DARABONBA_PTR_SET_VALUE(authYears_, authYears) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CreateAuthKeyRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // test Field Functions 
     bool hasTest() const { return this->test_ != nullptr;};
     void deleteTest() { this->test_ = nullptr;};
-    inline bool test() const { DARABONBA_PTR_GET_DEFAULT(test_, false) };
+    inline bool getTest() const { DARABONBA_PTR_GET_DEFAULT(test_, false) };
     inline CreateAuthKeyRequest& setTest(bool test) { DARABONBA_PTR_SET_VALUE(test_, test) };
 
 
     // userDeviceId Field Functions 
     bool hasUserDeviceId() const { return this->userDeviceId_ != nullptr;};
     void deleteUserDeviceId() { this->userDeviceId_ = nullptr;};
-    inline string userDeviceId() const { DARABONBA_PTR_GET_DEFAULT(userDeviceId_, "") };
+    inline string getUserDeviceId() const { DARABONBA_PTR_GET_DEFAULT(userDeviceId_, "") };
     inline CreateAuthKeyRequest& setUserDeviceId(string userDeviceId) { DARABONBA_PTR_SET_VALUE(userDeviceId_, userDeviceId) };
 
 
   protected:
     // When the Test flag is false or empty, AuthYears is required, in years, with a range of [1,100]. A value of 100 indicates permanent authorization.
-    std::shared_ptr<int32_t> authYears_ = nullptr;
+    shared_ptr<int32_t> authYears_ {};
     // Business type. No more than 64 characters. Can be used to note specific business, such as different face usage scenarios of the access party or the customer identifier to be delivered. It is recommended to pass this parameter.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // Test flag. If true, it indicates using test authorization with a default duration of 30 days; if false, the authorization duration will be based on AuthYears.
-    std::shared_ptr<bool> test_ = nullptr;
+    shared_ptr<bool> test_ {};
     // User device ID. No more than 64 characters. Can be used to identify a specific device, and it is suggested to use the physical number of the device. It is recommended to pass this parameter.
-    std::shared_ptr<string> userDeviceId_ = nullptr;
+    shared_ptr<string> userDeviceId_ {};
   };
 
   } // namespace Models

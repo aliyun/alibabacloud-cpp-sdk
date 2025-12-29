@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certifyId_ == nullptr
-        && return this->pictureReturnType_ == nullptr && return this->sceneId_ == nullptr; };
+        && this->pictureReturnType_ == nullptr && this->sceneId_ == nullptr; };
     // certifyId Field Functions 
     bool hasCertifyId() const { return this->certifyId_ != nullptr;};
     void deleteCertifyId() { this->certifyId_ = nullptr;};
-    inline string certifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
+    inline string getCertifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
     inline DescribeFaceVerifyRequest& setCertifyId(string certifyId) { DARABONBA_PTR_SET_VALUE(certifyId_, certifyId) };
 
 
     // pictureReturnType Field Functions 
     bool hasPictureReturnType() const { return this->pictureReturnType_ != nullptr;};
     void deletePictureReturnType() { this->pictureReturnType_ = nullptr;};
-    inline string pictureReturnType() const { DARABONBA_PTR_GET_DEFAULT(pictureReturnType_, "") };
+    inline string getPictureReturnType() const { DARABONBA_PTR_GET_DEFAULT(pictureReturnType_, "") };
     inline DescribeFaceVerifyRequest& setPictureReturnType(string pictureReturnType) { DARABONBA_PTR_SET_VALUE(pictureReturnType_, pictureReturnType) };
 
 
     // sceneId Field Functions 
     bool hasSceneId() const { return this->sceneId_ != nullptr;};
     void deleteSceneId() { this->sceneId_ = nullptr;};
-    inline int64_t sceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, 0L) };
+    inline int64_t getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, 0L) };
     inline DescribeFaceVerifyRequest& setSceneId(int64_t sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
 
 
   protected:
     // Unique identifier for real-person authentication.
-    std::shared_ptr<string> certifyId_ = nullptr;
+    shared_ptr<string> certifyId_ {};
     // Image return type.
-    std::shared_ptr<string> pictureReturnType_ = nullptr;
+    shared_ptr<string> pictureReturnType_ {};
     // Authentication scene ID.
-    std::shared_ptr<int64_t> sceneId_ = nullptr;
+    shared_ptr<int64_t> sceneId_ {};
   };
 
   } // namespace Models
