@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->realNumber_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->timePeriod_ == nullptr && return this->virtualNumber_ == nullptr; };
+        && this->realNumber_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->timePeriod_ == nullptr && this->virtualNumber_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline QueryVmsRealNumberCallConnectionRateInfoRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // realNumber Field Functions 
     bool hasRealNumber() const { return this->realNumber_ != nullptr;};
     void deleteRealNumber() { this->realNumber_ = nullptr;};
-    inline string realNumber() const { DARABONBA_PTR_GET_DEFAULT(realNumber_, "") };
+    inline string getRealNumber() const { DARABONBA_PTR_GET_DEFAULT(realNumber_, "") };
     inline QueryVmsRealNumberCallConnectionRateInfoRequest& setRealNumber(string realNumber) { DARABONBA_PTR_SET_VALUE(realNumber_, realNumber) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline QueryVmsRealNumberCallConnectionRateInfoRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline QueryVmsRealNumberCallConnectionRateInfoRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // timePeriod Field Functions 
     bool hasTimePeriod() const { return this->timePeriod_ != nullptr;};
     void deleteTimePeriod() { this->timePeriod_ = nullptr;};
-    inline string timePeriod() const { DARABONBA_PTR_GET_DEFAULT(timePeriod_, "") };
+    inline string getTimePeriod() const { DARABONBA_PTR_GET_DEFAULT(timePeriod_, "") };
     inline QueryVmsRealNumberCallConnectionRateInfoRequest& setTimePeriod(string timePeriod) { DARABONBA_PTR_SET_VALUE(timePeriod_, timePeriod) };
 
 
     // virtualNumber Field Functions 
     bool hasVirtualNumber() const { return this->virtualNumber_ != nullptr;};
     void deleteVirtualNumber() { this->virtualNumber_ = nullptr;};
-    inline string virtualNumber() const { DARABONBA_PTR_GET_DEFAULT(virtualNumber_, "") };
+    inline string getVirtualNumber() const { DARABONBA_PTR_GET_DEFAULT(virtualNumber_, "") };
     inline QueryVmsRealNumberCallConnectionRateInfoRequest& setVirtualNumber(string virtualNumber) { DARABONBA_PTR_SET_VALUE(virtualNumber_, virtualNumber) };
 
 
   protected:
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int64_t> ownerId_ {};
     // 真实号码
-    std::shared_ptr<string> realNumber_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> realNumber_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // 时间段
-    std::shared_ptr<string> timePeriod_ = nullptr;
+    shared_ptr<string> timePeriod_ {};
     // 虚拟号码
-    std::shared_ptr<string> virtualNumber_ = nullptr;
+    shared_ptr<string> virtualNumber_ {};
   };
 
   } // namespace Models

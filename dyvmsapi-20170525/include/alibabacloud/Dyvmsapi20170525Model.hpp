@@ -65,6 +65,10 @@
 #include <alibabacloud/models/ListHotlineTransferRegisterFileRequest.hpp>
 #include <alibabacloud/models/ListHotlineTransferRegisterFileResponseBody.hpp>
 #include <alibabacloud/models/ListHotlineTransferRegisterFileResponse.hpp>
+#include <alibabacloud/models/ListServiceInstanceForPageRequest.hpp>
+#include <alibabacloud/models/ListServiceInstanceForPageShrinkRequest.hpp>
+#include <alibabacloud/models/ListServiceInstanceForPageResponseBody.hpp>
+#include <alibabacloud/models/ListServiceInstanceForPageResponse.hpp>
 #include <alibabacloud/models/PauseVideoFileRequest.hpp>
 #include <alibabacloud/models/PauseVideoFileResponseBody.hpp>
 #include <alibabacloud/models/PauseVideoFileResponse.hpp>
@@ -170,21 +174,5 @@
 #include <alibabacloud/models/UploadRobotTaskCalledFileRequest.hpp>
 #include <alibabacloud/models/UploadRobotTaskCalledFileResponseBody.hpp>
 #include <alibabacloud/models/UploadRobotTaskCalledFileResponse.hpp>
-#include <alibabacloud/models/GetHotlineQualificationByOrderResponseBodyData.hpp>
-#include <alibabacloud/models/IvrCallRequestMenuKeyMap.hpp>
-#include <alibabacloud/models/ListCallTaskResponseBodyData.hpp>
-#include <alibabacloud/models/ListCallTaskDetailResponseBodyData.hpp>
-#include <alibabacloud/models/ListHotlineTransferRegisterFileResponseBodyDataValues.hpp>
-#include <alibabacloud/models/ListHotlineTransferRegisterFileResponseBodyData.hpp>
-#include <alibabacloud/models/QueryCallInPoolTransferConfigResponseBodyDataDetails.hpp>
-#include <alibabacloud/models/QueryCallInPoolTransferConfigResponseBodyData.hpp>
-#include <alibabacloud/models/QueryCallInTransferRecordResponseBodyDataValues.hpp>
-#include <alibabacloud/models/QueryCallInTransferRecordResponseBodyData.hpp>
-#include <alibabacloud/models/QueryVmsRealNumberCallConnectionRateInfoResponseBodyModel.hpp>
-#include <alibabacloud/models/QueryVmsVirtualNumberRelationByPageResponseBodyModelData.hpp>
-#include <alibabacloud/models/QueryVmsVirtualNumberRelationByPageResponseBodyModel.hpp>
-#include <alibabacloud/models/QueryVoiceFileAuditInfoResponseBodyData.hpp>
-#include <alibabacloud/models/SetTransferCalleePoolConfigRequestDetails.hpp>
-#include <alibabacloud/models/SubmitHotlineTransferRegisterRequestTransferPhoneNumberInfos.hpp>
 
 #endif

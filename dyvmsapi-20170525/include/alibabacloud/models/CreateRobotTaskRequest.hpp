@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caller_ == nullptr
-        && return this->corpName_ == nullptr && return this->dialogId_ == nullptr && return this->isSelfLine_ == nullptr && return this->numberStatusIdent_ == nullptr && return this->ownerId_ == nullptr
-        && return this->recallInterval_ == nullptr && return this->recallStateCodes_ == nullptr && return this->recallTimes_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->retryType_ == nullptr && return this->taskName_ == nullptr; };
+        && this->corpName_ == nullptr && this->dialogId_ == nullptr && this->isSelfLine_ == nullptr && this->numberStatusIdent_ == nullptr && this->ownerId_ == nullptr
+        && this->recallInterval_ == nullptr && this->recallStateCodes_ == nullptr && this->recallTimes_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->retryType_ == nullptr && this->taskName_ == nullptr; };
     // caller Field Functions 
     bool hasCaller() const { return this->caller_ != nullptr;};
     void deleteCaller() { this->caller_ = nullptr;};
-    inline string caller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
+    inline string getCaller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
     inline CreateRobotTaskRequest& setCaller(string caller) { DARABONBA_PTR_SET_VALUE(caller_, caller) };
 
 
     // corpName Field Functions 
     bool hasCorpName() const { return this->corpName_ != nullptr;};
     void deleteCorpName() { this->corpName_ = nullptr;};
-    inline string corpName() const { DARABONBA_PTR_GET_DEFAULT(corpName_, "") };
+    inline string getCorpName() const { DARABONBA_PTR_GET_DEFAULT(corpName_, "") };
     inline CreateRobotTaskRequest& setCorpName(string corpName) { DARABONBA_PTR_SET_VALUE(corpName_, corpName) };
 
 
     // dialogId Field Functions 
     bool hasDialogId() const { return this->dialogId_ != nullptr;};
     void deleteDialogId() { this->dialogId_ = nullptr;};
-    inline int64_t dialogId() const { DARABONBA_PTR_GET_DEFAULT(dialogId_, 0L) };
+    inline int64_t getDialogId() const { DARABONBA_PTR_GET_DEFAULT(dialogId_, 0L) };
     inline CreateRobotTaskRequest& setDialogId(int64_t dialogId) { DARABONBA_PTR_SET_VALUE(dialogId_, dialogId) };
 
 
     // isSelfLine Field Functions 
     bool hasIsSelfLine() const { return this->isSelfLine_ != nullptr;};
     void deleteIsSelfLine() { this->isSelfLine_ = nullptr;};
-    inline bool isSelfLine() const { DARABONBA_PTR_GET_DEFAULT(isSelfLine_, false) };
+    inline bool getIsSelfLine() const { DARABONBA_PTR_GET_DEFAULT(isSelfLine_, false) };
     inline CreateRobotTaskRequest& setIsSelfLine(bool isSelfLine) { DARABONBA_PTR_SET_VALUE(isSelfLine_, isSelfLine) };
 
 
     // numberStatusIdent Field Functions 
     bool hasNumberStatusIdent() const { return this->numberStatusIdent_ != nullptr;};
     void deleteNumberStatusIdent() { this->numberStatusIdent_ = nullptr;};
-    inline bool numberStatusIdent() const { DARABONBA_PTR_GET_DEFAULT(numberStatusIdent_, false) };
+    inline bool getNumberStatusIdent() const { DARABONBA_PTR_GET_DEFAULT(numberStatusIdent_, false) };
     inline CreateRobotTaskRequest& setNumberStatusIdent(bool numberStatusIdent) { DARABONBA_PTR_SET_VALUE(numberStatusIdent_, numberStatusIdent) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateRobotTaskRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // recallInterval Field Functions 
     bool hasRecallInterval() const { return this->recallInterval_ != nullptr;};
     void deleteRecallInterval() { this->recallInterval_ = nullptr;};
-    inline int32_t recallInterval() const { DARABONBA_PTR_GET_DEFAULT(recallInterval_, 0) };
+    inline int32_t getRecallInterval() const { DARABONBA_PTR_GET_DEFAULT(recallInterval_, 0) };
     inline CreateRobotTaskRequest& setRecallInterval(int32_t recallInterval) { DARABONBA_PTR_SET_VALUE(recallInterval_, recallInterval) };
 
 
     // recallStateCodes Field Functions 
     bool hasRecallStateCodes() const { return this->recallStateCodes_ != nullptr;};
     void deleteRecallStateCodes() { this->recallStateCodes_ = nullptr;};
-    inline string recallStateCodes() const { DARABONBA_PTR_GET_DEFAULT(recallStateCodes_, "") };
+    inline string getRecallStateCodes() const { DARABONBA_PTR_GET_DEFAULT(recallStateCodes_, "") };
     inline CreateRobotTaskRequest& setRecallStateCodes(string recallStateCodes) { DARABONBA_PTR_SET_VALUE(recallStateCodes_, recallStateCodes) };
 
 
     // recallTimes Field Functions 
     bool hasRecallTimes() const { return this->recallTimes_ != nullptr;};
     void deleteRecallTimes() { this->recallTimes_ = nullptr;};
-    inline int32_t recallTimes() const { DARABONBA_PTR_GET_DEFAULT(recallTimes_, 0) };
+    inline int32_t getRecallTimes() const { DARABONBA_PTR_GET_DEFAULT(recallTimes_, 0) };
     inline CreateRobotTaskRequest& setRecallTimes(int32_t recallTimes) { DARABONBA_PTR_SET_VALUE(recallTimes_, recallTimes) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateRobotTaskRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateRobotTaskRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // retryType Field Functions 
     bool hasRetryType() const { return this->retryType_ != nullptr;};
     void deleteRetryType() { this->retryType_ = nullptr;};
-    inline int32_t retryType() const { DARABONBA_PTR_GET_DEFAULT(retryType_, 0) };
+    inline int32_t getRetryType() const { DARABONBA_PTR_GET_DEFAULT(retryType_, 0) };
     inline CreateRobotTaskRequest& setRetryType(int32_t retryType) { DARABONBA_PTR_SET_VALUE(retryType_, retryType) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreateRobotTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
@@ -154,22 +154,22 @@ namespace Models
     // You must use the phone numbers that you have purchased and separate multiple numbers with commas (,). You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Real Number Service** > **Real Number Management** to view the numbers you purchased.
     // 
     // This parameter is required.
-    std::shared_ptr<string> caller_ = nullptr;
+    shared_ptr<string> caller_ {};
     // The company name, which must be the same as the **enterprise name** on the qualification management page.
-    std::shared_ptr<string> corpName_ = nullptr;
+    shared_ptr<string> corpName_ {};
     // The ID of the robot or communication script that is used to initiate the call.
     // 
     // You can log on to the [Voice Messaging Service console](https://dyvms.console.aliyun.com/overview/home) and choose **Intelligent Voice Robot** > **Communication Script Management** to view the communication script ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dialogId_ = nullptr;
+    shared_ptr<int64_t> dialogId_ {};
     // Specifies whether to call the self-managed line. Valid values:
     // 
     // *   **false** (default)
     // *   **true**
     // 
     // > If you set this parameter to **true**, calling numbers are not verified.
-    std::shared_ptr<bool> isSelfLine_ = nullptr;
+    shared_ptr<bool> isSelfLine_ {};
     // Specifies whether to enable number status identification. Valid values:
     // 
     // *   **false** (default)
@@ -178,12 +178,12 @@ namespace Models
     // > If you set this parameter to **true**, the reason why a call is not answered is recorded.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> numberStatusIdent_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<bool> numberStatusIdent_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The redial interval. Unit: minutes. The value must be greater than 1.
     // 
     // > The maximum redial interval is 30 minutes.
-    std::shared_ptr<int32_t> recallInterval_ = nullptr;
+    shared_ptr<int32_t> recallInterval_ {};
     // The call state in which redial is required. Separate multiple call states with commas (,). Valid values:
     // 
     // *   **200010**: The phone of the called party is powered off.
@@ -192,22 +192,22 @@ namespace Models
     // *   **200012**: The call is lost.
     // *   **200005**: The called party cannot be connected.
     // *   **200003**: The called party does not respond to the call.
-    std::shared_ptr<string> recallStateCodes_ = nullptr;
+    shared_ptr<string> recallStateCodes_ {};
     // The number of redial times.
-    std::shared_ptr<int32_t> recallTimes_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<int32_t> recallTimes_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to enable auto-redial. Valid values:
     // 
     // *   **1**: enables auto-redial.
     // *   **0**: disables auto-redial.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> retryType_ = nullptr;
+    shared_ptr<int32_t> retryType_ {};
     // The task name. The task name can be up to 30 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

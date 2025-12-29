@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callId_ == nullptr
-        && return this->ownerId_ == nullptr && return this->prodId_ == nullptr && return this->queryDate_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->ownerId_ == nullptr && this->prodId_ == nullptr && this->queryDate_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // callId Field Functions 
     bool hasCallId() const { return this->callId_ != nullptr;};
     void deleteCallId() { this->callId_ = nullptr;};
-    inline string callId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
+    inline string getCallId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
     inline QueryCallDetailByCallIdRequest& setCallId(string callId) { DARABONBA_PTR_SET_VALUE(callId_, callId) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline QueryCallDetailByCallIdRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // prodId Field Functions 
     bool hasProdId() const { return this->prodId_ != nullptr;};
     void deleteProdId() { this->prodId_ = nullptr;};
-    inline int64_t prodId() const { DARABONBA_PTR_GET_DEFAULT(prodId_, 0L) };
+    inline int64_t getProdId() const { DARABONBA_PTR_GET_DEFAULT(prodId_, 0L) };
     inline QueryCallDetailByCallIdRequest& setProdId(int64_t prodId) { DARABONBA_PTR_SET_VALUE(prodId_, prodId) };
 
 
     // queryDate Field Functions 
     bool hasQueryDate() const { return this->queryDate_ != nullptr;};
     void deleteQueryDate() { this->queryDate_ = nullptr;};
-    inline int64_t queryDate() const { DARABONBA_PTR_GET_DEFAULT(queryDate_, 0L) };
+    inline int64_t getQueryDate() const { DARABONBA_PTR_GET_DEFAULT(queryDate_, 0L) };
     inline QueryCallDetailByCallIdRequest& setQueryDate(int64_t queryDate) { DARABONBA_PTR_SET_VALUE(queryDate_, queryDate) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline QueryCallDetailByCallIdRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline QueryCallDetailByCallIdRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -95,8 +95,8 @@ namespace Models
     // *   The value of CallId must match the value of ProdId.
     // 
     // This parameter is required.
-    std::shared_ptr<string> callId_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> callId_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The service ID. Valid values:
     // 
     // *   **11000000300006**: voice notification. You can call the [SingleCallByVoice](https://help.aliyun.com/document_detail/393517.html) operation to send a voice notification of the voice notification file type to the specified number.
@@ -106,15 +106,15 @@ namespace Models
     // *   **11030000180001**: intelligent outbound call.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> prodId_ = nullptr;
+    shared_ptr<int64_t> prodId_ {};
     // The time at which call details are queried. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // > The system queries the call records that are generated within 24 hours after the specified point in time. For example, if you specify the time 20:00:01 on November 21, 2022, the system queries the call records that are generated for the specified call ID from 20:00:01 on November 21, 2022, to 20:00:01 on November 22, 2022.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> queryDate_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<int64_t> queryDate_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline SmartCallOperateResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline SmartCallOperateResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SmartCallOperateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline bool status() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
+    inline bool getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
     inline SmartCallOperateResponseBody& setStatus(bool status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -70,16 +70,16 @@ namespace Models
     // 
     // *   The value OK indicates that the request was successful.
     // *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The action result. Valid values:
     // 
     // *   **true**: The action was successful.
     // *   **false**: The action failed.
-    std::shared_ptr<bool> status_ = nullptr;
+    shared_ptr<bool> status_ {};
   };
 
   } // namespace Models

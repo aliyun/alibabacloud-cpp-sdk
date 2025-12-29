@@ -482,6 +482,23 @@ namespace Dyvmsapi20170525
       Models::ListHotlineTransferRegisterFileResponse listHotlineTransferRegisterFile(const Models::ListHotlineTransferRegisterFileRequest &request);
 
       /**
+       * @summary 分页查询服务实例列表
+       *
+       * @param tmpReq ListServiceInstanceForPageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServiceInstanceForPageResponse
+       */
+      Models::ListServiceInstanceForPageResponse listServiceInstanceForPageWithOptions(const Models::ListServiceInstanceForPageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询服务实例列表
+       *
+       * @param request ListServiceInstanceForPageRequest
+       * @return ListServiceInstanceForPageResponse
+       */
+      Models::ListServiceInstanceForPageResponse listServiceInstanceForPage(const Models::ListServiceInstanceForPageRequest &request);
+
+      /**
        * @summary PauseVideoFile
        *
        * @param request PauseVideoFileRequest
