@@ -1,0 +1,364 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTHOTELSCENEITEMSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTHOTELSCENEITEMSRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AliGenieip_1_0
+{
+namespace Models
+{
+  class ListHotelSceneItemsResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListHotelSceneItemsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Result, result_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListHotelSceneItemsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Result, result_);
+    };
+    ListHotelSceneItemsResponseBody() = default ;
+    ListHotelSceneItemsResponseBody(const ListHotelSceneItemsResponseBody &) = default ;
+    ListHotelSceneItemsResponseBody(ListHotelSceneItemsResponseBody &&) = default ;
+    ListHotelSceneItemsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListHotelSceneItemsResponseBody() = default ;
+    ListHotelSceneItemsResponseBody& operator=(const ListHotelSceneItemsResponseBody &) = default ;
+    ListHotelSceneItemsResponseBody& operator=(ListHotelSceneItemsResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(Page, page_);
+        DARABONBA_PTR_TO_JSON(SceneItemList, sceneItemList_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(Page, page_);
+        DARABONBA_PTR_FROM_JSON(SceneItemList, sceneItemList_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SceneItemList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SceneItemList& obj) { 
+          DARABONBA_PTR_TO_JSON(BeyondLimitReply, beyondLimitReply_);
+          DARABONBA_PTR_TO_JSON(Category, category_);
+          DARABONBA_PTR_TO_JSON(DeliveryMethod, deliveryMethod_);
+          DARABONBA_PTR_TO_JSON(Icon, icon_);
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(LimitNumber, limitNumber_);
+          DARABONBA_PTR_TO_JSON(LimitSwitch, limitSwitch_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(PaymentMethod, paymentMethod_);
+          DARABONBA_PTR_TO_JSON(Price, price_);
+          DARABONBA_PTR_TO_JSON(RobotName, robotName_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+          DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, SceneItemList& obj) { 
+          DARABONBA_PTR_FROM_JSON(BeyondLimitReply, beyondLimitReply_);
+          DARABONBA_PTR_FROM_JSON(Category, category_);
+          DARABONBA_PTR_FROM_JSON(DeliveryMethod, deliveryMethod_);
+          DARABONBA_PTR_FROM_JSON(Icon, icon_);
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(LimitNumber, limitNumber_);
+          DARABONBA_PTR_FROM_JSON(LimitSwitch, limitSwitch_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(PaymentMethod, paymentMethod_);
+          DARABONBA_PTR_FROM_JSON(Price, price_);
+          DARABONBA_PTR_FROM_JSON(RobotName, robotName_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+          DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+        };
+        SceneItemList() = default ;
+        SceneItemList(const SceneItemList &) = default ;
+        SceneItemList(SceneItemList &&) = default ;
+        SceneItemList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SceneItemList() = default ;
+        SceneItemList& operator=(const SceneItemList &) = default ;
+        SceneItemList& operator=(SceneItemList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->beyondLimitReply_ == nullptr
+        && this->category_ == nullptr && this->deliveryMethod_ == nullptr && this->icon_ == nullptr && this->id_ == nullptr && this->limitNumber_ == nullptr
+        && this->limitSwitch_ == nullptr && this->name_ == nullptr && this->paymentMethod_ == nullptr && this->price_ == nullptr && this->robotName_ == nullptr
+        && this->status_ == nullptr && this->type_ == nullptr && this->updateTime_ == nullptr; };
+        // beyondLimitReply Field Functions 
+        bool hasBeyondLimitReply() const { return this->beyondLimitReply_ != nullptr;};
+        void deleteBeyondLimitReply() { this->beyondLimitReply_ = nullptr;};
+        inline string getBeyondLimitReply() const { DARABONBA_PTR_GET_DEFAULT(beyondLimitReply_, "") };
+        inline SceneItemList& setBeyondLimitReply(string beyondLimitReply) { DARABONBA_PTR_SET_VALUE(beyondLimitReply_, beyondLimitReply) };
+
+
+        // category Field Functions 
+        bool hasCategory() const { return this->category_ != nullptr;};
+        void deleteCategory() { this->category_ = nullptr;};
+        inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+        inline SceneItemList& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+        // deliveryMethod Field Functions 
+        bool hasDeliveryMethod() const { return this->deliveryMethod_ != nullptr;};
+        void deleteDeliveryMethod() { this->deliveryMethod_ = nullptr;};
+        inline string getDeliveryMethod() const { DARABONBA_PTR_GET_DEFAULT(deliveryMethod_, "") };
+        inline SceneItemList& setDeliveryMethod(string deliveryMethod) { DARABONBA_PTR_SET_VALUE(deliveryMethod_, deliveryMethod) };
+
+
+        // icon Field Functions 
+        bool hasIcon() const { return this->icon_ != nullptr;};
+        void deleteIcon() { this->icon_ = nullptr;};
+        inline string getIcon() const { DARABONBA_PTR_GET_DEFAULT(icon_, "") };
+        inline SceneItemList& setIcon(string icon) { DARABONBA_PTR_SET_VALUE(icon_, icon) };
+
+
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+        inline SceneItemList& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // limitNumber Field Functions 
+        bool hasLimitNumber() const { return this->limitNumber_ != nullptr;};
+        void deleteLimitNumber() { this->limitNumber_ = nullptr;};
+        inline int32_t getLimitNumber() const { DARABONBA_PTR_GET_DEFAULT(limitNumber_, 0) };
+        inline SceneItemList& setLimitNumber(int32_t limitNumber) { DARABONBA_PTR_SET_VALUE(limitNumber_, limitNumber) };
+
+
+        // limitSwitch Field Functions 
+        bool hasLimitSwitch() const { return this->limitSwitch_ != nullptr;};
+        void deleteLimitSwitch() { this->limitSwitch_ = nullptr;};
+        inline int32_t getLimitSwitch() const { DARABONBA_PTR_GET_DEFAULT(limitSwitch_, 0) };
+        inline SceneItemList& setLimitSwitch(int32_t limitSwitch) { DARABONBA_PTR_SET_VALUE(limitSwitch_, limitSwitch) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline SceneItemList& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // paymentMethod Field Functions 
+        bool hasPaymentMethod() const { return this->paymentMethod_ != nullptr;};
+        void deletePaymentMethod() { this->paymentMethod_ = nullptr;};
+        inline string getPaymentMethod() const { DARABONBA_PTR_GET_DEFAULT(paymentMethod_, "") };
+        inline SceneItemList& setPaymentMethod(string paymentMethod) { DARABONBA_PTR_SET_VALUE(paymentMethod_, paymentMethod) };
+
+
+        // price Field Functions 
+        bool hasPrice() const { return this->price_ != nullptr;};
+        void deletePrice() { this->price_ = nullptr;};
+        inline int64_t getPrice() const { DARABONBA_PTR_GET_DEFAULT(price_, 0L) };
+        inline SceneItemList& setPrice(int64_t price) { DARABONBA_PTR_SET_VALUE(price_, price) };
+
+
+        // robotName Field Functions 
+        bool hasRobotName() const { return this->robotName_ != nullptr;};
+        void deleteRobotName() { this->robotName_ = nullptr;};
+        inline string getRobotName() const { DARABONBA_PTR_GET_DEFAULT(robotName_, "") };
+        inline SceneItemList& setRobotName(string robotName) { DARABONBA_PTR_SET_VALUE(robotName_, robotName) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline SceneItemList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline SceneItemList& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        // updateTime Field Functions 
+        bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+        void deleteUpdateTime() { this->updateTime_ = nullptr;};
+        inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+        inline SceneItemList& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
+      protected:
+        shared_ptr<string> beyondLimitReply_ {};
+        shared_ptr<string> category_ {};
+        shared_ptr<string> deliveryMethod_ {};
+        shared_ptr<string> icon_ {};
+        // id
+        shared_ptr<int64_t> id_ {};
+        shared_ptr<int32_t> limitNumber_ {};
+        shared_ptr<int32_t> limitSwitch_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> paymentMethod_ {};
+        shared_ptr<int64_t> price_ {};
+        shared_ptr<string> robotName_ {};
+        shared_ptr<string> status_ {};
+        shared_ptr<string> type_ {};
+        shared_ptr<int64_t> updateTime_ {};
+      };
+
+      class Page : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Page& obj) { 
+          DARABONBA_PTR_TO_JSON(HasNext, hasNext_);
+          DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+          DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+          DARABONBA_PTR_TO_JSON(Total, total_);
+          DARABONBA_PTR_TO_JSON(TotalPage, totalPage_);
+        };
+        friend void from_json(const Darabonba::Json& j, Page& obj) { 
+          DARABONBA_PTR_FROM_JSON(HasNext, hasNext_);
+          DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+          DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+          DARABONBA_PTR_FROM_JSON(Total, total_);
+          DARABONBA_PTR_FROM_JSON(TotalPage, totalPage_);
+        };
+        Page() = default ;
+        Page(const Page &) = default ;
+        Page(Page &&) = default ;
+        Page(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Page() = default ;
+        Page& operator=(const Page &) = default ;
+        Page& operator=(Page &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->hasNext_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->total_ == nullptr && this->totalPage_ == nullptr; };
+        // hasNext Field Functions 
+        bool hasHasNext() const { return this->hasNext_ != nullptr;};
+        void deleteHasNext() { this->hasNext_ = nullptr;};
+        inline bool getHasNext() const { DARABONBA_PTR_GET_DEFAULT(hasNext_, false) };
+        inline Page& setHasNext(bool hasNext) { DARABONBA_PTR_SET_VALUE(hasNext_, hasNext) };
+
+
+        // pageNumber Field Functions 
+        bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+        void deletePageNumber() { this->pageNumber_ = nullptr;};
+        inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+        inline Page& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+        // pageSize Field Functions 
+        bool hasPageSize() const { return this->pageSize_ != nullptr;};
+        void deletePageSize() { this->pageSize_ = nullptr;};
+        inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+        inline Page& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+        // total Field Functions 
+        bool hasTotal() const { return this->total_ != nullptr;};
+        void deleteTotal() { this->total_ = nullptr;};
+        inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+        inline Page& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+        // totalPage Field Functions 
+        bool hasTotalPage() const { return this->totalPage_ != nullptr;};
+        void deleteTotalPage() { this->totalPage_ = nullptr;};
+        inline int32_t getTotalPage() const { DARABONBA_PTR_GET_DEFAULT(totalPage_, 0) };
+        inline Page& setTotalPage(int32_t totalPage) { DARABONBA_PTR_SET_VALUE(totalPage_, totalPage) };
+
+
+      protected:
+        shared_ptr<bool> hasNext_ {};
+        shared_ptr<int32_t> pageNumber_ {};
+        shared_ptr<int32_t> pageSize_ {};
+        shared_ptr<int32_t> total_ {};
+        shared_ptr<int32_t> totalPage_ {};
+      };
+
+      virtual bool empty() const override { return this->page_ == nullptr
+        && this->sceneItemList_ == nullptr; };
+      // page Field Functions 
+      bool hasPage() const { return this->page_ != nullptr;};
+      void deletePage() { this->page_ = nullptr;};
+      inline const Result::Page & getPage() const { DARABONBA_PTR_GET_CONST(page_, Result::Page) };
+      inline Result::Page getPage() { DARABONBA_PTR_GET(page_, Result::Page) };
+      inline Result& setPage(const Result::Page & page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+      inline Result& setPage(Result::Page && page) { DARABONBA_PTR_SET_RVALUE(page_, page) };
+
+
+      // sceneItemList Field Functions 
+      bool hasSceneItemList() const { return this->sceneItemList_ != nullptr;};
+      void deleteSceneItemList() { this->sceneItemList_ = nullptr;};
+      inline const vector<Result::SceneItemList> & getSceneItemList() const { DARABONBA_PTR_GET_CONST(sceneItemList_, vector<Result::SceneItemList>) };
+      inline vector<Result::SceneItemList> getSceneItemList() { DARABONBA_PTR_GET(sceneItemList_, vector<Result::SceneItemList>) };
+      inline Result& setSceneItemList(const vector<Result::SceneItemList> & sceneItemList) { DARABONBA_PTR_SET_VALUE(sceneItemList_, sceneItemList) };
+      inline Result& setSceneItemList(vector<Result::SceneItemList> && sceneItemList) { DARABONBA_PTR_SET_RVALUE(sceneItemList_, sceneItemList) };
+
+
+    protected:
+      shared_ptr<Result::Page> page_ {};
+      shared_ptr<vector<Result::SceneItemList>> sceneItemList_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline ListHotelSceneItemsResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline ListHotelSceneItemsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ListHotelSceneItemsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // result Field Functions 
+    bool hasResult() const { return this->result_ != nullptr;};
+    void deleteResult() { this->result_ = nullptr;};
+    inline const ListHotelSceneItemsResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, ListHotelSceneItemsResponseBody::Result) };
+    inline ListHotelSceneItemsResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, ListHotelSceneItemsResponseBody::Result) };
+    inline ListHotelSceneItemsResponseBody& setResult(const ListHotelSceneItemsResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline ListHotelSceneItemsResponseBody& setResult(ListHotelSceneItemsResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+
+
+  protected:
+    shared_ptr<int32_t> code_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<ListHotelSceneItemsResponseBody::Result> result_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AliGenieip_1_0
+#endif
