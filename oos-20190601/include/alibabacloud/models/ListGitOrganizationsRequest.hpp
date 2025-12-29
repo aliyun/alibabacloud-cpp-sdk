@@ -13,12 +13,14 @@ namespace Models
   class ListGitOrganizationsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListGitOrganizationsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BindType, bindType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListGitOrganizationsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BindType, bindType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->owner_ == nullptr && return this->platform_ == nullptr && return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->bindType_ == nullptr
+        && return this->clientToken_ == nullptr && return this->owner_ == nullptr && return this->platform_ == nullptr && return this->regionId_ == nullptr; };
+    // bindType Field Functions 
+    bool hasBindType() const { return this->bindType_ != nullptr;};
+    void deleteBindType() { this->bindType_ = nullptr;};
+    inline string bindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
+    inline ListGitOrganizationsRequest& setBindType(string bindType) { DARABONBA_PTR_SET_VALUE(bindType_, bindType) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> bindType_ = nullptr;
     std::shared_ptr<string> clientToken_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> owner_ = nullptr;

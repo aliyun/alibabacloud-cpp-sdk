@@ -258,6 +258,9 @@
 #include <alibabacloud/models/SetServiceSettingsRequest.hpp>
 #include <alibabacloud/models/SetServiceSettingsResponseBody.hpp>
 #include <alibabacloud/models/SetServiceSettingsResponse.hpp>
+#include <alibabacloud/models/StartDebugExecutionRequest.hpp>
+#include <alibabacloud/models/StartDebugExecutionResponseBody.hpp>
+#include <alibabacloud/models/StartDebugExecutionResponse.hpp>
 #include <alibabacloud/models/StartExecutionRequest.hpp>
 #include <alibabacloud/models/StartExecutionShrinkRequest.hpp>
 #include <alibabacloud/models/StartExecutionResponseBody.hpp>

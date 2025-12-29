@@ -1399,6 +1399,23 @@ namespace Oos20190601
       Models::SetServiceSettingsResponse setServiceSettings(const Models::SetServiceSettingsRequest &request);
 
       /**
+       * @summary 启动一个调试执行
+       *
+       * @param request StartDebugExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartDebugExecutionResponse
+       */
+      Models::StartDebugExecutionResponse startDebugExecutionWithOptions(const Models::StartDebugExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动一个调试执行
+       *
+       * @param request StartDebugExecutionRequest
+       * @return StartDebugExecutionResponse
+       */
+      Models::StartDebugExecutionResponse startDebugExecution(const Models::StartDebugExecutionRequest &request);
+
+      /**
        * @summary Starts an execution.
        *
        * @param tmpReq StartExecutionRequest

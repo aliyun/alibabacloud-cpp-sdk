@@ -3305,6 +3305,10 @@ ListExecutionsResponse Client::listExecutions(const ListExecutionsRequest &reque
 ListGitAccountsResponse Client::listGitAccountsWithOptions(const ListGitAccountsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBindType()) {
+    query["BindType"] = request.bindType();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -3425,6 +3429,10 @@ ListGitBranchesResponse Client::listGitBranches(const ListGitBranchesRequest &re
 ListGitOrganizationsResponse Client::listGitOrganizationsWithOptions(const ListGitOrganizationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBindType()) {
+    query["BindType"] = request.bindType();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -5159,6 +5167,60 @@ SetServiceSettingsResponse Client::setServiceSettingsWithOptions(const SetServic
 SetServiceSettingsResponse Client::setServiceSettings(const SetServiceSettingsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setServiceSettingsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启动一个调试执行
+ *
+ * @param request StartDebugExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartDebugExecutionResponse
+ */
+StartDebugExecutionResponse Client::startDebugExecutionWithOptions(const StartDebugExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasProperties()) {
+    query["Properties"] = request.properties();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.taskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartDebugExecution"},
+    {"version" , "2019-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartDebugExecutionResponse>();
+}
+
+/**
+ * @summary 启动一个调试执行
+ *
+ * @param request StartDebugExecutionRequest
+ * @return StartDebugExecutionResponse
+ */
+StartDebugExecutionResponse Client::startDebugExecution(const StartDebugExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startDebugExecutionWithOptions(request, runtime);
 }
 
 /**
