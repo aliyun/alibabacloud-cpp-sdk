@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->method_ == nullptr; };
+        && this->method_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline     const Darabonba::Json & content() const { DARABONBA_GET(content_) };
-    Darabonba::Json & content() { DARABONBA_GET(content_) };
+    inline     const Darabonba::Json & getContent() const { DARABONBA_GET(content_) };
+    Darabonba::Json & getContent() { DARABONBA_GET(content_) };
     inline GetUmodelDataRequest& setContent(const Darabonba::Json & content) { DARABONBA_SET_VALUE(content_, content) };
-    inline GetUmodelDataRequest& setContent(Darabonba::Json & content) { DARABONBA_SET_RVALUE(content_, content) };
+    inline GetUmodelDataRequest& setContent(Darabonba::Json && content) { DARABONBA_SET_RVALUE(content_, content) };
 
 
     // method Field Functions 
     bool hasMethod() const { return this->method_ != nullptr;};
     void deleteMethod() { this->method_ = nullptr;};
-    inline string method() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
+    inline string getMethod() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
     inline GetUmodelDataRequest& setMethod(string method) { DARABONBA_PTR_SET_VALUE(method_, method) };
 
 
   protected:
     // Query conditions
-    Darabonba::Json content_ = nullptr;
+    Darabonba::Json content_ {};
     // Method
     // 
     // This parameter is required.
-    std::shared_ptr<string> method_ = nullptr;
+    shared_ptr<string> method_ {};
   };
 
   } // namespace Models

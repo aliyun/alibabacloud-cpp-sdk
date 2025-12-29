@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && return this->addonReleaseName_ == nullptr && return this->storageType_ == nullptr; };
+        && this->addonReleaseName_ == nullptr && this->storageType_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
-    inline string addonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
+    inline string getAddonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
     inline ListIntegrationPolicyStorageRequirementsRequest& setAddonName(string addonName) { DARABONBA_PTR_SET_VALUE(addonName_, addonName) };
 
 
     // addonReleaseName Field Functions 
     bool hasAddonReleaseName() const { return this->addonReleaseName_ != nullptr;};
     void deleteAddonReleaseName() { this->addonReleaseName_ = nullptr;};
-    inline string addonReleaseName() const { DARABONBA_PTR_GET_DEFAULT(addonReleaseName_, "") };
+    inline string getAddonReleaseName() const { DARABONBA_PTR_GET_DEFAULT(addonReleaseName_, "") };
     inline ListIntegrationPolicyStorageRequirementsRequest& setAddonReleaseName(string addonReleaseName) { DARABONBA_PTR_SET_VALUE(addonReleaseName_, addonReleaseName) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline ListIntegrationPolicyStorageRequirementsRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
   protected:
     // Addon Release Name
-    std::shared_ptr<string> addonName_ = nullptr;
+    shared_ptr<string> addonName_ {};
     // Name of AddonRelease.
-    std::shared_ptr<string> addonReleaseName_ = nullptr;
+    shared_ptr<string> addonReleaseName_ {};
     // Storage Type, LogStore/Prometheus/TraceStore/EventStore/EntityStore.
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> storageType_ {};
   };
 
   } // namespace Models

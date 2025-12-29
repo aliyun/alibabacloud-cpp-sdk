@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->clusterType_ == nullptr; };
+        && this->clusterType_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetIntegrationVersionForCSRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
-    inline string clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+    inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline GetIntegrationVersionForCSRequest& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterType_ = nullptr;
+    shared_ptr<string> clusterType_ {};
   };
 
   } // namespace Models

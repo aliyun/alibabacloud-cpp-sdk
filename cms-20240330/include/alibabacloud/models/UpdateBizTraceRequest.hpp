@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->advancedConfig_ == nullptr
-        && return this->bizTraceName_ == nullptr && return this->ruleConfig_ == nullptr && return this->workspace_ == nullptr; };
+        && this->bizTraceName_ == nullptr && this->ruleConfig_ == nullptr && this->workspace_ == nullptr; };
     // advancedConfig Field Functions 
     bool hasAdvancedConfig() const { return this->advancedConfig_ != nullptr;};
     void deleteAdvancedConfig() { this->advancedConfig_ = nullptr;};
-    inline string advancedConfig() const { DARABONBA_PTR_GET_DEFAULT(advancedConfig_, "") };
+    inline string getAdvancedConfig() const { DARABONBA_PTR_GET_DEFAULT(advancedConfig_, "") };
     inline UpdateBizTraceRequest& setAdvancedConfig(string advancedConfig) { DARABONBA_PTR_SET_VALUE(advancedConfig_, advancedConfig) };
 
 
     // bizTraceName Field Functions 
     bool hasBizTraceName() const { return this->bizTraceName_ != nullptr;};
     void deleteBizTraceName() { this->bizTraceName_ = nullptr;};
-    inline string bizTraceName() const { DARABONBA_PTR_GET_DEFAULT(bizTraceName_, "") };
+    inline string getBizTraceName() const { DARABONBA_PTR_GET_DEFAULT(bizTraceName_, "") };
     inline UpdateBizTraceRequest& setBizTraceName(string bizTraceName) { DARABONBA_PTR_SET_VALUE(bizTraceName_, bizTraceName) };
 
 
     // ruleConfig Field Functions 
     bool hasRuleConfig() const { return this->ruleConfig_ != nullptr;};
     void deleteRuleConfig() { this->ruleConfig_ = nullptr;};
-    inline string ruleConfig() const { DARABONBA_PTR_GET_DEFAULT(ruleConfig_, "") };
+    inline string getRuleConfig() const { DARABONBA_PTR_GET_DEFAULT(ruleConfig_, "") };
     inline UpdateBizTraceRequest& setRuleConfig(string ruleConfig) { DARABONBA_PTR_SET_VALUE(ruleConfig_, ruleConfig) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline UpdateBizTraceRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<string> advancedConfig_ = nullptr;
-    std::shared_ptr<string> bizTraceName_ = nullptr;
-    std::shared_ptr<string> ruleConfig_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<string> advancedConfig_ {};
+    shared_ptr<string> bizTraceName_ {};
+    shared_ptr<string> ruleConfig_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

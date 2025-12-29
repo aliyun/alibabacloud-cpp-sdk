@@ -33,14 +33,14 @@ namespace Models
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline DeleteIntegrationPolicyRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
   protected:
     // Whether to forcibly delete the cloud-native all-in-one machine,
     // default value: `false`.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

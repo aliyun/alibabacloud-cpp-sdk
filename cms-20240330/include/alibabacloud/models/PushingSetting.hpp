@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertActionIds_ == nullptr
-        && return this->restoreActionIds_ == nullptr && return this->templateUuid_ == nullptr; };
+        && this->restoreActionIds_ == nullptr && this->templateUuid_ == nullptr; };
     // alertActionIds Field Functions 
     bool hasAlertActionIds() const { return this->alertActionIds_ != nullptr;};
     void deleteAlertActionIds() { this->alertActionIds_ = nullptr;};
-    inline const vector<string> & alertActionIds() const { DARABONBA_PTR_GET_CONST(alertActionIds_, vector<string>) };
-    inline vector<string> alertActionIds() { DARABONBA_PTR_GET(alertActionIds_, vector<string>) };
+    inline const vector<string> & getAlertActionIds() const { DARABONBA_PTR_GET_CONST(alertActionIds_, vector<string>) };
+    inline vector<string> getAlertActionIds() { DARABONBA_PTR_GET(alertActionIds_, vector<string>) };
     inline PushingSetting& setAlertActionIds(const vector<string> & alertActionIds) { DARABONBA_PTR_SET_VALUE(alertActionIds_, alertActionIds) };
     inline PushingSetting& setAlertActionIds(vector<string> && alertActionIds) { DARABONBA_PTR_SET_RVALUE(alertActionIds_, alertActionIds) };
 
@@ -48,8 +48,8 @@ namespace Models
     // restoreActionIds Field Functions 
     bool hasRestoreActionIds() const { return this->restoreActionIds_ != nullptr;};
     void deleteRestoreActionIds() { this->restoreActionIds_ = nullptr;};
-    inline const vector<string> & restoreActionIds() const { DARABONBA_PTR_GET_CONST(restoreActionIds_, vector<string>) };
-    inline vector<string> restoreActionIds() { DARABONBA_PTR_GET(restoreActionIds_, vector<string>) };
+    inline const vector<string> & getRestoreActionIds() const { DARABONBA_PTR_GET_CONST(restoreActionIds_, vector<string>) };
+    inline vector<string> getRestoreActionIds() { DARABONBA_PTR_GET(restoreActionIds_, vector<string>) };
     inline PushingSetting& setRestoreActionIds(const vector<string> & restoreActionIds) { DARABONBA_PTR_SET_VALUE(restoreActionIds_, restoreActionIds) };
     inline PushingSetting& setRestoreActionIds(vector<string> && restoreActionIds) { DARABONBA_PTR_SET_RVALUE(restoreActionIds_, restoreActionIds) };
 
@@ -57,14 +57,14 @@ namespace Models
     // templateUuid Field Functions 
     bool hasTemplateUuid() const { return this->templateUuid_ != nullptr;};
     void deleteTemplateUuid() { this->templateUuid_ = nullptr;};
-    inline string templateUuid() const { DARABONBA_PTR_GET_DEFAULT(templateUuid_, "") };
+    inline string getTemplateUuid() const { DARABONBA_PTR_GET_DEFAULT(templateUuid_, "") };
     inline PushingSetting& setTemplateUuid(string templateUuid) { DARABONBA_PTR_SET_VALUE(templateUuid_, templateUuid) };
 
 
   protected:
-    std::shared_ptr<vector<string>> alertActionIds_ = nullptr;
-    std::shared_ptr<vector<string>> restoreActionIds_ = nullptr;
-    std::shared_ptr<string> templateUuid_ = nullptr;
+    shared_ptr<vector<string>> alertActionIds_ {};
+    shared_ptr<vector<string>> restoreActionIds_ {};
+    shared_ptr<string> templateUuid_ {};
   };
 
   } // namespace Models

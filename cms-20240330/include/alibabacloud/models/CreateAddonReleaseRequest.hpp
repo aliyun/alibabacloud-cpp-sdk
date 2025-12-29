@@ -49,34 +49,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && return this->aliyunLang_ == nullptr && return this->dryRun_ == nullptr && return this->entityRules_ == nullptr && return this->envType_ == nullptr && return this->parentAddonReleaseId_ == nullptr
-        && return this->releaseName_ == nullptr && return this->values_ == nullptr && return this->version_ == nullptr && return this->workspace_ == nullptr; };
+        && this->aliyunLang_ == nullptr && this->dryRun_ == nullptr && this->entityRules_ == nullptr && this->envType_ == nullptr && this->parentAddonReleaseId_ == nullptr
+        && this->releaseName_ == nullptr && this->values_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
-    inline string addonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
+    inline string getAddonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
     inline CreateAddonReleaseRequest& setAddonName(string addonName) { DARABONBA_PTR_SET_VALUE(addonName_, addonName) };
 
 
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
-    inline string aliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
+    inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline CreateAddonReleaseRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateAddonReleaseRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // entityRules Field Functions 
     bool hasEntityRules() const { return this->entityRules_ != nullptr;};
     void deleteEntityRules() { this->entityRules_ = nullptr;};
-    inline const EntityDiscoverRule & entityRules() const { DARABONBA_PTR_GET_CONST(entityRules_, EntityDiscoverRule) };
-    inline EntityDiscoverRule entityRules() { DARABONBA_PTR_GET(entityRules_, EntityDiscoverRule) };
+    inline const EntityDiscoverRule & getEntityRules() const { DARABONBA_PTR_GET_CONST(entityRules_, EntityDiscoverRule) };
+    inline EntityDiscoverRule getEntityRules() { DARABONBA_PTR_GET(entityRules_, EntityDiscoverRule) };
     inline CreateAddonReleaseRequest& setEntityRules(const EntityDiscoverRule & entityRules) { DARABONBA_PTR_SET_VALUE(entityRules_, entityRules) };
     inline CreateAddonReleaseRequest& setEntityRules(EntityDiscoverRule && entityRules) { DARABONBA_PTR_SET_RVALUE(entityRules_, entityRules) };
 
@@ -84,42 +84,42 @@ namespace Models
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline CreateAddonReleaseRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // parentAddonReleaseId Field Functions 
     bool hasParentAddonReleaseId() const { return this->parentAddonReleaseId_ != nullptr;};
     void deleteParentAddonReleaseId() { this->parentAddonReleaseId_ = nullptr;};
-    inline string parentAddonReleaseId() const { DARABONBA_PTR_GET_DEFAULT(parentAddonReleaseId_, "") };
+    inline string getParentAddonReleaseId() const { DARABONBA_PTR_GET_DEFAULT(parentAddonReleaseId_, "") };
     inline CreateAddonReleaseRequest& setParentAddonReleaseId(string parentAddonReleaseId) { DARABONBA_PTR_SET_VALUE(parentAddonReleaseId_, parentAddonReleaseId) };
 
 
     // releaseName Field Functions 
     bool hasReleaseName() const { return this->releaseName_ != nullptr;};
     void deleteReleaseName() { this->releaseName_ = nullptr;};
-    inline string releaseName() const { DARABONBA_PTR_GET_DEFAULT(releaseName_, "") };
+    inline string getReleaseName() const { DARABONBA_PTR_GET_DEFAULT(releaseName_, "") };
     inline CreateAddonReleaseRequest& setReleaseName(string releaseName) { DARABONBA_PTR_SET_VALUE(releaseName_, releaseName) };
 
 
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline string values() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
+    inline string getValues() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
     inline CreateAddonReleaseRequest& setValues(string values) { DARABONBA_PTR_SET_VALUE(values_, values) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline CreateAddonReleaseRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline CreateAddonReleaseRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
@@ -127,27 +127,27 @@ namespace Models
     // The Addon name of the component that needs to be monitored.
     // 
     // This parameter is required.
-    std::shared_ptr<string> addonName_ = nullptr;
+    shared_ptr<string> addonName_ {};
     // The language type of the component.
-    std::shared_ptr<string> aliyunLang_ = nullptr;
+    shared_ptr<string> aliyunLang_ {};
     // Whether it is a dry run, default is false.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // Field rules
-    std::shared_ptr<EntityDiscoverRule> entityRules_ = nullptr;
+    shared_ptr<EntityDiscoverRule> entityRules_ {};
     // Environment type. If the Policy type is CS and ECS, use accordingly; otherwise, it is unified as Cloud.
-    std::shared_ptr<string> envType_ = nullptr;
+    shared_ptr<string> envType_ {};
     // Parent AddonReleaseId.
-    std::shared_ptr<string> parentAddonReleaseId_ = nullptr;
+    shared_ptr<string> parentAddonReleaseId_ {};
     // The plugin name after access. If not specified, a default rule name will be generated.
-    std::shared_ptr<string> releaseName_ = nullptr;
+    shared_ptr<string> releaseName_ {};
     // Input metadata.
-    std::shared_ptr<string> values_ = nullptr;
+    shared_ptr<string> values_ {};
     // The version of the Addon component that needs to be monitored.
     // 
     // This parameter is required.
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> version_ {};
     // The workspace name for installing the component resources.
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

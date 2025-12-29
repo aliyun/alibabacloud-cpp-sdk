@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && return this->notification_ == nullptr && return this->notifyStrategies_ == nullptr && return this->sendToArms_ == nullptr; };
+        && this->notification_ == nullptr && this->notifyStrategies_ == nullptr && this->sendToArms_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline const AlertRuleAction & action() const { DARABONBA_PTR_GET_CONST(action_, AlertRuleAction) };
-    inline AlertRuleAction action() { DARABONBA_PTR_GET(action_, AlertRuleAction) };
+    inline const AlertRuleAction & getAction() const { DARABONBA_PTR_GET_CONST(action_, AlertRuleAction) };
+    inline AlertRuleAction getAction() { DARABONBA_PTR_GET(action_, AlertRuleAction) };
     inline AlertRuleSend& setAction(const AlertRuleAction & action) { DARABONBA_PTR_SET_VALUE(action_, action) };
     inline AlertRuleSend& setAction(AlertRuleAction && action) { DARABONBA_PTR_SET_RVALUE(action_, action) };
 
@@ -52,8 +52,8 @@ namespace Models
     // notification Field Functions 
     bool hasNotification() const { return this->notification_ != nullptr;};
     void deleteNotification() { this->notification_ = nullptr;};
-    inline const AlertRuleNotification & notification() const { DARABONBA_PTR_GET_CONST(notification_, AlertRuleNotification) };
-    inline AlertRuleNotification notification() { DARABONBA_PTR_GET(notification_, AlertRuleNotification) };
+    inline const AlertRuleNotification & getNotification() const { DARABONBA_PTR_GET_CONST(notification_, AlertRuleNotification) };
+    inline AlertRuleNotification getNotification() { DARABONBA_PTR_GET(notification_, AlertRuleNotification) };
     inline AlertRuleSend& setNotification(const AlertRuleNotification & notification) { DARABONBA_PTR_SET_VALUE(notification_, notification) };
     inline AlertRuleSend& setNotification(AlertRuleNotification && notification) { DARABONBA_PTR_SET_RVALUE(notification_, notification) };
 
@@ -61,8 +61,8 @@ namespace Models
     // notifyStrategies Field Functions 
     bool hasNotifyStrategies() const { return this->notifyStrategies_ != nullptr;};
     void deleteNotifyStrategies() { this->notifyStrategies_ = nullptr;};
-    inline const vector<string> & notifyStrategies() const { DARABONBA_PTR_GET_CONST(notifyStrategies_, vector<string>) };
-    inline vector<string> notifyStrategies() { DARABONBA_PTR_GET(notifyStrategies_, vector<string>) };
+    inline const vector<string> & getNotifyStrategies() const { DARABONBA_PTR_GET_CONST(notifyStrategies_, vector<string>) };
+    inline vector<string> getNotifyStrategies() { DARABONBA_PTR_GET(notifyStrategies_, vector<string>) };
     inline AlertRuleSend& setNotifyStrategies(const vector<string> & notifyStrategies) { DARABONBA_PTR_SET_VALUE(notifyStrategies_, notifyStrategies) };
     inline AlertRuleSend& setNotifyStrategies(vector<string> && notifyStrategies) { DARABONBA_PTR_SET_RVALUE(notifyStrategies_, notifyStrategies) };
 
@@ -70,15 +70,15 @@ namespace Models
     // sendToArms Field Functions 
     bool hasSendToArms() const { return this->sendToArms_ != nullptr;};
     void deleteSendToArms() { this->sendToArms_ = nullptr;};
-    inline bool sendToArms() const { DARABONBA_PTR_GET_DEFAULT(sendToArms_, false) };
+    inline bool getSendToArms() const { DARABONBA_PTR_GET_DEFAULT(sendToArms_, false) };
     inline AlertRuleSend& setSendToArms(bool sendToArms) { DARABONBA_PTR_SET_VALUE(sendToArms_, sendToArms) };
 
 
   protected:
-    std::shared_ptr<AlertRuleAction> action_ = nullptr;
-    std::shared_ptr<AlertRuleNotification> notification_ = nullptr;
-    std::shared_ptr<vector<string>> notifyStrategies_ = nullptr;
-    std::shared_ptr<bool> sendToArms_ = nullptr;
+    shared_ptr<AlertRuleAction> action_ {};
+    shared_ptr<AlertRuleNotification> notification_ {};
+    shared_ptr<vector<string>> notifyStrategies_ {};
+    shared_ptr<bool> sendToArms_ {};
   };
 
   } // namespace Models

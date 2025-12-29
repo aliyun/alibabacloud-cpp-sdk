@@ -52,20 +52,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->escalations_ == nullptr && return this->incidentId_ == nullptr && return this->incidentPlan_ == nullptr && return this->resource_ == nullptr && return this->severity_ == nullptr
-        && return this->status_ == nullptr && return this->time_ == nullptr && return this->title_ == nullptr && return this->userId_ == nullptr; };
+        && this->escalations_ == nullptr && this->incidentId_ == nullptr && this->incidentPlan_ == nullptr && this->resource_ == nullptr && this->severity_ == nullptr
+        && this->status_ == nullptr && this->time_ == nullptr && this->title_ == nullptr && this->userId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline IncidentStruct& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // escalations Field Functions 
     bool hasEscalations() const { return this->escalations_ != nullptr;};
     void deleteEscalations() { this->escalations_ = nullptr;};
-    inline const vector<IncidentEscalationStruct> & escalations() const { DARABONBA_PTR_GET_CONST(escalations_, vector<IncidentEscalationStruct>) };
-    inline vector<IncidentEscalationStruct> escalations() { DARABONBA_PTR_GET(escalations_, vector<IncidentEscalationStruct>) };
+    inline const vector<IncidentEscalationStruct> & getEscalations() const { DARABONBA_PTR_GET_CONST(escalations_, vector<IncidentEscalationStruct>) };
+    inline vector<IncidentEscalationStruct> getEscalations() { DARABONBA_PTR_GET(escalations_, vector<IncidentEscalationStruct>) };
     inline IncidentStruct& setEscalations(const vector<IncidentEscalationStruct> & escalations) { DARABONBA_PTR_SET_VALUE(escalations_, escalations) };
     inline IncidentStruct& setEscalations(vector<IncidentEscalationStruct> && escalations) { DARABONBA_PTR_SET_RVALUE(escalations_, escalations) };
 
@@ -73,15 +73,15 @@ namespace Models
     // incidentId Field Functions 
     bool hasIncidentId() const { return this->incidentId_ != nullptr;};
     void deleteIncidentId() { this->incidentId_ = nullptr;};
-    inline string incidentId() const { DARABONBA_PTR_GET_DEFAULT(incidentId_, "") };
+    inline string getIncidentId() const { DARABONBA_PTR_GET_DEFAULT(incidentId_, "") };
     inline IncidentStruct& setIncidentId(string incidentId) { DARABONBA_PTR_SET_VALUE(incidentId_, incidentId) };
 
 
     // incidentPlan Field Functions 
     bool hasIncidentPlan() const { return this->incidentPlan_ != nullptr;};
     void deleteIncidentPlan() { this->incidentPlan_ = nullptr;};
-    inline const IncidentPlanStruct & incidentPlan() const { DARABONBA_PTR_GET_CONST(incidentPlan_, IncidentPlanStruct) };
-    inline IncidentPlanStruct incidentPlan() { DARABONBA_PTR_GET(incidentPlan_, IncidentPlanStruct) };
+    inline const IncidentPlanStruct & getIncidentPlan() const { DARABONBA_PTR_GET_CONST(incidentPlan_, IncidentPlanStruct) };
+    inline IncidentPlanStruct getIncidentPlan() { DARABONBA_PTR_GET(incidentPlan_, IncidentPlanStruct) };
     inline IncidentStruct& setIncidentPlan(const IncidentPlanStruct & incidentPlan) { DARABONBA_PTR_SET_VALUE(incidentPlan_, incidentPlan) };
     inline IncidentStruct& setIncidentPlan(IncidentPlanStruct && incidentPlan) { DARABONBA_PTR_SET_RVALUE(incidentPlan_, incidentPlan) };
 
@@ -89,8 +89,8 @@ namespace Models
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
-    inline const IncidentResourceDetail & resource() const { DARABONBA_PTR_GET_CONST(resource_, IncidentResourceDetail) };
-    inline IncidentResourceDetail resource() { DARABONBA_PTR_GET(resource_, IncidentResourceDetail) };
+    inline const IncidentResourceDetail & getResource() const { DARABONBA_PTR_GET_CONST(resource_, IncidentResourceDetail) };
+    inline IncidentResourceDetail getResource() { DARABONBA_PTR_GET(resource_, IncidentResourceDetail) };
     inline IncidentStruct& setResource(const IncidentResourceDetail & resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
     inline IncidentStruct& setResource(IncidentResourceDetail && resource) { DARABONBA_PTR_SET_RVALUE(resource_, resource) };
 
@@ -98,49 +98,49 @@ namespace Models
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
-    inline string severity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+    inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
     inline IncidentStruct& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline IncidentStruct& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // time Field Functions 
     bool hasTime() const { return this->time_ != nullptr;};
     void deleteTime() { this->time_ = nullptr;};
-    inline int64_t time() const { DARABONBA_PTR_GET_DEFAULT(time_, 0L) };
+    inline int64_t getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, 0L) };
     inline IncidentStruct& setTime(int64_t time) { DARABONBA_PTR_SET_VALUE(time_, time) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline IncidentStruct& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline IncidentStruct& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<vector<IncidentEscalationStruct>> escalations_ = nullptr;
-    std::shared_ptr<string> incidentId_ = nullptr;
-    std::shared_ptr<IncidentPlanStruct> incidentPlan_ = nullptr;
-    std::shared_ptr<IncidentResourceDetail> resource_ = nullptr;
-    std::shared_ptr<string> severity_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<int64_t> time_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<vector<IncidentEscalationStruct>> escalations_ {};
+    shared_ptr<string> incidentId_ {};
+    shared_ptr<IncidentPlanStruct> incidentPlan_ {};
+    shared_ptr<IncidentResourceDetail> resource_ {};
+    shared_ptr<string> severity_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<int64_t> time_ {};
+    shared_ptr<string> title_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

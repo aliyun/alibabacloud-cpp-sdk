@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && return this->parentAddonReleaseId_ == nullptr; };
+        && this->parentAddonReleaseId_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
-    inline string addonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
+    inline string getAddonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
     inline ListAddonReleasesRequest& setAddonName(string addonName) { DARABONBA_PTR_SET_VALUE(addonName_, addonName) };
 
 
     // parentAddonReleaseId Field Functions 
     bool hasParentAddonReleaseId() const { return this->parentAddonReleaseId_ != nullptr;};
     void deleteParentAddonReleaseId() { this->parentAddonReleaseId_ = nullptr;};
-    inline string parentAddonReleaseId() const { DARABONBA_PTR_GET_DEFAULT(parentAddonReleaseId_, "") };
+    inline string getParentAddonReleaseId() const { DARABONBA_PTR_GET_DEFAULT(parentAddonReleaseId_, "") };
     inline ListAddonReleasesRequest& setParentAddonReleaseId(string parentAddonReleaseId) { DARABONBA_PTR_SET_VALUE(parentAddonReleaseId_, parentAddonReleaseId) };
 
 
   protected:
     // Addon component name.
-    std::shared_ptr<string> addonName_ = nullptr;
+    shared_ptr<string> addonName_ {};
     // Parent AddonReleaseId.
-    std::shared_ptr<string> parentAddonReleaseId_ = nullptr;
+    shared_ptr<string> parentAddonReleaseId_ {};
   };
 
   } // namespace Models

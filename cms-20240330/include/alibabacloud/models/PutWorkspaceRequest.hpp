@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->displayName_ == nullptr && return this->slsProject_ == nullptr; };
+        && this->displayName_ == nullptr && this->slsProject_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline PutWorkspaceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline PutWorkspaceRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // slsProject Field Functions 
     bool hasSlsProject() const { return this->slsProject_ != nullptr;};
     void deleteSlsProject() { this->slsProject_ = nullptr;};
-    inline string slsProject() const { DARABONBA_PTR_GET_DEFAULT(slsProject_, "") };
+    inline string getSlsProject() const { DARABONBA_PTR_GET_DEFAULT(slsProject_, "") };
     inline PutWorkspaceRequest& setSlsProject(string slsProject) { DARABONBA_PTR_SET_VALUE(slsProject_, slsProject) };
 
 
   protected:
     // Description of the workspace
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Display name of the workspace
-    std::shared_ptr<string> displayName_ = nullptr;
+    shared_ptr<string> displayName_ {};
     // Name of the Log Service project
     // 
     // This parameter is required.
-    std::shared_ptr<string> slsProject_ = nullptr;
+    shared_ptr<string> slsProject_ {};
   };
 
   } // namespace Models

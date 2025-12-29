@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->workspace_ == nullptr; };
+        && this->workspace_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const SubscriptionForModify & body() const { DARABONBA_PTR_GET_CONST(body_, SubscriptionForModify) };
-    inline SubscriptionForModify body() { DARABONBA_PTR_GET(body_, SubscriptionForModify) };
+    inline const SubscriptionForModify & getBody() const { DARABONBA_PTR_GET_CONST(body_, SubscriptionForModify) };
+    inline SubscriptionForModify getBody() { DARABONBA_PTR_GET(body_, SubscriptionForModify) };
     inline UpdateSubscriptionRequest& setBody(const SubscriptionForModify & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateSubscriptionRequest& setBody(SubscriptionForModify && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,13 +46,13 @@ namespace Models
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline UpdateSubscriptionRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<SubscriptionForModify> body_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<SubscriptionForModify> body_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

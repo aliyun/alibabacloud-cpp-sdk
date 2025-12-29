@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->message_ == nullptr && return this->result_ == nullptr; };
+        && this->message_ == nullptr && this->result_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline RumDnsResponse& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline RumDnsResponse& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline bool result() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
+    inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
     inline RumDnsResponse& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
   protected:
-    std::shared_ptr<string> domain_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<bool> result_ = nullptr;
+    shared_ptr<string> domain_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<bool> result_ {};
   };
 
   } // namespace Models

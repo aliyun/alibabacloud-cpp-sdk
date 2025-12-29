@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tagSelector_ == nullptr
-        && return this->workspaceUuids_ == nullptr; };
+        && this->workspaceUuids_ == nullptr; };
     // tagSelector Field Functions 
     bool hasTagSelector() const { return this->tagSelector_ != nullptr;};
     void deleteTagSelector() { this->tagSelector_ = nullptr;};
-    inline const FilterSetting & tagSelector() const { DARABONBA_PTR_GET_CONST(tagSelector_, FilterSetting) };
-    inline FilterSetting tagSelector() { DARABONBA_PTR_GET(tagSelector_, FilterSetting) };
+    inline const FilterSetting & getTagSelector() const { DARABONBA_PTR_GET_CONST(tagSelector_, FilterSetting) };
+    inline FilterSetting getTagSelector() { DARABONBA_PTR_GET(tagSelector_, FilterSetting) };
     inline WorkspaceFilterSetting& setTagSelector(const FilterSetting & tagSelector) { DARABONBA_PTR_SET_VALUE(tagSelector_, tagSelector) };
     inline WorkspaceFilterSetting& setTagSelector(FilterSetting && tagSelector) { DARABONBA_PTR_SET_RVALUE(tagSelector_, tagSelector) };
 
@@ -47,15 +47,15 @@ namespace Models
     // workspaceUuids Field Functions 
     bool hasWorkspaceUuids() const { return this->workspaceUuids_ != nullptr;};
     void deleteWorkspaceUuids() { this->workspaceUuids_ = nullptr;};
-    inline const vector<string> & workspaceUuids() const { DARABONBA_PTR_GET_CONST(workspaceUuids_, vector<string>) };
-    inline vector<string> workspaceUuids() { DARABONBA_PTR_GET(workspaceUuids_, vector<string>) };
+    inline const vector<string> & getWorkspaceUuids() const { DARABONBA_PTR_GET_CONST(workspaceUuids_, vector<string>) };
+    inline vector<string> getWorkspaceUuids() { DARABONBA_PTR_GET(workspaceUuids_, vector<string>) };
     inline WorkspaceFilterSetting& setWorkspaceUuids(const vector<string> & workspaceUuids) { DARABONBA_PTR_SET_VALUE(workspaceUuids_, workspaceUuids) };
     inline WorkspaceFilterSetting& setWorkspaceUuids(vector<string> && workspaceUuids) { DARABONBA_PTR_SET_RVALUE(workspaceUuids_, workspaceUuids) };
 
 
   protected:
-    std::shared_ptr<FilterSetting> tagSelector_ = nullptr;
-    std::shared_ptr<vector<string>> workspaceUuids_ = nullptr;
+    shared_ptr<FilterSetting> tagSelector_ {};
+    shared_ptr<vector<string>> workspaceUuids_ {};
   };
 
   } // namespace Models

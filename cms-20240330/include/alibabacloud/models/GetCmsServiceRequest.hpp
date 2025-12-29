@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->product_ == nullptr
-        && return this->service_ == nullptr; };
+        && this->service_ == nullptr; };
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
-    inline string product() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
+    inline string getProduct() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
     inline GetCmsServiceRequest& setProduct(string product) { DARABONBA_PTR_SET_VALUE(product_, product) };
 
 
     // service Field Functions 
     bool hasService() const { return this->service_ != nullptr;};
     void deleteService() { this->service_ = nullptr;};
-    inline string service() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
+    inline string getService() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
     inline GetCmsServiceRequest& setService(string service) { DARABONBA_PTR_SET_VALUE(service_, service) };
 
 
   protected:
-    std::shared_ptr<string> product_ = nullptr;
-    std::shared_ptr<string> service_ = nullptr;
+    shared_ptr<string> product_ {};
+    shared_ptr<string> service_ {};
   };
 
   } // namespace Models

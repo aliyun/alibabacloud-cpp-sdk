@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endIncidentState_ == nullptr
-        && return this->repeatInterval_ == nullptr; };
+        && this->repeatInterval_ == nullptr; };
     // endIncidentState Field Functions 
     bool hasEndIncidentState() const { return this->endIncidentState_ != nullptr;};
     void deleteEndIncidentState() { this->endIncidentState_ = nullptr;};
-    inline string endIncidentState() const { DARABONBA_PTR_GET_DEFAULT(endIncidentState_, "") };
+    inline string getEndIncidentState() const { DARABONBA_PTR_GET_DEFAULT(endIncidentState_, "") };
     inline RepeatNotifySetting& setEndIncidentState(string endIncidentState) { DARABONBA_PTR_SET_VALUE(endIncidentState_, endIncidentState) };
 
 
     // repeatInterval Field Functions 
     bool hasRepeatInterval() const { return this->repeatInterval_ != nullptr;};
     void deleteRepeatInterval() { this->repeatInterval_ = nullptr;};
-    inline string repeatInterval() const { DARABONBA_PTR_GET_DEFAULT(repeatInterval_, "") };
+    inline string getRepeatInterval() const { DARABONBA_PTR_GET_DEFAULT(repeatInterval_, "") };
     inline RepeatNotifySetting& setRepeatInterval(string repeatInterval) { DARABONBA_PTR_SET_VALUE(repeatInterval_, repeatInterval) };
 
 
   protected:
-    std::shared_ptr<string> endIncidentState_ = nullptr;
-    std::shared_ptr<string> repeatInterval_ = nullptr;
+    shared_ptr<string> endIncidentState_ {};
+    shared_ptr<string> repeatInterval_ {};
   };
 
   } // namespace Models

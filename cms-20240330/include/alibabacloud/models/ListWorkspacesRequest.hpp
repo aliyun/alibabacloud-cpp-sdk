@@ -39,40 +39,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->region_ == nullptr && return this->workspaceName_ == nullptr && return this->workspaceNameList_ == nullptr; };
+        && this->nextToken_ == nullptr && this->region_ == nullptr && this->workspaceName_ == nullptr && this->workspaceNameList_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListWorkspacesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListWorkspacesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ListWorkspacesRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // workspaceName Field Functions 
     bool hasWorkspaceName() const { return this->workspaceName_ != nullptr;};
     void deleteWorkspaceName() { this->workspaceName_ = nullptr;};
-    inline string workspaceName() const { DARABONBA_PTR_GET_DEFAULT(workspaceName_, "") };
+    inline string getWorkspaceName() const { DARABONBA_PTR_GET_DEFAULT(workspaceName_, "") };
     inline ListWorkspacesRequest& setWorkspaceName(string workspaceName) { DARABONBA_PTR_SET_VALUE(workspaceName_, workspaceName) };
 
 
     // workspaceNameList Field Functions 
     bool hasWorkspaceNameList() const { return this->workspaceNameList_ != nullptr;};
     void deleteWorkspaceNameList() { this->workspaceNameList_ = nullptr;};
-    inline const vector<string> & workspaceNameList() const { DARABONBA_PTR_GET_CONST(workspaceNameList_, vector<string>) };
-    inline vector<string> workspaceNameList() { DARABONBA_PTR_GET(workspaceNameList_, vector<string>) };
+    inline const vector<string> & getWorkspaceNameList() const { DARABONBA_PTR_GET_CONST(workspaceNameList_, vector<string>) };
+    inline vector<string> getWorkspaceNameList() { DARABONBA_PTR_GET(workspaceNameList_, vector<string>) };
     inline ListWorkspacesRequest& setWorkspaceNameList(const vector<string> & workspaceNameList) { DARABONBA_PTR_SET_VALUE(workspaceNameList_, workspaceNameList) };
     inline ListWorkspacesRequest& setWorkspaceNameList(vector<string> && workspaceNameList) { DARABONBA_PTR_SET_RVALUE(workspaceNameList_, workspaceNameList) };
 
@@ -83,15 +83,15 @@ namespace Models
     // 	50
     // Maximum value:
     // 	50
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // Pagination Token
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // Region
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // Workspace name, fuzzy search
-    std::shared_ptr<string> workspaceName_ = nullptr;
+    shared_ptr<string> workspaceName_ {};
     // Workspace name, exact match
-    std::shared_ptr<vector<string>> workspaceNameList_ = nullptr;
+    shared_ptr<vector<string>> workspaceNameList_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
-    inline string group() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+    inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
     inline DeleteUmodelCommonSchemaRefRequest& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> group_ = nullptr;
+    shared_ptr<string> group_ {};
   };
 
   } // namespace Models

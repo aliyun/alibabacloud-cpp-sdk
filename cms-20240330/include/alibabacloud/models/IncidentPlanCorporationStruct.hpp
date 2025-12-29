@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channel_ == nullptr
-        && return this->robotId_ == nullptr; };
+        && this->robotId_ == nullptr; };
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
-    inline string channel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
     inline IncidentPlanCorporationStruct& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // robotId Field Functions 
     bool hasRobotId() const { return this->robotId_ != nullptr;};
     void deleteRobotId() { this->robotId_ = nullptr;};
-    inline string robotId() const { DARABONBA_PTR_GET_DEFAULT(robotId_, "") };
+    inline string getRobotId() const { DARABONBA_PTR_GET_DEFAULT(robotId_, "") };
     inline IncidentPlanCorporationStruct& setRobotId(string robotId) { DARABONBA_PTR_SET_VALUE(robotId_, robotId) };
 
 
   protected:
-    std::shared_ptr<string> channel_ = nullptr;
-    std::shared_ptr<string> robotId_ = nullptr;
+    shared_ptr<string> channel_ {};
+    shared_ptr<string> robotId_ {};
   };
 
   } // namespace Models

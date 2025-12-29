@@ -33,13 +33,13 @@ namespace Models
     // settingValue Field Functions 
     bool hasSettingValue() const { return this->settingValue_ != nullptr;};
     void deleteSettingValue() { this->settingValue_ = nullptr;};
-    inline string settingValue() const { DARABONBA_PTR_GET_DEFAULT(settingValue_, "") };
+    inline string getSettingValue() const { DARABONBA_PTR_GET_DEFAULT(settingValue_, "") };
     inline UpdatePrometheusUserSettingRequest& setSettingValue(string settingValue) { DARABONBA_PTR_SET_VALUE(settingValue_, settingValue) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> settingValue_ = nullptr;
+    shared_ptr<string> settingValue_ {};
   };
 
   } // namespace Models

@@ -48,13 +48,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterSetting_ == nullptr
-        && return this->labelKey_ == nullptr && return this->mapping_ == nullptr && return this->regExp_ == nullptr && return this->source_ == nullptr && return this->target_ == nullptr
-        && return this->type_ == nullptr && return this->value_ == nullptr && return this->variable_ == nullptr; };
+        && this->labelKey_ == nullptr && this->mapping_ == nullptr && this->regExp_ == nullptr && this->source_ == nullptr && this->target_ == nullptr
+        && this->type_ == nullptr && this->value_ == nullptr && this->variable_ == nullptr; };
     // filterSetting Field Functions 
     bool hasFilterSetting() const { return this->filterSetting_ != nullptr;};
     void deleteFilterSetting() { this->filterSetting_ = nullptr;};
-    inline const FilterSetting & filterSetting() const { DARABONBA_PTR_GET_CONST(filterSetting_, FilterSetting) };
-    inline FilterSetting filterSetting() { DARABONBA_PTR_GET(filterSetting_, FilterSetting) };
+    inline const FilterSetting & getFilterSetting() const { DARABONBA_PTR_GET_CONST(filterSetting_, FilterSetting) };
+    inline FilterSetting getFilterSetting() { DARABONBA_PTR_GET(filterSetting_, FilterSetting) };
     inline TransformAction& setFilterSetting(const FilterSetting & filterSetting) { DARABONBA_PTR_SET_VALUE(filterSetting_, filterSetting) };
     inline TransformAction& setFilterSetting(FilterSetting && filterSetting) { DARABONBA_PTR_SET_RVALUE(filterSetting_, filterSetting) };
 
@@ -62,15 +62,15 @@ namespace Models
     // labelKey Field Functions 
     bool hasLabelKey() const { return this->labelKey_ != nullptr;};
     void deleteLabelKey() { this->labelKey_ = nullptr;};
-    inline string labelKey() const { DARABONBA_PTR_GET_DEFAULT(labelKey_, "") };
+    inline string getLabelKey() const { DARABONBA_PTR_GET_DEFAULT(labelKey_, "") };
     inline TransformAction& setLabelKey(string labelKey) { DARABONBA_PTR_SET_VALUE(labelKey_, labelKey) };
 
 
     // mapping Field Functions 
     bool hasMapping() const { return this->mapping_ != nullptr;};
     void deleteMapping() { this->mapping_ = nullptr;};
-    inline const map<string, string> & mapping() const { DARABONBA_PTR_GET_CONST(mapping_, map<string, string>) };
-    inline map<string, string> mapping() { DARABONBA_PTR_GET(mapping_, map<string, string>) };
+    inline const map<string, string> & getMapping() const { DARABONBA_PTR_GET_CONST(mapping_, map<string, string>) };
+    inline map<string, string> getMapping() { DARABONBA_PTR_GET(mapping_, map<string, string>) };
     inline TransformAction& setMapping(const map<string, string> & mapping) { DARABONBA_PTR_SET_VALUE(mapping_, mapping) };
     inline TransformAction& setMapping(map<string, string> && mapping) { DARABONBA_PTR_SET_RVALUE(mapping_, mapping) };
 
@@ -78,55 +78,55 @@ namespace Models
     // regExp Field Functions 
     bool hasRegExp() const { return this->regExp_ != nullptr;};
     void deleteRegExp() { this->regExp_ = nullptr;};
-    inline string regExp() const { DARABONBA_PTR_GET_DEFAULT(regExp_, "") };
+    inline string getRegExp() const { DARABONBA_PTR_GET_DEFAULT(regExp_, "") };
     inline TransformAction& setRegExp(string regExp) { DARABONBA_PTR_SET_VALUE(regExp_, regExp) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline TransformAction& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // target Field Functions 
     bool hasTarget() const { return this->target_ != nullptr;};
     void deleteTarget() { this->target_ = nullptr;};
-    inline string target() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+    inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
     inline TransformAction& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline TransformAction& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline TransformAction& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
     // variable Field Functions 
     bool hasVariable() const { return this->variable_ != nullptr;};
     void deleteVariable() { this->variable_ = nullptr;};
-    inline string variable() const { DARABONBA_PTR_GET_DEFAULT(variable_, "") };
+    inline string getVariable() const { DARABONBA_PTR_GET_DEFAULT(variable_, "") };
     inline TransformAction& setVariable(string variable) { DARABONBA_PTR_SET_VALUE(variable_, variable) };
 
 
   protected:
-    std::shared_ptr<FilterSetting> filterSetting_ = nullptr;
-    std::shared_ptr<string> labelKey_ = nullptr;
-    std::shared_ptr<map<string, string>> mapping_ = nullptr;
-    std::shared_ptr<string> regExp_ = nullptr;
-    std::shared_ptr<string> source_ = nullptr;
-    std::shared_ptr<string> target_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
-    std::shared_ptr<string> variable_ = nullptr;
+    shared_ptr<FilterSetting> filterSetting_ {};
+    shared_ptr<string> labelKey_ {};
+    shared_ptr<map<string, string>> mapping_ {};
+    shared_ptr<string> regExp_ {};
+    shared_ptr<string> source_ {};
+    shared_ptr<string> target_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> value_ {};
+    shared_ptr<string> variable_ {};
   };
 
   } // namespace Models

@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonVersion_ == nullptr
-        && return this->dryRun_ == nullptr && return this->entityRules_ == nullptr && return this->values_ == nullptr; };
+        && this->dryRun_ == nullptr && this->entityRules_ == nullptr && this->values_ == nullptr; };
     // addonVersion Field Functions 
     bool hasAddonVersion() const { return this->addonVersion_ != nullptr;};
     void deleteAddonVersion() { this->addonVersion_ = nullptr;};
-    inline string addonVersion() const { DARABONBA_PTR_GET_DEFAULT(addonVersion_, "") };
+    inline string getAddonVersion() const { DARABONBA_PTR_GET_DEFAULT(addonVersion_, "") };
     inline UpdateAddonReleaseRequest& setAddonVersion(string addonVersion) { DARABONBA_PTR_SET_VALUE(addonVersion_, addonVersion) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline UpdateAddonReleaseRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // entityRules Field Functions 
     bool hasEntityRules() const { return this->entityRules_ != nullptr;};
     void deleteEntityRules() { this->entityRules_ = nullptr;};
-    inline const EntityDiscoverRule & entityRules() const { DARABONBA_PTR_GET_CONST(entityRules_, EntityDiscoverRule) };
-    inline EntityDiscoverRule entityRules() { DARABONBA_PTR_GET(entityRules_, EntityDiscoverRule) };
+    inline const EntityDiscoverRule & getEntityRules() const { DARABONBA_PTR_GET_CONST(entityRules_, EntityDiscoverRule) };
+    inline EntityDiscoverRule getEntityRules() { DARABONBA_PTR_GET(entityRules_, EntityDiscoverRule) };
     inline UpdateAddonReleaseRequest& setEntityRules(const EntityDiscoverRule & entityRules) { DARABONBA_PTR_SET_VALUE(entityRules_, entityRules) };
     inline UpdateAddonReleaseRequest& setEntityRules(EntityDiscoverRule && entityRules) { DARABONBA_PTR_SET_RVALUE(entityRules_, entityRules) };
 
@@ -64,19 +64,19 @@ namespace Models
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline string values() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
+    inline string getValues() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
     inline UpdateAddonReleaseRequest& setValues(string values) { DARABONBA_PTR_SET_VALUE(values_, values) };
 
 
   protected:
     // Addon version information.
-    std::shared_ptr<string> addonVersion_ = nullptr;
+    shared_ptr<string> addonVersion_ {};
     // Whether to pre-check this request.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // Entity discovery rules.
-    std::shared_ptr<EntityDiscoverRule> entityRules_ = nullptr;
+    shared_ptr<EntityDiscoverRule> entityRules_ {};
     // Metadata information.
-    std::shared_ptr<string> values_ = nullptr;
+    shared_ptr<string> values_ {};
   };
 
   } // namespace Models

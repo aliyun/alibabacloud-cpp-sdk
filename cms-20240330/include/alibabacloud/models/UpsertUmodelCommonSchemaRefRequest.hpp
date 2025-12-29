@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->group_ == nullptr
-        && return this->version_ == nullptr; };
+        && this->version_ == nullptr; };
     // group Field Functions 
     bool hasGroup() const { return this->group_ != nullptr;};
     void deleteGroup() { this->group_ = nullptr;};
-    inline string group() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+    inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
     inline UpsertUmodelCommonSchemaRefRequest& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline UpsertUmodelCommonSchemaRefRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> group_ = nullptr;
+    shared_ptr<string> group_ {};
     // This parameter is required.
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

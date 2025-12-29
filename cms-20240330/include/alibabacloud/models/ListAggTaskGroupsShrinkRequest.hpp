@@ -44,81 +44,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterAggTaskGroupIds_ == nullptr
-        && return this->filterAggTaskGroupNames_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->query_ == nullptr && return this->status_ == nullptr
-        && return this->tagsShrink_ == nullptr && return this->targetPrometheusId_ == nullptr; };
+        && this->filterAggTaskGroupNames_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->query_ == nullptr && this->status_ == nullptr
+        && this->tagsShrink_ == nullptr && this->targetPrometheusId_ == nullptr; };
     // filterAggTaskGroupIds Field Functions 
     bool hasFilterAggTaskGroupIds() const { return this->filterAggTaskGroupIds_ != nullptr;};
     void deleteFilterAggTaskGroupIds() { this->filterAggTaskGroupIds_ = nullptr;};
-    inline string filterAggTaskGroupIds() const { DARABONBA_PTR_GET_DEFAULT(filterAggTaskGroupIds_, "") };
+    inline string getFilterAggTaskGroupIds() const { DARABONBA_PTR_GET_DEFAULT(filterAggTaskGroupIds_, "") };
     inline ListAggTaskGroupsShrinkRequest& setFilterAggTaskGroupIds(string filterAggTaskGroupIds) { DARABONBA_PTR_SET_VALUE(filterAggTaskGroupIds_, filterAggTaskGroupIds) };
 
 
     // filterAggTaskGroupNames Field Functions 
     bool hasFilterAggTaskGroupNames() const { return this->filterAggTaskGroupNames_ != nullptr;};
     void deleteFilterAggTaskGroupNames() { this->filterAggTaskGroupNames_ = nullptr;};
-    inline string filterAggTaskGroupNames() const { DARABONBA_PTR_GET_DEFAULT(filterAggTaskGroupNames_, "") };
+    inline string getFilterAggTaskGroupNames() const { DARABONBA_PTR_GET_DEFAULT(filterAggTaskGroupNames_, "") };
     inline ListAggTaskGroupsShrinkRequest& setFilterAggTaskGroupNames(string filterAggTaskGroupNames) { DARABONBA_PTR_SET_VALUE(filterAggTaskGroupNames_, filterAggTaskGroupNames) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAggTaskGroupsShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAggTaskGroupsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline ListAggTaskGroupsShrinkRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListAggTaskGroupsShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline ListAggTaskGroupsShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
     // targetPrometheusId Field Functions 
     bool hasTargetPrometheusId() const { return this->targetPrometheusId_ != nullptr;};
     void deleteTargetPrometheusId() { this->targetPrometheusId_ = nullptr;};
-    inline string targetPrometheusId() const { DARABONBA_PTR_GET_DEFAULT(targetPrometheusId_, "") };
+    inline string getTargetPrometheusId() const { DARABONBA_PTR_GET_DEFAULT(targetPrometheusId_, "") };
     inline ListAggTaskGroupsShrinkRequest& setTargetPrometheusId(string targetPrometheusId) { DARABONBA_PTR_SET_VALUE(targetPrometheusId_, targetPrometheusId) };
 
 
   protected:
     // List of IDs for the aggregation task groups, which must be JSON parseable.
-    std::shared_ptr<string> filterAggTaskGroupIds_ = nullptr;
+    shared_ptr<string> filterAggTaskGroupIds_ {};
     // List of names for the aggregation task groups, which must be JSON parseable.
-    std::shared_ptr<string> filterAggTaskGroupNames_ = nullptr;
+    shared_ptr<string> filterAggTaskGroupNames_ {};
     // Maximum number of records to return.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // Query token.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // Name search, supports fuzzy matching.
-    std::shared_ptr<string> query_ = nullptr;
+    shared_ptr<string> query_ {};
     // Status of the aggregation task group, either \\"Running\\" or \\"Stopped\\". Default is Running.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // Resource group tags.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
     // The target Prometheus instance ID for the aggregation task group.
-    std::shared_ptr<string> targetPrometheusId_ = nullptr;
+    shared_ptr<string> targetPrometheusId_ {};
   };
 
   } // namespace Models

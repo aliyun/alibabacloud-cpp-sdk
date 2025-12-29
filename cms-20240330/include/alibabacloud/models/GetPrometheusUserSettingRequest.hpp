@@ -33,12 +33,12 @@ namespace Models
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
-    inline string aliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
+    inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline GetPrometheusUserSettingRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
 
 
   protected:
-    std::shared_ptr<string> aliyunLang_ = nullptr;
+    shared_ptr<string> aliyunLang_ {};
   };
 
   } // namespace Models

@@ -86,7 +86,7 @@ namespace Cms20240330
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateChatResponse
        */
-      FutrueGenerator<Models::CreateChatResponse> createChatWithSSE(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::CreateChatResponse> createChatWithSSE(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 创建对话

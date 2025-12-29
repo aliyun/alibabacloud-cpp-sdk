@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dim_ == nullptr
-        && return this->opt_ == nullptr && return this->value_ == nullptr; };
+        && this->opt_ == nullptr && this->value_ == nullptr; };
     // dim Field Functions 
     bool hasDim() const { return this->dim_ != nullptr;};
     void deleteDim() { this->dim_ = nullptr;};
-    inline string dim() const { DARABONBA_PTR_GET_DEFAULT(dim_, "") };
+    inline string getDim() const { DARABONBA_PTR_GET_DEFAULT(dim_, "") };
     inline AlertRuleAlertMetricInputFilterValue& setDim(string dim) { DARABONBA_PTR_SET_VALUE(dim_, dim) };
 
 
     // opt Field Functions 
     bool hasOpt() const { return this->opt_ != nullptr;};
     void deleteOpt() { this->opt_ = nullptr;};
-    inline string opt() const { DARABONBA_PTR_GET_DEFAULT(opt_, "") };
+    inline string getOpt() const { DARABONBA_PTR_GET_DEFAULT(opt_, "") };
     inline AlertRuleAlertMetricInputFilterValue& setOpt(string opt) { DARABONBA_PTR_SET_VALUE(opt_, opt) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline AlertRuleAlertMetricInputFilterValue& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dim_ = nullptr;
+    shared_ptr<string> dim_ {};
     // This parameter is required.
-    std::shared_ptr<string> opt_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> opt_ {};
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

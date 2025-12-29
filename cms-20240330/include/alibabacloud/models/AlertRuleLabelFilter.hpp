@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->labels_ == nullptr
-        && return this->opt_ == nullptr; };
+        && this->opt_ == nullptr; };
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const map<string, string> & labels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
-    inline map<string, string> labels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
+    inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
+    inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
     inline AlertRuleLabelFilter& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline AlertRuleLabelFilter& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
@@ -46,13 +46,13 @@ namespace Models
     // opt Field Functions 
     bool hasOpt() const { return this->opt_ != nullptr;};
     void deleteOpt() { this->opt_ = nullptr;};
-    inline string opt() const { DARABONBA_PTR_GET_DEFAULT(opt_, "") };
+    inline string getOpt() const { DARABONBA_PTR_GET_DEFAULT(opt_, "") };
     inline AlertRuleLabelFilter& setOpt(string opt) { DARABONBA_PTR_SET_VALUE(opt_, opt) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> labels_ = nullptr;
-    std::shared_ptr<string> opt_ = nullptr;
+    shared_ptr<map<string, string>> labels_ {};
+    shared_ptr<string> opt_ {};
   };
 
   } // namespace Models

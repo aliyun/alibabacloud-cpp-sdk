@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fieldAlias_ == nullptr
-        && return this->fieldPath_ == nullptr; };
+        && this->fieldPath_ == nullptr; };
     // fieldAlias Field Functions 
     bool hasFieldAlias() const { return this->fieldAlias_ != nullptr;};
     void deleteFieldAlias() { this->fieldAlias_ = nullptr;};
-    inline string fieldAlias() const { DARABONBA_PTR_GET_DEFAULT(fieldAlias_, "") };
+    inline string getFieldAlias() const { DARABONBA_PTR_GET_DEFAULT(fieldAlias_, "") };
     inline IncidentPlanFieldPath& setFieldAlias(string fieldAlias) { DARABONBA_PTR_SET_VALUE(fieldAlias_, fieldAlias) };
 
 
     // fieldPath Field Functions 
     bool hasFieldPath() const { return this->fieldPath_ != nullptr;};
     void deleteFieldPath() { this->fieldPath_ = nullptr;};
-    inline const vector<string> & fieldPath() const { DARABONBA_PTR_GET_CONST(fieldPath_, vector<string>) };
-    inline vector<string> fieldPath() { DARABONBA_PTR_GET(fieldPath_, vector<string>) };
+    inline const vector<string> & getFieldPath() const { DARABONBA_PTR_GET_CONST(fieldPath_, vector<string>) };
+    inline vector<string> getFieldPath() { DARABONBA_PTR_GET(fieldPath_, vector<string>) };
     inline IncidentPlanFieldPath& setFieldPath(const vector<string> & fieldPath) { DARABONBA_PTR_SET_VALUE(fieldPath_, fieldPath) };
     inline IncidentPlanFieldPath& setFieldPath(vector<string> && fieldPath) { DARABONBA_PTR_SET_RVALUE(fieldPath_, fieldPath) };
 
 
   protected:
-    std::shared_ptr<string> fieldAlias_ = nullptr;
-    std::shared_ptr<vector<string>> fieldPath_ = nullptr;
+    shared_ptr<string> fieldAlias_ {};
+    shared_ptr<vector<string>> fieldPath_ {};
   };
 
   } // namespace Models

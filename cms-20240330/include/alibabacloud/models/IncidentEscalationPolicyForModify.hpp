@@ -38,26 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->enable_ == nullptr && return this->escalationStageList_ == nullptr && return this->name_ == nullptr; };
+        && this->enable_ == nullptr && this->escalationStageList_ == nullptr && this->name_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline IncidentEscalationPolicyForModify& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline IncidentEscalationPolicyForModify& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // escalationStageList Field Functions 
     bool hasEscalationStageList() const { return this->escalationStageList_ != nullptr;};
     void deleteEscalationStageList() { this->escalationStageList_ = nullptr;};
-    inline const vector<IncidentEscalationStageForView> & escalationStageList() const { DARABONBA_PTR_GET_CONST(escalationStageList_, vector<IncidentEscalationStageForView>) };
-    inline vector<IncidentEscalationStageForView> escalationStageList() { DARABONBA_PTR_GET(escalationStageList_, vector<IncidentEscalationStageForView>) };
+    inline const vector<IncidentEscalationStageForView> & getEscalationStageList() const { DARABONBA_PTR_GET_CONST(escalationStageList_, vector<IncidentEscalationStageForView>) };
+    inline vector<IncidentEscalationStageForView> getEscalationStageList() { DARABONBA_PTR_GET(escalationStageList_, vector<IncidentEscalationStageForView>) };
     inline IncidentEscalationPolicyForModify& setEscalationStageList(const vector<IncidentEscalationStageForView> & escalationStageList) { DARABONBA_PTR_SET_VALUE(escalationStageList_, escalationStageList) };
     inline IncidentEscalationPolicyForModify& setEscalationStageList(vector<IncidentEscalationStageForView> && escalationStageList) { DARABONBA_PTR_SET_RVALUE(escalationStageList_, escalationStageList) };
 
@@ -65,16 +65,16 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline IncidentEscalationPolicyForModify& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<vector<IncidentEscalationStageForView>> escalationStageList_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<bool> enable_ {};
+    shared_ptr<vector<IncidentEscalationStageForView>> escalationStageList_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

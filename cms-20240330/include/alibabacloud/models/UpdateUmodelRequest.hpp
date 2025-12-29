@@ -33,13 +33,13 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateUmodelRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
   protected:
     // Description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
   };
 
   } // namespace Models

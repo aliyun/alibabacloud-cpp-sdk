@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->workspace_ == nullptr; };
+        && this->workspace_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const NotifyStrategyForModify & body() const { DARABONBA_PTR_GET_CONST(body_, NotifyStrategyForModify) };
-    inline NotifyStrategyForModify body() { DARABONBA_PTR_GET(body_, NotifyStrategyForModify) };
+    inline const NotifyStrategyForModify & getBody() const { DARABONBA_PTR_GET_CONST(body_, NotifyStrategyForModify) };
+    inline NotifyStrategyForModify getBody() { DARABONBA_PTR_GET(body_, NotifyStrategyForModify) };
     inline UpdateNotifyStrategyRequest& setBody(const NotifyStrategyForModify & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateNotifyStrategyRequest& setBody(NotifyStrategyForModify && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,13 +46,13 @@ namespace Models
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline UpdateNotifyStrategyRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<NotifyStrategyForModify> body_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<NotifyStrategyForModify> body_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

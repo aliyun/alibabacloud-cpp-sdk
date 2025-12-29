@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETUMODELCOMMONSCHEMAREFRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -31,18 +30,60 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CommonSchemaRef : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CommonSchemaRef& obj) { 
+        DARABONBA_PTR_TO_JSON(group, group_);
+        DARABONBA_PTR_TO_JSON(version, version_);
+      };
+      friend void from_json(const Darabonba::Json& j, CommonSchemaRef& obj) { 
+        DARABONBA_PTR_FROM_JSON(group, group_);
+        DARABONBA_PTR_FROM_JSON(version, version_);
+      };
+      CommonSchemaRef() = default ;
+      CommonSchemaRef(const CommonSchemaRef &) = default ;
+      CommonSchemaRef(CommonSchemaRef &&) = default ;
+      CommonSchemaRef(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CommonSchemaRef() = default ;
+      CommonSchemaRef& operator=(const CommonSchemaRef &) = default ;
+      CommonSchemaRef& operator=(CommonSchemaRef &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->group_ == nullptr
+        && this->version_ == nullptr; };
+      // group Field Functions 
+      bool hasGroup() const { return this->group_ != nullptr;};
+      void deleteGroup() { this->group_ = nullptr;};
+      inline string getGroup() const { DARABONBA_PTR_GET_DEFAULT(group_, "") };
+      inline CommonSchemaRef& setGroup(string group) { DARABONBA_PTR_SET_VALUE(group_, group) };
+
+
+      // version Field Functions 
+      bool hasVersion() const { return this->version_ != nullptr;};
+      void deleteVersion() { this->version_ = nullptr;};
+      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+      inline CommonSchemaRef& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+    protected:
+      shared_ptr<string> group_ {};
+      shared_ptr<string> version_ {};
+    };
+
     virtual bool empty() const override { return this->commonSchemaRef_ == nullptr; };
     // commonSchemaRef Field Functions 
     bool hasCommonSchemaRef() const { return this->commonSchemaRef_ != nullptr;};
     void deleteCommonSchemaRef() { this->commonSchemaRef_ = nullptr;};
-    inline const vector<GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef> & commonSchemaRef() const { DARABONBA_PTR_GET_CONST(commonSchemaRef_, vector<GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef>) };
-    inline vector<GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef> commonSchemaRef() { DARABONBA_PTR_GET(commonSchemaRef_, vector<GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef>) };
-    inline GetUmodelCommonSchemaRefResponseBody& setCommonSchemaRef(const vector<GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef> & commonSchemaRef) { DARABONBA_PTR_SET_VALUE(commonSchemaRef_, commonSchemaRef) };
-    inline GetUmodelCommonSchemaRefResponseBody& setCommonSchemaRef(vector<GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef> && commonSchemaRef) { DARABONBA_PTR_SET_RVALUE(commonSchemaRef_, commonSchemaRef) };
+    inline const vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef> & getCommonSchemaRef() const { DARABONBA_PTR_GET_CONST(commonSchemaRef_, vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef>) };
+    inline vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef> getCommonSchemaRef() { DARABONBA_PTR_GET(commonSchemaRef_, vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef>) };
+    inline GetUmodelCommonSchemaRefResponseBody& setCommonSchemaRef(const vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef> & commonSchemaRef) { DARABONBA_PTR_SET_VALUE(commonSchemaRef_, commonSchemaRef) };
+    inline GetUmodelCommonSchemaRefResponseBody& setCommonSchemaRef(vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef> && commonSchemaRef) { DARABONBA_PTR_SET_RVALUE(commonSchemaRef_, commonSchemaRef) };
 
 
   protected:
-    std::shared_ptr<vector<GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef>> commonSchemaRef_ = nullptr;
+    shared_ptr<vector<GetUmodelCommonSchemaRefResponseBody::CommonSchemaRef>> commonSchemaRef_ {};
   };
 
   } // namespace Models

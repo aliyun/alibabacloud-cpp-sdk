@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelType_ == nullptr
-        && return this->enabledSubChannels_ == nullptr && return this->receivers_ == nullptr; };
+        && this->enabledSubChannels_ == nullptr && this->receivers_ == nullptr; };
     // channelType Field Functions 
     bool hasChannelType() const { return this->channelType_ != nullptr;};
     void deleteChannelType() { this->channelType_ = nullptr;};
-    inline string channelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
+    inline string getChannelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
     inline NotifyChannel& setChannelType(string channelType) { DARABONBA_PTR_SET_VALUE(channelType_, channelType) };
 
 
     // enabledSubChannels Field Functions 
     bool hasEnabledSubChannels() const { return this->enabledSubChannels_ != nullptr;};
     void deleteEnabledSubChannels() { this->enabledSubChannels_ = nullptr;};
-    inline const vector<string> & enabledSubChannels() const { DARABONBA_PTR_GET_CONST(enabledSubChannels_, vector<string>) };
-    inline vector<string> enabledSubChannels() { DARABONBA_PTR_GET(enabledSubChannels_, vector<string>) };
+    inline const vector<string> & getEnabledSubChannels() const { DARABONBA_PTR_GET_CONST(enabledSubChannels_, vector<string>) };
+    inline vector<string> getEnabledSubChannels() { DARABONBA_PTR_GET(enabledSubChannels_, vector<string>) };
     inline NotifyChannel& setEnabledSubChannels(const vector<string> & enabledSubChannels) { DARABONBA_PTR_SET_VALUE(enabledSubChannels_, enabledSubChannels) };
     inline NotifyChannel& setEnabledSubChannels(vector<string> && enabledSubChannels) { DARABONBA_PTR_SET_RVALUE(enabledSubChannels_, enabledSubChannels) };
 
@@ -55,16 +55,16 @@ namespace Models
     // receivers Field Functions 
     bool hasReceivers() const { return this->receivers_ != nullptr;};
     void deleteReceivers() { this->receivers_ = nullptr;};
-    inline const vector<string> & receivers() const { DARABONBA_PTR_GET_CONST(receivers_, vector<string>) };
-    inline vector<string> receivers() { DARABONBA_PTR_GET(receivers_, vector<string>) };
+    inline const vector<string> & getReceivers() const { DARABONBA_PTR_GET_CONST(receivers_, vector<string>) };
+    inline vector<string> getReceivers() { DARABONBA_PTR_GET(receivers_, vector<string>) };
     inline NotifyChannel& setReceivers(const vector<string> & receivers) { DARABONBA_PTR_SET_VALUE(receivers_, receivers) };
     inline NotifyChannel& setReceivers(vector<string> && receivers) { DARABONBA_PTR_SET_RVALUE(receivers_, receivers) };
 
 
   protected:
-    std::shared_ptr<string> channelType_ = nullptr;
-    std::shared_ptr<vector<string>> enabledSubChannels_ = nullptr;
-    std::shared_ptr<vector<string>> receivers_ = nullptr;
+    shared_ptr<string> channelType_ {};
+    shared_ptr<vector<string>> enabledSubChannels_ {};
+    shared_ptr<vector<string>> receivers_ {};
   };
 
   } // namespace Models

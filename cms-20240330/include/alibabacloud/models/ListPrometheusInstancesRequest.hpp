@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTPROMETHEUSINSTANCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListPrometheusInstancesRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,93 +46,137 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(key, key_);
+        DARABONBA_PTR_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(key, key_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // Tag key
+      shared_ptr<string> key_ {};
+      // Tag value.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->filterRegionIds_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->prometheusInstanceIds_ == nullptr && return this->prometheusInstanceName_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->resourceType_ == nullptr && return this->tag_ == nullptr && return this->version_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->prometheusInstanceIds_ == nullptr && this->prometheusInstanceName_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceType_ == nullptr && this->tag_ == nullptr && this->version_ == nullptr; };
     // filterRegionIds Field Functions 
     bool hasFilterRegionIds() const { return this->filterRegionIds_ != nullptr;};
     void deleteFilterRegionIds() { this->filterRegionIds_ = nullptr;};
-    inline string filterRegionIds() const { DARABONBA_PTR_GET_DEFAULT(filterRegionIds_, "") };
+    inline string getFilterRegionIds() const { DARABONBA_PTR_GET_DEFAULT(filterRegionIds_, "") };
     inline ListPrometheusInstancesRequest& setFilterRegionIds(string filterRegionIds) { DARABONBA_PTR_SET_VALUE(filterRegionIds_, filterRegionIds) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListPrometheusInstancesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListPrometheusInstancesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // prometheusInstanceIds Field Functions 
     bool hasPrometheusInstanceIds() const { return this->prometheusInstanceIds_ != nullptr;};
     void deletePrometheusInstanceIds() { this->prometheusInstanceIds_ = nullptr;};
-    inline string prometheusInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(prometheusInstanceIds_, "") };
+    inline string getPrometheusInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(prometheusInstanceIds_, "") };
     inline ListPrometheusInstancesRequest& setPrometheusInstanceIds(string prometheusInstanceIds) { DARABONBA_PTR_SET_VALUE(prometheusInstanceIds_, prometheusInstanceIds) };
 
 
     // prometheusInstanceName Field Functions 
     bool hasPrometheusInstanceName() const { return this->prometheusInstanceName_ != nullptr;};
     void deletePrometheusInstanceName() { this->prometheusInstanceName_ = nullptr;};
-    inline string prometheusInstanceName() const { DARABONBA_PTR_GET_DEFAULT(prometheusInstanceName_, "") };
+    inline string getPrometheusInstanceName() const { DARABONBA_PTR_GET_DEFAULT(prometheusInstanceName_, "") };
     inline ListPrometheusInstancesRequest& setPrometheusInstanceName(string prometheusInstanceName) { DARABONBA_PTR_SET_VALUE(prometheusInstanceName_, prometheusInstanceName) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListPrometheusInstancesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ListPrometheusInstancesRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<ListPrometheusInstancesRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<ListPrometheusInstancesRequestTag>) };
-    inline vector<ListPrometheusInstancesRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<ListPrometheusInstancesRequestTag>) };
-    inline ListPrometheusInstancesRequest& setTag(const vector<ListPrometheusInstancesRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline ListPrometheusInstancesRequest& setTag(vector<ListPrometheusInstancesRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<ListPrometheusInstancesRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<ListPrometheusInstancesRequest::Tag>) };
+    inline vector<ListPrometheusInstancesRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<ListPrometheusInstancesRequest::Tag>) };
+    inline ListPrometheusInstancesRequest& setTag(const vector<ListPrometheusInstancesRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline ListPrometheusInstancesRequest& setTag(vector<ListPrometheusInstancesRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline ListPrometheusInstancesRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
     // Specified list of regionIds to filter (comma-separated).
-    std::shared_ptr<string> filterRegionIds_ = nullptr;
+    shared_ptr<string> filterRegionIds_ {};
     // Maximum number of records to return.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // Query token.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // List of instance IDs (comma-separated)
-    std::shared_ptr<string> prometheusInstanceIds_ = nullptr;
+    shared_ptr<string> prometheusInstanceIds_ {};
     // Instance name (partial match supported)
-    std::shared_ptr<string> prometheusInstanceName_ = nullptr;
+    shared_ptr<string> prometheusInstanceName_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Resource type of the instance.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // List of tags.
-    std::shared_ptr<vector<ListPrometheusInstancesRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<ListPrometheusInstancesRequest::Tag>> tag_ {};
     // Instance version: V1 or V2
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

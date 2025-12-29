@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && return this->language_ == nullptr && return this->scene_ == nullptr; };
+        && this->language_ == nullptr && this->scene_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
-    inline string addonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
+    inline string getAddonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
     inline ListIntegrationPolicyDashboardsRequest& setAddonName(string addonName) { DARABONBA_PTR_SET_VALUE(addonName_, addonName) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline ListIntegrationPolicyDashboardsRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // scene Field Functions 
     bool hasScene() const { return this->scene_ != nullptr;};
     void deleteScene() { this->scene_ = nullptr;};
-    inline string scene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
+    inline string getScene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
     inline ListIntegrationPolicyDashboardsRequest& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
 
 
   protected:
     // Addon Name.
-    std::shared_ptr<string> addonName_ = nullptr;
+    shared_ptr<string> addonName_ {};
     // Query Language
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // Component Scenario.
-    std::shared_ptr<string> scene_ = nullptr;
+    shared_ptr<string> scene_ {};
   };
 
   } // namespace Models

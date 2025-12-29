@@ -13,11 +13,9 @@ namespace Models
   class DeleteThreadResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteThreadResponseBody& obj) { 
-      DARABONBA_PTR_TO_JSON(deleted, deleted_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteThreadResponseBody& obj) { 
-      DARABONBA_PTR_FROM_JSON(deleted, deleted_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
     DeleteThreadResponseBody() = default ;
@@ -31,26 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->deleted_ == nullptr
-        && return this->requestId_ == nullptr; };
-    // deleted Field Functions 
-    bool hasDeleted() const { return this->deleted_ != nullptr;};
-    void deleteDeleted() { this->deleted_ = nullptr;};
-    inline bool deleted() const { DARABONBA_PTR_GET_DEFAULT(deleted_, false) };
-    inline DeleteThreadResponseBody& setDeleted(bool deleted) { DARABONBA_PTR_SET_VALUE(deleted_, deleted) };
-
-
+    virtual bool empty() const override { return this->requestId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteThreadResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> deleted_ = nullptr;
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

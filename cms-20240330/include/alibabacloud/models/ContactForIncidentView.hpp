@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
-    inline string contactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+    inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline ContactForIncidentView& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ContactForIncidentView& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> contactId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> contactId_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->archiveDuration_ == nullptr
-        && return this->authFreeReadPolicy_ == nullptr && return this->authFreeWritePolicy_ == nullptr && return this->enableAuthFreeRead_ == nullptr && return this->enableAuthFreeWrite_ == nullptr && return this->enableAuthToken_ == nullptr
-        && return this->paymentType_ == nullptr && return this->prometheusInstanceName_ == nullptr && return this->status_ == nullptr && return this->storageDuration_ == nullptr && return this->workspace_ == nullptr; };
+        && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr && this->enableAuthToken_ == nullptr
+        && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr && this->workspace_ == nullptr; };
     // archiveDuration Field Functions 
     bool hasArchiveDuration() const { return this->archiveDuration_ != nullptr;};
     void deleteArchiveDuration() { this->archiveDuration_ = nullptr;};
-    inline int32_t archiveDuration() const { DARABONBA_PTR_GET_DEFAULT(archiveDuration_, 0) };
+    inline int32_t getArchiveDuration() const { DARABONBA_PTR_GET_DEFAULT(archiveDuration_, 0) };
     inline UpdatePrometheusInstanceRequest& setArchiveDuration(int32_t archiveDuration) { DARABONBA_PTR_SET_VALUE(archiveDuration_, archiveDuration) };
 
 
     // authFreeReadPolicy Field Functions 
     bool hasAuthFreeReadPolicy() const { return this->authFreeReadPolicy_ != nullptr;};
     void deleteAuthFreeReadPolicy() { this->authFreeReadPolicy_ = nullptr;};
-    inline string authFreeReadPolicy() const { DARABONBA_PTR_GET_DEFAULT(authFreeReadPolicy_, "") };
+    inline string getAuthFreeReadPolicy() const { DARABONBA_PTR_GET_DEFAULT(authFreeReadPolicy_, "") };
     inline UpdatePrometheusInstanceRequest& setAuthFreeReadPolicy(string authFreeReadPolicy) { DARABONBA_PTR_SET_VALUE(authFreeReadPolicy_, authFreeReadPolicy) };
 
 
     // authFreeWritePolicy Field Functions 
     bool hasAuthFreeWritePolicy() const { return this->authFreeWritePolicy_ != nullptr;};
     void deleteAuthFreeWritePolicy() { this->authFreeWritePolicy_ = nullptr;};
-    inline string authFreeWritePolicy() const { DARABONBA_PTR_GET_DEFAULT(authFreeWritePolicy_, "") };
+    inline string getAuthFreeWritePolicy() const { DARABONBA_PTR_GET_DEFAULT(authFreeWritePolicy_, "") };
     inline UpdatePrometheusInstanceRequest& setAuthFreeWritePolicy(string authFreeWritePolicy) { DARABONBA_PTR_SET_VALUE(authFreeWritePolicy_, authFreeWritePolicy) };
 
 
     // enableAuthFreeRead Field Functions 
     bool hasEnableAuthFreeRead() const { return this->enableAuthFreeRead_ != nullptr;};
     void deleteEnableAuthFreeRead() { this->enableAuthFreeRead_ = nullptr;};
-    inline bool enableAuthFreeRead() const { DARABONBA_PTR_GET_DEFAULT(enableAuthFreeRead_, false) };
+    inline bool getEnableAuthFreeRead() const { DARABONBA_PTR_GET_DEFAULT(enableAuthFreeRead_, false) };
     inline UpdatePrometheusInstanceRequest& setEnableAuthFreeRead(bool enableAuthFreeRead) { DARABONBA_PTR_SET_VALUE(enableAuthFreeRead_, enableAuthFreeRead) };
 
 
     // enableAuthFreeWrite Field Functions 
     bool hasEnableAuthFreeWrite() const { return this->enableAuthFreeWrite_ != nullptr;};
     void deleteEnableAuthFreeWrite() { this->enableAuthFreeWrite_ = nullptr;};
-    inline bool enableAuthFreeWrite() const { DARABONBA_PTR_GET_DEFAULT(enableAuthFreeWrite_, false) };
+    inline bool getEnableAuthFreeWrite() const { DARABONBA_PTR_GET_DEFAULT(enableAuthFreeWrite_, false) };
     inline UpdatePrometheusInstanceRequest& setEnableAuthFreeWrite(bool enableAuthFreeWrite) { DARABONBA_PTR_SET_VALUE(enableAuthFreeWrite_, enableAuthFreeWrite) };
 
 
     // enableAuthToken Field Functions 
     bool hasEnableAuthToken() const { return this->enableAuthToken_ != nullptr;};
     void deleteEnableAuthToken() { this->enableAuthToken_ = nullptr;};
-    inline bool enableAuthToken() const { DARABONBA_PTR_GET_DEFAULT(enableAuthToken_, false) };
+    inline bool getEnableAuthToken() const { DARABONBA_PTR_GET_DEFAULT(enableAuthToken_, false) };
     inline UpdatePrometheusInstanceRequest& setEnableAuthToken(bool enableAuthToken) { DARABONBA_PTR_SET_VALUE(enableAuthToken_, enableAuthToken) };
 
 
     // paymentType Field Functions 
     bool hasPaymentType() const { return this->paymentType_ != nullptr;};
     void deletePaymentType() { this->paymentType_ = nullptr;};
-    inline string paymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
+    inline string getPaymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
     inline UpdatePrometheusInstanceRequest& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
 
 
     // prometheusInstanceName Field Functions 
     bool hasPrometheusInstanceName() const { return this->prometheusInstanceName_ != nullptr;};
     void deletePrometheusInstanceName() { this->prometheusInstanceName_ = nullptr;};
-    inline string prometheusInstanceName() const { DARABONBA_PTR_GET_DEFAULT(prometheusInstanceName_, "") };
+    inline string getPrometheusInstanceName() const { DARABONBA_PTR_GET_DEFAULT(prometheusInstanceName_, "") };
     inline UpdatePrometheusInstanceRequest& setPrometheusInstanceName(string prometheusInstanceName) { DARABONBA_PTR_SET_VALUE(prometheusInstanceName_, prometheusInstanceName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdatePrometheusInstanceRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // storageDuration Field Functions 
     bool hasStorageDuration() const { return this->storageDuration_ != nullptr;};
     void deleteStorageDuration() { this->storageDuration_ = nullptr;};
-    inline int32_t storageDuration() const { DARABONBA_PTR_GET_DEFAULT(storageDuration_, 0) };
+    inline int32_t getStorageDuration() const { DARABONBA_PTR_GET_DEFAULT(storageDuration_, 0) };
     inline UpdatePrometheusInstanceRequest& setStorageDuration(int32_t storageDuration) { DARABONBA_PTR_SET_VALUE(storageDuration_, storageDuration) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline UpdatePrometheusInstanceRequest& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
@@ -133,31 +133,31 @@ namespace Models
     // The number of days to automatically archive and save after the storage expires, 0 means no archiving. The range of archiving days:
     // V1: 1~365 days. Only supported for metric write volume.
     // V2: 1~3650 days (3650 indicates permanent storage).
-    std::shared_ptr<int32_t> archiveDuration_ = nullptr;
+    shared_ptr<int32_t> archiveDuration_ {};
     // Password-free read policy (supports IP segments and VpcId).
-    std::shared_ptr<string> authFreeReadPolicy_ = nullptr;
+    shared_ptr<string> authFreeReadPolicy_ {};
     // Password-free write policy (supports IP segments and VpcId).
-    std::shared_ptr<string> authFreeWritePolicy_ = nullptr;
+    shared_ptr<string> authFreeWritePolicy_ {};
     // Whether to enable password-free read.
-    std::shared_ptr<bool> enableAuthFreeRead_ = nullptr;
+    shared_ptr<bool> enableAuthFreeRead_ {};
     // Whether to enable password-free write.
-    std::shared_ptr<bool> enableAuthFreeWrite_ = nullptr;
+    shared_ptr<bool> enableAuthFreeWrite_ {};
     // Whether to enable access token authentication.
-    std::shared_ptr<bool> enableAuthToken_ = nullptr;
+    shared_ptr<bool> enableAuthToken_ {};
     // Billing method (can only be modified once during the instance\\"s lifecycle):
     // POSTPAY: Postpaid by metric reporting volume.
     // POSTPAY_GB: Postpaid by metric write volume.
-    std::shared_ptr<string> paymentType_ = nullptr;
+    shared_ptr<string> paymentType_ {};
     // Instance name.
-    std::shared_ptr<string> prometheusInstanceName_ = nullptr;
+    shared_ptr<string> prometheusInstanceName_ {};
     // Instance storage DB status (only supports RUNNING). If empty, the storage DB status will not be changed.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // Storage duration (days):
     // By write volume: 90, 180.
     // By metric reporting volume: 15, 30, 60, 90, 180.
-    std::shared_ptr<int32_t> storageDuration_ = nullptr;
+    shared_ptr<int32_t> storageDuration_ {};
     // Belonging workspace.
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

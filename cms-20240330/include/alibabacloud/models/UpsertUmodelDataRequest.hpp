@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->elements_ == nullptr
-        && return this->method_ == nullptr; };
+        && this->method_ == nullptr; };
     // elements Field Functions 
     bool hasElements() const { return this->elements_ != nullptr;};
     void deleteElements() { this->elements_ = nullptr;};
-    inline const vector<Darabonba::Json> & elements() const { DARABONBA_PTR_GET_CONST(elements_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> elements() { DARABONBA_PTR_GET(elements_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getElements() const { DARABONBA_PTR_GET_CONST(elements_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getElements() { DARABONBA_PTR_GET(elements_, vector<Darabonba::Json>) };
     inline UpsertUmodelDataRequest& setElements(const vector<Darabonba::Json> & elements) { DARABONBA_PTR_SET_VALUE(elements_, elements) };
     inline UpsertUmodelDataRequest& setElements(vector<Darabonba::Json> && elements) { DARABONBA_PTR_SET_RVALUE(elements_, elements) };
 
@@ -46,15 +46,15 @@ namespace Models
     // method Field Functions 
     bool hasMethod() const { return this->method_ != nullptr;};
     void deleteMethod() { this->method_ = nullptr;};
-    inline string method() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
+    inline string getMethod() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
     inline UpsertUmodelDataRequest& setMethod(string method) { DARABONBA_PTR_SET_VALUE(method_, method) };
 
 
   protected:
     // Element content
-    std::shared_ptr<vector<Darabonba::Json>> elements_ = nullptr;
+    shared_ptr<vector<Darabonba::Json>> elements_ {};
     // Method
-    std::shared_ptr<string> method_ = nullptr;
+    shared_ptr<string> method_ {};
   };
 
   } // namespace Models

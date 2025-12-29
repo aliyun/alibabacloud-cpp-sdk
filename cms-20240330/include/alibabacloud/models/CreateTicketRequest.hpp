@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessTokenExpirationTime_ == nullptr
-        && return this->expirationTime_ == nullptr; };
+        && this->expirationTime_ == nullptr; };
     // accessTokenExpirationTime Field Functions 
     bool hasAccessTokenExpirationTime() const { return this->accessTokenExpirationTime_ != nullptr;};
     void deleteAccessTokenExpirationTime() { this->accessTokenExpirationTime_ = nullptr;};
-    inline int64_t accessTokenExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(accessTokenExpirationTime_, 0L) };
+    inline int64_t getAccessTokenExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(accessTokenExpirationTime_, 0L) };
     inline CreateTicketRequest& setAccessTokenExpirationTime(int64_t accessTokenExpirationTime) { DARABONBA_PTR_SET_VALUE(accessTokenExpirationTime_, accessTokenExpirationTime) };
 
 
     // expirationTime Field Functions 
     bool hasExpirationTime() const { return this->expirationTime_ != nullptr;};
     void deleteExpirationTime() { this->expirationTime_ = nullptr;};
-    inline int64_t expirationTime() const { DARABONBA_PTR_GET_DEFAULT(expirationTime_, 0L) };
+    inline int64_t getExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(expirationTime_, 0L) };
     inline CreateTicketRequest& setExpirationTime(int64_t expirationTime) { DARABONBA_PTR_SET_VALUE(expirationTime_, expirationTime) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // - Access token expiration time (in seconds), which is the expiration time for the user to access the page interface. The default value is 86400 seconds (one day), and the range of values is from 0 to 86400 seconds (one day).
     // - The access token expiration time is the minimum value between `accessTokenExpirationTime` and `expirationTime`.
     // - If called through STS, the access token expiration time (i.e., the time during which the user can access the page interface) is the minimum value among `accessTokenExpirationTime`, `expirationTime`, and the STS expiration time.
-    std::shared_ptr<int64_t> accessTokenExpirationTime_ = nullptr;
+    shared_ptr<int64_t> accessTokenExpirationTime_ {};
     // - Expiration time (in seconds), which is the expiration time for the embedded page URL. The default value is 86400 seconds (one day), and the range of values is from 0 to 2592000 seconds (30 days).
-    std::shared_ptr<int64_t> expirationTime_ = nullptr;
+    shared_ptr<int64_t> expirationTime_ {};
   };
 
   } // namespace Models

@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->extraId_ == nullptr
-        && return this->resourceId_ == nullptr && return this->type_ == nullptr; };
+        && this->resourceId_ == nullptr && this->type_ == nullptr; };
     // extraId Field Functions 
     bool hasExtraId() const { return this->extraId_ != nullptr;};
     void deleteExtraId() { this->extraId_ = nullptr;};
-    inline string extraId() const { DARABONBA_PTR_GET_DEFAULT(extraId_, "") };
+    inline string getExtraId() const { DARABONBA_PTR_GET_DEFAULT(extraId_, "") };
     inline IncidentResourceDetail& setExtraId(string extraId) { DARABONBA_PTR_SET_VALUE(extraId_, extraId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline     const Darabonba::Json & resourceId() const { DARABONBA_GET(resourceId_) };
-    Darabonba::Json & resourceId() { DARABONBA_GET(resourceId_) };
+    inline     const Darabonba::Json & getResourceId() const { DARABONBA_GET(resourceId_) };
+    Darabonba::Json & getResourceId() { DARABONBA_GET(resourceId_) };
     inline IncidentResourceDetail& setResourceId(const Darabonba::Json & resourceId) { DARABONBA_SET_VALUE(resourceId_, resourceId) };
-    inline IncidentResourceDetail& setResourceId(Darabonba::Json & resourceId) { DARABONBA_SET_RVALUE(resourceId_, resourceId) };
+    inline IncidentResourceDetail& setResourceId(Darabonba::Json && resourceId) { DARABONBA_SET_RVALUE(resourceId_, resourceId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline IncidentResourceDetail& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> extraId_ = nullptr;
-    Darabonba::Json resourceId_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> extraId_ {};
+    Darabonba::Json resourceId_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

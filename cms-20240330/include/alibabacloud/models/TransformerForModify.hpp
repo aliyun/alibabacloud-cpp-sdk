@@ -43,12 +43,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actions_ == nullptr
-        && return this->description_ == nullptr && return this->filterSetting_ == nullptr && return this->quitAfterMatch_ == nullptr && return this->sortId_ == nullptr && return this->transformerName_ == nullptr; };
+        && this->description_ == nullptr && this->filterSetting_ == nullptr && this->quitAfterMatch_ == nullptr && this->sortId_ == nullptr && this->transformerName_ == nullptr; };
     // actions Field Functions 
     bool hasActions() const { return this->actions_ != nullptr;};
     void deleteActions() { this->actions_ = nullptr;};
-    inline const vector<TransformAction> & actions() const { DARABONBA_PTR_GET_CONST(actions_, vector<TransformAction>) };
-    inline vector<TransformAction> actions() { DARABONBA_PTR_GET(actions_, vector<TransformAction>) };
+    inline const vector<TransformAction> & getActions() const { DARABONBA_PTR_GET_CONST(actions_, vector<TransformAction>) };
+    inline vector<TransformAction> getActions() { DARABONBA_PTR_GET(actions_, vector<TransformAction>) };
     inline TransformerForModify& setActions(const vector<TransformAction> & actions) { DARABONBA_PTR_SET_VALUE(actions_, actions) };
     inline TransformerForModify& setActions(vector<TransformAction> && actions) { DARABONBA_PTR_SET_RVALUE(actions_, actions) };
 
@@ -56,15 +56,15 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline TransformerForModify& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // filterSetting Field Functions 
     bool hasFilterSetting() const { return this->filterSetting_ != nullptr;};
     void deleteFilterSetting() { this->filterSetting_ = nullptr;};
-    inline const FilterSetting & filterSetting() const { DARABONBA_PTR_GET_CONST(filterSetting_, FilterSetting) };
-    inline FilterSetting filterSetting() { DARABONBA_PTR_GET(filterSetting_, FilterSetting) };
+    inline const FilterSetting & getFilterSetting() const { DARABONBA_PTR_GET_CONST(filterSetting_, FilterSetting) };
+    inline FilterSetting getFilterSetting() { DARABONBA_PTR_GET(filterSetting_, FilterSetting) };
     inline TransformerForModify& setFilterSetting(const FilterSetting & filterSetting) { DARABONBA_PTR_SET_VALUE(filterSetting_, filterSetting) };
     inline TransformerForModify& setFilterSetting(FilterSetting && filterSetting) { DARABONBA_PTR_SET_RVALUE(filterSetting_, filterSetting) };
 
@@ -72,32 +72,32 @@ namespace Models
     // quitAfterMatch Field Functions 
     bool hasQuitAfterMatch() const { return this->quitAfterMatch_ != nullptr;};
     void deleteQuitAfterMatch() { this->quitAfterMatch_ = nullptr;};
-    inline bool quitAfterMatch() const { DARABONBA_PTR_GET_DEFAULT(quitAfterMatch_, false) };
+    inline bool getQuitAfterMatch() const { DARABONBA_PTR_GET_DEFAULT(quitAfterMatch_, false) };
     inline TransformerForModify& setQuitAfterMatch(bool quitAfterMatch) { DARABONBA_PTR_SET_VALUE(quitAfterMatch_, quitAfterMatch) };
 
 
     // sortId Field Functions 
     bool hasSortId() const { return this->sortId_ != nullptr;};
     void deleteSortId() { this->sortId_ = nullptr;};
-    inline int32_t sortId() const { DARABONBA_PTR_GET_DEFAULT(sortId_, 0) };
+    inline int32_t getSortId() const { DARABONBA_PTR_GET_DEFAULT(sortId_, 0) };
     inline TransformerForModify& setSortId(int32_t sortId) { DARABONBA_PTR_SET_VALUE(sortId_, sortId) };
 
 
     // transformerName Field Functions 
     bool hasTransformerName() const { return this->transformerName_ != nullptr;};
     void deleteTransformerName() { this->transformerName_ = nullptr;};
-    inline string transformerName() const { DARABONBA_PTR_GET_DEFAULT(transformerName_, "") };
+    inline string getTransformerName() const { DARABONBA_PTR_GET_DEFAULT(transformerName_, "") };
     inline TransformerForModify& setTransformerName(string transformerName) { DARABONBA_PTR_SET_VALUE(transformerName_, transformerName) };
 
 
   protected:
-    std::shared_ptr<vector<TransformAction>> actions_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<FilterSetting> filterSetting_ = nullptr;
-    std::shared_ptr<bool> quitAfterMatch_ = nullptr;
-    std::shared_ptr<int32_t> sortId_ = nullptr;
+    shared_ptr<vector<TransformAction>> actions_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<FilterSetting> filterSetting_ {};
+    shared_ptr<bool> quitAfterMatch_ {};
+    shared_ptr<int32_t> sortId_ {};
     // This parameter is required.
-    std::shared_ptr<string> transformerName_ = nullptr;
+    shared_ptr<string> transformerName_ {};
   };
 
   } // namespace Models

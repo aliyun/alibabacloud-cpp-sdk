@@ -52,108 +52,108 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contentType_ == nullptr
-        && return this->extend_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->headers_ == nullptr && return this->identifier_ == nullptr
-        && return this->lang_ == nullptr && return this->method_ == nullptr && return this->name_ == nullptr && return this->source_ == nullptr && return this->type_ == nullptr
-        && return this->webhook_ == nullptr; };
+        && this->extend_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->headers_ == nullptr && this->identifier_ == nullptr
+        && this->lang_ == nullptr && this->method_ == nullptr && this->name_ == nullptr && this->source_ == nullptr && this->type_ == nullptr
+        && this->webhook_ == nullptr; };
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
-    inline string contentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
+    inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline MergeWebhook& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
 
 
     // extend Field Functions 
     bool hasExtend() const { return this->extend_ != nullptr;};
     void deleteExtend() { this->extend_ = nullptr;};
-    inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+    inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline MergeWebhook& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
-    inline string gmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+    inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
     inline MergeWebhook& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline     const Darabonba::Json & gmtModified() const { DARABONBA_GET(gmtModified_) };
-    Darabonba::Json & gmtModified() { DARABONBA_GET(gmtModified_) };
+    inline     const Darabonba::Json & getGmtModified() const { DARABONBA_GET(gmtModified_) };
+    Darabonba::Json & getGmtModified() { DARABONBA_GET(gmtModified_) };
     inline MergeWebhook& setGmtModified(const Darabonba::Json & gmtModified) { DARABONBA_SET_VALUE(gmtModified_, gmtModified) };
-    inline MergeWebhook& setGmtModified(Darabonba::Json & gmtModified) { DARABONBA_SET_RVALUE(gmtModified_, gmtModified) };
+    inline MergeWebhook& setGmtModified(Darabonba::Json && gmtModified) { DARABONBA_SET_RVALUE(gmtModified_, gmtModified) };
 
 
     // headers Field Functions 
     bool hasHeaders() const { return this->headers_ != nullptr;};
     void deleteHeaders() { this->headers_ = nullptr;};
-    inline string headers() const { DARABONBA_PTR_GET_DEFAULT(headers_, "") };
+    inline string getHeaders() const { DARABONBA_PTR_GET_DEFAULT(headers_, "") };
     inline MergeWebhook& setHeaders(string headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
 
 
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline MergeWebhook& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline MergeWebhook& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // method Field Functions 
     bool hasMethod() const { return this->method_ != nullptr;};
     void deleteMethod() { this->method_ = nullptr;};
-    inline string method() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
+    inline string getMethod() const { DARABONBA_PTR_GET_DEFAULT(method_, "") };
     inline MergeWebhook& setMethod(string method) { DARABONBA_PTR_SET_VALUE(method_, method) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline MergeWebhook& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline MergeWebhook& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline MergeWebhook& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // webhook Field Functions 
     bool hasWebhook() const { return this->webhook_ != nullptr;};
     void deleteWebhook() { this->webhook_ = nullptr;};
-    inline string webhook() const { DARABONBA_PTR_GET_DEFAULT(webhook_, "") };
+    inline string getWebhook() const { DARABONBA_PTR_GET_DEFAULT(webhook_, "") };
     inline MergeWebhook& setWebhook(string webhook) { DARABONBA_PTR_SET_VALUE(webhook_, webhook) };
 
 
   protected:
-    std::shared_ptr<string> contentType_ = nullptr;
-    std::shared_ptr<string> extend_ = nullptr;
-    std::shared_ptr<string> gmtCreate_ = nullptr;
-    Darabonba::Json gmtModified_ = nullptr;
-    std::shared_ptr<string> headers_ = nullptr;
-    std::shared_ptr<string> identifier_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> method_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> source_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> webhook_ = nullptr;
+    shared_ptr<string> contentType_ {};
+    shared_ptr<string> extend_ {};
+    shared_ptr<string> gmtCreate_ {};
+    Darabonba::Json gmtModified_ {};
+    shared_ptr<string> headers_ {};
+    shared_ptr<string> identifier_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> method_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> source_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> webhook_ {};
   };
 
   } // namespace Models

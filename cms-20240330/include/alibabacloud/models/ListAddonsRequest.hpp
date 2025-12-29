@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunLang_ == nullptr
-        && return this->category_ == nullptr && return this->regexp_ == nullptr && return this->search_ == nullptr; };
+        && this->category_ == nullptr && this->regexp_ == nullptr && this->search_ == nullptr; };
     // aliyunLang Field Functions 
     bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
     void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
-    inline string aliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
+    inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
     inline ListAddonsRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
 
 
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline ListAddonsRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // regexp Field Functions 
     bool hasRegexp() const { return this->regexp_ != nullptr;};
     void deleteRegexp() { this->regexp_ = nullptr;};
-    inline bool regexp() const { DARABONBA_PTR_GET_DEFAULT(regexp_, false) };
+    inline bool getRegexp() const { DARABONBA_PTR_GET_DEFAULT(regexp_, false) };
     inline ListAddonsRequest& setRegexp(bool regexp) { DARABONBA_PTR_SET_VALUE(regexp_, regexp) };
 
 
     // search Field Functions 
     bool hasSearch() const { return this->search_ != nullptr;};
     void deleteSearch() { this->search_ = nullptr;};
-    inline string search() const { DARABONBA_PTR_GET_DEFAULT(search_, "") };
+    inline string getSearch() const { DARABONBA_PTR_GET_DEFAULT(search_, "") };
     inline ListAddonsRequest& setSearch(string search) { DARABONBA_PTR_SET_VALUE(search_, search) };
 
 
   protected:
-    std::shared_ptr<string> aliyunLang_ = nullptr;
-    std::shared_ptr<string> category_ = nullptr;
-    std::shared_ptr<bool> regexp_ = nullptr;
-    std::shared_ptr<string> search_ = nullptr;
+    shared_ptr<string> aliyunLang_ {};
+    shared_ptr<string> category_ {};
+    shared_ptr<bool> regexp_ {};
+    shared_ptr<string> search_ {};
   };
 
   } // namespace Models

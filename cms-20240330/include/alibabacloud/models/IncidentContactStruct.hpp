@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channel_ == nullptr
-        && return this->contactId_ == nullptr && return this->contactType_ == nullptr; };
+        && this->contactId_ == nullptr && this->contactType_ == nullptr; };
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
-    inline const vector<string> & channel() const { DARABONBA_PTR_GET_CONST(channel_, vector<string>) };
-    inline vector<string> channel() { DARABONBA_PTR_GET(channel_, vector<string>) };
+    inline const vector<string> & getChannel() const { DARABONBA_PTR_GET_CONST(channel_, vector<string>) };
+    inline vector<string> getChannel() { DARABONBA_PTR_GET(channel_, vector<string>) };
     inline IncidentContactStruct& setChannel(const vector<string> & channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
     inline IncidentContactStruct& setChannel(vector<string> && channel) { DARABONBA_PTR_SET_RVALUE(channel_, channel) };
 
@@ -48,21 +48,21 @@ namespace Models
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
-    inline string contactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
+    inline string getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, "") };
     inline IncidentContactStruct& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
     // contactType Field Functions 
     bool hasContactType() const { return this->contactType_ != nullptr;};
     void deleteContactType() { this->contactType_ = nullptr;};
-    inline string contactType() const { DARABONBA_PTR_GET_DEFAULT(contactType_, "") };
+    inline string getContactType() const { DARABONBA_PTR_GET_DEFAULT(contactType_, "") };
     inline IncidentContactStruct& setContactType(string contactType) { DARABONBA_PTR_SET_VALUE(contactType_, contactType) };
 
 
   protected:
-    std::shared_ptr<vector<string>> channel_ = nullptr;
-    std::shared_ptr<string> contactId_ = nullptr;
-    std::shared_ptr<string> contactType_ = nullptr;
+    shared_ptr<vector<string>> channel_ {};
+    shared_ptr<string> contactId_ {};
+    shared_ptr<string> contactType_ {};
   };
 
   } // namespace Models

@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterValues_ == nullptr
-        && return this->groupId_ == nullptr && return this->metricId_ == nullptr && return this->paramValues_ == nullptr; };
+        && this->groupId_ == nullptr && this->metricId_ == nullptr && this->paramValues_ == nullptr; };
     // filterValues Field Functions 
     bool hasFilterValues() const { return this->filterValues_ != nullptr;};
     void deleteFilterValues() { this->filterValues_ = nullptr;};
-    inline const vector<AlertRuleAlertMetricInputFilterValue> & filterValues() const { DARABONBA_PTR_GET_CONST(filterValues_, vector<AlertRuleAlertMetricInputFilterValue>) };
-    inline vector<AlertRuleAlertMetricInputFilterValue> filterValues() { DARABONBA_PTR_GET(filterValues_, vector<AlertRuleAlertMetricInputFilterValue>) };
+    inline const vector<AlertRuleAlertMetricInputFilterValue> & getFilterValues() const { DARABONBA_PTR_GET_CONST(filterValues_, vector<AlertRuleAlertMetricInputFilterValue>) };
+    inline vector<AlertRuleAlertMetricInputFilterValue> getFilterValues() { DARABONBA_PTR_GET(filterValues_, vector<AlertRuleAlertMetricInputFilterValue>) };
     inline AlertRuleAlertMetricInput& setFilterValues(const vector<AlertRuleAlertMetricInputFilterValue> & filterValues) { DARABONBA_PTR_SET_VALUE(filterValues_, filterValues) };
     inline AlertRuleAlertMetricInput& setFilterValues(vector<AlertRuleAlertMetricInputFilterValue> && filterValues) { DARABONBA_PTR_SET_RVALUE(filterValues_, filterValues) };
 
@@ -52,31 +52,31 @@ namespace Models
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline AlertRuleAlertMetricInput& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // metricId Field Functions 
     bool hasMetricId() const { return this->metricId_ != nullptr;};
     void deleteMetricId() { this->metricId_ = nullptr;};
-    inline string metricId() const { DARABONBA_PTR_GET_DEFAULT(metricId_, "") };
+    inline string getMetricId() const { DARABONBA_PTR_GET_DEFAULT(metricId_, "") };
     inline AlertRuleAlertMetricInput& setMetricId(string metricId) { DARABONBA_PTR_SET_VALUE(metricId_, metricId) };
 
 
     // paramValues Field Functions 
     bool hasParamValues() const { return this->paramValues_ != nullptr;};
     void deleteParamValues() { this->paramValues_ = nullptr;};
-    inline const vector<AlertRuleAlertMetricInputParamValue> & paramValues() const { DARABONBA_PTR_GET_CONST(paramValues_, vector<AlertRuleAlertMetricInputParamValue>) };
-    inline vector<AlertRuleAlertMetricInputParamValue> paramValues() { DARABONBA_PTR_GET(paramValues_, vector<AlertRuleAlertMetricInputParamValue>) };
+    inline const vector<AlertRuleAlertMetricInputParamValue> & getParamValues() const { DARABONBA_PTR_GET_CONST(paramValues_, vector<AlertRuleAlertMetricInputParamValue>) };
+    inline vector<AlertRuleAlertMetricInputParamValue> getParamValues() { DARABONBA_PTR_GET(paramValues_, vector<AlertRuleAlertMetricInputParamValue>) };
     inline AlertRuleAlertMetricInput& setParamValues(const vector<AlertRuleAlertMetricInputParamValue> & paramValues) { DARABONBA_PTR_SET_VALUE(paramValues_, paramValues) };
     inline AlertRuleAlertMetricInput& setParamValues(vector<AlertRuleAlertMetricInputParamValue> && paramValues) { DARABONBA_PTR_SET_RVALUE(paramValues_, paramValues) };
 
 
   protected:
-    std::shared_ptr<vector<AlertRuleAlertMetricInputFilterValue>> filterValues_ = nullptr;
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> metricId_ = nullptr;
-    std::shared_ptr<vector<AlertRuleAlertMetricInputParamValue>> paramValues_ = nullptr;
+    shared_ptr<vector<AlertRuleAlertMetricInputFilterValue>> filterValues_ {};
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> metricId_ {};
+    shared_ptr<vector<AlertRuleAlertMetricInputParamValue>> paramValues_ {};
   };
 
   } // namespace Models

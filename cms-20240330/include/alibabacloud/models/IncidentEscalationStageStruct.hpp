@@ -48,13 +48,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contact_ == nullptr
-        && return this->cycleNotifyCount_ == nullptr && return this->cycleNotifyTime_ == nullptr && return this->description_ == nullptr && return this->effectTime_ == nullptr && return this->name_ == nullptr
-        && return this->stageIndex_ == nullptr && return this->timeZone_ == nullptr && return this->waitToNextStageTime_ == nullptr; };
+        && this->cycleNotifyCount_ == nullptr && this->cycleNotifyTime_ == nullptr && this->description_ == nullptr && this->effectTime_ == nullptr && this->name_ == nullptr
+        && this->stageIndex_ == nullptr && this->timeZone_ == nullptr && this->waitToNextStageTime_ == nullptr; };
     // contact Field Functions 
     bool hasContact() const { return this->contact_ != nullptr;};
     void deleteContact() { this->contact_ = nullptr;};
-    inline const vector<IncidentContactStruct> & contact() const { DARABONBA_PTR_GET_CONST(contact_, vector<IncidentContactStruct>) };
-    inline vector<IncidentContactStruct> contact() { DARABONBA_PTR_GET(contact_, vector<IncidentContactStruct>) };
+    inline const vector<IncidentContactStruct> & getContact() const { DARABONBA_PTR_GET_CONST(contact_, vector<IncidentContactStruct>) };
+    inline vector<IncidentContactStruct> getContact() { DARABONBA_PTR_GET(contact_, vector<IncidentContactStruct>) };
     inline IncidentEscalationStageStruct& setContact(const vector<IncidentContactStruct> & contact) { DARABONBA_PTR_SET_VALUE(contact_, contact) };
     inline IncidentEscalationStageStruct& setContact(vector<IncidentContactStruct> && contact) { DARABONBA_PTR_SET_RVALUE(contact_, contact) };
 
@@ -62,69 +62,69 @@ namespace Models
     // cycleNotifyCount Field Functions 
     bool hasCycleNotifyCount() const { return this->cycleNotifyCount_ != nullptr;};
     void deleteCycleNotifyCount() { this->cycleNotifyCount_ = nullptr;};
-    inline int32_t cycleNotifyCount() const { DARABONBA_PTR_GET_DEFAULT(cycleNotifyCount_, 0) };
+    inline int32_t getCycleNotifyCount() const { DARABONBA_PTR_GET_DEFAULT(cycleNotifyCount_, 0) };
     inline IncidentEscalationStageStruct& setCycleNotifyCount(int32_t cycleNotifyCount) { DARABONBA_PTR_SET_VALUE(cycleNotifyCount_, cycleNotifyCount) };
 
 
     // cycleNotifyTime Field Functions 
     bool hasCycleNotifyTime() const { return this->cycleNotifyTime_ != nullptr;};
     void deleteCycleNotifyTime() { this->cycleNotifyTime_ = nullptr;};
-    inline int32_t cycleNotifyTime() const { DARABONBA_PTR_GET_DEFAULT(cycleNotifyTime_, 0) };
+    inline int32_t getCycleNotifyTime() const { DARABONBA_PTR_GET_DEFAULT(cycleNotifyTime_, 0) };
     inline IncidentEscalationStageStruct& setCycleNotifyTime(int32_t cycleNotifyTime) { DARABONBA_PTR_SET_VALUE(cycleNotifyTime_, cycleNotifyTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline IncidentEscalationStageStruct& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // effectTime Field Functions 
     bool hasEffectTime() const { return this->effectTime_ != nullptr;};
     void deleteEffectTime() { this->effectTime_ = nullptr;};
-    inline string effectTime() const { DARABONBA_PTR_GET_DEFAULT(effectTime_, "") };
+    inline string getEffectTime() const { DARABONBA_PTR_GET_DEFAULT(effectTime_, "") };
     inline IncidentEscalationStageStruct& setEffectTime(string effectTime) { DARABONBA_PTR_SET_VALUE(effectTime_, effectTime) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline IncidentEscalationStageStruct& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // stageIndex Field Functions 
     bool hasStageIndex() const { return this->stageIndex_ != nullptr;};
     void deleteStageIndex() { this->stageIndex_ = nullptr;};
-    inline int32_t stageIndex() const { DARABONBA_PTR_GET_DEFAULT(stageIndex_, 0) };
+    inline int32_t getStageIndex() const { DARABONBA_PTR_GET_DEFAULT(stageIndex_, 0) };
     inline IncidentEscalationStageStruct& setStageIndex(int32_t stageIndex) { DARABONBA_PTR_SET_VALUE(stageIndex_, stageIndex) };
 
 
     // timeZone Field Functions 
     bool hasTimeZone() const { return this->timeZone_ != nullptr;};
     void deleteTimeZone() { this->timeZone_ = nullptr;};
-    inline string timeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+    inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
     inline IncidentEscalationStageStruct& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
 
 
     // waitToNextStageTime Field Functions 
     bool hasWaitToNextStageTime() const { return this->waitToNextStageTime_ != nullptr;};
     void deleteWaitToNextStageTime() { this->waitToNextStageTime_ = nullptr;};
-    inline int32_t waitToNextStageTime() const { DARABONBA_PTR_GET_DEFAULT(waitToNextStageTime_, 0) };
+    inline int32_t getWaitToNextStageTime() const { DARABONBA_PTR_GET_DEFAULT(waitToNextStageTime_, 0) };
     inline IncidentEscalationStageStruct& setWaitToNextStageTime(int32_t waitToNextStageTime) { DARABONBA_PTR_SET_VALUE(waitToNextStageTime_, waitToNextStageTime) };
 
 
   protected:
-    std::shared_ptr<vector<IncidentContactStruct>> contact_ = nullptr;
-    std::shared_ptr<int32_t> cycleNotifyCount_ = nullptr;
-    std::shared_ptr<int32_t> cycleNotifyTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> effectTime_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int32_t> stageIndex_ = nullptr;
-    std::shared_ptr<string> timeZone_ = nullptr;
-    std::shared_ptr<int32_t> waitToNextStageTime_ = nullptr;
+    shared_ptr<vector<IncidentContactStruct>> contact_ {};
+    shared_ptr<int32_t> cycleNotifyCount_ {};
+    shared_ptr<int32_t> cycleNotifyTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> effectTime_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<int32_t> stageIndex_ {};
+    shared_ptr<string> timeZone_ {};
+    shared_ptr<int32_t> waitToNextStageTime_ {};
   };
 
   } // namespace Models

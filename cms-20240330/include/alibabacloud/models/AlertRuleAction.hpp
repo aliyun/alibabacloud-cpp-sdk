@@ -34,14 +34,14 @@ namespace Models
     // actions Field Functions 
     bool hasActions() const { return this->actions_ != nullptr;};
     void deleteActions() { this->actions_ = nullptr;};
-    inline const vector<string> & actions() const { DARABONBA_PTR_GET_CONST(actions_, vector<string>) };
-    inline vector<string> actions() { DARABONBA_PTR_GET(actions_, vector<string>) };
+    inline const vector<string> & getActions() const { DARABONBA_PTR_GET_CONST(actions_, vector<string>) };
+    inline vector<string> getActions() { DARABONBA_PTR_GET(actions_, vector<string>) };
     inline AlertRuleAction& setActions(const vector<string> & actions) { DARABONBA_PTR_SET_VALUE(actions_, actions) };
     inline AlertRuleAction& setActions(vector<string> && actions) { DARABONBA_PTR_SET_RVALUE(actions_, actions) };
 
 
   protected:
-    std::shared_ptr<vector<string>> actions_ = nullptr;
+    shared_ptr<vector<string>> actions_ {};
   };
 
   } // namespace Models

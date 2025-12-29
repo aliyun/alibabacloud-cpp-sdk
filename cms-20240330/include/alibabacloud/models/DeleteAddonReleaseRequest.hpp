@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && return this->force_ == nullptr && return this->releaseName_ == nullptr; };
+        && this->force_ == nullptr && this->releaseName_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
-    inline string addonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
+    inline string getAddonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
     inline DeleteAddonReleaseRequest& setAddonName(string addonName) { DARABONBA_PTR_SET_VALUE(addonName_, addonName) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline DeleteAddonReleaseRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // releaseName Field Functions 
     bool hasReleaseName() const { return this->releaseName_ != nullptr;};
     void deleteReleaseName() { this->releaseName_ = nullptr;};
-    inline string releaseName() const { DARABONBA_PTR_GET_DEFAULT(releaseName_, "") };
+    inline string getReleaseName() const { DARABONBA_PTR_GET_DEFAULT(releaseName_, "") };
     inline DeleteAddonReleaseRequest& setReleaseName(string releaseName) { DARABONBA_PTR_SET_VALUE(releaseName_, releaseName) };
 
 
   protected:
     // Addon name. When AddonName is provided, it will ignore the ReleaseName parameter and batch uninstall all AddonReleases belonging to the same Addon.
-    std::shared_ptr<string> addonName_ = nullptr;
+    shared_ptr<string> addonName_ {};
     // Whether to force deletion, default is false.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // The name of the AddonRelease.
-    std::shared_ptr<string> releaseName_ = nullptr;
+    shared_ptr<string> releaseName_ {};
   };
 
   } // namespace Models

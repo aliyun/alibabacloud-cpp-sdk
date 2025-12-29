@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pid_ == nullptr
-        && return this->requestId_ == nullptr && return this->serviceId_ == nullptr; };
+        && this->requestId_ == nullptr && this->serviceId_ == nullptr; };
     // pid Field Functions 
     bool hasPid() const { return this->pid_ != nullptr;};
     void deletePid() { this->pid_ = nullptr;};
-    inline string pid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
+    inline string getPid() const { DARABONBA_PTR_GET_DEFAULT(pid_, "") };
     inline CreateServiceResponseBody& setPid(string pid) { DARABONBA_PTR_SET_VALUE(pid_, pid) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline CreateServiceResponseBody& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
   protected:
     // Historical compatible ARMS application ID
-    std::shared_ptr<string> pid_ = nullptr;
+    shared_ptr<string> pid_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Service ID
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
   };
 
   } // namespace Models

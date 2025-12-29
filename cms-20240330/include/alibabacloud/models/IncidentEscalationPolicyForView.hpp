@@ -56,35 +56,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->description_ == nullptr && return this->enable_ == nullptr && return this->escalationStageList_ == nullptr && return this->name_ == nullptr && return this->ownerType_ == nullptr
-        && return this->regionId_ == nullptr && return this->source_ == nullptr && return this->syncFromType_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr
-        && return this->uuid_ == nullptr && return this->workspace_ == nullptr; };
+        && this->description_ == nullptr && this->enable_ == nullptr && this->escalationStageList_ == nullptr && this->name_ == nullptr && this->ownerType_ == nullptr
+        && this->regionId_ == nullptr && this->source_ == nullptr && this->syncFromType_ == nullptr && this->updateTime_ == nullptr && this->userId_ == nullptr
+        && this->uuid_ == nullptr && this->workspace_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline IncidentEscalationPolicyForView& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline IncidentEscalationPolicyForView& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline IncidentEscalationPolicyForView& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // escalationStageList Field Functions 
     bool hasEscalationStageList() const { return this->escalationStageList_ != nullptr;};
     void deleteEscalationStageList() { this->escalationStageList_ = nullptr;};
-    inline const vector<IncidentEscalationStageForView> & escalationStageList() const { DARABONBA_PTR_GET_CONST(escalationStageList_, vector<IncidentEscalationStageForView>) };
-    inline vector<IncidentEscalationStageForView> escalationStageList() { DARABONBA_PTR_GET(escalationStageList_, vector<IncidentEscalationStageForView>) };
+    inline const vector<IncidentEscalationStageForView> & getEscalationStageList() const { DARABONBA_PTR_GET_CONST(escalationStageList_, vector<IncidentEscalationStageForView>) };
+    inline vector<IncidentEscalationStageForView> getEscalationStageList() { DARABONBA_PTR_GET(escalationStageList_, vector<IncidentEscalationStageForView>) };
     inline IncidentEscalationPolicyForView& setEscalationStageList(const vector<IncidentEscalationStageForView> & escalationStageList) { DARABONBA_PTR_SET_VALUE(escalationStageList_, escalationStageList) };
     inline IncidentEscalationPolicyForView& setEscalationStageList(vector<IncidentEscalationStageForView> && escalationStageList) { DARABONBA_PTR_SET_RVALUE(escalationStageList_, escalationStageList) };
 
@@ -92,81 +92,81 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline IncidentEscalationPolicyForView& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerType Field Functions 
     bool hasOwnerType() const { return this->ownerType_ != nullptr;};
     void deleteOwnerType() { this->ownerType_ = nullptr;};
-    inline string ownerType() const { DARABONBA_PTR_GET_DEFAULT(ownerType_, "") };
+    inline string getOwnerType() const { DARABONBA_PTR_GET_DEFAULT(ownerType_, "") };
     inline IncidentEscalationPolicyForView& setOwnerType(string ownerType) { DARABONBA_PTR_SET_VALUE(ownerType_, ownerType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline IncidentEscalationPolicyForView& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline IncidentEscalationPolicyForView& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // syncFromType Field Functions 
     bool hasSyncFromType() const { return this->syncFromType_ != nullptr;};
     void deleteSyncFromType() { this->syncFromType_ = nullptr;};
-    inline string syncFromType() const { DARABONBA_PTR_GET_DEFAULT(syncFromType_, "") };
+    inline string getSyncFromType() const { DARABONBA_PTR_GET_DEFAULT(syncFromType_, "") };
     inline IncidentEscalationPolicyForView& setSyncFromType(string syncFromType) { DARABONBA_PTR_SET_VALUE(syncFromType_, syncFromType) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline IncidentEscalationPolicyForView& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline IncidentEscalationPolicyForView& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline IncidentEscalationPolicyForView& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
     // workspace Field Functions 
     bool hasWorkspace() const { return this->workspace_ != nullptr;};
     void deleteWorkspace() { this->workspace_ = nullptr;};
-    inline string workspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+    inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
     inline IncidentEscalationPolicyForView& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
 
 
   protected:
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<vector<IncidentEscalationStageForView>> escalationStageList_ = nullptr;
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<bool> enable_ {};
+    shared_ptr<vector<IncidentEscalationStageForView>> escalationStageList_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> ownerType_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> source_ = nullptr;
-    std::shared_ptr<string> syncFromType_ = nullptr;
-    std::shared_ptr<string> updateTime_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
-    std::shared_ptr<string> workspace_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> ownerType_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> source_ {};
+    shared_ptr<string> syncFromType_ {};
+    shared_ptr<string> updateTime_ {};
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> uuid_ {};
+    shared_ptr<string> workspace_ {};
   };
 
   } // namespace Models

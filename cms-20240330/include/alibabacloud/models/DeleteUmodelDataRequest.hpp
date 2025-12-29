@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->kind_ == nullptr && return this->name_ == nullptr; };
+        && this->kind_ == nullptr && this->name_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DeleteUmodelDataRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // kind Field Functions 
     bool hasKind() const { return this->kind_ != nullptr;};
     void deleteKind() { this->kind_ = nullptr;};
-    inline string kind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+    inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
     inline DeleteUmodelDataRequest& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DeleteUmodelDataRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // Can specify the name of a specific Umodel data, leaving it blank means all
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // Can specify the kind of a specific Umodel data, leaving it blank means all
-    std::shared_ptr<string> kind_ = nullptr;
+    shared_ptr<string> kind_ {};
     // Can specify the name of a specific Umodel data, leaving it blank means all
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models
