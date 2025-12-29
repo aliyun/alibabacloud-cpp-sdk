@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contents_ == nullptr
-        && return this->materialIds_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->materialIds_ == nullptr && this->workspaceId_ == nullptr; };
     // contents Field Functions 
     bool hasContents() const { return this->contents_ != nullptr;};
     void deleteContents() { this->contents_ = nullptr;};
-    inline const vector<string> & contents() const { DARABONBA_PTR_GET_CONST(contents_, vector<string>) };
-    inline vector<string> contents() { DARABONBA_PTR_GET(contents_, vector<string>) };
+    inline const vector<string> & getContents() const { DARABONBA_PTR_GET_CONST(contents_, vector<string>) };
+    inline vector<string> getContents() { DARABONBA_PTR_GET(contents_, vector<string>) };
     inline RunStyleFeatureAnalysisRequest& setContents(const vector<string> & contents) { DARABONBA_PTR_SET_VALUE(contents_, contents) };
     inline RunStyleFeatureAnalysisRequest& setContents(vector<string> && contents) { DARABONBA_PTR_SET_RVALUE(contents_, contents) };
 
@@ -48,8 +48,8 @@ namespace Models
     // materialIds Field Functions 
     bool hasMaterialIds() const { return this->materialIds_ != nullptr;};
     void deleteMaterialIds() { this->materialIds_ = nullptr;};
-    inline const vector<int64_t> & materialIds() const { DARABONBA_PTR_GET_CONST(materialIds_, vector<int64_t>) };
-    inline vector<int64_t> materialIds() { DARABONBA_PTR_GET(materialIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getMaterialIds() const { DARABONBA_PTR_GET_CONST(materialIds_, vector<int64_t>) };
+    inline vector<int64_t> getMaterialIds() { DARABONBA_PTR_GET(materialIds_, vector<int64_t>) };
     inline RunStyleFeatureAnalysisRequest& setMaterialIds(const vector<int64_t> & materialIds) { DARABONBA_PTR_SET_VALUE(materialIds_, materialIds) };
     inline RunStyleFeatureAnalysisRequest& setMaterialIds(vector<int64_t> && materialIds) { DARABONBA_PTR_SET_RVALUE(materialIds_, materialIds) };
 
@@ -57,15 +57,15 @@ namespace Models
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RunStyleFeatureAnalysisRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> contents_ = nullptr;
-    std::shared_ptr<vector<int64_t>> materialIds_ = nullptr;
+    shared_ptr<vector<string>> contents_ {};
+    shared_ptr<vector<int64_t>> materialIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

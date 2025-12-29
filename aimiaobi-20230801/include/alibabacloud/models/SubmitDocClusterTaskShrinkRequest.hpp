@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->documentsShrink_ == nullptr && return this->summaryLength_ == nullptr && return this->titleLength_ == nullptr && return this->topicCount_ == nullptr; };
+        && this->documentsShrink_ == nullptr && this->summaryLength_ == nullptr && this->titleLength_ == nullptr && this->topicCount_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline SubmitDocClusterTaskShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // documentsShrink Field Functions 
     bool hasDocumentsShrink() const { return this->documentsShrink_ != nullptr;};
     void deleteDocumentsShrink() { this->documentsShrink_ = nullptr;};
-    inline string documentsShrink() const { DARABONBA_PTR_GET_DEFAULT(documentsShrink_, "") };
+    inline string getDocumentsShrink() const { DARABONBA_PTR_GET_DEFAULT(documentsShrink_, "") };
     inline SubmitDocClusterTaskShrinkRequest& setDocumentsShrink(string documentsShrink) { DARABONBA_PTR_SET_VALUE(documentsShrink_, documentsShrink) };
 
 
     // summaryLength Field Functions 
     bool hasSummaryLength() const { return this->summaryLength_ != nullptr;};
     void deleteSummaryLength() { this->summaryLength_ = nullptr;};
-    inline int32_t summaryLength() const { DARABONBA_PTR_GET_DEFAULT(summaryLength_, 0) };
+    inline int32_t getSummaryLength() const { DARABONBA_PTR_GET_DEFAULT(summaryLength_, 0) };
     inline SubmitDocClusterTaskShrinkRequest& setSummaryLength(int32_t summaryLength) { DARABONBA_PTR_SET_VALUE(summaryLength_, summaryLength) };
 
 
     // titleLength Field Functions 
     bool hasTitleLength() const { return this->titleLength_ != nullptr;};
     void deleteTitleLength() { this->titleLength_ = nullptr;};
-    inline int32_t titleLength() const { DARABONBA_PTR_GET_DEFAULT(titleLength_, 0) };
+    inline int32_t getTitleLength() const { DARABONBA_PTR_GET_DEFAULT(titleLength_, 0) };
     inline SubmitDocClusterTaskShrinkRequest& setTitleLength(int32_t titleLength) { DARABONBA_PTR_SET_VALUE(titleLength_, titleLength) };
 
 
     // topicCount Field Functions 
     bool hasTopicCount() const { return this->topicCount_ != nullptr;};
     void deleteTopicCount() { this->topicCount_ = nullptr;};
-    inline int32_t topicCount() const { DARABONBA_PTR_GET_DEFAULT(topicCount_, 0) };
+    inline int32_t getTopicCount() const { DARABONBA_PTR_GET_DEFAULT(topicCount_, 0) };
     inline SubmitDocClusterTaskShrinkRequest& setTopicCount(int32_t topicCount) { DARABONBA_PTR_SET_VALUE(topicCount_, topicCount) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> documentsShrink_ = nullptr;
-    std::shared_ptr<int32_t> summaryLength_ = nullptr;
-    std::shared_ptr<int32_t> titleLength_ = nullptr;
-    std::shared_ptr<int32_t> topicCount_ = nullptr;
+    shared_ptr<string> documentsShrink_ {};
+    shared_ptr<int32_t> summaryLength_ {};
+    shared_ptr<int32_t> titleLength_ {};
+    shared_ptr<int32_t> topicCount_ {};
   };
 
   } // namespace Models

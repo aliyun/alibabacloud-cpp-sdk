@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_SEARCHNEWSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/SearchNewsResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,84 +46,240 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Author, author_);
+        DARABONBA_PTR_TO_JSON(Content, content_);
+        DARABONBA_PTR_TO_JSON(DocUuid, docUuid_);
+        DARABONBA_PTR_TO_JSON(ImageUrls, imageUrls_);
+        DARABONBA_PTR_TO_JSON(PubTime, pubTime_);
+        DARABONBA_PTR_TO_JSON(SearchSource, searchSource_);
+        DARABONBA_PTR_TO_JSON(SearchSourceName, searchSourceName_);
+        DARABONBA_PTR_TO_JSON(Source, source_);
+        DARABONBA_PTR_TO_JSON(Summary, summary_);
+        DARABONBA_PTR_TO_JSON(Tag, tag_);
+        DARABONBA_PTR_TO_JSON(Title, title_);
+        DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_TO_JSON(Url, url_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Author, author_);
+        DARABONBA_PTR_FROM_JSON(Content, content_);
+        DARABONBA_PTR_FROM_JSON(DocUuid, docUuid_);
+        DARABONBA_PTR_FROM_JSON(ImageUrls, imageUrls_);
+        DARABONBA_PTR_FROM_JSON(PubTime, pubTime_);
+        DARABONBA_PTR_FROM_JSON(SearchSource, searchSource_);
+        DARABONBA_PTR_FROM_JSON(SearchSourceName, searchSourceName_);
+        DARABONBA_PTR_FROM_JSON(Source, source_);
+        DARABONBA_PTR_FROM_JSON(Summary, summary_);
+        DARABONBA_PTR_FROM_JSON(Tag, tag_);
+        DARABONBA_PTR_FROM_JSON(Title, title_);
+        DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_FROM_JSON(Url, url_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->author_ == nullptr
+        && this->content_ == nullptr && this->docUuid_ == nullptr && this->imageUrls_ == nullptr && this->pubTime_ == nullptr && this->searchSource_ == nullptr
+        && this->searchSourceName_ == nullptr && this->source_ == nullptr && this->summary_ == nullptr && this->tag_ == nullptr && this->title_ == nullptr
+        && this->updateTime_ == nullptr && this->url_ == nullptr; };
+      // author Field Functions 
+      bool hasAuthor() const { return this->author_ != nullptr;};
+      void deleteAuthor() { this->author_ = nullptr;};
+      inline string getAuthor() const { DARABONBA_PTR_GET_DEFAULT(author_, "") };
+      inline Data& setAuthor(string author) { DARABONBA_PTR_SET_VALUE(author_, author) };
+
+
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline Data& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // docUuid Field Functions 
+      bool hasDocUuid() const { return this->docUuid_ != nullptr;};
+      void deleteDocUuid() { this->docUuid_ = nullptr;};
+      inline string getDocUuid() const { DARABONBA_PTR_GET_DEFAULT(docUuid_, "") };
+      inline Data& setDocUuid(string docUuid) { DARABONBA_PTR_SET_VALUE(docUuid_, docUuid) };
+
+
+      // imageUrls Field Functions 
+      bool hasImageUrls() const { return this->imageUrls_ != nullptr;};
+      void deleteImageUrls() { this->imageUrls_ = nullptr;};
+      inline const vector<string> & getImageUrls() const { DARABONBA_PTR_GET_CONST(imageUrls_, vector<string>) };
+      inline vector<string> getImageUrls() { DARABONBA_PTR_GET(imageUrls_, vector<string>) };
+      inline Data& setImageUrls(const vector<string> & imageUrls) { DARABONBA_PTR_SET_VALUE(imageUrls_, imageUrls) };
+      inline Data& setImageUrls(vector<string> && imageUrls) { DARABONBA_PTR_SET_RVALUE(imageUrls_, imageUrls) };
+
+
+      // pubTime Field Functions 
+      bool hasPubTime() const { return this->pubTime_ != nullptr;};
+      void deletePubTime() { this->pubTime_ = nullptr;};
+      inline string getPubTime() const { DARABONBA_PTR_GET_DEFAULT(pubTime_, "") };
+      inline Data& setPubTime(string pubTime) { DARABONBA_PTR_SET_VALUE(pubTime_, pubTime) };
+
+
+      // searchSource Field Functions 
+      bool hasSearchSource() const { return this->searchSource_ != nullptr;};
+      void deleteSearchSource() { this->searchSource_ = nullptr;};
+      inline string getSearchSource() const { DARABONBA_PTR_GET_DEFAULT(searchSource_, "") };
+      inline Data& setSearchSource(string searchSource) { DARABONBA_PTR_SET_VALUE(searchSource_, searchSource) };
+
+
+      // searchSourceName Field Functions 
+      bool hasSearchSourceName() const { return this->searchSourceName_ != nullptr;};
+      void deleteSearchSourceName() { this->searchSourceName_ = nullptr;};
+      inline string getSearchSourceName() const { DARABONBA_PTR_GET_DEFAULT(searchSourceName_, "") };
+      inline Data& setSearchSourceName(string searchSourceName) { DARABONBA_PTR_SET_VALUE(searchSourceName_, searchSourceName) };
+
+
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline Data& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+      // summary Field Functions 
+      bool hasSummary() const { return this->summary_ != nullptr;};
+      void deleteSummary() { this->summary_ = nullptr;};
+      inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+      inline Data& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
+
+
+      // tag Field Functions 
+      bool hasTag() const { return this->tag_ != nullptr;};
+      void deleteTag() { this->tag_ = nullptr;};
+      inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+      inline Data& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+
+
+      // title Field Functions 
+      bool hasTitle() const { return this->title_ != nullptr;};
+      void deleteTitle() { this->title_ = nullptr;};
+      inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+      inline Data& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+      // updateTime Field Functions 
+      bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+      void deleteUpdateTime() { this->updateTime_ = nullptr;};
+      inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+      inline Data& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
+      // url Field Functions 
+      bool hasUrl() const { return this->url_ != nullptr;};
+      void deleteUrl() { this->url_ = nullptr;};
+      inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+      inline Data& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+    protected:
+      shared_ptr<string> author_ {};
+      shared_ptr<string> content_ {};
+      shared_ptr<string> docUuid_ {};
+      shared_ptr<vector<string>> imageUrls_ {};
+      shared_ptr<string> pubTime_ {};
+      shared_ptr<string> searchSource_ {};
+      shared_ptr<string> searchSourceName_ {};
+      shared_ptr<string> source_ {};
+      shared_ptr<string> summary_ {};
+      shared_ptr<string> tag_ {};
+      shared_ptr<string> title_ {};
+      shared_ptr<string> updateTime_ {};
+      shared_ptr<string> url_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->current_ == nullptr && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr
-        && return this->size_ == nullptr && return this->success_ == nullptr && return this->total_ == nullptr; };
+        && this->current_ == nullptr && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr
+        && this->size_ == nullptr && this->success_ == nullptr && this->total_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline SearchNewsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int32_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
+    inline int32_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
     inline SearchNewsResponseBody& setCurrent(int32_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<SearchNewsResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<SearchNewsResponseBodyData>) };
-    inline vector<SearchNewsResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<SearchNewsResponseBodyData>) };
-    inline SearchNewsResponseBody& setData(const vector<SearchNewsResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline SearchNewsResponseBody& setData(vector<SearchNewsResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<SearchNewsResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<SearchNewsResponseBody::Data>) };
+    inline vector<SearchNewsResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<SearchNewsResponseBody::Data>) };
+    inline SearchNewsResponseBody& setData(const vector<SearchNewsResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline SearchNewsResponseBody& setData(vector<SearchNewsResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline SearchNewsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline SearchNewsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SearchNewsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline SearchNewsResponseBody& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline SearchNewsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int32_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
     inline SearchNewsResponseBody& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int32_t> current_ = nullptr;
-    std::shared_ptr<vector<SearchNewsResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> size_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<int32_t> total_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<int32_t> current_ {};
+    shared_ptr<vector<SearchNewsResponseBody::Data>> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> size_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<int32_t> total_ {};
   };
 
   } // namespace Models

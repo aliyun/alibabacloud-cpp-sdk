@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTDOCUMENTRETRIEVERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListDocumentRetrieveResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,85 +46,157 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Essay, essay_);
+        DARABONBA_PTR_TO_JSON(IssuingAuthority, issuingAuthority_);
+        DARABONBA_PTR_TO_JSON(Link, link_);
+        DARABONBA_PTR_TO_JSON(PublicationDate, publicationDate_);
+        DARABONBA_PTR_TO_JSON(Title, title_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Essay, essay_);
+        DARABONBA_PTR_FROM_JSON(IssuingAuthority, issuingAuthority_);
+        DARABONBA_PTR_FROM_JSON(Link, link_);
+        DARABONBA_PTR_FROM_JSON(PublicationDate, publicationDate_);
+        DARABONBA_PTR_FROM_JSON(Title, title_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->essay_ == nullptr
+        && this->issuingAuthority_ == nullptr && this->link_ == nullptr && this->publicationDate_ == nullptr && this->title_ == nullptr; };
+      // essay Field Functions 
+      bool hasEssay() const { return this->essay_ != nullptr;};
+      void deleteEssay() { this->essay_ = nullptr;};
+      inline string getEssay() const { DARABONBA_PTR_GET_DEFAULT(essay_, "") };
+      inline Data& setEssay(string essay) { DARABONBA_PTR_SET_VALUE(essay_, essay) };
+
+
+      // issuingAuthority Field Functions 
+      bool hasIssuingAuthority() const { return this->issuingAuthority_ != nullptr;};
+      void deleteIssuingAuthority() { this->issuingAuthority_ = nullptr;};
+      inline string getIssuingAuthority() const { DARABONBA_PTR_GET_DEFAULT(issuingAuthority_, "") };
+      inline Data& setIssuingAuthority(string issuingAuthority) { DARABONBA_PTR_SET_VALUE(issuingAuthority_, issuingAuthority) };
+
+
+      // link Field Functions 
+      bool hasLink() const { return this->link_ != nullptr;};
+      void deleteLink() { this->link_ = nullptr;};
+      inline string getLink() const { DARABONBA_PTR_GET_DEFAULT(link_, "") };
+      inline Data& setLink(string link) { DARABONBA_PTR_SET_VALUE(link_, link) };
+
+
+      // publicationDate Field Functions 
+      bool hasPublicationDate() const { return this->publicationDate_ != nullptr;};
+      void deletePublicationDate() { this->publicationDate_ = nullptr;};
+      inline string getPublicationDate() const { DARABONBA_PTR_GET_DEFAULT(publicationDate_, "") };
+      inline Data& setPublicationDate(string publicationDate) { DARABONBA_PTR_SET_VALUE(publicationDate_, publicationDate) };
+
+
+      // title Field Functions 
+      bool hasTitle() const { return this->title_ != nullptr;};
+      void deleteTitle() { this->title_ = nullptr;};
+      inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+      inline Data& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+    protected:
+      shared_ptr<string> essay_ {};
+      shared_ptr<string> issuingAuthority_ {};
+      shared_ptr<string> link_ {};
+      shared_ptr<string> publicationDate_ {};
+      shared_ptr<string> title_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->maxResults_ == nullptr && return this->message_ == nullptr && return this->nextToken_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->maxResults_ == nullptr && this->message_ == nullptr && this->nextToken_ == nullptr
+        && this->requestId_ == nullptr && this->success_ == nullptr && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListDocumentRetrieveResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListDocumentRetrieveResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListDocumentRetrieveResponseBodyData>) };
-    inline vector<ListDocumentRetrieveResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListDocumentRetrieveResponseBodyData>) };
-    inline ListDocumentRetrieveResponseBody& setData(const vector<ListDocumentRetrieveResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListDocumentRetrieveResponseBody& setData(vector<ListDocumentRetrieveResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListDocumentRetrieveResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListDocumentRetrieveResponseBody::Data>) };
+    inline vector<ListDocumentRetrieveResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListDocumentRetrieveResponseBody::Data>) };
+    inline ListDocumentRetrieveResponseBody& setData(const vector<ListDocumentRetrieveResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListDocumentRetrieveResponseBody& setData(vector<ListDocumentRetrieveResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline ListDocumentRetrieveResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListDocumentRetrieveResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListDocumentRetrieveResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDocumentRetrieveResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListDocumentRetrieveResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListDocumentRetrieveResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListDocumentRetrieveResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<vector<ListDocumentRetrieveResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<vector<ListDocumentRetrieveResponseBody::Data>> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> nextToken_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

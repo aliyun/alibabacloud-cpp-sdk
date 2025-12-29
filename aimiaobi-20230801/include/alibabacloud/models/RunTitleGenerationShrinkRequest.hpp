@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deduplicatedTitlesShrink_ == nullptr
-        && return this->referenceDataShrink_ == nullptr && return this->taskId_ == nullptr && return this->titleCount_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->referenceDataShrink_ == nullptr && this->taskId_ == nullptr && this->titleCount_ == nullptr && this->workspaceId_ == nullptr; };
     // deduplicatedTitlesShrink Field Functions 
     bool hasDeduplicatedTitlesShrink() const { return this->deduplicatedTitlesShrink_ != nullptr;};
     void deleteDeduplicatedTitlesShrink() { this->deduplicatedTitlesShrink_ = nullptr;};
-    inline string deduplicatedTitlesShrink() const { DARABONBA_PTR_GET_DEFAULT(deduplicatedTitlesShrink_, "") };
+    inline string getDeduplicatedTitlesShrink() const { DARABONBA_PTR_GET_DEFAULT(deduplicatedTitlesShrink_, "") };
     inline RunTitleGenerationShrinkRequest& setDeduplicatedTitlesShrink(string deduplicatedTitlesShrink) { DARABONBA_PTR_SET_VALUE(deduplicatedTitlesShrink_, deduplicatedTitlesShrink) };
 
 
     // referenceDataShrink Field Functions 
     bool hasReferenceDataShrink() const { return this->referenceDataShrink_ != nullptr;};
     void deleteReferenceDataShrink() { this->referenceDataShrink_ = nullptr;};
-    inline string referenceDataShrink() const { DARABONBA_PTR_GET_DEFAULT(referenceDataShrink_, "") };
+    inline string getReferenceDataShrink() const { DARABONBA_PTR_GET_DEFAULT(referenceDataShrink_, "") };
     inline RunTitleGenerationShrinkRequest& setReferenceDataShrink(string referenceDataShrink) { DARABONBA_PTR_SET_VALUE(referenceDataShrink_, referenceDataShrink) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline RunTitleGenerationShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // titleCount Field Functions 
     bool hasTitleCount() const { return this->titleCount_ != nullptr;};
     void deleteTitleCount() { this->titleCount_ = nullptr;};
-    inline string titleCount() const { DARABONBA_PTR_GET_DEFAULT(titleCount_, "") };
+    inline string getTitleCount() const { DARABONBA_PTR_GET_DEFAULT(titleCount_, "") };
     inline RunTitleGenerationShrinkRequest& setTitleCount(string titleCount) { DARABONBA_PTR_SET_VALUE(titleCount_, titleCount) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RunTitleGenerationShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> deduplicatedTitlesShrink_ = nullptr;
+    shared_ptr<string> deduplicatedTitlesShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> referenceDataShrink_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
-    std::shared_ptr<string> titleCount_ = nullptr;
+    shared_ptr<string> referenceDataShrink_ {};
+    shared_ptr<string> taskId_ {};
+    shared_ptr<string> titleCount_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

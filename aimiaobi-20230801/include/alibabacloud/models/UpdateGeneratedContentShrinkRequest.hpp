@@ -42,67 +42,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->content_ == nullptr && return this->contentText_ == nullptr && return this->id_ == nullptr && return this->keywordsShrink_ == nullptr && return this->prompt_ == nullptr
-        && return this->title_ == nullptr; };
+        && this->content_ == nullptr && this->contentText_ == nullptr && this->id_ == nullptr && this->keywordsShrink_ == nullptr && this->prompt_ == nullptr
+        && this->title_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline UpdateGeneratedContentShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline UpdateGeneratedContentShrinkRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // contentText Field Functions 
     bool hasContentText() const { return this->contentText_ != nullptr;};
     void deleteContentText() { this->contentText_ = nullptr;};
-    inline string contentText() const { DARABONBA_PTR_GET_DEFAULT(contentText_, "") };
+    inline string getContentText() const { DARABONBA_PTR_GET_DEFAULT(contentText_, "") };
     inline UpdateGeneratedContentShrinkRequest& setContentText(string contentText) { DARABONBA_PTR_SET_VALUE(contentText_, contentText) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateGeneratedContentShrinkRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // keywordsShrink Field Functions 
     bool hasKeywordsShrink() const { return this->keywordsShrink_ != nullptr;};
     void deleteKeywordsShrink() { this->keywordsShrink_ = nullptr;};
-    inline string keywordsShrink() const { DARABONBA_PTR_GET_DEFAULT(keywordsShrink_, "") };
+    inline string getKeywordsShrink() const { DARABONBA_PTR_GET_DEFAULT(keywordsShrink_, "") };
     inline UpdateGeneratedContentShrinkRequest& setKeywordsShrink(string keywordsShrink) { DARABONBA_PTR_SET_VALUE(keywordsShrink_, keywordsShrink) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline UpdateGeneratedContentShrinkRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline UpdateGeneratedContentShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> contentText_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> content_ {};
+    shared_ptr<string> contentText_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> keywordsShrink_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> keywordsShrink_ {};
+    shared_ptr<string> prompt_ {};
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

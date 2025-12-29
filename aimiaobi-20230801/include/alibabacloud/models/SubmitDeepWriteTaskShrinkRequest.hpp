@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentOrchestrationShrink_ == nullptr
-        && return this->filesShrink_ == nullptr && return this->input_ == nullptr && return this->instructions_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->filesShrink_ == nullptr && this->input_ == nullptr && this->instructions_ == nullptr && this->workspaceId_ == nullptr; };
     // agentOrchestrationShrink Field Functions 
     bool hasAgentOrchestrationShrink() const { return this->agentOrchestrationShrink_ != nullptr;};
     void deleteAgentOrchestrationShrink() { this->agentOrchestrationShrink_ = nullptr;};
-    inline string agentOrchestrationShrink() const { DARABONBA_PTR_GET_DEFAULT(agentOrchestrationShrink_, "") };
+    inline string getAgentOrchestrationShrink() const { DARABONBA_PTR_GET_DEFAULT(agentOrchestrationShrink_, "") };
     inline SubmitDeepWriteTaskShrinkRequest& setAgentOrchestrationShrink(string agentOrchestrationShrink) { DARABONBA_PTR_SET_VALUE(agentOrchestrationShrink_, agentOrchestrationShrink) };
 
 
     // filesShrink Field Functions 
     bool hasFilesShrink() const { return this->filesShrink_ != nullptr;};
     void deleteFilesShrink() { this->filesShrink_ = nullptr;};
-    inline string filesShrink() const { DARABONBA_PTR_GET_DEFAULT(filesShrink_, "") };
+    inline string getFilesShrink() const { DARABONBA_PTR_GET_DEFAULT(filesShrink_, "") };
     inline SubmitDeepWriteTaskShrinkRequest& setFilesShrink(string filesShrink) { DARABONBA_PTR_SET_VALUE(filesShrink_, filesShrink) };
 
 
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
-    inline string input() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+    inline string getInput() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
     inline SubmitDeepWriteTaskShrinkRequest& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
 
 
     // instructions Field Functions 
     bool hasInstructions() const { return this->instructions_ != nullptr;};
     void deleteInstructions() { this->instructions_ = nullptr;};
-    inline string instructions() const { DARABONBA_PTR_GET_DEFAULT(instructions_, "") };
+    inline string getInstructions() const { DARABONBA_PTR_GET_DEFAULT(instructions_, "") };
     inline SubmitDeepWriteTaskShrinkRequest& setInstructions(string instructions) { DARABONBA_PTR_SET_VALUE(instructions_, instructions) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline SubmitDeepWriteTaskShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> agentOrchestrationShrink_ = nullptr;
-    std::shared_ptr<string> filesShrink_ = nullptr;
+    shared_ptr<string> agentOrchestrationShrink_ {};
+    shared_ptr<string> filesShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> input_ = nullptr;
-    std::shared_ptr<string> instructions_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> input_ {};
+    shared_ptr<string> instructions_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -44,74 +44,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentContextShrink_ == nullptr
-        && return this->chatConfigShrink_ == nullptr && return this->fileUrl_ == nullptr && return this->modelId_ == nullptr && return this->originalSessionId_ == nullptr && return this->prompt_ == nullptr
-        && return this->taskId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->chatConfigShrink_ == nullptr && this->fileUrl_ == nullptr && this->modelId_ == nullptr && this->originalSessionId_ == nullptr && this->prompt_ == nullptr
+        && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
     // agentContextShrink Field Functions 
     bool hasAgentContextShrink() const { return this->agentContextShrink_ != nullptr;};
     void deleteAgentContextShrink() { this->agentContextShrink_ = nullptr;};
-    inline string agentContextShrink() const { DARABONBA_PTR_GET_DEFAULT(agentContextShrink_, "") };
+    inline string getAgentContextShrink() const { DARABONBA_PTR_GET_DEFAULT(agentContextShrink_, "") };
     inline RunSearchGenerationShrinkRequest& setAgentContextShrink(string agentContextShrink) { DARABONBA_PTR_SET_VALUE(agentContextShrink_, agentContextShrink) };
 
 
     // chatConfigShrink Field Functions 
     bool hasChatConfigShrink() const { return this->chatConfigShrink_ != nullptr;};
     void deleteChatConfigShrink() { this->chatConfigShrink_ = nullptr;};
-    inline string chatConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(chatConfigShrink_, "") };
+    inline string getChatConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(chatConfigShrink_, "") };
     inline RunSearchGenerationShrinkRequest& setChatConfigShrink(string chatConfigShrink) { DARABONBA_PTR_SET_VALUE(chatConfigShrink_, chatConfigShrink) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline RunSearchGenerationShrinkRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline RunSearchGenerationShrinkRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // originalSessionId Field Functions 
     bool hasOriginalSessionId() const { return this->originalSessionId_ != nullptr;};
     void deleteOriginalSessionId() { this->originalSessionId_ = nullptr;};
-    inline string originalSessionId() const { DARABONBA_PTR_GET_DEFAULT(originalSessionId_, "") };
+    inline string getOriginalSessionId() const { DARABONBA_PTR_GET_DEFAULT(originalSessionId_, "") };
     inline RunSearchGenerationShrinkRequest& setOriginalSessionId(string originalSessionId) { DARABONBA_PTR_SET_VALUE(originalSessionId_, originalSessionId) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline RunSearchGenerationShrinkRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline RunSearchGenerationShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RunSearchGenerationShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> agentContextShrink_ = nullptr;
-    std::shared_ptr<string> chatConfigShrink_ = nullptr;
-    std::shared_ptr<string> fileUrl_ = nullptr;
-    std::shared_ptr<string> modelId_ = nullptr;
-    std::shared_ptr<string> originalSessionId_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> agentContextShrink_ {};
+    shared_ptr<string> chatConfigShrink_ {};
+    shared_ptr<string> fileUrl_ {};
+    shared_ptr<string> modelId_ {};
+    shared_ptr<string> originalSessionId_ {};
+    shared_ptr<string> prompt_ {};
+    shared_ptr<string> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

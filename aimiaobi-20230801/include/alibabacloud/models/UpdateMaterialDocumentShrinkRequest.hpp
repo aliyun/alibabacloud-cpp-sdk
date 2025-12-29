@@ -58,133 +58,133 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->author_ == nullptr && return this->docKeywordsShrink_ == nullptr && return this->docType_ == nullptr && return this->externalUrl_ == nullptr && return this->htmlContent_ == nullptr
-        && return this->id_ == nullptr && return this->pubTime_ == nullptr && return this->regionId_ == nullptr && return this->shareAttr_ == nullptr && return this->srcFrom_ == nullptr
-        && return this->summary_ == nullptr && return this->textContent_ == nullptr && return this->title_ == nullptr && return this->url_ == nullptr; };
+        && this->author_ == nullptr && this->docKeywordsShrink_ == nullptr && this->docType_ == nullptr && this->externalUrl_ == nullptr && this->htmlContent_ == nullptr
+        && this->id_ == nullptr && this->pubTime_ == nullptr && this->regionId_ == nullptr && this->shareAttr_ == nullptr && this->srcFrom_ == nullptr
+        && this->summary_ == nullptr && this->textContent_ == nullptr && this->title_ == nullptr && this->url_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // author Field Functions 
     bool hasAuthor() const { return this->author_ != nullptr;};
     void deleteAuthor() { this->author_ = nullptr;};
-    inline string author() const { DARABONBA_PTR_GET_DEFAULT(author_, "") };
+    inline string getAuthor() const { DARABONBA_PTR_GET_DEFAULT(author_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setAuthor(string author) { DARABONBA_PTR_SET_VALUE(author_, author) };
 
 
     // docKeywordsShrink Field Functions 
     bool hasDocKeywordsShrink() const { return this->docKeywordsShrink_ != nullptr;};
     void deleteDocKeywordsShrink() { this->docKeywordsShrink_ = nullptr;};
-    inline string docKeywordsShrink() const { DARABONBA_PTR_GET_DEFAULT(docKeywordsShrink_, "") };
+    inline string getDocKeywordsShrink() const { DARABONBA_PTR_GET_DEFAULT(docKeywordsShrink_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setDocKeywordsShrink(string docKeywordsShrink) { DARABONBA_PTR_SET_VALUE(docKeywordsShrink_, docKeywordsShrink) };
 
 
     // docType Field Functions 
     bool hasDocType() const { return this->docType_ != nullptr;};
     void deleteDocType() { this->docType_ = nullptr;};
-    inline string docType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
+    inline string getDocType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setDocType(string docType) { DARABONBA_PTR_SET_VALUE(docType_, docType) };
 
 
     // externalUrl Field Functions 
     bool hasExternalUrl() const { return this->externalUrl_ != nullptr;};
     void deleteExternalUrl() { this->externalUrl_ = nullptr;};
-    inline string externalUrl() const { DARABONBA_PTR_GET_DEFAULT(externalUrl_, "") };
+    inline string getExternalUrl() const { DARABONBA_PTR_GET_DEFAULT(externalUrl_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setExternalUrl(string externalUrl) { DARABONBA_PTR_SET_VALUE(externalUrl_, externalUrl) };
 
 
     // htmlContent Field Functions 
     bool hasHtmlContent() const { return this->htmlContent_ != nullptr;};
     void deleteHtmlContent() { this->htmlContent_ = nullptr;};
-    inline string htmlContent() const { DARABONBA_PTR_GET_DEFAULT(htmlContent_, "") };
+    inline string getHtmlContent() const { DARABONBA_PTR_GET_DEFAULT(htmlContent_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setHtmlContent(string htmlContent) { DARABONBA_PTR_SET_VALUE(htmlContent_, htmlContent) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateMaterialDocumentShrinkRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // pubTime Field Functions 
     bool hasPubTime() const { return this->pubTime_ != nullptr;};
     void deletePubTime() { this->pubTime_ = nullptr;};
-    inline string pubTime() const { DARABONBA_PTR_GET_DEFAULT(pubTime_, "") };
+    inline string getPubTime() const { DARABONBA_PTR_GET_DEFAULT(pubTime_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setPubTime(string pubTime) { DARABONBA_PTR_SET_VALUE(pubTime_, pubTime) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // shareAttr Field Functions 
     bool hasShareAttr() const { return this->shareAttr_ != nullptr;};
     void deleteShareAttr() { this->shareAttr_ = nullptr;};
-    inline int32_t shareAttr() const { DARABONBA_PTR_GET_DEFAULT(shareAttr_, 0) };
+    inline int32_t getShareAttr() const { DARABONBA_PTR_GET_DEFAULT(shareAttr_, 0) };
     inline UpdateMaterialDocumentShrinkRequest& setShareAttr(int32_t shareAttr) { DARABONBA_PTR_SET_VALUE(shareAttr_, shareAttr) };
 
 
     // srcFrom Field Functions 
     bool hasSrcFrom() const { return this->srcFrom_ != nullptr;};
     void deleteSrcFrom() { this->srcFrom_ = nullptr;};
-    inline string srcFrom() const { DARABONBA_PTR_GET_DEFAULT(srcFrom_, "") };
+    inline string getSrcFrom() const { DARABONBA_PTR_GET_DEFAULT(srcFrom_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setSrcFrom(string srcFrom) { DARABONBA_PTR_SET_VALUE(srcFrom_, srcFrom) };
 
 
     // summary Field Functions 
     bool hasSummary() const { return this->summary_ != nullptr;};
     void deleteSummary() { this->summary_ = nullptr;};
-    inline string summary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+    inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
     // textContent Field Functions 
     bool hasTextContent() const { return this->textContent_ != nullptr;};
     void deleteTextContent() { this->textContent_ = nullptr;};
-    inline string textContent() const { DARABONBA_PTR_GET_DEFAULT(textContent_, "") };
+    inline string getTextContent() const { DARABONBA_PTR_GET_DEFAULT(textContent_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setTextContent(string textContent) { DARABONBA_PTR_SET_VALUE(textContent_, textContent) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline UpdateMaterialDocumentShrinkRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> author_ = nullptr;
-    std::shared_ptr<string> docKeywordsShrink_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> author_ {};
+    shared_ptr<string> docKeywordsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> docType_ = nullptr;
-    std::shared_ptr<string> externalUrl_ = nullptr;
-    std::shared_ptr<string> htmlContent_ = nullptr;
+    shared_ptr<string> docType_ {};
+    shared_ptr<string> externalUrl_ {};
+    shared_ptr<string> htmlContent_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> pubTime_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int32_t> shareAttr_ = nullptr;
-    std::shared_ptr<string> srcFrom_ = nullptr;
-    std::shared_ptr<string> summary_ = nullptr;
-    std::shared_ptr<string> textContent_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> pubTime_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int32_t> shareAttr_ {};
+    shared_ptr<string> srcFrom_ {};
+    shared_ptr<string> summary_ {};
+    shared_ptr<string> textContent_ {};
+    shared_ptr<string> title_ {};
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

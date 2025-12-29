@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->articleTaskId_ == nullptr && return this->paragraphListShrink_ == nullptr && return this->size_ == nullptr && return this->style_ == nullptr; };
+        && this->articleTaskId_ == nullptr && this->paragraphListShrink_ == nullptr && this->size_ == nullptr && this->style_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline GenerateImageTaskShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // articleTaskId Field Functions 
     bool hasArticleTaskId() const { return this->articleTaskId_ != nullptr;};
     void deleteArticleTaskId() { this->articleTaskId_ = nullptr;};
-    inline string articleTaskId() const { DARABONBA_PTR_GET_DEFAULT(articleTaskId_, "") };
+    inline string getArticleTaskId() const { DARABONBA_PTR_GET_DEFAULT(articleTaskId_, "") };
     inline GenerateImageTaskShrinkRequest& setArticleTaskId(string articleTaskId) { DARABONBA_PTR_SET_VALUE(articleTaskId_, articleTaskId) };
 
 
     // paragraphListShrink Field Functions 
     bool hasParagraphListShrink() const { return this->paragraphListShrink_ != nullptr;};
     void deleteParagraphListShrink() { this->paragraphListShrink_ = nullptr;};
-    inline string paragraphListShrink() const { DARABONBA_PTR_GET_DEFAULT(paragraphListShrink_, "") };
+    inline string getParagraphListShrink() const { DARABONBA_PTR_GET_DEFAULT(paragraphListShrink_, "") };
     inline GenerateImageTaskShrinkRequest& setParagraphListShrink(string paragraphListShrink) { DARABONBA_PTR_SET_VALUE(paragraphListShrink_, paragraphListShrink) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline string size() const { DARABONBA_PTR_GET_DEFAULT(size_, "") };
+    inline string getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, "") };
     inline GenerateImageTaskShrinkRequest& setSize(string size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // style Field Functions 
     bool hasStyle() const { return this->style_ != nullptr;};
     void deleteStyle() { this->style_ = nullptr;};
-    inline string style() const { DARABONBA_PTR_GET_DEFAULT(style_, "") };
+    inline string getStyle() const { DARABONBA_PTR_GET_DEFAULT(style_, "") };
     inline GenerateImageTaskShrinkRequest& setStyle(string style) { DARABONBA_PTR_SET_VALUE(style_, style) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> articleTaskId_ = nullptr;
+    shared_ptr<string> articleTaskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> paragraphListShrink_ = nullptr;
+    shared_ptr<string> paragraphListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> size_ = nullptr;
+    shared_ptr<string> size_ {};
     // This parameter is required.
-    std::shared_ptr<string> style_ = nullptr;
+    shared_ptr<string> style_ {};
   };
 
   } // namespace Models

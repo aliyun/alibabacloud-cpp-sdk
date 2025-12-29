@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->articleId_ == nullptr
-        && return this->content_ == nullptr && return this->htmlContent_ == nullptr && return this->title_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->content_ == nullptr && this->htmlContent_ == nullptr && this->title_ == nullptr && this->workspaceId_ == nullptr; };
     // articleId Field Functions 
     bool hasArticleId() const { return this->articleId_ != nullptr;};
     void deleteArticleId() { this->articleId_ = nullptr;};
-    inline string articleId() const { DARABONBA_PTR_GET_DEFAULT(articleId_, "") };
+    inline string getArticleId() const { DARABONBA_PTR_GET_DEFAULT(articleId_, "") };
     inline SubmitAuditTaskRequest& setArticleId(string articleId) { DARABONBA_PTR_SET_VALUE(articleId_, articleId) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline SubmitAuditTaskRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // htmlContent Field Functions 
     bool hasHtmlContent() const { return this->htmlContent_ != nullptr;};
     void deleteHtmlContent() { this->htmlContent_ = nullptr;};
-    inline string htmlContent() const { DARABONBA_PTR_GET_DEFAULT(htmlContent_, "") };
+    inline string getHtmlContent() const { DARABONBA_PTR_GET_DEFAULT(htmlContent_, "") };
     inline SubmitAuditTaskRequest& setHtmlContent(string htmlContent) { DARABONBA_PTR_SET_VALUE(htmlContent_, htmlContent) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline SubmitAuditTaskRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline SubmitAuditTaskRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> articleId_ = nullptr;
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> htmlContent_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> articleId_ {};
+    shared_ptr<string> content_ {};
+    shared_ptr<string> htmlContent_ {};
+    shared_ptr<string> title_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

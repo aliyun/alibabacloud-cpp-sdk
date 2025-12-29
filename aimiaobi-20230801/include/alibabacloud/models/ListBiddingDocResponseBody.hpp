@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTBIDDINGDOCRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListBiddingDocResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -53,110 +52,182 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTimeStart, createTimeStart_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+        DARABONBA_PTR_TO_JSON(TaskName, taskName_);
+        DARABONBA_PTR_TO_JSON(TaskStatus, taskStatus_);
+        DARABONBA_PTR_TO_JSON(TaskStep, taskStep_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTimeStart, createTimeStart_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
+        DARABONBA_PTR_FROM_JSON(TaskStatus, taskStatus_);
+        DARABONBA_PTR_FROM_JSON(TaskStep, taskStep_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createTimeStart_ == nullptr
+        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskStatus_ == nullptr && this->taskStep_ == nullptr; };
+      // createTimeStart Field Functions 
+      bool hasCreateTimeStart() const { return this->createTimeStart_ != nullptr;};
+      void deleteCreateTimeStart() { this->createTimeStart_ = nullptr;};
+      inline string getCreateTimeStart() const { DARABONBA_PTR_GET_DEFAULT(createTimeStart_, "") };
+      inline Data& setCreateTimeStart(string createTimeStart) { DARABONBA_PTR_SET_VALUE(createTimeStart_, createTimeStart) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+      inline Data& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+      // taskName Field Functions 
+      bool hasTaskName() const { return this->taskName_ != nullptr;};
+      void deleteTaskName() { this->taskName_ = nullptr;};
+      inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+      inline Data& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
+
+
+      // taskStatus Field Functions 
+      bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
+      void deleteTaskStatus() { this->taskStatus_ = nullptr;};
+      inline int32_t getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, 0) };
+      inline Data& setTaskStatus(int32_t taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
+
+
+      // taskStep Field Functions 
+      bool hasTaskStep() const { return this->taskStep_ != nullptr;};
+      void deleteTaskStep() { this->taskStep_ = nullptr;};
+      inline string getTaskStep() const { DARABONBA_PTR_GET_DEFAULT(taskStep_, "") };
+      inline Data& setTaskStep(string taskStep) { DARABONBA_PTR_SET_VALUE(taskStep_, taskStep) };
+
+
+    protected:
+      shared_ptr<string> createTimeStart_ {};
+      shared_ptr<string> taskId_ {};
+      shared_ptr<string> taskName_ {};
+      shared_ptr<int32_t> taskStatus_ {};
+      shared_ptr<string> taskStep_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->current_ == nullptr && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->maxResults_ == nullptr && return this->message_ == nullptr
-        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->size_ == nullptr && return this->success_ == nullptr && return this->total_ == nullptr
-        && return this->totalCount_ == nullptr; };
+        && this->current_ == nullptr && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->maxResults_ == nullptr && this->message_ == nullptr
+        && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->size_ == nullptr && this->success_ == nullptr && this->total_ == nullptr
+        && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListBiddingDocResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
-    inline int32_t current() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
+    inline int32_t getCurrent() const { DARABONBA_PTR_GET_DEFAULT(current_, 0) };
     inline ListBiddingDocResponseBody& setCurrent(int32_t current) { DARABONBA_PTR_SET_VALUE(current_, current) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListBiddingDocResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListBiddingDocResponseBodyData>) };
-    inline vector<ListBiddingDocResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListBiddingDocResponseBodyData>) };
-    inline ListBiddingDocResponseBody& setData(const vector<ListBiddingDocResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListBiddingDocResponseBody& setData(vector<ListBiddingDocResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListBiddingDocResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListBiddingDocResponseBody::Data>) };
+    inline vector<ListBiddingDocResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListBiddingDocResponseBody::Data>) };
+    inline ListBiddingDocResponseBody& setData(const vector<ListBiddingDocResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListBiddingDocResponseBody& setData(vector<ListBiddingDocResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline ListBiddingDocResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListBiddingDocResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListBiddingDocResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListBiddingDocResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListBiddingDocResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+    inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
     inline ListBiddingDocResponseBody& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListBiddingDocResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int32_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
     inline ListBiddingDocResponseBody& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListBiddingDocResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int32_t> current_ = nullptr;
-    std::shared_ptr<vector<ListBiddingDocResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<int32_t> current_ {};
+    shared_ptr<vector<ListBiddingDocResponseBody::Data>> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> nextToken_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> size_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<int32_t> total_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> size_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<int32_t> total_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

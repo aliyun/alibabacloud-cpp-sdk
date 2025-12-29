@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->replyMessagListShrink_ == nullptr; };
+        && this->replyMessagListShrink_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline InsertInterveneGlobalReplyShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // replyMessagListShrink Field Functions 
     bool hasReplyMessagListShrink() const { return this->replyMessagListShrink_ != nullptr;};
     void deleteReplyMessagListShrink() { this->replyMessagListShrink_ = nullptr;};
-    inline string replyMessagListShrink() const { DARABONBA_PTR_GET_DEFAULT(replyMessagListShrink_, "") };
+    inline string getReplyMessagListShrink() const { DARABONBA_PTR_GET_DEFAULT(replyMessagListShrink_, "") };
     inline InsertInterveneGlobalReplyShrinkRequest& setReplyMessagListShrink(string replyMessagListShrink) { DARABONBA_PTR_SET_VALUE(replyMessagListShrink_, replyMessagListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> replyMessagListShrink_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> replyMessagListShrink_ {};
   };
 
   } // namespace Models

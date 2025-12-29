@@ -47,41 +47,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->content_ == nullptr && return this->contentDomain_ == nullptr && return this->contentText_ == nullptr && return this->keywords_ == nullptr && return this->prompt_ == nullptr
-        && return this->taskId_ == nullptr && return this->title_ == nullptr && return this->uuid_ == nullptr; };
+        && this->content_ == nullptr && this->contentDomain_ == nullptr && this->contentText_ == nullptr && this->keywords_ == nullptr && this->prompt_ == nullptr
+        && this->taskId_ == nullptr && this->title_ == nullptr && this->uuid_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline CreateGeneratedContentRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateGeneratedContentRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // contentDomain Field Functions 
     bool hasContentDomain() const { return this->contentDomain_ != nullptr;};
     void deleteContentDomain() { this->contentDomain_ = nullptr;};
-    inline string contentDomain() const { DARABONBA_PTR_GET_DEFAULT(contentDomain_, "") };
+    inline string getContentDomain() const { DARABONBA_PTR_GET_DEFAULT(contentDomain_, "") };
     inline CreateGeneratedContentRequest& setContentDomain(string contentDomain) { DARABONBA_PTR_SET_VALUE(contentDomain_, contentDomain) };
 
 
     // contentText Field Functions 
     bool hasContentText() const { return this->contentText_ != nullptr;};
     void deleteContentText() { this->contentText_ = nullptr;};
-    inline string contentText() const { DARABONBA_PTR_GET_DEFAULT(contentText_, "") };
+    inline string getContentText() const { DARABONBA_PTR_GET_DEFAULT(contentText_, "") };
     inline CreateGeneratedContentRequest& setContentText(string contentText) { DARABONBA_PTR_SET_VALUE(contentText_, contentText) };
 
 
     // keywords Field Functions 
     bool hasKeywords() const { return this->keywords_ != nullptr;};
     void deleteKeywords() { this->keywords_ = nullptr;};
-    inline const vector<string> & keywords() const { DARABONBA_PTR_GET_CONST(keywords_, vector<string>) };
-    inline vector<string> keywords() { DARABONBA_PTR_GET(keywords_, vector<string>) };
+    inline const vector<string> & getKeywords() const { DARABONBA_PTR_GET_CONST(keywords_, vector<string>) };
+    inline vector<string> getKeywords() { DARABONBA_PTR_GET(keywords_, vector<string>) };
     inline CreateGeneratedContentRequest& setKeywords(const vector<string> & keywords) { DARABONBA_PTR_SET_VALUE(keywords_, keywords) };
     inline CreateGeneratedContentRequest& setKeywords(vector<string> && keywords) { DARABONBA_PTR_SET_RVALUE(keywords_, keywords) };
 
@@ -89,45 +89,45 @@ namespace Models
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline CreateGeneratedContentRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline CreateGeneratedContentRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateGeneratedContentRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline CreateGeneratedContentRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> contentDomain_ = nullptr;
-    std::shared_ptr<string> contentText_ = nullptr;
-    std::shared_ptr<vector<string>> keywords_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<string> contentDomain_ {};
+    shared_ptr<string> contentText_ {};
+    shared_ptr<vector<string>> keywords_ {};
+    shared_ptr<string> prompt_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> title_ {};
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

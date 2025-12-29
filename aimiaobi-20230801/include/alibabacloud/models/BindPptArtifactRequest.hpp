@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->artifactId_ == nullptr
-        && return this->taskId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
     // artifactId Field Functions 
     bool hasArtifactId() const { return this->artifactId_ != nullptr;};
     void deleteArtifactId() { this->artifactId_ = nullptr;};
-    inline int32_t artifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, 0) };
+    inline int32_t getArtifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, 0) };
     inline BindPptArtifactRequest& setArtifactId(int32_t artifactId) { DARABONBA_PTR_SET_VALUE(artifactId_, artifactId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline BindPptArtifactRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline BindPptArtifactRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> artifactId_ = nullptr;
+    shared_ptr<int32_t> artifactId_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> taskId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

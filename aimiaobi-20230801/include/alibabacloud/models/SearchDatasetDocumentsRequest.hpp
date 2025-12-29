@@ -42,67 +42,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetId_ == nullptr
-        && return this->datasetName_ == nullptr && return this->extend1_ == nullptr && return this->includeContent_ == nullptr && return this->pageSize_ == nullptr && return this->query_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->datasetName_ == nullptr && this->extend1_ == nullptr && this->includeContent_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
-    inline int64_t datasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, 0L) };
+    inline int64_t getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, 0L) };
     inline SearchDatasetDocumentsRequest& setDatasetId(int64_t datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline SearchDatasetDocumentsRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // extend1 Field Functions 
     bool hasExtend1() const { return this->extend1_ != nullptr;};
     void deleteExtend1() { this->extend1_ = nullptr;};
-    inline string extend1() const { DARABONBA_PTR_GET_DEFAULT(extend1_, "") };
+    inline string getExtend1() const { DARABONBA_PTR_GET_DEFAULT(extend1_, "") };
     inline SearchDatasetDocumentsRequest& setExtend1(string extend1) { DARABONBA_PTR_SET_VALUE(extend1_, extend1) };
 
 
     // includeContent Field Functions 
     bool hasIncludeContent() const { return this->includeContent_ != nullptr;};
     void deleteIncludeContent() { this->includeContent_ = nullptr;};
-    inline bool includeContent() const { DARABONBA_PTR_GET_DEFAULT(includeContent_, false) };
+    inline bool getIncludeContent() const { DARABONBA_PTR_GET_DEFAULT(includeContent_, false) };
     inline SearchDatasetDocumentsRequest& setIncludeContent(bool includeContent) { DARABONBA_PTR_SET_VALUE(includeContent_, includeContent) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline SearchDatasetDocumentsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline SearchDatasetDocumentsRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline SearchDatasetDocumentsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<int64_t> datasetId_ = nullptr;
-    std::shared_ptr<string> datasetName_ = nullptr;
-    std::shared_ptr<string> extend1_ = nullptr;
-    std::shared_ptr<bool> includeContent_ = nullptr;
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<int64_t> datasetId_ {};
+    shared_ptr<string> datasetName_ {};
+    shared_ptr<string> extend1_ {};
+    shared_ptr<bool> includeContent_ {};
+    shared_ptr<string> pageSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> query_ = nullptr;
+    shared_ptr<string> query_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configKey_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->workspaceId_ == nullptr; };
     // configKey Field Functions 
     bool hasConfigKey() const { return this->configKey_ != nullptr;};
     void deleteConfigKey() { this->configKey_ = nullptr;};
-    inline string configKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
+    inline string getConfigKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
     inline DeleteGeneralConfigRequest& setConfigKey(string configKey) { DARABONBA_PTR_SET_VALUE(configKey_, configKey) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DeleteGeneralConfigRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> configKey_ = nullptr;
+    shared_ptr<string> configKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

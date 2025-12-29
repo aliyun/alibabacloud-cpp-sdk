@@ -41,40 +41,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetId_ == nullptr
-        && return this->datasetName_ == nullptr && return this->docId_ == nullptr && return this->docUuid_ == nullptr && return this->includeFields_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->datasetName_ == nullptr && this->docId_ == nullptr && this->docUuid_ == nullptr && this->includeFields_ == nullptr && this->workspaceId_ == nullptr; };
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
-    inline int64_t datasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, 0L) };
+    inline int64_t getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, 0L) };
     inline GetDatasetDocumentRequest& setDatasetId(int64_t datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline GetDatasetDocumentRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // docId Field Functions 
     bool hasDocId() const { return this->docId_ != nullptr;};
     void deleteDocId() { this->docId_ = nullptr;};
-    inline string docId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
+    inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
     inline GetDatasetDocumentRequest& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
 
 
     // docUuid Field Functions 
     bool hasDocUuid() const { return this->docUuid_ != nullptr;};
     void deleteDocUuid() { this->docUuid_ = nullptr;};
-    inline string docUuid() const { DARABONBA_PTR_GET_DEFAULT(docUuid_, "") };
+    inline string getDocUuid() const { DARABONBA_PTR_GET_DEFAULT(docUuid_, "") };
     inline GetDatasetDocumentRequest& setDocUuid(string docUuid) { DARABONBA_PTR_SET_VALUE(docUuid_, docUuid) };
 
 
     // includeFields Field Functions 
     bool hasIncludeFields() const { return this->includeFields_ != nullptr;};
     void deleteIncludeFields() { this->includeFields_ = nullptr;};
-    inline const vector<string> & includeFields() const { DARABONBA_PTR_GET_CONST(includeFields_, vector<string>) };
-    inline vector<string> includeFields() { DARABONBA_PTR_GET(includeFields_, vector<string>) };
+    inline const vector<string> & getIncludeFields() const { DARABONBA_PTR_GET_CONST(includeFields_, vector<string>) };
+    inline vector<string> getIncludeFields() { DARABONBA_PTR_GET(includeFields_, vector<string>) };
     inline GetDatasetDocumentRequest& setIncludeFields(const vector<string> & includeFields) { DARABONBA_PTR_SET_VALUE(includeFields_, includeFields) };
     inline GetDatasetDocumentRequest& setIncludeFields(vector<string> && includeFields) { DARABONBA_PTR_SET_RVALUE(includeFields_, includeFields) };
 
@@ -82,18 +82,18 @@ namespace Models
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline GetDatasetDocumentRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<int64_t> datasetId_ = nullptr;
-    std::shared_ptr<string> datasetName_ = nullptr;
-    std::shared_ptr<string> docId_ = nullptr;
-    std::shared_ptr<string> docUuid_ = nullptr;
-    std::shared_ptr<vector<string>> includeFields_ = nullptr;
+    shared_ptr<int64_t> datasetId_ {};
+    shared_ptr<string> datasetName_ {};
+    shared_ptr<string> docId_ {};
+    shared_ptr<string> docUuid_ {};
+    shared_ptr<vector<string>> includeFields_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->fileKey_ == nullptr && return this->fileName_ == nullptr; };
+        && this->fileKey_ == nullptr && this->fileName_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline GenerateFileUrlByKeyRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // fileKey Field Functions 
     bool hasFileKey() const { return this->fileKey_ != nullptr;};
     void deleteFileKey() { this->fileKey_ = nullptr;};
-    inline string fileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
+    inline string getFileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
     inline GenerateFileUrlByKeyRequest& setFileKey(string fileKey) { DARABONBA_PTR_SET_VALUE(fileKey_, fileKey) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GenerateFileUrlByKeyRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> fileKey_ = nullptr;
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> fileKey_ {};
+    shared_ptr<string> fileName_ {};
   };
 
   } // namespace Models

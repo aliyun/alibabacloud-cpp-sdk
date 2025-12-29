@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->docIds_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->workspaceId_ == nullptr; };
     // docIds Field Functions 
     bool hasDocIds() const { return this->docIds_ != nullptr;};
     void deleteDocIds() { this->docIds_ = nullptr;};
-    inline const vector<string> & docIds() const { DARABONBA_PTR_GET_CONST(docIds_, vector<string>) };
-    inline vector<string> docIds() { DARABONBA_PTR_GET(docIds_, vector<string>) };
+    inline const vector<string> & getDocIds() const { DARABONBA_PTR_GET_CONST(docIds_, vector<string>) };
+    inline vector<string> getDocIds() { DARABONBA_PTR_GET(docIds_, vector<string>) };
     inline DeleteDocsRequest& setDocIds(const vector<string> & docIds) { DARABONBA_PTR_SET_VALUE(docIds_, docIds) };
     inline DeleteDocsRequest& setDocIds(vector<string> && docIds) { DARABONBA_PTR_SET_RVALUE(docIds_, docIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DeleteDocsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> docIds_ = nullptr;
+    shared_ptr<vector<string>> docIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

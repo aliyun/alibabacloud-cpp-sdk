@@ -45,13 +45,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->articles_ == nullptr
-        && return this->children_ == nullptr && return this->outline_ == nullptr && return this->outlineId_ == nullptr && return this->searchKeyWordList_ == nullptr && return this->wordCount_ == nullptr
-        && return this->writingTips_ == nullptr; };
+        && this->children_ == nullptr && this->outline_ == nullptr && this->outlineId_ == nullptr && this->searchKeyWordList_ == nullptr && this->wordCount_ == nullptr
+        && this->writingTips_ == nullptr; };
     // articles Field Functions 
     bool hasArticles() const { return this->articles_ != nullptr;};
     void deleteArticles() { this->articles_ = nullptr;};
-    inline const vector<OutlineWritingArticle> & articles() const { DARABONBA_PTR_GET_CONST(articles_, vector<OutlineWritingArticle>) };
-    inline vector<OutlineWritingArticle> articles() { DARABONBA_PTR_GET(articles_, vector<OutlineWritingArticle>) };
+    inline const vector<OutlineWritingArticle> & getArticles() const { DARABONBA_PTR_GET_CONST(articles_, vector<OutlineWritingArticle>) };
+    inline vector<OutlineWritingArticle> getArticles() { DARABONBA_PTR_GET(articles_, vector<OutlineWritingArticle>) };
     inline WritingOutline& setArticles(const vector<OutlineWritingArticle> & articles) { DARABONBA_PTR_SET_VALUE(articles_, articles) };
     inline WritingOutline& setArticles(vector<OutlineWritingArticle> && articles) { DARABONBA_PTR_SET_RVALUE(articles_, articles) };
 
@@ -59,8 +59,8 @@ namespace Models
     // children Field Functions 
     bool hasChildren() const { return this->children_ != nullptr;};
     void deleteChildren() { this->children_ = nullptr;};
-    inline const vector<WritingOutline> & children() const { DARABONBA_PTR_GET_CONST(children_, vector<WritingOutline>) };
-    inline vector<WritingOutline> children() { DARABONBA_PTR_GET(children_, vector<WritingOutline>) };
+    inline const vector<WritingOutline> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<WritingOutline>) };
+    inline vector<WritingOutline> getChildren() { DARABONBA_PTR_GET(children_, vector<WritingOutline>) };
     inline WritingOutline& setChildren(const vector<WritingOutline> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
     inline WritingOutline& setChildren(vector<WritingOutline> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
 
@@ -68,22 +68,22 @@ namespace Models
     // outline Field Functions 
     bool hasOutline() const { return this->outline_ != nullptr;};
     void deleteOutline() { this->outline_ = nullptr;};
-    inline string outline() const { DARABONBA_PTR_GET_DEFAULT(outline_, "") };
+    inline string getOutline() const { DARABONBA_PTR_GET_DEFAULT(outline_, "") };
     inline WritingOutline& setOutline(string outline) { DARABONBA_PTR_SET_VALUE(outline_, outline) };
 
 
     // outlineId Field Functions 
     bool hasOutlineId() const { return this->outlineId_ != nullptr;};
     void deleteOutlineId() { this->outlineId_ = nullptr;};
-    inline string outlineId() const { DARABONBA_PTR_GET_DEFAULT(outlineId_, "") };
+    inline string getOutlineId() const { DARABONBA_PTR_GET_DEFAULT(outlineId_, "") };
     inline WritingOutline& setOutlineId(string outlineId) { DARABONBA_PTR_SET_VALUE(outlineId_, outlineId) };
 
 
     // searchKeyWordList Field Functions 
     bool hasSearchKeyWordList() const { return this->searchKeyWordList_ != nullptr;};
     void deleteSearchKeyWordList() { this->searchKeyWordList_ = nullptr;};
-    inline const vector<string> & searchKeyWordList() const { DARABONBA_PTR_GET_CONST(searchKeyWordList_, vector<string>) };
-    inline vector<string> searchKeyWordList() { DARABONBA_PTR_GET(searchKeyWordList_, vector<string>) };
+    inline const vector<string> & getSearchKeyWordList() const { DARABONBA_PTR_GET_CONST(searchKeyWordList_, vector<string>) };
+    inline vector<string> getSearchKeyWordList() { DARABONBA_PTR_GET(searchKeyWordList_, vector<string>) };
     inline WritingOutline& setSearchKeyWordList(const vector<string> & searchKeyWordList) { DARABONBA_PTR_SET_VALUE(searchKeyWordList_, searchKeyWordList) };
     inline WritingOutline& setSearchKeyWordList(vector<string> && searchKeyWordList) { DARABONBA_PTR_SET_RVALUE(searchKeyWordList_, searchKeyWordList) };
 
@@ -91,25 +91,25 @@ namespace Models
     // wordCount Field Functions 
     bool hasWordCount() const { return this->wordCount_ != nullptr;};
     void deleteWordCount() { this->wordCount_ = nullptr;};
-    inline string wordCount() const { DARABONBA_PTR_GET_DEFAULT(wordCount_, "") };
+    inline string getWordCount() const { DARABONBA_PTR_GET_DEFAULT(wordCount_, "") };
     inline WritingOutline& setWordCount(string wordCount) { DARABONBA_PTR_SET_VALUE(wordCount_, wordCount) };
 
 
     // writingTips Field Functions 
     bool hasWritingTips() const { return this->writingTips_ != nullptr;};
     void deleteWritingTips() { this->writingTips_ = nullptr;};
-    inline string writingTips() const { DARABONBA_PTR_GET_DEFAULT(writingTips_, "") };
+    inline string getWritingTips() const { DARABONBA_PTR_GET_DEFAULT(writingTips_, "") };
     inline WritingOutline& setWritingTips(string writingTips) { DARABONBA_PTR_SET_VALUE(writingTips_, writingTips) };
 
 
   protected:
-    std::shared_ptr<vector<OutlineWritingArticle>> articles_ = nullptr;
-    std::shared_ptr<vector<WritingOutline>> children_ = nullptr;
-    std::shared_ptr<string> outline_ = nullptr;
-    std::shared_ptr<string> outlineId_ = nullptr;
-    std::shared_ptr<vector<string>> searchKeyWordList_ = nullptr;
-    std::shared_ptr<string> wordCount_ = nullptr;
-    std::shared_ptr<string> writingTips_ = nullptr;
+    shared_ptr<vector<OutlineWritingArticle>> articles_ {};
+    shared_ptr<vector<WritingOutline>> children_ {};
+    shared_ptr<string> outline_ {};
+    shared_ptr<string> outlineId_ {};
+    shared_ptr<vector<string>> searchKeyWordList_ {};
+    shared_ptr<string> wordCount_ {};
+    shared_ptr<string> writingTips_ {};
   };
 
   } // namespace Models

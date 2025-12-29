@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->docId_ == nullptr
-        && return this->keyPointPrompt_ == nullptr && return this->sessionId_ == nullptr && return this->summaryPrompt_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->keyPointPrompt_ == nullptr && this->sessionId_ == nullptr && this->summaryPrompt_ == nullptr && this->workspaceId_ == nullptr; };
     // docId Field Functions 
     bool hasDocId() const { return this->docId_ != nullptr;};
     void deleteDocId() { this->docId_ = nullptr;};
-    inline string docId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
+    inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
     inline RunBookIntroductionRequest& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
 
 
     // keyPointPrompt Field Functions 
     bool hasKeyPointPrompt() const { return this->keyPointPrompt_ != nullptr;};
     void deleteKeyPointPrompt() { this->keyPointPrompt_ = nullptr;};
-    inline string keyPointPrompt() const { DARABONBA_PTR_GET_DEFAULT(keyPointPrompt_, "") };
+    inline string getKeyPointPrompt() const { DARABONBA_PTR_GET_DEFAULT(keyPointPrompt_, "") };
     inline RunBookIntroductionRequest& setKeyPointPrompt(string keyPointPrompt) { DARABONBA_PTR_SET_VALUE(keyPointPrompt_, keyPointPrompt) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline RunBookIntroductionRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // summaryPrompt Field Functions 
     bool hasSummaryPrompt() const { return this->summaryPrompt_ != nullptr;};
     void deleteSummaryPrompt() { this->summaryPrompt_ = nullptr;};
-    inline string summaryPrompt() const { DARABONBA_PTR_GET_DEFAULT(summaryPrompt_, "") };
+    inline string getSummaryPrompt() const { DARABONBA_PTR_GET_DEFAULT(summaryPrompt_, "") };
     inline RunBookIntroductionRequest& setSummaryPrompt(string summaryPrompt) { DARABONBA_PTR_SET_VALUE(summaryPrompt_, summaryPrompt) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RunBookIntroductionRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> docId_ = nullptr;
-    std::shared_ptr<string> keyPointPrompt_ = nullptr;
+    shared_ptr<string> docId_ {};
+    shared_ptr<string> keyPointPrompt_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> summaryPrompt_ = nullptr;
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> summaryPrompt_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

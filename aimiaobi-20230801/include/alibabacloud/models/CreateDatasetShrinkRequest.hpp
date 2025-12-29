@@ -44,75 +44,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetConfigShrink_ == nullptr
-        && return this->datasetDescription_ == nullptr && return this->datasetName_ == nullptr && return this->datasetType_ == nullptr && return this->documentHandleConfigShrink_ == nullptr && return this->invokeType_ == nullptr
-        && return this->searchDatasetEnable_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->datasetDescription_ == nullptr && this->datasetName_ == nullptr && this->datasetType_ == nullptr && this->documentHandleConfigShrink_ == nullptr && this->invokeType_ == nullptr
+        && this->searchDatasetEnable_ == nullptr && this->workspaceId_ == nullptr; };
     // datasetConfigShrink Field Functions 
     bool hasDatasetConfigShrink() const { return this->datasetConfigShrink_ != nullptr;};
     void deleteDatasetConfigShrink() { this->datasetConfigShrink_ = nullptr;};
-    inline string datasetConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(datasetConfigShrink_, "") };
+    inline string getDatasetConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(datasetConfigShrink_, "") };
     inline CreateDatasetShrinkRequest& setDatasetConfigShrink(string datasetConfigShrink) { DARABONBA_PTR_SET_VALUE(datasetConfigShrink_, datasetConfigShrink) };
 
 
     // datasetDescription Field Functions 
     bool hasDatasetDescription() const { return this->datasetDescription_ != nullptr;};
     void deleteDatasetDescription() { this->datasetDescription_ = nullptr;};
-    inline string datasetDescription() const { DARABONBA_PTR_GET_DEFAULT(datasetDescription_, "") };
+    inline string getDatasetDescription() const { DARABONBA_PTR_GET_DEFAULT(datasetDescription_, "") };
     inline CreateDatasetShrinkRequest& setDatasetDescription(string datasetDescription) { DARABONBA_PTR_SET_VALUE(datasetDescription_, datasetDescription) };
 
 
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
-    inline string datasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+    inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
     inline CreateDatasetShrinkRequest& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
 
 
     // datasetType Field Functions 
     bool hasDatasetType() const { return this->datasetType_ != nullptr;};
     void deleteDatasetType() { this->datasetType_ = nullptr;};
-    inline string datasetType() const { DARABONBA_PTR_GET_DEFAULT(datasetType_, "") };
+    inline string getDatasetType() const { DARABONBA_PTR_GET_DEFAULT(datasetType_, "") };
     inline CreateDatasetShrinkRequest& setDatasetType(string datasetType) { DARABONBA_PTR_SET_VALUE(datasetType_, datasetType) };
 
 
     // documentHandleConfigShrink Field Functions 
     bool hasDocumentHandleConfigShrink() const { return this->documentHandleConfigShrink_ != nullptr;};
     void deleteDocumentHandleConfigShrink() { this->documentHandleConfigShrink_ = nullptr;};
-    inline string documentHandleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(documentHandleConfigShrink_, "") };
+    inline string getDocumentHandleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(documentHandleConfigShrink_, "") };
     inline CreateDatasetShrinkRequest& setDocumentHandleConfigShrink(string documentHandleConfigShrink) { DARABONBA_PTR_SET_VALUE(documentHandleConfigShrink_, documentHandleConfigShrink) };
 
 
     // invokeType Field Functions 
     bool hasInvokeType() const { return this->invokeType_ != nullptr;};
     void deleteInvokeType() { this->invokeType_ = nullptr;};
-    inline string invokeType() const { DARABONBA_PTR_GET_DEFAULT(invokeType_, "") };
+    inline string getInvokeType() const { DARABONBA_PTR_GET_DEFAULT(invokeType_, "") };
     inline CreateDatasetShrinkRequest& setInvokeType(string invokeType) { DARABONBA_PTR_SET_VALUE(invokeType_, invokeType) };
 
 
     // searchDatasetEnable Field Functions 
     bool hasSearchDatasetEnable() const { return this->searchDatasetEnable_ != nullptr;};
     void deleteSearchDatasetEnable() { this->searchDatasetEnable_ = nullptr;};
-    inline int32_t searchDatasetEnable() const { DARABONBA_PTR_GET_DEFAULT(searchDatasetEnable_, 0) };
+    inline int32_t getSearchDatasetEnable() const { DARABONBA_PTR_GET_DEFAULT(searchDatasetEnable_, 0) };
     inline CreateDatasetShrinkRequest& setSearchDatasetEnable(int32_t searchDatasetEnable) { DARABONBA_PTR_SET_VALUE(searchDatasetEnable_, searchDatasetEnable) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateDatasetShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> datasetConfigShrink_ = nullptr;
-    std::shared_ptr<string> datasetDescription_ = nullptr;
+    shared_ptr<string> datasetConfigShrink_ {};
+    shared_ptr<string> datasetDescription_ {};
     // This parameter is required.
-    std::shared_ptr<string> datasetName_ = nullptr;
-    std::shared_ptr<string> datasetType_ = nullptr;
-    std::shared_ptr<string> documentHandleConfigShrink_ = nullptr;
-    std::shared_ptr<string> invokeType_ = nullptr;
-    std::shared_ptr<int32_t> searchDatasetEnable_ = nullptr;
+    shared_ptr<string> datasetName_ {};
+    shared_ptr<string> datasetType_ {};
+    shared_ptr<string> documentHandleConfigShrink_ {};
+    shared_ptr<string> invokeType_ {};
+    shared_ptr<int32_t> searchDatasetEnable_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chatConfigShrink_ == nullptr
-        && return this->docType_ == nullptr && return this->title_ == nullptr && return this->url_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->docType_ == nullptr && this->title_ == nullptr && this->url_ == nullptr && this->workspaceId_ == nullptr; };
     // chatConfigShrink Field Functions 
     bool hasChatConfigShrink() const { return this->chatConfigShrink_ != nullptr;};
     void deleteChatConfigShrink() { this->chatConfigShrink_ = nullptr;};
-    inline string chatConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(chatConfigShrink_, "") };
+    inline string getChatConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(chatConfigShrink_, "") };
     inline RunSearchSimilarArticlesShrinkRequest& setChatConfigShrink(string chatConfigShrink) { DARABONBA_PTR_SET_VALUE(chatConfigShrink_, chatConfigShrink) };
 
 
     // docType Field Functions 
     bool hasDocType() const { return this->docType_ != nullptr;};
     void deleteDocType() { this->docType_ = nullptr;};
-    inline string docType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
+    inline string getDocType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
     inline RunSearchSimilarArticlesShrinkRequest& setDocType(string docType) { DARABONBA_PTR_SET_VALUE(docType_, docType) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline RunSearchSimilarArticlesShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline RunSearchSimilarArticlesShrinkRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RunSearchSimilarArticlesShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> chatConfigShrink_ = nullptr;
-    std::shared_ptr<string> docType_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> chatConfigShrink_ {};
+    shared_ptr<string> docType_ {};
+    shared_ptr<string> title_ {};
     // This parameter is required.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

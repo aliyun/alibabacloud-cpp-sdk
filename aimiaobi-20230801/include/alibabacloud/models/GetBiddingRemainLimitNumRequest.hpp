@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiName_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->workspaceId_ == nullptr; };
     // apiName Field Functions 
     bool hasApiName() const { return this->apiName_ != nullptr;};
     void deleteApiName() { this->apiName_ = nullptr;};
-    inline string apiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
+    inline string getApiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
     inline GetBiddingRemainLimitNumRequest& setApiName(string apiName) { DARABONBA_PTR_SET_VALUE(apiName_, apiName) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline GetBiddingRemainLimitNumRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> apiName_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> apiName_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -46,85 +46,85 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->content_ == nullptr && return this->contentDomain_ == nullptr && return this->contentText_ == nullptr && return this->keywordsShrink_ == nullptr && return this->prompt_ == nullptr
-        && return this->taskId_ == nullptr && return this->title_ == nullptr && return this->uuid_ == nullptr; };
+        && this->content_ == nullptr && this->contentDomain_ == nullptr && this->contentText_ == nullptr && this->keywordsShrink_ == nullptr && this->prompt_ == nullptr
+        && this->taskId_ == nullptr && this->title_ == nullptr && this->uuid_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline CreateGeneratedContentShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline CreateGeneratedContentShrinkRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // contentDomain Field Functions 
     bool hasContentDomain() const { return this->contentDomain_ != nullptr;};
     void deleteContentDomain() { this->contentDomain_ = nullptr;};
-    inline string contentDomain() const { DARABONBA_PTR_GET_DEFAULT(contentDomain_, "") };
+    inline string getContentDomain() const { DARABONBA_PTR_GET_DEFAULT(contentDomain_, "") };
     inline CreateGeneratedContentShrinkRequest& setContentDomain(string contentDomain) { DARABONBA_PTR_SET_VALUE(contentDomain_, contentDomain) };
 
 
     // contentText Field Functions 
     bool hasContentText() const { return this->contentText_ != nullptr;};
     void deleteContentText() { this->contentText_ = nullptr;};
-    inline string contentText() const { DARABONBA_PTR_GET_DEFAULT(contentText_, "") };
+    inline string getContentText() const { DARABONBA_PTR_GET_DEFAULT(contentText_, "") };
     inline CreateGeneratedContentShrinkRequest& setContentText(string contentText) { DARABONBA_PTR_SET_VALUE(contentText_, contentText) };
 
 
     // keywordsShrink Field Functions 
     bool hasKeywordsShrink() const { return this->keywordsShrink_ != nullptr;};
     void deleteKeywordsShrink() { this->keywordsShrink_ = nullptr;};
-    inline string keywordsShrink() const { DARABONBA_PTR_GET_DEFAULT(keywordsShrink_, "") };
+    inline string getKeywordsShrink() const { DARABONBA_PTR_GET_DEFAULT(keywordsShrink_, "") };
     inline CreateGeneratedContentShrinkRequest& setKeywordsShrink(string keywordsShrink) { DARABONBA_PTR_SET_VALUE(keywordsShrink_, keywordsShrink) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline CreateGeneratedContentShrinkRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline CreateGeneratedContentShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateGeneratedContentShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline CreateGeneratedContentShrinkRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> contentDomain_ = nullptr;
-    std::shared_ptr<string> contentText_ = nullptr;
-    std::shared_ptr<string> keywordsShrink_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<string> contentDomain_ {};
+    shared_ptr<string> contentText_ {};
+    shared_ptr<string> keywordsShrink_ {};
+    shared_ptr<string> prompt_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> title_ {};
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

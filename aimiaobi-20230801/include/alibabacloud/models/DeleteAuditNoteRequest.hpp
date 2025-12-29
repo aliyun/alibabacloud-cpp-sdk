@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->noteId_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->workspaceId_ == nullptr; };
     // noteId Field Functions 
     bool hasNoteId() const { return this->noteId_ != nullptr;};
     void deleteNoteId() { this->noteId_ = nullptr;};
-    inline string noteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, "") };
+    inline string getNoteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, "") };
     inline DeleteAuditNoteRequest& setNoteId(string noteId) { DARABONBA_PTR_SET_VALUE(noteId_, noteId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DeleteAuditNoteRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> noteId_ = nullptr;
+    shared_ptr<string> noteId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

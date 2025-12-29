@@ -46,83 +46,83 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->modelId_ == nullptr
-        && return this->prompt_ == nullptr && return this->referenceContent_ == nullptr && return this->sessionId_ == nullptr && return this->topic_ == nullptr && return this->wordNumber_ == nullptr
-        && return this->workspaceId_ == nullptr && return this->writingTypeName_ == nullptr && return this->writingTypeRefDoc_ == nullptr; };
+        && this->prompt_ == nullptr && this->referenceContent_ == nullptr && this->sessionId_ == nullptr && this->topic_ == nullptr && this->wordNumber_ == nullptr
+        && this->workspaceId_ == nullptr && this->writingTypeName_ == nullptr && this->writingTypeRefDoc_ == nullptr; };
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline RunDocWashingRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline RunDocWashingRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // referenceContent Field Functions 
     bool hasReferenceContent() const { return this->referenceContent_ != nullptr;};
     void deleteReferenceContent() { this->referenceContent_ = nullptr;};
-    inline string referenceContent() const { DARABONBA_PTR_GET_DEFAULT(referenceContent_, "") };
+    inline string getReferenceContent() const { DARABONBA_PTR_GET_DEFAULT(referenceContent_, "") };
     inline RunDocWashingRequest& setReferenceContent(string referenceContent) { DARABONBA_PTR_SET_VALUE(referenceContent_, referenceContent) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline RunDocWashingRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // topic Field Functions 
     bool hasTopic() const { return this->topic_ != nullptr;};
     void deleteTopic() { this->topic_ = nullptr;};
-    inline string topic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
+    inline string getTopic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
     inline RunDocWashingRequest& setTopic(string topic) { DARABONBA_PTR_SET_VALUE(topic_, topic) };
 
 
     // wordNumber Field Functions 
     bool hasWordNumber() const { return this->wordNumber_ != nullptr;};
     void deleteWordNumber() { this->wordNumber_ = nullptr;};
-    inline int32_t wordNumber() const { DARABONBA_PTR_GET_DEFAULT(wordNumber_, 0) };
+    inline int32_t getWordNumber() const { DARABONBA_PTR_GET_DEFAULT(wordNumber_, 0) };
     inline RunDocWashingRequest& setWordNumber(int32_t wordNumber) { DARABONBA_PTR_SET_VALUE(wordNumber_, wordNumber) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RunDocWashingRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
     // writingTypeName Field Functions 
     bool hasWritingTypeName() const { return this->writingTypeName_ != nullptr;};
     void deleteWritingTypeName() { this->writingTypeName_ = nullptr;};
-    inline string writingTypeName() const { DARABONBA_PTR_GET_DEFAULT(writingTypeName_, "") };
+    inline string getWritingTypeName() const { DARABONBA_PTR_GET_DEFAULT(writingTypeName_, "") };
     inline RunDocWashingRequest& setWritingTypeName(string writingTypeName) { DARABONBA_PTR_SET_VALUE(writingTypeName_, writingTypeName) };
 
 
     // writingTypeRefDoc Field Functions 
     bool hasWritingTypeRefDoc() const { return this->writingTypeRefDoc_ != nullptr;};
     void deleteWritingTypeRefDoc() { this->writingTypeRefDoc_ = nullptr;};
-    inline string writingTypeRefDoc() const { DARABONBA_PTR_GET_DEFAULT(writingTypeRefDoc_, "") };
+    inline string getWritingTypeRefDoc() const { DARABONBA_PTR_GET_DEFAULT(writingTypeRefDoc_, "") };
     inline RunDocWashingRequest& setWritingTypeRefDoc(string writingTypeRefDoc) { DARABONBA_PTR_SET_VALUE(writingTypeRefDoc_, writingTypeRefDoc) };
 
 
   protected:
-    std::shared_ptr<string> modelId_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
+    shared_ptr<string> modelId_ {};
+    shared_ptr<string> prompt_ {};
     // This parameter is required.
-    std::shared_ptr<string> referenceContent_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> topic_ = nullptr;
-    std::shared_ptr<int32_t> wordNumber_ = nullptr;
+    shared_ptr<string> referenceContent_ {};
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> topic_ {};
+    shared_ptr<int32_t> wordNumber_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
-    std::shared_ptr<string> writingTypeName_ = nullptr;
-    std::shared_ptr<string> writingTypeRefDoc_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
+    shared_ptr<string> writingTypeName_ {};
+    shared_ptr<string> writingTypeRefDoc_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileKey_ == nullptr
-        && return this->tenderDocName_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->tenderDocName_ == nullptr && this->workspaceId_ == nullptr; };
     // fileKey Field Functions 
     bool hasFileKey() const { return this->fileKey_ != nullptr;};
     void deleteFileKey() { this->fileKey_ = nullptr;};
-    inline string fileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
+    inline string getFileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
     inline AsyncUploadTenderDocRequest& setFileKey(string fileKey) { DARABONBA_PTR_SET_VALUE(fileKey_, fileKey) };
 
 
     // tenderDocName Field Functions 
     bool hasTenderDocName() const { return this->tenderDocName_ != nullptr;};
     void deleteTenderDocName() { this->tenderDocName_ = nullptr;};
-    inline string tenderDocName() const { DARABONBA_PTR_GET_DEFAULT(tenderDocName_, "") };
+    inline string getTenderDocName() const { DARABONBA_PTR_GET_DEFAULT(tenderDocName_, "") };
     inline AsyncUploadTenderDocRequest& setTenderDocName(string tenderDocName) { DARABONBA_PTR_SET_VALUE(tenderDocName_, tenderDocName) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline AsyncUploadTenderDocRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> fileKey_ = nullptr;
-    std::shared_ptr<string> tenderDocName_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> fileKey_ {};
+    shared_ptr<string> tenderDocName_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

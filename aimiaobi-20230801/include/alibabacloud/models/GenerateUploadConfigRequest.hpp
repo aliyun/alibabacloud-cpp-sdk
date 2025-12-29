@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->fileName_ == nullptr && return this->parentDir_ == nullptr; };
+        && this->fileName_ == nullptr && this->parentDir_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline GenerateUploadConfigRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GenerateUploadConfigRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // parentDir Field Functions 
     bool hasParentDir() const { return this->parentDir_ != nullptr;};
     void deleteParentDir() { this->parentDir_ = nullptr;};
-    inline string parentDir() const { DARABONBA_PTR_GET_DEFAULT(parentDir_, "") };
+    inline string getParentDir() const { DARABONBA_PTR_GET_DEFAULT(parentDir_, "") };
     inline GenerateUploadConfigRequest& setParentDir(string parentDir) { DARABONBA_PTR_SET_VALUE(parentDir_, parentDir) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> fileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> parentDir_ = nullptr;
+    shared_ptr<string> parentDir_ {};
   };
 
   } // namespace Models

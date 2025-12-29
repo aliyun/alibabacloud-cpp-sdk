@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hotTopicBroadcastConfigShrink_ == nullptr
-        && return this->hotTopicVersion_ == nullptr && return this->topicsShrink_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->hotTopicVersion_ == nullptr && this->topicsShrink_ == nullptr && this->workspaceId_ == nullptr; };
     // hotTopicBroadcastConfigShrink Field Functions 
     bool hasHotTopicBroadcastConfigShrink() const { return this->hotTopicBroadcastConfigShrink_ != nullptr;};
     void deleteHotTopicBroadcastConfigShrink() { this->hotTopicBroadcastConfigShrink_ = nullptr;};
-    inline string hotTopicBroadcastConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(hotTopicBroadcastConfigShrink_, "") };
+    inline string getHotTopicBroadcastConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(hotTopicBroadcastConfigShrink_, "") };
     inline SubmitCustomHotTopicBroadcastJobShrinkRequest& setHotTopicBroadcastConfigShrink(string hotTopicBroadcastConfigShrink) { DARABONBA_PTR_SET_VALUE(hotTopicBroadcastConfigShrink_, hotTopicBroadcastConfigShrink) };
 
 
     // hotTopicVersion Field Functions 
     bool hasHotTopicVersion() const { return this->hotTopicVersion_ != nullptr;};
     void deleteHotTopicVersion() { this->hotTopicVersion_ = nullptr;};
-    inline string hotTopicVersion() const { DARABONBA_PTR_GET_DEFAULT(hotTopicVersion_, "") };
+    inline string getHotTopicVersion() const { DARABONBA_PTR_GET_DEFAULT(hotTopicVersion_, "") };
     inline SubmitCustomHotTopicBroadcastJobShrinkRequest& setHotTopicVersion(string hotTopicVersion) { DARABONBA_PTR_SET_VALUE(hotTopicVersion_, hotTopicVersion) };
 
 
     // topicsShrink Field Functions 
     bool hasTopicsShrink() const { return this->topicsShrink_ != nullptr;};
     void deleteTopicsShrink() { this->topicsShrink_ = nullptr;};
-    inline string topicsShrink() const { DARABONBA_PTR_GET_DEFAULT(topicsShrink_, "") };
+    inline string getTopicsShrink() const { DARABONBA_PTR_GET_DEFAULT(topicsShrink_, "") };
     inline SubmitCustomHotTopicBroadcastJobShrinkRequest& setTopicsShrink(string topicsShrink) { DARABONBA_PTR_SET_VALUE(topicsShrink_, topicsShrink) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline SubmitCustomHotTopicBroadcastJobShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> hotTopicBroadcastConfigShrink_ = nullptr;
-    std::shared_ptr<string> hotTopicVersion_ = nullptr;
-    std::shared_ptr<string> topicsShrink_ = nullptr;
+    shared_ptr<string> hotTopicBroadcastConfigShrink_ {};
+    shared_ptr<string> hotTopicVersion_ {};
+    shared_ptr<string> topicsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

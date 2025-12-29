@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_SUBMITCUSTOMTOPICSELECTIONPERSPECTIVEANALYSISTASKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,45 +36,139 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Documents : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Documents& obj) { 
+        DARABONBA_PTR_TO_JSON(Author, author_);
+        DARABONBA_PTR_TO_JSON(Content, content_);
+        DARABONBA_PTR_TO_JSON(PubTime, pubTime_);
+        DARABONBA_PTR_TO_JSON(Source, source_);
+        DARABONBA_PTR_TO_JSON(Summary, summary_);
+        DARABONBA_PTR_TO_JSON(Title, title_);
+        DARABONBA_PTR_TO_JSON(Url, url_);
+      };
+      friend void from_json(const Darabonba::Json& j, Documents& obj) { 
+        DARABONBA_PTR_FROM_JSON(Author, author_);
+        DARABONBA_PTR_FROM_JSON(Content, content_);
+        DARABONBA_PTR_FROM_JSON(PubTime, pubTime_);
+        DARABONBA_PTR_FROM_JSON(Source, source_);
+        DARABONBA_PTR_FROM_JSON(Summary, summary_);
+        DARABONBA_PTR_FROM_JSON(Title, title_);
+        DARABONBA_PTR_FROM_JSON(Url, url_);
+      };
+      Documents() = default ;
+      Documents(const Documents &) = default ;
+      Documents(Documents &&) = default ;
+      Documents(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Documents() = default ;
+      Documents& operator=(const Documents &) = default ;
+      Documents& operator=(Documents &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->author_ == nullptr
+        && this->content_ == nullptr && this->pubTime_ == nullptr && this->source_ == nullptr && this->summary_ == nullptr && this->title_ == nullptr
+        && this->url_ == nullptr; };
+      // author Field Functions 
+      bool hasAuthor() const { return this->author_ != nullptr;};
+      void deleteAuthor() { this->author_ = nullptr;};
+      inline string getAuthor() const { DARABONBA_PTR_GET_DEFAULT(author_, "") };
+      inline Documents& setAuthor(string author) { DARABONBA_PTR_SET_VALUE(author_, author) };
+
+
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline Documents& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // pubTime Field Functions 
+      bool hasPubTime() const { return this->pubTime_ != nullptr;};
+      void deletePubTime() { this->pubTime_ = nullptr;};
+      inline string getPubTime() const { DARABONBA_PTR_GET_DEFAULT(pubTime_, "") };
+      inline Documents& setPubTime(string pubTime) { DARABONBA_PTR_SET_VALUE(pubTime_, pubTime) };
+
+
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline Documents& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+      // summary Field Functions 
+      bool hasSummary() const { return this->summary_ != nullptr;};
+      void deleteSummary() { this->summary_ = nullptr;};
+      inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+      inline Documents& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
+
+
+      // title Field Functions 
+      bool hasTitle() const { return this->title_ != nullptr;};
+      void deleteTitle() { this->title_ = nullptr;};
+      inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+      inline Documents& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+      // url Field Functions 
+      bool hasUrl() const { return this->url_ != nullptr;};
+      void deleteUrl() { this->url_ = nullptr;};
+      inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+      inline Documents& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+    protected:
+      shared_ptr<string> author_ {};
+      // This parameter is required.
+      shared_ptr<string> content_ {};
+      shared_ptr<string> pubTime_ {};
+      shared_ptr<string> source_ {};
+      shared_ptr<string> summary_ {};
+      shared_ptr<string> title_ {};
+      shared_ptr<string> url_ {};
+    };
+
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->documents_ == nullptr && return this->prompt_ == nullptr && return this->topic_ == nullptr; };
+        && this->documents_ == nullptr && this->prompt_ == nullptr && this->topic_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // documents Field Functions 
     bool hasDocuments() const { return this->documents_ != nullptr;};
     void deleteDocuments() { this->documents_ = nullptr;};
-    inline const vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments> & documents() const { DARABONBA_PTR_GET_CONST(documents_, vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments>) };
-    inline vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments> documents() { DARABONBA_PTR_GET(documents_, vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments>) };
-    inline SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest& setDocuments(const vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments> & documents) { DARABONBA_PTR_SET_VALUE(documents_, documents) };
-    inline SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest& setDocuments(vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments> && documents) { DARABONBA_PTR_SET_RVALUE(documents_, documents) };
+    inline const vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents> & getDocuments() const { DARABONBA_PTR_GET_CONST(documents_, vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents>) };
+    inline vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents> getDocuments() { DARABONBA_PTR_GET(documents_, vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents>) };
+    inline SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest& setDocuments(const vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents> & documents) { DARABONBA_PTR_SET_VALUE(documents_, documents) };
+    inline SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest& setDocuments(vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents> && documents) { DARABONBA_PTR_SET_RVALUE(documents_, documents) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // topic Field Functions 
     bool hasTopic() const { return this->topic_ != nullptr;};
     void deleteTopic() { this->topic_ = nullptr;};
-    inline string topic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
+    inline string getTopic() const { DARABONBA_PTR_GET_DEFAULT(topic_, "") };
     inline SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest& setTopic(string topic) { DARABONBA_PTR_SET_VALUE(topic_, topic) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequestDocuments>> documents_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents>> documents_ {};
     // This parameter is required.
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<string> topic_ = nullptr;
+    shared_ptr<string> prompt_ {};
+    shared_ptr<string> topic_ {};
   };
 
   } // namespace Models

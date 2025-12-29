@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cursor_ == nullptr
-        && return this->taskId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
     // cursor Field Functions 
     bool hasCursor() const { return this->cursor_ != nullptr;};
     void deleteCursor() { this->cursor_ = nullptr;};
-    inline int32_t cursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, 0) };
+    inline int32_t getCursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, 0) };
     inline RunDeepWritingRequest& setCursor(int32_t cursor) { DARABONBA_PTR_SET_VALUE(cursor_, cursor) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline RunDeepWritingRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline RunDeepWritingRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<int32_t> cursor_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<int32_t> cursor_ {};
+    shared_ptr<string> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

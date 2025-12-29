@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPLOADBOOKRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_UPLOADBOOKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UploadBookResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,60 +40,106 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(DocIds, docIds_);
+        DARABONBA_PTR_TO_JSON(ExistedIds, existedIds_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(DocIds, docIds_);
+        DARABONBA_PTR_FROM_JSON(ExistedIds, existedIds_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->docIds_ == nullptr
+        && this->existedIds_ == nullptr; };
+      // docIds Field Functions 
+      bool hasDocIds() const { return this->docIds_ != nullptr;};
+      void deleteDocIds() { this->docIds_ = nullptr;};
+      inline const vector<string> & getDocIds() const { DARABONBA_PTR_GET_CONST(docIds_, vector<string>) };
+      inline vector<string> getDocIds() { DARABONBA_PTR_GET(docIds_, vector<string>) };
+      inline Data& setDocIds(const vector<string> & docIds) { DARABONBA_PTR_SET_VALUE(docIds_, docIds) };
+      inline Data& setDocIds(vector<string> && docIds) { DARABONBA_PTR_SET_RVALUE(docIds_, docIds) };
+
+
+      // existedIds Field Functions 
+      bool hasExistedIds() const { return this->existedIds_ != nullptr;};
+      void deleteExistedIds() { this->existedIds_ = nullptr;};
+      inline const vector<string> & getExistedIds() const { DARABONBA_PTR_GET_CONST(existedIds_, vector<string>) };
+      inline vector<string> getExistedIds() { DARABONBA_PTR_GET(existedIds_, vector<string>) };
+      inline Data& setExistedIds(const vector<string> & existedIds) { DARABONBA_PTR_SET_VALUE(existedIds_, existedIds) };
+      inline Data& setExistedIds(vector<string> && existedIds) { DARABONBA_PTR_SET_RVALUE(existedIds_, existedIds) };
+
+
+    protected:
+      shared_ptr<vector<string>> docIds_ {};
+      shared_ptr<vector<string>> existedIds_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline UploadBookResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const UploadBookResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, UploadBookResponseBodyData) };
-    inline UploadBookResponseBodyData data() { DARABONBA_PTR_GET(data_, UploadBookResponseBodyData) };
-    inline UploadBookResponseBody& setData(const UploadBookResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline UploadBookResponseBody& setData(UploadBookResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const UploadBookResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, UploadBookResponseBody::Data) };
+    inline UploadBookResponseBody::Data getData() { DARABONBA_PTR_GET(data_, UploadBookResponseBody::Data) };
+    inline UploadBookResponseBody& setData(const UploadBookResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline UploadBookResponseBody& setData(UploadBookResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline UploadBookResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline UploadBookResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UploadBookResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline UploadBookResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<UploadBookResponseBodyData> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<UploadBookResponseBody::Data> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

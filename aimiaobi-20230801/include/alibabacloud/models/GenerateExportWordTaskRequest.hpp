@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->generatedContentId_ == nullptr; };
+        && this->generatedContentId_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline GenerateExportWordTaskRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // generatedContentId Field Functions 
     bool hasGeneratedContentId() const { return this->generatedContentId_ != nullptr;};
     void deleteGeneratedContentId() { this->generatedContentId_ = nullptr;};
-    inline int64_t generatedContentId() const { DARABONBA_PTR_GET_DEFAULT(generatedContentId_, 0L) };
+    inline int64_t getGeneratedContentId() const { DARABONBA_PTR_GET_DEFAULT(generatedContentId_, 0L) };
     inline GenerateExportWordTaskRequest& setGeneratedContentId(int64_t generatedContentId) { DARABONBA_PTR_SET_VALUE(generatedContentId_, generatedContentId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> generatedContentId_ = nullptr;
+    shared_ptr<int64_t> generatedContentId_ {};
   };
 
   } // namespace Models

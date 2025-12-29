@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exceptionWordShrink_ == nullptr
-        && return this->id_ == nullptr && return this->keyword_ == nullptr && return this->suggestWord_ == nullptr && return this->termsDesc_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->id_ == nullptr && this->keyword_ == nullptr && this->suggestWord_ == nullptr && this->termsDesc_ == nullptr && this->workspaceId_ == nullptr; };
     // exceptionWordShrink Field Functions 
     bool hasExceptionWordShrink() const { return this->exceptionWordShrink_ != nullptr;};
     void deleteExceptionWordShrink() { this->exceptionWordShrink_ = nullptr;};
-    inline string exceptionWordShrink() const { DARABONBA_PTR_GET_DEFAULT(exceptionWordShrink_, "") };
+    inline string getExceptionWordShrink() const { DARABONBA_PTR_GET_DEFAULT(exceptionWordShrink_, "") };
     inline EditAuditTermsShrinkRequest& setExceptionWordShrink(string exceptionWordShrink) { DARABONBA_PTR_SET_VALUE(exceptionWordShrink_, exceptionWordShrink) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline EditAuditTermsShrinkRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline EditAuditTermsShrinkRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // suggestWord Field Functions 
     bool hasSuggestWord() const { return this->suggestWord_ != nullptr;};
     void deleteSuggestWord() { this->suggestWord_ = nullptr;};
-    inline string suggestWord() const { DARABONBA_PTR_GET_DEFAULT(suggestWord_, "") };
+    inline string getSuggestWord() const { DARABONBA_PTR_GET_DEFAULT(suggestWord_, "") };
     inline EditAuditTermsShrinkRequest& setSuggestWord(string suggestWord) { DARABONBA_PTR_SET_VALUE(suggestWord_, suggestWord) };
 
 
     // termsDesc Field Functions 
     bool hasTermsDesc() const { return this->termsDesc_ != nullptr;};
     void deleteTermsDesc() { this->termsDesc_ = nullptr;};
-    inline string termsDesc() const { DARABONBA_PTR_GET_DEFAULT(termsDesc_, "") };
+    inline string getTermsDesc() const { DARABONBA_PTR_GET_DEFAULT(termsDesc_, "") };
     inline EditAuditTermsShrinkRequest& setTermsDesc(string termsDesc) { DARABONBA_PTR_SET_VALUE(termsDesc_, termsDesc) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline EditAuditTermsShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> exceptionWordShrink_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> keyword_ = nullptr;
-    std::shared_ptr<string> suggestWord_ = nullptr;
-    std::shared_ptr<string> termsDesc_ = nullptr;
+    shared_ptr<string> exceptionWordShrink_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> keyword_ {};
+    shared_ptr<string> suggestWord_ {};
+    shared_ptr<string> termsDesc_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

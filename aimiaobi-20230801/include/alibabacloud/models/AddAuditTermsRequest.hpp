@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exceptionWord_ == nullptr
-        && return this->keyword_ == nullptr && return this->suggestWord_ == nullptr && return this->termsDesc_ == nullptr && return this->termsName_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->keyword_ == nullptr && this->suggestWord_ == nullptr && this->termsDesc_ == nullptr && this->termsName_ == nullptr && this->workspaceId_ == nullptr; };
     // exceptionWord Field Functions 
     bool hasExceptionWord() const { return this->exceptionWord_ != nullptr;};
     void deleteExceptionWord() { this->exceptionWord_ = nullptr;};
-    inline const vector<string> & exceptionWord() const { DARABONBA_PTR_GET_CONST(exceptionWord_, vector<string>) };
-    inline vector<string> exceptionWord() { DARABONBA_PTR_GET(exceptionWord_, vector<string>) };
+    inline const vector<string> & getExceptionWord() const { DARABONBA_PTR_GET_CONST(exceptionWord_, vector<string>) };
+    inline vector<string> getExceptionWord() { DARABONBA_PTR_GET(exceptionWord_, vector<string>) };
     inline AddAuditTermsRequest& setExceptionWord(const vector<string> & exceptionWord) { DARABONBA_PTR_SET_VALUE(exceptionWord_, exceptionWord) };
     inline AddAuditTermsRequest& setExceptionWord(vector<string> && exceptionWord) { DARABONBA_PTR_SET_RVALUE(exceptionWord_, exceptionWord) };
 
@@ -54,46 +54,46 @@ namespace Models
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline AddAuditTermsRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // suggestWord Field Functions 
     bool hasSuggestWord() const { return this->suggestWord_ != nullptr;};
     void deleteSuggestWord() { this->suggestWord_ = nullptr;};
-    inline string suggestWord() const { DARABONBA_PTR_GET_DEFAULT(suggestWord_, "") };
+    inline string getSuggestWord() const { DARABONBA_PTR_GET_DEFAULT(suggestWord_, "") };
     inline AddAuditTermsRequest& setSuggestWord(string suggestWord) { DARABONBA_PTR_SET_VALUE(suggestWord_, suggestWord) };
 
 
     // termsDesc Field Functions 
     bool hasTermsDesc() const { return this->termsDesc_ != nullptr;};
     void deleteTermsDesc() { this->termsDesc_ = nullptr;};
-    inline string termsDesc() const { DARABONBA_PTR_GET_DEFAULT(termsDesc_, "") };
+    inline string getTermsDesc() const { DARABONBA_PTR_GET_DEFAULT(termsDesc_, "") };
     inline AddAuditTermsRequest& setTermsDesc(string termsDesc) { DARABONBA_PTR_SET_VALUE(termsDesc_, termsDesc) };
 
 
     // termsName Field Functions 
     bool hasTermsName() const { return this->termsName_ != nullptr;};
     void deleteTermsName() { this->termsName_ = nullptr;};
-    inline string termsName() const { DARABONBA_PTR_GET_DEFAULT(termsName_, "") };
+    inline string getTermsName() const { DARABONBA_PTR_GET_DEFAULT(termsName_, "") };
     inline AddAuditTermsRequest& setTermsName(string termsName) { DARABONBA_PTR_SET_VALUE(termsName_, termsName) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline AddAuditTermsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> exceptionWord_ = nullptr;
-    std::shared_ptr<string> keyword_ = nullptr;
-    std::shared_ptr<string> suggestWord_ = nullptr;
-    std::shared_ptr<string> termsDesc_ = nullptr;
-    std::shared_ptr<string> termsName_ = nullptr;
+    shared_ptr<vector<string>> exceptionWord_ {};
+    shared_ptr<string> keyword_ {};
+    shared_ptr<string> suggestWord_ {};
+    shared_ptr<string> termsDesc_ {};
+    shared_ptr<string> termsName_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

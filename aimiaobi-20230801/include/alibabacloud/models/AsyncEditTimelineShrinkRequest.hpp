@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoClips_ == nullptr
-        && return this->taskId_ == nullptr && return this->timelinesShrink_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->taskId_ == nullptr && this->timelinesShrink_ == nullptr && this->workspaceId_ == nullptr; };
     // autoClips Field Functions 
     bool hasAutoClips() const { return this->autoClips_ != nullptr;};
     void deleteAutoClips() { this->autoClips_ = nullptr;};
-    inline bool autoClips() const { DARABONBA_PTR_GET_DEFAULT(autoClips_, false) };
+    inline bool getAutoClips() const { DARABONBA_PTR_GET_DEFAULT(autoClips_, false) };
     inline AsyncEditTimelineShrinkRequest& setAutoClips(bool autoClips) { DARABONBA_PTR_SET_VALUE(autoClips_, autoClips) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline AsyncEditTimelineShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // timelinesShrink Field Functions 
     bool hasTimelinesShrink() const { return this->timelinesShrink_ != nullptr;};
     void deleteTimelinesShrink() { this->timelinesShrink_ = nullptr;};
-    inline string timelinesShrink() const { DARABONBA_PTR_GET_DEFAULT(timelinesShrink_, "") };
+    inline string getTimelinesShrink() const { DARABONBA_PTR_GET_DEFAULT(timelinesShrink_, "") };
     inline AsyncEditTimelineShrinkRequest& setTimelinesShrink(string timelinesShrink) { DARABONBA_PTR_SET_VALUE(timelinesShrink_, timelinesShrink) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline AsyncEditTimelineShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<bool> autoClips_ = nullptr;
+    shared_ptr<bool> autoClips_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> timelinesShrink_ = nullptr;
+    shared_ptr<string> timelinesShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

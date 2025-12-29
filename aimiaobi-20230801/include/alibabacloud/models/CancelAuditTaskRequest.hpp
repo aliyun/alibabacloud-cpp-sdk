@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->articleId_ == nullptr
-        && return this->contentAuditTaskId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->contentAuditTaskId_ == nullptr && this->workspaceId_ == nullptr; };
     // articleId Field Functions 
     bool hasArticleId() const { return this->articleId_ != nullptr;};
     void deleteArticleId() { this->articleId_ = nullptr;};
-    inline string articleId() const { DARABONBA_PTR_GET_DEFAULT(articleId_, "") };
+    inline string getArticleId() const { DARABONBA_PTR_GET_DEFAULT(articleId_, "") };
     inline CancelAuditTaskRequest& setArticleId(string articleId) { DARABONBA_PTR_SET_VALUE(articleId_, articleId) };
 
 
     // contentAuditTaskId Field Functions 
     bool hasContentAuditTaskId() const { return this->contentAuditTaskId_ != nullptr;};
     void deleteContentAuditTaskId() { this->contentAuditTaskId_ = nullptr;};
-    inline string contentAuditTaskId() const { DARABONBA_PTR_GET_DEFAULT(contentAuditTaskId_, "") };
+    inline string getContentAuditTaskId() const { DARABONBA_PTR_GET_DEFAULT(contentAuditTaskId_, "") };
     inline CancelAuditTaskRequest& setContentAuditTaskId(string contentAuditTaskId) { DARABONBA_PTR_SET_VALUE(contentAuditTaskId_, contentAuditTaskId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CancelAuditTaskRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> articleId_ = nullptr;
-    std::shared_ptr<string> contentAuditTaskId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> articleId_ {};
+    shared_ptr<string> contentAuditTaskId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

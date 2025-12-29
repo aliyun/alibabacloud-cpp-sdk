@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->articleTaskId_ == nullptr && return this->taskIdListShrink_ == nullptr; };
+        && this->articleTaskId_ == nullptr && this->taskIdListShrink_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline FetchImageTaskShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // articleTaskId Field Functions 
     bool hasArticleTaskId() const { return this->articleTaskId_ != nullptr;};
     void deleteArticleTaskId() { this->articleTaskId_ = nullptr;};
-    inline string articleTaskId() const { DARABONBA_PTR_GET_DEFAULT(articleTaskId_, "") };
+    inline string getArticleTaskId() const { DARABONBA_PTR_GET_DEFAULT(articleTaskId_, "") };
     inline FetchImageTaskShrinkRequest& setArticleTaskId(string articleTaskId) { DARABONBA_PTR_SET_VALUE(articleTaskId_, articleTaskId) };
 
 
     // taskIdListShrink Field Functions 
     bool hasTaskIdListShrink() const { return this->taskIdListShrink_ != nullptr;};
     void deleteTaskIdListShrink() { this->taskIdListShrink_ = nullptr;};
-    inline string taskIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdListShrink_, "") };
+    inline string getTaskIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdListShrink_, "") };
     inline FetchImageTaskShrinkRequest& setTaskIdListShrink(string taskIdListShrink) { DARABONBA_PTR_SET_VALUE(taskIdListShrink_, taskIdListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
+    shared_ptr<string> agentKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> articleTaskId_ = nullptr;
+    shared_ptr<string> articleTaskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskIdListShrink_ = nullptr;
+    shared_ptr<string> taskIdListShrink_ {};
   };
 
   } // namespace Models

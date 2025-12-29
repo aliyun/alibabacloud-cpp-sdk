@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && return this->interveneRuleConfigShrink_ == nullptr; };
+        && this->interveneRuleConfigShrink_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
-    inline string agentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+    inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline InsertInterveneRuleShrinkRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
 
 
     // interveneRuleConfigShrink Field Functions 
     bool hasInterveneRuleConfigShrink() const { return this->interveneRuleConfigShrink_ != nullptr;};
     void deleteInterveneRuleConfigShrink() { this->interveneRuleConfigShrink_ = nullptr;};
-    inline string interveneRuleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(interveneRuleConfigShrink_, "") };
+    inline string getInterveneRuleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(interveneRuleConfigShrink_, "") };
     inline InsertInterveneRuleShrinkRequest& setInterveneRuleConfigShrink(string interveneRuleConfigShrink) { DARABONBA_PTR_SET_VALUE(interveneRuleConfigShrink_, interveneRuleConfigShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentKey_ = nullptr;
-    std::shared_ptr<string> interveneRuleConfigShrink_ = nullptr;
+    shared_ptr<string> agentKey_ {};
+    shared_ptr<string> interveneRuleConfigShrink_ {};
   };
 
   } // namespace Models

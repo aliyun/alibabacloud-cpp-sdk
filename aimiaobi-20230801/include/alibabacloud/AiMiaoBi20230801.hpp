@@ -2271,7 +2271,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunAbbreviationContentResponse
        */
-      FutrueGenerator<Models::RunAbbreviationContentResponse> runAbbreviationContentWithSSE(const Models::RunAbbreviationContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunAbbreviationContentResponse> runAbbreviationContentWithSSE(const Models::RunAbbreviationContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 内容缩写
@@ -2297,7 +2297,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunAiHelperWritingResponse
        */
-      FutrueGenerator<Models::RunAiHelperWritingResponse> runAiHelperWritingWithSSE(const Models::RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunAiHelperWritingResponse> runAiHelperWritingWithSSE(const Models::RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙笔：AI助手写作
@@ -2323,7 +2323,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunBookBrainmapResponse
        */
-      FutrueGenerator<Models::RunBookBrainmapResponse> runBookBrainmapWithSSE(const Models::RunBookBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunBookBrainmapResponse> runBookBrainmapWithSSE(const Models::RunBookBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读生成书籍脑图
@@ -2349,7 +2349,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunBookIntroductionResponse
        */
-      FutrueGenerator<Models::RunBookIntroductionResponse> runBookIntroductionWithSSE(const Models::RunBookIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunBookIntroductionResponse> runBookIntroductionWithSSE(const Models::RunBookIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 书籍导读接口
@@ -2375,7 +2375,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunBookSmartCardResponse
        */
-      FutrueGenerator<Models::RunBookSmartCardResponse> runBookSmartCardWithSSE(const Models::RunBookSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunBookSmartCardResponse> runBookSmartCardWithSSE(const Models::RunBookSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 书籍智能卡片接口
@@ -2401,7 +2401,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunCommentGenerationResponse
        */
-      FutrueGenerator<Models::RunCommentGenerationResponse> runCommentGenerationWithSSE(const Models::RunCommentGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunCommentGenerationResponse> runCommentGenerationWithSSE(const Models::RunCommentGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 客户之声预测
@@ -2427,7 +2427,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunContinueContentResponse
        */
-      FutrueGenerator<Models::RunContinueContentResponse> runContinueContentWithSSE(const Models::RunContinueContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunContinueContentResponse> runContinueContentWithSSE(const Models::RunContinueContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 内容续写
@@ -2453,7 +2453,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunCustomHotTopicAnalysisResponse
        */
-      FutrueGenerator<Models::RunCustomHotTopicAnalysisResponse> runCustomHotTopicAnalysisWithSSE(const Models::RunCustomHotTopicAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunCustomHotTopicAnalysisResponse> runCustomHotTopicAnalysisWithSSE(const Models::RunCustomHotTopicAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 自定义热点话题分析
@@ -2479,7 +2479,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunCustomHotTopicViewPointAnalysisResponse
        */
-      FutrueGenerator<Models::RunCustomHotTopicViewPointAnalysisResponse> runCustomHotTopicViewPointAnalysisWithSSE(const Models::RunCustomHotTopicViewPointAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunCustomHotTopicViewPointAnalysisResponse> runCustomHotTopicViewPointAnalysisWithSSE(const Models::RunCustomHotTopicViewPointAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 自定义选题视角分析
@@ -2505,7 +2505,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDeepWritingResponse
        */
-      FutrueGenerator<Models::RunDeepWritingResponse> runDeepWritingWithSSE(const Models::RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDeepWritingResponse> runDeepWritingWithSSE(const Models::RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 流式输出深度写作事件
@@ -2531,7 +2531,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDocBrainmapResponse
        */
-      FutrueGenerator<Models::RunDocBrainmapResponse> runDocBrainmapWithSSE(const Models::RunDocBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDocBrainmapResponse> runDocBrainmapWithSSE(const Models::RunDocBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读脑图生成接口
@@ -2557,7 +2557,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDocIntroductionResponse
        */
-      FutrueGenerator<Models::RunDocIntroductionResponse> runDocIntroductionWithSSE(const Models::RunDocIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDocIntroductionResponse> runDocIntroductionWithSSE(const Models::RunDocIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读文档导读接口
@@ -2583,7 +2583,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDocQaResponse
        */
-      FutrueGenerator<Models::RunDocQaResponse> runDocQaWithSSE(const Models::RunDocQaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDocQaResponse> runDocQaWithSSE(const Models::RunDocQaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读问答接口
@@ -2609,7 +2609,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDocSmartCardResponse
        */
-      FutrueGenerator<Models::RunDocSmartCardResponse> runDocSmartCardWithSSE(const Models::RunDocSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDocSmartCardResponse> runDocSmartCardWithSSE(const Models::RunDocSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 文档智能卡片接口
@@ -2635,7 +2635,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDocSummaryResponse
        */
-      FutrueGenerator<Models::RunDocSummaryResponse> runDocSummaryWithSSE(const Models::RunDocSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDocSummaryResponse> runDocSummaryWithSSE(const Models::RunDocSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读文档总结摘要接口
@@ -2661,7 +2661,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDocTranslationResponse
        */
-      FutrueGenerator<Models::RunDocTranslationResponse> runDocTranslationWithSSE(const Models::RunDocTranslationRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDocTranslationResponse> runDocTranslationWithSSE(const Models::RunDocTranslationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读文档翻译接口
@@ -2687,7 +2687,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDocWashingResponse
        */
-      FutrueGenerator<Models::RunDocWashingResponse> runDocWashingWithSSE(const Models::RunDocWashingRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDocWashingResponse> runDocWashingWithSSE(const Models::RunDocWashingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 文档改写
@@ -2713,7 +2713,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunExpandContentResponse
        */
-      FutrueGenerator<Models::RunExpandContentResponse> runExpandContentWithSSE(const Models::RunExpandContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunExpandContentResponse> runExpandContentWithSSE(const Models::RunExpandContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 内容扩写
@@ -2739,7 +2739,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunGenerateQuestionsResponse
        */
-      FutrueGenerator<Models::RunGenerateQuestionsResponse> runGenerateQuestionsWithSSE(const Models::RunGenerateQuestionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunGenerateQuestionsResponse> runGenerateQuestionsWithSSE(const Models::RunGenerateQuestionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读猜你想问接口
@@ -2765,7 +2765,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunHotwordResponse
        */
-      FutrueGenerator<Models::RunHotwordResponse> runHotwordWithSSE(const Models::RunHotwordRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunHotwordResponse> runHotwordWithSSE(const Models::RunHotwordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙读文档关键词抽取接口
@@ -2791,7 +2791,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunKeywordsExtractionGenerationResponse
        */
-      FutrueGenerator<Models::RunKeywordsExtractionGenerationResponse> runKeywordsExtractionGenerationWithSSE(const Models::RunKeywordsExtractionGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunKeywordsExtractionGenerationResponse> runKeywordsExtractionGenerationWithSSE(const Models::RunKeywordsExtractionGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary AI妙笔-创作-抽取关键词
@@ -2817,7 +2817,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunMultiDocIntroductionResponse
        */
-      FutrueGenerator<Models::RunMultiDocIntroductionResponse> runMultiDocIntroductionWithSSE(const Models::RunMultiDocIntroductionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunMultiDocIntroductionResponse> runMultiDocIntroductionWithSSE(const Models::RunMultiDocIntroductionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 文档批量导读
@@ -2843,7 +2843,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunPptOutlineGenerationResponse
        */
-      FutrueGenerator<Models::RunPptOutlineGenerationResponse> runPptOutlineGenerationWithSSE(const Models::RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunPptOutlineGenerationResponse> runPptOutlineGenerationWithSSE(const Models::RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 流式输出PPT大纲
@@ -2869,7 +2869,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunQuickWritingResponse
        */
-      FutrueGenerator<Models::RunQuickWritingResponse> runQuickWritingWithSSE(const Models::RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunQuickWritingResponse> runQuickWritingWithSSE(const Models::RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 快速写作
@@ -2895,7 +2895,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunSearchGenerationResponse
        */
-      FutrueGenerator<Models::RunSearchGenerationResponse> runSearchGenerationWithSSE(const Models::RunSearchGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunSearchGenerationResponse> runSearchGenerationWithSSE(const Models::RunSearchGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary AI妙搜-智能搜索生成
@@ -2921,7 +2921,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunSearchSimilarArticlesResponse
        */
-      FutrueGenerator<Models::RunSearchSimilarArticlesResponse> runSearchSimilarArticlesWithSSE(const Models::RunSearchSimilarArticlesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunSearchSimilarArticlesResponse> runSearchSimilarArticlesWithSSE(const Models::RunSearchSimilarArticlesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙搜-文搜文
@@ -2947,7 +2947,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunStepByStepWritingResponse
        */
-      FutrueGenerator<Models::RunStepByStepWritingResponse> runStepByStepWritingWithSSE(const Models::RunStepByStepWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunStepByStepWritingResponse> runStepByStepWritingWithSSE(const Models::RunStepByStepWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 创作-分步骤写作
@@ -2973,7 +2973,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunStyleFeatureAnalysisResponse
        */
-      FutrueGenerator<Models::RunStyleFeatureAnalysisResponse> runStyleFeatureAnalysisWithSSE(const Models::RunStyleFeatureAnalysisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunStyleFeatureAnalysisResponse> runStyleFeatureAnalysisWithSSE(const Models::RunStyleFeatureAnalysisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 内容特点分析
@@ -2999,7 +2999,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunSummaryGenerateResponse
        */
-      FutrueGenerator<Models::RunSummaryGenerateResponse> runSummaryGenerateWithSSE(const Models::RunSummaryGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunSummaryGenerateResponse> runSummaryGenerateWithSSE(const Models::RunSummaryGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 内容摘要生成
@@ -3025,7 +3025,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunTextPolishingResponse
        */
-      FutrueGenerator<Models::RunTextPolishingResponse> runTextPolishingWithSSE(const Models::RunTextPolishingRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunTextPolishingResponse> runTextPolishingWithSSE(const Models::RunTextPolishingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 创作-文本润色
@@ -3051,7 +3051,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunTitleGenerationResponse
        */
-      FutrueGenerator<Models::RunTitleGenerationResponse> runTitleGenerationWithSSE(const Models::RunTitleGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunTitleGenerationResponse> runTitleGenerationWithSSE(const Models::RunTitleGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙笔：标题生成
@@ -3077,7 +3077,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunTopicSelectionMergeResponse
        */
-      FutrueGenerator<Models::RunTopicSelectionMergeResponse> runTopicSelectionMergeWithSSE(const Models::RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunTopicSelectionMergeResponse> runTopicSelectionMergeWithSSE(const Models::RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 妙策选题策划聚合
@@ -3103,7 +3103,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunTranslateGenerationResponse
        */
-      FutrueGenerator<Models::RunTranslateGenerationResponse> runTranslateGenerationWithSSE(const Models::RunTranslateGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunTranslateGenerationResponse> runTranslateGenerationWithSSE(const Models::RunTranslateGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary AI妙笔-创作-中英文翻译
@@ -3129,7 +3129,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunVideoScriptGenerateResponse
        */
-      FutrueGenerator<Models::RunVideoScriptGenerateResponse> runVideoScriptGenerateWithSSE(const Models::RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunVideoScriptGenerateResponse> runVideoScriptGenerateWithSSE(const Models::RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary AI生成视频剪辑脚本
@@ -3155,7 +3155,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunWriteToneGenerationResponse
        */
-      FutrueGenerator<Models::RunWriteToneGenerationResponse> runWriteToneGenerationWithSSE(const Models::RunWriteToneGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunWriteToneGenerationResponse> runWriteToneGenerationWithSSE(const Models::RunWriteToneGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary AI妙笔-创作-文风改写
@@ -3181,7 +3181,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunWritingResponse
        */
-      FutrueGenerator<Models::RunWritingResponse> runWritingWithSSE(const Models::RunWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunWritingResponse> runWritingWithSSE(const Models::RunWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 直接写作
@@ -3207,7 +3207,7 @@ namespace AiMiaoBi20230801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunWritingV2Response
        */
-      FutrueGenerator<Models::RunWritingV2Response> runWritingV2WithSSE(const Models::RunWritingV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunWritingV2Response> runWritingV2WithSSE(const Models::RunWritingV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 直接写作

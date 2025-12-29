@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && return this->docId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->docId_ == nullptr && this->workspaceId_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
-    inline string categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
+    inline string getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
     inline GetDocInfoRequest& setCategoryId(string categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // docId Field Functions 
     bool hasDocId() const { return this->docId_ != nullptr;};
     void deleteDocId() { this->docId_ = nullptr;};
-    inline string docId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
+    inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
     inline GetDocInfoRequest& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline GetDocInfoRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> categoryId_ = nullptr;
+    shared_ptr<string> categoryId_ {};
     // This parameter is required.
-    std::shared_ptr<string> docId_ = nullptr;
+    shared_ptr<string> docId_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

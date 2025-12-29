@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileKey_ == nullptr
-        && return this->termsName_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->termsName_ == nullptr && this->workspaceId_ == nullptr; };
     // fileKey Field Functions 
     bool hasFileKey() const { return this->fileKey_ != nullptr;};
     void deleteFileKey() { this->fileKey_ = nullptr;};
-    inline string fileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
+    inline string getFileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
     inline SubmitImportTermsTaskRequest& setFileKey(string fileKey) { DARABONBA_PTR_SET_VALUE(fileKey_, fileKey) };
 
 
     // termsName Field Functions 
     bool hasTermsName() const { return this->termsName_ != nullptr;};
     void deleteTermsName() { this->termsName_ = nullptr;};
-    inline string termsName() const { DARABONBA_PTR_GET_DEFAULT(termsName_, "") };
+    inline string getTermsName() const { DARABONBA_PTR_GET_DEFAULT(termsName_, "") };
     inline SubmitImportTermsTaskRequest& setTermsName(string termsName) { DARABONBA_PTR_SET_VALUE(termsName_, termsName) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline SubmitImportTermsTaskRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fileKey_ = nullptr;
-    std::shared_ptr<string> termsName_ = nullptr;
+    shared_ptr<string> fileKey_ {};
+    shared_ptr<string> termsName_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
