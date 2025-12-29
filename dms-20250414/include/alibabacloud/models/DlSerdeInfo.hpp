@@ -42,67 +42,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->deserializerClass_ == nullptr && return this->name_ == nullptr && return this->parameters_ == nullptr && return this->serdeType_ == nullptr && return this->serializationLib_ == nullptr
-        && return this->serializerClass_ == nullptr; };
+        && this->deserializerClass_ == nullptr && this->name_ == nullptr && this->parameters_ == nullptr && this->serdeType_ == nullptr && this->serializationLib_ == nullptr
+        && this->serializerClass_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DLSerdeInfo& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // deserializerClass Field Functions 
     bool hasDeserializerClass() const { return this->deserializerClass_ != nullptr;};
     void deleteDeserializerClass() { this->deserializerClass_ = nullptr;};
-    inline string deserializerClass() const { DARABONBA_PTR_GET_DEFAULT(deserializerClass_, "") };
+    inline string getDeserializerClass() const { DARABONBA_PTR_GET_DEFAULT(deserializerClass_, "") };
     inline DLSerdeInfo& setDeserializerClass(string deserializerClass) { DARABONBA_PTR_SET_VALUE(deserializerClass_, deserializerClass) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DLSerdeInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline DLSerdeInfo& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline DLSerdeInfo& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline DLSerdeInfo& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
     // serdeType Field Functions 
     bool hasSerdeType() const { return this->serdeType_ != nullptr;};
     void deleteSerdeType() { this->serdeType_ = nullptr;};
-    inline int32_t serdeType() const { DARABONBA_PTR_GET_DEFAULT(serdeType_, 0) };
+    inline int32_t getSerdeType() const { DARABONBA_PTR_GET_DEFAULT(serdeType_, 0) };
     inline DLSerdeInfo& setSerdeType(int32_t serdeType) { DARABONBA_PTR_SET_VALUE(serdeType_, serdeType) };
 
 
     // serializationLib Field Functions 
     bool hasSerializationLib() const { return this->serializationLib_ != nullptr;};
     void deleteSerializationLib() { this->serializationLib_ = nullptr;};
-    inline string serializationLib() const { DARABONBA_PTR_GET_DEFAULT(serializationLib_, "") };
+    inline string getSerializationLib() const { DARABONBA_PTR_GET_DEFAULT(serializationLib_, "") };
     inline DLSerdeInfo& setSerializationLib(string serializationLib) { DARABONBA_PTR_SET_VALUE(serializationLib_, serializationLib) };
 
 
     // serializerClass Field Functions 
     bool hasSerializerClass() const { return this->serializerClass_ != nullptr;};
     void deleteSerializerClass() { this->serializerClass_ = nullptr;};
-    inline string serializerClass() const { DARABONBA_PTR_GET_DEFAULT(serializerClass_, "") };
+    inline string getSerializerClass() const { DARABONBA_PTR_GET_DEFAULT(serializerClass_, "") };
     inline DLSerdeInfo& setSerializerClass(string serializerClass) { DARABONBA_PTR_SET_VALUE(serializerClass_, serializerClass) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> deserializerClass_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    Darabonba::Json parameters_ = nullptr;
-    std::shared_ptr<int32_t> serdeType_ = nullptr;
-    std::shared_ptr<string> serializationLib_ = nullptr;
-    std::shared_ptr<string> serializerClass_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> deserializerClass_ {};
+    shared_ptr<string> name_ {};
+    Darabonba::Json parameters_ {};
+    shared_ptr<int32_t> serdeType_ {};
+    shared_ptr<string> serializationLib_ {};
+    shared_ptr<string> serializerClass_ {};
   };
 
   } // namespace Models

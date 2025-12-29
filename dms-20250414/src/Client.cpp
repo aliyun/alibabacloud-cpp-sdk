@@ -48,41 +48,41 @@ BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitionsWithO
   BatchCreateDataLakePartitionsShrinkRequest request = BatchCreateDataLakePartitionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPartitionInputs()) {
-    request.setPartitionInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partitionInputs(), "PartitionInputs", "json"));
+    request.setPartitionInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionInputs(), "PartitionInputs", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasIfNotExists()) {
-    query["IfNotExists"] = request.ifNotExists();
+    query["IfNotExists"] = request.getIfNotExists();
   }
 
   if (!!request.hasNeedResult()) {
-    query["NeedResult"] = request.needResult();
+    query["NeedResult"] = request.getNeedResult();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasPartitionInputsShrink()) {
-    body["PartitionInputs"] = request.partitionInputsShrink();
+    body["PartitionInputs"] = request.getPartitionInputsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -125,31 +125,31 @@ BatchDeleteDataLakePartitionsResponse Client::batchDeleteDataLakePartitionsWithO
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasIfExists()) {
-    query["IfExists"] = request.ifExists();
+    query["IfExists"] = request.getIfExists();
   }
 
   if (!!request.hasPartitionValuesList()) {
-    query["PartitionValuesList"] = request.partitionValuesList();
+    query["PartitionValuesList"] = request.getPartitionValuesList();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -192,33 +192,33 @@ BatchUpdateDataLakePartitionsResponse Client::batchUpdateDataLakePartitionsWithO
   BatchUpdateDataLakePartitionsShrinkRequest request = BatchUpdateDataLakePartitionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPartitionInputs()) {
-    request.setPartitionInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partitionInputs(), "PartitionInputs", "json"));
+    request.setPartitionInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionInputs(), "PartitionInputs", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasPartitionInputsShrink()) {
-    body["PartitionInputs"] = request.partitionInputsShrink();
+    body["PartitionInputs"] = request.getPartitionInputsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -261,67 +261,67 @@ CreateAirflowResponse Client::createAirflowWithOptions(const CreateAirflowReques
   request.validate();
   json query = {};
   if (!!request.hasAirflowName()) {
-    query["AirflowName"] = request.airflowName();
+    query["AirflowName"] = request.getAirflowName();
   }
 
   if (!!request.hasAppSpec()) {
-    query["AppSpec"] = request.appSpec();
+    query["AppSpec"] = request.getAppSpec();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDagsDir()) {
-    query["DagsDir"] = request.dagsDir();
+    query["DagsDir"] = request.getDagsDir();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasOssBucketName()) {
-    query["OssBucketName"] = request.ossBucketName();
+    query["OssBucketName"] = request.getOssBucketName();
   }
 
   if (!!request.hasOssPath()) {
-    query["OssPath"] = request.ossPath();
+    query["OssPath"] = request.getOssPath();
   }
 
   if (!!request.hasPluginsDir()) {
-    query["PluginsDir"] = request.pluginsDir();
+    query["PluginsDir"] = request.getPluginsDir();
   }
 
   if (!!request.hasRequirementFile()) {
-    query["RequirementFile"] = request.requirementFile();
+    query["RequirementFile"] = request.getRequirementFile();
   }
 
   if (!!request.hasSecurityGroupId()) {
-    query["SecurityGroupId"] = request.securityGroupId();
+    query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   if (!!request.hasStartupFile()) {
-    query["StartupFile"] = request.startupFile();
+    query["StartupFile"] = request.getStartupFile();
   }
 
   if (!!request.hasVSwitchId()) {
-    query["VSwitchId"] = request.vSwitchId();
+    query["VSwitchId"] = request.getVSwitchId();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasWorkerServerlessReplicas()) {
-    query["WorkerServerlessReplicas"] = request.workerServerlessReplicas();
+    query["WorkerServerlessReplicas"] = request.getWorkerServerlessReplicas();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -363,7 +363,7 @@ CreateAirflowLoginTokenResponse Client::createAirflowLoginTokenWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAirflowId()) {
-    query["AirflowId"] = request.airflowId();
+    query["AirflowId"] = request.getAirflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -406,28 +406,28 @@ CreateDataAgentSessionResponse Client::createDataAgentSessionWithOptions(const C
   CreateDataAgentSessionShrinkRequest request = CreateDataAgentSessionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSessionConfig()) {
-    request.setSessionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig(), "SessionConfig", "json"));
+    request.setSessionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSessionConfig(), "SessionConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasDMSUnit()) {
-    query["DMSUnit"] = request.DMSUnit();
+    query["DMSUnit"] = request.getDMSUnit();
   }
 
   if (!!request.hasFile()) {
-    query["File"] = request.file();
+    query["File"] = request.getFile();
   }
 
   if (!!request.hasSessionConfigShrink()) {
-    query["SessionConfig"] = request.sessionConfigShrink();
+    query["SessionConfig"] = request.getSessionConfigShrink();
   }
 
   if (!!request.hasTitle()) {
-    query["Title"] = request.title();
+    query["Title"] = request.getTitle();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -470,36 +470,36 @@ CreateDataLakeDatabaseResponse Client::createDataLakeDatabaseWithOptions(const C
   CreateDataLakeDatabaseShrinkRequest request = CreateDataLakeDatabaseShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasParameters()) {
-    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parameters(), "Parameters", "json"));
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasLocation()) {
-    query["Location"] = request.location();
+    query["Location"] = request.getLocation();
   }
 
   if (!!request.hasParametersShrink()) {
-    query["Parameters"] = request.parametersShrink();
+    query["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -542,29 +542,29 @@ CreateDataLakeFunctionResponse Client::createDataLakeFunctionWithOptions(const C
   CreateDataLakeFunctionShrinkRequest request = CreateDataLakeFunctionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFunctionInput()) {
-    request.setFunctionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.functionInput(), "FunctionInput", "json"));
+    request.setFunctionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFunctionInput(), "FunctionInput", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasFunctionInputShrink()) {
-    body["FunctionInput"] = request.functionInputShrink();
+    body["FunctionInput"] = request.getFunctionInputShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -608,41 +608,41 @@ CreateDataLakePartitionResponse Client::createDataLakePartitionWithOptions(const
   CreateDataLakePartitionShrinkRequest request = CreateDataLakePartitionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPartitionInput()) {
-    request.setPartitionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partitionInput(), "PartitionInput", "json"));
+    request.setPartitionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionInput(), "PartitionInput", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasIfNotExists()) {
-    query["IfNotExists"] = request.ifNotExists();
+    query["IfNotExists"] = request.getIfNotExists();
   }
 
   if (!!request.hasNeedResult()) {
-    query["NeedResult"] = request.needResult();
+    query["NeedResult"] = request.getNeedResult();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasPartitionInputShrink()) {
-    body["PartitionInput"] = request.partitionInputShrink();
+    body["PartitionInput"] = request.getPartitionInputShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -686,29 +686,29 @@ CreateDataLakeTableResponse Client::createDataLakeTableWithOptions(const CreateD
   CreateDataLakeTableShrinkRequest request = CreateDataLakeTableShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTableInput()) {
-    request.setTableInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableInput(), "TableInput", "json"));
+    request.setTableInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableInput(), "TableInput", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasTableInputShrink()) {
-    body["TableInput"] = request.tableInputShrink();
+    body["TableInput"] = request.getTableInputShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -751,15 +751,15 @@ DeleteAirflowResponse Client::deleteAirflowWithOptions(const DeleteAirflowReques
   request.validate();
   json query = {};
   if (!!request.hasAirflowId()) {
-    query["AirflowId"] = request.airflowId();
+    query["AirflowId"] = request.getAirflowId();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -801,19 +801,19 @@ DeleteDataLakeDatabaseResponse Client::deleteDataLakeDatabaseWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -855,23 +855,23 @@ DeleteDataLakeFunctionResponse Client::deleteDataLakeFunctionWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasFunctionName()) {
-    query["FunctionName"] = request.functionName();
+    query["FunctionName"] = request.getFunctionName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -914,36 +914,36 @@ DeleteDataLakePartitionResponse Client::deleteDataLakePartitionWithOptions(const
   DeleteDataLakePartitionShrinkRequest request = DeleteDataLakePartitionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPartitionValues()) {
-    request.setPartitionValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partitionValues(), "PartitionValues", "simple"));
+    request.setPartitionValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionValues(), "PartitionValues", "simple"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasIfExists()) {
-    query["IfExists"] = request.ifExists();
+    query["IfExists"] = request.getIfExists();
   }
 
   if (!!request.hasPartitionValuesShrink()) {
-    query["PartitionValues"] = request.partitionValuesShrink();
+    query["PartitionValues"] = request.getPartitionValuesShrink();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -985,23 +985,23 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTableWithOptions(const DeleteD
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1043,11 +1043,11 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasCustomAgentId()) {
-    query["CustomAgentId"] = request.customAgentId();
+    query["CustomAgentId"] = request.getCustomAgentId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1089,15 +1089,15 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSessionWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasDMSUnit()) {
-    query["DMSUnit"] = request.DMSUnit();
+    query["DMSUnit"] = request.getDMSUnit();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1139,11 +1139,11 @@ GetAirflowResponse Client::getAirflowWithOptions(const GetAirflowRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAirflowId()) {
-    query["AirflowId"] = request.airflowId();
+    query["AirflowId"] = request.getAirflowId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1181,23 +1181,23 @@ GetAirflowResponse Client::getAirflow(const GetAirflowRequest &request) {
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetChatContentResponse
  */
-FutrueGenerator<GetChatContentResponse> Client::getChatContentWithSSE(const GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<GetChatContentResponse> Client::getChatContentWithSSE(const GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
   if (!!request.hasAgentId()) {
-    query["AgentId"] = request.agentId();
+    query["AgentId"] = request.getAgentId();
   }
 
   if (!!request.hasCheckpoint()) {
-    query["Checkpoint"] = request.checkpoint();
+    query["Checkpoint"] = request.getCheckpoint();
   }
 
   if (!!request.hasDMSUnit()) {
-    query["DMSUnit"] = request.DMSUnit();
+    query["DMSUnit"] = request.getDMSUnit();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1214,18 +1214,18 @@ FutrueGenerator<GetChatContentResponse> Client::getChatContentWithSSE(const GetC
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<GetChatContentResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1240,19 +1240,19 @@ GetChatContentResponse Client::getChatContentWithOptions(const GetChatContentReq
   request.validate();
   json query = {};
   if (!!request.hasAgentId()) {
-    query["AgentId"] = request.agentId();
+    query["AgentId"] = request.getAgentId();
   }
 
   if (!!request.hasCheckpoint()) {
-    query["Checkpoint"] = request.checkpoint();
+    query["Checkpoint"] = request.getCheckpoint();
   }
 
   if (!!request.hasDMSUnit()) {
-    query["DMSUnit"] = request.DMSUnit();
+    query["DMSUnit"] = request.getDMSUnit();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1294,15 +1294,15 @@ GetDataLakeCatalogResponse Client::getDataLakeCatalogWithOptions(const GetDataLa
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1344,19 +1344,19 @@ GetDataLakeDatabaseResponse Client::getDataLakeDatabaseWithOptions(const GetData
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1398,23 +1398,23 @@ GetDataLakeFunctionResponse Client::getDataLakeFunctionWithOptions(const GetData
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasFunctionName()) {
-    query["FunctionName"] = request.functionName();
+    query["FunctionName"] = request.getFunctionName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1457,32 +1457,32 @@ GetDataLakePartitionResponse Client::getDataLakePartitionWithOptions(const GetDa
   GetDataLakePartitionShrinkRequest request = GetDataLakePartitionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPartitionValues()) {
-    request.setPartitionValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partitionValues(), "PartitionValues", "simple"));
+    request.setPartitionValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionValues(), "PartitionValues", "simple"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasPartitionValuesShrink()) {
-    query["PartitionValues"] = request.partitionValuesShrink();
+    query["PartitionValues"] = request.getPartitionValuesShrink();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1524,23 +1524,23 @@ GetDataLakeTableResponse Client::getDataLakeTableWithOptions(const GetDataLakeTa
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1582,24 +1582,24 @@ GetNotebookAndSubmitTaskResponse Client::getNotebookAndSubmitTaskWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasParams()) {
-    body["Params"] = request.params();
+    body["Params"] = request.getParams();
   }
 
   if (!!request.hasPath()) {
-    body["Path"] = request.path();
+    body["Path"] = request.getPath();
   }
 
   if (!!request.hasRetry()) {
-    body["Retry"] = request.retry();
+    body["Retry"] = request.getRetry();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1642,15 +1642,15 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatusWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1692,23 +1692,23 @@ ListAirflowsResponse Client::listAirflowsWithOptions(const ListAirflowsRequest &
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageIndex()) {
-    query["PageIndex"] = request.pageIndex();
+    query["PageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasSkip()) {
-    query["Skip"] = request.skip();
+    query["Skip"] = request.getSkip();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1750,27 +1750,27 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryAllReleased()) {
-    query["QueryAllReleased"] = request.queryAllReleased();
+    query["QueryAllReleased"] = request.getQueryAllReleased();
   }
 
   if (!!request.hasSearchKey()) {
-    query["SearchKey"] = request.searchKey();
+    query["SearchKey"] = request.getSearchKey();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1812,15 +1812,15 @@ ListDataLakeCatalogResponse Client::listDataLakeCatalogWithOptions(const ListDat
   request.validate();
   json query = {};
   if (!!request.hasSearchKey()) {
-    query["SearchKey"] = request.searchKey();
+    query["SearchKey"] = request.getSearchKey();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1862,27 +1862,27 @@ ListDataLakeDatabaseResponse Client::listDataLakeDatabaseWithOptions(const ListD
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSearchKey()) {
-    query["SearchKey"] = request.searchKey();
+    query["SearchKey"] = request.getSearchKey();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1924,31 +1924,31 @@ ListDataLakeFunctionResponse Client::listDataLakeFunctionWithOptions(const ListD
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasFunctionNamePattern()) {
-    query["FunctionNamePattern"] = request.functionNamePattern();
+    query["FunctionNamePattern"] = request.getFunctionNamePattern();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1990,31 +1990,31 @@ ListDataLakeFunctionNameResponse Client::listDataLakeFunctionNameWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasFunctionNamePattern()) {
-    query["FunctionNamePattern"] = request.functionNamePattern();
+    query["FunctionNamePattern"] = request.getFunctionNamePattern();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2057,41 +2057,41 @@ ListDataLakePartitionResponse Client::listDataLakePartitionWithOptions(const Lis
   ListDataLakePartitionShrinkRequest request = ListDataLakePartitionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPartNames()) {
-    request.setPartNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partNames(), "PartNames", "json"));
+    request.setPartNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartNames(), "PartNames", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasPartNamesShrink()) {
-    body["PartNames"] = request.partNamesShrink();
+    body["PartNames"] = request.getPartNamesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2134,36 +2134,36 @@ ListDataLakePartitionByFilterResponse Client::listDataLakePartitionByFilterWithO
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2206,31 +2206,31 @@ ListDataLakePartitionNameResponse Client::listDataLakePartitionNameWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2272,35 +2272,35 @@ ListDataLakeTableResponse Client::listDataLakeTableWithOptions(const ListDataLak
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTableNamePattern()) {
-    query["TableNamePattern"] = request.tableNamePattern();
+    query["TableNamePattern"] = request.getTableNamePattern();
   }
 
   if (!!request.hasTableType()) {
-    query["TableType"] = request.tableType();
+    query["TableType"] = request.getTableType();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2342,35 +2342,35 @@ ListDataLakeTableNameResponse Client::listDataLakeTableNameWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTableNamePattern()) {
-    query["TableNamePattern"] = request.tableNamePattern();
+    query["TableNamePattern"] = request.getTableNamePattern();
   }
 
   if (!!request.hasTableType()) {
-    query["TableType"] = request.tableType();
+    query["TableType"] = request.getTableType();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2412,31 +2412,31 @@ ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfoWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasPage()) {
-    query["Page"] = request.page();
+    query["Page"] = request.getPage();
   }
 
   if (!!request.hasRows()) {
-    query["Rows"] = request.rows();
+    query["Rows"] = request.getRows();
   }
 
   if (!!request.hasSearchKey()) {
-    query["SearchKey"] = request.searchKey();
+    query["SearchKey"] = request.getSearchKey();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2478,35 +2478,35 @@ ListFileUploadResponse Client::listFileUploadWithOptions(const ListFileUploadReq
   request.validate();
   json query = {};
   if (!!request.hasCallFrom()) {
-    query["CallFrom"] = request.callFrom();
+    query["CallFrom"] = request.getCallFrom();
   }
 
   if (!!request.hasDmsUnit()) {
-    query["DmsUnit"] = request.dmsUnit();
+    query["DmsUnit"] = request.getDmsUnit();
   }
 
   if (!!request.hasFileCategory()) {
-    query["FileCategory"] = request.fileCategory();
+    query["FileCategory"] = request.getFileCategory();
   }
 
   if (!!request.hasFileFrom()) {
-    query["FileFrom"] = request.fileFrom();
+    query["FileFrom"] = request.getFileFrom();
   }
 
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   if (!!request.hasSortColumn()) {
-    query["SortColumn"] = request.sortColumn();
+    query["SortColumn"] = request.getSortColumn();
   }
 
   if (!!request.hasSortDirection()) {
-    query["SortDirection"] = request.sortDirection();
+    query["SortDirection"] = request.getSortDirection();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2549,52 +2549,52 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
   SendChatMessageShrinkRequest request = SendChatMessageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataSource()) {
-    request.setDataSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataSource(), "DataSource", "json"));
+    request.setDataSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataSource(), "DataSource", "json"));
   }
 
   if (!!tmpReq.hasSessionConfig()) {
-    request.setSessionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig(), "SessionConfig", "json"));
+    request.setSessionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSessionConfig(), "SessionConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasAgentId()) {
-    query["AgentId"] = request.agentId();
+    query["AgentId"] = request.getAgentId();
   }
 
   if (!!request.hasDMSUnit()) {
-    query["DMSUnit"] = request.DMSUnit();
+    query["DMSUnit"] = request.getDMSUnit();
   }
 
   if (!!request.hasDataSourceShrink()) {
-    query["DataSource"] = request.dataSourceShrink();
+    query["DataSource"] = request.getDataSourceShrink();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   if (!!request.hasMessageType()) {
-    query["MessageType"] = request.messageType();
+    query["MessageType"] = request.getMessageType();
   }
 
   if (!!request.hasQuestion()) {
-    query["Question"] = request.question();
+    query["Question"] = request.getQuestion();
   }
 
   if (!!request.hasQuotedMessage()) {
-    query["QuotedMessage"] = request.quotedMessage();
+    query["QuotedMessage"] = request.getQuotedMessage();
   }
 
   if (!!request.hasReplyTo()) {
-    query["ReplyTo"] = request.replyTo();
+    query["ReplyTo"] = request.getReplyTo();
   }
 
   if (!!request.hasSessionConfigShrink()) {
-    query["SessionConfig"] = request.sessionConfigShrink();
+    query["SessionConfig"] = request.getSessionConfigShrink();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2636,47 +2636,47 @@ UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowReques
   request.validate();
   json query = {};
   if (!!request.hasAirflowId()) {
-    query["AirflowId"] = request.airflowId();
+    query["AirflowId"] = request.getAirflowId();
   }
 
   if (!!request.hasAirflowName()) {
-    query["AirflowName"] = request.airflowName();
+    query["AirflowName"] = request.getAirflowName();
   }
 
   if (!!request.hasAppSpec()) {
-    query["AppSpec"] = request.appSpec();
+    query["AppSpec"] = request.getAppSpec();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDagsDir()) {
-    query["DagsDir"] = request.dagsDir();
+    query["DagsDir"] = request.getDagsDir();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasPluginsDir()) {
-    query["PluginsDir"] = request.pluginsDir();
+    query["PluginsDir"] = request.getPluginsDir();
   }
 
   if (!!request.hasRequirementFile()) {
-    query["RequirementFile"] = request.requirementFile();
+    query["RequirementFile"] = request.getRequirementFile();
   }
 
   if (!!request.hasStartupFile()) {
-    query["StartupFile"] = request.startupFile();
+    query["StartupFile"] = request.getStartupFile();
   }
 
   if (!!request.hasWorkerServerlessReplicas()) {
-    query["WorkerServerlessReplicas"] = request.workerServerlessReplicas();
+    query["WorkerServerlessReplicas"] = request.getWorkerServerlessReplicas();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2719,36 +2719,36 @@ UpdateDataLakeDatabaseResponse Client::updateDataLakeDatabaseWithOptions(const U
   UpdateDataLakeDatabaseShrinkRequest request = UpdateDataLakeDatabaseShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasParameters()) {
-    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parameters(), "Parameters", "json"));
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasLocation()) {
-    query["Location"] = request.location();
+    query["Location"] = request.getLocation();
   }
 
   if (!!request.hasParametersShrink()) {
-    query["Parameters"] = request.parametersShrink();
+    query["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2791,33 +2791,33 @@ UpdateDataLakeFunctionResponse Client::updateDataLakeFunctionWithOptions(const U
   UpdateDataLakeFunctionShrinkRequest request = UpdateDataLakeFunctionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFunctionInput()) {
-    request.setFunctionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.functionInput(), "FunctionInput", "json"));
+    request.setFunctionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFunctionInput(), "FunctionInput", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasFunctionName()) {
-    query["FunctionName"] = request.functionName();
+    query["FunctionName"] = request.getFunctionName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasFunctionInputShrink()) {
-    body["FunctionInput"] = request.functionInputShrink();
+    body["FunctionInput"] = request.getFunctionInputShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2861,33 +2861,33 @@ UpdateDataLakePartitionResponse Client::updateDataLakePartitionWithOptions(const
   UpdateDataLakePartitionShrinkRequest request = UpdateDataLakePartitionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPartitionInput()) {
-    request.setPartitionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partitionInput(), "PartitionInput", "json"));
+    request.setPartitionInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartitionInput(), "PartitionInput", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasPartitionInputShrink()) {
-    body["PartitionInput"] = request.partitionInputShrink();
+    body["PartitionInput"] = request.getPartitionInputShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2931,33 +2931,33 @@ UpdateDataLakeTableResponse Client::updateDataLakeTableWithOptions(const UpdateD
   UpdateDataLakeTableShrinkRequest request = UpdateDataLakeTableShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTableInput()) {
-    request.setTableInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableInput(), "TableInput", "json"));
+    request.setTableInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableInput(), "TableInput", "json"));
   }
 
   json query = {};
   if (!!request.hasCatalogName()) {
-    query["CatalogName"] = request.catalogName();
+    query["CatalogName"] = request.getCatalogName();
   }
 
   if (!!request.hasDbName()) {
-    query["DbName"] = request.dbName();
+    query["DbName"] = request.getDbName();
   }
 
   if (!!request.hasTableName()) {
-    query["TableName"] = request.tableName();
+    query["TableName"] = request.getTableName();
   }
 
   if (!!request.hasTid()) {
-    query["Tid"] = request.tid();
+    query["Tid"] = request.getTid();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
   if (!!request.hasTableInputShrink()) {
-    body["TableInput"] = request.tableInputShrink();
+    body["TableInput"] = request.getTableInputShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

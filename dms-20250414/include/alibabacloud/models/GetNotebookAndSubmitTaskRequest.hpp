@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->params_ == nullptr
-        && return this->path_ == nullptr && return this->retry_ == nullptr && return this->sessionId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->path_ == nullptr && this->retry_ == nullptr && this->sessionId_ == nullptr && this->workspaceId_ == nullptr; };
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline GetNotebookAndSubmitTaskRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline GetNotebookAndSubmitTaskRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // retry Field Functions 
     bool hasRetry() const { return this->retry_ != nullptr;};
     void deleteRetry() { this->retry_ = nullptr;};
-    inline int64_t retry() const { DARABONBA_PTR_GET_DEFAULT(retry_, 0L) };
+    inline int64_t getRetry() const { DARABONBA_PTR_GET_DEFAULT(retry_, 0L) };
     inline GetNotebookAndSubmitTaskRequest& setRetry(int64_t retry) { DARABONBA_PTR_SET_VALUE(retry_, retry) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline GetNotebookAndSubmitTaskRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline GetNotebookAndSubmitTaskRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> params_ {};
     // This parameter is required.
-    std::shared_ptr<string> path_ = nullptr;
-    std::shared_ptr<int64_t> retry_ = nullptr;
+    shared_ptr<string> path_ {};
+    shared_ptr<int64_t> retry_ {};
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

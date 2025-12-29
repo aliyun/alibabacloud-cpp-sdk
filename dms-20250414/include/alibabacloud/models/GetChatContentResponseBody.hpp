@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->checkpoint_ == nullptr && return this->content_ == nullptr && return this->contentType_ == nullptr && return this->eventType_ == nullptr && return this->level_ == nullptr; };
+        && this->checkpoint_ == nullptr && this->content_ == nullptr && this->contentType_ == nullptr && this->eventType_ == nullptr && this->level_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline GetChatContentResponseBody& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // checkpoint Field Functions 
     bool hasCheckpoint() const { return this->checkpoint_ != nullptr;};
     void deleteCheckpoint() { this->checkpoint_ = nullptr;};
-    inline int64_t checkpoint() const { DARABONBA_PTR_GET_DEFAULT(checkpoint_, 0L) };
+    inline int64_t getCheckpoint() const { DARABONBA_PTR_GET_DEFAULT(checkpoint_, 0L) };
     inline GetChatContentResponseBody& setCheckpoint(int64_t checkpoint) { DARABONBA_PTR_SET_VALUE(checkpoint_, checkpoint) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline GetChatContentResponseBody& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
-    inline string contentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
+    inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline GetChatContentResponseBody& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
 
 
     // eventType Field Functions 
     bool hasEventType() const { return this->eventType_ != nullptr;};
     void deleteEventType() { this->eventType_ = nullptr;};
-    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
     inline GetChatContentResponseBody& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // level Field Functions 
     bool hasLevel() const { return this->level_ != nullptr;};
     void deleteLevel() { this->level_ = nullptr;};
-    inline int64_t level() const { DARABONBA_PTR_GET_DEFAULT(level_, 0L) };
+    inline int64_t getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, 0L) };
     inline GetChatContentResponseBody& setLevel(int64_t level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
   protected:
-    std::shared_ptr<string> category_ = nullptr;
-    std::shared_ptr<int64_t> checkpoint_ = nullptr;
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> contentType_ = nullptr;
-    std::shared_ptr<string> eventType_ = nullptr;
-    std::shared_ptr<int64_t> level_ = nullptr;
+    shared_ptr<string> category_ {};
+    shared_ptr<int64_t> checkpoint_ {};
+    shared_ptr<string> content_ {};
+    shared_ptr<string> contentType_ {};
+    shared_ptr<string> eventType_ {};
+    shared_ptr<int64_t> level_ {};
   };
 
   } // namespace Models

@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->skewedColNames_ == nullptr
-        && return this->skewedColValueLocationMaps_ == nullptr && return this->skewedColValues_ == nullptr; };
+        && this->skewedColValueLocationMaps_ == nullptr && this->skewedColValues_ == nullptr; };
     // skewedColNames Field Functions 
     bool hasSkewedColNames() const { return this->skewedColNames_ != nullptr;};
     void deleteSkewedColNames() { this->skewedColNames_ = nullptr;};
-    inline const vector<string> & skewedColNames() const { DARABONBA_PTR_GET_CONST(skewedColNames_, vector<string>) };
-    inline vector<string> skewedColNames() { DARABONBA_PTR_GET(skewedColNames_, vector<string>) };
+    inline const vector<string> & getSkewedColNames() const { DARABONBA_PTR_GET_CONST(skewedColNames_, vector<string>) };
+    inline vector<string> getSkewedColNames() { DARABONBA_PTR_GET(skewedColNames_, vector<string>) };
     inline DLSkewedInfo& setSkewedColNames(const vector<string> & skewedColNames) { DARABONBA_PTR_SET_VALUE(skewedColNames_, skewedColNames) };
     inline DLSkewedInfo& setSkewedColNames(vector<string> && skewedColNames) { DARABONBA_PTR_SET_RVALUE(skewedColNames_, skewedColNames) };
 
@@ -48,25 +48,25 @@ namespace Models
     // skewedColValueLocationMaps Field Functions 
     bool hasSkewedColValueLocationMaps() const { return this->skewedColValueLocationMaps_ != nullptr;};
     void deleteSkewedColValueLocationMaps() { this->skewedColValueLocationMaps_ = nullptr;};
-    inline     const Darabonba::Json & skewedColValueLocationMaps() const { DARABONBA_GET(skewedColValueLocationMaps_) };
-    Darabonba::Json & skewedColValueLocationMaps() { DARABONBA_GET(skewedColValueLocationMaps_) };
+    inline     const Darabonba::Json & getSkewedColValueLocationMaps() const { DARABONBA_GET(skewedColValueLocationMaps_) };
+    Darabonba::Json & getSkewedColValueLocationMaps() { DARABONBA_GET(skewedColValueLocationMaps_) };
     inline DLSkewedInfo& setSkewedColValueLocationMaps(const Darabonba::Json & skewedColValueLocationMaps) { DARABONBA_SET_VALUE(skewedColValueLocationMaps_, skewedColValueLocationMaps) };
-    inline DLSkewedInfo& setSkewedColValueLocationMaps(Darabonba::Json & skewedColValueLocationMaps) { DARABONBA_SET_RVALUE(skewedColValueLocationMaps_, skewedColValueLocationMaps) };
+    inline DLSkewedInfo& setSkewedColValueLocationMaps(Darabonba::Json && skewedColValueLocationMaps) { DARABONBA_SET_RVALUE(skewedColValueLocationMaps_, skewedColValueLocationMaps) };
 
 
     // skewedColValues Field Functions 
     bool hasSkewedColValues() const { return this->skewedColValues_ != nullptr;};
     void deleteSkewedColValues() { this->skewedColValues_ = nullptr;};
-    inline const vector<vector<string>> & skewedColValues() const { DARABONBA_PTR_GET_CONST(skewedColValues_, vector<vector<string>>) };
-    inline vector<vector<string>> skewedColValues() { DARABONBA_PTR_GET(skewedColValues_, vector<vector<string>>) };
+    inline const vector<vector<string>> & getSkewedColValues() const { DARABONBA_PTR_GET_CONST(skewedColValues_, vector<vector<string>>) };
+    inline vector<vector<string>> getSkewedColValues() { DARABONBA_PTR_GET(skewedColValues_, vector<vector<string>>) };
     inline DLSkewedInfo& setSkewedColValues(const vector<vector<string>> & skewedColValues) { DARABONBA_PTR_SET_VALUE(skewedColValues_, skewedColValues) };
     inline DLSkewedInfo& setSkewedColValues(vector<vector<string>> && skewedColValues) { DARABONBA_PTR_SET_RVALUE(skewedColValues_, skewedColValues) };
 
 
   protected:
-    std::shared_ptr<vector<string>> skewedColNames_ = nullptr;
-    Darabonba::Json skewedColValueLocationMaps_ = nullptr;
-    std::shared_ptr<vector<vector<string>>> skewedColValues_ = nullptr;
+    shared_ptr<vector<string>> skewedColNames_ {};
+    Darabonba::Json skewedColValueLocationMaps_ {};
+    shared_ptr<vector<vector<string>>> skewedColValues_ {};
   };
 
   } // namespace Models

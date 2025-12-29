@@ -170,29 +170,5 @@
 #include <alibabacloud/models/UpdateDataLakeTableShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateDataLakeTableResponseBody.hpp>
 #include <alibabacloud/models/UpdateDataLakeTableResponse.hpp>
-#include <alibabacloud/models/CreateAirflowResponseBodyRoot.hpp>
-#include <alibabacloud/models/CreateAirflowLoginTokenResponseBodyData.hpp>
-#include <alibabacloud/models/CreateDataAgentSessionRequestSessionConfig.hpp>
-#include <alibabacloud/models/CreateDataAgentSessionResponseBodyDataSessionConfig.hpp>
-#include <alibabacloud/models/CreateDataAgentSessionResponseBodyData.hpp>
-#include <alibabacloud/models/DeleteAirflowResponseBodyRootResponses.hpp>
-#include <alibabacloud/models/DeleteAirflowResponseBodyRoot.hpp>
-#include <alibabacloud/models/DescribeCustomAgentResponseBodyDataExecutionConfig.hpp>
-#include <alibabacloud/models/DescribeCustomAgentResponseBodyData.hpp>
-#include <alibabacloud/models/DescribeDataAgentSessionResponseBodyDataChatHistoryLocations.hpp>
-#include <alibabacloud/models/DescribeDataAgentSessionResponseBodyDataSessionConfig.hpp>
-#include <alibabacloud/models/DescribeDataAgentSessionResponseBodyData.hpp>
-#include <alibabacloud/models/GetAirflowResponseBodyRoot.hpp>
-#include <alibabacloud/models/GetNotebookTaskStatusResponseBodyData.hpp>
-#include <alibabacloud/models/ListAirflowsResponseBodyRootList.hpp>
-#include <alibabacloud/models/ListAirflowsResponseBodyRoot.hpp>
-#include <alibabacloud/models/ListCustomAgentResponseBodyDataContentExecutionConfig.hpp>
-#include <alibabacloud/models/ListCustomAgentResponseBodyDataContent.hpp>
-#include <alibabacloud/models/ListCustomAgentResponseBodyData.hpp>
-#include <alibabacloud/models/ListFileUploadResponseBodyData.hpp>
-#include <alibabacloud/models/SendChatMessageRequestDataSource.hpp>
-#include <alibabacloud/models/SendChatMessageRequestSessionConfig.hpp>
-#include <alibabacloud/models/SendChatMessageResponseBodyData.hpp>
-#include <alibabacloud/models/UpdateAirflowResponseBodyRoot.hpp>
 
 #endif

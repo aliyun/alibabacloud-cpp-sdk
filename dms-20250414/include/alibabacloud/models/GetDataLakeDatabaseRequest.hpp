@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogName_ == nullptr
-        && return this->name_ == nullptr && return this->tid_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->name_ == nullptr && this->tid_ == nullptr && this->workspaceId_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
-    inline string catalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
+    inline string getCatalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
     inline GetDataLakeDatabaseRequest& setCatalogName(string catalogName) { DARABONBA_PTR_SET_VALUE(catalogName_, catalogName) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetDataLakeDatabaseRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline GetDataLakeDatabaseRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline int64_t workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
+    inline int64_t getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
     inline GetDataLakeDatabaseRequest& setWorkspaceId(int64_t workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> catalogName_ = nullptr;
+    shared_ptr<string> catalogName_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int64_t> tid_ = nullptr;
-    std::shared_ptr<int64_t> workspaceId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<int64_t> tid_ {};
+    shared_ptr<int64_t> workspaceId_ {};
   };
 
   } // namespace Models

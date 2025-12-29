@@ -33,7 +33,7 @@ namespace Models
     // airflowId Field Functions 
     bool hasAirflowId() const { return this->airflowId_ != nullptr;};
     void deleteAirflowId() { this->airflowId_ = nullptr;};
-    inline string airflowId() const { DARABONBA_PTR_GET_DEFAULT(airflowId_, "") };
+    inline string getAirflowId() const { DARABONBA_PTR_GET_DEFAULT(airflowId_, "") };
     inline CreateAirflowLoginTokenRequest& setAirflowId(string airflowId) { DARABONBA_PTR_SET_VALUE(airflowId_, airflowId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the Airflow instance. You can view the instance ID on the [Airflow Instances](https://help.aliyun.com/document_detail/2881043.html) page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> airflowId_ = nullptr;
+    shared_ptr<string> airflowId_ {};
   };
 
   } // namespace Models

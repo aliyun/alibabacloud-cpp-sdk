@@ -40,26 +40,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorCode_ == nullptr
-        && return this->errorMessage_ == nullptr && return this->partitions_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->partitions_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline BatchCreateDataLakePartitionsResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline BatchCreateDataLakePartitionsResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // partitions Field Functions 
     bool hasPartitions() const { return this->partitions_ != nullptr;};
     void deletePartitions() { this->partitions_ = nullptr;};
-    inline const vector<DLPartition> & partitions() const { DARABONBA_PTR_GET_CONST(partitions_, vector<DLPartition>) };
-    inline vector<DLPartition> partitions() { DARABONBA_PTR_GET(partitions_, vector<DLPartition>) };
+    inline const vector<DLPartition> & getPartitions() const { DARABONBA_PTR_GET_CONST(partitions_, vector<DLPartition>) };
+    inline vector<DLPartition> getPartitions() { DARABONBA_PTR_GET(partitions_, vector<DLPartition>) };
     inline BatchCreateDataLakePartitionsResponseBody& setPartitions(const vector<DLPartition> & partitions) { DARABONBA_PTR_SET_VALUE(partitions_, partitions) };
     inline BatchCreateDataLakePartitionsResponseBody& setPartitions(vector<DLPartition> && partitions) { DARABONBA_PTR_SET_RVALUE(partitions_, partitions) };
 
@@ -67,23 +67,23 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BatchCreateDataLakePartitionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline BatchCreateDataLakePartitionsResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> errorCode_ = nullptr;
-    std::shared_ptr<string> errorMessage_ = nullptr;
-    std::shared_ptr<vector<DLPartition>> partitions_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMessage_ {};
+    shared_ptr<vector<DLPartition>> partitions_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models

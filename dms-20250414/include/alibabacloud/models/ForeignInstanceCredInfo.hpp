@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credInfo_ == nullptr
-        && return this->credType_ == nullptr; };
+        && this->credType_ == nullptr; };
     // credInfo Field Functions 
     bool hasCredInfo() const { return this->credInfo_ != nullptr;};
     void deleteCredInfo() { this->credInfo_ = nullptr;};
-    inline const map<string, string> & credInfo() const { DARABONBA_PTR_GET_CONST(credInfo_, map<string, string>) };
-    inline map<string, string> credInfo() { DARABONBA_PTR_GET(credInfo_, map<string, string>) };
+    inline const map<string, string> & getCredInfo() const { DARABONBA_PTR_GET_CONST(credInfo_, map<string, string>) };
+    inline map<string, string> getCredInfo() { DARABONBA_PTR_GET(credInfo_, map<string, string>) };
     inline ForeignInstanceCredInfo& setCredInfo(const map<string, string> & credInfo) { DARABONBA_PTR_SET_VALUE(credInfo_, credInfo) };
     inline ForeignInstanceCredInfo& setCredInfo(map<string, string> && credInfo) { DARABONBA_PTR_SET_RVALUE(credInfo_, credInfo) };
 
@@ -46,13 +46,13 @@ namespace Models
     // credType Field Functions 
     bool hasCredType() const { return this->credType_ != nullptr;};
     void deleteCredType() { this->credType_ = nullptr;};
-    inline string credType() const { DARABONBA_PTR_GET_DEFAULT(credType_, "") };
+    inline string getCredType() const { DARABONBA_PTR_GET_DEFAULT(credType_, "") };
     inline ForeignInstanceCredInfo& setCredType(string credType) { DARABONBA_PTR_SET_VALUE(credType_, credType) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> credInfo_ = nullptr;
-    std::shared_ptr<string> credType_ = nullptr;
+    shared_ptr<map<string, string>> credInfo_ {};
+    shared_ptr<string> credType_ {};
   };
 
   } // namespace Models

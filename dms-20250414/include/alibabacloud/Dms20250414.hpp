@@ -333,7 +333,7 @@ namespace Dms20250414
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetChatContentResponse
        */
-      FutrueGenerator<Models::GetChatContentResponse> getChatContentWithSSE(const Models::GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::GetChatContentResponse> getChatContentWithSSE(const Models::GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary GetChatContent

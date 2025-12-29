@@ -45,41 +45,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogName_ == nullptr
-        && return this->dbName_ == nullptr && return this->ifNotExists_ == nullptr && return this->needResult_ == nullptr && return this->partitionInput_ == nullptr && return this->tableName_ == nullptr
-        && return this->tid_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->dbName_ == nullptr && this->ifNotExists_ == nullptr && this->needResult_ == nullptr && this->partitionInput_ == nullptr && this->tableName_ == nullptr
+        && this->tid_ == nullptr && this->workspaceId_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
-    inline string catalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
+    inline string getCatalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
     inline CreateDataLakePartitionRequest& setCatalogName(string catalogName) { DARABONBA_PTR_SET_VALUE(catalogName_, catalogName) };
 
 
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline CreateDataLakePartitionRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // ifNotExists Field Functions 
     bool hasIfNotExists() const { return this->ifNotExists_ != nullptr;};
     void deleteIfNotExists() { this->ifNotExists_ = nullptr;};
-    inline bool ifNotExists() const { DARABONBA_PTR_GET_DEFAULT(ifNotExists_, false) };
+    inline bool getIfNotExists() const { DARABONBA_PTR_GET_DEFAULT(ifNotExists_, false) };
     inline CreateDataLakePartitionRequest& setIfNotExists(bool ifNotExists) { DARABONBA_PTR_SET_VALUE(ifNotExists_, ifNotExists) };
 
 
     // needResult Field Functions 
     bool hasNeedResult() const { return this->needResult_ != nullptr;};
     void deleteNeedResult() { this->needResult_ = nullptr;};
-    inline bool needResult() const { DARABONBA_PTR_GET_DEFAULT(needResult_, false) };
+    inline bool getNeedResult() const { DARABONBA_PTR_GET_DEFAULT(needResult_, false) };
     inline CreateDataLakePartitionRequest& setNeedResult(bool needResult) { DARABONBA_PTR_SET_VALUE(needResult_, needResult) };
 
 
     // partitionInput Field Functions 
     bool hasPartitionInput() const { return this->partitionInput_ != nullptr;};
     void deletePartitionInput() { this->partitionInput_ = nullptr;};
-    inline const DLPartitionInput & partitionInput() const { DARABONBA_PTR_GET_CONST(partitionInput_, DLPartitionInput) };
-    inline DLPartitionInput partitionInput() { DARABONBA_PTR_GET(partitionInput_, DLPartitionInput) };
+    inline const DLPartitionInput & getPartitionInput() const { DARABONBA_PTR_GET_CONST(partitionInput_, DLPartitionInput) };
+    inline DLPartitionInput getPartitionInput() { DARABONBA_PTR_GET(partitionInput_, DLPartitionInput) };
     inline CreateDataLakePartitionRequest& setPartitionInput(const DLPartitionInput & partitionInput) { DARABONBA_PTR_SET_VALUE(partitionInput_, partitionInput) };
     inline CreateDataLakePartitionRequest& setPartitionInput(DLPartitionInput && partitionInput) { DARABONBA_PTR_SET_RVALUE(partitionInput_, partitionInput) };
 
@@ -87,37 +87,37 @@ namespace Models
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline CreateDataLakePartitionRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline CreateDataLakePartitionRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline int64_t workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
+    inline int64_t getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
     inline CreateDataLakePartitionRequest& setWorkspaceId(int64_t workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> catalogName_ = nullptr;
+    shared_ptr<string> catalogName_ {};
     // This parameter is required.
-    std::shared_ptr<string> dbName_ = nullptr;
-    std::shared_ptr<bool> ifNotExists_ = nullptr;
-    std::shared_ptr<bool> needResult_ = nullptr;
+    shared_ptr<string> dbName_ {};
+    shared_ptr<bool> ifNotExists_ {};
+    shared_ptr<bool> needResult_ {};
     // This parameter is required.
-    std::shared_ptr<DLPartitionInput> partitionInput_ = nullptr;
+    shared_ptr<DLPartitionInput> partitionInput_ {};
     // This parameter is required.
-    std::shared_ptr<string> tableName_ = nullptr;
-    std::shared_ptr<int64_t> tid_ = nullptr;
-    std::shared_ptr<int64_t> workspaceId_ = nullptr;
+    shared_ptr<string> tableName_ {};
+    shared_ptr<int64_t> tid_ {};
+    shared_ptr<int64_t> workspaceId_ {};
   };
 
   } // namespace Models
