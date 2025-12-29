@@ -1,0 +1,241 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEHISTORYTASKSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEHISTORYTASKSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Dds20151201
+{
+namespace Models
+{
+  class DescribeHistoryTasksRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeHistoryTasksRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(FromExecTime, fromExecTime_);
+      DARABONBA_PTR_TO_JSON(FromStartTime, fromStartTime_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      DARABONBA_PTR_TO_JSON(TaskType, taskType_);
+      DARABONBA_PTR_TO_JSON(ToExecTime, toExecTime_);
+      DARABONBA_PTR_TO_JSON(ToStartTime, toStartTime_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeHistoryTasksRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(FromExecTime, fromExecTime_);
+      DARABONBA_PTR_FROM_JSON(FromStartTime, fromStartTime_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
+      DARABONBA_PTR_FROM_JSON(ToExecTime, toExecTime_);
+      DARABONBA_PTR_FROM_JSON(ToStartTime, toStartTime_);
+    };
+    DescribeHistoryTasksRequest() = default ;
+    DescribeHistoryTasksRequest(const DescribeHistoryTasksRequest &) = default ;
+    DescribeHistoryTasksRequest(DescribeHistoryTasksRequest &&) = default ;
+    DescribeHistoryTasksRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeHistoryTasksRequest() = default ;
+    DescribeHistoryTasksRequest& operator=(const DescribeHistoryTasksRequest &) = default ;
+    DescribeHistoryTasksRequest& operator=(DescribeHistoryTasksRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->fromExecTime_ == nullptr
+        && this->fromStartTime_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->status_ == nullptr
+        && this->taskId_ == nullptr && this->taskType_ == nullptr && this->toExecTime_ == nullptr && this->toStartTime_ == nullptr; };
+    // fromExecTime Field Functions 
+    bool hasFromExecTime() const { return this->fromExecTime_ != nullptr;};
+    void deleteFromExecTime() { this->fromExecTime_ = nullptr;};
+    inline int32_t getFromExecTime() const { DARABONBA_PTR_GET_DEFAULT(fromExecTime_, 0) };
+    inline DescribeHistoryTasksRequest& setFromExecTime(int32_t fromExecTime) { DARABONBA_PTR_SET_VALUE(fromExecTime_, fromExecTime) };
+
+
+    // fromStartTime Field Functions 
+    bool hasFromStartTime() const { return this->fromStartTime_ != nullptr;};
+    void deleteFromStartTime() { this->fromStartTime_ = nullptr;};
+    inline string getFromStartTime() const { DARABONBA_PTR_GET_DEFAULT(fromStartTime_, "") };
+    inline DescribeHistoryTasksRequest& setFromStartTime(string fromStartTime) { DARABONBA_PTR_SET_VALUE(fromStartTime_, fromStartTime) };
+
+
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline DescribeHistoryTasksRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // instanceType Field Functions 
+    bool hasInstanceType() const { return this->instanceType_ != nullptr;};
+    void deleteInstanceType() { this->instanceType_ = nullptr;};
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline DescribeHistoryTasksRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeHistoryTasksRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeHistoryTasksRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline DescribeHistoryTasksRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline DescribeHistoryTasksRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // resourceOwnerAccount Field Functions 
+    bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
+    void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline DescribeHistoryTasksRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
+
+
+    // resourceOwnerId Field Functions 
+    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline DescribeHistoryTasksRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline DescribeHistoryTasksRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline DescribeHistoryTasksRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+    // taskType Field Functions 
+    bool hasTaskType() const { return this->taskType_ != nullptr;};
+    void deleteTaskType() { this->taskType_ = nullptr;};
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline DescribeHistoryTasksRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
+
+
+    // toExecTime Field Functions 
+    bool hasToExecTime() const { return this->toExecTime_ != nullptr;};
+    void deleteToExecTime() { this->toExecTime_ = nullptr;};
+    inline int32_t getToExecTime() const { DARABONBA_PTR_GET_DEFAULT(toExecTime_, 0) };
+    inline DescribeHistoryTasksRequest& setToExecTime(int32_t toExecTime) { DARABONBA_PTR_SET_VALUE(toExecTime_, toExecTime) };
+
+
+    // toStartTime Field Functions 
+    bool hasToStartTime() const { return this->toStartTime_ != nullptr;};
+    void deleteToStartTime() { this->toStartTime_ = nullptr;};
+    inline string getToStartTime() const { DARABONBA_PTR_GET_DEFAULT(toStartTime_, "") };
+    inline DescribeHistoryTasksRequest& setToStartTime(string toStartTime) { DARABONBA_PTR_SET_VALUE(toStartTime_, toStartTime) };
+
+
+  protected:
+    // The minimum execution duration of the task. This parameter is used to filter tasks whose execution duration is longer than the minimum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed for the query.
+    shared_ptr<int32_t> fromExecTime_ {};
+    // The start time of the O\\&M task to perform. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. You can query data within the last 30 days.
+    // 
+    // This parameter is required.
+    shared_ptr<string> fromStartTime_ {};
+    // The instance ID. Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs. This parameter is empty by default, which indicates that tasks of all instances are queried.
+    shared_ptr<string> instanceId_ {};
+    // The instance type of the instance. Set the value to Instance.
+    shared_ptr<string> instanceType_ {};
+    // The number of the page to return. The value must be a positive integer. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 10 to 100. Default value: 10.
+    shared_ptr<int32_t> pageSize_ {};
+    // The region ID of the pending event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+    shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    // The task status. Valid values:
+    // 
+    // *   Scheduled: The task is waiting to be executed.
+    // *   Running: The task is running.
+    // *   Succeed: The task is successful.
+    // *   Failed: The task failed.
+    // *   Cancelling: The task is being terminated.
+    // *   Canceled: The task has been terminated.
+    // *   Waiting: The task is waiting for scheduled time.
+    // 
+    // Separate multiple states with commas (,). This parameter is empty by default, which indicates that tasks in all states are queried.
+    shared_ptr<string> status_ {};
+    // The task ID. Separate multiple task IDs with commas (,). You can specify up to 30 task IDs. This parameter is empty by default, which indicates that all tasks are queried.
+    shared_ptr<string> taskId_ {};
+    // The task type. This parameter is left empty by default, which indicates that all types of tasks are queried. Valid values:
+    // 
+    // *   CreateIns: Create an instance.
+    // *   DeleteIns: Delete an instance.
+    // *   ChangeVariable: Modify parameter settings for an instance.
+    // *   ModifyInsConfig: Change the configurations of an instance.
+    // *   RestartIns: Restart an instance.
+    // *   HaSwitch: Perform a primary/secondary switchover on an instance.
+    // *   CloneIns: Clone an instance.
+    // *   KernelVersionUpgrade: Update the minor version of an instance.
+    // *   ProxyVersionUpgrade: Upgrade the agent version of an instance.
+    // *   ModifyAccount: Change the account of an instance.
+    // *   ModifyInsSpec: Change the specifications of an instance or perform a data migration on the instance.
+    // *   CreateReadIns: Create a read-only instance.
+    // *   StartIns: Start an instance.
+    // *   StopIns: Stop an instance.
+    // *   ModifyNetwork: Modify the network type for an instance.
+    // *   LockIns: Lock an instance.
+    // *   UnlockIns: Unlock an instance.
+    // *   DiskOnlineExpansion: Scale out the disks of an instance online.
+    // *   StorageOnlineExpansion: Expend the storage capacity of an instance online.
+    // *   AddInsNode: Add a node to an instance.
+    // *   DeleteInsNode: Delete a node from an instance.
+    // *   ManualBackupIns: Manually back up an instance.
+    // *   ModifyInsStorageType: Modify the storage type for an instance.
+    shared_ptr<string> taskType_ {};
+    // The maximum execution duration of the task. This parameter is used to filter tasks whose execution duration is shorter than or equal to the maximum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed for the query.
+    shared_ptr<int32_t> toExecTime_ {};
+    // The end time of the O\\&M task to perform. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. You can query data within the last 30 days.
+    // 
+    // This parameter is required.
+    shared_ptr<string> toStartTime_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Dds20151201
+#endif

@@ -1,0 +1,216 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEBACKUPSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEBACKUPSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Dds20151201
+{
+namespace Models
+{
+  class DescribeBackupsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeBackupsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BackupId, backupId_);
+      DARABONBA_PTR_TO_JSON(BackupJobId, backupJobId_);
+      DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(DestRegion, destRegion_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(SrcRegion, srcRegion_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeBackupsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BackupId, backupId_);
+      DARABONBA_PTR_FROM_JSON(BackupJobId, backupJobId_);
+      DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(DestRegion, destRegion_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
+      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(SrcRegion, srcRegion_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+    };
+    DescribeBackupsRequest() = default ;
+    DescribeBackupsRequest(const DescribeBackupsRequest &) = default ;
+    DescribeBackupsRequest(DescribeBackupsRequest &&) = default ;
+    DescribeBackupsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeBackupsRequest() = default ;
+    DescribeBackupsRequest& operator=(const DescribeBackupsRequest &) = default ;
+    DescribeBackupsRequest& operator=(DescribeBackupsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->backupId_ == nullptr
+        && this->backupJobId_ == nullptr && this->DBInstanceId_ == nullptr && this->destRegion_ == nullptr && this->endTime_ == nullptr && this->nodeId_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->srcRegion_ == nullptr && this->startTime_ == nullptr; };
+    // backupId Field Functions 
+    bool hasBackupId() const { return this->backupId_ != nullptr;};
+    void deleteBackupId() { this->backupId_ = nullptr;};
+    inline string getBackupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
+    inline DescribeBackupsRequest& setBackupId(string backupId) { DARABONBA_PTR_SET_VALUE(backupId_, backupId) };
+
+
+    // backupJobId Field Functions 
+    bool hasBackupJobId() const { return this->backupJobId_ != nullptr;};
+    void deleteBackupJobId() { this->backupJobId_ = nullptr;};
+    inline string getBackupJobId() const { DARABONBA_PTR_GET_DEFAULT(backupJobId_, "") };
+    inline DescribeBackupsRequest& setBackupJobId(string backupJobId) { DARABONBA_PTR_SET_VALUE(backupJobId_, backupJobId) };
+
+
+    // DBInstanceId Field Functions 
+    bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
+    void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline DescribeBackupsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // destRegion Field Functions 
+    bool hasDestRegion() const { return this->destRegion_ != nullptr;};
+    void deleteDestRegion() { this->destRegion_ = nullptr;};
+    inline string getDestRegion() const { DARABONBA_PTR_GET_DEFAULT(destRegion_, "") };
+    inline DescribeBackupsRequest& setDestRegion(string destRegion) { DARABONBA_PTR_SET_VALUE(destRegion_, destRegion) };
+
+
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline DescribeBackupsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // nodeId Field Functions 
+    bool hasNodeId() const { return this->nodeId_ != nullptr;};
+    void deleteNodeId() { this->nodeId_ = nullptr;};
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline DescribeBackupsRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+    // ownerAccount Field Functions 
+    bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
+    void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline DescribeBackupsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
+
+
+    // ownerId Field Functions 
+    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+    void deleteOwnerId() { this->ownerId_ = nullptr;};
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline DescribeBackupsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeBackupsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeBackupsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline DescribeBackupsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // resourceOwnerAccount Field Functions 
+    bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
+    void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline DescribeBackupsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
+
+
+    // resourceOwnerId Field Functions 
+    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline DescribeBackupsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
+    // srcRegion Field Functions 
+    bool hasSrcRegion() const { return this->srcRegion_ != nullptr;};
+    void deleteSrcRegion() { this->srcRegion_ = nullptr;};
+    inline string getSrcRegion() const { DARABONBA_PTR_GET_DEFAULT(srcRegion_, "") };
+    inline DescribeBackupsRequest& setSrcRegion(string srcRegion) { DARABONBA_PTR_SET_VALUE(srcRegion_, srcRegion) };
+
+
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline DescribeBackupsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+  protected:
+    // The ID of the backup set. You can call the [CreateBackup](https://help.aliyun.com/document_detail/62171.html) operation to query the backup set ID.
+    // 
+    // If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, the number of backup IDs is the same as the number of shard nodes. Multiple backup IDs are separated with commas (,).
+    shared_ptr<string> backupId_ {};
+    shared_ptr<string> backupJobId_ {};
+    // The instance ID.
+    // 
+    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // 
+    // This parameter is required.
+    shared_ptr<string> DBInstanceId_ {};
+    // The region ID of the Cross-regional backup.
+    // 
+    // >  This parameter is required for the Cross-regional backup.
+    shared_ptr<string> destRegion_ {};
+    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+    shared_ptr<string> endTime_ {};
+    // The ID of the shard node in the sharded cluster instance.
+    // 
+    // > This parameter takes effect only when you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    // The page number. Pages start from page 1. Default value: **1**.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page. Valid values:
+    // 
+    // *   **30** (default)
+    // *   **50**
+    // *   **100**
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    // The region ID of the instance.
+    // 
+    // >- This parameter is required if you want to query the backup sets of a released instance.
+    // >-  This parameter is required if you want to query cross-region backups.
+    shared_ptr<string> srcRegion_ {};
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    shared_ptr<string> startTime_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Dds20151201
+#endif
