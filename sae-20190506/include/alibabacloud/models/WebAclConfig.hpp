@@ -35,15 +35,15 @@ namespace Models
     // webAclEntries Field Functions 
     bool hasWebAclEntries() const { return this->webAclEntries_ != nullptr;};
     void deleteWebAclEntries() { this->webAclEntries_ = nullptr;};
-    inline const vector<WebAclEntryConfig> & webAclEntries() const { DARABONBA_PTR_GET_CONST(webAclEntries_, vector<WebAclEntryConfig>) };
-    inline vector<WebAclEntryConfig> webAclEntries() { DARABONBA_PTR_GET(webAclEntries_, vector<WebAclEntryConfig>) };
+    inline const vector<WebAclEntryConfig> & getWebAclEntries() const { DARABONBA_PTR_GET_CONST(webAclEntries_, vector<WebAclEntryConfig>) };
+    inline vector<WebAclEntryConfig> getWebAclEntries() { DARABONBA_PTR_GET(webAclEntries_, vector<WebAclEntryConfig>) };
     inline WebAclConfig& setWebAclEntries(const vector<WebAclEntryConfig> & webAclEntries) { DARABONBA_PTR_SET_VALUE(webAclEntries_, webAclEntries) };
     inline WebAclConfig& setWebAclEntries(vector<WebAclEntryConfig> && webAclEntries) { DARABONBA_PTR_SET_RVALUE(webAclEntries_, webAclEntries) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<WebAclEntryConfig>> webAclEntries_ = nullptr;
+    shared_ptr<vector<WebAclEntryConfig>> webAclEntries_ {};
   };
 
   } // namespace Models

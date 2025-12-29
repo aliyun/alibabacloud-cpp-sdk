@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->insecure_ == nullptr
-        && return this->rootCaCertBase64_ == nullptr; };
+        && this->rootCaCertBase64_ == nullptr; };
     // insecure Field Functions 
     bool hasInsecure() const { return this->insecure_ != nullptr;};
     void deleteInsecure() { this->insecure_ = nullptr;};
-    inline bool insecure() const { DARABONBA_PTR_GET_DEFAULT(insecure_, false) };
+    inline bool getInsecure() const { DARABONBA_PTR_GET_DEFAULT(insecure_, false) };
     inline RegistryCertConfig& setInsecure(bool insecure) { DARABONBA_PTR_SET_VALUE(insecure_, insecure) };
 
 
     // rootCaCertBase64 Field Functions 
     bool hasRootCaCertBase64() const { return this->rootCaCertBase64_ != nullptr;};
     void deleteRootCaCertBase64() { this->rootCaCertBase64_ = nullptr;};
-    inline string rootCaCertBase64() const { DARABONBA_PTR_GET_DEFAULT(rootCaCertBase64_, "") };
+    inline string getRootCaCertBase64() const { DARABONBA_PTR_GET_DEFAULT(rootCaCertBase64_, "") };
     inline RegistryCertConfig& setRootCaCertBase64(string rootCaCertBase64) { DARABONBA_PTR_SET_VALUE(rootCaCertBase64_, rootCaCertBase64) };
 
 
   protected:
-    std::shared_ptr<bool> insecure_ = nullptr;
-    std::shared_ptr<string> rootCaCertBase64_ = nullptr;
+    shared_ptr<bool> insecure_ {};
+    shared_ptr<string> rootCaCertBase64_ {};
   };
 
   } // namespace Models

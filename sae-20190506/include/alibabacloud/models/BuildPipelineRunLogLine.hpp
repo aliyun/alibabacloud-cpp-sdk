@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->offset_ == nullptr; };
+        && this->offset_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline BuildPipelineRunLogLine& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline int64_t offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0L) };
+    inline int64_t getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0L) };
     inline BuildPipelineRunLogLine& setOffset(int64_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
   protected:
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<int64_t> offset_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<int64_t> offset_ {};
   };
 
   } // namespace Models

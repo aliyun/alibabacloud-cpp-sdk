@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->enableAhas_ == nullptr; };
+        && this->enableAhas_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeApplicationMseServiceRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // enableAhas Field Functions 
     bool hasEnableAhas() const { return this->enableAhas_ != nullptr;};
     void deleteEnableAhas() { this->enableAhas_ = nullptr;};
-    inline bool enableAhas() const { DARABONBA_PTR_GET_DEFAULT(enableAhas_, false) };
+    inline bool getEnableAhas() const { DARABONBA_PTR_GET_DEFAULT(enableAhas_, false) };
     inline DescribeApplicationMseServiceRequest& setEnableAhas(bool enableAhas) { DARABONBA_PTR_SET_VALUE(enableAhas_, enableAhas) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // Specifies whether to enable traffic limiting and degradation. Set to true to check traffic limiting and degradation permissions when accessing related APIs; set to false otherwise.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enableAhas_ = nullptr;
+    shared_ptr<bool> enableAhas_ {};
   };
 
   } // namespace Models

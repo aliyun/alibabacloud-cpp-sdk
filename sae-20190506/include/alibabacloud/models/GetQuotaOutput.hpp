@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->instanceLimit_ == nullptr && return this->instanceUsed_ == nullptr; };
+        && this->instanceLimit_ == nullptr && this->instanceUsed_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetQuotaOutput& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // instanceLimit Field Functions 
     bool hasInstanceLimit() const { return this->instanceLimit_ != nullptr;};
     void deleteInstanceLimit() { this->instanceLimit_ = nullptr;};
-    inline int64_t instanceLimit() const { DARABONBA_PTR_GET_DEFAULT(instanceLimit_, 0L) };
+    inline int64_t getInstanceLimit() const { DARABONBA_PTR_GET_DEFAULT(instanceLimit_, 0L) };
     inline GetQuotaOutput& setInstanceLimit(int64_t instanceLimit) { DARABONBA_PTR_SET_VALUE(instanceLimit_, instanceLimit) };
 
 
     // instanceUsed Field Functions 
     bool hasInstanceUsed() const { return this->instanceUsed_ != nullptr;};
     void deleteInstanceUsed() { this->instanceUsed_ = nullptr;};
-    inline int64_t instanceUsed() const { DARABONBA_PTR_GET_DEFAULT(instanceUsed_, 0L) };
+    inline int64_t getInstanceUsed() const { DARABONBA_PTR_GET_DEFAULT(instanceUsed_, 0L) };
     inline GetQuotaOutput& setInstanceUsed(int64_t instanceUsed) { DARABONBA_PTR_SET_VALUE(instanceUsed_, instanceUsed) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> instanceLimit_ = nullptr;
-    std::shared_ptr<int64_t> instanceUsed_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> instanceLimit_ {};
+    shared_ptr<int64_t> instanceUsed_ {};
   };
 
   } // namespace Models

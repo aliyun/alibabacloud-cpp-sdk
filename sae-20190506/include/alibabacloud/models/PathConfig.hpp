@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationName_ == nullptr
-        && return this->path_ == nullptr; };
+        && this->path_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline PathConfig& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline PathConfig& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
   protected:
-    std::shared_ptr<string> applicationName_ = nullptr;
-    std::shared_ptr<string> path_ = nullptr;
+    shared_ptr<string> applicationName_ {};
+    shared_ptr<string> path_ {};
   };
 
   } // namespace Models

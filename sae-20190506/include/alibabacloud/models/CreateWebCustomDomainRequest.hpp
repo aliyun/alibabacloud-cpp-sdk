@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespaceId_ == nullptr
-        && return this->body_ == nullptr; };
+        && this->body_ == nullptr; };
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline CreateWebCustomDomainRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateWebCustomDomainInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateWebCustomDomainInput) };
-    inline CreateWebCustomDomainInput body() { DARABONBA_PTR_GET(body_, CreateWebCustomDomainInput) };
+    inline const CreateWebCustomDomainInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateWebCustomDomainInput) };
+    inline CreateWebCustomDomainInput getBody() { DARABONBA_PTR_GET(body_, CreateWebCustomDomainInput) };
     inline CreateWebCustomDomainRequest& setBody(const CreateWebCustomDomainInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateWebCustomDomainRequest& setBody(CreateWebCustomDomainInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The namespace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The information about custom domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<CreateWebCustomDomainInput> body_ = nullptr;
+    shared_ptr<CreateWebCustomDomainInput> body_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->imageUrl_ == nullptr; };
+        && this->imageUrl_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeApplicationImageRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
-    inline string imageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
+    inline string getImageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
     inline DescribeApplicationImageRequest& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The URL of the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageUrl_ = nullptr;
+    shared_ptr<string> imageUrl_ {};
   };
 
   } // namespace Models

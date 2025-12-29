@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIds_ == nullptr
-        && return this->namespaceId_ == nullptr && return this->version_ == nullptr; };
+        && this->namespaceId_ == nullptr && this->version_ == nullptr; };
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline string appIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
     inline BatchStopApplicationsRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline BatchStopApplicationsRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline BatchStopApplicationsRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the application that you want to stop.
     // 
     // > If you want to stop multiple applications at the same time, separate the IDs with commas (,).
-    std::shared_ptr<string> appIds_ = nullptr;
+    shared_ptr<string> appIds_ {};
     // ebf491f0-c1a5-45e2-b2c4-710dbe2a\\*\\*\\*\\*,ebf491f0-c1a5-45e2-b2c4-71025e2a\\*\\*\\*\\*
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The application version.
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

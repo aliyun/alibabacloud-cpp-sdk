@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && return this->groupId_ == nullptr && return this->laneId_ == nullptr && return this->namespaceId_ == nullptr; };
+        && this->groupId_ == nullptr && this->laneId_ == nullptr && this->namespaceId_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline UpdateSwimmingLaneEnableAttributeRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int64_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+    inline int64_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
     inline UpdateSwimmingLaneEnableAttributeRequest& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // laneId Field Functions 
     bool hasLaneId() const { return this->laneId_ != nullptr;};
     void deleteLaneId() { this->laneId_ = nullptr;};
-    inline int64_t laneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
+    inline int64_t getLaneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
     inline UpdateSwimmingLaneEnableAttributeRequest& setLaneId(int64_t laneId) { DARABONBA_PTR_SET_VALUE(laneId_, laneId) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline UpdateSwimmingLaneEnableAttributeRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
@@ -70,13 +70,13 @@ namespace Models
     // 
     // *   true: enabled
     // *   false: disabled
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // The ID of the lane group.
-    std::shared_ptr<int64_t> groupId_ = nullptr;
+    shared_ptr<int64_t> groupId_ {};
     // The ID of the lane.
-    std::shared_ptr<int64_t> laneId_ = nullptr;
+    shared_ptr<int64_t> laneId_ {};
     // The ID of a namespace.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

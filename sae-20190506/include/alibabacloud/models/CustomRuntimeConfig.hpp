@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->args_ == nullptr
-        && return this->command_ == nullptr; };
+        && this->command_ == nullptr; };
     // args Field Functions 
     bool hasArgs() const { return this->args_ != nullptr;};
     void deleteArgs() { this->args_ = nullptr;};
-    inline const vector<string> & args() const { DARABONBA_PTR_GET_CONST(args_, vector<string>) };
-    inline vector<string> args() { DARABONBA_PTR_GET(args_, vector<string>) };
+    inline const vector<string> & getArgs() const { DARABONBA_PTR_GET_CONST(args_, vector<string>) };
+    inline vector<string> getArgs() { DARABONBA_PTR_GET(args_, vector<string>) };
     inline CustomRuntimeConfig& setArgs(const vector<string> & args) { DARABONBA_PTR_SET_VALUE(args_, args) };
     inline CustomRuntimeConfig& setArgs(vector<string> && args) { DARABONBA_PTR_SET_RVALUE(args_, args) };
 
@@ -46,15 +46,15 @@ namespace Models
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline const vector<string> & command() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
-    inline vector<string> command() { DARABONBA_PTR_GET(command_, vector<string>) };
+    inline const vector<string> & getCommand() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
+    inline vector<string> getCommand() { DARABONBA_PTR_GET(command_, vector<string>) };
     inline CustomRuntimeConfig& setCommand(const vector<string> & command) { DARABONBA_PTR_SET_VALUE(command_, command) };
     inline CustomRuntimeConfig& setCommand(vector<string> && command) { DARABONBA_PTR_SET_RVALUE(command_, command) };
 
 
   protected:
-    std::shared_ptr<vector<string>> args_ = nullptr;
-    std::shared_ptr<vector<string>> command_ = nullptr;
+    shared_ptr<vector<string>> args_ {};
+    shared_ptr<vector<string>> command_ {};
   };
 
   } // namespace Models

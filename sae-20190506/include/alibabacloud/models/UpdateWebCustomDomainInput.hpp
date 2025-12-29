@@ -44,26 +44,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultForwardingAppName_ == nullptr
-        && return this->protocol_ == nullptr && return this->routeConfig_ == nullptr && return this->webCertConfig_ == nullptr && return this->webTLSConfig_ == nullptr && return this->webWAFConfig_ == nullptr; };
+        && this->protocol_ == nullptr && this->routeConfig_ == nullptr && this->webCertConfig_ == nullptr && this->webTLSConfig_ == nullptr && this->webWAFConfig_ == nullptr; };
     // defaultForwardingAppName Field Functions 
     bool hasDefaultForwardingAppName() const { return this->defaultForwardingAppName_ != nullptr;};
     void deleteDefaultForwardingAppName() { this->defaultForwardingAppName_ = nullptr;};
-    inline string defaultForwardingAppName() const { DARABONBA_PTR_GET_DEFAULT(defaultForwardingAppName_, "") };
+    inline string getDefaultForwardingAppName() const { DARABONBA_PTR_GET_DEFAULT(defaultForwardingAppName_, "") };
     inline UpdateWebCustomDomainInput& setDefaultForwardingAppName(string defaultForwardingAppName) { DARABONBA_PTR_SET_VALUE(defaultForwardingAppName_, defaultForwardingAppName) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline UpdateWebCustomDomainInput& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // routeConfig Field Functions 
     bool hasRouteConfig() const { return this->routeConfig_ != nullptr;};
     void deleteRouteConfig() { this->routeConfig_ = nullptr;};
-    inline const RouteConfig & routeConfig() const { DARABONBA_PTR_GET_CONST(routeConfig_, RouteConfig) };
-    inline RouteConfig routeConfig() { DARABONBA_PTR_GET(routeConfig_, RouteConfig) };
+    inline const RouteConfig & getRouteConfig() const { DARABONBA_PTR_GET_CONST(routeConfig_, RouteConfig) };
+    inline RouteConfig getRouteConfig() { DARABONBA_PTR_GET(routeConfig_, RouteConfig) };
     inline UpdateWebCustomDomainInput& setRouteConfig(const RouteConfig & routeConfig) { DARABONBA_PTR_SET_VALUE(routeConfig_, routeConfig) };
     inline UpdateWebCustomDomainInput& setRouteConfig(RouteConfig && routeConfig) { DARABONBA_PTR_SET_RVALUE(routeConfig_, routeConfig) };
 
@@ -71,8 +71,8 @@ namespace Models
     // webCertConfig Field Functions 
     bool hasWebCertConfig() const { return this->webCertConfig_ != nullptr;};
     void deleteWebCertConfig() { this->webCertConfig_ = nullptr;};
-    inline const WebCertConfig & webCertConfig() const { DARABONBA_PTR_GET_CONST(webCertConfig_, WebCertConfig) };
-    inline WebCertConfig webCertConfig() { DARABONBA_PTR_GET(webCertConfig_, WebCertConfig) };
+    inline const WebCertConfig & getWebCertConfig() const { DARABONBA_PTR_GET_CONST(webCertConfig_, WebCertConfig) };
+    inline WebCertConfig getWebCertConfig() { DARABONBA_PTR_GET(webCertConfig_, WebCertConfig) };
     inline UpdateWebCustomDomainInput& setWebCertConfig(const WebCertConfig & webCertConfig) { DARABONBA_PTR_SET_VALUE(webCertConfig_, webCertConfig) };
     inline UpdateWebCustomDomainInput& setWebCertConfig(WebCertConfig && webCertConfig) { DARABONBA_PTR_SET_RVALUE(webCertConfig_, webCertConfig) };
 
@@ -80,8 +80,8 @@ namespace Models
     // webTLSConfig Field Functions 
     bool hasWebTLSConfig() const { return this->webTLSConfig_ != nullptr;};
     void deleteWebTLSConfig() { this->webTLSConfig_ = nullptr;};
-    inline const WebTLSConfig & webTLSConfig() const { DARABONBA_PTR_GET_CONST(webTLSConfig_, WebTLSConfig) };
-    inline WebTLSConfig webTLSConfig() { DARABONBA_PTR_GET(webTLSConfig_, WebTLSConfig) };
+    inline const WebTLSConfig & getWebTLSConfig() const { DARABONBA_PTR_GET_CONST(webTLSConfig_, WebTLSConfig) };
+    inline WebTLSConfig getWebTLSConfig() { DARABONBA_PTR_GET(webTLSConfig_, WebTLSConfig) };
     inline UpdateWebCustomDomainInput& setWebTLSConfig(const WebTLSConfig & webTLSConfig) { DARABONBA_PTR_SET_VALUE(webTLSConfig_, webTLSConfig) };
     inline UpdateWebCustomDomainInput& setWebTLSConfig(WebTLSConfig && webTLSConfig) { DARABONBA_PTR_SET_RVALUE(webTLSConfig_, webTLSConfig) };
 
@@ -89,19 +89,19 @@ namespace Models
     // webWAFConfig Field Functions 
     bool hasWebWAFConfig() const { return this->webWAFConfig_ != nullptr;};
     void deleteWebWAFConfig() { this->webWAFConfig_ = nullptr;};
-    inline const WebWAFConfig & webWAFConfig() const { DARABONBA_PTR_GET_CONST(webWAFConfig_, WebWAFConfig) };
-    inline WebWAFConfig webWAFConfig() { DARABONBA_PTR_GET(webWAFConfig_, WebWAFConfig) };
+    inline const WebWAFConfig & getWebWAFConfig() const { DARABONBA_PTR_GET_CONST(webWAFConfig_, WebWAFConfig) };
+    inline WebWAFConfig getWebWAFConfig() { DARABONBA_PTR_GET(webWAFConfig_, WebWAFConfig) };
     inline UpdateWebCustomDomainInput& setWebWAFConfig(const WebWAFConfig & webWAFConfig) { DARABONBA_PTR_SET_VALUE(webWAFConfig_, webWAFConfig) };
     inline UpdateWebCustomDomainInput& setWebWAFConfig(WebWAFConfig && webWAFConfig) { DARABONBA_PTR_SET_RVALUE(webWAFConfig_, webWAFConfig) };
 
 
   protected:
-    std::shared_ptr<string> defaultForwardingAppName_ = nullptr;
-    std::shared_ptr<string> protocol_ = nullptr;
-    std::shared_ptr<RouteConfig> routeConfig_ = nullptr;
-    std::shared_ptr<WebCertConfig> webCertConfig_ = nullptr;
-    std::shared_ptr<WebTLSConfig> webTLSConfig_ = nullptr;
-    std::shared_ptr<WebWAFConfig> webWAFConfig_ = nullptr;
+    shared_ptr<string> defaultForwardingAppName_ {};
+    shared_ptr<string> protocol_ {};
+    shared_ptr<RouteConfig> routeConfig_ {};
+    shared_ptr<WebCertConfig> webCertConfig_ {};
+    shared_ptr<WebTLSConfig> webTLSConfig_ {};
+    shared_ptr<WebWAFConfig> webWAFConfig_ {};
   };
 
   } // namespace Models

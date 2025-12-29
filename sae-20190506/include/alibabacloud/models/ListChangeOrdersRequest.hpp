@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->coStatus_ == nullptr && return this->coType_ == nullptr && return this->currentPage_ == nullptr && return this->key_ == nullptr && return this->orderBy_ == nullptr
-        && return this->pageSize_ == nullptr && return this->reverse_ == nullptr; };
+        && this->coStatus_ == nullptr && this->coType_ == nullptr && this->currentPage_ == nullptr && this->key_ == nullptr && this->orderBy_ == nullptr
+        && this->pageSize_ == nullptr && this->reverse_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ListChangeOrdersRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // coStatus Field Functions 
     bool hasCoStatus() const { return this->coStatus_ != nullptr;};
     void deleteCoStatus() { this->coStatus_ = nullptr;};
-    inline string coStatus() const { DARABONBA_PTR_GET_DEFAULT(coStatus_, "") };
+    inline string getCoStatus() const { DARABONBA_PTR_GET_DEFAULT(coStatus_, "") };
     inline ListChangeOrdersRequest& setCoStatus(string coStatus) { DARABONBA_PTR_SET_VALUE(coStatus_, coStatus) };
 
 
     // coType Field Functions 
     bool hasCoType() const { return this->coType_ != nullptr;};
     void deleteCoType() { this->coType_ = nullptr;};
-    inline string coType() const { DARABONBA_PTR_GET_DEFAULT(coType_, "") };
+    inline string getCoType() const { DARABONBA_PTR_GET_DEFAULT(coType_, "") };
     inline ListChangeOrdersRequest& setCoType(string coType) { DARABONBA_PTR_SET_VALUE(coType_, coType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListChangeOrdersRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline ListChangeOrdersRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListChangeOrdersRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListChangeOrdersRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // reverse Field Functions 
     bool hasReverse() const { return this->reverse_ != nullptr;};
     void deleteReverse() { this->reverse_ = nullptr;};
-    inline bool reverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
+    inline bool getReverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
     inline ListChangeOrdersRequest& setReverse(bool reverse) { DARABONBA_PTR_SET_VALUE(reverse_, reverse) };
 
 
@@ -106,9 +106,9 @@ namespace Models
     // 1
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the request.
-    std::shared_ptr<string> coStatus_ = nullptr;
+    shared_ptr<string> coStatus_ {};
     // The type of the change order. Valid values:
     // 
     // *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
@@ -131,15 +131,15 @@ namespace Models
     // *   **CoRestartInstances**: restarts the instance.
     // *   **CoDeleteInstances**: deletes the instance.
     // *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
-    std::shared_ptr<string> coType_ = nullptr;
+    shared_ptr<string> coType_ {};
     // 20
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // CoCreateApp
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> key_ {};
+    shared_ptr<string> orderBy_ {};
     // test
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<bool> reverse_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<bool> reverse_ {};
   };
 
   } // namespace Models

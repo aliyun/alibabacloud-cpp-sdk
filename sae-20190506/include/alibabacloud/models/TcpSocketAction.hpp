@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->host_ == nullptr
-        && return this->port_ == nullptr; };
+        && this->port_ == nullptr; };
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
-    inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+    inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline TCPSocketAction& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline TCPSocketAction& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
   protected:
-    std::shared_ptr<string> host_ = nullptr;
-    std::shared_ptr<int32_t> port_ = nullptr;
+    shared_ptr<string> host_ {};
+    shared_ptr<int32_t> port_ {};
   };
 
   } // namespace Models

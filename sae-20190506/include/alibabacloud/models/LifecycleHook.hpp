@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->handler_ == nullptr
-        && return this->timeout_ == nullptr; };
+        && this->timeout_ == nullptr; };
     // handler Field Functions 
     bool hasHandler() const { return this->handler_ != nullptr;};
     void deleteHandler() { this->handler_ = nullptr;};
-    inline string handler() const { DARABONBA_PTR_GET_DEFAULT(handler_, "") };
+    inline string getHandler() const { DARABONBA_PTR_GET_DEFAULT(handler_, "") };
     inline LifecycleHook& setHandler(string handler) { DARABONBA_PTR_SET_VALUE(handler_, handler) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline LifecycleHook& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
   protected:
-    std::shared_ptr<string> handler_ = nullptr;
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<string> handler_ {};
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIds_ == nullptr
-        && return this->entryAppId_ == nullptr && return this->entryAppType_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->namespaceId_ == nullptr
-        && return this->swimVersion_ == nullptr; };
+        && this->entryAppId_ == nullptr && this->entryAppType_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr && this->namespaceId_ == nullptr
+        && this->swimVersion_ == nullptr; };
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline const vector<string> & appIds() const { DARABONBA_PTR_GET_CONST(appIds_, vector<string>) };
-    inline vector<string> appIds() { DARABONBA_PTR_GET(appIds_, vector<string>) };
+    inline const vector<string> & getAppIds() const { DARABONBA_PTR_GET_CONST(appIds_, vector<string>) };
+    inline vector<string> getAppIds() { DARABONBA_PTR_GET(appIds_, vector<string>) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setAppIds(const vector<string> & appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setAppIds(vector<string> && appIds) { DARABONBA_PTR_SET_RVALUE(appIds_, appIds) };
 
@@ -57,64 +57,64 @@ namespace Models
     // entryAppId Field Functions 
     bool hasEntryAppId() const { return this->entryAppId_ != nullptr;};
     void deleteEntryAppId() { this->entryAppId_ = nullptr;};
-    inline string entryAppId() const { DARABONBA_PTR_GET_DEFAULT(entryAppId_, "") };
+    inline string getEntryAppId() const { DARABONBA_PTR_GET_DEFAULT(entryAppId_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setEntryAppId(string entryAppId) { DARABONBA_PTR_SET_VALUE(entryAppId_, entryAppId) };
 
 
     // entryAppType Field Functions 
     bool hasEntryAppType() const { return this->entryAppType_ != nullptr;};
     void deleteEntryAppType() { this->entryAppType_ = nullptr;};
-    inline string entryAppType() const { DARABONBA_PTR_GET_DEFAULT(entryAppType_, "") };
+    inline string getEntryAppType() const { DARABONBA_PTR_GET_DEFAULT(entryAppType_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setEntryAppType(string entryAppType) { DARABONBA_PTR_SET_VALUE(entryAppType_, entryAppType) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int64_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+    inline int64_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // swimVersion Field Functions 
     bool hasSwimVersion() const { return this->swimVersion_ != nullptr;};
     void deleteSwimVersion() { this->swimVersion_ = nullptr;};
-    inline string swimVersion() const { DARABONBA_PTR_GET_DEFAULT(swimVersion_, "") };
+    inline string getSwimVersion() const { DARABONBA_PTR_GET_DEFAULT(swimVersion_, "") };
     inline CreateOrUpdateSwimmingLaneGroupRequest& setSwimVersion(string swimVersion) { DARABONBA_PTR_SET_VALUE(swimVersion_, swimVersion) };
 
 
   protected:
     // The ID of the baseline application.
-    std::shared_ptr<vector<string>> appIds_ = nullptr;
+    shared_ptr<vector<string>> appIds_ {};
     // The unique ID of the corresponding gateway.
-    std::shared_ptr<string> entryAppId_ = nullptr;
+    shared_ptr<string> entryAppId_ {};
     // The application entry type (gateway type).
     // 
     // *   **apig:** cloud-native API Gateway
     // *   **mse:** Java Services Gateway
     // *   **mse-gw:** MSE cloud-native Gateway
-    std::shared_ptr<string> entryAppType_ = nullptr;
+    shared_ptr<string> entryAppType_ {};
     // The ID of the lane group. This is required when you update a lane group.
-    std::shared_ptr<int64_t> groupId_ = nullptr;
+    shared_ptr<int64_t> groupId_ {};
     // The name of the lane group.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The ID of a namespace.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The end-to-end grayscale version. Valid values: 0 and 2 (recommended).
-    std::shared_ptr<string> swimVersion_ = nullptr;
+    shared_ptr<string> swimVersion_ {};
   };
 
   } // namespace Models

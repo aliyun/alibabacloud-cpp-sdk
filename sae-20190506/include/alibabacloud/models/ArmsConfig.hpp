@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentVersion_ == nullptr
-        && return this->appId_ == nullptr && return this->licenseKey_ == nullptr; };
+        && this->appId_ == nullptr && this->licenseKey_ == nullptr; };
     // agentVersion Field Functions 
     bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
     void deleteAgentVersion() { this->agentVersion_ = nullptr;};
-    inline string agentVersion() const { DARABONBA_PTR_GET_DEFAULT(agentVersion_, "") };
+    inline string getAgentVersion() const { DARABONBA_PTR_GET_DEFAULT(agentVersion_, "") };
     inline ArmsConfig& setAgentVersion(string agentVersion) { DARABONBA_PTR_SET_VALUE(agentVersion_, agentVersion) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ArmsConfig& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // licenseKey Field Functions 
     bool hasLicenseKey() const { return this->licenseKey_ != nullptr;};
     void deleteLicenseKey() { this->licenseKey_ = nullptr;};
-    inline string licenseKey() const { DARABONBA_PTR_GET_DEFAULT(licenseKey_, "") };
+    inline string getLicenseKey() const { DARABONBA_PTR_GET_DEFAULT(licenseKey_, "") };
     inline ArmsConfig& setLicenseKey(string licenseKey) { DARABONBA_PTR_SET_VALUE(licenseKey_, licenseKey) };
 
 
   protected:
-    std::shared_ptr<string> agentVersion_ = nullptr;
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> licenseKey_ = nullptr;
+    shared_ptr<string> agentVersion_ {};
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> licenseKey_ {};
   };
 
   } // namespace Models

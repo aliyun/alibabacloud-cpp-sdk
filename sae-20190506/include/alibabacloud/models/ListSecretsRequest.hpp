@@ -33,7 +33,7 @@ namespace Models
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline ListSecretsRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the namespace in which the Secrets reside. By default, the namespace ID is the same as the region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

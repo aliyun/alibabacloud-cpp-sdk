@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appEntryRuleShrink_ == nullptr
-        && return this->canaryModel_ == nullptr && return this->enable_ == nullptr && return this->groupId_ == nullptr && return this->laneId_ == nullptr && return this->laneName_ == nullptr
-        && return this->laneTag_ == nullptr && return this->mseGatewayEntryRuleShrink_ == nullptr && return this->namespaceId_ == nullptr; };
+        && this->canaryModel_ == nullptr && this->enable_ == nullptr && this->groupId_ == nullptr && this->laneId_ == nullptr && this->laneName_ == nullptr
+        && this->laneTag_ == nullptr && this->mseGatewayEntryRuleShrink_ == nullptr && this->namespaceId_ == nullptr; };
     // appEntryRuleShrink Field Functions 
     bool hasAppEntryRuleShrink() const { return this->appEntryRuleShrink_ != nullptr;};
     void deleteAppEntryRuleShrink() { this->appEntryRuleShrink_ = nullptr;};
-    inline string appEntryRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(appEntryRuleShrink_, "") };
+    inline string getAppEntryRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(appEntryRuleShrink_, "") };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setAppEntryRuleShrink(string appEntryRuleShrink) { DARABONBA_PTR_SET_VALUE(appEntryRuleShrink_, appEntryRuleShrink) };
 
 
     // canaryModel Field Functions 
     bool hasCanaryModel() const { return this->canaryModel_ != nullptr;};
     void deleteCanaryModel() { this->canaryModel_ = nullptr;};
-    inline int32_t canaryModel() const { DARABONBA_PTR_GET_DEFAULT(canaryModel_, 0) };
+    inline int32_t getCanaryModel() const { DARABONBA_PTR_GET_DEFAULT(canaryModel_, 0) };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setCanaryModel(int32_t canaryModel) { DARABONBA_PTR_SET_VALUE(canaryModel_, canaryModel) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int64_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+    inline int64_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // laneId Field Functions 
     bool hasLaneId() const { return this->laneId_ != nullptr;};
     void deleteLaneId() { this->laneId_ = nullptr;};
-    inline int64_t laneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
+    inline int64_t getLaneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setLaneId(int64_t laneId) { DARABONBA_PTR_SET_VALUE(laneId_, laneId) };
 
 
     // laneName Field Functions 
     bool hasLaneName() const { return this->laneName_ != nullptr;};
     void deleteLaneName() { this->laneName_ = nullptr;};
-    inline string laneName() const { DARABONBA_PTR_GET_DEFAULT(laneName_, "") };
+    inline string getLaneName() const { DARABONBA_PTR_GET_DEFAULT(laneName_, "") };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setLaneName(string laneName) { DARABONBA_PTR_SET_VALUE(laneName_, laneName) };
 
 
     // laneTag Field Functions 
     bool hasLaneTag() const { return this->laneTag_ != nullptr;};
     void deleteLaneTag() { this->laneTag_ = nullptr;};
-    inline string laneTag() const { DARABONBA_PTR_GET_DEFAULT(laneTag_, "") };
+    inline string getLaneTag() const { DARABONBA_PTR_GET_DEFAULT(laneTag_, "") };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setLaneTag(string laneTag) { DARABONBA_PTR_SET_VALUE(laneTag_, laneTag) };
 
 
     // mseGatewayEntryRuleShrink Field Functions 
     bool hasMseGatewayEntryRuleShrink() const { return this->mseGatewayEntryRuleShrink_ != nullptr;};
     void deleteMseGatewayEntryRuleShrink() { this->mseGatewayEntryRuleShrink_ = nullptr;};
-    inline string mseGatewayEntryRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(mseGatewayEntryRuleShrink_, "") };
+    inline string getMseGatewayEntryRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(mseGatewayEntryRuleShrink_, "") };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setMseGatewayEntryRuleShrink(string mseGatewayEntryRuleShrink) { DARABONBA_PTR_SET_VALUE(mseGatewayEntryRuleShrink_, mseGatewayEntryRuleShrink) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline CreateOrUpdateSwimmingLaneShrinkRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
@@ -115,31 +115,31 @@ namespace Models
     // The route configuration of the gateway.
     // 
     // >  This parameter is required if the gateway entry of the lane group is Java.
-    std::shared_ptr<string> appEntryRuleShrink_ = nullptr;
+    shared_ptr<string> appEntryRuleShrink_ {};
     // Full-link Grayscale Mode:
     // 
     // *   0: The request is routed based on the content of the request.
     // *   1: routing based on percentages
-    std::shared_ptr<int32_t> canaryModel_ = nullptr;
+    shared_ptr<int32_t> canaryModel_ {};
     // Lane Status
     // 
     // *   true: enabled
     // *   false: disabled
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // The ID of the lane group to which the lane belongs.
-    std::shared_ptr<int64_t> groupId_ = nullptr;
+    shared_ptr<int64_t> groupId_ {};
     // The ID of the lane.
-    std::shared_ptr<int64_t> laneId_ = nullptr;
+    shared_ptr<int64_t> laneId_ {};
     // The name of the lane.
-    std::shared_ptr<string> laneName_ = nullptr;
+    shared_ptr<string> laneName_ {};
     // The tag of the lane.
-    std::shared_ptr<string> laneTag_ = nullptr;
+    shared_ptr<string> laneTag_ {};
     // The route configuration of the MSE gateway.
     // 
     // >  If the **EntryAppType** is set to **apig** or **mse-gw**, it is required.
-    std::shared_ptr<string> mseGatewayEntryRuleShrink_ = nullptr;
+    shared_ptr<string> mseGatewayEntryRuleShrink_ {};
     // The namespace ID.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

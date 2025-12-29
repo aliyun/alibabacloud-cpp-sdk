@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->application_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // application Field Functions 
     bool hasApplication() const { return this->application_ != nullptr;};
     void deleteApplication() { this->application_ = nullptr;};
-    inline const Application & application() const { DARABONBA_PTR_GET_CONST(application_, Application) };
-    inline Application application() { DARABONBA_PTR_GET(application_, Application) };
+    inline const Application & getApplication() const { DARABONBA_PTR_GET_CONST(application_, Application) };
+    inline Application getApplication() { DARABONBA_PTR_GET(application_, Application) };
     inline ApplicationWithStatus& setApplication(const Application & application) { DARABONBA_PTR_SET_VALUE(application_, application) };
     inline ApplicationWithStatus& setApplication(Application && application) { DARABONBA_PTR_SET_RVALUE(application_, application) };
 
@@ -47,15 +47,15 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline const ApplicationStatus & status() const { DARABONBA_PTR_GET_CONST(status_, ApplicationStatus) };
-    inline ApplicationStatus status() { DARABONBA_PTR_GET(status_, ApplicationStatus) };
+    inline const ApplicationStatus & getStatus() const { DARABONBA_PTR_GET_CONST(status_, ApplicationStatus) };
+    inline ApplicationStatus getStatus() { DARABONBA_PTR_GET(status_, ApplicationStatus) };
     inline ApplicationWithStatus& setStatus(const ApplicationStatus & status) { DARABONBA_PTR_SET_VALUE(status_, status) };
     inline ApplicationWithStatus& setStatus(ApplicationStatus && status) { DARABONBA_PTR_SET_RVALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<Application> application_ = nullptr;
-    std::shared_ptr<ApplicationStatus> status_ = nullptr;
+    shared_ptr<Application> application_ {};
+    shared_ptr<ApplicationStatus> status_ {};
   };
 
   } // namespace Models

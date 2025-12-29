@@ -54,116 +54,116 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backwardLine_ == nullptr
-        && return this->endTime_ == nullptr && return this->forwardLine_ == nullptr && return this->instanceID_ == nullptr && return this->isTail_ == nullptr && return this->match_ == nullptr
-        && return this->message_ == nullptr && return this->offset_ == nullptr && return this->packID_ == nullptr && return this->packMeta_ == nullptr && return this->startTime_ == nullptr
-        && return this->timestamp_ == nullptr && return this->versionID_ == nullptr; };
+        && this->endTime_ == nullptr && this->forwardLine_ == nullptr && this->instanceID_ == nullptr && this->isTail_ == nullptr && this->match_ == nullptr
+        && this->message_ == nullptr && this->offset_ == nullptr && this->packID_ == nullptr && this->packMeta_ == nullptr && this->startTime_ == nullptr
+        && this->timestamp_ == nullptr && this->versionID_ == nullptr; };
     // backwardLine Field Functions 
     bool hasBackwardLine() const { return this->backwardLine_ != nullptr;};
     void deleteBackwardLine() { this->backwardLine_ = nullptr;};
-    inline int64_t backwardLine() const { DARABONBA_PTR_GET_DEFAULT(backwardLine_, 0L) };
+    inline int64_t getBackwardLine() const { DARABONBA_PTR_GET_DEFAULT(backwardLine_, 0L) };
     inline GetApplicationLogsInput& setBackwardLine(int64_t backwardLine) { DARABONBA_PTR_SET_VALUE(backwardLine_, backwardLine) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetApplicationLogsInput& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // forwardLine Field Functions 
     bool hasForwardLine() const { return this->forwardLine_ != nullptr;};
     void deleteForwardLine() { this->forwardLine_ = nullptr;};
-    inline int64_t forwardLine() const { DARABONBA_PTR_GET_DEFAULT(forwardLine_, 0L) };
+    inline int64_t getForwardLine() const { DARABONBA_PTR_GET_DEFAULT(forwardLine_, 0L) };
     inline GetApplicationLogsInput& setForwardLine(int64_t forwardLine) { DARABONBA_PTR_SET_VALUE(forwardLine_, forwardLine) };
 
 
     // instanceID Field Functions 
     bool hasInstanceID() const { return this->instanceID_ != nullptr;};
     void deleteInstanceID() { this->instanceID_ = nullptr;};
-    inline string instanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
+    inline string getInstanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
     inline GetApplicationLogsInput& setInstanceID(string instanceID) { DARABONBA_PTR_SET_VALUE(instanceID_, instanceID) };
 
 
     // isTail Field Functions 
     bool hasIsTail() const { return this->isTail_ != nullptr;};
     void deleteIsTail() { this->isTail_ = nullptr;};
-    inline bool isTail() const { DARABONBA_PTR_GET_DEFAULT(isTail_, false) };
+    inline bool getIsTail() const { DARABONBA_PTR_GET_DEFAULT(isTail_, false) };
     inline GetApplicationLogsInput& setIsTail(bool isTail) { DARABONBA_PTR_SET_VALUE(isTail_, isTail) };
 
 
     // match Field Functions 
     bool hasMatch() const { return this->match_ != nullptr;};
     void deleteMatch() { this->match_ = nullptr;};
-    inline string match() const { DARABONBA_PTR_GET_DEFAULT(match_, "") };
+    inline string getMatch() const { DARABONBA_PTR_GET_DEFAULT(match_, "") };
     inline GetApplicationLogsInput& setMatch(string match) { DARABONBA_PTR_SET_VALUE(match_, match) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetApplicationLogsInput& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline int64_t offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0L) };
+    inline int64_t getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0L) };
     inline GetApplicationLogsInput& setOffset(int64_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // packID Field Functions 
     bool hasPackID() const { return this->packID_ != nullptr;};
     void deletePackID() { this->packID_ = nullptr;};
-    inline string packID() const { DARABONBA_PTR_GET_DEFAULT(packID_, "") };
+    inline string getPackID() const { DARABONBA_PTR_GET_DEFAULT(packID_, "") };
     inline GetApplicationLogsInput& setPackID(string packID) { DARABONBA_PTR_SET_VALUE(packID_, packID) };
 
 
     // packMeta Field Functions 
     bool hasPackMeta() const { return this->packMeta_ != nullptr;};
     void deletePackMeta() { this->packMeta_ = nullptr;};
-    inline string packMeta() const { DARABONBA_PTR_GET_DEFAULT(packMeta_, "") };
+    inline string getPackMeta() const { DARABONBA_PTR_GET_DEFAULT(packMeta_, "") };
     inline GetApplicationLogsInput& setPackMeta(string packMeta) { DARABONBA_PTR_SET_VALUE(packMeta_, packMeta) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetApplicationLogsInput& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline string timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
+    inline string getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
     inline GetApplicationLogsInput& setTimestamp(string timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
     // versionID Field Functions 
     bool hasVersionID() const { return this->versionID_ != nullptr;};
     void deleteVersionID() { this->versionID_ = nullptr;};
-    inline string versionID() const { DARABONBA_PTR_GET_DEFAULT(versionID_, "") };
+    inline string getVersionID() const { DARABONBA_PTR_GET_DEFAULT(versionID_, "") };
     inline GetApplicationLogsInput& setVersionID(string versionID) { DARABONBA_PTR_SET_VALUE(versionID_, versionID) };
 
 
   protected:
-    std::shared_ptr<int64_t> backwardLine_ = nullptr;
+    shared_ptr<int64_t> backwardLine_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<int64_t> forwardLine_ = nullptr;
-    std::shared_ptr<string> instanceID_ = nullptr;
-    std::shared_ptr<bool> isTail_ = nullptr;
-    std::shared_ptr<string> match_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<int64_t> offset_ = nullptr;
-    std::shared_ptr<string> packID_ = nullptr;
-    std::shared_ptr<string> packMeta_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<int64_t> forwardLine_ {};
+    shared_ptr<string> instanceID_ {};
+    shared_ptr<bool> isTail_ {};
+    shared_ptr<string> match_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<int64_t> offset_ {};
+    shared_ptr<string> packID_ {};
+    shared_ptr<string> packMeta_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> timestamp_ = nullptr;
-    std::shared_ptr<string> versionID_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> timestamp_ {};
+    shared_ptr<string> versionID_ {};
   };
 
   } // namespace Models

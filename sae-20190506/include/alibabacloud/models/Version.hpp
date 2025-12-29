@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdTime_ == nullptr
-        && return this->description_ == nullptr && return this->image_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->requestId_ == nullptr && return this->versionId_ == nullptr
-        && return this->weight_ == nullptr; };
+        && this->description_ == nullptr && this->image_ == nullptr && this->lastModifiedTime_ == nullptr && this->requestId_ == nullptr && this->versionId_ == nullptr
+        && this->weight_ == nullptr; };
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline Version& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Version& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline Version& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
     // lastModifiedTime Field Functions 
     bool hasLastModifiedTime() const { return this->lastModifiedTime_ != nullptr;};
     void deleteLastModifiedTime() { this->lastModifiedTime_ = nullptr;};
-    inline string lastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
+    inline string getLastModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(lastModifiedTime_, "") };
     inline Version& setLastModifiedTime(string lastModifiedTime) { DARABONBA_PTR_SET_VALUE(lastModifiedTime_, lastModifiedTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline Version& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline Version& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
     // weight Field Functions 
     bool hasWeight() const { return this->weight_ != nullptr;};
     void deleteWeight() { this->weight_ = nullptr;};
-    inline double weight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0.0) };
+    inline double getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0.0) };
     inline Version& setWeight(double weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
   protected:
-    std::shared_ptr<string> createdTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> image_ = nullptr;
-    std::shared_ptr<string> lastModifiedTime_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> versionId_ = nullptr;
-    std::shared_ptr<double> weight_ = nullptr;
+    shared_ptr<string> createdTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> image_ {};
+    shared_ptr<string> lastModifiedTime_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> versionId_ {};
+    shared_ptr<double> weight_ {};
   };
 
   } // namespace Models

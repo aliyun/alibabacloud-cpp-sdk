@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->errorCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr
-        && return this->traceId_ == nullptr; };
+        && this->data_ == nullptr && this->errorCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr
+        && this->traceId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline TagResourcesResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline bool data() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
+    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
     inline TagResourcesResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline TagResourcesResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline TagResourcesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TagResourcesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline TagResourcesResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // traceId Field Functions 
     bool hasTraceId() const { return this->traceId_ != nullptr;};
     void deleteTraceId() { this->traceId_ = nullptr;};
-    inline string traceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
+    inline string getTraceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
     inline TagResourcesResponseBody& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
 
 
@@ -100,28 +100,28 @@ namespace Models
     // *   **3xx**: The call was redirected.
     // *   **4xx**: The call failed.
     // *   **5xx**: A server error occurred.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Indicates that the operation was successful.
-    std::shared_ptr<bool> data_ = nullptr;
+    shared_ptr<bool> data_ {};
     // The error code. Valid values:
     // 
     // *   If the call is successful, the **ErrorCode** parameter is not returned.
     // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
-    std::shared_ptr<string> errorCode_ = nullptr;
+    shared_ptr<string> errorCode_ {};
     // The returned message. Valid values:
     // 
     // *   success: If the call is successful, **success** is returned.
     // *   An error code: If the call fails, an error code is returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether tags were added to the specified resources. Valid values:
     // 
     // *   **true**: The tags were added.
     // *   **false**: The tags failed to be added.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // The trace ID that is used to query the details of the request.
-    std::shared_ptr<string> traceId_ = nullptr;
+    shared_ptr<string> traceId_ {};
   };
 
   } // namespace Models

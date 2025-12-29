@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->revisions_ == nullptr; };
+        && this->revisions_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListWebApplicationRevisionsOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // revisions Field Functions 
     bool hasRevisions() const { return this->revisions_ != nullptr;};
     void deleteRevisions() { this->revisions_ = nullptr;};
-    inline const vector<Revision> & revisions() const { DARABONBA_PTR_GET_CONST(revisions_, vector<Revision>) };
-    inline vector<Revision> revisions() { DARABONBA_PTR_GET(revisions_, vector<Revision>) };
+    inline const vector<Revision> & getRevisions() const { DARABONBA_PTR_GET_CONST(revisions_, vector<Revision>) };
+    inline vector<Revision> getRevisions() { DARABONBA_PTR_GET(revisions_, vector<Revision>) };
     inline ListWebApplicationRevisionsOutput& setRevisions(const vector<Revision> & revisions) { DARABONBA_PTR_SET_VALUE(revisions_, revisions) };
     inline ListWebApplicationRevisionsOutput& setRevisions(vector<Revision> && revisions) { DARABONBA_PTR_SET_RVALUE(revisions_, revisions) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<Revision>> revisions_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<Revision>> revisions_ {};
   };
 
   } // namespace Models

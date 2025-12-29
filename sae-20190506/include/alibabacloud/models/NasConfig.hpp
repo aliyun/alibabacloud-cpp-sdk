@@ -35,14 +35,14 @@ namespace Models
     // mountPoints Field Functions 
     bool hasMountPoints() const { return this->mountPoints_ != nullptr;};
     void deleteMountPoints() { this->mountPoints_ = nullptr;};
-    inline const vector<NASMountConfig> & mountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<NASMountConfig>) };
-    inline vector<NASMountConfig> mountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<NASMountConfig>) };
+    inline const vector<NASMountConfig> & getMountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<NASMountConfig>) };
+    inline vector<NASMountConfig> getMountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<NASMountConfig>) };
     inline NASConfig& setMountPoints(const vector<NASMountConfig> & mountPoints) { DARABONBA_PTR_SET_VALUE(mountPoints_, mountPoints) };
     inline NASConfig& setMountPoints(vector<NASMountConfig> && mountPoints) { DARABONBA_PTR_SET_RVALUE(mountPoints_, mountPoints) };
 
 
   protected:
-    std::shared_ptr<vector<NASMountConfig>> mountPoints_ = nullptr;
+    shared_ptr<vector<NASMountConfig>> mountPoints_ {};
   };
 
   } // namespace Models

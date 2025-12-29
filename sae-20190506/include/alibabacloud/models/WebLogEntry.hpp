@@ -33,12 +33,12 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline WebLogEntry& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
   protected:
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
   };
 
   } // namespace Models

@@ -38,19 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentError_ == nullptr
-        && return this->webInstances_ == nullptr && return this->webVersionStatus_ == nullptr; };
+        && this->webInstances_ == nullptr && this->webVersionStatus_ == nullptr; };
     // currentError Field Functions 
     bool hasCurrentError() const { return this->currentError_ != nullptr;};
     void deleteCurrentError() { this->currentError_ = nullptr;};
-    inline string currentError() const { DARABONBA_PTR_GET_DEFAULT(currentError_, "") };
+    inline string getCurrentError() const { DARABONBA_PTR_GET_DEFAULT(currentError_, "") };
     inline ListWebInstancesOutput& setCurrentError(string currentError) { DARABONBA_PTR_SET_VALUE(currentError_, currentError) };
 
 
     // webInstances Field Functions 
     bool hasWebInstances() const { return this->webInstances_ != nullptr;};
     void deleteWebInstances() { this->webInstances_ = nullptr;};
-    inline const vector<WebInstanceInfo> & webInstances() const { DARABONBA_PTR_GET_CONST(webInstances_, vector<WebInstanceInfo>) };
-    inline vector<WebInstanceInfo> webInstances() { DARABONBA_PTR_GET(webInstances_, vector<WebInstanceInfo>) };
+    inline const vector<WebInstanceInfo> & getWebInstances() const { DARABONBA_PTR_GET_CONST(webInstances_, vector<WebInstanceInfo>) };
+    inline vector<WebInstanceInfo> getWebInstances() { DARABONBA_PTR_GET(webInstances_, vector<WebInstanceInfo>) };
     inline ListWebInstancesOutput& setWebInstances(const vector<WebInstanceInfo> & webInstances) { DARABONBA_PTR_SET_VALUE(webInstances_, webInstances) };
     inline ListWebInstancesOutput& setWebInstances(vector<WebInstanceInfo> && webInstances) { DARABONBA_PTR_SET_RVALUE(webInstances_, webInstances) };
 
@@ -58,16 +58,16 @@ namespace Models
     // webVersionStatus Field Functions 
     bool hasWebVersionStatus() const { return this->webVersionStatus_ != nullptr;};
     void deleteWebVersionStatus() { this->webVersionStatus_ = nullptr;};
-    inline const map<string, WebVersionStatus> & webVersionStatus() const { DARABONBA_PTR_GET_CONST(webVersionStatus_, map<string, WebVersionStatus>) };
-    inline map<string, WebVersionStatus> webVersionStatus() { DARABONBA_PTR_GET(webVersionStatus_, map<string, WebVersionStatus>) };
+    inline const map<string, WebVersionStatus> & getWebVersionStatus() const { DARABONBA_PTR_GET_CONST(webVersionStatus_, map<string, WebVersionStatus>) };
+    inline map<string, WebVersionStatus> getWebVersionStatus() { DARABONBA_PTR_GET(webVersionStatus_, map<string, WebVersionStatus>) };
     inline ListWebInstancesOutput& setWebVersionStatus(const map<string, WebVersionStatus> & webVersionStatus) { DARABONBA_PTR_SET_VALUE(webVersionStatus_, webVersionStatus) };
     inline ListWebInstancesOutput& setWebVersionStatus(map<string, WebVersionStatus> && webVersionStatus) { DARABONBA_PTR_SET_RVALUE(webVersionStatus_, webVersionStatus) };
 
 
   protected:
-    std::shared_ptr<string> currentError_ = nullptr;
-    std::shared_ptr<vector<WebInstanceInfo>> webInstances_ = nullptr;
-    std::shared_ptr<map<string, WebVersionStatus>> webVersionStatus_ = nullptr;
+    shared_ptr<string> currentError_ {};
+    shared_ptr<vector<WebInstanceInfo>> webInstances_ {};
+    shared_ptr<map<string, WebVersionStatus>> webVersionStatus_ {};
   };
 
   } // namespace Models

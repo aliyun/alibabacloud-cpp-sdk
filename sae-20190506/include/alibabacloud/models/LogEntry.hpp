@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceID_ == nullptr
-        && return this->message_ == nullptr && return this->offset_ == nullptr && return this->packID_ == nullptr && return this->packMeta_ == nullptr && return this->qualifier_ == nullptr
-        && return this->timestamp_ == nullptr && return this->versionID_ == nullptr; };
+        && this->message_ == nullptr && this->offset_ == nullptr && this->packID_ == nullptr && this->packMeta_ == nullptr && this->qualifier_ == nullptr
+        && this->timestamp_ == nullptr && this->versionID_ == nullptr; };
     // instanceID Field Functions 
     bool hasInstanceID() const { return this->instanceID_ != nullptr;};
     void deleteInstanceID() { this->instanceID_ = nullptr;};
-    inline string instanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
+    inline string getInstanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
     inline LogEntry& setInstanceID(string instanceID) { DARABONBA_PTR_SET_VALUE(instanceID_, instanceID) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline LogEntry& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline int64_t offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0L) };
+    inline int64_t getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0L) };
     inline LogEntry& setOffset(int64_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // packID Field Functions 
     bool hasPackID() const { return this->packID_ != nullptr;};
     void deletePackID() { this->packID_ = nullptr;};
-    inline string packID() const { DARABONBA_PTR_GET_DEFAULT(packID_, "") };
+    inline string getPackID() const { DARABONBA_PTR_GET_DEFAULT(packID_, "") };
     inline LogEntry& setPackID(string packID) { DARABONBA_PTR_SET_VALUE(packID_, packID) };
 
 
     // packMeta Field Functions 
     bool hasPackMeta() const { return this->packMeta_ != nullptr;};
     void deletePackMeta() { this->packMeta_ = nullptr;};
-    inline string packMeta() const { DARABONBA_PTR_GET_DEFAULT(packMeta_, "") };
+    inline string getPackMeta() const { DARABONBA_PTR_GET_DEFAULT(packMeta_, "") };
     inline LogEntry& setPackMeta(string packMeta) { DARABONBA_PTR_SET_VALUE(packMeta_, packMeta) };
 
 
     // qualifier Field Functions 
     bool hasQualifier() const { return this->qualifier_ != nullptr;};
     void deleteQualifier() { this->qualifier_ = nullptr;};
-    inline string qualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
+    inline string getQualifier() const { DARABONBA_PTR_GET_DEFAULT(qualifier_, "") };
     inline LogEntry& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline int32_t timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0) };
+    inline int32_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0) };
     inline LogEntry& setTimestamp(int32_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
     // versionID Field Functions 
     bool hasVersionID() const { return this->versionID_ != nullptr;};
     void deleteVersionID() { this->versionID_ = nullptr;};
-    inline string versionID() const { DARABONBA_PTR_GET_DEFAULT(versionID_, "") };
+    inline string getVersionID() const { DARABONBA_PTR_GET_DEFAULT(versionID_, "") };
     inline LogEntry& setVersionID(string versionID) { DARABONBA_PTR_SET_VALUE(versionID_, versionID) };
 
 
   protected:
-    std::shared_ptr<string> instanceID_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<int64_t> offset_ = nullptr;
-    std::shared_ptr<string> packID_ = nullptr;
-    std::shared_ptr<string> packMeta_ = nullptr;
-    std::shared_ptr<string> qualifier_ = nullptr;
-    std::shared_ptr<int32_t> timestamp_ = nullptr;
-    std::shared_ptr<string> versionID_ = nullptr;
+    shared_ptr<string> instanceID_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<int64_t> offset_ {};
+    shared_ptr<string> packID_ {};
+    shared_ptr<string> packMeta_ {};
+    shared_ptr<string> qualifier_ {};
+    shared_ptr<int32_t> timestamp_ {};
+    shared_ptr<string> versionID_ {};
   };
 
   } // namespace Models

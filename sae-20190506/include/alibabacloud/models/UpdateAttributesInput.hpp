@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->httpTriggerConfig_ == nullptr && return this->versionID_ == nullptr; };
+        && this->httpTriggerConfig_ == nullptr && this->versionID_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateAttributesInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // httpTriggerConfig Field Functions 
     bool hasHttpTriggerConfig() const { return this->httpTriggerConfig_ != nullptr;};
     void deleteHttpTriggerConfig() { this->httpTriggerConfig_ = nullptr;};
-    inline const HTTPTriggerConfig & httpTriggerConfig() const { DARABONBA_PTR_GET_CONST(httpTriggerConfig_, HTTPTriggerConfig) };
-    inline HTTPTriggerConfig httpTriggerConfig() { DARABONBA_PTR_GET(httpTriggerConfig_, HTTPTriggerConfig) };
+    inline const HTTPTriggerConfig & getHttpTriggerConfig() const { DARABONBA_PTR_GET_CONST(httpTriggerConfig_, HTTPTriggerConfig) };
+    inline HTTPTriggerConfig getHttpTriggerConfig() { DARABONBA_PTR_GET(httpTriggerConfig_, HTTPTriggerConfig) };
     inline UpdateAttributesInput& setHttpTriggerConfig(const HTTPTriggerConfig & httpTriggerConfig) { DARABONBA_PTR_SET_VALUE(httpTriggerConfig_, httpTriggerConfig) };
     inline UpdateAttributesInput& setHttpTriggerConfig(HTTPTriggerConfig && httpTriggerConfig) { DARABONBA_PTR_SET_RVALUE(httpTriggerConfig_, httpTriggerConfig) };
 
@@ -55,14 +55,14 @@ namespace Models
     // versionID Field Functions 
     bool hasVersionID() const { return this->versionID_ != nullptr;};
     void deleteVersionID() { this->versionID_ = nullptr;};
-    inline string versionID() const { DARABONBA_PTR_GET_DEFAULT(versionID_, "") };
+    inline string getVersionID() const { DARABONBA_PTR_GET_DEFAULT(versionID_, "") };
     inline UpdateAttributesInput& setVersionID(string versionID) { DARABONBA_PTR_SET_VALUE(versionID_, versionID) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<HTTPTriggerConfig> httpTriggerConfig_ = nullptr;
-    std::shared_ptr<string> versionID_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<HTTPTriggerConfig> httpTriggerConfig_ {};
+    shared_ptr<string> versionID_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certBase64_ == nullptr
-        && return this->insecure_ == nullptr; };
+        && this->insecure_ == nullptr; };
     // certBase64 Field Functions 
     bool hasCertBase64() const { return this->certBase64_ != nullptr;};
     void deleteCertBase64() { this->certBase64_ = nullptr;};
-    inline string certBase64() const { DARABONBA_PTR_GET_DEFAULT(certBase64_, "") };
+    inline string getCertBase64() const { DARABONBA_PTR_GET_DEFAULT(certBase64_, "") };
     inline RegistryCertificateConfig& setCertBase64(string certBase64) { DARABONBA_PTR_SET_VALUE(certBase64_, certBase64) };
 
 
     // insecure Field Functions 
     bool hasInsecure() const { return this->insecure_ != nullptr;};
     void deleteInsecure() { this->insecure_ = nullptr;};
-    inline bool insecure() const { DARABONBA_PTR_GET_DEFAULT(insecure_, false) };
+    inline bool getInsecure() const { DARABONBA_PTR_GET_DEFAULT(insecure_, false) };
     inline RegistryCertificateConfig& setInsecure(bool insecure) { DARABONBA_PTR_SET_VALUE(insecure_, insecure) };
 
 
   protected:
-    std::shared_ptr<string> certBase64_ = nullptr;
-    std::shared_ptr<bool> insecure_ = nullptr;
+    shared_ptr<string> certBase64_ {};
+    shared_ptr<bool> insecure_ {};
   };
 
   } // namespace Models

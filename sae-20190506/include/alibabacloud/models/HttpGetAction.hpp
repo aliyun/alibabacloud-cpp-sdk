@@ -40,19 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->host_ == nullptr
-        && return this->httpHeaders_ == nullptr && return this->path_ == nullptr && return this->port_ == nullptr && return this->scheme_ == nullptr; };
+        && this->httpHeaders_ == nullptr && this->path_ == nullptr && this->port_ == nullptr && this->scheme_ == nullptr; };
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
-    inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+    inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline HTTPGetAction& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // httpHeaders Field Functions 
     bool hasHttpHeaders() const { return this->httpHeaders_ != nullptr;};
     void deleteHttpHeaders() { this->httpHeaders_ = nullptr;};
-    inline const vector<HTTPHeader> & httpHeaders() const { DARABONBA_PTR_GET_CONST(httpHeaders_, vector<HTTPHeader>) };
-    inline vector<HTTPHeader> httpHeaders() { DARABONBA_PTR_GET(httpHeaders_, vector<HTTPHeader>) };
+    inline const vector<HTTPHeader> & getHttpHeaders() const { DARABONBA_PTR_GET_CONST(httpHeaders_, vector<HTTPHeader>) };
+    inline vector<HTTPHeader> getHttpHeaders() { DARABONBA_PTR_GET(httpHeaders_, vector<HTTPHeader>) };
     inline HTTPGetAction& setHttpHeaders(const vector<HTTPHeader> & httpHeaders) { DARABONBA_PTR_SET_VALUE(httpHeaders_, httpHeaders) };
     inline HTTPGetAction& setHttpHeaders(vector<HTTPHeader> && httpHeaders) { DARABONBA_PTR_SET_RVALUE(httpHeaders_, httpHeaders) };
 
@@ -60,30 +60,30 @@ namespace Models
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline HTTPGetAction& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline HTTPGetAction& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // scheme Field Functions 
     bool hasScheme() const { return this->scheme_ != nullptr;};
     void deleteScheme() { this->scheme_ = nullptr;};
-    inline string scheme() const { DARABONBA_PTR_GET_DEFAULT(scheme_, "") };
+    inline string getScheme() const { DARABONBA_PTR_GET_DEFAULT(scheme_, "") };
     inline HTTPGetAction& setScheme(string scheme) { DARABONBA_PTR_SET_VALUE(scheme_, scheme) };
 
 
   protected:
-    std::shared_ptr<string> host_ = nullptr;
-    std::shared_ptr<vector<HTTPHeader>> httpHeaders_ = nullptr;
-    std::shared_ptr<string> path_ = nullptr;
-    std::shared_ptr<int32_t> port_ = nullptr;
-    std::shared_ptr<string> scheme_ = nullptr;
+    shared_ptr<string> host_ {};
+    shared_ptr<vector<HTTPHeader>> httpHeaders_ {};
+    shared_ptr<string> path_ {};
+    shared_ptr<int32_t> port_ {};
+    shared_ptr<string> scheme_ {};
   };
 
   } // namespace Models

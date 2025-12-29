@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applications_ == nullptr
-        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr; };
+        && this->nextToken_ == nullptr && this->requestId_ == nullptr; };
     // applications Field Functions 
     bool hasApplications() const { return this->applications_ != nullptr;};
     void deleteApplications() { this->applications_ = nullptr;};
-    inline const vector<ApplicationWithStatus> & applications() const { DARABONBA_PTR_GET_CONST(applications_, vector<ApplicationWithStatus>) };
-    inline vector<ApplicationWithStatus> applications() { DARABONBA_PTR_GET(applications_, vector<ApplicationWithStatus>) };
+    inline const vector<ApplicationWithStatus> & getApplications() const { DARABONBA_PTR_GET_CONST(applications_, vector<ApplicationWithStatus>) };
+    inline vector<ApplicationWithStatus> getApplications() { DARABONBA_PTR_GET(applications_, vector<ApplicationWithStatus>) };
     inline ListApplicationsWithStatusOutput& setApplications(const vector<ApplicationWithStatus> & applications) { DARABONBA_PTR_SET_VALUE(applications_, applications) };
     inline ListApplicationsWithStatusOutput& setApplications(vector<ApplicationWithStatus> && applications) { DARABONBA_PTR_SET_RVALUE(applications_, applications) };
 
@@ -49,21 +49,21 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListApplicationsWithStatusOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListApplicationsWithStatusOutput& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<ApplicationWithStatus>> applications_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<ApplicationWithStatus>> applications_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

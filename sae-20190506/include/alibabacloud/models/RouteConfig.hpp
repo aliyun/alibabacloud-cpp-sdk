@@ -35,14 +35,14 @@ namespace Models
     // routes Field Functions 
     bool hasRoutes() const { return this->routes_ != nullptr;};
     void deleteRoutes() { this->routes_ = nullptr;};
-    inline const vector<PathConfig> & routes() const { DARABONBA_PTR_GET_CONST(routes_, vector<PathConfig>) };
-    inline vector<PathConfig> routes() { DARABONBA_PTR_GET(routes_, vector<PathConfig>) };
+    inline const vector<PathConfig> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<PathConfig>) };
+    inline vector<PathConfig> getRoutes() { DARABONBA_PTR_GET(routes_, vector<PathConfig>) };
     inline RouteConfig& setRoutes(const vector<PathConfig> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
     inline RouteConfig& setRoutes(vector<PathConfig> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
 
 
   protected:
-    std::shared_ptr<vector<PathConfig>> routes_ = nullptr;
+    shared_ptr<vector<PathConfig>> routes_ {};
   };
 
   } // namespace Models

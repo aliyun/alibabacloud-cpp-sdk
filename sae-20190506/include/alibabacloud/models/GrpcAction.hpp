@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->port_ == nullptr
-        && return this->service_ == nullptr; };
+        && this->service_ == nullptr; };
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline GRPCAction& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // service Field Functions 
     bool hasService() const { return this->service_ != nullptr;};
     void deleteService() { this->service_ = nullptr;};
-    inline string service() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
+    inline string getService() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
     inline GRPCAction& setService(string service) { DARABONBA_PTR_SET_VALUE(service_, service) };
 
 
   protected:
-    std::shared_ptr<int32_t> port_ = nullptr;
-    std::shared_ptr<string> service_ = nullptr;
+    shared_ptr<int32_t> port_ {};
+    shared_ptr<string> service_ {};
   };
 
   } // namespace Models

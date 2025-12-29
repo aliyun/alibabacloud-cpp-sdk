@@ -66,140 +66,140 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certId_ == nullptr
-        && return this->certIds_ == nullptr && return this->corsConfig_ == nullptr && return this->defaultRule_ == nullptr && return this->description_ == nullptr && return this->enableGzip_ == nullptr
-        && return this->enableXForwardedFor_ == nullptr && return this->enableXForwardedForClientSrcPort_ == nullptr && return this->enableXForwardedForProto_ == nullptr && return this->enableXForwardedForSlbId_ == nullptr && return this->enableXForwardedForSlbPort_ == nullptr
-        && return this->idleTimeout_ == nullptr && return this->ingressId_ == nullptr && return this->listenerPort_ == nullptr && return this->listenerProtocol_ == nullptr && return this->loadBalanceType_ == nullptr
-        && return this->requestTimeout_ == nullptr && return this->rules_ == nullptr && return this->securityPolicyId_ == nullptr; };
+        && this->certIds_ == nullptr && this->corsConfig_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->enableGzip_ == nullptr
+        && this->enableXForwardedFor_ == nullptr && this->enableXForwardedForClientSrcPort_ == nullptr && this->enableXForwardedForProto_ == nullptr && this->enableXForwardedForSlbId_ == nullptr && this->enableXForwardedForSlbPort_ == nullptr
+        && this->idleTimeout_ == nullptr && this->ingressId_ == nullptr && this->listenerPort_ == nullptr && this->listenerProtocol_ == nullptr && this->loadBalanceType_ == nullptr
+        && this->requestTimeout_ == nullptr && this->rules_ == nullptr && this->securityPolicyId_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
-    inline string certId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
+    inline string getCertId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
     inline UpdateIngressRequest& setCertId(string certId) { DARABONBA_PTR_SET_VALUE(certId_, certId) };
 
 
     // certIds Field Functions 
     bool hasCertIds() const { return this->certIds_ != nullptr;};
     void deleteCertIds() { this->certIds_ = nullptr;};
-    inline string certIds() const { DARABONBA_PTR_GET_DEFAULT(certIds_, "") };
+    inline string getCertIds() const { DARABONBA_PTR_GET_DEFAULT(certIds_, "") };
     inline UpdateIngressRequest& setCertIds(string certIds) { DARABONBA_PTR_SET_VALUE(certIds_, certIds) };
 
 
     // corsConfig Field Functions 
     bool hasCorsConfig() const { return this->corsConfig_ != nullptr;};
     void deleteCorsConfig() { this->corsConfig_ = nullptr;};
-    inline string corsConfig() const { DARABONBA_PTR_GET_DEFAULT(corsConfig_, "") };
+    inline string getCorsConfig() const { DARABONBA_PTR_GET_DEFAULT(corsConfig_, "") };
     inline UpdateIngressRequest& setCorsConfig(string corsConfig) { DARABONBA_PTR_SET_VALUE(corsConfig_, corsConfig) };
 
 
     // defaultRule Field Functions 
     bool hasDefaultRule() const { return this->defaultRule_ != nullptr;};
     void deleteDefaultRule() { this->defaultRule_ = nullptr;};
-    inline string defaultRule() const { DARABONBA_PTR_GET_DEFAULT(defaultRule_, "") };
+    inline string getDefaultRule() const { DARABONBA_PTR_GET_DEFAULT(defaultRule_, "") };
     inline UpdateIngressRequest& setDefaultRule(string defaultRule) { DARABONBA_PTR_SET_VALUE(defaultRule_, defaultRule) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateIngressRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enableGzip Field Functions 
     bool hasEnableGzip() const { return this->enableGzip_ != nullptr;};
     void deleteEnableGzip() { this->enableGzip_ = nullptr;};
-    inline bool enableGzip() const { DARABONBA_PTR_GET_DEFAULT(enableGzip_, false) };
+    inline bool getEnableGzip() const { DARABONBA_PTR_GET_DEFAULT(enableGzip_, false) };
     inline UpdateIngressRequest& setEnableGzip(bool enableGzip) { DARABONBA_PTR_SET_VALUE(enableGzip_, enableGzip) };
 
 
     // enableXForwardedFor Field Functions 
     bool hasEnableXForwardedFor() const { return this->enableXForwardedFor_ != nullptr;};
     void deleteEnableXForwardedFor() { this->enableXForwardedFor_ = nullptr;};
-    inline bool enableXForwardedFor() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedFor_, false) };
+    inline bool getEnableXForwardedFor() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedFor_, false) };
     inline UpdateIngressRequest& setEnableXForwardedFor(bool enableXForwardedFor) { DARABONBA_PTR_SET_VALUE(enableXForwardedFor_, enableXForwardedFor) };
 
 
     // enableXForwardedForClientSrcPort Field Functions 
     bool hasEnableXForwardedForClientSrcPort() const { return this->enableXForwardedForClientSrcPort_ != nullptr;};
     void deleteEnableXForwardedForClientSrcPort() { this->enableXForwardedForClientSrcPort_ = nullptr;};
-    inline bool enableXForwardedForClientSrcPort() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForClientSrcPort_, false) };
+    inline bool getEnableXForwardedForClientSrcPort() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForClientSrcPort_, false) };
     inline UpdateIngressRequest& setEnableXForwardedForClientSrcPort(bool enableXForwardedForClientSrcPort) { DARABONBA_PTR_SET_VALUE(enableXForwardedForClientSrcPort_, enableXForwardedForClientSrcPort) };
 
 
     // enableXForwardedForProto Field Functions 
     bool hasEnableXForwardedForProto() const { return this->enableXForwardedForProto_ != nullptr;};
     void deleteEnableXForwardedForProto() { this->enableXForwardedForProto_ = nullptr;};
-    inline bool enableXForwardedForProto() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForProto_, false) };
+    inline bool getEnableXForwardedForProto() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForProto_, false) };
     inline UpdateIngressRequest& setEnableXForwardedForProto(bool enableXForwardedForProto) { DARABONBA_PTR_SET_VALUE(enableXForwardedForProto_, enableXForwardedForProto) };
 
 
     // enableXForwardedForSlbId Field Functions 
     bool hasEnableXForwardedForSlbId() const { return this->enableXForwardedForSlbId_ != nullptr;};
     void deleteEnableXForwardedForSlbId() { this->enableXForwardedForSlbId_ = nullptr;};
-    inline bool enableXForwardedForSlbId() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForSlbId_, false) };
+    inline bool getEnableXForwardedForSlbId() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForSlbId_, false) };
     inline UpdateIngressRequest& setEnableXForwardedForSlbId(bool enableXForwardedForSlbId) { DARABONBA_PTR_SET_VALUE(enableXForwardedForSlbId_, enableXForwardedForSlbId) };
 
 
     // enableXForwardedForSlbPort Field Functions 
     bool hasEnableXForwardedForSlbPort() const { return this->enableXForwardedForSlbPort_ != nullptr;};
     void deleteEnableXForwardedForSlbPort() { this->enableXForwardedForSlbPort_ = nullptr;};
-    inline bool enableXForwardedForSlbPort() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForSlbPort_, false) };
+    inline bool getEnableXForwardedForSlbPort() const { DARABONBA_PTR_GET_DEFAULT(enableXForwardedForSlbPort_, false) };
     inline UpdateIngressRequest& setEnableXForwardedForSlbPort(bool enableXForwardedForSlbPort) { DARABONBA_PTR_SET_VALUE(enableXForwardedForSlbPort_, enableXForwardedForSlbPort) };
 
 
     // idleTimeout Field Functions 
     bool hasIdleTimeout() const { return this->idleTimeout_ != nullptr;};
     void deleteIdleTimeout() { this->idleTimeout_ = nullptr;};
-    inline int32_t idleTimeout() const { DARABONBA_PTR_GET_DEFAULT(idleTimeout_, 0) };
+    inline int32_t getIdleTimeout() const { DARABONBA_PTR_GET_DEFAULT(idleTimeout_, 0) };
     inline UpdateIngressRequest& setIdleTimeout(int32_t idleTimeout) { DARABONBA_PTR_SET_VALUE(idleTimeout_, idleTimeout) };
 
 
     // ingressId Field Functions 
     bool hasIngressId() const { return this->ingressId_ != nullptr;};
     void deleteIngressId() { this->ingressId_ = nullptr;};
-    inline int64_t ingressId() const { DARABONBA_PTR_GET_DEFAULT(ingressId_, 0L) };
+    inline int64_t getIngressId() const { DARABONBA_PTR_GET_DEFAULT(ingressId_, 0L) };
     inline UpdateIngressRequest& setIngressId(int64_t ingressId) { DARABONBA_PTR_SET_VALUE(ingressId_, ingressId) };
 
 
     // listenerPort Field Functions 
     bool hasListenerPort() const { return this->listenerPort_ != nullptr;};
     void deleteListenerPort() { this->listenerPort_ = nullptr;};
-    inline string listenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, "") };
+    inline string getListenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, "") };
     inline UpdateIngressRequest& setListenerPort(string listenerPort) { DARABONBA_PTR_SET_VALUE(listenerPort_, listenerPort) };
 
 
     // listenerProtocol Field Functions 
     bool hasListenerProtocol() const { return this->listenerProtocol_ != nullptr;};
     void deleteListenerProtocol() { this->listenerProtocol_ = nullptr;};
-    inline string listenerProtocol() const { DARABONBA_PTR_GET_DEFAULT(listenerProtocol_, "") };
+    inline string getListenerProtocol() const { DARABONBA_PTR_GET_DEFAULT(listenerProtocol_, "") };
     inline UpdateIngressRequest& setListenerProtocol(string listenerProtocol) { DARABONBA_PTR_SET_VALUE(listenerProtocol_, listenerProtocol) };
 
 
     // loadBalanceType Field Functions 
     bool hasLoadBalanceType() const { return this->loadBalanceType_ != nullptr;};
     void deleteLoadBalanceType() { this->loadBalanceType_ = nullptr;};
-    inline string loadBalanceType() const { DARABONBA_PTR_GET_DEFAULT(loadBalanceType_, "") };
+    inline string getLoadBalanceType() const { DARABONBA_PTR_GET_DEFAULT(loadBalanceType_, "") };
     inline UpdateIngressRequest& setLoadBalanceType(string loadBalanceType) { DARABONBA_PTR_SET_VALUE(loadBalanceType_, loadBalanceType) };
 
 
     // requestTimeout Field Functions 
     bool hasRequestTimeout() const { return this->requestTimeout_ != nullptr;};
     void deleteRequestTimeout() { this->requestTimeout_ = nullptr;};
-    inline int32_t requestTimeout() const { DARABONBA_PTR_GET_DEFAULT(requestTimeout_, 0) };
+    inline int32_t getRequestTimeout() const { DARABONBA_PTR_GET_DEFAULT(requestTimeout_, 0) };
     inline UpdateIngressRequest& setRequestTimeout(int32_t requestTimeout) { DARABONBA_PTR_SET_VALUE(requestTimeout_, requestTimeout) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline string rules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
+    inline string getRules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
     inline UpdateIngressRequest& setRules(string rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
 
 
     // securityPolicyId Field Functions 
     bool hasSecurityPolicyId() const { return this->securityPolicyId_ != nullptr;};
     void deleteSecurityPolicyId() { this->securityPolicyId_ = nullptr;};
-    inline string securityPolicyId() const { DARABONBA_PTR_GET_DEFAULT(securityPolicyId_, "") };
+    inline string getSecurityPolicyId() const { DARABONBA_PTR_GET_DEFAULT(securityPolicyId_, "") };
     inline UpdateIngressRequest& setSecurityPolicyId(string securityPolicyId) { DARABONBA_PTR_SET_VALUE(securityPolicyId_, securityPolicyId) };
 
 
@@ -209,56 +209,56 @@ namespace Models
     // *   If the **LoadBalanceType** is **clb**, use this field to configure the HTTPS listener certificate.
     // 
     // For more information about how to use SSL certificate IDs for CLB, see [Manage certificates (CLB)](https://help.aliyun.com/document_detail/90792.html).
-    std::shared_ptr<string> certId_ = nullptr;
+    shared_ptr<string> certId_ {};
     // The ID of the multi-certificate **ALB**. Valid values:
     // 
     // *   If the **LoadBalanceType** is **alb**, use this field to configure multiple certificates for HTTPS listeners. Separate multiple certificate IDs with commas (,).
     // *   The ID of the SSL certificate used by ALB must be obtained from the digital certificate product. For example, in the configuration `756***-cn-hangzhou`, the `756***` is the certificate ID obtained from the product page, and the `-cn-hangzhou` is a fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
-    std::shared_ptr<string> certIds_ = nullptr;
-    std::shared_ptr<string> corsConfig_ = nullptr;
+    shared_ptr<string> certIds_ {};
+    shared_ptr<string> corsConfig_ {};
     // The default forwarding rule. Forwards traffic to a specified application through a specified port based on the IP address. The following table describes the parameters.
     // 
     // *   **appId**: the ID of the application.
     // *   **containerPort**: the container port of the application.
     // 
     // >  All requests that do not match the forwarding rules specified for Rules are forwarded over the port to the application.
-    std::shared_ptr<string> defaultRule_ = nullptr;
+    shared_ptr<string> defaultRule_ {};
     // The name of the routing rule.
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<bool> enableGzip_ = nullptr;
-    std::shared_ptr<bool> enableXForwardedFor_ = nullptr;
-    std::shared_ptr<bool> enableXForwardedForClientSrcPort_ = nullptr;
-    std::shared_ptr<bool> enableXForwardedForProto_ = nullptr;
-    std::shared_ptr<bool> enableXForwardedForSlbId_ = nullptr;
-    std::shared_ptr<bool> enableXForwardedForSlbPort_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<bool> enableGzip_ {};
+    shared_ptr<bool> enableXForwardedFor_ {};
+    shared_ptr<bool> enableXForwardedForClientSrcPort_ {};
+    shared_ptr<bool> enableXForwardedForProto_ {};
+    shared_ptr<bool> enableXForwardedForSlbId_ {};
+    shared_ptr<bool> enableXForwardedForSlbPort_ {};
     // The timeout period of idle connections. Unit: seconds.
     // 
     // >  A value of 0 indicates that the default value is used.
-    std::shared_ptr<int32_t> idleTimeout_ = nullptr;
+    shared_ptr<int32_t> idleTimeout_ {};
     // The ID of the routing rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ingressId_ = nullptr;
+    shared_ptr<int64_t> ingressId_ {};
     // The SLB listening port. This port cannot be occupied.
-    std::shared_ptr<string> listenerPort_ = nullptr;
+    shared_ptr<string> listenerPort_ {};
     // The protocol that is used to forward requests. Valid values:
     // 
     // *   **HTTP**: HTTP is suitable for applications that need to identify transmitted data.
     // *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
-    std::shared_ptr<string> listenerProtocol_ = nullptr;
+    shared_ptr<string> listenerProtocol_ {};
     // The parameter is deprecated and cannot be updated.
-    std::shared_ptr<string> loadBalanceType_ = nullptr;
+    shared_ptr<string> loadBalanceType_ {};
     // The request timed out. Unit: seconds.
-    std::shared_ptr<int32_t> requestTimeout_ = nullptr;
+    shared_ptr<int32_t> requestTimeout_ {};
     // The forwarding rule. Forwards traffic to a specified application through a specified port based on the domain name and request path. The following table describes the parameters.
     // 
     // *   **appId**: the ID of the application.
     // *   **containerPort**: The port of the application instance.
     // *   **domain**: the domain name.
     // *   **path**: the request path.
-    std::shared_ptr<string> rules_ = nullptr;
+    shared_ptr<string> rules_ {};
     // The ID of a security policy.
-    std::shared_ptr<string> securityPolicyId_ = nullptr;
+    shared_ptr<string> securityPolicyId_ {};
   };
 
   } // namespace Models

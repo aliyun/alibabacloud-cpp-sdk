@@ -34,14 +34,14 @@ namespace Models
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline const InstanceExecAuthorizationInputOptions & options() const { DARABONBA_PTR_GET_CONST(options_, InstanceExecAuthorizationInputOptions) };
-    inline InstanceExecAuthorizationInputOptions options() { DARABONBA_PTR_GET(options_, InstanceExecAuthorizationInputOptions) };
+    inline const InstanceExecAuthorizationInputOptions & getOptions() const { DARABONBA_PTR_GET_CONST(options_, InstanceExecAuthorizationInputOptions) };
+    inline InstanceExecAuthorizationInputOptions getOptions() { DARABONBA_PTR_GET(options_, InstanceExecAuthorizationInputOptions) };
     inline InstanceExecAuthorizationInput& setOptions(const InstanceExecAuthorizationInputOptions & options) { DARABONBA_PTR_SET_VALUE(options_, options) };
     inline InstanceExecAuthorizationInput& setOptions(InstanceExecAuthorizationInputOptions && options) { DARABONBA_PTR_SET_RVALUE(options_, options) };
 
 
   protected:
-    std::shared_ptr<InstanceExecAuthorizationInputOptions> options_ = nullptr;
+    shared_ptr<InstanceExecAuthorizationInputOptions> options_ {};
   };
 
   } // namespace Models

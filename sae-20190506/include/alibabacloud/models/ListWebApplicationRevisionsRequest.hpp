@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->limit_ == nullptr
-        && return this->namespaceId_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->namespaceId_ == nullptr && this->nextToken_ == nullptr; };
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline ListWebApplicationRevisionsRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline ListWebApplicationRevisionsRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListWebApplicationRevisionsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
     // The number of applications returned.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The namespace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The pagination token.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

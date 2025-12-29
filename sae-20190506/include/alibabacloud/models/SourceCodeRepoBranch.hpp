@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commitId_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // commitId Field Functions 
     bool hasCommitId() const { return this->commitId_ != nullptr;};
     void deleteCommitId() { this->commitId_ = nullptr;};
-    inline string commitId() const { DARABONBA_PTR_GET_DEFAULT(commitId_, "") };
+    inline string getCommitId() const { DARABONBA_PTR_GET_DEFAULT(commitId_, "") };
     inline SourceCodeRepoBranch& setCommitId(string commitId) { DARABONBA_PTR_SET_VALUE(commitId_, commitId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline SourceCodeRepoBranch& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> commitId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> commitId_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

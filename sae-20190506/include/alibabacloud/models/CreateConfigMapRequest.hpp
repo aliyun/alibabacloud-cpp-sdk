@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->namespaceId_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->namespaceId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline CreateConfigMapRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateConfigMapRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateConfigMapRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline CreateConfigMapRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
@@ -69,21 +69,21 @@ namespace Models
     // The ConfigMap data.
     // 
     // This parameter is required.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // The key-value pairs of the ConfigMap in the JSON format. Format:
     // 
     // {"Data":"{"k1":"v1", "k2":"v2"}"}
     // 
     // k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the ConfigMap. The name can contain digits, letters, and underscores (_). The name must start with a letter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the namespace to which the ConfigMap instance belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

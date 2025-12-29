@@ -33,7 +33,7 @@ namespace Models
     // changeOrderId Field Functions 
     bool hasChangeOrderId() const { return this->changeOrderId_ != nullptr;};
     void deleteChangeOrderId() { this->changeOrderId_ = nullptr;};
-    inline string changeOrderId() const { DARABONBA_PTR_GET_DEFAULT(changeOrderId_, "") };
+    inline string getChangeOrderId() const { DARABONBA_PTR_GET_DEFAULT(changeOrderId_, "") };
     inline AbortAndRollbackChangeOrderRequest& setChangeOrderId(string changeOrderId) { DARABONBA_PTR_SET_VALUE(changeOrderId_, changeOrderId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the change order.
     // 
     // This parameter is required.
-    std::shared_ptr<string> changeOrderId_ = nullptr;
+    shared_ptr<string> changeOrderId_ {};
   };
 
   } // namespace Models

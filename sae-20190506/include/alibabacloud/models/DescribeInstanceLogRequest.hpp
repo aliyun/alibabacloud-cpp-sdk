@@ -34,36 +34,36 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containerId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->previous_ == nullptr; };
+        && this->instanceId_ == nullptr && this->previous_ == nullptr; };
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
-    inline string containerId() const { DARABONBA_PTR_GET_DEFAULT(containerId_, "") };
+    inline string getContainerId() const { DARABONBA_PTR_GET_DEFAULT(containerId_, "") };
     inline DescribeInstanceLogRequest& setContainerId(string containerId) { DARABONBA_PTR_SET_VALUE(containerId_, containerId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInstanceLogRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // previous Field Functions 
     bool hasPrevious() const { return this->previous_ != nullptr;};
     void deletePrevious() { this->previous_ = nullptr;};
-    inline string previous() const { DARABONBA_PTR_GET_DEFAULT(previous_, "") };
+    inline string getPrevious() const { DARABONBA_PTR_GET_DEFAULT(previous_, "") };
     inline DescribeInstanceLogRequest& setPrevious(string previous) { DARABONBA_PTR_SET_VALUE(previous_, previous) };
 
 
   protected:
     // The ID of the sidecar container. You can call the [DescribeApplicationInstances](https://help.aliyun.com/document_detail/2834847.html) to obtain the ID.
-    std::shared_ptr<string> containerId_ = nullptr;
+    shared_ptr<string> containerId_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> previous_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> previous_ {};
   };
 
   } // namespace Models

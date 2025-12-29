@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespaceId_ == nullptr
-        && return this->secretId_ == nullptr; };
+        && this->secretId_ == nullptr; };
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline DeleteSecretRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // secretId Field Functions 
     bool hasSecretId() const { return this->secretId_ != nullptr;};
     void deleteSecretId() { this->secretId_ = nullptr;};
-    inline int64_t secretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, 0L) };
+    inline int64_t getSecretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, 0L) };
     inline DeleteSecretRequest& setSecretId(int64_t secretId) { DARABONBA_PTR_SET_VALUE(secretId_, secretId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the namespace in which the Secret resides. By default, the namespace ID is the same as the region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The ID of the Secret to be deleted. You can call the [ListSecrets](https://help.aliyun.com/document_detail/466929.html) operation to view the Secret IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> secretId_ = nullptr;
+    shared_ptr<int64_t> secretId_ {};
   };
 
   } // namespace Models

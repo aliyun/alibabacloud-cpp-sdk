@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->command_ == nullptr
-        && return this->commandArgs_ == nullptr && return this->configMapMountDesc_ == nullptr && return this->emptyDirDesc_ == nullptr && return this->envs_ == nullptr && return this->imageUrl_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->commandArgs_ == nullptr && this->configMapMountDesc_ == nullptr && this->emptyDirDesc_ == nullptr && this->envs_ == nullptr && this->imageUrl_ == nullptr
+        && this->name_ == nullptr; };
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline string command() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
+    inline string getCommand() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
     inline InitContainerConfig& setCommand(string command) { DARABONBA_PTR_SET_VALUE(command_, command) };
 
 
     // commandArgs Field Functions 
     bool hasCommandArgs() const { return this->commandArgs_ != nullptr;};
     void deleteCommandArgs() { this->commandArgs_ = nullptr;};
-    inline string commandArgs() const { DARABONBA_PTR_GET_DEFAULT(commandArgs_, "") };
+    inline string getCommandArgs() const { DARABONBA_PTR_GET_DEFAULT(commandArgs_, "") };
     inline InitContainerConfig& setCommandArgs(string commandArgs) { DARABONBA_PTR_SET_VALUE(commandArgs_, commandArgs) };
 
 
     // configMapMountDesc Field Functions 
     bool hasConfigMapMountDesc() const { return this->configMapMountDesc_ != nullptr;};
     void deleteConfigMapMountDesc() { this->configMapMountDesc_ = nullptr;};
-    inline string configMapMountDesc() const { DARABONBA_PTR_GET_DEFAULT(configMapMountDesc_, "") };
+    inline string getConfigMapMountDesc() const { DARABONBA_PTR_GET_DEFAULT(configMapMountDesc_, "") };
     inline InitContainerConfig& setConfigMapMountDesc(string configMapMountDesc) { DARABONBA_PTR_SET_VALUE(configMapMountDesc_, configMapMountDesc) };
 
 
     // emptyDirDesc Field Functions 
     bool hasEmptyDirDesc() const { return this->emptyDirDesc_ != nullptr;};
     void deleteEmptyDirDesc() { this->emptyDirDesc_ = nullptr;};
-    inline string emptyDirDesc() const { DARABONBA_PTR_GET_DEFAULT(emptyDirDesc_, "") };
+    inline string getEmptyDirDesc() const { DARABONBA_PTR_GET_DEFAULT(emptyDirDesc_, "") };
     inline InitContainerConfig& setEmptyDirDesc(string emptyDirDesc) { DARABONBA_PTR_SET_VALUE(emptyDirDesc_, emptyDirDesc) };
 
 
     // envs Field Functions 
     bool hasEnvs() const { return this->envs_ != nullptr;};
     void deleteEnvs() { this->envs_ = nullptr;};
-    inline string envs() const { DARABONBA_PTR_GET_DEFAULT(envs_, "") };
+    inline string getEnvs() const { DARABONBA_PTR_GET_DEFAULT(envs_, "") };
     inline InitContainerConfig& setEnvs(string envs) { DARABONBA_PTR_SET_VALUE(envs_, envs) };
 
 
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
-    inline string imageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
+    inline string getImageUrl() const { DARABONBA_PTR_GET_DEFAULT(imageUrl_, "") };
     inline InitContainerConfig& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline InitContainerConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> command_ = nullptr;
-    std::shared_ptr<string> commandArgs_ = nullptr;
-    std::shared_ptr<string> configMapMountDesc_ = nullptr;
-    std::shared_ptr<string> emptyDirDesc_ = nullptr;
-    std::shared_ptr<string> envs_ = nullptr;
-    std::shared_ptr<string> imageUrl_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> command_ {};
+    shared_ptr<string> commandArgs_ {};
+    shared_ptr<string> configMapMountDesc_ {};
+    shared_ptr<string> emptyDirDesc_ {};
+    shared_ptr<string> envs_ {};
+    shared_ptr<string> imageUrl_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

@@ -79,51 +79,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCount_ == nullptr
-        && return this->appType_ == nullptr && return this->cpuCore_ == nullptr && return this->cpuStrategy_ == nullptr && return this->cpuUtilLevel_ == nullptr && return this->cpuUtilMetrics_ == nullptr
-        && return this->enableCpuIdle_ == nullptr && return this->envType_ == nullptr && return this->ephemeralStorageGiB_ == nullptr && return this->highLoadInstanceCount_ == nullptr && return this->highLoadQps_ == nullptr
-        && return this->highLoadSeconds_ == nullptr && return this->instanceQps_ == nullptr && return this->internetOutboundGiB_ == nullptr && return this->lowLoadInstanceCount_ == nullptr && return this->lowLoadQps_ == nullptr
-        && return this->lowLoadSeconds_ == nullptr && return this->maxInstanceCount_ == nullptr && return this->memoryGiB_ == nullptr && return this->minInstanceCount_ == nullptr && return this->newSaeVersion_ == nullptr
-        && return this->noneLoadInstanceCount_ == nullptr && return this->noneLoadSeconds_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->appType_ == nullptr && this->cpuCore_ == nullptr && this->cpuStrategy_ == nullptr && this->cpuUtilLevel_ == nullptr && this->cpuUtilMetrics_ == nullptr
+        && this->enableCpuIdle_ == nullptr && this->envType_ == nullptr && this->ephemeralStorageGiB_ == nullptr && this->highLoadInstanceCount_ == nullptr && this->highLoadQps_ == nullptr
+        && this->highLoadSeconds_ == nullptr && this->instanceQps_ == nullptr && this->internetOutboundGiB_ == nullptr && this->lowLoadInstanceCount_ == nullptr && this->lowLoadQps_ == nullptr
+        && this->lowLoadSeconds_ == nullptr && this->maxInstanceCount_ == nullptr && this->memoryGiB_ == nullptr && this->minInstanceCount_ == nullptr && this->newSaeVersion_ == nullptr
+        && this->noneLoadInstanceCount_ == nullptr && this->noneLoadSeconds_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr; };
     // appCount Field Functions 
     bool hasAppCount() const { return this->appCount_ != nullptr;};
     void deleteAppCount() { this->appCount_ = nullptr;};
-    inline int64_t appCount() const { DARABONBA_PTR_GET_DEFAULT(appCount_, 0L) };
+    inline int64_t getAppCount() const { DARABONBA_PTR_GET_DEFAULT(appCount_, 0L) };
     inline PriceEstimateFeature& setAppCount(int64_t appCount) { DARABONBA_PTR_SET_VALUE(appCount_, appCount) };
 
 
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline PriceEstimateFeature& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // cpuCore Field Functions 
     bool hasCpuCore() const { return this->cpuCore_ != nullptr;};
     void deleteCpuCore() { this->cpuCore_ = nullptr;};
-    inline float cpuCore() const { DARABONBA_PTR_GET_DEFAULT(cpuCore_, 0.0) };
+    inline float getCpuCore() const { DARABONBA_PTR_GET_DEFAULT(cpuCore_, 0.0) };
     inline PriceEstimateFeature& setCpuCore(float cpuCore) { DARABONBA_PTR_SET_VALUE(cpuCore_, cpuCore) };
 
 
     // cpuStrategy Field Functions 
     bool hasCpuStrategy() const { return this->cpuStrategy_ != nullptr;};
     void deleteCpuStrategy() { this->cpuStrategy_ = nullptr;};
-    inline string cpuStrategy() const { DARABONBA_PTR_GET_DEFAULT(cpuStrategy_, "") };
+    inline string getCpuStrategy() const { DARABONBA_PTR_GET_DEFAULT(cpuStrategy_, "") };
     inline PriceEstimateFeature& setCpuStrategy(string cpuStrategy) { DARABONBA_PTR_SET_VALUE(cpuStrategy_, cpuStrategy) };
 
 
     // cpuUtilLevel Field Functions 
     bool hasCpuUtilLevel() const { return this->cpuUtilLevel_ != nullptr;};
     void deleteCpuUtilLevel() { this->cpuUtilLevel_ = nullptr;};
-    inline string cpuUtilLevel() const { DARABONBA_PTR_GET_DEFAULT(cpuUtilLevel_, "") };
+    inline string getCpuUtilLevel() const { DARABONBA_PTR_GET_DEFAULT(cpuUtilLevel_, "") };
     inline PriceEstimateFeature& setCpuUtilLevel(string cpuUtilLevel) { DARABONBA_PTR_SET_VALUE(cpuUtilLevel_, cpuUtilLevel) };
 
 
     // cpuUtilMetrics Field Functions 
     bool hasCpuUtilMetrics() const { return this->cpuUtilMetrics_ != nullptr;};
     void deleteCpuUtilMetrics() { this->cpuUtilMetrics_ = nullptr;};
-    inline const vector<float> & cpuUtilMetrics() const { DARABONBA_PTR_GET_CONST(cpuUtilMetrics_, vector<float>) };
-    inline vector<float> cpuUtilMetrics() { DARABONBA_PTR_GET(cpuUtilMetrics_, vector<float>) };
+    inline const vector<float> & getCpuUtilMetrics() const { DARABONBA_PTR_GET_CONST(cpuUtilMetrics_, vector<float>) };
+    inline vector<float> getCpuUtilMetrics() { DARABONBA_PTR_GET(cpuUtilMetrics_, vector<float>) };
     inline PriceEstimateFeature& setCpuUtilMetrics(const vector<float> & cpuUtilMetrics) { DARABONBA_PTR_SET_VALUE(cpuUtilMetrics_, cpuUtilMetrics) };
     inline PriceEstimateFeature& setCpuUtilMetrics(vector<float> && cpuUtilMetrics) { DARABONBA_PTR_SET_RVALUE(cpuUtilMetrics_, cpuUtilMetrics) };
 
@@ -131,168 +131,168 @@ namespace Models
     // enableCpuIdle Field Functions 
     bool hasEnableCpuIdle() const { return this->enableCpuIdle_ != nullptr;};
     void deleteEnableCpuIdle() { this->enableCpuIdle_ = nullptr;};
-    inline bool enableCpuIdle() const { DARABONBA_PTR_GET_DEFAULT(enableCpuIdle_, false) };
+    inline bool getEnableCpuIdle() const { DARABONBA_PTR_GET_DEFAULT(enableCpuIdle_, false) };
     inline PriceEstimateFeature& setEnableCpuIdle(bool enableCpuIdle) { DARABONBA_PTR_SET_VALUE(enableCpuIdle_, enableCpuIdle) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline PriceEstimateFeature& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // ephemeralStorageGiB Field Functions 
     bool hasEphemeralStorageGiB() const { return this->ephemeralStorageGiB_ != nullptr;};
     void deleteEphemeralStorageGiB() { this->ephemeralStorageGiB_ = nullptr;};
-    inline int64_t ephemeralStorageGiB() const { DARABONBA_PTR_GET_DEFAULT(ephemeralStorageGiB_, 0L) };
+    inline int64_t getEphemeralStorageGiB() const { DARABONBA_PTR_GET_DEFAULT(ephemeralStorageGiB_, 0L) };
     inline PriceEstimateFeature& setEphemeralStorageGiB(int64_t ephemeralStorageGiB) { DARABONBA_PTR_SET_VALUE(ephemeralStorageGiB_, ephemeralStorageGiB) };
 
 
     // highLoadInstanceCount Field Functions 
     bool hasHighLoadInstanceCount() const { return this->highLoadInstanceCount_ != nullptr;};
     void deleteHighLoadInstanceCount() { this->highLoadInstanceCount_ = nullptr;};
-    inline int64_t highLoadInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(highLoadInstanceCount_, 0L) };
+    inline int64_t getHighLoadInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(highLoadInstanceCount_, 0L) };
     inline PriceEstimateFeature& setHighLoadInstanceCount(int64_t highLoadInstanceCount) { DARABONBA_PTR_SET_VALUE(highLoadInstanceCount_, highLoadInstanceCount) };
 
 
     // highLoadQps Field Functions 
     bool hasHighLoadQps() const { return this->highLoadQps_ != nullptr;};
     void deleteHighLoadQps() { this->highLoadQps_ = nullptr;};
-    inline float highLoadQps() const { DARABONBA_PTR_GET_DEFAULT(highLoadQps_, 0.0) };
+    inline float getHighLoadQps() const { DARABONBA_PTR_GET_DEFAULT(highLoadQps_, 0.0) };
     inline PriceEstimateFeature& setHighLoadQps(float highLoadQps) { DARABONBA_PTR_SET_VALUE(highLoadQps_, highLoadQps) };
 
 
     // highLoadSeconds Field Functions 
     bool hasHighLoadSeconds() const { return this->highLoadSeconds_ != nullptr;};
     void deleteHighLoadSeconds() { this->highLoadSeconds_ = nullptr;};
-    inline int64_t highLoadSeconds() const { DARABONBA_PTR_GET_DEFAULT(highLoadSeconds_, 0L) };
+    inline int64_t getHighLoadSeconds() const { DARABONBA_PTR_GET_DEFAULT(highLoadSeconds_, 0L) };
     inline PriceEstimateFeature& setHighLoadSeconds(int64_t highLoadSeconds) { DARABONBA_PTR_SET_VALUE(highLoadSeconds_, highLoadSeconds) };
 
 
     // instanceQps Field Functions 
     bool hasInstanceQps() const { return this->instanceQps_ != nullptr;};
     void deleteInstanceQps() { this->instanceQps_ = nullptr;};
-    inline float instanceQps() const { DARABONBA_PTR_GET_DEFAULT(instanceQps_, 0.0) };
+    inline float getInstanceQps() const { DARABONBA_PTR_GET_DEFAULT(instanceQps_, 0.0) };
     inline PriceEstimateFeature& setInstanceQps(float instanceQps) { DARABONBA_PTR_SET_VALUE(instanceQps_, instanceQps) };
 
 
     // internetOutboundGiB Field Functions 
     bool hasInternetOutboundGiB() const { return this->internetOutboundGiB_ != nullptr;};
     void deleteInternetOutboundGiB() { this->internetOutboundGiB_ = nullptr;};
-    inline float internetOutboundGiB() const { DARABONBA_PTR_GET_DEFAULT(internetOutboundGiB_, 0.0) };
+    inline float getInternetOutboundGiB() const { DARABONBA_PTR_GET_DEFAULT(internetOutboundGiB_, 0.0) };
     inline PriceEstimateFeature& setInternetOutboundGiB(float internetOutboundGiB) { DARABONBA_PTR_SET_VALUE(internetOutboundGiB_, internetOutboundGiB) };
 
 
     // lowLoadInstanceCount Field Functions 
     bool hasLowLoadInstanceCount() const { return this->lowLoadInstanceCount_ != nullptr;};
     void deleteLowLoadInstanceCount() { this->lowLoadInstanceCount_ = nullptr;};
-    inline int64_t lowLoadInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(lowLoadInstanceCount_, 0L) };
+    inline int64_t getLowLoadInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(lowLoadInstanceCount_, 0L) };
     inline PriceEstimateFeature& setLowLoadInstanceCount(int64_t lowLoadInstanceCount) { DARABONBA_PTR_SET_VALUE(lowLoadInstanceCount_, lowLoadInstanceCount) };
 
 
     // lowLoadQps Field Functions 
     bool hasLowLoadQps() const { return this->lowLoadQps_ != nullptr;};
     void deleteLowLoadQps() { this->lowLoadQps_ = nullptr;};
-    inline float lowLoadQps() const { DARABONBA_PTR_GET_DEFAULT(lowLoadQps_, 0.0) };
+    inline float getLowLoadQps() const { DARABONBA_PTR_GET_DEFAULT(lowLoadQps_, 0.0) };
     inline PriceEstimateFeature& setLowLoadQps(float lowLoadQps) { DARABONBA_PTR_SET_VALUE(lowLoadQps_, lowLoadQps) };
 
 
     // lowLoadSeconds Field Functions 
     bool hasLowLoadSeconds() const { return this->lowLoadSeconds_ != nullptr;};
     void deleteLowLoadSeconds() { this->lowLoadSeconds_ = nullptr;};
-    inline int64_t lowLoadSeconds() const { DARABONBA_PTR_GET_DEFAULT(lowLoadSeconds_, 0L) };
+    inline int64_t getLowLoadSeconds() const { DARABONBA_PTR_GET_DEFAULT(lowLoadSeconds_, 0L) };
     inline PriceEstimateFeature& setLowLoadSeconds(int64_t lowLoadSeconds) { DARABONBA_PTR_SET_VALUE(lowLoadSeconds_, lowLoadSeconds) };
 
 
     // maxInstanceCount Field Functions 
     bool hasMaxInstanceCount() const { return this->maxInstanceCount_ != nullptr;};
     void deleteMaxInstanceCount() { this->maxInstanceCount_ = nullptr;};
-    inline int64_t maxInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(maxInstanceCount_, 0L) };
+    inline int64_t getMaxInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(maxInstanceCount_, 0L) };
     inline PriceEstimateFeature& setMaxInstanceCount(int64_t maxInstanceCount) { DARABONBA_PTR_SET_VALUE(maxInstanceCount_, maxInstanceCount) };
 
 
     // memoryGiB Field Functions 
     bool hasMemoryGiB() const { return this->memoryGiB_ != nullptr;};
     void deleteMemoryGiB() { this->memoryGiB_ = nullptr;};
-    inline float memoryGiB() const { DARABONBA_PTR_GET_DEFAULT(memoryGiB_, 0.0) };
+    inline float getMemoryGiB() const { DARABONBA_PTR_GET_DEFAULT(memoryGiB_, 0.0) };
     inline PriceEstimateFeature& setMemoryGiB(float memoryGiB) { DARABONBA_PTR_SET_VALUE(memoryGiB_, memoryGiB) };
 
 
     // minInstanceCount Field Functions 
     bool hasMinInstanceCount() const { return this->minInstanceCount_ != nullptr;};
     void deleteMinInstanceCount() { this->minInstanceCount_ = nullptr;};
-    inline int64_t minInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(minInstanceCount_, 0L) };
+    inline int64_t getMinInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(minInstanceCount_, 0L) };
     inline PriceEstimateFeature& setMinInstanceCount(int64_t minInstanceCount) { DARABONBA_PTR_SET_VALUE(minInstanceCount_, minInstanceCount) };
 
 
     // newSaeVersion Field Functions 
     bool hasNewSaeVersion() const { return this->newSaeVersion_ != nullptr;};
     void deleteNewSaeVersion() { this->newSaeVersion_ = nullptr;};
-    inline string newSaeVersion() const { DARABONBA_PTR_GET_DEFAULT(newSaeVersion_, "") };
+    inline string getNewSaeVersion() const { DARABONBA_PTR_GET_DEFAULT(newSaeVersion_, "") };
     inline PriceEstimateFeature& setNewSaeVersion(string newSaeVersion) { DARABONBA_PTR_SET_VALUE(newSaeVersion_, newSaeVersion) };
 
 
     // noneLoadInstanceCount Field Functions 
     bool hasNoneLoadInstanceCount() const { return this->noneLoadInstanceCount_ != nullptr;};
     void deleteNoneLoadInstanceCount() { this->noneLoadInstanceCount_ = nullptr;};
-    inline int64_t noneLoadInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(noneLoadInstanceCount_, 0L) };
+    inline int64_t getNoneLoadInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(noneLoadInstanceCount_, 0L) };
     inline PriceEstimateFeature& setNoneLoadInstanceCount(int64_t noneLoadInstanceCount) { DARABONBA_PTR_SET_VALUE(noneLoadInstanceCount_, noneLoadInstanceCount) };
 
 
     // noneLoadSeconds Field Functions 
     bool hasNoneLoadSeconds() const { return this->noneLoadSeconds_ != nullptr;};
     void deleteNoneLoadSeconds() { this->noneLoadSeconds_ = nullptr;};
-    inline int64_t noneLoadSeconds() const { DARABONBA_PTR_GET_DEFAULT(noneLoadSeconds_, 0L) };
+    inline int64_t getNoneLoadSeconds() const { DARABONBA_PTR_GET_DEFAULT(noneLoadSeconds_, 0L) };
     inline PriceEstimateFeature& setNoneLoadSeconds(int64_t noneLoadSeconds) { DARABONBA_PTR_SET_VALUE(noneLoadSeconds_, noneLoadSeconds) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PriceEstimateFeature& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline PriceEstimateFeature& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
-    std::shared_ptr<int64_t> appCount_ = nullptr;
+    shared_ptr<int64_t> appCount_ {};
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
+    shared_ptr<string> appType_ {};
     // This parameter is required.
-    std::shared_ptr<float> cpuCore_ = nullptr;
+    shared_ptr<float> cpuCore_ {};
     // This parameter is required.
-    std::shared_ptr<string> cpuStrategy_ = nullptr;
-    std::shared_ptr<string> cpuUtilLevel_ = nullptr;
-    std::shared_ptr<vector<float>> cpuUtilMetrics_ = nullptr;
-    std::shared_ptr<bool> enableCpuIdle_ = nullptr;
+    shared_ptr<string> cpuStrategy_ {};
+    shared_ptr<string> cpuUtilLevel_ {};
+    shared_ptr<vector<float>> cpuUtilMetrics_ {};
+    shared_ptr<bool> enableCpuIdle_ {};
     // This parameter is required.
-    std::shared_ptr<string> envType_ = nullptr;
-    std::shared_ptr<int64_t> ephemeralStorageGiB_ = nullptr;
-    std::shared_ptr<int64_t> highLoadInstanceCount_ = nullptr;
-    std::shared_ptr<float> highLoadQps_ = nullptr;
-    std::shared_ptr<int64_t> highLoadSeconds_ = nullptr;
-    std::shared_ptr<float> instanceQps_ = nullptr;
-    std::shared_ptr<float> internetOutboundGiB_ = nullptr;
-    std::shared_ptr<int64_t> lowLoadInstanceCount_ = nullptr;
-    std::shared_ptr<float> lowLoadQps_ = nullptr;
-    std::shared_ptr<int64_t> lowLoadSeconds_ = nullptr;
-    std::shared_ptr<int64_t> maxInstanceCount_ = nullptr;
+    shared_ptr<string> envType_ {};
+    shared_ptr<int64_t> ephemeralStorageGiB_ {};
+    shared_ptr<int64_t> highLoadInstanceCount_ {};
+    shared_ptr<float> highLoadQps_ {};
+    shared_ptr<int64_t> highLoadSeconds_ {};
+    shared_ptr<float> instanceQps_ {};
+    shared_ptr<float> internetOutboundGiB_ {};
+    shared_ptr<int64_t> lowLoadInstanceCount_ {};
+    shared_ptr<float> lowLoadQps_ {};
+    shared_ptr<int64_t> lowLoadSeconds_ {};
+    shared_ptr<int64_t> maxInstanceCount_ {};
     // This parameter is required.
-    std::shared_ptr<float> memoryGiB_ = nullptr;
-    std::shared_ptr<int64_t> minInstanceCount_ = nullptr;
-    std::shared_ptr<string> newSaeVersion_ = nullptr;
-    std::shared_ptr<int64_t> noneLoadInstanceCount_ = nullptr;
-    std::shared_ptr<int64_t> noneLoadSeconds_ = nullptr;
+    shared_ptr<float> memoryGiB_ {};
+    shared_ptr<int64_t> minInstanceCount_ {};
+    shared_ptr<string> newSaeVersion_ {};
+    shared_ptr<int64_t> noneLoadInstanceCount_ {};
+    shared_ptr<int64_t> noneLoadSeconds_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

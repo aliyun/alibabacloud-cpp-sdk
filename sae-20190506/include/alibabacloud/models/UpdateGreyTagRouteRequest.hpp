@@ -38,55 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->albRules_ == nullptr
-        && return this->description_ == nullptr && return this->dubboRules_ == nullptr && return this->greyTagRouteId_ == nullptr && return this->scRules_ == nullptr; };
+        && this->description_ == nullptr && this->dubboRules_ == nullptr && this->greyTagRouteId_ == nullptr && this->scRules_ == nullptr; };
     // albRules Field Functions 
     bool hasAlbRules() const { return this->albRules_ != nullptr;};
     void deleteAlbRules() { this->albRules_ = nullptr;};
-    inline string albRules() const { DARABONBA_PTR_GET_DEFAULT(albRules_, "") };
+    inline string getAlbRules() const { DARABONBA_PTR_GET_DEFAULT(albRules_, "") };
     inline UpdateGreyTagRouteRequest& setAlbRules(string albRules) { DARABONBA_PTR_SET_VALUE(albRules_, albRules) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateGreyTagRouteRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dubboRules Field Functions 
     bool hasDubboRules() const { return this->dubboRules_ != nullptr;};
     void deleteDubboRules() { this->dubboRules_ = nullptr;};
-    inline string dubboRules() const { DARABONBA_PTR_GET_DEFAULT(dubboRules_, "") };
+    inline string getDubboRules() const { DARABONBA_PTR_GET_DEFAULT(dubboRules_, "") };
     inline UpdateGreyTagRouteRequest& setDubboRules(string dubboRules) { DARABONBA_PTR_SET_VALUE(dubboRules_, dubboRules) };
 
 
     // greyTagRouteId Field Functions 
     bool hasGreyTagRouteId() const { return this->greyTagRouteId_ != nullptr;};
     void deleteGreyTagRouteId() { this->greyTagRouteId_ = nullptr;};
-    inline int64_t greyTagRouteId() const { DARABONBA_PTR_GET_DEFAULT(greyTagRouteId_, 0L) };
+    inline int64_t getGreyTagRouteId() const { DARABONBA_PTR_GET_DEFAULT(greyTagRouteId_, 0L) };
     inline UpdateGreyTagRouteRequest& setGreyTagRouteId(int64_t greyTagRouteId) { DARABONBA_PTR_SET_VALUE(greyTagRouteId_, greyTagRouteId) };
 
 
     // scRules Field Functions 
     bool hasScRules() const { return this->scRules_ != nullptr;};
     void deleteScRules() { this->scRules_ = nullptr;};
-    inline string scRules() const { DARABONBA_PTR_GET_DEFAULT(scRules_, "") };
+    inline string getScRules() const { DARABONBA_PTR_GET_DEFAULT(scRules_, "") };
     inline UpdateGreyTagRouteRequest& setScRules(string scRules) { DARABONBA_PTR_SET_VALUE(scRules_, scRules) };
 
 
   protected:
     // The canary release rule of the application for which ALB gateway routing is configured.
-    std::shared_ptr<string> albRules_ = nullptr;
+    shared_ptr<string> albRules_ {};
     // The description of the canary release rule.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The canary release rule of the Dubbo application.
-    std::shared_ptr<string> dubboRules_ = nullptr;
+    shared_ptr<string> dubboRules_ {};
     // The ID of the canary release rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> greyTagRouteId_ = nullptr;
+    shared_ptr<int64_t> greyTagRouteId_ {};
     // The canary release rule of the Spring Cloud application.
-    std::shared_ptr<string> scRules_ = nullptr;
+    shared_ptr<string> scRules_ {};
   };
 
   } // namespace Models

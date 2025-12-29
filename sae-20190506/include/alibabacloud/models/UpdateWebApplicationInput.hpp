@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->webNetworkConfig_ == nullptr; };
+        && this->webNetworkConfig_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateWebApplicationInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // webNetworkConfig Field Functions 
     bool hasWebNetworkConfig() const { return this->webNetworkConfig_ != nullptr;};
     void deleteWebNetworkConfig() { this->webNetworkConfig_ = nullptr;};
-    inline const WebNetworkConfig & webNetworkConfig() const { DARABONBA_PTR_GET_CONST(webNetworkConfig_, WebNetworkConfig) };
-    inline WebNetworkConfig webNetworkConfig() { DARABONBA_PTR_GET(webNetworkConfig_, WebNetworkConfig) };
+    inline const WebNetworkConfig & getWebNetworkConfig() const { DARABONBA_PTR_GET_CONST(webNetworkConfig_, WebNetworkConfig) };
+    inline WebNetworkConfig getWebNetworkConfig() { DARABONBA_PTR_GET(webNetworkConfig_, WebNetworkConfig) };
     inline UpdateWebApplicationInput& setWebNetworkConfig(const WebNetworkConfig & webNetworkConfig) { DARABONBA_PTR_SET_VALUE(webNetworkConfig_, webNetworkConfig) };
     inline UpdateWebApplicationInput& setWebNetworkConfig(WebNetworkConfig && webNetworkConfig) { DARABONBA_PTR_SET_RVALUE(webNetworkConfig_, webNetworkConfig) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<WebNetworkConfig> webNetworkConfig_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<WebNetworkConfig> webNetworkConfig_ {};
   };
 
   } // namespace Models

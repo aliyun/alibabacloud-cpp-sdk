@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appIds_ == nullptr && return this->enableIdle_ == nullptr && return this->namespaceId_ == nullptr; };
+        && this->appIds_ == nullptr && this->enableIdle_ == nullptr && this->namespaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateAppModeRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline string appIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
     inline UpdateAppModeRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
     // enableIdle Field Functions 
     bool hasEnableIdle() const { return this->enableIdle_ != nullptr;};
     void deleteEnableIdle() { this->enableIdle_ = nullptr;};
-    inline bool enableIdle() const { DARABONBA_PTR_GET_DEFAULT(enableIdle_, false) };
+    inline bool getEnableIdle() const { DARABONBA_PTR_GET_DEFAULT(enableIdle_, false) };
     inline UpdateAppModeRequest& setEnableIdle(bool enableIdle) { DARABONBA_PTR_SET_VALUE(enableIdle_, enableIdle) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline UpdateAppModeRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
   protected:
     // The app ID.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> appIds_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> appIds_ {};
     // Enable Idle Mode?
     // 
     // Enumeration value:
     // 
     // *   true: enables.
     // *   false: disables.
-    std::shared_ptr<bool> enableIdle_ = nullptr;
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<bool> enableIdle_ {};
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

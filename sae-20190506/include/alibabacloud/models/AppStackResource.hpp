@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->instanceId_ == nullptr && return this->productCode_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr
-        && return this->stackId_ == nullptr && return this->status_ == nullptr; };
+        && this->instanceId_ == nullptr && this->productCode_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->resourceType_ == nullptr
+        && this->stackId_ == nullptr && this->status_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline AppStackResource& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AppStackResource& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline AppStackResource& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline AppStackResource& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
-    inline string resourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+    inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
     inline AppStackResource& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline AppStackResource& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // stackId Field Functions 
     bool hasStackId() const { return this->stackId_ != nullptr;};
     void deleteStackId() { this->stackId_ = nullptr;};
-    inline string stackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
+    inline string getStackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
     inline AppStackResource& setStackId(string stackId) { DARABONBA_PTR_SET_VALUE(stackId_, stackId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline AppStackResource& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<int64_t> createTime_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> productCode_ = nullptr;
-    std::shared_ptr<string> resourceId_ = nullptr;
-    std::shared_ptr<string> resourceName_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<string> stackId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<int64_t> createTime_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> productCode_ {};
+    shared_ptr<string> resourceId_ {};
+    shared_ptr<string> resourceName_ {};
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> stackId_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceCount_ == nullptr
-        && return this->scaleConfig_ == nullptr; };
+        && this->scaleConfig_ == nullptr; };
     // instanceCount Field Functions 
     bool hasInstanceCount() const { return this->instanceCount_ != nullptr;};
     void deleteInstanceCount() { this->instanceCount_ = nullptr;};
-    inline int64_t instanceCount() const { DARABONBA_PTR_GET_DEFAULT(instanceCount_, 0L) };
+    inline int64_t getInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(instanceCount_, 0L) };
     inline ApplicationStatus& setInstanceCount(int64_t instanceCount) { DARABONBA_PTR_SET_VALUE(instanceCount_, instanceCount) };
 
 
     // scaleConfig Field Functions 
     bool hasScaleConfig() const { return this->scaleConfig_ != nullptr;};
     void deleteScaleConfig() { this->scaleConfig_ = nullptr;};
-    inline const ScaleConfig & scaleConfig() const { DARABONBA_PTR_GET_CONST(scaleConfig_, ScaleConfig) };
-    inline ScaleConfig scaleConfig() { DARABONBA_PTR_GET(scaleConfig_, ScaleConfig) };
+    inline const ScaleConfig & getScaleConfig() const { DARABONBA_PTR_GET_CONST(scaleConfig_, ScaleConfig) };
+    inline ScaleConfig getScaleConfig() { DARABONBA_PTR_GET(scaleConfig_, ScaleConfig) };
     inline ApplicationStatus& setScaleConfig(const ScaleConfig & scaleConfig) { DARABONBA_PTR_SET_VALUE(scaleConfig_, scaleConfig) };
     inline ApplicationStatus& setScaleConfig(ScaleConfig && scaleConfig) { DARABONBA_PTR_SET_RVALUE(scaleConfig_, scaleConfig) };
 
 
   protected:
-    std::shared_ptr<int64_t> instanceCount_ = nullptr;
-    std::shared_ptr<ScaleConfig> scaleConfig_ = nullptr;
+    shared_ptr<int64_t> instanceCount_ {};
+    shared_ptr<ScaleConfig> scaleConfig_ {};
   };
 
   } // namespace Models

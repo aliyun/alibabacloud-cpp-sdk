@@ -40,51 +40,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bestEffortType_ == nullptr
-        && return this->cpu_ == nullptr && return this->memory_ == nullptr && return this->newSaeVersion_ == nullptr && return this->resourceType_ == nullptr && return this->workload_ == nullptr; };
+        && this->cpu_ == nullptr && this->memory_ == nullptr && this->newSaeVersion_ == nullptr && this->resourceType_ == nullptr && this->workload_ == nullptr; };
     // bestEffortType Field Functions 
     bool hasBestEffortType() const { return this->bestEffortType_ != nullptr;};
     void deleteBestEffortType() { this->bestEffortType_ = nullptr;};
-    inline string bestEffortType() const { DARABONBA_PTR_GET_DEFAULT(bestEffortType_, "") };
+    inline string getBestEffortType() const { DARABONBA_PTR_GET_DEFAULT(bestEffortType_, "") };
     inline DescribeConfigurationPriceRequest& setBestEffortType(string bestEffortType) { DARABONBA_PTR_SET_VALUE(bestEffortType_, bestEffortType) };
 
 
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
-    inline int32_t cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
+    inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
     inline DescribeConfigurationPriceRequest& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
 
 
     // memory Field Functions 
     bool hasMemory() const { return this->memory_ != nullptr;};
     void deleteMemory() { this->memory_ = nullptr;};
-    inline int32_t memory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0) };
+    inline int32_t getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0) };
     inline DescribeConfigurationPriceRequest& setMemory(int32_t memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
     // newSaeVersion Field Functions 
     bool hasNewSaeVersion() const { return this->newSaeVersion_ != nullptr;};
     void deleteNewSaeVersion() { this->newSaeVersion_ = nullptr;};
-    inline string newSaeVersion() const { DARABONBA_PTR_GET_DEFAULT(newSaeVersion_, "") };
+    inline string getNewSaeVersion() const { DARABONBA_PTR_GET_DEFAULT(newSaeVersion_, "") };
     inline DescribeConfigurationPriceRequest& setNewSaeVersion(string newSaeVersion) { DARABONBA_PTR_SET_VALUE(newSaeVersion_, newSaeVersion) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline DescribeConfigurationPriceRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // workload Field Functions 
     bool hasWorkload() const { return this->workload_ != nullptr;};
     void deleteWorkload() { this->workload_ = nullptr;};
-    inline string workload() const { DARABONBA_PTR_GET_DEFAULT(workload_, "") };
+    inline string getWorkload() const { DARABONBA_PTR_GET_DEFAULT(workload_, "") };
     inline DescribeConfigurationPriceRequest& setWorkload(string workload) { DARABONBA_PTR_SET_VALUE(workload_, workload) };
 
 
   protected:
-    std::shared_ptr<string> bestEffortType_ = nullptr;
+    shared_ptr<string> bestEffortType_ {};
     // The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
     // 
     // *   **500**
@@ -97,7 +97,7 @@ namespace Models
     // *   **32000**
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> cpu_ = nullptr;
+    shared_ptr<int32_t> cpu_ {};
     // The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
     // 
     // *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
@@ -112,14 +112,14 @@ namespace Models
     // *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> memory_ = nullptr;
-    std::shared_ptr<string> newSaeVersion_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<int32_t> memory_ {};
+    shared_ptr<string> newSaeVersion_ {};
+    shared_ptr<string> resourceType_ {};
     // Scenarios:
     // 
     // *   Web
     // *   micro_service
-    std::shared_ptr<string> workload_ = nullptr;
+    shared_ptr<string> workload_ {};
   };
 
   } // namespace Models

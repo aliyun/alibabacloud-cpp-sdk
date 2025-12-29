@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gatewayUniqueId_ == nullptr
-        && return this->namespaceId_ == nullptr; };
+        && this->namespaceId_ == nullptr; };
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};
-    inline string gatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
+    inline string getGatewayUniqueId() const { DARABONBA_PTR_GET_DEFAULT(gatewayUniqueId_, "") };
     inline ListSwimmingLaneGatewayRoutesRequest& setGatewayUniqueId(string gatewayUniqueId) { DARABONBA_PTR_SET_VALUE(gatewayUniqueId_, gatewayUniqueId) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline ListSwimmingLaneGatewayRoutesRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
   protected:
     // The unique ID of the gateway.
-    std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    shared_ptr<string> gatewayUniqueId_ {};
     // The ID of the namespace.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

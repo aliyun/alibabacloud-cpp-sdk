@@ -48,111 +48,111 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->currentPage_ == nullptr && return this->fieldType_ == nullptr && return this->fieldValue_ == nullptr && return this->namespaceId_ == nullptr && return this->orderBy_ == nullptr
-        && return this->pageSize_ == nullptr && return this->reverse_ == nullptr && return this->tags_ == nullptr && return this->workload_ == nullptr; };
+        && this->currentPage_ == nullptr && this->fieldType_ == nullptr && this->fieldValue_ == nullptr && this->namespaceId_ == nullptr && this->orderBy_ == nullptr
+        && this->pageSize_ == nullptr && this->reverse_ == nullptr && this->tags_ == nullptr && this->workload_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ListJobsRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListJobsRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // fieldType Field Functions 
     bool hasFieldType() const { return this->fieldType_ != nullptr;};
     void deleteFieldType() { this->fieldType_ = nullptr;};
-    inline string fieldType() const { DARABONBA_PTR_GET_DEFAULT(fieldType_, "") };
+    inline string getFieldType() const { DARABONBA_PTR_GET_DEFAULT(fieldType_, "") };
     inline ListJobsRequest& setFieldType(string fieldType) { DARABONBA_PTR_SET_VALUE(fieldType_, fieldType) };
 
 
     // fieldValue Field Functions 
     bool hasFieldValue() const { return this->fieldValue_ != nullptr;};
     void deleteFieldValue() { this->fieldValue_ = nullptr;};
-    inline string fieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
+    inline string getFieldValue() const { DARABONBA_PTR_GET_DEFAULT(fieldValue_, "") };
     inline ListJobsRequest& setFieldValue(string fieldValue) { DARABONBA_PTR_SET_VALUE(fieldValue_, fieldValue) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline ListJobsRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListJobsRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListJobsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // reverse Field Functions 
     bool hasReverse() const { return this->reverse_ != nullptr;};
     void deleteReverse() { this->reverse_ = nullptr;};
-    inline bool reverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
+    inline bool getReverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
     inline ListJobsRequest& setReverse(bool reverse) { DARABONBA_PTR_SET_VALUE(reverse_, reverse) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline ListJobsRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
     // workload Field Functions 
     bool hasWorkload() const { return this->workload_ != nullptr;};
     void deleteWorkload() { this->workload_ = nullptr;};
-    inline string workload() const { DARABONBA_PTR_GET_DEFAULT(workload_, "") };
+    inline string getWorkload() const { DARABONBA_PTR_GET_DEFAULT(workload_, "") };
     inline ListJobsRequest& setWorkload(string workload) { DARABONBA_PTR_SET_VALUE(workload_, workload) };
 
 
   protected:
     // The name of the job template.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The number of the page to return. The parameter value is a positive integer that is greater than or equal to 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The dimension by which applications are filtered. Valid values:
     // 
     // *   **appName**: Applications are filtered by job template name.
     // *   **appIds**: Applications are filtered by job template ID.
-    std::shared_ptr<string> fieldType_ = nullptr;
+    shared_ptr<string> fieldType_ {};
     // Enter the name and ID of the job template.
-    std::shared_ptr<string> fieldValue_ = nullptr;
+    shared_ptr<string> fieldValue_ {};
     // The namespace ID.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // Specifies how applications are sorted. Valid values:
     // 
     // *   **running**: The applications are sorted based on the number of running instances.
     // *   **instances**: The applications are sorted based on the number of destination instances.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The number of entries to return on each page. Valid value: 0 to 200.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Specifies whether to sort the field names that are passed by **OrderBy** in ascending order. Valid values:
     // 
     // *   **true**: in ascending order
     // *   **false**: in descending order
-    std::shared_ptr<bool> reverse_ = nullptr;
+    shared_ptr<bool> reverse_ {};
     // The tags that are displayed in a JSON string. Valid values:
     // 
     // *   **key**: the tag key
     // *   **value**: the tag value
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
     // Set the value to `job`.
-    std::shared_ptr<string> workload_ = nullptr;
+    shared_ptr<string> workload_ {};
   };
 
   } // namespace Models

@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->nlbId_ == nullptr && return this->port_ == nullptr && return this->protocol_ == nullptr; };
+        && this->nlbId_ == nullptr && this->port_ == nullptr && this->protocol_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UnbindNlbRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // nlbId Field Functions 
     bool hasNlbId() const { return this->nlbId_ != nullptr;};
     void deleteNlbId() { this->nlbId_ = nullptr;};
-    inline string nlbId() const { DARABONBA_PTR_GET_DEFAULT(nlbId_, "") };
+    inline string getNlbId() const { DARABONBA_PTR_GET_DEFAULT(nlbId_, "") };
     inline UnbindNlbRequest& setNlbId(string nlbId) { DARABONBA_PTR_SET_VALUE(nlbId_, nlbId) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline UnbindNlbRequest& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline UnbindNlbRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
   protected:
     // A short description of struct
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of NLB instance.
-    std::shared_ptr<string> nlbId_ = nullptr;
+    shared_ptr<string> nlbId_ {};
     // The listener port of the instance. Valid values: 0 to 65535.
-    std::shared_ptr<int32_t> port_ = nullptr;
+    shared_ptr<int32_t> port_ {};
     // The type of the protocol. Valid values:
     // 
     // *   **TCP**.
     // *   **UDP**.
     // *   **TCPSSL**.
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> protocol_ {};
   };
 
   } // namespace Models

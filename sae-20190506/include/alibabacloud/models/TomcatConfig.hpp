@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contextPath_ == nullptr
-        && return this->maxThreads_ == nullptr && return this->port_ == nullptr && return this->uriEncoding_ == nullptr && return this->useBodyEncodingForUri_ == nullptr && return this->version_ == nullptr; };
+        && this->maxThreads_ == nullptr && this->port_ == nullptr && this->uriEncoding_ == nullptr && this->useBodyEncodingForUri_ == nullptr && this->version_ == nullptr; };
     // contextPath Field Functions 
     bool hasContextPath() const { return this->contextPath_ != nullptr;};
     void deleteContextPath() { this->contextPath_ = nullptr;};
-    inline string contextPath() const { DARABONBA_PTR_GET_DEFAULT(contextPath_, "") };
+    inline string getContextPath() const { DARABONBA_PTR_GET_DEFAULT(contextPath_, "") };
     inline TomcatConfig& setContextPath(string contextPath) { DARABONBA_PTR_SET_VALUE(contextPath_, contextPath) };
 
 
     // maxThreads Field Functions 
     bool hasMaxThreads() const { return this->maxThreads_ != nullptr;};
     void deleteMaxThreads() { this->maxThreads_ = nullptr;};
-    inline int32_t maxThreads() const { DARABONBA_PTR_GET_DEFAULT(maxThreads_, 0) };
+    inline int32_t getMaxThreads() const { DARABONBA_PTR_GET_DEFAULT(maxThreads_, 0) };
     inline TomcatConfig& setMaxThreads(int32_t maxThreads) { DARABONBA_PTR_SET_VALUE(maxThreads_, maxThreads) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline TomcatConfig& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // uriEncoding Field Functions 
     bool hasUriEncoding() const { return this->uriEncoding_ != nullptr;};
     void deleteUriEncoding() { this->uriEncoding_ = nullptr;};
-    inline string uriEncoding() const { DARABONBA_PTR_GET_DEFAULT(uriEncoding_, "") };
+    inline string getUriEncoding() const { DARABONBA_PTR_GET_DEFAULT(uriEncoding_, "") };
     inline TomcatConfig& setUriEncoding(string uriEncoding) { DARABONBA_PTR_SET_VALUE(uriEncoding_, uriEncoding) };
 
 
     // useBodyEncodingForUri Field Functions 
     bool hasUseBodyEncodingForUri() const { return this->useBodyEncodingForUri_ != nullptr;};
     void deleteUseBodyEncodingForUri() { this->useBodyEncodingForUri_ = nullptr;};
-    inline bool useBodyEncodingForUri() const { DARABONBA_PTR_GET_DEFAULT(useBodyEncodingForUri_, false) };
+    inline bool getUseBodyEncodingForUri() const { DARABONBA_PTR_GET_DEFAULT(useBodyEncodingForUri_, false) };
     inline TomcatConfig& setUseBodyEncodingForUri(bool useBodyEncodingForUri) { DARABONBA_PTR_SET_VALUE(useBodyEncodingForUri_, useBodyEncodingForUri) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline TomcatConfig& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
-    std::shared_ptr<string> contextPath_ = nullptr;
-    std::shared_ptr<int32_t> maxThreads_ = nullptr;
-    std::shared_ptr<int32_t> port_ = nullptr;
-    std::shared_ptr<string> uriEncoding_ = nullptr;
-    std::shared_ptr<bool> useBodyEncodingForUri_ = nullptr;
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> contextPath_ {};
+    shared_ptr<int32_t> maxThreads_ {};
+    shared_ptr<int32_t> port_ {};
+    shared_ptr<string> uriEncoding_ {};
+    shared_ptr<bool> useBodyEncodingForUri_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

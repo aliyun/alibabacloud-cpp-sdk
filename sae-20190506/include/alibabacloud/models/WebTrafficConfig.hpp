@@ -38,26 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authType_ == nullptr
-        && return this->disableInternetURL_ == nullptr && return this->revisionsTrafficWeight_ == nullptr && return this->webAclConfig_ == nullptr; };
+        && this->disableInternetURL_ == nullptr && this->revisionsTrafficWeight_ == nullptr && this->webAclConfig_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};
-    inline string authType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+    inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
     inline WebTrafficConfig& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
 
 
     // disableInternetURL Field Functions 
     bool hasDisableInternetURL() const { return this->disableInternetURL_ != nullptr;};
     void deleteDisableInternetURL() { this->disableInternetURL_ = nullptr;};
-    inline bool disableInternetURL() const { DARABONBA_PTR_GET_DEFAULT(disableInternetURL_, false) };
+    inline bool getDisableInternetURL() const { DARABONBA_PTR_GET_DEFAULT(disableInternetURL_, false) };
     inline WebTrafficConfig& setDisableInternetURL(bool disableInternetURL) { DARABONBA_PTR_SET_VALUE(disableInternetURL_, disableInternetURL) };
 
 
     // revisionsTrafficWeight Field Functions 
     bool hasRevisionsTrafficWeight() const { return this->revisionsTrafficWeight_ != nullptr;};
     void deleteRevisionsTrafficWeight() { this->revisionsTrafficWeight_ = nullptr;};
-    inline const map<string, float> & revisionsTrafficWeight() const { DARABONBA_PTR_GET_CONST(revisionsTrafficWeight_, map<string, float>) };
-    inline map<string, float> revisionsTrafficWeight() { DARABONBA_PTR_GET(revisionsTrafficWeight_, map<string, float>) };
+    inline const map<string, float> & getRevisionsTrafficWeight() const { DARABONBA_PTR_GET_CONST(revisionsTrafficWeight_, map<string, float>) };
+    inline map<string, float> getRevisionsTrafficWeight() { DARABONBA_PTR_GET(revisionsTrafficWeight_, map<string, float>) };
     inline WebTrafficConfig& setRevisionsTrafficWeight(const map<string, float> & revisionsTrafficWeight) { DARABONBA_PTR_SET_VALUE(revisionsTrafficWeight_, revisionsTrafficWeight) };
     inline WebTrafficConfig& setRevisionsTrafficWeight(map<string, float> && revisionsTrafficWeight) { DARABONBA_PTR_SET_RVALUE(revisionsTrafficWeight_, revisionsTrafficWeight) };
 
@@ -65,17 +65,17 @@ namespace Models
     // webAclConfig Field Functions 
     bool hasWebAclConfig() const { return this->webAclConfig_ != nullptr;};
     void deleteWebAclConfig() { this->webAclConfig_ = nullptr;};
-    inline const WebAclConfig & webAclConfig() const { DARABONBA_PTR_GET_CONST(webAclConfig_, WebAclConfig) };
-    inline WebAclConfig webAclConfig() { DARABONBA_PTR_GET(webAclConfig_, WebAclConfig) };
+    inline const WebAclConfig & getWebAclConfig() const { DARABONBA_PTR_GET_CONST(webAclConfig_, WebAclConfig) };
+    inline WebAclConfig getWebAclConfig() { DARABONBA_PTR_GET(webAclConfig_, WebAclConfig) };
     inline WebTrafficConfig& setWebAclConfig(const WebAclConfig & webAclConfig) { DARABONBA_PTR_SET_VALUE(webAclConfig_, webAclConfig) };
     inline WebTrafficConfig& setWebAclConfig(WebAclConfig && webAclConfig) { DARABONBA_PTR_SET_RVALUE(webAclConfig_, webAclConfig) };
 
 
   protected:
-    std::shared_ptr<string> authType_ = nullptr;
-    std::shared_ptr<bool> disableInternetURL_ = nullptr;
-    std::shared_ptr<map<string, float>> revisionsTrafficWeight_ = nullptr;
-    std::shared_ptr<WebAclConfig> webAclConfig_ = nullptr;
+    shared_ptr<string> authType_ {};
+    shared_ptr<bool> disableInternetURL_ {};
+    shared_ptr<map<string, float>> revisionsTrafficWeight_ {};
+    shared_ptr<WebAclConfig> webAclConfig_ {};
   };
 
   } // namespace Models

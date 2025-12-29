@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->changeOrderId_ == nullptr
-        && return this->rollback_ == nullptr; };
+        && this->rollback_ == nullptr; };
     // changeOrderId Field Functions 
     bool hasChangeOrderId() const { return this->changeOrderId_ != nullptr;};
     void deleteChangeOrderId() { this->changeOrderId_ = nullptr;};
-    inline string changeOrderId() const { DARABONBA_PTR_GET_DEFAULT(changeOrderId_, "") };
+    inline string getChangeOrderId() const { DARABONBA_PTR_GET_DEFAULT(changeOrderId_, "") };
     inline AbortChangeOrderRequest& setChangeOrderId(string changeOrderId) { DARABONBA_PTR_SET_VALUE(changeOrderId_, changeOrderId) };
 
 
     // rollback Field Functions 
     bool hasRollback() const { return this->rollback_ != nullptr;};
     void deleteRollback() { this->rollback_ = nullptr;};
-    inline bool rollback() const { DARABONBA_PTR_GET_DEFAULT(rollback_, false) };
+    inline bool getRollback() const { DARABONBA_PTR_GET_DEFAULT(rollback_, false) };
     inline AbortChangeOrderRequest& setRollback(bool rollback) { DARABONBA_PTR_SET_VALUE(rollback_, rollback) };
 
 
@@ -51,8 +51,8 @@ namespace Models
     // The ID of the change order.
     // 
     // This parameter is required.
-    std::shared_ptr<string> changeOrderId_ = nullptr;
-    std::shared_ptr<bool> rollback_ = nullptr;
+    shared_ptr<string> changeOrderId_ {};
+    shared_ptr<bool> rollback_ {};
   };
 
   } // namespace Models

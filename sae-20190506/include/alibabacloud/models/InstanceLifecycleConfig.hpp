@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->preFreeze_ == nullptr
-        && return this->preStop_ == nullptr; };
+        && this->preStop_ == nullptr; };
     // preFreeze Field Functions 
     bool hasPreFreeze() const { return this->preFreeze_ != nullptr;};
     void deletePreFreeze() { this->preFreeze_ = nullptr;};
-    inline const LifecycleHook & preFreeze() const { DARABONBA_PTR_GET_CONST(preFreeze_, LifecycleHook) };
-    inline LifecycleHook preFreeze() { DARABONBA_PTR_GET(preFreeze_, LifecycleHook) };
+    inline const LifecycleHook & getPreFreeze() const { DARABONBA_PTR_GET_CONST(preFreeze_, LifecycleHook) };
+    inline LifecycleHook getPreFreeze() { DARABONBA_PTR_GET(preFreeze_, LifecycleHook) };
     inline InstanceLifecycleConfig& setPreFreeze(const LifecycleHook & preFreeze) { DARABONBA_PTR_SET_VALUE(preFreeze_, preFreeze) };
     inline InstanceLifecycleConfig& setPreFreeze(LifecycleHook && preFreeze) { DARABONBA_PTR_SET_RVALUE(preFreeze_, preFreeze) };
 
@@ -46,15 +46,15 @@ namespace Models
     // preStop Field Functions 
     bool hasPreStop() const { return this->preStop_ != nullptr;};
     void deletePreStop() { this->preStop_ = nullptr;};
-    inline const LifecycleHook & preStop() const { DARABONBA_PTR_GET_CONST(preStop_, LifecycleHook) };
-    inline LifecycleHook preStop() { DARABONBA_PTR_GET(preStop_, LifecycleHook) };
+    inline const LifecycleHook & getPreStop() const { DARABONBA_PTR_GET_CONST(preStop_, LifecycleHook) };
+    inline LifecycleHook getPreStop() { DARABONBA_PTR_GET(preStop_, LifecycleHook) };
     inline InstanceLifecycleConfig& setPreStop(const LifecycleHook & preStop) { DARABONBA_PTR_SET_VALUE(preStop_, preStop) };
     inline InstanceLifecycleConfig& setPreStop(LifecycleHook && preStop) { DARABONBA_PTR_SET_RVALUE(preStop_, preStop) };
 
 
   protected:
-    std::shared_ptr<LifecycleHook> preFreeze_ = nullptr;
-    std::shared_ptr<LifecycleHook> preStop_ = nullptr;
+    shared_ptr<LifecycleHook> preFreeze_ {};
+    shared_ptr<LifecycleHook> preStop_ {};
   };
 
   } // namespace Models

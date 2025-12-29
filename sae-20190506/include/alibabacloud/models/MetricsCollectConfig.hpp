@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enablePushToUserSLS_ == nullptr
-        && return this->logstoreName_ == nullptr && return this->projectName_ == nullptr; };
+        && this->logstoreName_ == nullptr && this->projectName_ == nullptr; };
     // enablePushToUserSLS Field Functions 
     bool hasEnablePushToUserSLS() const { return this->enablePushToUserSLS_ != nullptr;};
     void deleteEnablePushToUserSLS() { this->enablePushToUserSLS_ = nullptr;};
-    inline bool enablePushToUserSLS() const { DARABONBA_PTR_GET_DEFAULT(enablePushToUserSLS_, false) };
+    inline bool getEnablePushToUserSLS() const { DARABONBA_PTR_GET_DEFAULT(enablePushToUserSLS_, false) };
     inline MetricsCollectConfig& setEnablePushToUserSLS(bool enablePushToUserSLS) { DARABONBA_PTR_SET_VALUE(enablePushToUserSLS_, enablePushToUserSLS) };
 
 
     // logstoreName Field Functions 
     bool hasLogstoreName() const { return this->logstoreName_ != nullptr;};
     void deleteLogstoreName() { this->logstoreName_ = nullptr;};
-    inline string logstoreName() const { DARABONBA_PTR_GET_DEFAULT(logstoreName_, "") };
+    inline string getLogstoreName() const { DARABONBA_PTR_GET_DEFAULT(logstoreName_, "") };
     inline MetricsCollectConfig& setLogstoreName(string logstoreName) { DARABONBA_PTR_SET_VALUE(logstoreName_, logstoreName) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline MetricsCollectConfig& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
   protected:
-    std::shared_ptr<bool> enablePushToUserSLS_ = nullptr;
-    std::shared_ptr<string> logstoreName_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<bool> enablePushToUserSLS_ {};
+    shared_ptr<string> logstoreName_ {};
+    shared_ptr<string> projectName_ {};
   };
 
   } // namespace Models

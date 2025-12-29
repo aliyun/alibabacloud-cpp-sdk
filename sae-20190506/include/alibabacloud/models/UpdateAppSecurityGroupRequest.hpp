@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->securityGroupId_ == nullptr; };
+        && this->securityGroupId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateAppSecurityGroupRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline UpdateAppSecurityGroupRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the security group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> securityGroupId_ = nullptr;
+    shared_ptr<string> securityGroupId_ {};
   };
 
   } // namespace Models

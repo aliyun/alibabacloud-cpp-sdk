@@ -40,66 +40,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->albRules_ == nullptr
-        && return this->appId_ == nullptr && return this->description_ == nullptr && return this->dubboRules_ == nullptr && return this->name_ == nullptr && return this->scRules_ == nullptr; };
+        && this->appId_ == nullptr && this->description_ == nullptr && this->dubboRules_ == nullptr && this->name_ == nullptr && this->scRules_ == nullptr; };
     // albRules Field Functions 
     bool hasAlbRules() const { return this->albRules_ != nullptr;};
     void deleteAlbRules() { this->albRules_ = nullptr;};
-    inline string albRules() const { DARABONBA_PTR_GET_DEFAULT(albRules_, "") };
+    inline string getAlbRules() const { DARABONBA_PTR_GET_DEFAULT(albRules_, "") };
     inline CreateGreyTagRouteRequest& setAlbRules(string albRules) { DARABONBA_PTR_SET_VALUE(albRules_, albRules) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateGreyTagRouteRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateGreyTagRouteRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dubboRules Field Functions 
     bool hasDubboRules() const { return this->dubboRules_ != nullptr;};
     void deleteDubboRules() { this->dubboRules_ = nullptr;};
-    inline string dubboRules() const { DARABONBA_PTR_GET_DEFAULT(dubboRules_, "") };
+    inline string getDubboRules() const { DARABONBA_PTR_GET_DEFAULT(dubboRules_, "") };
     inline CreateGreyTagRouteRequest& setDubboRules(string dubboRules) { DARABONBA_PTR_SET_VALUE(dubboRules_, dubboRules) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateGreyTagRouteRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // scRules Field Functions 
     bool hasScRules() const { return this->scRules_ != nullptr;};
     void deleteScRules() { this->scRules_ = nullptr;};
-    inline string scRules() const { DARABONBA_PTR_GET_DEFAULT(scRules_, "") };
+    inline string getScRules() const { DARABONBA_PTR_GET_DEFAULT(scRules_, "") };
     inline CreateGreyTagRouteRequest& setScRules(string scRules) { DARABONBA_PTR_SET_VALUE(scRules_, scRules) };
 
 
   protected:
     // The canary release rule of the application for which Application Load Balancer (ALB) gateway routing is configured.
-    std::shared_ptr<string> albRules_ = nullptr;
+    shared_ptr<string> albRules_ {};
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The description of the canary release rule. The name must be 1 to 64 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The canary release rule that you created for Dubbo applications. If your application uses the Dubbo framework, you must configure this parameter. You do not need to configure the **ScRules** parameter.
-    std::shared_ptr<string> dubboRules_ = nullptr;
+    shared_ptr<string> dubboRules_ {};
     // The name of the canary release rule. The name must start with a lowercase letter and end with a digit or a lowercase letter. The name can contain only lowercase letters, Chinese characters, digits, and hyphens (-). The name must be 1 to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The canary release rule that you created for Spring Cloud application. If your application uses the Spring Cloud framework, you must configure this parameter. You do not need to configure the **DubboRules** parameter.
-    std::shared_ptr<string> scRules_ = nullptr;
+    shared_ptr<string> scRules_ {};
   };
 
   } // namespace Models

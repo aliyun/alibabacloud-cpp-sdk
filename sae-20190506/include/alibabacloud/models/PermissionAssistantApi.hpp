@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->resourceType_ == nullptr && return this->updateTime_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->resourceType_ == nullptr && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline PermissionAssistantApi& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline PermissionAssistantApi& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline PermissionAssistantApi& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline PermissionAssistantApi& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline PermissionAssistantApi& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
   protected:
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<int64_t> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<string> updateTime_ = nullptr;
+    shared_ptr<string> createTime_ {};
+    shared_ptr<int64_t> id_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> updateTime_ {};
   };
 
   } // namespace Models

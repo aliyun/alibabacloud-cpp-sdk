@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessKeyId_ == nullptr
-        && return this->accountId_ == nullptr && return this->authorization_ == nullptr && return this->date_ == nullptr && return this->endpoint_ == nullptr && return this->requestId_ == nullptr; };
+        && this->accountId_ == nullptr && this->authorization_ == nullptr && this->date_ == nullptr && this->endpoint_ == nullptr && this->requestId_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
-    inline string accessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
+    inline string getAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
     inline InstanceExecAuthorizationOutput& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
 
 
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline InstanceExecAuthorizationOutput& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
-    inline string authorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
+    inline string getAuthorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
     inline InstanceExecAuthorizationOutput& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
 
 
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline InstanceExecAuthorizationOutput& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};
-    inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline InstanceExecAuthorizationOutput& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline InstanceExecAuthorizationOutput& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> accessKeyId_ = nullptr;
-    std::shared_ptr<string> accountId_ = nullptr;
-    std::shared_ptr<string> authorization_ = nullptr;
-    std::shared_ptr<string> date_ = nullptr;
-    std::shared_ptr<string> endpoint_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> accessKeyId_ {};
+    shared_ptr<string> accountId_ {};
+    shared_ptr<string> authorization_ {};
+    shared_ptr<string> date_ {};
+    shared_ptr<string> endpoint_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

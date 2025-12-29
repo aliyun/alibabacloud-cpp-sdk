@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maximumInstanceCount_ == nullptr
-        && return this->minimumInstanceCount_ == nullptr; };
+        && this->minimumInstanceCount_ == nullptr; };
     // maximumInstanceCount Field Functions 
     bool hasMaximumInstanceCount() const { return this->maximumInstanceCount_ != nullptr;};
     void deleteMaximumInstanceCount() { this->maximumInstanceCount_ = nullptr;};
-    inline int64_t maximumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(maximumInstanceCount_, 0L) };
+    inline int64_t getMaximumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(maximumInstanceCount_, 0L) };
     inline UpdateWebApplicationScalingConfigInput& setMaximumInstanceCount(int64_t maximumInstanceCount) { DARABONBA_PTR_SET_VALUE(maximumInstanceCount_, maximumInstanceCount) };
 
 
     // minimumInstanceCount Field Functions 
     bool hasMinimumInstanceCount() const { return this->minimumInstanceCount_ != nullptr;};
     void deleteMinimumInstanceCount() { this->minimumInstanceCount_ = nullptr;};
-    inline int64_t minimumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(minimumInstanceCount_, 0L) };
+    inline int64_t getMinimumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(minimumInstanceCount_, 0L) };
     inline UpdateWebApplicationScalingConfigInput& setMinimumInstanceCount(int64_t minimumInstanceCount) { DARABONBA_PTR_SET_VALUE(minimumInstanceCount_, minimumInstanceCount) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> maximumInstanceCount_ = nullptr;
+    shared_ptr<int64_t> maximumInstanceCount_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> minimumInstanceCount_ = nullptr;
+    shared_ptr<int64_t> minimumInstanceCount_ {};
   };
 
   } // namespace Models

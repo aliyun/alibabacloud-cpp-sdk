@@ -33,13 +33,13 @@ namespace Models
     // entry Field Functions 
     bool hasEntry() const { return this->entry_ != nullptr;};
     void deleteEntry() { this->entry_ = nullptr;};
-    inline string entry() const { DARABONBA_PTR_GET_DEFAULT(entry_, "") };
+    inline string getEntry() const { DARABONBA_PTR_GET_DEFAULT(entry_, "") };
     inline WebAclEntryConfig& setEntry(string entry) { DARABONBA_PTR_SET_VALUE(entry_, entry) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> entry_ = nullptr;
+    shared_ptr<string> entry_ {};
   };
 
   } // namespace Models

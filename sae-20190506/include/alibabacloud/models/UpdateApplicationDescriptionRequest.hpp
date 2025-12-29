@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appDescription_ == nullptr
-        && return this->appId_ == nullptr; };
+        && this->appId_ == nullptr; };
     // appDescription Field Functions 
     bool hasAppDescription() const { return this->appDescription_ != nullptr;};
     void deleteAppDescription() { this->appDescription_ = nullptr;};
-    inline string appDescription() const { DARABONBA_PTR_GET_DEFAULT(appDescription_, "") };
+    inline string getAppDescription() const { DARABONBA_PTR_GET_DEFAULT(appDescription_, "") };
     inline UpdateApplicationDescriptionRequest& setAppDescription(string appDescription) { DARABONBA_PTR_SET_VALUE(appDescription_, appDescription) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateApplicationDescriptionRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The new description of the application. The description can be up to 1,024 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appDescription_ = nullptr;
+    shared_ptr<string> appDescription_ {};
     // The ID of the application that you want to update.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
   };
 
   } // namespace Models

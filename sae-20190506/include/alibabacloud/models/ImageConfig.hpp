@@ -37,42 +37,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accelerationType_ == nullptr
-        && return this->image_ == nullptr && return this->instanceID_ == nullptr && return this->registryConfig_ == nullptr; };
+        && this->image_ == nullptr && this->instanceID_ == nullptr && this->registryConfig_ == nullptr; };
     // accelerationType Field Functions 
     bool hasAccelerationType() const { return this->accelerationType_ != nullptr;};
     void deleteAccelerationType() { this->accelerationType_ = nullptr;};
-    inline string accelerationType() const { DARABONBA_PTR_GET_DEFAULT(accelerationType_, "") };
+    inline string getAccelerationType() const { DARABONBA_PTR_GET_DEFAULT(accelerationType_, "") };
     inline ImageConfig& setAccelerationType(string accelerationType) { DARABONBA_PTR_SET_VALUE(accelerationType_, accelerationType) };
 
 
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline ImageConfig& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
     // instanceID Field Functions 
     bool hasInstanceID() const { return this->instanceID_ != nullptr;};
     void deleteInstanceID() { this->instanceID_ = nullptr;};
-    inline string instanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
+    inline string getInstanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
     inline ImageConfig& setInstanceID(string instanceID) { DARABONBA_PTR_SET_VALUE(instanceID_, instanceID) };
 
 
     // registryConfig Field Functions 
     bool hasRegistryConfig() const { return this->registryConfig_ != nullptr;};
     void deleteRegistryConfig() { this->registryConfig_ = nullptr;};
-    inline const RegistryConfig & registryConfig() const { DARABONBA_PTR_GET_CONST(registryConfig_, RegistryConfig) };
-    inline RegistryConfig registryConfig() { DARABONBA_PTR_GET(registryConfig_, RegistryConfig) };
+    inline const RegistryConfig & getRegistryConfig() const { DARABONBA_PTR_GET_CONST(registryConfig_, RegistryConfig) };
+    inline RegistryConfig getRegistryConfig() { DARABONBA_PTR_GET(registryConfig_, RegistryConfig) };
     inline ImageConfig& setRegistryConfig(const RegistryConfig & registryConfig) { DARABONBA_PTR_SET_VALUE(registryConfig_, registryConfig) };
     inline ImageConfig& setRegistryConfig(RegistryConfig && registryConfig) { DARABONBA_PTR_SET_RVALUE(registryConfig_, registryConfig) };
 
 
   protected:
-    std::shared_ptr<string> accelerationType_ = nullptr;
-    std::shared_ptr<string> image_ = nullptr;
-    std::shared_ptr<string> instanceID_ = nullptr;
-    std::shared_ptr<RegistryConfig> registryConfig_ = nullptr;
+    shared_ptr<string> accelerationType_ {};
+    shared_ptr<string> image_ {};
+    shared_ptr<string> instanceID_ {};
+    shared_ptr<RegistryConfig> registryConfig_ {};
   };
 
   } // namespace Models

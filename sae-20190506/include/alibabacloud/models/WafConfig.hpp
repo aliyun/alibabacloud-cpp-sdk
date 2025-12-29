@@ -33,12 +33,12 @@ namespace Models
     // enableWAF Field Functions 
     bool hasEnableWAF() const { return this->enableWAF_ != nullptr;};
     void deleteEnableWAF() { this->enableWAF_ = nullptr;};
-    inline bool enableWAF() const { DARABONBA_PTR_GET_DEFAULT(enableWAF_, false) };
+    inline bool getEnableWAF() const { DARABONBA_PTR_GET_DEFAULT(enableWAF_, false) };
     inline WAFConfig& setEnableWAF(bool enableWAF) { DARABONBA_PTR_SET_VALUE(enableWAF_, enableWAF) };
 
 
   protected:
-    std::shared_ptr<bool> enableWAF_ = nullptr;
+    shared_ptr<bool> enableWAF_ {};
   };
 
   } // namespace Models

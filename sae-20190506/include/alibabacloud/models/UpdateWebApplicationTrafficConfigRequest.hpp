@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespaceId_ == nullptr
-        && return this->body_ == nullptr; };
+        && this->body_ == nullptr; };
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline UpdateWebApplicationTrafficConfigRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UpdateWebApplicationTrafficConfigInput & body() const { DARABONBA_PTR_GET_CONST(body_, UpdateWebApplicationTrafficConfigInput) };
-    inline UpdateWebApplicationTrafficConfigInput body() { DARABONBA_PTR_GET(body_, UpdateWebApplicationTrafficConfigInput) };
+    inline const UpdateWebApplicationTrafficConfigInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, UpdateWebApplicationTrafficConfigInput) };
+    inline UpdateWebApplicationTrafficConfigInput getBody() { DARABONBA_PTR_GET(body_, UpdateWebApplicationTrafficConfigInput) };
     inline UpdateWebApplicationTrafficConfigRequest& setBody(const UpdateWebApplicationTrafficConfigInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateWebApplicationTrafficConfigRequest& setBody(UpdateWebApplicationTrafficConfigInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The namespace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The traffic configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<UpdateWebApplicationTrafficConfigInput> body_ = nullptr;
+    shared_ptr<UpdateWebApplicationTrafficConfigInput> body_ {};
   };
 
   } // namespace Models

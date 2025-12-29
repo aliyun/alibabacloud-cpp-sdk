@@ -33,7 +33,7 @@ namespace Models
     // configMapId Field Functions 
     bool hasConfigMapId() const { return this->configMapId_ != nullptr;};
     void deleteConfigMapId() { this->configMapId_ = nullptr;};
-    inline int64_t configMapId() const { DARABONBA_PTR_GET_DEFAULT(configMapId_, 0L) };
+    inline int64_t getConfigMapId() const { DARABONBA_PTR_GET_DEFAULT(configMapId_, 0L) };
     inline DeleteConfigMapRequest& setConfigMapId(int64_t configMapId) { DARABONBA_PTR_SET_VALUE(configMapId_, configMapId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the ConfigMap that you want to delete. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID of a ConfigMap.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> configMapId_ = nullptr;
+    shared_ptr<int64_t> configMapId_ {};
   };
 
   } // namespace Models

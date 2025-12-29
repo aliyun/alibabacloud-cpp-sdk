@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mountDir_ == nullptr
-        && return this->nasAddr_ == nullptr && return this->nasPath_ == nullptr; };
+        && this->nasAddr_ == nullptr && this->nasPath_ == nullptr; };
     // mountDir Field Functions 
     bool hasMountDir() const { return this->mountDir_ != nullptr;};
     void deleteMountDir() { this->mountDir_ = nullptr;};
-    inline string mountDir() const { DARABONBA_PTR_GET_DEFAULT(mountDir_, "") };
+    inline string getMountDir() const { DARABONBA_PTR_GET_DEFAULT(mountDir_, "") };
     inline WebNASMountPoint& setMountDir(string mountDir) { DARABONBA_PTR_SET_VALUE(mountDir_, mountDir) };
 
 
     // nasAddr Field Functions 
     bool hasNasAddr() const { return this->nasAddr_ != nullptr;};
     void deleteNasAddr() { this->nasAddr_ = nullptr;};
-    inline string nasAddr() const { DARABONBA_PTR_GET_DEFAULT(nasAddr_, "") };
+    inline string getNasAddr() const { DARABONBA_PTR_GET_DEFAULT(nasAddr_, "") };
     inline WebNASMountPoint& setNasAddr(string nasAddr) { DARABONBA_PTR_SET_VALUE(nasAddr_, nasAddr) };
 
 
     // nasPath Field Functions 
     bool hasNasPath() const { return this->nasPath_ != nullptr;};
     void deleteNasPath() { this->nasPath_ = nullptr;};
-    inline string nasPath() const { DARABONBA_PTR_GET_DEFAULT(nasPath_, "") };
+    inline string getNasPath() const { DARABONBA_PTR_GET_DEFAULT(nasPath_, "") };
     inline WebNASMountPoint& setNasPath(string nasPath) { DARABONBA_PTR_SET_VALUE(nasPath_, nasPath) };
 
 
   protected:
-    std::shared_ptr<string> mountDir_ = nullptr;
-    std::shared_ptr<string> nasAddr_ = nullptr;
-    std::shared_ptr<string> nasPath_ = nullptr;
+    shared_ptr<string> mountDir_ {};
+    shared_ptr<string> nasAddr_ {};
+    shared_ptr<string> nasPath_ {};
   };
 
   } // namespace Models

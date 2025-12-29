@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableMicroRegistration_ == nullptr
-        && return this->nameSpaceShortId_ == nullptr && return this->namespaceDescription_ == nullptr && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr; };
+        && this->nameSpaceShortId_ == nullptr && this->namespaceDescription_ == nullptr && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr; };
     // enableMicroRegistration Field Functions 
     bool hasEnableMicroRegistration() const { return this->enableMicroRegistration_ != nullptr;};
     void deleteEnableMicroRegistration() { this->enableMicroRegistration_ = nullptr;};
-    inline bool enableMicroRegistration() const { DARABONBA_PTR_GET_DEFAULT(enableMicroRegistration_, false) };
+    inline bool getEnableMicroRegistration() const { DARABONBA_PTR_GET_DEFAULT(enableMicroRegistration_, false) };
     inline UpdateNamespaceRequest& setEnableMicroRegistration(bool enableMicroRegistration) { DARABONBA_PTR_SET_VALUE(enableMicroRegistration_, enableMicroRegistration) };
 
 
     // nameSpaceShortId Field Functions 
     bool hasNameSpaceShortId() const { return this->nameSpaceShortId_ != nullptr;};
     void deleteNameSpaceShortId() { this->nameSpaceShortId_ = nullptr;};
-    inline string nameSpaceShortId() const { DARABONBA_PTR_GET_DEFAULT(nameSpaceShortId_, "") };
+    inline string getNameSpaceShortId() const { DARABONBA_PTR_GET_DEFAULT(nameSpaceShortId_, "") };
     inline UpdateNamespaceRequest& setNameSpaceShortId(string nameSpaceShortId) { DARABONBA_PTR_SET_VALUE(nameSpaceShortId_, nameSpaceShortId) };
 
 
     // namespaceDescription Field Functions 
     bool hasNamespaceDescription() const { return this->namespaceDescription_ != nullptr;};
     void deleteNamespaceDescription() { this->namespaceDescription_ = nullptr;};
-    inline string namespaceDescription() const { DARABONBA_PTR_GET_DEFAULT(namespaceDescription_, "") };
+    inline string getNamespaceDescription() const { DARABONBA_PTR_GET_DEFAULT(namespaceDescription_, "") };
     inline UpdateNamespaceRequest& setNamespaceDescription(string namespaceDescription) { DARABONBA_PTR_SET_VALUE(namespaceDescription_, namespaceDescription) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline UpdateNamespaceRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // namespaceName Field Functions 
     bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
-    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline UpdateNamespaceRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
@@ -81,17 +81,17 @@ namespace Models
     // *   **false**
     // 
     // If you set this parameter to true, a shared registry is created for the namespace. The registry cannot be disabled after it is created.
-    std::shared_ptr<bool> enableMicroRegistration_ = nullptr;
+    shared_ptr<bool> enableMicroRegistration_ {};
     // The short ID of the namespace. You do not need to specify a region ID. We recommend that you configure this parameter. The value of this parameter can be up to 20 characters in length and can contain only lowercase letters and digits.
-    std::shared_ptr<string> nameSpaceShortId_ = nullptr;
+    shared_ptr<string> nameSpaceShortId_ {};
     // The description of the namespace. The description cannot exceed 100 characters in length.
-    std::shared_ptr<string> namespaceDescription_ = nullptr;
+    shared_ptr<string> namespaceDescription_ {};
     // The long ID of the namespace. If you configure this parameter, the long ID take effects and the value of the NameSpaceShortId parameter is ignored. To ensure compatibility, we recommend that you specify a short namespace ID. A long namespace ID follows the `<RegionId>:<NamespaceId>` format. The `NamespaceId` variable can contain only lowercase letters and digits. Example: `cn-beijing:test`. The value of the Namespaceid variable cannot exceed 32 characters in length. For more information about **RegionId**, you can call the [DescribeRegions](https://help.aliyun.com/document_detail/2834842.html) operation to obtain the IDs of regions supported by SAE.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The name of the namespace. The name cannot exceed 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceName_ = nullptr;
+    shared_ptr<string> namespaceName_ {};
   };
 
   } // namespace Models

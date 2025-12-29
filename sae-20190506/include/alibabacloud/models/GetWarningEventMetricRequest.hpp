@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appSource_ == nullptr
-        && return this->cpuStrategy_ == nullptr && return this->endTime_ == nullptr && return this->limit_ == nullptr && return this->regionId_ == nullptr && return this->startTime_ == nullptr; };
+        && this->cpuStrategy_ == nullptr && this->endTime_ == nullptr && this->limit_ == nullptr && this->regionId_ == nullptr && this->startTime_ == nullptr; };
     // appSource Field Functions 
     bool hasAppSource() const { return this->appSource_ != nullptr;};
     void deleteAppSource() { this->appSource_ = nullptr;};
-    inline string appSource() const { DARABONBA_PTR_GET_DEFAULT(appSource_, "") };
+    inline string getAppSource() const { DARABONBA_PTR_GET_DEFAULT(appSource_, "") };
     inline GetWarningEventMetricRequest& setAppSource(string appSource) { DARABONBA_PTR_SET_VALUE(appSource_, appSource) };
 
 
     // cpuStrategy Field Functions 
     bool hasCpuStrategy() const { return this->cpuStrategy_ != nullptr;};
     void deleteCpuStrategy() { this->cpuStrategy_ = nullptr;};
-    inline string cpuStrategy() const { DARABONBA_PTR_GET_DEFAULT(cpuStrategy_, "") };
+    inline string getCpuStrategy() const { DARABONBA_PTR_GET_DEFAULT(cpuStrategy_, "") };
     inline GetWarningEventMetricRequest& setCpuStrategy(string cpuStrategy) { DARABONBA_PTR_SET_VALUE(cpuStrategy_, cpuStrategy) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetWarningEventMetricRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int64_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
+    inline int64_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
     inline GetWarningEventMetricRequest& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetWarningEventMetricRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetWarningEventMetricRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -89,28 +89,28 @@ namespace Models
     // *   **micro_service**
     // *   **web**
     // *   **job**
-    std::shared_ptr<string> appSource_ = nullptr;
+    shared_ptr<string> appSource_ {};
     // The CPU allocation policy. Valid values:
     // 
     // *   **request**: CPU cores are allocated only when a request is initiated.
     // *   **always**: Fixed CPU cores are always allocated.
-    std::shared_ptr<string> cpuStrategy_ = nullptr;
+    shared_ptr<string> cpuStrategy_ {};
     // The end of the time range to query.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The number of entries to return. Valid values: 0 to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> limit_ = nullptr;
+    shared_ptr<int64_t> limit_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The beginning of the time range to query.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

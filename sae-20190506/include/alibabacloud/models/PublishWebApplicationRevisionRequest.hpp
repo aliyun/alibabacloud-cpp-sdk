@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespaceId_ == nullptr
-        && return this->body_ == nullptr; };
+        && this->body_ == nullptr; };
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline PublishWebApplicationRevisionRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const PublishWebApplicationRevisionInput & body() const { DARABONBA_PTR_GET_CONST(body_, PublishWebApplicationRevisionInput) };
-    inline PublishWebApplicationRevisionInput body() { DARABONBA_PTR_GET(body_, PublishWebApplicationRevisionInput) };
+    inline const PublishWebApplicationRevisionInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, PublishWebApplicationRevisionInput) };
+    inline PublishWebApplicationRevisionInput getBody() { DARABONBA_PTR_GET(body_, PublishWebApplicationRevisionInput) };
     inline PublishWebApplicationRevisionRequest& setBody(const PublishWebApplicationRevisionInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline PublishWebApplicationRevisionRequest& setBody(PublishWebApplicationRevisionInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The namespace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The configurations of the version.
     // 
     // This parameter is required.
-    std::shared_ptr<PublishWebApplicationRevisionInput> body_ = nullptr;
+    shared_ptr<PublishWebApplicationRevisionInput> body_ {};
   };
 
   } // namespace Models

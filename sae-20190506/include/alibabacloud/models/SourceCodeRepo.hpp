@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fullName_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr; };
     // fullName Field Functions 
     bool hasFullName() const { return this->fullName_ != nullptr;};
     void deleteFullName() { this->fullName_ = nullptr;};
-    inline string fullName() const { DARABONBA_PTR_GET_DEFAULT(fullName_, "") };
+    inline string getFullName() const { DARABONBA_PTR_GET_DEFAULT(fullName_, "") };
     inline SourceCodeRepo& setFullName(string fullName) { DARABONBA_PTR_SET_VALUE(fullName_, fullName) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline SourceCodeRepo& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline SourceCodeRepo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> fullName_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> fullName_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

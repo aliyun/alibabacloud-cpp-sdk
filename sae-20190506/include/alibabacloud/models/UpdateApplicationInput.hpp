@@ -126,33 +126,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->args_ == nullptr
-        && return this->caPort_ == nullptr && return this->code_ == nullptr && return this->command_ == nullptr && return this->cpu_ == nullptr && return this->customDNS_ == nullptr
-        && return this->customHealthCheckConfig_ == nullptr && return this->customHostAlias_ == nullptr && return this->customRuntimeConfig_ == nullptr && return this->description_ == nullptr && return this->diskSize_ == nullptr
-        && return this->effectiveImmediately_ == nullptr && return this->enableAppMetric_ == nullptr && return this->environmentVariables_ == nullptr && return this->gpuMemorySize_ == nullptr && return this->handler_ == nullptr
-        && return this->httpTriggerConfig_ == nullptr && return this->imageConfig_ == nullptr && return this->initializationTimeout_ == nullptr && return this->initializer_ == nullptr && return this->instanceConcurrency_ == nullptr
-        && return this->instanceLifecycleConfig_ == nullptr && return this->instanceSoftConcurrency_ == nullptr && return this->instanceType_ == nullptr && return this->internetAccess_ == nullptr && return this->layers_ == nullptr
-        && return this->livenessProbe_ == nullptr && return this->logConfig_ == nullptr && return this->memorySize_ == nullptr && return this->namespaceID_ == nullptr && return this->nasConfig_ == nullptr
-        && return this->ossMountConfig_ == nullptr && return this->programmingLanguage_ == nullptr && return this->runtime_ == nullptr && return this->scaleConfig_ == nullptr && return this->slsConfig_ == nullptr
-        && return this->startupProbe_ == nullptr && return this->timeout_ == nullptr && return this->tracingConfig_ == nullptr && return this->vpcConfig_ == nullptr; };
+        && this->caPort_ == nullptr && this->code_ == nullptr && this->command_ == nullptr && this->cpu_ == nullptr && this->customDNS_ == nullptr
+        && this->customHealthCheckConfig_ == nullptr && this->customHostAlias_ == nullptr && this->customRuntimeConfig_ == nullptr && this->description_ == nullptr && this->diskSize_ == nullptr
+        && this->effectiveImmediately_ == nullptr && this->enableAppMetric_ == nullptr && this->environmentVariables_ == nullptr && this->gpuMemorySize_ == nullptr && this->handler_ == nullptr
+        && this->httpTriggerConfig_ == nullptr && this->imageConfig_ == nullptr && this->initializationTimeout_ == nullptr && this->initializer_ == nullptr && this->instanceConcurrency_ == nullptr
+        && this->instanceLifecycleConfig_ == nullptr && this->instanceSoftConcurrency_ == nullptr && this->instanceType_ == nullptr && this->internetAccess_ == nullptr && this->layers_ == nullptr
+        && this->livenessProbe_ == nullptr && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->namespaceID_ == nullptr && this->nasConfig_ == nullptr
+        && this->ossMountConfig_ == nullptr && this->programmingLanguage_ == nullptr && this->runtime_ == nullptr && this->scaleConfig_ == nullptr && this->slsConfig_ == nullptr
+        && this->startupProbe_ == nullptr && this->timeout_ == nullptr && this->tracingConfig_ == nullptr && this->vpcConfig_ == nullptr; };
     // args Field Functions 
     bool hasArgs() const { return this->args_ != nullptr;};
     void deleteArgs() { this->args_ = nullptr;};
-    inline string args() const { DARABONBA_PTR_GET_DEFAULT(args_, "") };
+    inline string getArgs() const { DARABONBA_PTR_GET_DEFAULT(args_, "") };
     inline UpdateApplicationInput& setArgs(string args) { DARABONBA_PTR_SET_VALUE(args_, args) };
 
 
     // caPort Field Functions 
     bool hasCaPort() const { return this->caPort_ != nullptr;};
     void deleteCaPort() { this->caPort_ = nullptr;};
-    inline int32_t caPort() const { DARABONBA_PTR_GET_DEFAULT(caPort_, 0) };
+    inline int32_t getCaPort() const { DARABONBA_PTR_GET_DEFAULT(caPort_, 0) };
     inline UpdateApplicationInput& setCaPort(int32_t caPort) { DARABONBA_PTR_SET_VALUE(caPort_, caPort) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline const InputCodeLocation & code() const { DARABONBA_PTR_GET_CONST(code_, InputCodeLocation) };
-    inline InputCodeLocation code() { DARABONBA_PTR_GET(code_, InputCodeLocation) };
+    inline const InputCodeLocation & getCode() const { DARABONBA_PTR_GET_CONST(code_, InputCodeLocation) };
+    inline InputCodeLocation getCode() { DARABONBA_PTR_GET(code_, InputCodeLocation) };
     inline UpdateApplicationInput& setCode(const InputCodeLocation & code) { DARABONBA_PTR_SET_VALUE(code_, code) };
     inline UpdateApplicationInput& setCode(InputCodeLocation && code) { DARABONBA_PTR_SET_RVALUE(code_, code) };
 
@@ -160,22 +160,22 @@ namespace Models
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline string command() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
+    inline string getCommand() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
     inline UpdateApplicationInput& setCommand(string command) { DARABONBA_PTR_SET_VALUE(command_, command) };
 
 
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
-    inline float cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0.0) };
+    inline float getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0.0) };
     inline UpdateApplicationInput& setCpu(float cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
 
 
     // customDNS Field Functions 
     bool hasCustomDNS() const { return this->customDNS_ != nullptr;};
     void deleteCustomDNS() { this->customDNS_ = nullptr;};
-    inline const CustomDNS & customDNS() const { DARABONBA_PTR_GET_CONST(customDNS_, CustomDNS) };
-    inline CustomDNS customDNS() { DARABONBA_PTR_GET(customDNS_, CustomDNS) };
+    inline const CustomDNS & getCustomDNS() const { DARABONBA_PTR_GET_CONST(customDNS_, CustomDNS) };
+    inline CustomDNS getCustomDNS() { DARABONBA_PTR_GET(customDNS_, CustomDNS) };
     inline UpdateApplicationInput& setCustomDNS(const CustomDNS & customDNS) { DARABONBA_PTR_SET_VALUE(customDNS_, customDNS) };
     inline UpdateApplicationInput& setCustomDNS(CustomDNS && customDNS) { DARABONBA_PTR_SET_RVALUE(customDNS_, customDNS) };
 
@@ -183,8 +183,8 @@ namespace Models
     // customHealthCheckConfig Field Functions 
     bool hasCustomHealthCheckConfig() const { return this->customHealthCheckConfig_ != nullptr;};
     void deleteCustomHealthCheckConfig() { this->customHealthCheckConfig_ = nullptr;};
-    inline const CustomHealthCheckConfig & customHealthCheckConfig() const { DARABONBA_PTR_GET_CONST(customHealthCheckConfig_, CustomHealthCheckConfig) };
-    inline CustomHealthCheckConfig customHealthCheckConfig() { DARABONBA_PTR_GET(customHealthCheckConfig_, CustomHealthCheckConfig) };
+    inline const CustomHealthCheckConfig & getCustomHealthCheckConfig() const { DARABONBA_PTR_GET_CONST(customHealthCheckConfig_, CustomHealthCheckConfig) };
+    inline CustomHealthCheckConfig getCustomHealthCheckConfig() { DARABONBA_PTR_GET(customHealthCheckConfig_, CustomHealthCheckConfig) };
     inline UpdateApplicationInput& setCustomHealthCheckConfig(const CustomHealthCheckConfig & customHealthCheckConfig) { DARABONBA_PTR_SET_VALUE(customHealthCheckConfig_, customHealthCheckConfig) };
     inline UpdateApplicationInput& setCustomHealthCheckConfig(CustomHealthCheckConfig && customHealthCheckConfig) { DARABONBA_PTR_SET_RVALUE(customHealthCheckConfig_, customHealthCheckConfig) };
 
@@ -192,8 +192,8 @@ namespace Models
     // customHostAlias Field Functions 
     bool hasCustomHostAlias() const { return this->customHostAlias_ != nullptr;};
     void deleteCustomHostAlias() { this->customHostAlias_ = nullptr;};
-    inline const CustomHostAlias & customHostAlias() const { DARABONBA_PTR_GET_CONST(customHostAlias_, CustomHostAlias) };
-    inline CustomHostAlias customHostAlias() { DARABONBA_PTR_GET(customHostAlias_, CustomHostAlias) };
+    inline const CustomHostAlias & getCustomHostAlias() const { DARABONBA_PTR_GET_CONST(customHostAlias_, CustomHostAlias) };
+    inline CustomHostAlias getCustomHostAlias() { DARABONBA_PTR_GET(customHostAlias_, CustomHostAlias) };
     inline UpdateApplicationInput& setCustomHostAlias(const CustomHostAlias & customHostAlias) { DARABONBA_PTR_SET_VALUE(customHostAlias_, customHostAlias) };
     inline UpdateApplicationInput& setCustomHostAlias(CustomHostAlias && customHostAlias) { DARABONBA_PTR_SET_RVALUE(customHostAlias_, customHostAlias) };
 
@@ -201,8 +201,8 @@ namespace Models
     // customRuntimeConfig Field Functions 
     bool hasCustomRuntimeConfig() const { return this->customRuntimeConfig_ != nullptr;};
     void deleteCustomRuntimeConfig() { this->customRuntimeConfig_ = nullptr;};
-    inline const CustomRuntimeConfig & customRuntimeConfig() const { DARABONBA_PTR_GET_CONST(customRuntimeConfig_, CustomRuntimeConfig) };
-    inline CustomRuntimeConfig customRuntimeConfig() { DARABONBA_PTR_GET(customRuntimeConfig_, CustomRuntimeConfig) };
+    inline const CustomRuntimeConfig & getCustomRuntimeConfig() const { DARABONBA_PTR_GET_CONST(customRuntimeConfig_, CustomRuntimeConfig) };
+    inline CustomRuntimeConfig getCustomRuntimeConfig() { DARABONBA_PTR_GET(customRuntimeConfig_, CustomRuntimeConfig) };
     inline UpdateApplicationInput& setCustomRuntimeConfig(const CustomRuntimeConfig & customRuntimeConfig) { DARABONBA_PTR_SET_VALUE(customRuntimeConfig_, customRuntimeConfig) };
     inline UpdateApplicationInput& setCustomRuntimeConfig(CustomRuntimeConfig && customRuntimeConfig) { DARABONBA_PTR_SET_RVALUE(customRuntimeConfig_, customRuntimeConfig) };
 
@@ -210,36 +210,36 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateApplicationInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // diskSize Field Functions 
     bool hasDiskSize() const { return this->diskSize_ != nullptr;};
     void deleteDiskSize() { this->diskSize_ = nullptr;};
-    inline int32_t diskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
+    inline int32_t getDiskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0) };
     inline UpdateApplicationInput& setDiskSize(int32_t diskSize) { DARABONBA_PTR_SET_VALUE(diskSize_, diskSize) };
 
 
     // effectiveImmediately Field Functions 
     bool hasEffectiveImmediately() const { return this->effectiveImmediately_ != nullptr;};
     void deleteEffectiveImmediately() { this->effectiveImmediately_ = nullptr;};
-    inline bool effectiveImmediately() const { DARABONBA_PTR_GET_DEFAULT(effectiveImmediately_, false) };
+    inline bool getEffectiveImmediately() const { DARABONBA_PTR_GET_DEFAULT(effectiveImmediately_, false) };
     inline UpdateApplicationInput& setEffectiveImmediately(bool effectiveImmediately) { DARABONBA_PTR_SET_VALUE(effectiveImmediately_, effectiveImmediately) };
 
 
     // enableAppMetric Field Functions 
     bool hasEnableAppMetric() const { return this->enableAppMetric_ != nullptr;};
     void deleteEnableAppMetric() { this->enableAppMetric_ = nullptr;};
-    inline bool enableAppMetric() const { DARABONBA_PTR_GET_DEFAULT(enableAppMetric_, false) };
+    inline bool getEnableAppMetric() const { DARABONBA_PTR_GET_DEFAULT(enableAppMetric_, false) };
     inline UpdateApplicationInput& setEnableAppMetric(bool enableAppMetric) { DARABONBA_PTR_SET_VALUE(enableAppMetric_, enableAppMetric) };
 
 
     // environmentVariables Field Functions 
     bool hasEnvironmentVariables() const { return this->environmentVariables_ != nullptr;};
     void deleteEnvironmentVariables() { this->environmentVariables_ = nullptr;};
-    inline const map<string, string> & environmentVariables() const { DARABONBA_PTR_GET_CONST(environmentVariables_, map<string, string>) };
-    inline map<string, string> environmentVariables() { DARABONBA_PTR_GET(environmentVariables_, map<string, string>) };
+    inline const map<string, string> & getEnvironmentVariables() const { DARABONBA_PTR_GET_CONST(environmentVariables_, map<string, string>) };
+    inline map<string, string> getEnvironmentVariables() { DARABONBA_PTR_GET(environmentVariables_, map<string, string>) };
     inline UpdateApplicationInput& setEnvironmentVariables(const map<string, string> & environmentVariables) { DARABONBA_PTR_SET_VALUE(environmentVariables_, environmentVariables) };
     inline UpdateApplicationInput& setEnvironmentVariables(map<string, string> && environmentVariables) { DARABONBA_PTR_SET_RVALUE(environmentVariables_, environmentVariables) };
 
@@ -247,22 +247,22 @@ namespace Models
     // gpuMemorySize Field Functions 
     bool hasGpuMemorySize() const { return this->gpuMemorySize_ != nullptr;};
     void deleteGpuMemorySize() { this->gpuMemorySize_ = nullptr;};
-    inline int32_t gpuMemorySize() const { DARABONBA_PTR_GET_DEFAULT(gpuMemorySize_, 0) };
+    inline int32_t getGpuMemorySize() const { DARABONBA_PTR_GET_DEFAULT(gpuMemorySize_, 0) };
     inline UpdateApplicationInput& setGpuMemorySize(int32_t gpuMemorySize) { DARABONBA_PTR_SET_VALUE(gpuMemorySize_, gpuMemorySize) };
 
 
     // handler Field Functions 
     bool hasHandler() const { return this->handler_ != nullptr;};
     void deleteHandler() { this->handler_ = nullptr;};
-    inline string handler() const { DARABONBA_PTR_GET_DEFAULT(handler_, "") };
+    inline string getHandler() const { DARABONBA_PTR_GET_DEFAULT(handler_, "") };
     inline UpdateApplicationInput& setHandler(string handler) { DARABONBA_PTR_SET_VALUE(handler_, handler) };
 
 
     // httpTriggerConfig Field Functions 
     bool hasHttpTriggerConfig() const { return this->httpTriggerConfig_ != nullptr;};
     void deleteHttpTriggerConfig() { this->httpTriggerConfig_ = nullptr;};
-    inline const HTTPTriggerConfig & httpTriggerConfig() const { DARABONBA_PTR_GET_CONST(httpTriggerConfig_, HTTPTriggerConfig) };
-    inline HTTPTriggerConfig httpTriggerConfig() { DARABONBA_PTR_GET(httpTriggerConfig_, HTTPTriggerConfig) };
+    inline const HTTPTriggerConfig & getHttpTriggerConfig() const { DARABONBA_PTR_GET_CONST(httpTriggerConfig_, HTTPTriggerConfig) };
+    inline HTTPTriggerConfig getHttpTriggerConfig() { DARABONBA_PTR_GET(httpTriggerConfig_, HTTPTriggerConfig) };
     inline UpdateApplicationInput& setHttpTriggerConfig(const HTTPTriggerConfig & httpTriggerConfig) { DARABONBA_PTR_SET_VALUE(httpTriggerConfig_, httpTriggerConfig) };
     inline UpdateApplicationInput& setHttpTriggerConfig(HTTPTriggerConfig && httpTriggerConfig) { DARABONBA_PTR_SET_RVALUE(httpTriggerConfig_, httpTriggerConfig) };
 
@@ -270,8 +270,8 @@ namespace Models
     // imageConfig Field Functions 
     bool hasImageConfig() const { return this->imageConfig_ != nullptr;};
     void deleteImageConfig() { this->imageConfig_ = nullptr;};
-    inline const ImageConfig & imageConfig() const { DARABONBA_PTR_GET_CONST(imageConfig_, ImageConfig) };
-    inline ImageConfig imageConfig() { DARABONBA_PTR_GET(imageConfig_, ImageConfig) };
+    inline const ImageConfig & getImageConfig() const { DARABONBA_PTR_GET_CONST(imageConfig_, ImageConfig) };
+    inline ImageConfig getImageConfig() { DARABONBA_PTR_GET(imageConfig_, ImageConfig) };
     inline UpdateApplicationInput& setImageConfig(const ImageConfig & imageConfig) { DARABONBA_PTR_SET_VALUE(imageConfig_, imageConfig) };
     inline UpdateApplicationInput& setImageConfig(ImageConfig && imageConfig) { DARABONBA_PTR_SET_RVALUE(imageConfig_, imageConfig) };
 
@@ -279,29 +279,29 @@ namespace Models
     // initializationTimeout Field Functions 
     bool hasInitializationTimeout() const { return this->initializationTimeout_ != nullptr;};
     void deleteInitializationTimeout() { this->initializationTimeout_ = nullptr;};
-    inline int32_t initializationTimeout() const { DARABONBA_PTR_GET_DEFAULT(initializationTimeout_, 0) };
+    inline int32_t getInitializationTimeout() const { DARABONBA_PTR_GET_DEFAULT(initializationTimeout_, 0) };
     inline UpdateApplicationInput& setInitializationTimeout(int32_t initializationTimeout) { DARABONBA_PTR_SET_VALUE(initializationTimeout_, initializationTimeout) };
 
 
     // initializer Field Functions 
     bool hasInitializer() const { return this->initializer_ != nullptr;};
     void deleteInitializer() { this->initializer_ = nullptr;};
-    inline string initializer() const { DARABONBA_PTR_GET_DEFAULT(initializer_, "") };
+    inline string getInitializer() const { DARABONBA_PTR_GET_DEFAULT(initializer_, "") };
     inline UpdateApplicationInput& setInitializer(string initializer) { DARABONBA_PTR_SET_VALUE(initializer_, initializer) };
 
 
     // instanceConcurrency Field Functions 
     bool hasInstanceConcurrency() const { return this->instanceConcurrency_ != nullptr;};
     void deleteInstanceConcurrency() { this->instanceConcurrency_ = nullptr;};
-    inline int32_t instanceConcurrency() const { DARABONBA_PTR_GET_DEFAULT(instanceConcurrency_, 0) };
+    inline int32_t getInstanceConcurrency() const { DARABONBA_PTR_GET_DEFAULT(instanceConcurrency_, 0) };
     inline UpdateApplicationInput& setInstanceConcurrency(int32_t instanceConcurrency) { DARABONBA_PTR_SET_VALUE(instanceConcurrency_, instanceConcurrency) };
 
 
     // instanceLifecycleConfig Field Functions 
     bool hasInstanceLifecycleConfig() const { return this->instanceLifecycleConfig_ != nullptr;};
     void deleteInstanceLifecycleConfig() { this->instanceLifecycleConfig_ = nullptr;};
-    inline const InstanceLifecycleConfig & instanceLifecycleConfig() const { DARABONBA_PTR_GET_CONST(instanceLifecycleConfig_, InstanceLifecycleConfig) };
-    inline InstanceLifecycleConfig instanceLifecycleConfig() { DARABONBA_PTR_GET(instanceLifecycleConfig_, InstanceLifecycleConfig) };
+    inline const InstanceLifecycleConfig & getInstanceLifecycleConfig() const { DARABONBA_PTR_GET_CONST(instanceLifecycleConfig_, InstanceLifecycleConfig) };
+    inline InstanceLifecycleConfig getInstanceLifecycleConfig() { DARABONBA_PTR_GET(instanceLifecycleConfig_, InstanceLifecycleConfig) };
     inline UpdateApplicationInput& setInstanceLifecycleConfig(const InstanceLifecycleConfig & instanceLifecycleConfig) { DARABONBA_PTR_SET_VALUE(instanceLifecycleConfig_, instanceLifecycleConfig) };
     inline UpdateApplicationInput& setInstanceLifecycleConfig(InstanceLifecycleConfig && instanceLifecycleConfig) { DARABONBA_PTR_SET_RVALUE(instanceLifecycleConfig_, instanceLifecycleConfig) };
 
@@ -309,29 +309,29 @@ namespace Models
     // instanceSoftConcurrency Field Functions 
     bool hasInstanceSoftConcurrency() const { return this->instanceSoftConcurrency_ != nullptr;};
     void deleteInstanceSoftConcurrency() { this->instanceSoftConcurrency_ = nullptr;};
-    inline int32_t instanceSoftConcurrency() const { DARABONBA_PTR_GET_DEFAULT(instanceSoftConcurrency_, 0) };
+    inline int32_t getInstanceSoftConcurrency() const { DARABONBA_PTR_GET_DEFAULT(instanceSoftConcurrency_, 0) };
     inline UpdateApplicationInput& setInstanceSoftConcurrency(int32_t instanceSoftConcurrency) { DARABONBA_PTR_SET_VALUE(instanceSoftConcurrency_, instanceSoftConcurrency) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline UpdateApplicationInput& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // internetAccess Field Functions 
     bool hasInternetAccess() const { return this->internetAccess_ != nullptr;};
     void deleteInternetAccess() { this->internetAccess_ = nullptr;};
-    inline bool internetAccess() const { DARABONBA_PTR_GET_DEFAULT(internetAccess_, false) };
+    inline bool getInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(internetAccess_, false) };
     inline UpdateApplicationInput& setInternetAccess(bool internetAccess) { DARABONBA_PTR_SET_VALUE(internetAccess_, internetAccess) };
 
 
     // layers Field Functions 
     bool hasLayers() const { return this->layers_ != nullptr;};
     void deleteLayers() { this->layers_ = nullptr;};
-    inline const vector<string> & layers() const { DARABONBA_PTR_GET_CONST(layers_, vector<string>) };
-    inline vector<string> layers() { DARABONBA_PTR_GET(layers_, vector<string>) };
+    inline const vector<string> & getLayers() const { DARABONBA_PTR_GET_CONST(layers_, vector<string>) };
+    inline vector<string> getLayers() { DARABONBA_PTR_GET(layers_, vector<string>) };
     inline UpdateApplicationInput& setLayers(const vector<string> & layers) { DARABONBA_PTR_SET_VALUE(layers_, layers) };
     inline UpdateApplicationInput& setLayers(vector<string> && layers) { DARABONBA_PTR_SET_RVALUE(layers_, layers) };
 
@@ -339,8 +339,8 @@ namespace Models
     // livenessProbe Field Functions 
     bool hasLivenessProbe() const { return this->livenessProbe_ != nullptr;};
     void deleteLivenessProbe() { this->livenessProbe_ = nullptr;};
-    inline const Probe & livenessProbe() const { DARABONBA_PTR_GET_CONST(livenessProbe_, Probe) };
-    inline Probe livenessProbe() { DARABONBA_PTR_GET(livenessProbe_, Probe) };
+    inline const Probe & getLivenessProbe() const { DARABONBA_PTR_GET_CONST(livenessProbe_, Probe) };
+    inline Probe getLivenessProbe() { DARABONBA_PTR_GET(livenessProbe_, Probe) };
     inline UpdateApplicationInput& setLivenessProbe(const Probe & livenessProbe) { DARABONBA_PTR_SET_VALUE(livenessProbe_, livenessProbe) };
     inline UpdateApplicationInput& setLivenessProbe(Probe && livenessProbe) { DARABONBA_PTR_SET_RVALUE(livenessProbe_, livenessProbe) };
 
@@ -348,8 +348,8 @@ namespace Models
     // logConfig Field Functions 
     bool hasLogConfig() const { return this->logConfig_ != nullptr;};
     void deleteLogConfig() { this->logConfig_ = nullptr;};
-    inline const LogConfig & logConfig() const { DARABONBA_PTR_GET_CONST(logConfig_, LogConfig) };
-    inline LogConfig logConfig() { DARABONBA_PTR_GET(logConfig_, LogConfig) };
+    inline const LogConfig & getLogConfig() const { DARABONBA_PTR_GET_CONST(logConfig_, LogConfig) };
+    inline LogConfig getLogConfig() { DARABONBA_PTR_GET(logConfig_, LogConfig) };
     inline UpdateApplicationInput& setLogConfig(const LogConfig & logConfig) { DARABONBA_PTR_SET_VALUE(logConfig_, logConfig) };
     inline UpdateApplicationInput& setLogConfig(LogConfig && logConfig) { DARABONBA_PTR_SET_RVALUE(logConfig_, logConfig) };
 
@@ -357,22 +357,22 @@ namespace Models
     // memorySize Field Functions 
     bool hasMemorySize() const { return this->memorySize_ != nullptr;};
     void deleteMemorySize() { this->memorySize_ = nullptr;};
-    inline int32_t memorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, 0) };
+    inline int32_t getMemorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, 0) };
     inline UpdateApplicationInput& setMemorySize(int32_t memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
     // namespaceID Field Functions 
     bool hasNamespaceID() const { return this->namespaceID_ != nullptr;};
     void deleteNamespaceID() { this->namespaceID_ = nullptr;};
-    inline string namespaceID() const { DARABONBA_PTR_GET_DEFAULT(namespaceID_, "") };
+    inline string getNamespaceID() const { DARABONBA_PTR_GET_DEFAULT(namespaceID_, "") };
     inline UpdateApplicationInput& setNamespaceID(string namespaceID) { DARABONBA_PTR_SET_VALUE(namespaceID_, namespaceID) };
 
 
     // nasConfig Field Functions 
     bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
     void deleteNasConfig() { this->nasConfig_ = nullptr;};
-    inline const NASConfig & nasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
-    inline NASConfig nasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
+    inline const NASConfig & getNasConfig() const { DARABONBA_PTR_GET_CONST(nasConfig_, NASConfig) };
+    inline NASConfig getNasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
     inline UpdateApplicationInput& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
     inline UpdateApplicationInput& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
 
@@ -380,8 +380,8 @@ namespace Models
     // ossMountConfig Field Functions 
     bool hasOssMountConfig() const { return this->ossMountConfig_ != nullptr;};
     void deleteOssMountConfig() { this->ossMountConfig_ = nullptr;};
-    inline const OSSMountConfig & ossMountConfig() const { DARABONBA_PTR_GET_CONST(ossMountConfig_, OSSMountConfig) };
-    inline OSSMountConfig ossMountConfig() { DARABONBA_PTR_GET(ossMountConfig_, OSSMountConfig) };
+    inline const OSSMountConfig & getOssMountConfig() const { DARABONBA_PTR_GET_CONST(ossMountConfig_, OSSMountConfig) };
+    inline OSSMountConfig getOssMountConfig() { DARABONBA_PTR_GET(ossMountConfig_, OSSMountConfig) };
     inline UpdateApplicationInput& setOssMountConfig(const OSSMountConfig & ossMountConfig) { DARABONBA_PTR_SET_VALUE(ossMountConfig_, ossMountConfig) };
     inline UpdateApplicationInput& setOssMountConfig(OSSMountConfig && ossMountConfig) { DARABONBA_PTR_SET_RVALUE(ossMountConfig_, ossMountConfig) };
 
@@ -389,22 +389,22 @@ namespace Models
     // programmingLanguage Field Functions 
     bool hasProgrammingLanguage() const { return this->programmingLanguage_ != nullptr;};
     void deleteProgrammingLanguage() { this->programmingLanguage_ = nullptr;};
-    inline string programmingLanguage() const { DARABONBA_PTR_GET_DEFAULT(programmingLanguage_, "") };
+    inline string getProgrammingLanguage() const { DARABONBA_PTR_GET_DEFAULT(programmingLanguage_, "") };
     inline UpdateApplicationInput& setProgrammingLanguage(string programmingLanguage) { DARABONBA_PTR_SET_VALUE(programmingLanguage_, programmingLanguage) };
 
 
     // runtime Field Functions 
     bool hasRuntime() const { return this->runtime_ != nullptr;};
     void deleteRuntime() { this->runtime_ = nullptr;};
-    inline string runtime() const { DARABONBA_PTR_GET_DEFAULT(runtime_, "") };
+    inline string getRuntime() const { DARABONBA_PTR_GET_DEFAULT(runtime_, "") };
     inline UpdateApplicationInput& setRuntime(string runtime) { DARABONBA_PTR_SET_VALUE(runtime_, runtime) };
 
 
     // scaleConfig Field Functions 
     bool hasScaleConfig() const { return this->scaleConfig_ != nullptr;};
     void deleteScaleConfig() { this->scaleConfig_ = nullptr;};
-    inline const ScaleConfig & scaleConfig() const { DARABONBA_PTR_GET_CONST(scaleConfig_, ScaleConfig) };
-    inline ScaleConfig scaleConfig() { DARABONBA_PTR_GET(scaleConfig_, ScaleConfig) };
+    inline const ScaleConfig & getScaleConfig() const { DARABONBA_PTR_GET_CONST(scaleConfig_, ScaleConfig) };
+    inline ScaleConfig getScaleConfig() { DARABONBA_PTR_GET(scaleConfig_, ScaleConfig) };
     inline UpdateApplicationInput& setScaleConfig(const ScaleConfig & scaleConfig) { DARABONBA_PTR_SET_VALUE(scaleConfig_, scaleConfig) };
     inline UpdateApplicationInput& setScaleConfig(ScaleConfig && scaleConfig) { DARABONBA_PTR_SET_RVALUE(scaleConfig_, scaleConfig) };
 
@@ -412,8 +412,8 @@ namespace Models
     // slsConfig Field Functions 
     bool hasSlsConfig() const { return this->slsConfig_ != nullptr;};
     void deleteSlsConfig() { this->slsConfig_ = nullptr;};
-    inline const SLSConfig & slsConfig() const { DARABONBA_PTR_GET_CONST(slsConfig_, SLSConfig) };
-    inline SLSConfig slsConfig() { DARABONBA_PTR_GET(slsConfig_, SLSConfig) };
+    inline const SLSConfig & getSlsConfig() const { DARABONBA_PTR_GET_CONST(slsConfig_, SLSConfig) };
+    inline SLSConfig getSlsConfig() { DARABONBA_PTR_GET(slsConfig_, SLSConfig) };
     inline UpdateApplicationInput& setSlsConfig(const SLSConfig & slsConfig) { DARABONBA_PTR_SET_VALUE(slsConfig_, slsConfig) };
     inline UpdateApplicationInput& setSlsConfig(SLSConfig && slsConfig) { DARABONBA_PTR_SET_RVALUE(slsConfig_, slsConfig) };
 
@@ -421,8 +421,8 @@ namespace Models
     // startupProbe Field Functions 
     bool hasStartupProbe() const { return this->startupProbe_ != nullptr;};
     void deleteStartupProbe() { this->startupProbe_ = nullptr;};
-    inline const Probe & startupProbe() const { DARABONBA_PTR_GET_CONST(startupProbe_, Probe) };
-    inline Probe startupProbe() { DARABONBA_PTR_GET(startupProbe_, Probe) };
+    inline const Probe & getStartupProbe() const { DARABONBA_PTR_GET_CONST(startupProbe_, Probe) };
+    inline Probe getStartupProbe() { DARABONBA_PTR_GET(startupProbe_, Probe) };
     inline UpdateApplicationInput& setStartupProbe(const Probe & startupProbe) { DARABONBA_PTR_SET_VALUE(startupProbe_, startupProbe) };
     inline UpdateApplicationInput& setStartupProbe(Probe && startupProbe) { DARABONBA_PTR_SET_RVALUE(startupProbe_, startupProbe) };
 
@@ -430,15 +430,15 @@ namespace Models
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline UpdateApplicationInput& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
     // tracingConfig Field Functions 
     bool hasTracingConfig() const { return this->tracingConfig_ != nullptr;};
     void deleteTracingConfig() { this->tracingConfig_ = nullptr;};
-    inline const TracingConfig & tracingConfig() const { DARABONBA_PTR_GET_CONST(tracingConfig_, TracingConfig) };
-    inline TracingConfig tracingConfig() { DARABONBA_PTR_GET(tracingConfig_, TracingConfig) };
+    inline const TracingConfig & getTracingConfig() const { DARABONBA_PTR_GET_CONST(tracingConfig_, TracingConfig) };
+    inline TracingConfig getTracingConfig() { DARABONBA_PTR_GET(tracingConfig_, TracingConfig) };
     inline UpdateApplicationInput& setTracingConfig(const TracingConfig & tracingConfig) { DARABONBA_PTR_SET_VALUE(tracingConfig_, tracingConfig) };
     inline UpdateApplicationInput& setTracingConfig(TracingConfig && tracingConfig) { DARABONBA_PTR_SET_RVALUE(tracingConfig_, tracingConfig) };
 
@@ -446,53 +446,53 @@ namespace Models
     // vpcConfig Field Functions 
     bool hasVpcConfig() const { return this->vpcConfig_ != nullptr;};
     void deleteVpcConfig() { this->vpcConfig_ = nullptr;};
-    inline const VPCConfig & vpcConfig() const { DARABONBA_PTR_GET_CONST(vpcConfig_, VPCConfig) };
-    inline VPCConfig vpcConfig() { DARABONBA_PTR_GET(vpcConfig_, VPCConfig) };
+    inline const VPCConfig & getVpcConfig() const { DARABONBA_PTR_GET_CONST(vpcConfig_, VPCConfig) };
+    inline VPCConfig getVpcConfig() { DARABONBA_PTR_GET(vpcConfig_, VPCConfig) };
     inline UpdateApplicationInput& setVpcConfig(const VPCConfig & vpcConfig) { DARABONBA_PTR_SET_VALUE(vpcConfig_, vpcConfig) };
     inline UpdateApplicationInput& setVpcConfig(VPCConfig && vpcConfig) { DARABONBA_PTR_SET_RVALUE(vpcConfig_, vpcConfig) };
 
 
   protected:
-    std::shared_ptr<string> args_ = nullptr;
-    std::shared_ptr<int32_t> caPort_ = nullptr;
-    std::shared_ptr<InputCodeLocation> code_ = nullptr;
-    std::shared_ptr<string> command_ = nullptr;
-    std::shared_ptr<float> cpu_ = nullptr;
-    std::shared_ptr<CustomDNS> customDNS_ = nullptr;
-    std::shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig_ = nullptr;
-    std::shared_ptr<CustomHostAlias> customHostAlias_ = nullptr;
-    std::shared_ptr<CustomRuntimeConfig> customRuntimeConfig_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<int32_t> diskSize_ = nullptr;
-    std::shared_ptr<bool> effectiveImmediately_ = nullptr;
-    std::shared_ptr<bool> enableAppMetric_ = nullptr;
-    std::shared_ptr<map<string, string>> environmentVariables_ = nullptr;
-    std::shared_ptr<int32_t> gpuMemorySize_ = nullptr;
-    std::shared_ptr<string> handler_ = nullptr;
-    std::shared_ptr<HTTPTriggerConfig> httpTriggerConfig_ = nullptr;
-    std::shared_ptr<ImageConfig> imageConfig_ = nullptr;
-    std::shared_ptr<int32_t> initializationTimeout_ = nullptr;
-    std::shared_ptr<string> initializer_ = nullptr;
-    std::shared_ptr<int32_t> instanceConcurrency_ = nullptr;
-    std::shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig_ = nullptr;
-    std::shared_ptr<int32_t> instanceSoftConcurrency_ = nullptr;
-    std::shared_ptr<string> instanceType_ = nullptr;
-    std::shared_ptr<bool> internetAccess_ = nullptr;
-    std::shared_ptr<vector<string>> layers_ = nullptr;
-    std::shared_ptr<Probe> livenessProbe_ = nullptr;
-    std::shared_ptr<LogConfig> logConfig_ = nullptr;
-    std::shared_ptr<int32_t> memorySize_ = nullptr;
-    std::shared_ptr<string> namespaceID_ = nullptr;
-    std::shared_ptr<NASConfig> nasConfig_ = nullptr;
-    std::shared_ptr<OSSMountConfig> ossMountConfig_ = nullptr;
-    std::shared_ptr<string> programmingLanguage_ = nullptr;
-    std::shared_ptr<string> runtime_ = nullptr;
-    std::shared_ptr<ScaleConfig> scaleConfig_ = nullptr;
-    std::shared_ptr<SLSConfig> slsConfig_ = nullptr;
-    std::shared_ptr<Probe> startupProbe_ = nullptr;
-    std::shared_ptr<int32_t> timeout_ = nullptr;
-    std::shared_ptr<TracingConfig> tracingConfig_ = nullptr;
-    std::shared_ptr<VPCConfig> vpcConfig_ = nullptr;
+    shared_ptr<string> args_ {};
+    shared_ptr<int32_t> caPort_ {};
+    shared_ptr<InputCodeLocation> code_ {};
+    shared_ptr<string> command_ {};
+    shared_ptr<float> cpu_ {};
+    shared_ptr<CustomDNS> customDNS_ {};
+    shared_ptr<CustomHealthCheckConfig> customHealthCheckConfig_ {};
+    shared_ptr<CustomHostAlias> customHostAlias_ {};
+    shared_ptr<CustomRuntimeConfig> customRuntimeConfig_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<int32_t> diskSize_ {};
+    shared_ptr<bool> effectiveImmediately_ {};
+    shared_ptr<bool> enableAppMetric_ {};
+    shared_ptr<map<string, string>> environmentVariables_ {};
+    shared_ptr<int32_t> gpuMemorySize_ {};
+    shared_ptr<string> handler_ {};
+    shared_ptr<HTTPTriggerConfig> httpTriggerConfig_ {};
+    shared_ptr<ImageConfig> imageConfig_ {};
+    shared_ptr<int32_t> initializationTimeout_ {};
+    shared_ptr<string> initializer_ {};
+    shared_ptr<int32_t> instanceConcurrency_ {};
+    shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig_ {};
+    shared_ptr<int32_t> instanceSoftConcurrency_ {};
+    shared_ptr<string> instanceType_ {};
+    shared_ptr<bool> internetAccess_ {};
+    shared_ptr<vector<string>> layers_ {};
+    shared_ptr<Probe> livenessProbe_ {};
+    shared_ptr<LogConfig> logConfig_ {};
+    shared_ptr<int32_t> memorySize_ {};
+    shared_ptr<string> namespaceID_ {};
+    shared_ptr<NASConfig> nasConfig_ {};
+    shared_ptr<OSSMountConfig> ossMountConfig_ {};
+    shared_ptr<string> programmingLanguage_ {};
+    shared_ptr<string> runtime_ {};
+    shared_ptr<ScaleConfig> scaleConfig_ {};
+    shared_ptr<SLSConfig> slsConfig_ {};
+    shared_ptr<Probe> startupProbe_ {};
+    shared_ptr<int32_t> timeout_ {};
+    shared_ptr<TracingConfig> tracingConfig_ {};
+    shared_ptr<VPCConfig> vpcConfig_ {};
   };
 
   } // namespace Models

@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->status_ == nullptr
-        && return this->webApplication_ == nullptr; };
+        && this->webApplication_ == nullptr; };
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline const WebApplicationStatus & status() const { DARABONBA_PTR_GET_CONST(status_, WebApplicationStatus) };
-    inline WebApplicationStatus status() { DARABONBA_PTR_GET(status_, WebApplicationStatus) };
+    inline const WebApplicationStatus & getStatus() const { DARABONBA_PTR_GET_CONST(status_, WebApplicationStatus) };
+    inline WebApplicationStatus getStatus() { DARABONBA_PTR_GET(status_, WebApplicationStatus) };
     inline WebApplicationWithStatus& setStatus(const WebApplicationStatus & status) { DARABONBA_PTR_SET_VALUE(status_, status) };
     inline WebApplicationWithStatus& setStatus(WebApplicationStatus && status) { DARABONBA_PTR_SET_RVALUE(status_, status) };
 
@@ -47,15 +47,15 @@ namespace Models
     // webApplication Field Functions 
     bool hasWebApplication() const { return this->webApplication_ != nullptr;};
     void deleteWebApplication() { this->webApplication_ = nullptr;};
-    inline const WebApplication & webApplication() const { DARABONBA_PTR_GET_CONST(webApplication_, WebApplication) };
-    inline WebApplication webApplication() { DARABONBA_PTR_GET(webApplication_, WebApplication) };
+    inline const WebApplication & getWebApplication() const { DARABONBA_PTR_GET_CONST(webApplication_, WebApplication) };
+    inline WebApplication getWebApplication() { DARABONBA_PTR_GET(webApplication_, WebApplication) };
     inline WebApplicationWithStatus& setWebApplication(const WebApplication & webApplication) { DARABONBA_PTR_SET_VALUE(webApplication_, webApplication) };
     inline WebApplicationWithStatus& setWebApplication(WebApplication && webApplication) { DARABONBA_PTR_SET_RVALUE(webApplication_, webApplication) };
 
 
   protected:
-    std::shared_ptr<WebApplicationStatus> status_ = nullptr;
-    std::shared_ptr<WebApplication> webApplication_ = nullptr;
+    shared_ptr<WebApplicationStatus> status_ {};
+    shared_ptr<WebApplication> webApplication_ {};
   };
 
   } // namespace Models

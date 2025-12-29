@@ -33,7 +33,7 @@ namespace Models
     // ingressId Field Functions 
     bool hasIngressId() const { return this->ingressId_ != nullptr;};
     void deleteIngressId() { this->ingressId_ = nullptr;};
-    inline int64_t ingressId() const { DARABONBA_PTR_GET_DEFAULT(ingressId_, 0L) };
+    inline int64_t getIngressId() const { DARABONBA_PTR_GET_DEFAULT(ingressId_, 0L) };
     inline DescribeIngressRequest& setIngressId(int64_t ingressId) { DARABONBA_PTR_SET_VALUE(ingressId_, ingressId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the routing rule to be queried.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ingressId_ = nullptr;
+    shared_ptr<int64_t> ingressId_ {};
   };
 
   } // namespace Models

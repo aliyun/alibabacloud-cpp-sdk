@@ -33,7 +33,7 @@ namespace Models
     // greyTagRouteId Field Functions 
     bool hasGreyTagRouteId() const { return this->greyTagRouteId_ != nullptr;};
     void deleteGreyTagRouteId() { this->greyTagRouteId_ = nullptr;};
-    inline int64_t greyTagRouteId() const { DARABONBA_PTR_GET_DEFAULT(greyTagRouteId_, 0L) };
+    inline int64_t getGreyTagRouteId() const { DARABONBA_PTR_GET_DEFAULT(greyTagRouteId_, 0L) };
     inline DescribeGreyTagRouteRequest& setGreyTagRouteId(int64_t greyTagRouteId) { DARABONBA_PTR_SET_VALUE(greyTagRouteId_, greyTagRouteId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the canary release rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> greyTagRouteId_ = nullptr;
+    shared_ptr<int64_t> greyTagRouteId_ {};
   };
 
   } // namespace Models

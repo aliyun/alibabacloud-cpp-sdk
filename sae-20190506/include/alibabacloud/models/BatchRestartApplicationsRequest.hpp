@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIds_ == nullptr
-        && return this->namespaceId_ == nullptr; };
+        && this->namespaceId_ == nullptr; };
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline string appIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
     inline BatchRestartApplicationsRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline BatchRestartApplicationsRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The application IDs. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appIds_ = nullptr;
+    shared_ptr<string> appIds_ {};
     // The namespace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
   };
 
   } // namespace Models

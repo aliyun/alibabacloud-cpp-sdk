@@ -35,15 +35,15 @@ namespace Models
     // aclEntries Field Functions 
     bool hasAclEntries() const { return this->aclEntries_ != nullptr;};
     void deleteAclEntries() { this->aclEntries_ = nullptr;};
-    inline const vector<AclEntryConfig> & aclEntries() const { DARABONBA_PTR_GET_CONST(aclEntries_, vector<AclEntryConfig>) };
-    inline vector<AclEntryConfig> aclEntries() { DARABONBA_PTR_GET(aclEntries_, vector<AclEntryConfig>) };
+    inline const vector<AclEntryConfig> & getAclEntries() const { DARABONBA_PTR_GET_CONST(aclEntries_, vector<AclEntryConfig>) };
+    inline vector<AclEntryConfig> getAclEntries() { DARABONBA_PTR_GET(aclEntries_, vector<AclEntryConfig>) };
     inline AclConfig& setAclEntries(const vector<AclEntryConfig> & aclEntries) { DARABONBA_PTR_SET_VALUE(aclEntries_, aclEntries) };
     inline AclConfig& setAclEntries(vector<AclEntryConfig> && aclEntries) { DARABONBA_PTR_SET_RVALUE(aclEntries_, aclEntries) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<AclEntryConfig>> aclEntries_ = nullptr;
+    shared_ptr<vector<AclEntryConfig>> aclEntries_ {};
   };
 
   } // namespace Models

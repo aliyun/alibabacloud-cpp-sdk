@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authConfig_ == nullptr
-        && return this->certConfig_ == nullptr; };
+        && this->certConfig_ == nullptr; };
     // authConfig Field Functions 
     bool hasAuthConfig() const { return this->authConfig_ != nullptr;};
     void deleteAuthConfig() { this->authConfig_ = nullptr;};
-    inline const RegistryAuthConfig & authConfig() const { DARABONBA_PTR_GET_CONST(authConfig_, RegistryAuthConfig) };
-    inline RegistryAuthConfig authConfig() { DARABONBA_PTR_GET(authConfig_, RegistryAuthConfig) };
+    inline const RegistryAuthConfig & getAuthConfig() const { DARABONBA_PTR_GET_CONST(authConfig_, RegistryAuthConfig) };
+    inline RegistryAuthConfig getAuthConfig() { DARABONBA_PTR_GET(authConfig_, RegistryAuthConfig) };
     inline RegistryConfig& setAuthConfig(const RegistryAuthConfig & authConfig) { DARABONBA_PTR_SET_VALUE(authConfig_, authConfig) };
     inline RegistryConfig& setAuthConfig(RegistryAuthConfig && authConfig) { DARABONBA_PTR_SET_RVALUE(authConfig_, authConfig) };
 
@@ -47,15 +47,15 @@ namespace Models
     // certConfig Field Functions 
     bool hasCertConfig() const { return this->certConfig_ != nullptr;};
     void deleteCertConfig() { this->certConfig_ = nullptr;};
-    inline const RegistryCertConfig & certConfig() const { DARABONBA_PTR_GET_CONST(certConfig_, RegistryCertConfig) };
-    inline RegistryCertConfig certConfig() { DARABONBA_PTR_GET(certConfig_, RegistryCertConfig) };
+    inline const RegistryCertConfig & getCertConfig() const { DARABONBA_PTR_GET_CONST(certConfig_, RegistryCertConfig) };
+    inline RegistryCertConfig getCertConfig() { DARABONBA_PTR_GET(certConfig_, RegistryCertConfig) };
     inline RegistryConfig& setCertConfig(const RegistryCertConfig & certConfig) { DARABONBA_PTR_SET_VALUE(certConfig_, certConfig) };
     inline RegistryConfig& setCertConfig(RegistryCertConfig && certConfig) { DARABONBA_PTR_SET_RVALUE(certConfig_, certConfig) };
 
 
   protected:
-    std::shared_ptr<RegistryAuthConfig> authConfig_ = nullptr;
-    std::shared_ptr<RegistryCertConfig> certConfig_ = nullptr;
+    shared_ptr<RegistryAuthConfig> authConfig_ {};
+    shared_ptr<RegistryCertConfig> certConfig_ {};
   };
 
   } // namespace Models

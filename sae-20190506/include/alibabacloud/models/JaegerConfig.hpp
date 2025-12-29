@@ -33,12 +33,12 @@ namespace Models
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};
-    inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline JaegerConfig& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
   protected:
-    std::shared_ptr<string> endpoint_ = nullptr;
+    shared_ptr<string> endpoint_ {};
   };
 
   } // namespace Models

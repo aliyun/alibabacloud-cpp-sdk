@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->length_ == nullptr
-        && return this->webAppStatics_ == nullptr; };
+        && this->webAppStatics_ == nullptr; };
     // length Field Functions 
     bool hasLength() const { return this->length_ != nullptr;};
     void deleteLength() { this->length_ = nullptr;};
-    inline int32_t length() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
+    inline int32_t getLength() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
     inline DescribeWebAppStaticsOutput& setLength(int32_t length) { DARABONBA_PTR_SET_VALUE(length_, length) };
 
 
     // webAppStatics Field Functions 
     bool hasWebAppStatics() const { return this->webAppStatics_ != nullptr;};
     void deleteWebAppStatics() { this->webAppStatics_ = nullptr;};
-    inline const vector<WebStaticsInfo> & webAppStatics() const { DARABONBA_PTR_GET_CONST(webAppStatics_, vector<WebStaticsInfo>) };
-    inline vector<WebStaticsInfo> webAppStatics() { DARABONBA_PTR_GET(webAppStatics_, vector<WebStaticsInfo>) };
+    inline const vector<WebStaticsInfo> & getWebAppStatics() const { DARABONBA_PTR_GET_CONST(webAppStatics_, vector<WebStaticsInfo>) };
+    inline vector<WebStaticsInfo> getWebAppStatics() { DARABONBA_PTR_GET(webAppStatics_, vector<WebStaticsInfo>) };
     inline DescribeWebAppStaticsOutput& setWebAppStatics(const vector<WebStaticsInfo> & webAppStatics) { DARABONBA_PTR_SET_VALUE(webAppStatics_, webAppStatics) };
     inline DescribeWebAppStaticsOutput& setWebAppStatics(vector<WebStaticsInfo> && webAppStatics) { DARABONBA_PTR_SET_RVALUE(webAppStatics_, webAppStatics) };
 
 
   protected:
-    std::shared_ptr<int32_t> length_ = nullptr;
-    std::shared_ptr<vector<WebStaticsInfo>> webAppStatics_ = nullptr;
+    shared_ptr<int32_t> length_ {};
+    shared_ptr<vector<WebStaticsInfo>> webAppStatics_ {};
   };
 
   } // namespace Models

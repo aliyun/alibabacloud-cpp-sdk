@@ -35,14 +35,14 @@ namespace Models
     // webLogEntrys Field Functions 
     bool hasWebLogEntrys() const { return this->webLogEntrys_ != nullptr;};
     void deleteWebLogEntrys() { this->webLogEntrys_ = nullptr;};
-    inline const vector<WebLogEntry> & webLogEntrys() const { DARABONBA_PTR_GET_CONST(webLogEntrys_, vector<WebLogEntry>) };
-    inline vector<WebLogEntry> webLogEntrys() { DARABONBA_PTR_GET(webLogEntrys_, vector<WebLogEntry>) };
+    inline const vector<WebLogEntry> & getWebLogEntrys() const { DARABONBA_PTR_GET_CONST(webLogEntrys_, vector<WebLogEntry>) };
+    inline vector<WebLogEntry> getWebLogEntrys() { DARABONBA_PTR_GET(webLogEntrys_, vector<WebLogEntry>) };
     inline DescribeInstanceLogsOutput& setWebLogEntrys(const vector<WebLogEntry> & webLogEntrys) { DARABONBA_PTR_SET_VALUE(webLogEntrys_, webLogEntrys) };
     inline DescribeInstanceLogsOutput& setWebLogEntrys(vector<WebLogEntry> && webLogEntrys) { DARABONBA_PTR_SET_RVALUE(webLogEntrys_, webLogEntrys) };
 
 
   protected:
-    std::shared_ptr<vector<WebLogEntry>> webLogEntrys_ = nullptr;
+    shared_ptr<vector<WebLogEntry>> webLogEntrys_ {};
   };
 
   } // namespace Models

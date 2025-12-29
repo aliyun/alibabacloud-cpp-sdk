@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jaegerConfig_ == nullptr
-        && return this->params_ == nullptr && return this->type_ == nullptr; };
+        && this->params_ == nullptr && this->type_ == nullptr; };
     // jaegerConfig Field Functions 
     bool hasJaegerConfig() const { return this->jaegerConfig_ != nullptr;};
     void deleteJaegerConfig() { this->jaegerConfig_ = nullptr;};
-    inline const JaegerConfig & jaegerConfig() const { DARABONBA_PTR_GET_CONST(jaegerConfig_, JaegerConfig) };
-    inline JaegerConfig jaegerConfig() { DARABONBA_PTR_GET(jaegerConfig_, JaegerConfig) };
+    inline const JaegerConfig & getJaegerConfig() const { DARABONBA_PTR_GET_CONST(jaegerConfig_, JaegerConfig) };
+    inline JaegerConfig getJaegerConfig() { DARABONBA_PTR_GET(jaegerConfig_, JaegerConfig) };
     inline TracingConfig& setJaegerConfig(const JaegerConfig & jaegerConfig) { DARABONBA_PTR_SET_VALUE(jaegerConfig_, jaegerConfig) };
     inline TracingConfig& setJaegerConfig(JaegerConfig && jaegerConfig) { DARABONBA_PTR_SET_RVALUE(jaegerConfig_, jaegerConfig) };
 
@@ -48,23 +48,23 @@ namespace Models
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline     const Darabonba::Json & params() const { DARABONBA_GET(params_) };
-    Darabonba::Json & params() { DARABONBA_GET(params_) };
+    inline     const Darabonba::Json & getParams() const { DARABONBA_GET(params_) };
+    Darabonba::Json & getParams() { DARABONBA_GET(params_) };
     inline TracingConfig& setParams(const Darabonba::Json & params) { DARABONBA_SET_VALUE(params_, params) };
-    inline TracingConfig& setParams(Darabonba::Json & params) { DARABONBA_SET_RVALUE(params_, params) };
+    inline TracingConfig& setParams(Darabonba::Json && params) { DARABONBA_SET_RVALUE(params_, params) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline TracingConfig& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<JaegerConfig> jaegerConfig_ = nullptr;
-    Darabonba::Json params_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<JaegerConfig> jaegerConfig_ {};
+    Darabonba::Json params_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

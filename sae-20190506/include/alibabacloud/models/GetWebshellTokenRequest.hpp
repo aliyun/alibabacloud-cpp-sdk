@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->containerName_ == nullptr && return this->podName_ == nullptr; };
+        && this->containerName_ == nullptr && this->podName_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetWebshellTokenRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // containerName Field Functions 
     bool hasContainerName() const { return this->containerName_ != nullptr;};
     void deleteContainerName() { this->containerName_ = nullptr;};
-    inline string containerName() const { DARABONBA_PTR_GET_DEFAULT(containerName_, "") };
+    inline string getContainerName() const { DARABONBA_PTR_GET_DEFAULT(containerName_, "") };
     inline GetWebshellTokenRequest& setContainerName(string containerName) { DARABONBA_PTR_SET_VALUE(containerName_, containerName) };
 
 
     // podName Field Functions 
     bool hasPodName() const { return this->podName_ != nullptr;};
     void deletePodName() { this->podName_ = nullptr;};
-    inline string podName() const { DARABONBA_PTR_GET_DEFAULT(podName_, "") };
+    inline string getPodName() const { DARABONBA_PTR_GET_DEFAULT(podName_, "") };
     inline GetWebshellTokenRequest& setPodName(string podName) { DARABONBA_PTR_SET_VALUE(podName_, podName) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The ID of the interactive messaging application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The name of the init container.
     // 
     // Note:
@@ -75,11 +75,11 @@ namespace Models
     // *   If this parameter is specified, the `Username` parameter that is specified in a request to call this operation and the `WorkingDir` parameter that is specified in a request to call the [CreateCommand](https://help.aliyun.com/document_detail/64844.html) operation do not take effect. You can run the command only in the default working directory of the container by using the default user of the container. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
     // 
     // *   If this parameter is specified, only shell scripts can be run in Linux containers. You cannot add a command in the format similar to `#!/usr/bin/python` at the beginning of a script to specify a script interpreter. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
-    std::shared_ptr<string> containerName_ = nullptr;
+    shared_ptr<string> containerName_ {};
     // The name of the pod.
     // 
     // This parameter is required.
-    std::shared_ptr<string> podName_ = nullptr;
+    shared_ptr<string> podName_ {};
   };
 
   } // namespace Models

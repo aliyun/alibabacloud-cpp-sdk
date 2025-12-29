@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->webCustomDomains_ == nullptr; };
+        && this->webCustomDomains_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListWebCustomDomainOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // webCustomDomains Field Functions 
     bool hasWebCustomDomains() const { return this->webCustomDomains_ != nullptr;};
     void deleteWebCustomDomains() { this->webCustomDomains_ = nullptr;};
-    inline const vector<WebCustomDomain> & webCustomDomains() const { DARABONBA_PTR_GET_CONST(webCustomDomains_, vector<WebCustomDomain>) };
-    inline vector<WebCustomDomain> webCustomDomains() { DARABONBA_PTR_GET(webCustomDomains_, vector<WebCustomDomain>) };
+    inline const vector<WebCustomDomain> & getWebCustomDomains() const { DARABONBA_PTR_GET_CONST(webCustomDomains_, vector<WebCustomDomain>) };
+    inline vector<WebCustomDomain> getWebCustomDomains() { DARABONBA_PTR_GET(webCustomDomains_, vector<WebCustomDomain>) };
     inline ListWebCustomDomainOutput& setWebCustomDomains(const vector<WebCustomDomain> & webCustomDomains) { DARABONBA_PTR_SET_VALUE(webCustomDomains_, webCustomDomains) };
     inline ListWebCustomDomainOutput& setWebCustomDomains(vector<WebCustomDomain> && webCustomDomains) { DARABONBA_PTR_SET_RVALUE(webCustomDomains_, webCustomDomains) };
 
 
   protected:
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<WebCustomDomain>> webCustomDomains_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<WebCustomDomain>> webCustomDomains_ {};
   };
 
   } // namespace Models

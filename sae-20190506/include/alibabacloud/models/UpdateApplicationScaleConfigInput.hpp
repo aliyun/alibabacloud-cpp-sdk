@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alwaysAllocateCPU_ == nullptr
-        && return this->maximumInstanceCount_ == nullptr && return this->minimumInstanceCount_ == nullptr; };
+        && this->maximumInstanceCount_ == nullptr && this->minimumInstanceCount_ == nullptr; };
     // alwaysAllocateCPU Field Functions 
     bool hasAlwaysAllocateCPU() const { return this->alwaysAllocateCPU_ != nullptr;};
     void deleteAlwaysAllocateCPU() { this->alwaysAllocateCPU_ = nullptr;};
-    inline bool alwaysAllocateCPU() const { DARABONBA_PTR_GET_DEFAULT(alwaysAllocateCPU_, false) };
+    inline bool getAlwaysAllocateCPU() const { DARABONBA_PTR_GET_DEFAULT(alwaysAllocateCPU_, false) };
     inline UpdateApplicationScaleConfigInput& setAlwaysAllocateCPU(bool alwaysAllocateCPU) { DARABONBA_PTR_SET_VALUE(alwaysAllocateCPU_, alwaysAllocateCPU) };
 
 
     // maximumInstanceCount Field Functions 
     bool hasMaximumInstanceCount() const { return this->maximumInstanceCount_ != nullptr;};
     void deleteMaximumInstanceCount() { this->maximumInstanceCount_ = nullptr;};
-    inline int64_t maximumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(maximumInstanceCount_, 0L) };
+    inline int64_t getMaximumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(maximumInstanceCount_, 0L) };
     inline UpdateApplicationScaleConfigInput& setMaximumInstanceCount(int64_t maximumInstanceCount) { DARABONBA_PTR_SET_VALUE(maximumInstanceCount_, maximumInstanceCount) };
 
 
     // minimumInstanceCount Field Functions 
     bool hasMinimumInstanceCount() const { return this->minimumInstanceCount_ != nullptr;};
     void deleteMinimumInstanceCount() { this->minimumInstanceCount_ = nullptr;};
-    inline int64_t minimumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(minimumInstanceCount_, 0L) };
+    inline int64_t getMinimumInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(minimumInstanceCount_, 0L) };
     inline UpdateApplicationScaleConfigInput& setMinimumInstanceCount(int64_t minimumInstanceCount) { DARABONBA_PTR_SET_VALUE(minimumInstanceCount_, minimumInstanceCount) };
 
 
   protected:
-    std::shared_ptr<bool> alwaysAllocateCPU_ = nullptr;
-    std::shared_ptr<int64_t> maximumInstanceCount_ = nullptr;
-    std::shared_ptr<int64_t> minimumInstanceCount_ = nullptr;
+    shared_ptr<bool> alwaysAllocateCPU_ {};
+    shared_ptr<int64_t> maximumInstanceCount_ {};
+    shared_ptr<int64_t> minimumInstanceCount_ {};
   };
 
   } // namespace Models

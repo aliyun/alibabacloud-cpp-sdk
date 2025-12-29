@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coStatus_ == nullptr
-        && return this->coType_ == nullptr && return this->currentPage_ == nullptr && return this->key_ == nullptr && return this->namespaceId_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->coType_ == nullptr && this->currentPage_ == nullptr && this->key_ == nullptr && this->namespaceId_ == nullptr && this->pageSize_ == nullptr; };
     // coStatus Field Functions 
     bool hasCoStatus() const { return this->coStatus_ != nullptr;};
     void deleteCoStatus() { this->coStatus_ = nullptr;};
-    inline string coStatus() const { DARABONBA_PTR_GET_DEFAULT(coStatus_, "") };
+    inline string getCoStatus() const { DARABONBA_PTR_GET_DEFAULT(coStatus_, "") };
     inline ListNamespaceChangeOrdersRequest& setCoStatus(string coStatus) { DARABONBA_PTR_SET_VALUE(coStatus_, coStatus) };
 
 
     // coType Field Functions 
     bool hasCoType() const { return this->coType_ != nullptr;};
     void deleteCoType() { this->coType_ = nullptr;};
-    inline string coType() const { DARABONBA_PTR_GET_DEFAULT(coType_, "") };
+    inline string getCoType() const { DARABONBA_PTR_GET_DEFAULT(coType_, "") };
     inline ListNamespaceChangeOrdersRequest& setCoType(string coType) { DARABONBA_PTR_SET_VALUE(coType_, coType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListNamespaceChangeOrdersRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline ListNamespaceChangeOrdersRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline ListNamespaceChangeOrdersRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListNamespaceChangeOrdersRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // 2
-    std::shared_ptr<string> coStatus_ = nullptr;
+    shared_ptr<string> coStatus_ {};
     // CoBatchStartApplication
-    std::shared_ptr<string> coType_ = nullptr;
+    shared_ptr<string> coType_ {};
     // 1
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // test
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // cn-shanghai:test
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // 20
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

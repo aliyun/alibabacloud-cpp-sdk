@@ -35,14 +35,14 @@ namespace Models
     // hostAliases Field Functions 
     bool hasHostAliases() const { return this->hostAliases_ != nullptr;};
     void deleteHostAliases() { this->hostAliases_ = nullptr;};
-    inline const vector<HostAlias> & hostAliases() const { DARABONBA_PTR_GET_CONST(hostAliases_, vector<HostAlias>) };
-    inline vector<HostAlias> hostAliases() { DARABONBA_PTR_GET(hostAliases_, vector<HostAlias>) };
+    inline const vector<HostAlias> & getHostAliases() const { DARABONBA_PTR_GET_CONST(hostAliases_, vector<HostAlias>) };
+    inline vector<HostAlias> getHostAliases() { DARABONBA_PTR_GET(hostAliases_, vector<HostAlias>) };
     inline CustomHostAlias& setHostAliases(const vector<HostAlias> & hostAliases) { DARABONBA_PTR_SET_VALUE(hostAliases_, hostAliases) };
     inline CustomHostAlias& setHostAliases(vector<HostAlias> && hostAliases) { DARABONBA_PTR_SET_RVALUE(hostAliases_, hostAliases) };
 
 
   protected:
-    std::shared_ptr<vector<HostAlias>> hostAliases_ = nullptr;
+    shared_ptr<vector<HostAlias>> hostAliases_ {};
   };
 
   } // namespace Models

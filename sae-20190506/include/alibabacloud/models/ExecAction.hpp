@@ -34,14 +34,14 @@ namespace Models
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline const vector<string> & command() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
-    inline vector<string> command() { DARABONBA_PTR_GET(command_, vector<string>) };
+    inline const vector<string> & getCommand() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
+    inline vector<string> getCommand() { DARABONBA_PTR_GET(command_, vector<string>) };
     inline ExecAction& setCommand(const vector<string> & command) { DARABONBA_PTR_SET_VALUE(command_, command) };
     inline ExecAction& setCommand(vector<string> && command) { DARABONBA_PTR_SET_RVALUE(command_, command) };
 
 
   protected:
-    std::shared_ptr<vector<string>> command_ = nullptr;
+    shared_ptr<vector<string>> command_ {};
   };
 
   } // namespace Models

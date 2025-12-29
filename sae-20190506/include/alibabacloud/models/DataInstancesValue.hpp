@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dnsName_ == nullptr
-        && return this->listeners_ == nullptr && return this->createdBySae_ == nullptr; };
+        && this->listeners_ == nullptr && this->createdBySae_ == nullptr; };
     // dnsName Field Functions 
     bool hasDnsName() const { return this->dnsName_ != nullptr;};
     void deleteDnsName() { this->dnsName_ = nullptr;};
-    inline string dnsName() const { DARABONBA_PTR_GET_DEFAULT(dnsName_, "") };
+    inline string getDnsName() const { DARABONBA_PTR_GET_DEFAULT(dnsName_, "") };
     inline DataInstancesValue& setDnsName(string dnsName) { DARABONBA_PTR_SET_VALUE(dnsName_, dnsName) };
 
 
     // listeners Field Functions 
     bool hasListeners() const { return this->listeners_ != nullptr;};
     void deleteListeners() { this->listeners_ = nullptr;};
-    inline const map<string, DataInstancesValueListenersValue> & listeners() const { DARABONBA_PTR_GET_CONST(listeners_, map<string, DataInstancesValueListenersValue>) };
-    inline map<string, DataInstancesValueListenersValue> listeners() { DARABONBA_PTR_GET(listeners_, map<string, DataInstancesValueListenersValue>) };
+    inline const map<string, DataInstancesValueListenersValue> & getListeners() const { DARABONBA_PTR_GET_CONST(listeners_, map<string, DataInstancesValueListenersValue>) };
+    inline map<string, DataInstancesValueListenersValue> getListeners() { DARABONBA_PTR_GET(listeners_, map<string, DataInstancesValueListenersValue>) };
     inline DataInstancesValue& setListeners(const map<string, DataInstancesValueListenersValue> & listeners) { DARABONBA_PTR_SET_VALUE(listeners_, listeners) };
     inline DataInstancesValue& setListeners(map<string, DataInstancesValueListenersValue> && listeners) { DARABONBA_PTR_SET_RVALUE(listeners_, listeners) };
 
@@ -56,20 +56,20 @@ namespace Models
     // createdBySae Field Functions 
     bool hasCreatedBySae() const { return this->createdBySae_ != nullptr;};
     void deleteCreatedBySae() { this->createdBySae_ = nullptr;};
-    inline bool createdBySae() const { DARABONBA_PTR_GET_DEFAULT(createdBySae_, false) };
+    inline bool getCreatedBySae() const { DARABONBA_PTR_GET_DEFAULT(createdBySae_, false) };
     inline DataInstancesValue& setCreatedBySae(bool createdBySae) { DARABONBA_PTR_SET_VALUE(createdBySae_, createdBySae) };
 
 
   protected:
     // The domain name.
-    std::shared_ptr<string> dnsName_ = nullptr;
+    shared_ptr<string> dnsName_ {};
     // The listeners.
-    std::shared_ptr<map<string, DataInstancesValueListenersValue>> listeners_ = nullptr;
+    shared_ptr<map<string, DataInstancesValueListenersValue>> listeners_ {};
     // Indicates whether the instance is created by SAE.
     // 
     // *   **true**: The instance is created by SAE.
     // *   **false**: The existing instance is reused.
-    std::shared_ptr<bool> createdBySae_ = nullptr;
+    shared_ptr<bool> createdBySae_ {};
   };
 
   } // namespace Models

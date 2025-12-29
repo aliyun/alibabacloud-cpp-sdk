@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->httpGet_ == nullptr
-        && return this->tcpSocket_ == nullptr; };
+        && this->tcpSocket_ == nullptr; };
     // httpGet Field Functions 
     bool hasHttpGet() const { return this->httpGet_ != nullptr;};
     void deleteHttpGet() { this->httpGet_ = nullptr;};
-    inline const HTTPGetAction & httpGet() const { DARABONBA_PTR_GET_CONST(httpGet_, HTTPGetAction) };
-    inline HTTPGetAction httpGet() { DARABONBA_PTR_GET(httpGet_, HTTPGetAction) };
+    inline const HTTPGetAction & getHttpGet() const { DARABONBA_PTR_GET_CONST(httpGet_, HTTPGetAction) };
+    inline HTTPGetAction getHttpGet() { DARABONBA_PTR_GET(httpGet_, HTTPGetAction) };
     inline ProbeHandler& setHttpGet(const HTTPGetAction & httpGet) { DARABONBA_PTR_SET_VALUE(httpGet_, httpGet) };
     inline ProbeHandler& setHttpGet(HTTPGetAction && httpGet) { DARABONBA_PTR_SET_RVALUE(httpGet_, httpGet) };
 
@@ -47,15 +47,15 @@ namespace Models
     // tcpSocket Field Functions 
     bool hasTcpSocket() const { return this->tcpSocket_ != nullptr;};
     void deleteTcpSocket() { this->tcpSocket_ = nullptr;};
-    inline const TCPSocketAction & tcpSocket() const { DARABONBA_PTR_GET_CONST(tcpSocket_, TCPSocketAction) };
-    inline TCPSocketAction tcpSocket() { DARABONBA_PTR_GET(tcpSocket_, TCPSocketAction) };
+    inline const TCPSocketAction & getTcpSocket() const { DARABONBA_PTR_GET_CONST(tcpSocket_, TCPSocketAction) };
+    inline TCPSocketAction getTcpSocket() { DARABONBA_PTR_GET(tcpSocket_, TCPSocketAction) };
     inline ProbeHandler& setTcpSocket(const TCPSocketAction & tcpSocket) { DARABONBA_PTR_SET_VALUE(tcpSocket_, tcpSocket) };
     inline ProbeHandler& setTcpSocket(TCPSocketAction && tcpSocket) { DARABONBA_PTR_SET_RVALUE(tcpSocket_, tcpSocket) };
 
 
   protected:
-    std::shared_ptr<HTTPGetAction> httpGet_ = nullptr;
-    std::shared_ptr<TCPSocketAction> tcpSocket_ = nullptr;
+    shared_ptr<HTTPGetAction> httpGet_ {};
+    shared_ptr<TCPSocketAction> tcpSocket_ {};
   };
 
   } // namespace Models

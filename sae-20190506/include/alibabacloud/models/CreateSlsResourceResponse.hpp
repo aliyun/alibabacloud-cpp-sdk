@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logStore_ == nullptr
-        && return this->project_ == nullptr && return this->requestId_ == nullptr; };
+        && this->project_ == nullptr && this->requestId_ == nullptr; };
     // logStore Field Functions 
     bool hasLogStore() const { return this->logStore_ != nullptr;};
     void deleteLogStore() { this->logStore_ = nullptr;};
-    inline string logStore() const { DARABONBA_PTR_GET_DEFAULT(logStore_, "") };
+    inline string getLogStore() const { DARABONBA_PTR_GET_DEFAULT(logStore_, "") };
     inline CreateSlsResourceResponse& setLogStore(string logStore) { DARABONBA_PTR_SET_VALUE(logStore_, logStore) };
 
 
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
-    inline string project() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+    inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
     inline CreateSlsResourceResponse& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateSlsResourceResponse& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> logStore_ = nullptr;
-    std::shared_ptr<string> project_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> logStore_ {};
+    shared_ptr<string> project_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

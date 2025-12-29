@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->namespaceId_ == nullptr
-        && return this->secretDataShrink_ == nullptr && return this->secretId_ == nullptr; };
+        && this->secretDataShrink_ == nullptr && this->secretId_ == nullptr; };
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline UpdateSecretShrinkRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // secretDataShrink Field Functions 
     bool hasSecretDataShrink() const { return this->secretDataShrink_ != nullptr;};
     void deleteSecretDataShrink() { this->secretDataShrink_ = nullptr;};
-    inline string secretDataShrink() const { DARABONBA_PTR_GET_DEFAULT(secretDataShrink_, "") };
+    inline string getSecretDataShrink() const { DARABONBA_PTR_GET_DEFAULT(secretDataShrink_, "") };
     inline UpdateSecretShrinkRequest& setSecretDataShrink(string secretDataShrink) { DARABONBA_PTR_SET_VALUE(secretDataShrink_, secretDataShrink) };
 
 
     // secretId Field Functions 
     bool hasSecretId() const { return this->secretId_ != nullptr;};
     void deleteSecretId() { this->secretId_ = nullptr;};
-    inline int64_t secretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, 0L) };
+    inline int64_t getSecretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, 0L) };
     inline UpdateSecretShrinkRequest& setSecretId(int64_t secretId) { DARABONBA_PTR_SET_VALUE(secretId_, secretId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the namespace where the Secret resides. If the namespace is the default namespace, you need to only enter the region ID, such as `cn-beijing`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
     // The Secret data.
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretDataShrink_ = nullptr;
+    shared_ptr<string> secretDataShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> secretId_ = nullptr;
+    shared_ptr<int64_t> secretId_ {};
   };
 
   } // namespace Models

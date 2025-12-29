@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclConfig_ == nullptr
-        && return this->authConfig_ == nullptr && return this->authType_ == nullptr && return this->disableURLInternet_ == nullptr && return this->safeMode_ == nullptr; };
+        && this->authConfig_ == nullptr && this->authType_ == nullptr && this->disableURLInternet_ == nullptr && this->safeMode_ == nullptr; };
     // aclConfig Field Functions 
     bool hasAclConfig() const { return this->aclConfig_ != nullptr;};
     void deleteAclConfig() { this->aclConfig_ = nullptr;};
-    inline const AclConfig & aclConfig() const { DARABONBA_PTR_GET_CONST(aclConfig_, AclConfig) };
-    inline AclConfig aclConfig() { DARABONBA_PTR_GET(aclConfig_, AclConfig) };
+    inline const AclConfig & getAclConfig() const { DARABONBA_PTR_GET_CONST(aclConfig_, AclConfig) };
+    inline AclConfig getAclConfig() { DARABONBA_PTR_GET(aclConfig_, AclConfig) };
     inline HTTPTriggerConfig& setAclConfig(const AclConfig & aclConfig) { DARABONBA_PTR_SET_VALUE(aclConfig_, aclConfig) };
     inline HTTPTriggerConfig& setAclConfig(AclConfig && aclConfig) { DARABONBA_PTR_SET_RVALUE(aclConfig_, aclConfig) };
 
@@ -52,39 +52,39 @@ namespace Models
     // authConfig Field Functions 
     bool hasAuthConfig() const { return this->authConfig_ != nullptr;};
     void deleteAuthConfig() { this->authConfig_ = nullptr;};
-    inline     const Darabonba::Json & authConfig() const { DARABONBA_GET(authConfig_) };
-    Darabonba::Json & authConfig() { DARABONBA_GET(authConfig_) };
+    inline     const Darabonba::Json & getAuthConfig() const { DARABONBA_GET(authConfig_) };
+    Darabonba::Json & getAuthConfig() { DARABONBA_GET(authConfig_) };
     inline HTTPTriggerConfig& setAuthConfig(const Darabonba::Json & authConfig) { DARABONBA_SET_VALUE(authConfig_, authConfig) };
-    inline HTTPTriggerConfig& setAuthConfig(Darabonba::Json & authConfig) { DARABONBA_SET_RVALUE(authConfig_, authConfig) };
+    inline HTTPTriggerConfig& setAuthConfig(Darabonba::Json && authConfig) { DARABONBA_SET_RVALUE(authConfig_, authConfig) };
 
 
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};
-    inline string authType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+    inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
     inline HTTPTriggerConfig& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
 
 
     // disableURLInternet Field Functions 
     bool hasDisableURLInternet() const { return this->disableURLInternet_ != nullptr;};
     void deleteDisableURLInternet() { this->disableURLInternet_ = nullptr;};
-    inline bool disableURLInternet() const { DARABONBA_PTR_GET_DEFAULT(disableURLInternet_, false) };
+    inline bool getDisableURLInternet() const { DARABONBA_PTR_GET_DEFAULT(disableURLInternet_, false) };
     inline HTTPTriggerConfig& setDisableURLInternet(bool disableURLInternet) { DARABONBA_PTR_SET_VALUE(disableURLInternet_, disableURLInternet) };
 
 
     // safeMode Field Functions 
     bool hasSafeMode() const { return this->safeMode_ != nullptr;};
     void deleteSafeMode() { this->safeMode_ = nullptr;};
-    inline bool safeMode() const { DARABONBA_PTR_GET_DEFAULT(safeMode_, false) };
+    inline bool getSafeMode() const { DARABONBA_PTR_GET_DEFAULT(safeMode_, false) };
     inline HTTPTriggerConfig& setSafeMode(bool safeMode) { DARABONBA_PTR_SET_VALUE(safeMode_, safeMode) };
 
 
   protected:
-    std::shared_ptr<AclConfig> aclConfig_ = nullptr;
-    Darabonba::Json authConfig_ = nullptr;
-    std::shared_ptr<string> authType_ = nullptr;
-    std::shared_ptr<bool> disableURLInternet_ = nullptr;
-    std::shared_ptr<bool> safeMode_ = nullptr;
+    shared_ptr<AclConfig> aclConfig_ {};
+    Darabonba::Json authConfig_ {};
+    shared_ptr<string> authType_ {};
+    shared_ptr<bool> disableURLInternet_ {};
+    shared_ptr<bool> safeMode_ {};
   };
 
   } // namespace Models

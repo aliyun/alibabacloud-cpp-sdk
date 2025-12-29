@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressType_ == nullptr
-        && return this->appId_ == nullptr && return this->listeners_ == nullptr && return this->nlbId_ == nullptr && return this->zoneMappings_ == nullptr; };
+        && this->appId_ == nullptr && this->listeners_ == nullptr && this->nlbId_ == nullptr && this->zoneMappings_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};
-    inline string addressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
+    inline string getAddressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
     inline BindNlbRequest& setAddressType(string addressType) { DARABONBA_PTR_SET_VALUE(addressType_, addressType) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline BindNlbRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // listeners Field Functions 
     bool hasListeners() const { return this->listeners_ != nullptr;};
     void deleteListeners() { this->listeners_ = nullptr;};
-    inline string listeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
+    inline string getListeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
     inline BindNlbRequest& setListeners(string listeners) { DARABONBA_PTR_SET_VALUE(listeners_, listeners) };
 
 
     // nlbId Field Functions 
     bool hasNlbId() const { return this->nlbId_ != nullptr;};
     void deleteNlbId() { this->nlbId_ = nullptr;};
-    inline string nlbId() const { DARABONBA_PTR_GET_DEFAULT(nlbId_, "") };
+    inline string getNlbId() const { DARABONBA_PTR_GET_DEFAULT(nlbId_, "") };
     inline BindNlbRequest& setNlbId(string nlbId) { DARABONBA_PTR_SET_VALUE(nlbId_, nlbId) };
 
 
     // zoneMappings Field Functions 
     bool hasZoneMappings() const { return this->zoneMappings_ != nullptr;};
     void deleteZoneMappings() { this->zoneMappings_ = nullptr;};
-    inline string zoneMappings() const { DARABONBA_PTR_GET_DEFAULT(zoneMappings_, "") };
+    inline string getZoneMappings() const { DARABONBA_PTR_GET_DEFAULT(zoneMappings_, "") };
     inline BindNlbRequest& setZoneMappings(string zoneMappings) { DARABONBA_PTR_SET_VALUE(zoneMappings_, zoneMappings) };
 
 
@@ -79,23 +79,23 @@ namespace Models
     // 
     // *   Internet: public endpoint.
     // *   Intranet: private endpoint.
-    std::shared_ptr<string> addressType_ = nullptr;
+    shared_ptr<string> addressType_ {};
     // The ID of the application to which the NLB instance is bound.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The listener that you want to manage. The value is a string that consists of JSON arrays. Each listener contains the following fields:
     // 
     // *   **port**: the port number of the NLB listener. This field is required. Data type: integer. Valid values: 0 to 65535.
     // *   **TargetPort**: the port number of the container listener. This field is required. Data type: integer. Valid values: 0 to 65535.
     // *   **Protocol**: the listener protocol. This field is required. Data type: string. Valid values: TCP, UDP, and TCPSSL.
     // *   **CertIds**: the IDs of the server certificates. This field is optional. Data type: string. This field is supported only by TCPSSL listeners.
-    std::shared_ptr<string> listeners_ = nullptr;
+    shared_ptr<string> listeners_ {};
     // The ID of the NLB instance.
-    std::shared_ptr<string> nlbId_ = nullptr;
+    shared_ptr<string> nlbId_ {};
     // The mappings between zones and vSwitches. The value is a JSON string. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones. A ZoneMapping contains the following fields:
     // 
     // *   The ID of the vSwitch in the zone. Each zone can contain only one vSwitch and one subnet. Data type: string.
     // *   The zone ID of the NLB instance. Data type: string.
-    std::shared_ptr<string> zoneMappings_ = nullptr;
+    shared_ptr<string> zoneMappings_ {};
   };
 
   } // namespace Models

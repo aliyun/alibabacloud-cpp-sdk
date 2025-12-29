@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logEntrys_ == nullptr
-        && return this->nextOffset_ == nullptr && return this->requestId_ == nullptr; };
+        && this->nextOffset_ == nullptr && this->requestId_ == nullptr; };
     // logEntrys Field Functions 
     bool hasLogEntrys() const { return this->logEntrys_ != nullptr;};
     void deleteLogEntrys() { this->logEntrys_ = nullptr;};
-    inline const vector<LogEntry> & logEntrys() const { DARABONBA_PTR_GET_CONST(logEntrys_, vector<LogEntry>) };
-    inline vector<LogEntry> logEntrys() { DARABONBA_PTR_GET(logEntrys_, vector<LogEntry>) };
+    inline const vector<LogEntry> & getLogEntrys() const { DARABONBA_PTR_GET_CONST(logEntrys_, vector<LogEntry>) };
+    inline vector<LogEntry> getLogEntrys() { DARABONBA_PTR_GET(logEntrys_, vector<LogEntry>) };
     inline GetApplicationLogsOutput& setLogEntrys(const vector<LogEntry> & logEntrys) { DARABONBA_PTR_SET_VALUE(logEntrys_, logEntrys) };
     inline GetApplicationLogsOutput& setLogEntrys(vector<LogEntry> && logEntrys) { DARABONBA_PTR_SET_RVALUE(logEntrys_, logEntrys) };
 
@@ -49,21 +49,21 @@ namespace Models
     // nextOffset Field Functions 
     bool hasNextOffset() const { return this->nextOffset_ != nullptr;};
     void deleteNextOffset() { this->nextOffset_ = nullptr;};
-    inline int64_t nextOffset() const { DARABONBA_PTR_GET_DEFAULT(nextOffset_, 0L) };
+    inline int64_t getNextOffset() const { DARABONBA_PTR_GET_DEFAULT(nextOffset_, 0L) };
     inline GetApplicationLogsOutput& setNextOffset(int64_t nextOffset) { DARABONBA_PTR_SET_VALUE(nextOffset_, nextOffset) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetApplicationLogsOutput& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<LogEntry>> logEntrys_ = nullptr;
-    std::shared_ptr<int64_t> nextOffset_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<LogEntry>> logEntrys_ {};
+    shared_ptr<int64_t> nextOffset_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

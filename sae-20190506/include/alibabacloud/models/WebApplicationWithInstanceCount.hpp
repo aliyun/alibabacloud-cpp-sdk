@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceCount_ == nullptr
-        && return this->webApplication_ == nullptr; };
+        && this->webApplication_ == nullptr; };
     // instanceCount Field Functions 
     bool hasInstanceCount() const { return this->instanceCount_ != nullptr;};
     void deleteInstanceCount() { this->instanceCount_ = nullptr;};
-    inline int64_t instanceCount() const { DARABONBA_PTR_GET_DEFAULT(instanceCount_, 0L) };
+    inline int64_t getInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(instanceCount_, 0L) };
     inline WebApplicationWithInstanceCount& setInstanceCount(int64_t instanceCount) { DARABONBA_PTR_SET_VALUE(instanceCount_, instanceCount) };
 
 
     // webApplication Field Functions 
     bool hasWebApplication() const { return this->webApplication_ != nullptr;};
     void deleteWebApplication() { this->webApplication_ = nullptr;};
-    inline const WebApplication & webApplication() const { DARABONBA_PTR_GET_CONST(webApplication_, WebApplication) };
-    inline WebApplication webApplication() { DARABONBA_PTR_GET(webApplication_, WebApplication) };
+    inline const WebApplication & getWebApplication() const { DARABONBA_PTR_GET_CONST(webApplication_, WebApplication) };
+    inline WebApplication getWebApplication() { DARABONBA_PTR_GET(webApplication_, WebApplication) };
     inline WebApplicationWithInstanceCount& setWebApplication(const WebApplication & webApplication) { DARABONBA_PTR_SET_VALUE(webApplication_, webApplication) };
     inline WebApplicationWithInstanceCount& setWebApplication(WebApplication && webApplication) { DARABONBA_PTR_SET_RVALUE(webApplication_, webApplication) };
 
 
   protected:
-    std::shared_ptr<int64_t> instanceCount_ = nullptr;
-    std::shared_ptr<WebApplication> webApplication_ = nullptr;
+    shared_ptr<int64_t> instanceCount_ {};
+    shared_ptr<WebApplication> webApplication_ {};
   };
 
   } // namespace Models

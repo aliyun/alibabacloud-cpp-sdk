@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->enableIdle_ == nullptr && return this->minReadyInstanceRatio_ == nullptr && return this->minReadyInstances_ == nullptr && return this->scalingRuleMetric_ == nullptr && return this->scalingRuleName_ == nullptr
-        && return this->scalingRuleTimer_ == nullptr; };
+        && this->enableIdle_ == nullptr && this->minReadyInstanceRatio_ == nullptr && this->minReadyInstances_ == nullptr && this->scalingRuleMetric_ == nullptr && this->scalingRuleName_ == nullptr
+        && this->scalingRuleTimer_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateApplicationScalingRuleRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // enableIdle Field Functions 
     bool hasEnableIdle() const { return this->enableIdle_ != nullptr;};
     void deleteEnableIdle() { this->enableIdle_ = nullptr;};
-    inline bool enableIdle() const { DARABONBA_PTR_GET_DEFAULT(enableIdle_, false) };
+    inline bool getEnableIdle() const { DARABONBA_PTR_GET_DEFAULT(enableIdle_, false) };
     inline UpdateApplicationScalingRuleRequest& setEnableIdle(bool enableIdle) { DARABONBA_PTR_SET_VALUE(enableIdle_, enableIdle) };
 
 
     // minReadyInstanceRatio Field Functions 
     bool hasMinReadyInstanceRatio() const { return this->minReadyInstanceRatio_ != nullptr;};
     void deleteMinReadyInstanceRatio() { this->minReadyInstanceRatio_ = nullptr;};
-    inline int32_t minReadyInstanceRatio() const { DARABONBA_PTR_GET_DEFAULT(minReadyInstanceRatio_, 0) };
+    inline int32_t getMinReadyInstanceRatio() const { DARABONBA_PTR_GET_DEFAULT(minReadyInstanceRatio_, 0) };
     inline UpdateApplicationScalingRuleRequest& setMinReadyInstanceRatio(int32_t minReadyInstanceRatio) { DARABONBA_PTR_SET_VALUE(minReadyInstanceRatio_, minReadyInstanceRatio) };
 
 
     // minReadyInstances Field Functions 
     bool hasMinReadyInstances() const { return this->minReadyInstances_ != nullptr;};
     void deleteMinReadyInstances() { this->minReadyInstances_ = nullptr;};
-    inline int32_t minReadyInstances() const { DARABONBA_PTR_GET_DEFAULT(minReadyInstances_, 0) };
+    inline int32_t getMinReadyInstances() const { DARABONBA_PTR_GET_DEFAULT(minReadyInstances_, 0) };
     inline UpdateApplicationScalingRuleRequest& setMinReadyInstances(int32_t minReadyInstances) { DARABONBA_PTR_SET_VALUE(minReadyInstances_, minReadyInstances) };
 
 
     // scalingRuleMetric Field Functions 
     bool hasScalingRuleMetric() const { return this->scalingRuleMetric_ != nullptr;};
     void deleteScalingRuleMetric() { this->scalingRuleMetric_ = nullptr;};
-    inline string scalingRuleMetric() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleMetric_, "") };
+    inline string getScalingRuleMetric() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleMetric_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleMetric(string scalingRuleMetric) { DARABONBA_PTR_SET_VALUE(scalingRuleMetric_, scalingRuleMetric) };
 
 
     // scalingRuleName Field Functions 
     bool hasScalingRuleName() const { return this->scalingRuleName_ != nullptr;};
     void deleteScalingRuleName() { this->scalingRuleName_ = nullptr;};
-    inline string scalingRuleName() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleName_, "") };
+    inline string getScalingRuleName() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleName_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleName(string scalingRuleName) { DARABONBA_PTR_SET_VALUE(scalingRuleName_, scalingRuleName) };
 
 
     // scalingRuleTimer Field Functions 
     bool hasScalingRuleTimer() const { return this->scalingRuleTimer_ != nullptr;};
     void deleteScalingRuleTimer() { this->scalingRuleTimer_ = nullptr;};
-    inline string scalingRuleTimer() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleTimer_, "") };
+    inline string getScalingRuleTimer() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleTimer_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleTimer(string scalingRuleTimer) { DARABONBA_PTR_SET_VALUE(scalingRuleTimer_, scalingRuleTimer) };
 
 
@@ -97,22 +97,22 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<bool> enableIdle_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<bool> enableIdle_ {};
     // The percentage of the minimum number of available instances. Take note of the following rules:
     // 
     // *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. This is the default value.
     // *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if you set this parameter to **50**, and five instances are available, the minimum number of available instances is 3.
     // 
     // > When **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of \\*\\*MinReadyInstanceRatio** takes precedence.**** For example, if **MinReadyInstances** is set to **5\\*\\*, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
-    std::shared_ptr<int32_t> minReadyInstanceRatio_ = nullptr;
+    shared_ptr<int32_t> minReadyInstanceRatio_ {};
     // The minimum number of available instances. Take note of the following rules:
     // 
     // *   If you set the value to **0**, business interruptions occur when the auto-scaling policy is updated.
     // *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
     // 
     // > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
-    std::shared_ptr<int32_t> minReadyInstances_ = nullptr;
+    shared_ptr<int32_t> minReadyInstances_ {};
     // The configurations of the metric-based auto scaling policy. This parameter is required if you set the ScalingRuleType parameter to metric.
     // 
     // Parameter description:
@@ -157,13 +157,13 @@ namespace Models
     // *   **stabilizationWindowSeconds**: the cooldown period during which the system is stable and does not perform scale-out or scale-in operations. Valid values: 0 to 3600. Unit: seconds. Default value: 0.
     // 
     // > You can specify one or more metrics as the trigger conditions of the auto scaling policy. If you specify multiple metrics, the application is scaled out when the value of a metric is greater than or equal to the limit. The number of application instances after the scale-out cannot exceed the configured maximum number of application instances. If the values of all the metrics are less than the limits, the application is scaled in. The number of instances after the scale-in cannot be less than the configured minimum number of application instances.
-    std::shared_ptr<string> scalingRuleMetric_ = nullptr;
+    shared_ptr<string> scalingRuleMetric_ {};
     // The name of the auto scaling policy. The name must start with a lowercase letter and can contain only lowercase letters, digits, and hyphens (-). The name cannot exceed 32 characters in length.
     // 
     // > You cannot change the names of created policies.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scalingRuleName_ = nullptr;
+    shared_ptr<string> scalingRuleName_ {};
     // The configurations of the scheduled auto scaling policy. This parameter is required when you set the ScalingRuleType parameter to timing or when you want to create a scheduled auto scaling policy by using an SDK.
     // 
     // Parameter description:
@@ -198,7 +198,7 @@ namespace Models
     //         **
     // 
     //         **Note**Make sure that at least **one** instance is available during the application deployment and rollback to prevent your business from being interrupted. If you set the value to **0**, business interruptions occur when the application is updated.
-    std::shared_ptr<string> scalingRuleTimer_ = nullptr;
+    shared_ptr<string> scalingRuleTimer_ {};
   };
 
   } // namespace Models

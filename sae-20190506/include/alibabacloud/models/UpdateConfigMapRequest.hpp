@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configMapId_ == nullptr
-        && return this->data_ == nullptr && return this->description_ == nullptr; };
+        && this->data_ == nullptr && this->description_ == nullptr; };
     // configMapId Field Functions 
     bool hasConfigMapId() const { return this->configMapId_ != nullptr;};
     void deleteConfigMapId() { this->configMapId_ = nullptr;};
-    inline int64_t configMapId() const { DARABONBA_PTR_GET_DEFAULT(configMapId_, 0L) };
+    inline int64_t getConfigMapId() const { DARABONBA_PTR_GET_DEFAULT(configMapId_, 0L) };
     inline UpdateConfigMapRequest& setConfigMapId(int64_t configMapId) { DARABONBA_PTR_SET_VALUE(configMapId_, configMapId) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline UpdateConfigMapRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateConfigMapRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
@@ -60,10 +60,10 @@ namespace Models
     // The ID of the request.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> configMapId_ = nullptr;
+    shared_ptr<int64_t> configMapId_ {};
     // This parameter is required.
-    std::shared_ptr<string> data_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> data_ {};
+    shared_ptr<string> description_ {};
   };
 
   } // namespace Models

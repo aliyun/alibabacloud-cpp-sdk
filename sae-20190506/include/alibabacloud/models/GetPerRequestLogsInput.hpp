@@ -44,76 +44,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->errorType_ == nullptr && return this->forwardLine_ == nullptr && return this->instanceID_ == nullptr && return this->isColdStart_ == nullptr && return this->requestID_ == nullptr
-        && return this->startTime_ == nullptr && return this->timestamp_ == nullptr; };
+        && this->errorType_ == nullptr && this->forwardLine_ == nullptr && this->instanceID_ == nullptr && this->isColdStart_ == nullptr && this->requestID_ == nullptr
+        && this->startTime_ == nullptr && this->timestamp_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetPerRequestLogsInput& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // errorType Field Functions 
     bool hasErrorType() const { return this->errorType_ != nullptr;};
     void deleteErrorType() { this->errorType_ = nullptr;};
-    inline string errorType() const { DARABONBA_PTR_GET_DEFAULT(errorType_, "") };
+    inline string getErrorType() const { DARABONBA_PTR_GET_DEFAULT(errorType_, "") };
     inline GetPerRequestLogsInput& setErrorType(string errorType) { DARABONBA_PTR_SET_VALUE(errorType_, errorType) };
 
 
     // forwardLine Field Functions 
     bool hasForwardLine() const { return this->forwardLine_ != nullptr;};
     void deleteForwardLine() { this->forwardLine_ = nullptr;};
-    inline int64_t forwardLine() const { DARABONBA_PTR_GET_DEFAULT(forwardLine_, 0L) };
+    inline int64_t getForwardLine() const { DARABONBA_PTR_GET_DEFAULT(forwardLine_, 0L) };
     inline GetPerRequestLogsInput& setForwardLine(int64_t forwardLine) { DARABONBA_PTR_SET_VALUE(forwardLine_, forwardLine) };
 
 
     // instanceID Field Functions 
     bool hasInstanceID() const { return this->instanceID_ != nullptr;};
     void deleteInstanceID() { this->instanceID_ = nullptr;};
-    inline string instanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
+    inline string getInstanceID() const { DARABONBA_PTR_GET_DEFAULT(instanceID_, "") };
     inline GetPerRequestLogsInput& setInstanceID(string instanceID) { DARABONBA_PTR_SET_VALUE(instanceID_, instanceID) };
 
 
     // isColdStart Field Functions 
     bool hasIsColdStart() const { return this->isColdStart_ != nullptr;};
     void deleteIsColdStart() { this->isColdStart_ = nullptr;};
-    inline bool isColdStart() const { DARABONBA_PTR_GET_DEFAULT(isColdStart_, false) };
+    inline bool getIsColdStart() const { DARABONBA_PTR_GET_DEFAULT(isColdStart_, false) };
     inline GetPerRequestLogsInput& setIsColdStart(bool isColdStart) { DARABONBA_PTR_SET_VALUE(isColdStart_, isColdStart) };
 
 
     // requestID Field Functions 
     bool hasRequestID() const { return this->requestID_ != nullptr;};
     void deleteRequestID() { this->requestID_ = nullptr;};
-    inline string requestID() const { DARABONBA_PTR_GET_DEFAULT(requestID_, "") };
+    inline string getRequestID() const { DARABONBA_PTR_GET_DEFAULT(requestID_, "") };
     inline GetPerRequestLogsInput& setRequestID(string requestID) { DARABONBA_PTR_SET_VALUE(requestID_, requestID) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetPerRequestLogsInput& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline string timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
+    inline string getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
     inline GetPerRequestLogsInput& setTimestamp(string timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<string> errorType_ = nullptr;
-    std::shared_ptr<int64_t> forwardLine_ = nullptr;
-    std::shared_ptr<string> instanceID_ = nullptr;
-    std::shared_ptr<bool> isColdStart_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<string> errorType_ {};
+    shared_ptr<int64_t> forwardLine_ {};
+    shared_ptr<string> instanceID_ {};
+    shared_ptr<bool> isColdStart_ {};
     // This parameter is required.
-    std::shared_ptr<string> requestID_ = nullptr;
+    shared_ptr<string> requestID_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> timestamp_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> timestamp_ {};
   };
 
   } // namespace Models

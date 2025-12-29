@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->versionId_ == nullptr; };
+        && this->versionId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeApplicationConfigRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline DescribeApplicationConfigRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The app id.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The version id.
-    std::shared_ptr<string> versionId_ = nullptr;
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models

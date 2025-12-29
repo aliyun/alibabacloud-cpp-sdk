@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceCount_ == nullptr
-        && return this->webScalingConfig_ == nullptr; };
+        && this->webScalingConfig_ == nullptr; };
     // instanceCount Field Functions 
     bool hasInstanceCount() const { return this->instanceCount_ != nullptr;};
     void deleteInstanceCount() { this->instanceCount_ = nullptr;};
-    inline int64_t instanceCount() const { DARABONBA_PTR_GET_DEFAULT(instanceCount_, 0L) };
+    inline int64_t getInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(instanceCount_, 0L) };
     inline WebApplicationStatus& setInstanceCount(int64_t instanceCount) { DARABONBA_PTR_SET_VALUE(instanceCount_, instanceCount) };
 
 
     // webScalingConfig Field Functions 
     bool hasWebScalingConfig() const { return this->webScalingConfig_ != nullptr;};
     void deleteWebScalingConfig() { this->webScalingConfig_ = nullptr;};
-    inline const WebScalingConfig & webScalingConfig() const { DARABONBA_PTR_GET_CONST(webScalingConfig_, WebScalingConfig) };
-    inline WebScalingConfig webScalingConfig() { DARABONBA_PTR_GET(webScalingConfig_, WebScalingConfig) };
+    inline const WebScalingConfig & getWebScalingConfig() const { DARABONBA_PTR_GET_CONST(webScalingConfig_, WebScalingConfig) };
+    inline WebScalingConfig getWebScalingConfig() { DARABONBA_PTR_GET(webScalingConfig_, WebScalingConfig) };
     inline WebApplicationStatus& setWebScalingConfig(const WebScalingConfig & webScalingConfig) { DARABONBA_PTR_SET_VALUE(webScalingConfig_, webScalingConfig) };
     inline WebApplicationStatus& setWebScalingConfig(WebScalingConfig && webScalingConfig) { DARABONBA_PTR_SET_RVALUE(webScalingConfig_, webScalingConfig) };
 
 
   protected:
-    std::shared_ptr<int64_t> instanceCount_ = nullptr;
-    std::shared_ptr<WebScalingConfig> webScalingConfig_ = nullptr;
+    shared_ptr<int64_t> instanceCount_ {};
+    shared_ptr<WebScalingConfig> webScalingConfig_ {};
   };
 
   } // namespace Models

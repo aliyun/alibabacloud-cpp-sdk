@@ -33,7 +33,7 @@ namespace Models
     // ingressId Field Functions 
     bool hasIngressId() const { return this->ingressId_ != nullptr;};
     void deleteIngressId() { this->ingressId_ = nullptr;};
-    inline int64_t ingressId() const { DARABONBA_PTR_GET_DEFAULT(ingressId_, 0L) };
+    inline int64_t getIngressId() const { DARABONBA_PTR_GET_DEFAULT(ingressId_, 0L) };
     inline DeleteIngressRequest& setIngressId(int64_t ingressId) { DARABONBA_PTR_SET_VALUE(ingressId_, ingressId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the routing rule that you want to delete. You can call the [ListIngresses](https://help.aliyun.com/document_detail/153934.html) operation to obtain the ID of a routing rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ingressId_ = nullptr;
+    shared_ptr<int64_t> ingressId_ {};
   };
 
   } // namespace Models

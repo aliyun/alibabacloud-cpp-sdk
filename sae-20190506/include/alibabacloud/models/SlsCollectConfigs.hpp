@@ -35,14 +35,14 @@ namespace Models
     // collectConfigs Field Functions 
     bool hasCollectConfigs() const { return this->collectConfigs_ != nullptr;};
     void deleteCollectConfigs() { this->collectConfigs_ = nullptr;};
-    inline const vector<SLSCollectConfig> & collectConfigs() const { DARABONBA_PTR_GET_CONST(collectConfigs_, vector<SLSCollectConfig>) };
-    inline vector<SLSCollectConfig> collectConfigs() { DARABONBA_PTR_GET(collectConfigs_, vector<SLSCollectConfig>) };
+    inline const vector<SLSCollectConfig> & getCollectConfigs() const { DARABONBA_PTR_GET_CONST(collectConfigs_, vector<SLSCollectConfig>) };
+    inline vector<SLSCollectConfig> getCollectConfigs() { DARABONBA_PTR_GET(collectConfigs_, vector<SLSCollectConfig>) };
     inline SLSCollectConfigs& setCollectConfigs(const vector<SLSCollectConfig> & collectConfigs) { DARABONBA_PTR_SET_VALUE(collectConfigs_, collectConfigs) };
     inline SLSCollectConfigs& setCollectConfigs(vector<SLSCollectConfig> && collectConfigs) { DARABONBA_PTR_SET_RVALUE(collectConfigs_, collectConfigs) };
 
 
   protected:
-    std::shared_ptr<vector<SLSCollectConfig>> collectConfigs_ = nullptr;
+    shared_ptr<vector<SLSCollectConfig>> collectConfigs_ {};
   };
 
   } // namespace Models

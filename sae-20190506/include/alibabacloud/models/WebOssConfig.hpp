@@ -35,14 +35,14 @@ namespace Models
     // mountPoints Field Functions 
     bool hasMountPoints() const { return this->mountPoints_ != nullptr;};
     void deleteMountPoints() { this->mountPoints_ = nullptr;};
-    inline const vector<WebOSSMountPoint> & mountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<WebOSSMountPoint>) };
-    inline vector<WebOSSMountPoint> mountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<WebOSSMountPoint>) };
+    inline const vector<WebOSSMountPoint> & getMountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<WebOSSMountPoint>) };
+    inline vector<WebOSSMountPoint> getMountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<WebOSSMountPoint>) };
     inline WebOSSConfig& setMountPoints(const vector<WebOSSMountPoint> & mountPoints) { DARABONBA_PTR_SET_VALUE(mountPoints_, mountPoints) };
     inline WebOSSConfig& setMountPoints(vector<WebOSSMountPoint> && mountPoints) { DARABONBA_PTR_SET_RVALUE(mountPoints_, mountPoints) };
 
 
   protected:
-    std::shared_ptr<vector<WebOSSMountPoint>> mountPoints_ = nullptr;
+    shared_ptr<vector<WebOSSMountPoint>> mountPoints_ {};
   };
 
   } // namespace Models

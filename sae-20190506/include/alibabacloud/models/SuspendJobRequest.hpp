@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->suspend_ == nullptr; };
+        && this->suspend_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline SuspendJobRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // suspend Field Functions 
     bool hasSuspend() const { return this->suspend_ != nullptr;};
     void deleteSuspend() { this->suspend_ = nullptr;};
-    inline bool suspend() const { DARABONBA_PTR_GET_DEFAULT(suspend_, false) };
+    inline bool getSuspend() const { DARABONBA_PTR_GET_DEFAULT(suspend_, false) };
     inline SuspendJobRequest& setSuspend(bool suspend) { DARABONBA_PTR_SET_VALUE(suspend_, suspend) };
 
 
@@ -51,14 +51,14 @@ namespace Models
     // The ID of the job template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // Start or suspend a job template.
     // 
     // *   true: Start a job template.
     // *   false: Suspend a job template.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> suspend_ = nullptr;
+    shared_ptr<bool> suspend_ {};
   };
 
   } // namespace Models

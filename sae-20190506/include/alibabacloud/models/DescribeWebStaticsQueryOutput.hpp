@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->length_ == nullptr
-        && return this->webStatics_ == nullptr; };
+        && this->webStatics_ == nullptr; };
     // length Field Functions 
     bool hasLength() const { return this->length_ != nullptr;};
     void deleteLength() { this->length_ = nullptr;};
-    inline int32_t length() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
+    inline int32_t getLength() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
     inline DescribeWebStaticsQueryOutput& setLength(int32_t length) { DARABONBA_PTR_SET_VALUE(length_, length) };
 
 
     // webStatics Field Functions 
     bool hasWebStatics() const { return this->webStatics_ != nullptr;};
     void deleteWebStatics() { this->webStatics_ = nullptr;};
-    inline const vector<WebStaticsInfo> & webStatics() const { DARABONBA_PTR_GET_CONST(webStatics_, vector<WebStaticsInfo>) };
-    inline vector<WebStaticsInfo> webStatics() { DARABONBA_PTR_GET(webStatics_, vector<WebStaticsInfo>) };
+    inline const vector<WebStaticsInfo> & getWebStatics() const { DARABONBA_PTR_GET_CONST(webStatics_, vector<WebStaticsInfo>) };
+    inline vector<WebStaticsInfo> getWebStatics() { DARABONBA_PTR_GET(webStatics_, vector<WebStaticsInfo>) };
     inline DescribeWebStaticsQueryOutput& setWebStatics(const vector<WebStaticsInfo> & webStatics) { DARABONBA_PTR_SET_VALUE(webStatics_, webStatics) };
     inline DescribeWebStaticsQueryOutput& setWebStatics(vector<WebStaticsInfo> && webStatics) { DARABONBA_PTR_SET_RVALUE(webStatics_, webStatics) };
 
 
   protected:
-    std::shared_ptr<int32_t> length_ = nullptr;
-    std::shared_ptr<vector<WebStaticsInfo>> webStatics_ = nullptr;
+    shared_ptr<int32_t> length_ {};
+    shared_ptr<vector<WebStaticsInfo>> webStatics_ {};
   };
 
   } // namespace Models
