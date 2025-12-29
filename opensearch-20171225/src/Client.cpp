@@ -986,6 +986,10 @@ CreateSecondRankResponse Client::createSecondRank(const string &appGroupIdentity
 CreateSortScriptResponse Client::createSortScriptWithOptions(const string &appGroupIdentity, const string &appVersionId, const CreateSortScriptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
   if (!!request.hasScope()) {
     body["scope"] = request.scope();
   }
@@ -5696,14 +5700,22 @@ UpdateSearchStrategyResponse Client::updateSearchStrategy(const string &appGroup
  *
  * @description You can call this operation to modify the description of a sort script.
  *
+ * @param request UpdateSortScriptRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateSortScriptResponse
  */
-UpdateSortScriptResponse Client::updateSortScriptWithOptions(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+UpdateSortScriptResponse Client::updateSortScriptWithOptions(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const UpdateSortScriptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "UpdateSortScript"},
     {"version" , "2017-12-25"},
@@ -5723,12 +5735,13 @@ UpdateSortScriptResponse Client::updateSortScriptWithOptions(const string &appGr
  *
  * @description You can call this operation to modify the description of a sort script.
  *
+ * @param request UpdateSortScriptRequest
  * @return UpdateSortScriptResponse
  */
-UpdateSortScriptResponse Client::updateSortScript(const string &appGroupIdentity, const string &appVersionId, const string &scriptName) {
+UpdateSortScriptResponse Client::updateSortScript(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const UpdateSortScriptRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return updateSortScriptWithOptions(appGroupIdentity, appVersionId, scriptName, headers, runtime);
+  return updateSortScriptWithOptions(appGroupIdentity, appVersionId, scriptName, request, headers, runtime);
 }
 
 /**

@@ -13,11 +13,13 @@ namespace Models
   class CreateSortScriptRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSortScriptRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(scope, scope_);
       DARABONBA_PTR_TO_JSON(scriptName, scriptName_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSortScriptRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(scope, scope_);
       DARABONBA_PTR_FROM_JSON(scriptName, scriptName_);
       DARABONBA_PTR_FROM_JSON(type, type_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->scope_ == nullptr
-        && return this->scriptName_ == nullptr && return this->type_ == nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->scope_ == nullptr && return this->scriptName_ == nullptr && return this->type_ == nullptr; };
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline CreateSortScriptRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> description_ = nullptr;
     // The sort phase to which the script applies.
     std::shared_ptr<string> scope_ = nullptr;
     // The script name.

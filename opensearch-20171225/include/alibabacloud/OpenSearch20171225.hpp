@@ -2223,20 +2223,22 @@ namespace OpenSearch20171225
        *
        * @description You can call this operation to modify the description of a sort script.
        *
+       * @param request UpdateSortScriptRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateSortScriptResponse
        */
-      Models::UpdateSortScriptResponse updateSortScriptWithOptions(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateSortScriptResponse updateSortScriptWithOptions(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const Models::UpdateSortScriptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Modifies the description of a sort script.
        *
        * @description You can call this operation to modify the description of a sort script.
        *
+       * @param request UpdateSortScriptRequest
        * @return UpdateSortScriptResponse
        */
-      Models::UpdateSortScriptResponse updateSortScript(const string &appGroupIdentity, const string &appVersionId, const string &scriptName);
+      Models::UpdateSortScriptResponse updateSortScript(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const Models::UpdateSortScriptRequest &request);
 
       /**
        * @summary Updates summaries. A dry run is supported.

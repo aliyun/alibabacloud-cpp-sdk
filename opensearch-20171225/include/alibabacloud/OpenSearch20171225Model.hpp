@@ -346,6 +346,7 @@
 #include <alibabacloud/models/UpdateSearchStrategyRequest.hpp>
 #include <alibabacloud/models/UpdateSearchStrategyResponseBody.hpp>
 #include <alibabacloud/models/UpdateSearchStrategyResponse.hpp>
+#include <alibabacloud/models/UpdateSortScriptRequest.hpp>
 #include <alibabacloud/models/UpdateSortScriptResponseBody.hpp>
 #include <alibabacloud/models/UpdateSortScriptResponse.hpp>
 #include <alibabacloud/models/UpdateSummariesRequest.hpp>
@@ -541,6 +542,7 @@
 #include <alibabacloud/models/ModifyQueryProcessorResponseBodyResult.hpp>
 #include <alibabacloud/models/ModifySecondRankResponseBodyResult.hpp>
 #include <alibabacloud/models/PushUserAnalyzerEntriesRequestEntries.hpp>
+#include <alibabacloud/models/ReleaseSortScriptResponseBodyResult.hpp>
 #include <alibabacloud/models/RemoveFirstRankResponseBodyResultMeta.hpp>
 #include <alibabacloud/models/RemoveFirstRankResponseBodyResult.hpp>
 #include <alibabacloud/models/RemoveInterventionDictionaryResponseBodyResult.hpp>

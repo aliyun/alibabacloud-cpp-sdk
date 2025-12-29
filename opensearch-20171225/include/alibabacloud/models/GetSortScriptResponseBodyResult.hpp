@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetSortScriptResponseBodyResult& obj) { 
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
+      DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(modifyTime, modifyTime_);
       DARABONBA_PTR_TO_JSON(scope, scope_);
       DARABONBA_PTR_TO_JSON(scriptName, scriptName_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetSortScriptResponseBodyResult& obj) { 
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(modifyTime, modifyTime_);
       DARABONBA_PTR_FROM_JSON(scope, scope_);
       DARABONBA_PTR_FROM_JSON(scriptName, scriptName_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->modifyTime_ == nullptr && return this->scope_ == nullptr && return this->scriptName_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr; };
+        && return this->description_ == nullptr && return this->modifyTime_ == nullptr && return this->scope_ == nullptr && return this->scriptName_ == nullptr && return this->status_ == nullptr
+        && return this->type_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetSortScriptResponseBodyResult& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline GetSortScriptResponseBodyResult& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // modifyTime Field Functions 
@@ -86,6 +96,7 @@ namespace Models
   protected:
     // The time when the script was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    std::shared_ptr<string> description_ = nullptr;
     // The time when the script was last modified.
     std::shared_ptr<string> modifyTime_ = nullptr;
     // The sort phase to which the script applies.
