@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->area_ == nullptr
-        && return this->bizType_ == nullptr && return this->channel_ == nullptr && return this->commodityType_ == nullptr && return this->contactName_ == nullptr && return this->description_ == nullptr
-        && return this->extInfo_ == nullptr && return this->grade_ == nullptr && return this->mobile_ == nullptr && return this->userId_ == nullptr; };
+        && this->bizType_ == nullptr && this->channel_ == nullptr && this->commodityType_ == nullptr && this->contactName_ == nullptr && this->description_ == nullptr
+        && this->extInfo_ == nullptr && this->grade_ == nullptr && this->mobile_ == nullptr && this->userId_ == nullptr; };
     // area Field Functions 
     bool hasArea() const { return this->area_ != nullptr;};
     void deleteArea() { this->area_ = nullptr;};
-    inline string area() const { DARABONBA_PTR_GET_DEFAULT(area_, "") };
+    inline string getArea() const { DARABONBA_PTR_GET_DEFAULT(area_, "") };
     inline SubmitIntentionForPartnerRequest& setArea(string area) { DARABONBA_PTR_SET_VALUE(area_, area) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline SubmitIntentionForPartnerRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
-    inline string channel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
     inline SubmitIntentionForPartnerRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // commodityType Field Functions 
     bool hasCommodityType() const { return this->commodityType_ != nullptr;};
     void deleteCommodityType() { this->commodityType_ = nullptr;};
-    inline string commodityType() const { DARABONBA_PTR_GET_DEFAULT(commodityType_, "") };
+    inline string getCommodityType() const { DARABONBA_PTR_GET_DEFAULT(commodityType_, "") };
     inline SubmitIntentionForPartnerRequest& setCommodityType(string commodityType) { DARABONBA_PTR_SET_VALUE(commodityType_, commodityType) };
 
 
     // contactName Field Functions 
     bool hasContactName() const { return this->contactName_ != nullptr;};
     void deleteContactName() { this->contactName_ = nullptr;};
-    inline string contactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
+    inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
     inline SubmitIntentionForPartnerRequest& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SubmitIntentionForPartnerRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // extInfo Field Functions 
     bool hasExtInfo() const { return this->extInfo_ != nullptr;};
     void deleteExtInfo() { this->extInfo_ = nullptr;};
-    inline string extInfo() const { DARABONBA_PTR_GET_DEFAULT(extInfo_, "") };
+    inline string getExtInfo() const { DARABONBA_PTR_GET_DEFAULT(extInfo_, "") };
     inline SubmitIntentionForPartnerRequest& setExtInfo(string extInfo) { DARABONBA_PTR_SET_VALUE(extInfo_, extInfo) };
 
 
     // grade Field Functions 
     bool hasGrade() const { return this->grade_ != nullptr;};
     void deleteGrade() { this->grade_ = nullptr;};
-    inline int32_t grade() const { DARABONBA_PTR_GET_DEFAULT(grade_, 0) };
+    inline int32_t getGrade() const { DARABONBA_PTR_GET_DEFAULT(grade_, 0) };
     inline SubmitIntentionForPartnerRequest& setGrade(int32_t grade) { DARABONBA_PTR_SET_VALUE(grade_, grade) };
 
 
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline SubmitIntentionForPartnerRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline SubmitIntentionForPartnerRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> area_ = nullptr;
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<string> channel_ = nullptr;
-    std::shared_ptr<string> commodityType_ = nullptr;
-    std::shared_ptr<string> contactName_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> extInfo_ = nullptr;
-    std::shared_ptr<int32_t> grade_ = nullptr;
-    std::shared_ptr<string> mobile_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> area_ {};
+    shared_ptr<string> bizType_ {};
+    shared_ptr<string> channel_ {};
+    shared_ptr<string> commodityType_ {};
+    shared_ptr<string> contactName_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> extInfo_ {};
+    shared_ptr<int32_t> grade_ {};
+    shared_ptr<string> mobile_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

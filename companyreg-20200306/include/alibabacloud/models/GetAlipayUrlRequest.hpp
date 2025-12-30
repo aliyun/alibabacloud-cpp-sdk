@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->orderId_ == nullptr && return this->returnUrl_ == nullptr && return this->type_ == nullptr; };
+        && this->orderId_ == nullptr && this->returnUrl_ == nullptr && this->type_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline GetAlipayUrlRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline int64_t orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
+    inline int64_t getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
     inline GetAlipayUrlRequest& setOrderId(int64_t orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // returnUrl Field Functions 
     bool hasReturnUrl() const { return this->returnUrl_ != nullptr;};
     void deleteReturnUrl() { this->returnUrl_ = nullptr;};
-    inline string returnUrl() const { DARABONBA_PTR_GET_DEFAULT(returnUrl_, "") };
+    inline string getReturnUrl() const { DARABONBA_PTR_GET_DEFAULT(returnUrl_, "") };
     inline GetAlipayUrlRequest& setReturnUrl(string returnUrl) { DARABONBA_PTR_SET_VALUE(returnUrl_, returnUrl) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetAlipayUrlRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> orderId_ = nullptr;
-    std::shared_ptr<string> returnUrl_ = nullptr;
+    shared_ptr<int64_t> orderId_ {};
+    shared_ptr<string> returnUrl_ {};
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

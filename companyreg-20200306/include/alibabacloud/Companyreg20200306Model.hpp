@@ -113,17 +113,5 @@
 #include <alibabacloud/models/TransferProduceOwnerRequest.hpp>
 #include <alibabacloud/models/TransferProduceOwnerResponseBody.hpp>
 #include <alibabacloud/models/TransferProduceOwnerResponse.hpp>
-#include <alibabacloud/models/BindProduceAuthorizationResponseBodyDataAuthorizedUserList.hpp>
-#include <alibabacloud/models/BindProduceAuthorizationResponseBodyData.hpp>
-#include <alibabacloud/models/ListIntentionNoteResponseBodyData.hpp>
-#include <alibabacloud/models/ListProduceAuthorizationResponseBodyData.hpp>
-#include <alibabacloud/models/ListUserDetailSolutionsResponseBodyData.hpp>
-#include <alibabacloud/models/ListUserIntentionNotesResponseBodyData.hpp>
-#include <alibabacloud/models/ListUserIntentionsResponseBodyData.hpp>
-#include <alibabacloud/models/ListUserProduceOperateLogsResponseBodyData.hpp>
-#include <alibabacloud/models/ListUserSolutionsResponseBodyData.hpp>
-#include <alibabacloud/models/QueryCallRecordListResponseBodyData.hpp>
-#include <alibabacloud/models/QueryPartnerIntentionListResponseBodyData.hpp>
-#include <alibabacloud/models/QueryPartnerProduceListResponseBodyData.hpp>
 
 #endif

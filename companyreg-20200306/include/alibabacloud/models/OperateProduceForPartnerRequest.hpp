@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->bizType_ == nullptr && return this->extInfo_ == nullptr && return this->operateType_ == nullptr; };
+        && this->bizType_ == nullptr && this->extInfo_ == nullptr && this->operateType_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline OperateProduceForPartnerRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline OperateProduceForPartnerRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // extInfo Field Functions 
     bool hasExtInfo() const { return this->extInfo_ != nullptr;};
     void deleteExtInfo() { this->extInfo_ = nullptr;};
-    inline string extInfo() const { DARABONBA_PTR_GET_DEFAULT(extInfo_, "") };
+    inline string getExtInfo() const { DARABONBA_PTR_GET_DEFAULT(extInfo_, "") };
     inline OperateProduceForPartnerRequest& setExtInfo(string extInfo) { DARABONBA_PTR_SET_VALUE(extInfo_, extInfo) };
 
 
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline OperateProduceForPartnerRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
   protected:
-    std::shared_ptr<string> bizId_ = nullptr;
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<string> extInfo_ = nullptr;
-    std::shared_ptr<string> operateType_ = nullptr;
+    shared_ptr<string> bizId_ {};
+    shared_ptr<string> bizType_ {};
+    shared_ptr<string> extInfo_ {};
+    shared_ptr<string> operateType_ {};
   };
 
   } // namespace Models

@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->contactName_ == nullptr && return this->mobile_ == nullptr && return this->source_ == nullptr && return this->VCode_ == nullptr; };
+        && this->contactName_ == nullptr && this->mobile_ == nullptr && this->source_ == nullptr && this->VCode_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CreateBusinessOpportunityRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // contactName Field Functions 
     bool hasContactName() const { return this->contactName_ != nullptr;};
     void deleteContactName() { this->contactName_ = nullptr;};
-    inline string contactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
+    inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
     inline CreateBusinessOpportunityRequest& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
 
 
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline CreateBusinessOpportunityRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline int32_t source() const { DARABONBA_PTR_GET_DEFAULT(source_, 0) };
+    inline int32_t getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, 0) };
     inline CreateBusinessOpportunityRequest& setSource(int32_t source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // VCode Field Functions 
     bool hasVCode() const { return this->VCode_ != nullptr;};
     void deleteVCode() { this->VCode_ = nullptr;};
-    inline string VCode() const { DARABONBA_PTR_GET_DEFAULT(VCode_, "") };
+    inline string getVCode() const { DARABONBA_PTR_GET_DEFAULT(VCode_, "") };
     inline CreateBusinessOpportunityRequest& setVCode(string VCode) { DARABONBA_PTR_SET_VALUE(VCode_, VCode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<string> contactName_ = nullptr;
+    shared_ptr<string> bizType_ {};
+    shared_ptr<string> contactName_ {};
     // This parameter is required.
-    std::shared_ptr<string> mobile_ = nullptr;
+    shared_ptr<string> mobile_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> source_ = nullptr;
-    std::shared_ptr<string> VCode_ = nullptr;
+    shared_ptr<int32_t> source_ {};
+    shared_ptr<string> VCode_ {};
   };
 
   } // namespace Models

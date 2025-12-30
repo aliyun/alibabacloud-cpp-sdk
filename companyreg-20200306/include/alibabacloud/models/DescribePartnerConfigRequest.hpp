@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->partnerCode_ == nullptr; };
+        && this->partnerCode_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline DescribePartnerConfigRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // partnerCode Field Functions 
     bool hasPartnerCode() const { return this->partnerCode_ != nullptr;};
     void deletePartnerCode() { this->partnerCode_ = nullptr;};
-    inline string partnerCode() const { DARABONBA_PTR_GET_DEFAULT(partnerCode_, "") };
+    inline string getPartnerCode() const { DARABONBA_PTR_GET_DEFAULT(partnerCode_, "") };
     inline DescribePartnerConfigRequest& setPartnerCode(string partnerCode) { DARABONBA_PTR_SET_VALUE(partnerCode_, partnerCode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // This parameter is required.
-    std::shared_ptr<string> partnerCode_ = nullptr;
+    shared_ptr<string> partnerCode_ {};
   };
 
   } // namespace Models

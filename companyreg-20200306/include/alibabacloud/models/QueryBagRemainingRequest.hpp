@@ -33,13 +33,13 @@ namespace Models
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline QueryBagRemainingRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
   };
 
   } // namespace Models

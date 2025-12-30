@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->dataType_ == nullptr && return this->endTime_ == nullptr && return this->readyFlag_ == nullptr && return this->startTime_ == nullptr; };
+        && this->dataType_ == nullptr && this->endTime_ == nullptr && this->readyFlag_ == nullptr && this->startTime_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline PutMeasureReadyFlagRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // dataType Field Functions 
     bool hasDataType() const { return this->dataType_ != nullptr;};
     void deleteDataType() { this->dataType_ = nullptr;};
-    inline string dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+    inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
     inline PutMeasureReadyFlagRequest& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline PutMeasureReadyFlagRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // readyFlag Field Functions 
     bool hasReadyFlag() const { return this->readyFlag_ != nullptr;};
     void deleteReadyFlag() { this->readyFlag_ = nullptr;};
-    inline string readyFlag() const { DARABONBA_PTR_GET_DEFAULT(readyFlag_, "") };
+    inline string getReadyFlag() const { DARABONBA_PTR_GET_DEFAULT(readyFlag_, "") };
     inline PutMeasureReadyFlagRequest& setReadyFlag(string readyFlag) { DARABONBA_PTR_SET_VALUE(readyFlag_, readyFlag) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline PutMeasureReadyFlagRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // This parameter is required.
-    std::shared_ptr<string> dataType_ = nullptr;
+    shared_ptr<string> dataType_ {};
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> readyFlag_ = nullptr;
+    shared_ptr<string> readyFlag_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

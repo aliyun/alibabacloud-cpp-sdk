@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->bizType_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->bizType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
-    inline string bizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline ListProduceAuthorizationRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline ListProduceAuthorizationRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline ListProduceAuthorizationRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListProduceAuthorizationRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
-    std::shared_ptr<string> bizId_ = nullptr;
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizId_ {};
+    shared_ptr<string> bizType_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
+    shared_ptr<int32_t> pageNum_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

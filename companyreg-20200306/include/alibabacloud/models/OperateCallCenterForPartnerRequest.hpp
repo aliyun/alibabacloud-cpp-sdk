@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->callAction_ == nullptr && return this->employeeCode_ == nullptr && return this->request_ == nullptr && return this->tenantId_ == nullptr; };
+        && this->callAction_ == nullptr && this->employeeCode_ == nullptr && this->request_ == nullptr && this->tenantId_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline OperateCallCenterForPartnerRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // callAction Field Functions 
     bool hasCallAction() const { return this->callAction_ != nullptr;};
     void deleteCallAction() { this->callAction_ = nullptr;};
-    inline string callAction() const { DARABONBA_PTR_GET_DEFAULT(callAction_, "") };
+    inline string getCallAction() const { DARABONBA_PTR_GET_DEFAULT(callAction_, "") };
     inline OperateCallCenterForPartnerRequest& setCallAction(string callAction) { DARABONBA_PTR_SET_VALUE(callAction_, callAction) };
 
 
     // employeeCode Field Functions 
     bool hasEmployeeCode() const { return this->employeeCode_ != nullptr;};
     void deleteEmployeeCode() { this->employeeCode_ = nullptr;};
-    inline string employeeCode() const { DARABONBA_PTR_GET_DEFAULT(employeeCode_, "") };
+    inline string getEmployeeCode() const { DARABONBA_PTR_GET_DEFAULT(employeeCode_, "") };
     inline OperateCallCenterForPartnerRequest& setEmployeeCode(string employeeCode) { DARABONBA_PTR_SET_VALUE(employeeCode_, employeeCode) };
 
 
     // request Field Functions 
     bool hasRequest() const { return this->request_ != nullptr;};
     void deleteRequest() { this->request_ = nullptr;};
-    inline string request() const { DARABONBA_PTR_GET_DEFAULT(request_, "") };
+    inline string getRequest() const { DARABONBA_PTR_GET_DEFAULT(request_, "") };
     inline OperateCallCenterForPartnerRequest& setRequest(string request) { DARABONBA_PTR_SET_VALUE(request_, request) };
 
 
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
-    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
     inline OperateCallCenterForPartnerRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
   protected:
-    std::shared_ptr<string> bizType_ = nullptr;
-    std::shared_ptr<string> callAction_ = nullptr;
-    std::shared_ptr<string> employeeCode_ = nullptr;
-    std::shared_ptr<string> request_ = nullptr;
-    std::shared_ptr<string> tenantId_ = nullptr;
+    shared_ptr<string> bizType_ {};
+    shared_ptr<string> callAction_ {};
+    shared_ptr<string> employeeCode_ {};
+    shared_ptr<string> request_ {};
+    shared_ptr<string> tenantId_ {};
   };
 
   } // namespace Models

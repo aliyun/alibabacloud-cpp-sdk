@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->note_ == nullptr && return this->solutionBizId_ == nullptr; };
+        && this->note_ == nullptr && this->solutionBizId_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline RejectUserSolutionRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // note Field Functions 
     bool hasNote() const { return this->note_ != nullptr;};
     void deleteNote() { this->note_ = nullptr;};
-    inline string note() const { DARABONBA_PTR_GET_DEFAULT(note_, "") };
+    inline string getNote() const { DARABONBA_PTR_GET_DEFAULT(note_, "") };
     inline RejectUserSolutionRequest& setNote(string note) { DARABONBA_PTR_SET_VALUE(note_, note) };
 
 
     // solutionBizId Field Functions 
     bool hasSolutionBizId() const { return this->solutionBizId_ != nullptr;};
     void deleteSolutionBizId() { this->solutionBizId_ = nullptr;};
-    inline string solutionBizId() const { DARABONBA_PTR_GET_DEFAULT(solutionBizId_, "") };
+    inline string getSolutionBizId() const { DARABONBA_PTR_GET_DEFAULT(solutionBizId_, "") };
     inline RejectUserSolutionRequest& setSolutionBizId(string solutionBizId) { DARABONBA_PTR_SET_VALUE(solutionBizId_, solutionBizId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // This parameter is required.
-    std::shared_ptr<string> note_ = nullptr;
+    shared_ptr<string> note_ {};
     // This parameter is required.
-    std::shared_ptr<string> solutionBizId_ = nullptr;
+    shared_ptr<string> solutionBizId_ {};
   };
 
   } // namespace Models
