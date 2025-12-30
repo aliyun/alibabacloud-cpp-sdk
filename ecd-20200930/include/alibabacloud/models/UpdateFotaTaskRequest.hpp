@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->taskUid_ == nullptr && return this->userStatus_ == nullptr; };
+        && this->taskUid_ == nullptr && this->userStatus_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateFotaTaskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // taskUid Field Functions 
     bool hasTaskUid() const { return this->taskUid_ != nullptr;};
     void deleteTaskUid() { this->taskUid_ = nullptr;};
-    inline string taskUid() const { DARABONBA_PTR_GET_DEFAULT(taskUid_, "") };
+    inline string getTaskUid() const { DARABONBA_PTR_GET_DEFAULT(taskUid_, "") };
     inline UpdateFotaTaskRequest& setTaskUid(string taskUid) { DARABONBA_PTR_SET_VALUE(taskUid_, taskUid) };
 
 
     // userStatus Field Functions 
     bool hasUserStatus() const { return this->userStatus_ != nullptr;};
     void deleteUserStatus() { this->userStatus_ = nullptr;};
-    inline string userStatus() const { DARABONBA_PTR_GET_DEFAULT(userStatus_, "") };
+    inline string getUserStatus() const { DARABONBA_PTR_GET_DEFAULT(userStatus_, "") };
     inline UpdateFotaTaskRequest& setUserStatus(string userStatus) { DARABONBA_PTR_SET_VALUE(userStatus_, userStatus) };
 
 
@@ -60,18 +60,18 @@ namespace Models
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the image update task. You can call the [DescribeFotaTasks](https://help.aliyun.com/document_detail/437001.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskUid_ = nullptr;
+    shared_ptr<string> taskUid_ {};
     // Specifies whether to automatically push the image update task.
     // 
     // Valid values:
     // 
     // *   Running: automatically pushes the image update task.
     // *   Pending: does not automatically push the image update task.
-    std::shared_ptr<string> userStatus_ = nullptr;
+    shared_ptr<string> userStatus_ {};
   };
 
   } // namespace Models

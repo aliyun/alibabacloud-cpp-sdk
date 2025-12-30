@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->endUserId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->endUserId_ == nullptr && this->regionId_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline string desktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
+    inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
     inline ModifyEntitlementRequest& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline const vector<string> & endUserId() const { DARABONBA_PTR_GET_CONST(endUserId_, vector<string>) };
-    inline vector<string> endUserId() { DARABONBA_PTR_GET(endUserId_, vector<string>) };
+    inline const vector<string> & getEndUserId() const { DARABONBA_PTR_GET_CONST(endUserId_, vector<string>) };
+    inline vector<string> getEndUserId() { DARABONBA_PTR_GET(endUserId_, vector<string>) };
     inline ModifyEntitlementRequest& setEndUserId(const vector<string> & endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
     inline ModifyEntitlementRequest& setEndUserId(vector<string> && endUserId) { DARABONBA_PTR_SET_RVALUE(endUserId_, endUserId) };
 
@@ -55,7 +55,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyEntitlementRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -63,13 +63,13 @@ namespace Models
     // The ID of the cloud computer.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desktopId_ = nullptr;
+    shared_ptr<string> desktopId_ {};
     // The username IDs. End users specified by this parameter become the end users of the cloud computer, and the original end users of the cloud computer are removed. You can specify 1 to 100 IDs.
-    std::shared_ptr<vector<string>> endUserId_ = nullptr;
+    shared_ptr<vector<string>> endUserId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

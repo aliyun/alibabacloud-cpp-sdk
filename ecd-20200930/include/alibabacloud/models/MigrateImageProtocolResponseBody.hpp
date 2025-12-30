@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failedIds_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // failedIds Field Functions 
     bool hasFailedIds() const { return this->failedIds_ != nullptr;};
     void deleteFailedIds() { this->failedIds_ = nullptr;};
-    inline const vector<string> & failedIds() const { DARABONBA_PTR_GET_CONST(failedIds_, vector<string>) };
-    inline vector<string> failedIds() { DARABONBA_PTR_GET(failedIds_, vector<string>) };
+    inline const vector<string> & getFailedIds() const { DARABONBA_PTR_GET_CONST(failedIds_, vector<string>) };
+    inline vector<string> getFailedIds() { DARABONBA_PTR_GET(failedIds_, vector<string>) };
     inline MigrateImageProtocolResponseBody& setFailedIds(const vector<string> & failedIds) { DARABONBA_PTR_SET_VALUE(failedIds_, failedIds) };
     inline MigrateImageProtocolResponseBody& setFailedIds(vector<string> && failedIds) { DARABONBA_PTR_SET_RVALUE(failedIds_, failedIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline MigrateImageProtocolResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of the images whose protocols failed to be updated.
-    std::shared_ptr<vector<string>> failedIds_ = nullptr;
+    shared_ptr<vector<string>> failedIds_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->endUserId_ == nullptr && return this->maxDesktopPerUser_ == nullptr && return this->maxUserPerDesktop_ == nullptr && return this->preview_ == nullptr && return this->regionId_ == nullptr
-        && return this->strategy_ == nullptr; };
+        && this->endUserId_ == nullptr && this->maxDesktopPerUser_ == nullptr && this->maxUserPerDesktop_ == nullptr && this->preview_ == nullptr && this->regionId_ == nullptr
+        && this->strategy_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline const vector<string> & desktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
-    inline vector<string> desktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
+    inline const vector<string> & getDesktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
+    inline vector<string> getDesktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
     inline BatchModifyEntitlementRequest& setDesktopId(const vector<string> & desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
     inline BatchModifyEntitlementRequest& setDesktopId(vector<string> && desktopId) { DARABONBA_PTR_SET_RVALUE(desktopId_, desktopId) };
 
@@ -57,8 +57,8 @@ namespace Models
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline const vector<string> & endUserId() const { DARABONBA_PTR_GET_CONST(endUserId_, vector<string>) };
-    inline vector<string> endUserId() { DARABONBA_PTR_GET(endUserId_, vector<string>) };
+    inline const vector<string> & getEndUserId() const { DARABONBA_PTR_GET_CONST(endUserId_, vector<string>) };
+    inline vector<string> getEndUserId() { DARABONBA_PTR_GET(endUserId_, vector<string>) };
     inline BatchModifyEntitlementRequest& setEndUserId(const vector<string> & endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
     inline BatchModifyEntitlementRequest& setEndUserId(vector<string> && endUserId) { DARABONBA_PTR_SET_RVALUE(endUserId_, endUserId) };
 
@@ -66,35 +66,35 @@ namespace Models
     // maxDesktopPerUser Field Functions 
     bool hasMaxDesktopPerUser() const { return this->maxDesktopPerUser_ != nullptr;};
     void deleteMaxDesktopPerUser() { this->maxDesktopPerUser_ = nullptr;};
-    inline int32_t maxDesktopPerUser() const { DARABONBA_PTR_GET_DEFAULT(maxDesktopPerUser_, 0) };
+    inline int32_t getMaxDesktopPerUser() const { DARABONBA_PTR_GET_DEFAULT(maxDesktopPerUser_, 0) };
     inline BatchModifyEntitlementRequest& setMaxDesktopPerUser(int32_t maxDesktopPerUser) { DARABONBA_PTR_SET_VALUE(maxDesktopPerUser_, maxDesktopPerUser) };
 
 
     // maxUserPerDesktop Field Functions 
     bool hasMaxUserPerDesktop() const { return this->maxUserPerDesktop_ != nullptr;};
     void deleteMaxUserPerDesktop() { this->maxUserPerDesktop_ = nullptr;};
-    inline int32_t maxUserPerDesktop() const { DARABONBA_PTR_GET_DEFAULT(maxUserPerDesktop_, 0) };
+    inline int32_t getMaxUserPerDesktop() const { DARABONBA_PTR_GET_DEFAULT(maxUserPerDesktop_, 0) };
     inline BatchModifyEntitlementRequest& setMaxUserPerDesktop(int32_t maxUserPerDesktop) { DARABONBA_PTR_SET_VALUE(maxUserPerDesktop_, maxUserPerDesktop) };
 
 
     // preview Field Functions 
     bool hasPreview() const { return this->preview_ != nullptr;};
     void deletePreview() { this->preview_ = nullptr;};
-    inline bool preview() const { DARABONBA_PTR_GET_DEFAULT(preview_, false) };
+    inline bool getPreview() const { DARABONBA_PTR_GET_DEFAULT(preview_, false) };
     inline BatchModifyEntitlementRequest& setPreview(bool preview) { DARABONBA_PTR_SET_VALUE(preview_, preview) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline BatchModifyEntitlementRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // strategy Field Functions 
     bool hasStrategy() const { return this->strategy_ != nullptr;};
     void deleteStrategy() { this->strategy_ = nullptr;};
-    inline string strategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
+    inline string getStrategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
     inline BatchModifyEntitlementRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
 
 
@@ -102,25 +102,25 @@ namespace Models
     // The IDs of the cloud computers for which you want to modify end users.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    shared_ptr<vector<string>> desktopId_ {};
     // The IDs of the users.
-    std::shared_ptr<vector<string>> endUserId_ = nullptr;
+    shared_ptr<vector<string>> endUserId_ {};
     // The number of cloud computers allocated to each user.
-    std::shared_ptr<int32_t> maxDesktopPerUser_ = nullptr;
+    shared_ptr<int32_t> maxDesktopPerUser_ {};
     // The number of users assigned to each cloud computer.
-    std::shared_ptr<int32_t> maxUserPerDesktop_ = nullptr;
+    shared_ptr<int32_t> maxUserPerDesktop_ {};
     // Whether to preview the assign results instead of actually assigning cloud computers.
-    std::shared_ptr<bool> preview_ = nullptr;
+    shared_ptr<bool> preview_ {};
     // The ID of the region. Call the DescribeRegions operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The disproportional assignment policy. Valid values:
     // 
     // AVERAGE: The system preferentially guarantees that each user is assigned with at least a cloud computer. If the number of selected cloud computers cannot be proportionally assigned to the selected users, ensure that each user is assigned a cloud computer.
     // 
     // CENTRAL: The system preferentially assigns the designated number of cloud computers to each user. If the number of selected cloud computers cannot be proportionally assigned to the selected users, ensure that each user is assigned the specified number of cloud computers.
-    std::shared_ptr<string> strategy_ = nullptr;
+    shared_ptr<string> strategy_ {};
   };
 
   } // namespace Models

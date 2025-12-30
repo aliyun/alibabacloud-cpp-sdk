@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopGroupId_ == nullptr
-        && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->timerType_ == nullptr; };
+        && this->regionId_ == nullptr && this->status_ == nullptr && this->timerType_ == nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline SetDesktopGroupTimerStatusRequest& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetDesktopGroupTimerStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline SetDesktopGroupTimerStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // timerType Field Functions 
     bool hasTimerType() const { return this->timerType_ != nullptr;};
     void deleteTimerType() { this->timerType_ = nullptr;};
-    inline int32_t timerType() const { DARABONBA_PTR_GET_DEFAULT(timerType_, 0) };
+    inline int32_t getTimerType() const { DARABONBA_PTR_GET_DEFAULT(timerType_, 0) };
     inline SetDesktopGroupTimerStatusRequest& setTimerType(int32_t timerType) { DARABONBA_PTR_SET_VALUE(timerType_, timerType) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // The ID of the cloud computer share.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
+    shared_ptr<string> desktopGroupId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The status of the scheduled task.
     // 
     // Valid values:
@@ -82,7 +82,7 @@ namespace Models
     // *   2: disabled
     // *   3: deleted
     // *   100: unknown
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
     // The type of the scheduled task.
     // 
     // Valid values:
@@ -93,7 +93,7 @@ namespace Models
     // *   4: scheduled restart
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> timerType_ = nullptr;
+    shared_ptr<int32_t> timerType_ {};
   };
 
   } // namespace Models

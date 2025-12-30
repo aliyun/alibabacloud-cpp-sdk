@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterStatus_ == nullptr
-        && return this->desktopId_ == nullptr && return this->imageId_ == nullptr && return this->language_ == nullptr && return this->operateType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->desktopId_ == nullptr && this->imageId_ == nullptr && this->language_ == nullptr && this->operateType_ == nullptr && this->regionId_ == nullptr; };
     // afterStatus Field Functions 
     bool hasAfterStatus() const { return this->afterStatus_ != nullptr;};
     void deleteAfterStatus() { this->afterStatus_ = nullptr;};
-    inline string afterStatus() const { DARABONBA_PTR_GET_DEFAULT(afterStatus_, "") };
+    inline string getAfterStatus() const { DARABONBA_PTR_GET_DEFAULT(afterStatus_, "") };
     inline RebuildDesktopsRequest& setAfterStatus(string afterStatus) { DARABONBA_PTR_SET_VALUE(afterStatus_, afterStatus) };
 
 
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline const vector<string> & desktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
-    inline vector<string> desktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
+    inline const vector<string> & getDesktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
+    inline vector<string> getDesktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
     inline RebuildDesktopsRequest& setDesktopId(const vector<string> & desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
     inline RebuildDesktopsRequest& setDesktopId(vector<string> && desktopId) { DARABONBA_PTR_SET_RVALUE(desktopId_, desktopId) };
 
@@ -61,39 +61,39 @@ namespace Models
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline RebuildDesktopsRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline RebuildDesktopsRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline string operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
     inline RebuildDesktopsRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline RebuildDesktopsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> afterStatus_ = nullptr;
+    shared_ptr<string> afterStatus_ {};
     // The cloud computer IDs. You can specify the IDs of 1 to 20 cloud computers.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    shared_ptr<vector<string>> desktopId_ {};
     // The ID of the new image.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The OS language. Only system images are supported, and Linux cloud computers support only English.
     // 
     // Valid values:
@@ -102,7 +102,7 @@ namespace Models
     // *   zh-HK: Traditional Chinese (Hong Kong, China)
     // *   zh-CN: Simplified Chinese
     // *   ja-JP: Japanese
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The operation type on the data disk.
     // 
     // >  This parameter is empty by default regardless of whether data disks are attached to the cloud computer.
@@ -121,11 +121,11 @@ namespace Models
     // 
     //         *   If you set the OperateType parameter to `replace`, the data in the data disks of the cloud computer is replaced.
     //         *   If you leave the OperateType parameter empty, the data in the data disks of the cloud computer is cleared.
-    std::shared_ptr<string> operateType_ = nullptr;
+    shared_ptr<string> operateType_ {};
     // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

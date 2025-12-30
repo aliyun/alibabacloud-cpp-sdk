@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->zoneType_ == nullptr; };
+        && this->zoneType_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeZonesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // zoneType Field Functions 
     bool hasZoneType() const { return this->zoneType_ != nullptr;};
     void deleteZoneType() { this->zoneType_ = nullptr;};
-    inline string zoneType() const { DARABONBA_PTR_GET_DEFAULT(zoneType_, "") };
+    inline string getZoneType() const { DARABONBA_PTR_GET_DEFAULT(zoneType_, "") };
     inline DescribeZonesRequest& setZoneType(string zoneType) { DARABONBA_PTR_SET_VALUE(zoneType_, zoneType) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the zone. Default value: `AvailabilityZone`. This value indicates Alibaba Cloud zones.
-    std::shared_ptr<string> zoneType_ = nullptr;
+    shared_ptr<string> zoneType_ {};
   };
 
   } // namespace Models

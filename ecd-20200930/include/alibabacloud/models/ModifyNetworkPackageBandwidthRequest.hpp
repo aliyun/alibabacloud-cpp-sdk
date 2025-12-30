@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->bandwidth_ == nullptr && return this->networkPackageId_ == nullptr && return this->promotionId_ == nullptr && return this->regionId_ == nullptr && return this->resellerOwnerUid_ == nullptr; };
+        && this->bandwidth_ == nullptr && this->networkPackageId_ == nullptr && this->promotionId_ == nullptr && this->regionId_ == nullptr && this->resellerOwnerUid_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline ModifyNetworkPackageBandwidthRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
-    inline int32_t bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
+    inline int32_t getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
     inline ModifyNetworkPackageBandwidthRequest& setBandwidth(int32_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
     // networkPackageId Field Functions 
     bool hasNetworkPackageId() const { return this->networkPackageId_ != nullptr;};
     void deleteNetworkPackageId() { this->networkPackageId_ = nullptr;};
-    inline string networkPackageId() const { DARABONBA_PTR_GET_DEFAULT(networkPackageId_, "") };
+    inline string getNetworkPackageId() const { DARABONBA_PTR_GET_DEFAULT(networkPackageId_, "") };
     inline ModifyNetworkPackageBandwidthRequest& setNetworkPackageId(string networkPackageId) { DARABONBA_PTR_SET_VALUE(networkPackageId_, networkPackageId) };
 
 
     // promotionId Field Functions 
     bool hasPromotionId() const { return this->promotionId_ != nullptr;};
     void deletePromotionId() { this->promotionId_ = nullptr;};
-    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
     inline ModifyNetworkPackageBandwidthRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyNetworkPackageBandwidthRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resellerOwnerUid Field Functions 
     bool hasResellerOwnerUid() const { return this->resellerOwnerUid_ != nullptr;};
     void deleteResellerOwnerUid() { this->resellerOwnerUid_ = nullptr;};
-    inline int64_t resellerOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(resellerOwnerUid_, 0L) };
+    inline int64_t getResellerOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(resellerOwnerUid_, 0L) };
     inline ModifyNetworkPackageBandwidthRequest& setResellerOwnerUid(int64_t resellerOwnerUid) { DARABONBA_PTR_SET_VALUE(resellerOwnerUid_, resellerOwnerUid) };
 
 
@@ -107,7 +107,7 @@ namespace Models
     //     To make the payment, log on to the Elastic Desktop Service console, go to the Orders page, and find the order based on the order ID.
     // 
     //     <!-- -->
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // The maximum bandwidth of the premium bandwidth plan, in Mbit/s. Valid range: The allowed range depends on the billing method:
     // 
     // *   Subscription: 2 to 1000
@@ -115,18 +115,18 @@ namespace Models
     // *   Pay-as-you-go, by fixed bandwidth (PayByBandwidth): 2 to 1000
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> bandwidth_ = nullptr;
+    shared_ptr<int32_t> bandwidth_ {};
     // The ID of the premium bandwidth plan.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkPackageId_ = nullptr;
+    shared_ptr<string> networkPackageId_ {};
     // The promotion ID.
-    std::shared_ptr<string> promotionId_ = nullptr;
+    shared_ptr<string> promotionId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> resellerOwnerUid_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 
   } // namespace Models

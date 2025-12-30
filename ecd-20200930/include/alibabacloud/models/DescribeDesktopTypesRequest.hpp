@@ -67,50 +67,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appliedScope_ == nullptr
-        && return this->cpuCount_ == nullptr && return this->desktopGroupIdForModify_ == nullptr && return this->desktopIdForModify_ == nullptr && return this->desktopTypeId_ == nullptr && return this->desktopTypeIdList_ == nullptr
-        && return this->gpuCount_ == nullptr && return this->gpuDriverType_ == nullptr && return this->gpuMemory_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->memorySize_ == nullptr
-        && return this->orderBy_ == nullptr && return this->orderType_ == nullptr && return this->regionId_ == nullptr && return this->scope_ == nullptr && return this->scopeSet_ == nullptr
-        && return this->sortType_ == nullptr && return this->supportMinSessionCount_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->cpuCount_ == nullptr && this->desktopGroupIdForModify_ == nullptr && this->desktopIdForModify_ == nullptr && this->desktopTypeId_ == nullptr && this->desktopTypeIdList_ == nullptr
+        && this->gpuCount_ == nullptr && this->gpuDriverType_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeFamily_ == nullptr && this->memorySize_ == nullptr
+        && this->orderBy_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr && this->scope_ == nullptr && this->scopeSet_ == nullptr
+        && this->sortType_ == nullptr && this->supportMinSessionCount_ == nullptr && this->zoneId_ == nullptr; };
     // appliedScope Field Functions 
     bool hasAppliedScope() const { return this->appliedScope_ != nullptr;};
     void deleteAppliedScope() { this->appliedScope_ = nullptr;};
-    inline string appliedScope() const { DARABONBA_PTR_GET_DEFAULT(appliedScope_, "") };
+    inline string getAppliedScope() const { DARABONBA_PTR_GET_DEFAULT(appliedScope_, "") };
     inline DescribeDesktopTypesRequest& setAppliedScope(string appliedScope) { DARABONBA_PTR_SET_VALUE(appliedScope_, appliedScope) };
 
 
     // cpuCount Field Functions 
     bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
     void deleteCpuCount() { this->cpuCount_ = nullptr;};
-    inline int32_t cpuCount() const { DARABONBA_PTR_GET_DEFAULT(cpuCount_, 0) };
+    inline int32_t getCpuCount() const { DARABONBA_PTR_GET_DEFAULT(cpuCount_, 0) };
     inline DescribeDesktopTypesRequest& setCpuCount(int32_t cpuCount) { DARABONBA_PTR_SET_VALUE(cpuCount_, cpuCount) };
 
 
     // desktopGroupIdForModify Field Functions 
     bool hasDesktopGroupIdForModify() const { return this->desktopGroupIdForModify_ != nullptr;};
     void deleteDesktopGroupIdForModify() { this->desktopGroupIdForModify_ = nullptr;};
-    inline string desktopGroupIdForModify() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupIdForModify_, "") };
+    inline string getDesktopGroupIdForModify() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupIdForModify_, "") };
     inline DescribeDesktopTypesRequest& setDesktopGroupIdForModify(string desktopGroupIdForModify) { DARABONBA_PTR_SET_VALUE(desktopGroupIdForModify_, desktopGroupIdForModify) };
 
 
     // desktopIdForModify Field Functions 
     bool hasDesktopIdForModify() const { return this->desktopIdForModify_ != nullptr;};
     void deleteDesktopIdForModify() { this->desktopIdForModify_ = nullptr;};
-    inline string desktopIdForModify() const { DARABONBA_PTR_GET_DEFAULT(desktopIdForModify_, "") };
+    inline string getDesktopIdForModify() const { DARABONBA_PTR_GET_DEFAULT(desktopIdForModify_, "") };
     inline DescribeDesktopTypesRequest& setDesktopIdForModify(string desktopIdForModify) { DARABONBA_PTR_SET_VALUE(desktopIdForModify_, desktopIdForModify) };
 
 
     // desktopTypeId Field Functions 
     bool hasDesktopTypeId() const { return this->desktopTypeId_ != nullptr;};
     void deleteDesktopTypeId() { this->desktopTypeId_ = nullptr;};
-    inline string desktopTypeId() const { DARABONBA_PTR_GET_DEFAULT(desktopTypeId_, "") };
+    inline string getDesktopTypeId() const { DARABONBA_PTR_GET_DEFAULT(desktopTypeId_, "") };
     inline DescribeDesktopTypesRequest& setDesktopTypeId(string desktopTypeId) { DARABONBA_PTR_SET_VALUE(desktopTypeId_, desktopTypeId) };
 
 
     // desktopTypeIdList Field Functions 
     bool hasDesktopTypeIdList() const { return this->desktopTypeIdList_ != nullptr;};
     void deleteDesktopTypeIdList() { this->desktopTypeIdList_ = nullptr;};
-    inline const vector<string> & desktopTypeIdList() const { DARABONBA_PTR_GET_CONST(desktopTypeIdList_, vector<string>) };
-    inline vector<string> desktopTypeIdList() { DARABONBA_PTR_GET(desktopTypeIdList_, vector<string>) };
+    inline const vector<string> & getDesktopTypeIdList() const { DARABONBA_PTR_GET_CONST(desktopTypeIdList_, vector<string>) };
+    inline vector<string> getDesktopTypeIdList() { DARABONBA_PTR_GET(desktopTypeIdList_, vector<string>) };
     inline DescribeDesktopTypesRequest& setDesktopTypeIdList(const vector<string> & desktopTypeIdList) { DARABONBA_PTR_SET_VALUE(desktopTypeIdList_, desktopTypeIdList) };
     inline DescribeDesktopTypesRequest& setDesktopTypeIdList(vector<string> && desktopTypeIdList) { DARABONBA_PTR_SET_RVALUE(desktopTypeIdList_, desktopTypeIdList) };
 
@@ -118,71 +118,71 @@ namespace Models
     // gpuCount Field Functions 
     bool hasGpuCount() const { return this->gpuCount_ != nullptr;};
     void deleteGpuCount() { this->gpuCount_ = nullptr;};
-    inline float gpuCount() const { DARABONBA_PTR_GET_DEFAULT(gpuCount_, 0.0) };
+    inline float getGpuCount() const { DARABONBA_PTR_GET_DEFAULT(gpuCount_, 0.0) };
     inline DescribeDesktopTypesRequest& setGpuCount(float gpuCount) { DARABONBA_PTR_SET_VALUE(gpuCount_, gpuCount) };
 
 
     // gpuDriverType Field Functions 
     bool hasGpuDriverType() const { return this->gpuDriverType_ != nullptr;};
     void deleteGpuDriverType() { this->gpuDriverType_ = nullptr;};
-    inline string gpuDriverType() const { DARABONBA_PTR_GET_DEFAULT(gpuDriverType_, "") };
+    inline string getGpuDriverType() const { DARABONBA_PTR_GET_DEFAULT(gpuDriverType_, "") };
     inline DescribeDesktopTypesRequest& setGpuDriverType(string gpuDriverType) { DARABONBA_PTR_SET_VALUE(gpuDriverType_, gpuDriverType) };
 
 
     // gpuMemory Field Functions 
     bool hasGpuMemory() const { return this->gpuMemory_ != nullptr;};
     void deleteGpuMemory() { this->gpuMemory_ = nullptr;};
-    inline int32_t gpuMemory() const { DARABONBA_PTR_GET_DEFAULT(gpuMemory_, 0) };
+    inline int32_t getGpuMemory() const { DARABONBA_PTR_GET_DEFAULT(gpuMemory_, 0) };
     inline DescribeDesktopTypesRequest& setGpuMemory(int32_t gpuMemory) { DARABONBA_PTR_SET_VALUE(gpuMemory_, gpuMemory) };
 
 
     // instanceTypeFamily Field Functions 
     bool hasInstanceTypeFamily() const { return this->instanceTypeFamily_ != nullptr;};
     void deleteInstanceTypeFamily() { this->instanceTypeFamily_ = nullptr;};
-    inline string instanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamily_, "") };
+    inline string getInstanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamily_, "") };
     inline DescribeDesktopTypesRequest& setInstanceTypeFamily(string instanceTypeFamily) { DARABONBA_PTR_SET_VALUE(instanceTypeFamily_, instanceTypeFamily) };
 
 
     // memorySize Field Functions 
     bool hasMemorySize() const { return this->memorySize_ != nullptr;};
     void deleteMemorySize() { this->memorySize_ = nullptr;};
-    inline int32_t memorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, 0) };
+    inline int32_t getMemorySize() const { DARABONBA_PTR_GET_DEFAULT(memorySize_, 0) };
     inline DescribeDesktopTypesRequest& setMemorySize(int32_t memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline DescribeDesktopTypesRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline DescribeDesktopTypesRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDesktopTypesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline DescribeDesktopTypesRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // scopeSet Field Functions 
     bool hasScopeSet() const { return this->scopeSet_ != nullptr;};
     void deleteScopeSet() { this->scopeSet_ = nullptr;};
-    inline const vector<string> & scopeSet() const { DARABONBA_PTR_GET_CONST(scopeSet_, vector<string>) };
-    inline vector<string> scopeSet() { DARABONBA_PTR_GET(scopeSet_, vector<string>) };
+    inline const vector<string> & getScopeSet() const { DARABONBA_PTR_GET_CONST(scopeSet_, vector<string>) };
+    inline vector<string> getScopeSet() { DARABONBA_PTR_GET(scopeSet_, vector<string>) };
     inline DescribeDesktopTypesRequest& setScopeSet(const vector<string> & scopeSet) { DARABONBA_PTR_SET_VALUE(scopeSet_, scopeSet) };
     inline DescribeDesktopTypesRequest& setScopeSet(vector<string> && scopeSet) { DARABONBA_PTR_SET_RVALUE(scopeSet_, scopeSet) };
 
@@ -190,33 +190,33 @@ namespace Models
     // sortType Field Functions 
     bool hasSortType() const { return this->sortType_ != nullptr;};
     void deleteSortType() { this->sortType_ = nullptr;};
-    inline string sortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
     inline DescribeDesktopTypesRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
 
 
     // supportMinSessionCount Field Functions 
     bool hasSupportMinSessionCount() const { return this->supportMinSessionCount_ != nullptr;};
     void deleteSupportMinSessionCount() { this->supportMinSessionCount_ = nullptr;};
-    inline int32_t supportMinSessionCount() const { DARABONBA_PTR_GET_DEFAULT(supportMinSessionCount_, 0) };
+    inline int32_t getSupportMinSessionCount() const { DARABONBA_PTR_GET_DEFAULT(supportMinSessionCount_, 0) };
     inline DescribeDesktopTypesRequest& setSupportMinSessionCount(int32_t supportMinSessionCount) { DARABONBA_PTR_SET_VALUE(supportMinSessionCount_, supportMinSessionCount) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline DescribeDesktopTypesRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
     // Applicable Scope of specifications. Default value: `Public`
-    std::shared_ptr<string> appliedScope_ = nullptr;
+    shared_ptr<string> appliedScope_ {};
     // The number of vCPUs.
-    std::shared_ptr<int32_t> cpuCount_ = nullptr;
+    shared_ptr<int32_t> cpuCount_ {};
     // The ID of the cloud computer share you want to modify. If this parameter is provided, the response will include compatibility information for the specified specification.
-    std::shared_ptr<string> desktopGroupIdForModify_ = nullptr;
+    shared_ptr<string> desktopGroupIdForModify_ {};
     // The ID of the cloud computer when you change instance types of cloud computers. If you specify this parameter, the information about whether the instance type is compatible with the cloud computer is included in the response.
-    std::shared_ptr<string> desktopIdForModify_ = nullptr;
+    shared_ptr<string> desktopIdForModify_ {};
     // The specification ID.
     // 
     // >  If both `InstanceTypeFamily` and `DesktopTypeId` are empty, all cloud computer specifications will be queried.
@@ -246,11 +246,11 @@ namespace Models
     // *   eds.enterprise_office.2c4g
     // *   eds.general.4c16g
     // *   eds.general.2c8g
-    std::shared_ptr<string> desktopTypeId_ = nullptr;
+    shared_ptr<string> desktopTypeId_ {};
     // The specification IDs.
-    std::shared_ptr<vector<string>> desktopTypeIdList_ = nullptr;
+    shared_ptr<vector<string>> desktopTypeIdList_ {};
     // The number of GPUs.
-    std::shared_ptr<float> gpuCount_ = nullptr;
+    shared_ptr<float> gpuCount_ {};
     // The GPU driver type.
     // 
     // Valid values:
@@ -259,9 +259,9 @@ namespace Models
     // *   A10
     // *   G28
     // *   G39
-    std::shared_ptr<string> gpuDriverType_ = nullptr;
+    shared_ptr<string> gpuDriverType_ {};
     // The GPU memory size. Unit: MB.
-    std::shared_ptr<int32_t> gpuMemory_ = nullptr;
+    shared_ptr<int32_t> gpuMemory_ {};
     // The name of the specification family.
     // 
     // >  If both `InstanceTypeFamily` and `DesktopTypeId` are empty, all specification families will be queried.
@@ -276,41 +276,41 @@ namespace Models
     // *   ecd.graphics
     // *   eds.general
     // *   ecd.performance
-    std::shared_ptr<string> instanceTypeFamily_ = nullptr;
+    shared_ptr<string> instanceTypeFamily_ {};
     // The memory size. Unit: MiB.
-    std::shared_ptr<int32_t> memorySize_ = nullptr;
+    shared_ptr<int32_t> memorySize_ {};
     // The sorting field. If this parameter is not provided, results are sorted by creation time in descending order.
     // 
     // Valid values:
     // 
     // *   Memory: sorts by memory size.
     // *   Cpu: sorts by the number of vCPUs.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The order type.
-    std::shared_ptr<string> orderType_ = nullptr;
+    shared_ptr<string> orderType_ {};
     // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The sales mode of the specification.
     // 
     // Valid values:
     // 
     // *   MonthPackage: the monthly subscription mode.
     // *   FastBuy: the quick purchase mode.
-    std::shared_ptr<string> scope_ = nullptr;
-    std::shared_ptr<vector<string>> scopeSet_ = nullptr;
+    shared_ptr<string> scope_ {};
+    shared_ptr<vector<string>> scopeSet_ {};
     // The sorting order.
     // 
     // Valid values:
     // 
     // *   ASC (default): the ascending order.
     // *   DESC: the descending order.
-    std::shared_ptr<string> sortType_ = nullptr;
+    shared_ptr<string> sortType_ {};
     // The number of sessions supported by the specification.
-    std::shared_ptr<int32_t> supportMinSessionCount_ = nullptr;
+    shared_ptr<int32_t> supportMinSessionCount_ {};
     // >  This parameter is not publicly available.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

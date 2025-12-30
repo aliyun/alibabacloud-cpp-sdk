@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->ssoStatus_ == nullptr; };
+        && this->ssoStatus_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOfficeSiteSsoStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // ssoStatus Field Functions 
     bool hasSsoStatus() const { return this->ssoStatus_ != nullptr;};
     void deleteSsoStatus() { this->ssoStatus_ = nullptr;};
-    inline bool ssoStatus() const { DARABONBA_PTR_GET_DEFAULT(ssoStatus_, false) };
+    inline bool getSsoStatus() const { DARABONBA_PTR_GET_DEFAULT(ssoStatus_, false) };
     inline GetOfficeSiteSsoStatusResponseBody& setSsoStatus(bool ssoStatus) { DARABONBA_PTR_SET_VALUE(ssoStatus_, ssoStatus) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether SSO is enabled.
-    std::shared_ptr<bool> ssoStatus_ = nullptr;
+    shared_ptr<bool> ssoStatus_ {};
   };
 
   } // namespace Models

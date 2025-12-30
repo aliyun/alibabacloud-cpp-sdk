@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->egressPermissions_ == nullptr
-        && return this->ingressPermissions_ == nullptr && return this->requestId_ == nullptr; };
+        && this->ingressPermissions_ == nullptr && this->requestId_ == nullptr; };
     // egressPermissions Field Functions 
     bool hasEgressPermissions() const { return this->egressPermissions_ != nullptr;};
     void deleteEgressPermissions() { this->egressPermissions_ = nullptr;};
-    inline const vector<Permission> & egressPermissions() const { DARABONBA_PTR_GET_CONST(egressPermissions_, vector<Permission>) };
-    inline vector<Permission> egressPermissions() { DARABONBA_PTR_GET(egressPermissions_, vector<Permission>) };
+    inline const vector<Permission> & getEgressPermissions() const { DARABONBA_PTR_GET_CONST(egressPermissions_, vector<Permission>) };
+    inline vector<Permission> getEgressPermissions() { DARABONBA_PTR_GET(egressPermissions_, vector<Permission>) };
     inline DescribeSecurityGroupAttributeResponseBody& setEgressPermissions(const vector<Permission> & egressPermissions) { DARABONBA_PTR_SET_VALUE(egressPermissions_, egressPermissions) };
     inline DescribeSecurityGroupAttributeResponseBody& setEgressPermissions(vector<Permission> && egressPermissions) { DARABONBA_PTR_SET_RVALUE(egressPermissions_, egressPermissions) };
 
@@ -49,8 +49,8 @@ namespace Models
     // ingressPermissions Field Functions 
     bool hasIngressPermissions() const { return this->ingressPermissions_ != nullptr;};
     void deleteIngressPermissions() { this->ingressPermissions_ = nullptr;};
-    inline const vector<Permission> & ingressPermissions() const { DARABONBA_PTR_GET_CONST(ingressPermissions_, vector<Permission>) };
-    inline vector<Permission> ingressPermissions() { DARABONBA_PTR_GET(ingressPermissions_, vector<Permission>) };
+    inline const vector<Permission> & getIngressPermissions() const { DARABONBA_PTR_GET_CONST(ingressPermissions_, vector<Permission>) };
+    inline vector<Permission> getIngressPermissions() { DARABONBA_PTR_GET(ingressPermissions_, vector<Permission>) };
     inline DescribeSecurityGroupAttributeResponseBody& setIngressPermissions(const vector<Permission> & ingressPermissions) { DARABONBA_PTR_SET_VALUE(ingressPermissions_, ingressPermissions) };
     inline DescribeSecurityGroupAttributeResponseBody& setIngressPermissions(vector<Permission> && ingressPermissions) { DARABONBA_PTR_SET_RVALUE(ingressPermissions_, ingressPermissions) };
 
@@ -58,14 +58,14 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSecurityGroupAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<Permission>> egressPermissions_ = nullptr;
-    std::shared_ptr<vector<Permission>> ingressPermissions_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<Permission>> egressPermissions_ {};
+    shared_ptr<vector<Permission>> ingressPermissions_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -49,106 +49,106 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bundleName_ == nullptr
-        && return this->description_ == nullptr && return this->desktopType_ == nullptr && return this->imageId_ == nullptr && return this->language_ == nullptr && return this->regionId_ == nullptr
-        && return this->rootDiskPerformanceLevel_ == nullptr && return this->rootDiskSizeGib_ == nullptr && return this->userDiskPerformanceLevel_ == nullptr && return this->userDiskSizeGib_ == nullptr; };
+        && this->description_ == nullptr && this->desktopType_ == nullptr && this->imageId_ == nullptr && this->language_ == nullptr && this->regionId_ == nullptr
+        && this->rootDiskPerformanceLevel_ == nullptr && this->rootDiskSizeGib_ == nullptr && this->userDiskPerformanceLevel_ == nullptr && this->userDiskSizeGib_ == nullptr; };
     // bundleName Field Functions 
     bool hasBundleName() const { return this->bundleName_ != nullptr;};
     void deleteBundleName() { this->bundleName_ = nullptr;};
-    inline string bundleName() const { DARABONBA_PTR_GET_DEFAULT(bundleName_, "") };
+    inline string getBundleName() const { DARABONBA_PTR_GET_DEFAULT(bundleName_, "") };
     inline CreateBundleRequest& setBundleName(string bundleName) { DARABONBA_PTR_SET_VALUE(bundleName_, bundleName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateBundleRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // desktopType Field Functions 
     bool hasDesktopType() const { return this->desktopType_ != nullptr;};
     void deleteDesktopType() { this->desktopType_ = nullptr;};
-    inline string desktopType() const { DARABONBA_PTR_GET_DEFAULT(desktopType_, "") };
+    inline string getDesktopType() const { DARABONBA_PTR_GET_DEFAULT(desktopType_, "") };
     inline CreateBundleRequest& setDesktopType(string desktopType) { DARABONBA_PTR_SET_VALUE(desktopType_, desktopType) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline CreateBundleRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline CreateBundleRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateBundleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // rootDiskPerformanceLevel Field Functions 
     bool hasRootDiskPerformanceLevel() const { return this->rootDiskPerformanceLevel_ != nullptr;};
     void deleteRootDiskPerformanceLevel() { this->rootDiskPerformanceLevel_ = nullptr;};
-    inline string rootDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(rootDiskPerformanceLevel_, "") };
+    inline string getRootDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(rootDiskPerformanceLevel_, "") };
     inline CreateBundleRequest& setRootDiskPerformanceLevel(string rootDiskPerformanceLevel) { DARABONBA_PTR_SET_VALUE(rootDiskPerformanceLevel_, rootDiskPerformanceLevel) };
 
 
     // rootDiskSizeGib Field Functions 
     bool hasRootDiskSizeGib() const { return this->rootDiskSizeGib_ != nullptr;};
     void deleteRootDiskSizeGib() { this->rootDiskSizeGib_ = nullptr;};
-    inline int32_t rootDiskSizeGib() const { DARABONBA_PTR_GET_DEFAULT(rootDiskSizeGib_, 0) };
+    inline int32_t getRootDiskSizeGib() const { DARABONBA_PTR_GET_DEFAULT(rootDiskSizeGib_, 0) };
     inline CreateBundleRequest& setRootDiskSizeGib(int32_t rootDiskSizeGib) { DARABONBA_PTR_SET_VALUE(rootDiskSizeGib_, rootDiskSizeGib) };
 
 
     // userDiskPerformanceLevel Field Functions 
     bool hasUserDiskPerformanceLevel() const { return this->userDiskPerformanceLevel_ != nullptr;};
     void deleteUserDiskPerformanceLevel() { this->userDiskPerformanceLevel_ = nullptr;};
-    inline string userDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(userDiskPerformanceLevel_, "") };
+    inline string getUserDiskPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(userDiskPerformanceLevel_, "") };
     inline CreateBundleRequest& setUserDiskPerformanceLevel(string userDiskPerformanceLevel) { DARABONBA_PTR_SET_VALUE(userDiskPerformanceLevel_, userDiskPerformanceLevel) };
 
 
     // userDiskSizeGib Field Functions 
     bool hasUserDiskSizeGib() const { return this->userDiskSizeGib_ != nullptr;};
     void deleteUserDiskSizeGib() { this->userDiskSizeGib_ = nullptr;};
-    inline const vector<int32_t> & userDiskSizeGib() const { DARABONBA_PTR_GET_CONST(userDiskSizeGib_, vector<int32_t>) };
-    inline vector<int32_t> userDiskSizeGib() { DARABONBA_PTR_GET(userDiskSizeGib_, vector<int32_t>) };
+    inline const vector<int32_t> & getUserDiskSizeGib() const { DARABONBA_PTR_GET_CONST(userDiskSizeGib_, vector<int32_t>) };
+    inline vector<int32_t> getUserDiskSizeGib() { DARABONBA_PTR_GET(userDiskSizeGib_, vector<int32_t>) };
     inline CreateBundleRequest& setUserDiskSizeGib(const vector<int32_t> & userDiskSizeGib) { DARABONBA_PTR_SET_VALUE(userDiskSizeGib_, userDiskSizeGib) };
     inline CreateBundleRequest& setUserDiskSizeGib(vector<int32_t> && userDiskSizeGib) { DARABONBA_PTR_SET_RVALUE(userDiskSizeGib_, userDiskSizeGib) };
 
 
   protected:
     // The name of the cloud computer template.
-    std::shared_ptr<string> bundleName_ = nullptr;
+    shared_ptr<string> bundleName_ {};
     // The description of the cloud computer template.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The instance type of the cloud computers. You can call the [DescribeBundles](https://help.aliyun.com/document_detail/436974.html) operation to query cloud computer templates and obtain the instance types supported by the cloud computers from the `DesktopType` response parameter.
     // 
     // >  If you want the template to use a non-GPU-accelerated image, you can only select a non-GPU-accelerated instance type. If you want the template to use a GPU-accelerated image, you can only select a GPU-accelerated instance type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desktopType_ = nullptr;
+    shared_ptr<string> desktopType_ {};
     // The ID of the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The OS language. This parameter is available only for system images. Valid values:
     // 
     // *   zh-CN: Simplified Chinese
     // *   zh-HK: Traditional Chinese (Hong Kong)
     // *   en-US: American English
     // *   ja-JP: Japanese
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The performance level (PL) of the system disk. When the cloud computer instance type that is specified by the DesktopType parameter is set to a graphical instance type or instance type with a high clock speed, you can set the performance level of the disks. For more information about the differences among disks at different PLs, see [Enhanced SSDs](https://help.aliyun.com/document_detail/122389.html).
     // 
     // Valid values:
@@ -184,11 +184,11 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> rootDiskPerformanceLevel_ = nullptr;
+    shared_ptr<string> rootDiskPerformanceLevel_ {};
     // The size of the system disk. Unit: GiB. The value of this parameter must be consistent with the system disk size supported by the cloud computer instance type. For more information, see [Overview](https://help.aliyun.com/document_detail/188609.html).
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> rootDiskSizeGib_ = nullptr;
+    shared_ptr<int32_t> rootDiskSizeGib_ {};
     // The PL of the data disk. When the cloud computer instance type that is specified by the DesktopType parameter is set to a graphical instance type or instance type with a high clock speed, you can set the performance level of the disks. For more information about the differences among disks at different PLs, see [Enhanced SSDs](https://help.aliyun.com/document_detail/122389.html).
     // 
     // Valid values:
@@ -224,11 +224,11 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> userDiskPerformanceLevel_ = nullptr;
+    shared_ptr<string> userDiskPerformanceLevel_ {};
     // The data disk sizes. You can configure only one data disk.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int32_t>> userDiskSizeGib_ = nullptr;
+    shared_ptr<vector<int32_t>> userDiskSizeGib_ {};
   };
 
   } // namespace Models

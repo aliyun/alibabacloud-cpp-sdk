@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEADCONNECTORDIRECTORYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateADConnectorDirectoryResponseBodyAdConnectors.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,47 +36,79 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class AdConnectors : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AdConnectors& obj) { 
+        DARABONBA_PTR_TO_JSON(Address, address_);
+      };
+      friend void from_json(const Darabonba::Json& j, AdConnectors& obj) { 
+        DARABONBA_PTR_FROM_JSON(Address, address_);
+      };
+      AdConnectors() = default ;
+      AdConnectors(const AdConnectors &) = default ;
+      AdConnectors(AdConnectors &&) = default ;
+      AdConnectors(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AdConnectors() = default ;
+      AdConnectors& operator=(const AdConnectors &) = default ;
+      AdConnectors& operator=(AdConnectors &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->address_ == nullptr; };
+      // address Field Functions 
+      bool hasAddress() const { return this->address_ != nullptr;};
+      void deleteAddress() { this->address_ = nullptr;};
+      inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+      inline AdConnectors& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    protected:
+      // The connection address.
+      shared_ptr<string> address_ {};
+    };
+
     virtual bool empty() const override { return this->adConnectors_ == nullptr
-        && return this->directoryId_ == nullptr && return this->requestId_ == nullptr && return this->trustPassword_ == nullptr; };
+        && this->directoryId_ == nullptr && this->requestId_ == nullptr && this->trustPassword_ == nullptr; };
     // adConnectors Field Functions 
     bool hasAdConnectors() const { return this->adConnectors_ != nullptr;};
     void deleteAdConnectors() { this->adConnectors_ = nullptr;};
-    inline const vector<CreateADConnectorDirectoryResponseBodyAdConnectors> & adConnectors() const { DARABONBA_PTR_GET_CONST(adConnectors_, vector<CreateADConnectorDirectoryResponseBodyAdConnectors>) };
-    inline vector<CreateADConnectorDirectoryResponseBodyAdConnectors> adConnectors() { DARABONBA_PTR_GET(adConnectors_, vector<CreateADConnectorDirectoryResponseBodyAdConnectors>) };
-    inline CreateADConnectorDirectoryResponseBody& setAdConnectors(const vector<CreateADConnectorDirectoryResponseBodyAdConnectors> & adConnectors) { DARABONBA_PTR_SET_VALUE(adConnectors_, adConnectors) };
-    inline CreateADConnectorDirectoryResponseBody& setAdConnectors(vector<CreateADConnectorDirectoryResponseBodyAdConnectors> && adConnectors) { DARABONBA_PTR_SET_RVALUE(adConnectors_, adConnectors) };
+    inline const vector<CreateADConnectorDirectoryResponseBody::AdConnectors> & getAdConnectors() const { DARABONBA_PTR_GET_CONST(adConnectors_, vector<CreateADConnectorDirectoryResponseBody::AdConnectors>) };
+    inline vector<CreateADConnectorDirectoryResponseBody::AdConnectors> getAdConnectors() { DARABONBA_PTR_GET(adConnectors_, vector<CreateADConnectorDirectoryResponseBody::AdConnectors>) };
+    inline CreateADConnectorDirectoryResponseBody& setAdConnectors(const vector<CreateADConnectorDirectoryResponseBody::AdConnectors> & adConnectors) { DARABONBA_PTR_SET_VALUE(adConnectors_, adConnectors) };
+    inline CreateADConnectorDirectoryResponseBody& setAdConnectors(vector<CreateADConnectorDirectoryResponseBody::AdConnectors> && adConnectors) { DARABONBA_PTR_SET_RVALUE(adConnectors_, adConnectors) };
 
 
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
-    inline string directoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
+    inline string getDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
     inline CreateADConnectorDirectoryResponseBody& setDirectoryId(string directoryId) { DARABONBA_PTR_SET_VALUE(directoryId_, directoryId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateADConnectorDirectoryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // trustPassword Field Functions 
     bool hasTrustPassword() const { return this->trustPassword_ != nullptr;};
     void deleteTrustPassword() { this->trustPassword_ = nullptr;};
-    inline string trustPassword() const { DARABONBA_PTR_GET_DEFAULT(trustPassword_, "") };
+    inline string getTrustPassword() const { DARABONBA_PTR_GET_DEFAULT(trustPassword_, "") };
     inline CreateADConnectorDirectoryResponseBody& setTrustPassword(string trustPassword) { DARABONBA_PTR_SET_VALUE(trustPassword_, trustPassword) };
 
 
   protected:
     // The details of AD connectors.
-    std::shared_ptr<vector<CreateADConnectorDirectoryResponseBodyAdConnectors>> adConnectors_ = nullptr;
+    shared_ptr<vector<CreateADConnectorDirectoryResponseBody::AdConnectors>> adConnectors_ {};
     // The ID of the AD directory.
-    std::shared_ptr<string> directoryId_ = nullptr;
+    shared_ptr<string> directoryId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The AD trust password.
-    std::shared_ptr<string> trustPassword_ = nullptr;
+    shared_ptr<string> trustPassword_ {};
   };
 
   } // namespace Models

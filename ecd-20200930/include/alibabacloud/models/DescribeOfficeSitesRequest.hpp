@@ -47,34 +47,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountType_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteType_ == nullptr && return this->regionId_ == nullptr
-        && return this->securityProtection_ == nullptr && return this->status_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteType_ == nullptr && this->regionId_ == nullptr
+        && this->securityProtection_ == nullptr && this->status_ == nullptr && this->vpcId_ == nullptr; };
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
-    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline string getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
     inline DescribeOfficeSitesRequest& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeOfficeSitesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeOfficeSitesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline const vector<string> & officeSiteId() const { DARABONBA_PTR_GET_CONST(officeSiteId_, vector<string>) };
-    inline vector<string> officeSiteId() { DARABONBA_PTR_GET(officeSiteId_, vector<string>) };
+    inline const vector<string> & getOfficeSiteId() const { DARABONBA_PTR_GET_CONST(officeSiteId_, vector<string>) };
+    inline vector<string> getOfficeSiteId() { DARABONBA_PTR_GET(officeSiteId_, vector<string>) };
     inline DescribeOfficeSitesRequest& setOfficeSiteId(const vector<string> & officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
     inline DescribeOfficeSitesRequest& setOfficeSiteId(vector<string> && officeSiteId) { DARABONBA_PTR_SET_RVALUE(officeSiteId_, officeSiteId) };
 
@@ -82,49 +82,49 @@ namespace Models
     // officeSiteType Field Functions 
     bool hasOfficeSiteType() const { return this->officeSiteType_ != nullptr;};
     void deleteOfficeSiteType() { this->officeSiteType_ = nullptr;};
-    inline string officeSiteType() const { DARABONBA_PTR_GET_DEFAULT(officeSiteType_, "") };
+    inline string getOfficeSiteType() const { DARABONBA_PTR_GET_DEFAULT(officeSiteType_, "") };
     inline DescribeOfficeSitesRequest& setOfficeSiteType(string officeSiteType) { DARABONBA_PTR_SET_VALUE(officeSiteType_, officeSiteType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeOfficeSitesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // securityProtection Field Functions 
     bool hasSecurityProtection() const { return this->securityProtection_ != nullptr;};
     void deleteSecurityProtection() { this->securityProtection_ = nullptr;};
-    inline string securityProtection() const { DARABONBA_PTR_GET_DEFAULT(securityProtection_, "") };
+    inline string getSecurityProtection() const { DARABONBA_PTR_GET_DEFAULT(securityProtection_, "") };
     inline DescribeOfficeSitesRequest& setSecurityProtection(string securityProtection) { DARABONBA_PTR_SET_VALUE(securityProtection_, securityProtection) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeOfficeSitesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline DescribeOfficeSitesRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
-    std::shared_ptr<string> accountType_ = nullptr;
+    shared_ptr<string> accountType_ {};
     // The number of entries to return on each page.
     // 
     // *   Maximum value: 100.
     // *   Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The token that determines the start point of the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The office network IDs. You can specify the IDs of 1 to 100 office networks.
-    std::shared_ptr<vector<string>> officeSiteId_ = nullptr;
+    shared_ptr<vector<string>> officeSiteId_ {};
     // The account type of the office network.
     // 
     // Valid values:
@@ -144,18 +144,18 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> officeSiteType_ = nullptr;
+    shared_ptr<string> officeSiteType_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The security protection setting of the office network.
     // 
     // Valid values:
     // 
     // *   SASE: SASE is configured.
     // *   OFF: No security protection setting is configured.
-    std::shared_ptr<string> securityProtection_ = nullptr;
+    shared_ptr<string> securityProtection_ {};
     // The office network status.
     // 
     // Valid values:
@@ -231,9 +231,9 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The ID of the virtual private cloud (VPC).
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

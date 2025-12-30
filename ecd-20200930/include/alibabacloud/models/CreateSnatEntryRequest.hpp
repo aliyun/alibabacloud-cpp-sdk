@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eipAffinity_ == nullptr
-        && return this->regionId_ == nullptr && return this->snatEntryName_ == nullptr && return this->snatIp_ == nullptr && return this->snatTableId_ == nullptr && return this->sourceCIDR_ == nullptr; };
+        && this->regionId_ == nullptr && this->snatEntryName_ == nullptr && this->snatIp_ == nullptr && this->snatTableId_ == nullptr && this->sourceCIDR_ == nullptr; };
     // eipAffinity Field Functions 
     bool hasEipAffinity() const { return this->eipAffinity_ != nullptr;};
     void deleteEipAffinity() { this->eipAffinity_ = nullptr;};
-    inline int32_t eipAffinity() const { DARABONBA_PTR_GET_DEFAULT(eipAffinity_, 0) };
+    inline int32_t getEipAffinity() const { DARABONBA_PTR_GET_DEFAULT(eipAffinity_, 0) };
     inline CreateSnatEntryRequest& setEipAffinity(int32_t eipAffinity) { DARABONBA_PTR_SET_VALUE(eipAffinity_, eipAffinity) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateSnatEntryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // snatEntryName Field Functions 
     bool hasSnatEntryName() const { return this->snatEntryName_ != nullptr;};
     void deleteSnatEntryName() { this->snatEntryName_ = nullptr;};
-    inline string snatEntryName() const { DARABONBA_PTR_GET_DEFAULT(snatEntryName_, "") };
+    inline string getSnatEntryName() const { DARABONBA_PTR_GET_DEFAULT(snatEntryName_, "") };
     inline CreateSnatEntryRequest& setSnatEntryName(string snatEntryName) { DARABONBA_PTR_SET_VALUE(snatEntryName_, snatEntryName) };
 
 
     // snatIp Field Functions 
     bool hasSnatIp() const { return this->snatIp_ != nullptr;};
     void deleteSnatIp() { this->snatIp_ = nullptr;};
-    inline string snatIp() const { DARABONBA_PTR_GET_DEFAULT(snatIp_, "") };
+    inline string getSnatIp() const { DARABONBA_PTR_GET_DEFAULT(snatIp_, "") };
     inline CreateSnatEntryRequest& setSnatIp(string snatIp) { DARABONBA_PTR_SET_VALUE(snatIp_, snatIp) };
 
 
     // snatTableId Field Functions 
     bool hasSnatTableId() const { return this->snatTableId_ != nullptr;};
     void deleteSnatTableId() { this->snatTableId_ = nullptr;};
-    inline string snatTableId() const { DARABONBA_PTR_GET_DEFAULT(snatTableId_, "") };
+    inline string getSnatTableId() const { DARABONBA_PTR_GET_DEFAULT(snatTableId_, "") };
     inline CreateSnatEntryRequest& setSnatTableId(string snatTableId) { DARABONBA_PTR_SET_VALUE(snatTableId_, snatTableId) };
 
 
     // sourceCIDR Field Functions 
     bool hasSourceCIDR() const { return this->sourceCIDR_ != nullptr;};
     void deleteSourceCIDR() { this->sourceCIDR_ = nullptr;};
-    inline string sourceCIDR() const { DARABONBA_PTR_GET_DEFAULT(sourceCIDR_, "") };
+    inline string getSourceCIDR() const { DARABONBA_PTR_GET_DEFAULT(sourceCIDR_, "") };
     inline CreateSnatEntryRequest& setSourceCIDR(string sourceCIDR) { DARABONBA_PTR_SET_VALUE(sourceCIDR_, sourceCIDR) };
 
 
   protected:
-    std::shared_ptr<int32_t> eipAffinity_ = nullptr;
+    shared_ptr<int32_t> eipAffinity_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> snatEntryName_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> snatEntryName_ {};
     // This parameter is required.
-    std::shared_ptr<string> snatIp_ = nullptr;
+    shared_ptr<string> snatIp_ {};
     // This parameter is required.
-    std::shared_ptr<string> snatTableId_ = nullptr;
+    shared_ptr<string> snatTableId_ {};
     // This parameter is required.
-    std::shared_ptr<string> sourceCIDR_ = nullptr;
+    shared_ptr<string> sourceCIDR_ {};
   };
 
   } // namespace Models

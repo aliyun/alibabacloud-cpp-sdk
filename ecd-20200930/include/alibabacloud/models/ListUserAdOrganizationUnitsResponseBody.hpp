@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTUSERADORGANIZATIONUNITSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListUserAdOrganizationUnitsResponseBodyOUNames.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,38 +34,93 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class OUNames : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const OUNames& obj) { 
+        DARABONBA_PTR_TO_JSON(DisplayOUName, displayOUName_);
+        DARABONBA_PTR_TO_JSON(OUName, OUName_);
+        DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+      };
+      friend void from_json(const Darabonba::Json& j, OUNames& obj) { 
+        DARABONBA_PTR_FROM_JSON(DisplayOUName, displayOUName_);
+        DARABONBA_PTR_FROM_JSON(OUName, OUName_);
+        DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+      };
+      OUNames() = default ;
+      OUNames(const OUNames &) = default ;
+      OUNames(OUNames &&) = default ;
+      OUNames(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~OUNames() = default ;
+      OUNames& operator=(const OUNames &) = default ;
+      OUNames& operator=(OUNames &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->displayOUName_ == nullptr
+        && this->OUName_ == nullptr && this->officeSiteId_ == nullptr; };
+      // displayOUName Field Functions 
+      bool hasDisplayOUName() const { return this->displayOUName_ != nullptr;};
+      void deleteDisplayOUName() { this->displayOUName_ = nullptr;};
+      inline string getDisplayOUName() const { DARABONBA_PTR_GET_DEFAULT(displayOUName_, "") };
+      inline OUNames& setDisplayOUName(string displayOUName) { DARABONBA_PTR_SET_VALUE(displayOUName_, displayOUName) };
+
+
+      // OUName Field Functions 
+      bool hasOUName() const { return this->OUName_ != nullptr;};
+      void deleteOUName() { this->OUName_ = nullptr;};
+      inline string getOUName() const { DARABONBA_PTR_GET_DEFAULT(OUName_, "") };
+      inline OUNames& setOUName(string OUName) { DARABONBA_PTR_SET_VALUE(OUName_, OUName) };
+
+
+      // officeSiteId Field Functions 
+      bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
+      void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
+      inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+      inline OUNames& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+
+
+    protected:
+      // The name of the OU.
+      shared_ptr<string> displayOUName_ {};
+      // The canonical name (CNAME) of the OU in the AD domain controller.
+      shared_ptr<string> OUName_ {};
+      // The enterprise AD office network ID.
+      shared_ptr<string> officeSiteId_ {};
+    };
+
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->OUNames_ == nullptr && return this->requestId_ == nullptr; };
+        && this->OUNames_ == nullptr && this->requestId_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListUserAdOrganizationUnitsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // OUNames Field Functions 
     bool hasOUNames() const { return this->OUNames_ != nullptr;};
     void deleteOUNames() { this->OUNames_ = nullptr;};
-    inline const vector<ListUserAdOrganizationUnitsResponseBodyOUNames> & OUNames() const { DARABONBA_PTR_GET_CONST(OUNames_, vector<ListUserAdOrganizationUnitsResponseBodyOUNames>) };
-    inline vector<ListUserAdOrganizationUnitsResponseBodyOUNames> OUNames() { DARABONBA_PTR_GET(OUNames_, vector<ListUserAdOrganizationUnitsResponseBodyOUNames>) };
-    inline ListUserAdOrganizationUnitsResponseBody& setOUNames(const vector<ListUserAdOrganizationUnitsResponseBodyOUNames> & OUNames) { DARABONBA_PTR_SET_VALUE(OUNames_, OUNames) };
-    inline ListUserAdOrganizationUnitsResponseBody& setOUNames(vector<ListUserAdOrganizationUnitsResponseBodyOUNames> && OUNames) { DARABONBA_PTR_SET_RVALUE(OUNames_, OUNames) };
+    inline const vector<ListUserAdOrganizationUnitsResponseBody::OUNames> & getOUNames() const { DARABONBA_PTR_GET_CONST(OUNames_, vector<ListUserAdOrganizationUnitsResponseBody::OUNames>) };
+    inline vector<ListUserAdOrganizationUnitsResponseBody::OUNames> getOUNames() { DARABONBA_PTR_GET(OUNames_, vector<ListUserAdOrganizationUnitsResponseBody::OUNames>) };
+    inline ListUserAdOrganizationUnitsResponseBody& setOUNames(const vector<ListUserAdOrganizationUnitsResponseBody::OUNames> & oUNames) { DARABONBA_PTR_SET_VALUE(OUNames_, oUNames) };
+    inline ListUserAdOrganizationUnitsResponseBody& setOUNames(vector<ListUserAdOrganizationUnitsResponseBody::OUNames> && oUNames) { DARABONBA_PTR_SET_RVALUE(OUNames_, oUNames) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListUserAdOrganizationUnitsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // A pagination token.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The OUs of the AD domain.
-    std::shared_ptr<vector<ListUserAdOrganizationUnitsResponseBodyOUNames>> OUNames_ = nullptr;
+    shared_ptr<vector<ListUserAdOrganizationUnitsResponseBody::OUNames>> OUNames_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

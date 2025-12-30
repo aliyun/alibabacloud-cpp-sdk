@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->osUpdate_ == nullptr && return this->regionId_ == nullptr && return this->stoppedMode_ == nullptr; };
+        && this->osUpdate_ == nullptr && this->regionId_ == nullptr && this->stoppedMode_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline const vector<string> & desktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
-    inline vector<string> desktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
+    inline const vector<string> & getDesktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
+    inline vector<string> getDesktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
     inline StopDesktopsRequest& setDesktopId(const vector<string> & desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
     inline StopDesktopsRequest& setDesktopId(vector<string> && desktopId) { DARABONBA_PTR_SET_RVALUE(desktopId_, desktopId) };
 
@@ -50,21 +50,21 @@ namespace Models
     // osUpdate Field Functions 
     bool hasOsUpdate() const { return this->osUpdate_ != nullptr;};
     void deleteOsUpdate() { this->osUpdate_ = nullptr;};
-    inline bool osUpdate() const { DARABONBA_PTR_GET_DEFAULT(osUpdate_, false) };
+    inline bool getOsUpdate() const { DARABONBA_PTR_GET_DEFAULT(osUpdate_, false) };
     inline StopDesktopsRequest& setOsUpdate(bool osUpdate) { DARABONBA_PTR_SET_VALUE(osUpdate_, osUpdate) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline StopDesktopsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // stoppedMode Field Functions 
     bool hasStoppedMode() const { return this->stoppedMode_ != nullptr;};
     void deleteStoppedMode() { this->stoppedMode_ = nullptr;};
-    inline string stoppedMode() const { DARABONBA_PTR_GET_DEFAULT(stoppedMode_, "") };
+    inline string getStoppedMode() const { DARABONBA_PTR_GET_DEFAULT(stoppedMode_, "") };
     inline StopDesktopsRequest& setStoppedMode(string stoppedMode) { DARABONBA_PTR_SET_VALUE(stoppedMode_, stoppedMode) };
 
 
@@ -72,13 +72,13 @@ namespace Models
     // The cloud computer IDs. You can specify the IDs of 1 to 100 cloud computers.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    shared_ptr<vector<string>> desktopId_ {};
     // Whether to perform a patch update when the update is ready. A value of true indicates that a patch update is performed.
-    std::shared_ptr<bool> osUpdate_ = nullptr;
+    shared_ptr<bool> osUpdate_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The billing mode after you stop the cloud computer.
     // 
     // Default value: StopCharging. Valid values:
@@ -98,7 +98,7 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> stoppedMode_ = nullptr;
+    shared_ptr<string> stoppedMode_ {};
   };
 
   } // namespace Models

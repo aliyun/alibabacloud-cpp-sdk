@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cdsId_ == nullptr
-        && return this->endUserId_ == nullptr && return this->fileId_ == nullptr && return this->groupId_ == nullptr && return this->regionId_ == nullptr && return this->uploadId_ == nullptr; };
+        && this->endUserId_ == nullptr && this->fileId_ == nullptr && this->groupId_ == nullptr && this->regionId_ == nullptr && this->uploadId_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};
-    inline string cdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
+    inline string getCdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
     inline CompleteCdsFileRequest& setCdsId(string cdsId) { DARABONBA_PTR_SET_VALUE(cdsId_, cdsId) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline CompleteCdsFileRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
-    inline string fileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
+    inline string getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
     inline CompleteCdsFileRequest& setFileId(string fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline CompleteCdsFileRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CompleteCdsFileRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // uploadId Field Functions 
     bool hasUploadId() const { return this->uploadId_ != nullptr;};
     void deleteUploadId() { this->uploadId_ = nullptr;};
-    inline string uploadId() const { DARABONBA_PTR_GET_DEFAULT(uploadId_, "") };
+    inline string getUploadId() const { DARABONBA_PTR_GET_DEFAULT(uploadId_, "") };
     inline CompleteCdsFileRequest& setUploadId(string uploadId) { DARABONBA_PTR_SET_VALUE(uploadId_, uploadId) };
 
 
@@ -87,23 +87,23 @@ namespace Models
     // The ID of the enterprise drive.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cdsId_ = nullptr;
+    shared_ptr<string> cdsId_ {};
     // The username. You must specify at least one of `EndUserId` and `GroupId`.
-    std::shared_ptr<string> endUserId_ = nullptr;
+    shared_ptr<string> endUserId_ {};
     // The file ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileId_ = nullptr;
+    shared_ptr<string> fileId_ {};
     // The ID of the team space. You must specify at least one of `EndUserId` and `GroupId`.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the file upload task. Callable interface [CreateCdsFile](https://help.aliyun.com/document_detail/2247619.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> uploadId_ = nullptr;
+    shared_ptr<string> uploadId_ {};
   };
 
   } // namespace Models

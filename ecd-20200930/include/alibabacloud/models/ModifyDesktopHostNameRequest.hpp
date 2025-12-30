@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->newHostName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->newHostName_ == nullptr && this->regionId_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline string desktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
+    inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
     inline ModifyDesktopHostNameRequest& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
 
 
     // newHostName Field Functions 
     bool hasNewHostName() const { return this->newHostName_ != nullptr;};
     void deleteNewHostName() { this->newHostName_ = nullptr;};
-    inline string newHostName() const { DARABONBA_PTR_GET_DEFAULT(newHostName_, "") };
+    inline string getNewHostName() const { DARABONBA_PTR_GET_DEFAULT(newHostName_, "") };
     inline ModifyDesktopHostNameRequest& setNewHostName(string newHostName) { DARABONBA_PTR_SET_VALUE(newHostName_, newHostName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDesktopHostNameRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,18 +60,18 @@ namespace Models
     // The ID of the cloud computer.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desktopId_ = nullptr;
+    shared_ptr<string> desktopId_ {};
     // The new hostname of the cloud computer. The hostname must meet the following requirements:
     // 
     // *   The hostname must be 2 to 15 characters in length.
     // *   The hostname can contain only letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
     // 
     // This parameter is required.
-    std::shared_ptr<string> newHostName_ = nullptr;
+    shared_ptr<string> newHostName_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

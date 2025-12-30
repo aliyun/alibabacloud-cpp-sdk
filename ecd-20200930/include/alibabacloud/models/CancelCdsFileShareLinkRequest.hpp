@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cdsId_ == nullptr
-        && return this->shareId_ == nullptr; };
+        && this->shareId_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};
-    inline string cdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
+    inline string getCdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
     inline CancelCdsFileShareLinkRequest& setCdsId(string cdsId) { DARABONBA_PTR_SET_VALUE(cdsId_, cdsId) };
 
 
     // shareId Field Functions 
     bool hasShareId() const { return this->shareId_ != nullptr;};
     void deleteShareId() { this->shareId_ = nullptr;};
-    inline string shareId() const { DARABONBA_PTR_GET_DEFAULT(shareId_, "") };
+    inline string getShareId() const { DARABONBA_PTR_GET_DEFAULT(shareId_, "") };
     inline CancelCdsFileShareLinkRequest& setShareId(string shareId) { DARABONBA_PTR_SET_VALUE(shareId_, shareId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the cloud disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cdsId_ = nullptr;
+    shared_ptr<string> cdsId_ {};
     // The ID of the file sharing task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> shareId_ = nullptr;
+    shared_ptr<string> shareId_ {};
   };
 
   } // namespace Models

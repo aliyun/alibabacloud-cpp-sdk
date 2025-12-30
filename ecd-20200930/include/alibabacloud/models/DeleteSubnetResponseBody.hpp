@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->subnetId_ == nullptr; };
+        && this->subnetId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteSubnetResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // subnetId Field Functions 
     bool hasSubnetId() const { return this->subnetId_ != nullptr;};
     void deleteSubnetId() { this->subnetId_ = nullptr;};
-    inline string subnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
+    inline string getSubnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
     inline DeleteSubnetResponseBody& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> subnetId_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> subnetId_ {};
   };
 
   } // namespace Models

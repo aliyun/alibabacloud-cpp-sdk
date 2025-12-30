@@ -43,48 +43,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->endUserId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->oversoldGroupId_ == nullptr && return this->userDesktopIds_ == nullptr
-        && return this->userGroupId_ == nullptr; };
+        && this->endUserId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->oversoldGroupId_ == nullptr && this->userDesktopIds_ == nullptr
+        && this->userGroupId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DescribeDesktopOversoldUserRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline DescribeDesktopOversoldUserRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeDesktopOversoldUserRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeDesktopOversoldUserRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // oversoldGroupId Field Functions 
     bool hasOversoldGroupId() const { return this->oversoldGroupId_ != nullptr;};
     void deleteOversoldGroupId() { this->oversoldGroupId_ = nullptr;};
-    inline string oversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
+    inline string getOversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
     inline DescribeDesktopOversoldUserRequest& setOversoldGroupId(string oversoldGroupId) { DARABONBA_PTR_SET_VALUE(oversoldGroupId_, oversoldGroupId) };
 
 
     // userDesktopIds Field Functions 
     bool hasUserDesktopIds() const { return this->userDesktopIds_ != nullptr;};
     void deleteUserDesktopIds() { this->userDesktopIds_ = nullptr;};
-    inline const vector<string> & userDesktopIds() const { DARABONBA_PTR_GET_CONST(userDesktopIds_, vector<string>) };
-    inline vector<string> userDesktopIds() { DARABONBA_PTR_GET(userDesktopIds_, vector<string>) };
+    inline const vector<string> & getUserDesktopIds() const { DARABONBA_PTR_GET_CONST(userDesktopIds_, vector<string>) };
+    inline vector<string> getUserDesktopIds() { DARABONBA_PTR_GET(userDesktopIds_, vector<string>) };
     inline DescribeDesktopOversoldUserRequest& setUserDesktopIds(const vector<string> & userDesktopIds) { DARABONBA_PTR_SET_VALUE(userDesktopIds_, userDesktopIds) };
     inline DescribeDesktopOversoldUserRequest& setUserDesktopIds(vector<string> && userDesktopIds) { DARABONBA_PTR_SET_RVALUE(userDesktopIds_, userDesktopIds) };
 
@@ -92,18 +92,18 @@ namespace Models
     // userGroupId Field Functions 
     bool hasUserGroupId() const { return this->userGroupId_ != nullptr;};
     void deleteUserGroupId() { this->userGroupId_ = nullptr;};
-    inline string userGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
+    inline string getUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
     inline DescribeDesktopOversoldUserRequest& setUserGroupId(string userGroupId) { DARABONBA_PTR_SET_VALUE(userGroupId_, userGroupId) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> endUserId_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> oversoldGroupId_ = nullptr;
-    std::shared_ptr<vector<string>> userDesktopIds_ = nullptr;
-    std::shared_ptr<string> userGroupId_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> endUserId_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> oversoldGroupId_ {};
+    shared_ptr<vector<string>> userDesktopIds_ {};
+    shared_ptr<string> userGroupId_ {};
   };
 
   } // namespace Models

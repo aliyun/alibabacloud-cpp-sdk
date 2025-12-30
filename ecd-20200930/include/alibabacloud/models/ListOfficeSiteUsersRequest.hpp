@@ -46,94 +46,94 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignedInfo_ == nullptr
-        && return this->filter_ == nullptr && return this->includeAssignedUser_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->OUPath_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr && return this->sortType_ == nullptr; };
+        && this->filter_ == nullptr && this->includeAssignedUser_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->OUPath_ == nullptr
+        && this->officeSiteId_ == nullptr && this->regionId_ == nullptr && this->sortType_ == nullptr; };
     // assignedInfo Field Functions 
     bool hasAssignedInfo() const { return this->assignedInfo_ != nullptr;};
     void deleteAssignedInfo() { this->assignedInfo_ = nullptr;};
-    inline string assignedInfo() const { DARABONBA_PTR_GET_DEFAULT(assignedInfo_, "") };
+    inline string getAssignedInfo() const { DARABONBA_PTR_GET_DEFAULT(assignedInfo_, "") };
     inline ListOfficeSiteUsersRequest& setAssignedInfo(string assignedInfo) { DARABONBA_PTR_SET_VALUE(assignedInfo_, assignedInfo) };
 
 
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline string getFilter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
     inline ListOfficeSiteUsersRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // includeAssignedUser Field Functions 
     bool hasIncludeAssignedUser() const { return this->includeAssignedUser_ != nullptr;};
     void deleteIncludeAssignedUser() { this->includeAssignedUser_ = nullptr;};
-    inline bool includeAssignedUser() const { DARABONBA_PTR_GET_DEFAULT(includeAssignedUser_, false) };
+    inline bool getIncludeAssignedUser() const { DARABONBA_PTR_GET_DEFAULT(includeAssignedUser_, false) };
     inline ListOfficeSiteUsersRequest& setIncludeAssignedUser(bool includeAssignedUser) { DARABONBA_PTR_SET_VALUE(includeAssignedUser_, includeAssignedUser) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListOfficeSiteUsersRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListOfficeSiteUsersRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // OUPath Field Functions 
     bool hasOUPath() const { return this->OUPath_ != nullptr;};
     void deleteOUPath() { this->OUPath_ = nullptr;};
-    inline string OUPath() const { DARABONBA_PTR_GET_DEFAULT(OUPath_, "") };
+    inline string getOUPath() const { DARABONBA_PTR_GET_DEFAULT(OUPath_, "") };
     inline ListOfficeSiteUsersRequest& setOUPath(string OUPath) { DARABONBA_PTR_SET_VALUE(OUPath_, OUPath) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline ListOfficeSiteUsersRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListOfficeSiteUsersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sortType Field Functions 
     bool hasSortType() const { return this->sortType_ != nullptr;};
     void deleteSortType() { this->sortType_ = nullptr;};
-    inline string sortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
     inline ListOfficeSiteUsersRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
 
 
   protected:
-    std::shared_ptr<string> assignedInfo_ = nullptr;
+    shared_ptr<string> assignedInfo_ {};
     // The query string for fuzzy query.
-    std::shared_ptr<string> filter_ = nullptr;
-    std::shared_ptr<bool> includeAssignedUser_ = nullptr;
+    shared_ptr<string> filter_ {};
+    shared_ptr<bool> includeAssignedUser_ {};
     // The number of entries per page.
     // 
     // *   Valid values: 1 to 100.
     // *   Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no next query exists. You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The organizational unit (OU) of the specified AD domain.
-    std::shared_ptr<string> OUPath_ = nullptr;
+    shared_ptr<string> OUPath_ {};
     // The office network ID. The office network must be of the enterprise AD account type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> officeSiteId_ {};
     // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> sortType_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> sortType_ {};
   };
 
   } // namespace Models

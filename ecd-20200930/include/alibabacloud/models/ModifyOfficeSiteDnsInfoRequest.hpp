@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dnsAddress_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->officeSiteId_ == nullptr && this->regionId_ == nullptr; };
     // dnsAddress Field Functions 
     bool hasDnsAddress() const { return this->dnsAddress_ != nullptr;};
     void deleteDnsAddress() { this->dnsAddress_ = nullptr;};
-    inline const vector<string> & dnsAddress() const { DARABONBA_PTR_GET_CONST(dnsAddress_, vector<string>) };
-    inline vector<string> dnsAddress() { DARABONBA_PTR_GET(dnsAddress_, vector<string>) };
+    inline const vector<string> & getDnsAddress() const { DARABONBA_PTR_GET_CONST(dnsAddress_, vector<string>) };
+    inline vector<string> getDnsAddress() { DARABONBA_PTR_GET(dnsAddress_, vector<string>) };
     inline ModifyOfficeSiteDnsInfoRequest& setDnsAddress(const vector<string> & dnsAddress) { DARABONBA_PTR_SET_VALUE(dnsAddress_, dnsAddress) };
     inline ModifyOfficeSiteDnsInfoRequest& setDnsAddress(vector<string> && dnsAddress) { DARABONBA_PTR_SET_RVALUE(dnsAddress_, dnsAddress) };
 
@@ -48,28 +48,28 @@ namespace Models
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline ModifyOfficeSiteDnsInfoRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyOfficeSiteDnsInfoRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The IP addresses of the custom DNS servers. Up to 2 IP addresses can be specified.
-    std::shared_ptr<vector<string>> dnsAddress_ = nullptr;
+    shared_ptr<vector<string>> dnsAddress_ {};
     // The office network ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> officeSiteId_ {};
     // The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

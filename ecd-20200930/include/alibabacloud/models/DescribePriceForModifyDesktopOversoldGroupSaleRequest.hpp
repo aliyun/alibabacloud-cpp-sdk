@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->concurrenceCount_ == nullptr
-        && return this->oversoldGroupId_ == nullptr && return this->oversoldUserCount_ == nullptr; };
+        && this->oversoldGroupId_ == nullptr && this->oversoldUserCount_ == nullptr; };
     // concurrenceCount Field Functions 
     bool hasConcurrenceCount() const { return this->concurrenceCount_ != nullptr;};
     void deleteConcurrenceCount() { this->concurrenceCount_ = nullptr;};
-    inline int32_t concurrenceCount() const { DARABONBA_PTR_GET_DEFAULT(concurrenceCount_, 0) };
+    inline int32_t getConcurrenceCount() const { DARABONBA_PTR_GET_DEFAULT(concurrenceCount_, 0) };
     inline DescribePriceForModifyDesktopOversoldGroupSaleRequest& setConcurrenceCount(int32_t concurrenceCount) { DARABONBA_PTR_SET_VALUE(concurrenceCount_, concurrenceCount) };
 
 
     // oversoldGroupId Field Functions 
     bool hasOversoldGroupId() const { return this->oversoldGroupId_ != nullptr;};
     void deleteOversoldGroupId() { this->oversoldGroupId_ = nullptr;};
-    inline string oversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
+    inline string getOversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
     inline DescribePriceForModifyDesktopOversoldGroupSaleRequest& setOversoldGroupId(string oversoldGroupId) { DARABONBA_PTR_SET_VALUE(oversoldGroupId_, oversoldGroupId) };
 
 
     // oversoldUserCount Field Functions 
     bool hasOversoldUserCount() const { return this->oversoldUserCount_ != nullptr;};
     void deleteOversoldUserCount() { this->oversoldUserCount_ = nullptr;};
-    inline int32_t oversoldUserCount() const { DARABONBA_PTR_GET_DEFAULT(oversoldUserCount_, 0) };
+    inline int32_t getOversoldUserCount() const { DARABONBA_PTR_GET_DEFAULT(oversoldUserCount_, 0) };
     inline DescribePriceForModifyDesktopOversoldGroupSaleRequest& setOversoldUserCount(int32_t oversoldUserCount) { DARABONBA_PTR_SET_VALUE(oversoldUserCount_, oversoldUserCount) };
 
 
   protected:
-    std::shared_ptr<int32_t> concurrenceCount_ = nullptr;
-    std::shared_ptr<string> oversoldGroupId_ = nullptr;
-    std::shared_ptr<int32_t> oversoldUserCount_ = nullptr;
+    shared_ptr<int32_t> concurrenceCount_ {};
+    shared_ptr<string> oversoldGroupId_ {};
+    shared_ptr<int32_t> oversoldUserCount_ {};
   };
 
   } // namespace Models

@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policy_ == nullptr
-        && return this->regionId_ == nullptr && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr; };
+        && this->regionId_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr; };
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline ModifyAclEntriesRequest& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyAclEntriesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sourceId Field Functions 
     bool hasSourceId() const { return this->sourceId_ != nullptr;};
     void deleteSourceId() { this->sourceId_ = nullptr;};
-    inline const vector<string> & sourceId() const { DARABONBA_PTR_GET_CONST(sourceId_, vector<string>) };
-    inline vector<string> sourceId() { DARABONBA_PTR_GET(sourceId_, vector<string>) };
+    inline const vector<string> & getSourceId() const { DARABONBA_PTR_GET_CONST(sourceId_, vector<string>) };
+    inline vector<string> getSourceId() { DARABONBA_PTR_GET(sourceId_, vector<string>) };
     inline ModifyAclEntriesRequest& setSourceId(const vector<string> & sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
     inline ModifyAclEntriesRequest& setSourceId(vector<string> && sourceId) { DARABONBA_PTR_SET_RVALUE(sourceId_, sourceId) };
 
@@ -64,7 +64,7 @@ namespace Models
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline ModifyAclEntriesRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
@@ -78,15 +78,15 @@ namespace Models
     // *   disable: forbids access to the Internet.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The instance IDs (office network IDs or cloud computer IDs) to which the Internet access control policy is applicable.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> sourceId_ = nullptr;
+    shared_ptr<vector<string>> sourceId_ {};
     // The granularity to which the Internet access control policy is applicable.
     // 
     // Valid values:
@@ -96,7 +96,7 @@ namespace Models
     // *   vpc: office network granularity.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

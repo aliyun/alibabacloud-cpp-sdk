@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyGroupIds_ == nullptr
-        && return this->policyGroupType_ == nullptr && return this->productType_ == nullptr && return this->resourceIds_ == nullptr && return this->resourceRegionId_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->policyGroupType_ == nullptr && this->productType_ == nullptr && this->resourceIds_ == nullptr && this->resourceRegionId_ == nullptr && this->resourceType_ == nullptr; };
     // policyGroupIds Field Functions 
     bool hasPolicyGroupIds() const { return this->policyGroupIds_ != nullptr;};
     void deletePolicyGroupIds() { this->policyGroupIds_ = nullptr;};
-    inline const vector<string> & policyGroupIds() const { DARABONBA_PTR_GET_CONST(policyGroupIds_, vector<string>) };
-    inline vector<string> policyGroupIds() { DARABONBA_PTR_GET(policyGroupIds_, vector<string>) };
+    inline const vector<string> & getPolicyGroupIds() const { DARABONBA_PTR_GET_CONST(policyGroupIds_, vector<string>) };
+    inline vector<string> getPolicyGroupIds() { DARABONBA_PTR_GET(policyGroupIds_, vector<string>) };
     inline ModifyResourceCenterPolicyRequest& setPolicyGroupIds(const vector<string> & policyGroupIds) { DARABONBA_PTR_SET_VALUE(policyGroupIds_, policyGroupIds) };
     inline ModifyResourceCenterPolicyRequest& setPolicyGroupIds(vector<string> && policyGroupIds) { DARABONBA_PTR_SET_RVALUE(policyGroupIds_, policyGroupIds) };
 
@@ -54,22 +54,22 @@ namespace Models
     // policyGroupType Field Functions 
     bool hasPolicyGroupType() const { return this->policyGroupType_ != nullptr;};
     void deletePolicyGroupType() { this->policyGroupType_ = nullptr;};
-    inline string policyGroupType() const { DARABONBA_PTR_GET_DEFAULT(policyGroupType_, "") };
+    inline string getPolicyGroupType() const { DARABONBA_PTR_GET_DEFAULT(policyGroupType_, "") };
     inline ModifyResourceCenterPolicyRequest& setPolicyGroupType(string policyGroupType) { DARABONBA_PTR_SET_VALUE(policyGroupType_, policyGroupType) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ModifyResourceCenterPolicyRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // resourceIds Field Functions 
     bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
     void deleteResourceIds() { this->resourceIds_ = nullptr;};
-    inline const vector<string> & resourceIds() const { DARABONBA_PTR_GET_CONST(resourceIds_, vector<string>) };
-    inline vector<string> resourceIds() { DARABONBA_PTR_GET(resourceIds_, vector<string>) };
+    inline const vector<string> & getResourceIds() const { DARABONBA_PTR_GET_CONST(resourceIds_, vector<string>) };
+    inline vector<string> getResourceIds() { DARABONBA_PTR_GET(resourceIds_, vector<string>) };
     inline ModifyResourceCenterPolicyRequest& setResourceIds(const vector<string> & resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
     inline ModifyResourceCenterPolicyRequest& setResourceIds(vector<string> && resourceIds) { DARABONBA_PTR_SET_RVALUE(resourceIds_, resourceIds) };
 
@@ -77,14 +77,14 @@ namespace Models
     // resourceRegionId Field Functions 
     bool hasResourceRegionId() const { return this->resourceRegionId_ != nullptr;};
     void deleteResourceRegionId() { this->resourceRegionId_ = nullptr;};
-    inline string resourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
+    inline string getResourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
     inline ModifyResourceCenterPolicyRequest& setResourceRegionId(string resourceRegionId) { DARABONBA_PTR_SET_VALUE(resourceRegionId_, resourceRegionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ModifyResourceCenterPolicyRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
@@ -94,7 +94,7 @@ namespace Models
     // >  You can specify up to one cloud computer policy that takes effect globally, and up to four cloud computer policies that apply to specific IP addresses. If multiple cloud computer policies are configured for global enforcement, only the earliest-associated policy will take effect
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> policyGroupIds_ = nullptr;
+    shared_ptr<vector<string>> policyGroupIds_ {};
     // The policy type.
     // 
     // Valid values:
@@ -102,7 +102,7 @@ namespace Models
     // *   general: a general policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyGroupType_ = nullptr;
+    shared_ptr<string> policyGroupType_ {};
     // The service type.
     // 
     // Valid values:
@@ -113,15 +113,15 @@ namespace Models
     // *   desktopGroup: cloud computer shares.
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // The resource IDs. You can specify up to 100 resource IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> resourceIds_ = nullptr;
+    shared_ptr<vector<string>> resourceIds_ {};
     // The region ID of the resource.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceRegionId_ = nullptr;
+    shared_ptr<string> resourceRegionId_ {};
     // The resource type.
     // 
     // Valid values:
@@ -130,7 +130,7 @@ namespace Models
     // *   desktop: cloud computers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

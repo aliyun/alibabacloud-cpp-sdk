@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cdsId_ == nullptr
-        && return this->groupId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->groupId_ == nullptr && this->regionId_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};
-    inline string cdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
+    inline string getCdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
     inline DeleteCloudDriveGroupsRequest& setCdsId(string cdsId) { DARABONBA_PTR_SET_VALUE(cdsId_, cdsId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline const vector<string> & groupId() const { DARABONBA_PTR_GET_CONST(groupId_, vector<string>) };
-    inline vector<string> groupId() { DARABONBA_PTR_GET(groupId_, vector<string>) };
+    inline const vector<string> & getGroupId() const { DARABONBA_PTR_GET_CONST(groupId_, vector<string>) };
+    inline vector<string> getGroupId() { DARABONBA_PTR_GET(groupId_, vector<string>) };
     inline DeleteCloudDriveGroupsRequest& setGroupId(const vector<string> & groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
     inline DeleteCloudDriveGroupsRequest& setGroupId(vector<string> && groupId) { DARABONBA_PTR_SET_RVALUE(groupId_, groupId) };
 
@@ -55,7 +55,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteCloudDriveGroupsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -63,13 +63,13 @@ namespace Models
     // The ID of the cloud disk in Cloud Drive Service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cdsId_ = nullptr;
+    shared_ptr<string> cdsId_ {};
     // The IDs of the teams that you want to delete. You can delete multiple teams at a time.
-    std::shared_ptr<vector<string>> groupId_ = nullptr;
+    shared_ptr<vector<string>> groupId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

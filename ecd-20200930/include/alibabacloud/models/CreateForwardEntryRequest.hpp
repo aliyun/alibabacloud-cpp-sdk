@@ -44,80 +44,80 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->externalIp_ == nullptr
-        && return this->externalPort_ == nullptr && return this->forwardEntryName_ == nullptr && return this->forwardTableId_ == nullptr && return this->internalIp_ == nullptr && return this->internalPort_ == nullptr
-        && return this->ipProtocol_ == nullptr && return this->regionId_ == nullptr; };
+        && this->externalPort_ == nullptr && this->forwardEntryName_ == nullptr && this->forwardTableId_ == nullptr && this->internalIp_ == nullptr && this->internalPort_ == nullptr
+        && this->ipProtocol_ == nullptr && this->regionId_ == nullptr; };
     // externalIp Field Functions 
     bool hasExternalIp() const { return this->externalIp_ != nullptr;};
     void deleteExternalIp() { this->externalIp_ = nullptr;};
-    inline string externalIp() const { DARABONBA_PTR_GET_DEFAULT(externalIp_, "") };
+    inline string getExternalIp() const { DARABONBA_PTR_GET_DEFAULT(externalIp_, "") };
     inline CreateForwardEntryRequest& setExternalIp(string externalIp) { DARABONBA_PTR_SET_VALUE(externalIp_, externalIp) };
 
 
     // externalPort Field Functions 
     bool hasExternalPort() const { return this->externalPort_ != nullptr;};
     void deleteExternalPort() { this->externalPort_ = nullptr;};
-    inline string externalPort() const { DARABONBA_PTR_GET_DEFAULT(externalPort_, "") };
+    inline string getExternalPort() const { DARABONBA_PTR_GET_DEFAULT(externalPort_, "") };
     inline CreateForwardEntryRequest& setExternalPort(string externalPort) { DARABONBA_PTR_SET_VALUE(externalPort_, externalPort) };
 
 
     // forwardEntryName Field Functions 
     bool hasForwardEntryName() const { return this->forwardEntryName_ != nullptr;};
     void deleteForwardEntryName() { this->forwardEntryName_ = nullptr;};
-    inline string forwardEntryName() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryName_, "") };
+    inline string getForwardEntryName() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryName_, "") };
     inline CreateForwardEntryRequest& setForwardEntryName(string forwardEntryName) { DARABONBA_PTR_SET_VALUE(forwardEntryName_, forwardEntryName) };
 
 
     // forwardTableId Field Functions 
     bool hasForwardTableId() const { return this->forwardTableId_ != nullptr;};
     void deleteForwardTableId() { this->forwardTableId_ = nullptr;};
-    inline string forwardTableId() const { DARABONBA_PTR_GET_DEFAULT(forwardTableId_, "") };
+    inline string getForwardTableId() const { DARABONBA_PTR_GET_DEFAULT(forwardTableId_, "") };
     inline CreateForwardEntryRequest& setForwardTableId(string forwardTableId) { DARABONBA_PTR_SET_VALUE(forwardTableId_, forwardTableId) };
 
 
     // internalIp Field Functions 
     bool hasInternalIp() const { return this->internalIp_ != nullptr;};
     void deleteInternalIp() { this->internalIp_ = nullptr;};
-    inline string internalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
+    inline string getInternalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
     inline CreateForwardEntryRequest& setInternalIp(string internalIp) { DARABONBA_PTR_SET_VALUE(internalIp_, internalIp) };
 
 
     // internalPort Field Functions 
     bool hasInternalPort() const { return this->internalPort_ != nullptr;};
     void deleteInternalPort() { this->internalPort_ = nullptr;};
-    inline string internalPort() const { DARABONBA_PTR_GET_DEFAULT(internalPort_, "") };
+    inline string getInternalPort() const { DARABONBA_PTR_GET_DEFAULT(internalPort_, "") };
     inline CreateForwardEntryRequest& setInternalPort(string internalPort) { DARABONBA_PTR_SET_VALUE(internalPort_, internalPort) };
 
 
     // ipProtocol Field Functions 
     bool hasIpProtocol() const { return this->ipProtocol_ != nullptr;};
     void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
-    inline string ipProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
+    inline string getIpProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
     inline CreateForwardEntryRequest& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateForwardEntryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> externalIp_ = nullptr;
+    shared_ptr<string> externalIp_ {};
     // This parameter is required.
-    std::shared_ptr<string> externalPort_ = nullptr;
-    std::shared_ptr<string> forwardEntryName_ = nullptr;
+    shared_ptr<string> externalPort_ {};
+    shared_ptr<string> forwardEntryName_ {};
     // This parameter is required.
-    std::shared_ptr<string> forwardTableId_ = nullptr;
+    shared_ptr<string> forwardTableId_ {};
     // This parameter is required.
-    std::shared_ptr<string> internalIp_ = nullptr;
+    shared_ptr<string> internalIp_ {};
     // This parameter is required.
-    std::shared_ptr<string> internalPort_ = nullptr;
+    shared_ptr<string> internalPort_ {};
     // This parameter is required.
-    std::shared_ptr<string> ipProtocol_ = nullptr;
+    shared_ptr<string> ipProtocol_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

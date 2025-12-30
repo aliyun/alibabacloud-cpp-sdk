@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->directoryId_ == nullptr
-        && return this->directoryStatus_ == nullptr && return this->directoryType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->directoryStatus_ == nullptr && this->directoryType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr
+        && this->status_ == nullptr; };
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
-    inline const vector<string> & directoryId() const { DARABONBA_PTR_GET_CONST(directoryId_, vector<string>) };
-    inline vector<string> directoryId() { DARABONBA_PTR_GET(directoryId_, vector<string>) };
+    inline const vector<string> & getDirectoryId() const { DARABONBA_PTR_GET_CONST(directoryId_, vector<string>) };
+    inline vector<string> getDirectoryId() { DARABONBA_PTR_GET(directoryId_, vector<string>) };
     inline DescribeDirectoriesRequest& setDirectoryId(const vector<string> & directoryId) { DARABONBA_PTR_SET_VALUE(directoryId_, directoryId) };
     inline DescribeDirectoriesRequest& setDirectoryId(vector<string> && directoryId) { DARABONBA_PTR_SET_RVALUE(directoryId_, directoryId) };
 
@@ -57,69 +57,69 @@ namespace Models
     // directoryStatus Field Functions 
     bool hasDirectoryStatus() const { return this->directoryStatus_ != nullptr;};
     void deleteDirectoryStatus() { this->directoryStatus_ = nullptr;};
-    inline string directoryStatus() const { DARABONBA_PTR_GET_DEFAULT(directoryStatus_, "") };
+    inline string getDirectoryStatus() const { DARABONBA_PTR_GET_DEFAULT(directoryStatus_, "") };
     inline DescribeDirectoriesRequest& setDirectoryStatus(string directoryStatus) { DARABONBA_PTR_SET_VALUE(directoryStatus_, directoryStatus) };
 
 
     // directoryType Field Functions 
     bool hasDirectoryType() const { return this->directoryType_ != nullptr;};
     void deleteDirectoryType() { this->directoryType_ = nullptr;};
-    inline string directoryType() const { DARABONBA_PTR_GET_DEFAULT(directoryType_, "") };
+    inline string getDirectoryType() const { DARABONBA_PTR_GET_DEFAULT(directoryType_, "") };
     inline DescribeDirectoriesRequest& setDirectoryType(string directoryType) { DARABONBA_PTR_SET_VALUE(directoryType_, directoryType) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeDirectoriesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeDirectoriesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDirectoriesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeDirectoriesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // Details of directory IDs. You can specify one or more directory IDs.
-    std::shared_ptr<vector<string>> directoryId_ = nullptr;
+    shared_ptr<vector<string>> directoryId_ {};
     // The directory status. This parameter is equivalent to `Status`.
-    std::shared_ptr<string> directoryStatus_ = nullptr;
+    shared_ptr<string> directoryStatus_ {};
     // The directory type.
     // 
     // Valid value:
     // 
     // *   SIMPLE: the convenience directory.
     // *   AD_CONNECTOR: the Active Directory (AD) directory.
-    std::shared_ptr<string> directoryType_ = nullptr;
+    shared_ptr<string> directoryType_ {};
     // The number of entries to return on each page.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The token that determines the start point of the next query. If this parameter is empty, all results are returned.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The directory status.
     // 
     // Valid values:
@@ -195,7 +195,7 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

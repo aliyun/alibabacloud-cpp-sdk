@@ -42,19 +42,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DescribeCdsFileShareLinksResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<CdsFileShareLinkModel> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<CdsFileShareLinkModel>) };
-    inline vector<CdsFileShareLinkModel> data() { DARABONBA_PTR_GET(data_, vector<CdsFileShareLinkModel>) };
+    inline const vector<CdsFileShareLinkModel> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<CdsFileShareLinkModel>) };
+    inline vector<CdsFileShareLinkModel> getData() { DARABONBA_PTR_GET(data_, vector<CdsFileShareLinkModel>) };
     inline DescribeCdsFileShareLinksResponseBody& setData(const vector<CdsFileShareLinkModel> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline DescribeCdsFileShareLinksResponseBody& setData(vector<CdsFileShareLinkModel> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -62,44 +62,44 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeCdsFileShareLinksResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeCdsFileShareLinksResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCdsFileShareLinksResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeCdsFileShareLinksResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The operation result. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The data information.
-    std::shared_ptr<vector<CdsFileShareLinkModel>> data_ = nullptr;
+    shared_ptr<vector<CdsFileShareLinkModel>> data_ {};
     // The error message that is returned. This parameter is not returned if the value of Code is `success`.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

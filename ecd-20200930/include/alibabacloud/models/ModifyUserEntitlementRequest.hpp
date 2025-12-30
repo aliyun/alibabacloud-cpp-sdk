@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizeDesktopId_ == nullptr
-        && return this->endUserId_ == nullptr && return this->regionId_ == nullptr && return this->revokeDesktopId_ == nullptr; };
+        && this->endUserId_ == nullptr && this->regionId_ == nullptr && this->revokeDesktopId_ == nullptr; };
     // authorizeDesktopId Field Functions 
     bool hasAuthorizeDesktopId() const { return this->authorizeDesktopId_ != nullptr;};
     void deleteAuthorizeDesktopId() { this->authorizeDesktopId_ = nullptr;};
-    inline const vector<string> & authorizeDesktopId() const { DARABONBA_PTR_GET_CONST(authorizeDesktopId_, vector<string>) };
-    inline vector<string> authorizeDesktopId() { DARABONBA_PTR_GET(authorizeDesktopId_, vector<string>) };
+    inline const vector<string> & getAuthorizeDesktopId() const { DARABONBA_PTR_GET_CONST(authorizeDesktopId_, vector<string>) };
+    inline vector<string> getAuthorizeDesktopId() { DARABONBA_PTR_GET(authorizeDesktopId_, vector<string>) };
     inline ModifyUserEntitlementRequest& setAuthorizeDesktopId(const vector<string> & authorizeDesktopId) { DARABONBA_PTR_SET_VALUE(authorizeDesktopId_, authorizeDesktopId) };
     inline ModifyUserEntitlementRequest& setAuthorizeDesktopId(vector<string> && authorizeDesktopId) { DARABONBA_PTR_SET_RVALUE(authorizeDesktopId_, authorizeDesktopId) };
 
@@ -50,8 +50,8 @@ namespace Models
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline const vector<string> & endUserId() const { DARABONBA_PTR_GET_CONST(endUserId_, vector<string>) };
-    inline vector<string> endUserId() { DARABONBA_PTR_GET(endUserId_, vector<string>) };
+    inline const vector<string> & getEndUserId() const { DARABONBA_PTR_GET_CONST(endUserId_, vector<string>) };
+    inline vector<string> getEndUserId() { DARABONBA_PTR_GET(endUserId_, vector<string>) };
     inline ModifyUserEntitlementRequest& setEndUserId(const vector<string> & endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
     inline ModifyUserEntitlementRequest& setEndUserId(vector<string> && endUserId) { DARABONBA_PTR_SET_RVALUE(endUserId_, endUserId) };
 
@@ -59,30 +59,30 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyUserEntitlementRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // revokeDesktopId Field Functions 
     bool hasRevokeDesktopId() const { return this->revokeDesktopId_ != nullptr;};
     void deleteRevokeDesktopId() { this->revokeDesktopId_ = nullptr;};
-    inline const vector<string> & revokeDesktopId() const { DARABONBA_PTR_GET_CONST(revokeDesktopId_, vector<string>) };
-    inline vector<string> revokeDesktopId() { DARABONBA_PTR_GET(revokeDesktopId_, vector<string>) };
+    inline const vector<string> & getRevokeDesktopId() const { DARABONBA_PTR_GET_CONST(revokeDesktopId_, vector<string>) };
+    inline vector<string> getRevokeDesktopId() { DARABONBA_PTR_GET(revokeDesktopId_, vector<string>) };
     inline ModifyUserEntitlementRequest& setRevokeDesktopId(const vector<string> & revokeDesktopId) { DARABONBA_PTR_SET_VALUE(revokeDesktopId_, revokeDesktopId) };
     inline ModifyUserEntitlementRequest& setRevokeDesktopId(vector<string> && revokeDesktopId) { DARABONBA_PTR_SET_RVALUE(revokeDesktopId_, revokeDesktopId) };
 
 
   protected:
     // The IDs of the cloud computers to which you want to add end users.
-    std::shared_ptr<vector<string>> authorizeDesktopId_ = nullptr;
+    shared_ptr<vector<string>> authorizeDesktopId_ {};
     // The ID of the users.
-    std::shared_ptr<vector<string>> endUserId_ = nullptr;
+    shared_ptr<vector<string>> endUserId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of the cloud computers whose end users you want to remove.
-    std::shared_ptr<vector<string>> revokeDesktopId_ = nullptr;
+    shared_ptr<vector<string>> revokeDesktopId_ {};
   };
 
   } // namespace Models

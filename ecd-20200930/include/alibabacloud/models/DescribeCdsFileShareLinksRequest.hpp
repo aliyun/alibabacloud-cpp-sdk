@@ -43,20 +43,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cdsId_ == nullptr
-        && return this->creators_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->shareId_ == nullptr && return this->shareName_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->creators_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->shareId_ == nullptr && this->shareName_ == nullptr
+        && this->status_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};
-    inline string cdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
+    inline string getCdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
     inline DescribeCdsFileShareLinksRequest& setCdsId(string cdsId) { DARABONBA_PTR_SET_VALUE(cdsId_, cdsId) };
 
 
     // creators Field Functions 
     bool hasCreators() const { return this->creators_ != nullptr;};
     void deleteCreators() { this->creators_ = nullptr;};
-    inline const vector<string> & creators() const { DARABONBA_PTR_GET_CONST(creators_, vector<string>) };
-    inline vector<string> creators() { DARABONBA_PTR_GET(creators_, vector<string>) };
+    inline const vector<string> & getCreators() const { DARABONBA_PTR_GET_CONST(creators_, vector<string>) };
+    inline vector<string> getCreators() { DARABONBA_PTR_GET(creators_, vector<string>) };
     inline DescribeCdsFileShareLinksRequest& setCreators(const vector<string> & creators) { DARABONBA_PTR_SET_VALUE(creators_, creators) };
     inline DescribeCdsFileShareLinksRequest& setCreators(vector<string> && creators) { DARABONBA_PTR_SET_RVALUE(creators_, creators) };
 
@@ -64,35 +64,35 @@ namespace Models
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeCdsFileShareLinksRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeCdsFileShareLinksRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // shareId Field Functions 
     bool hasShareId() const { return this->shareId_ != nullptr;};
     void deleteShareId() { this->shareId_ = nullptr;};
-    inline string shareId() const { DARABONBA_PTR_GET_DEFAULT(shareId_, "") };
+    inline string getShareId() const { DARABONBA_PTR_GET_DEFAULT(shareId_, "") };
     inline DescribeCdsFileShareLinksRequest& setShareId(string shareId) { DARABONBA_PTR_SET_VALUE(shareId_, shareId) };
 
 
     // shareName Field Functions 
     bool hasShareName() const { return this->shareName_ != nullptr;};
     void deleteShareName() { this->shareName_ = nullptr;};
-    inline string shareName() const { DARABONBA_PTR_GET_DEFAULT(shareName_, "") };
+    inline string getShareName() const { DARABONBA_PTR_GET_DEFAULT(shareName_, "") };
     inline DescribeCdsFileShareLinksRequest& setShareName(string shareName) { DARABONBA_PTR_SET_VALUE(shareName_, shareName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeCdsFileShareLinksRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -100,19 +100,19 @@ namespace Models
     // The ID of the cloud disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cdsId_ = nullptr;
+    shared_ptr<string> cdsId_ {};
     // The users that create the file sharing links.
-    std::shared_ptr<vector<string>> creators_ = nullptr;
+    shared_ptr<vector<string>> creators_ {};
     // The maximum number of resources to return. Valid values: 1 to 100. Default value: 100. The number of returned resources must be less than or equal to the specified number.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // Specifies the marker after which the returned list begins. If this parameter is not specified, all results are returned. Default value: null.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the file sharing link.
-    std::shared_ptr<string> shareId_ = nullptr;
+    shared_ptr<string> shareId_ {};
     // The sharing name for fuzzy search.
-    std::shared_ptr<string> shareName_ = nullptr;
+    shared_ptr<string> shareName_ {};
     // The file sharing status. Valid values: ● disabled: canceled ● enabled: valid
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

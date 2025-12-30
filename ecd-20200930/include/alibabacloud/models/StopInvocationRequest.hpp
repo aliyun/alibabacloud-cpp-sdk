@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->invokeId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->invokeId_ == nullptr && this->regionId_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline const vector<string> & desktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
-    inline vector<string> desktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
+    inline const vector<string> & getDesktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
+    inline vector<string> getDesktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
     inline StopInvocationRequest& setDesktopId(const vector<string> & desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
     inline StopInvocationRequest& setDesktopId(vector<string> && desktopId) { DARABONBA_PTR_SET_RVALUE(desktopId_, desktopId) };
 
@@ -48,28 +48,28 @@ namespace Models
     // invokeId Field Functions 
     bool hasInvokeId() const { return this->invokeId_ != nullptr;};
     void deleteInvokeId() { this->invokeId_ = nullptr;};
-    inline string invokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
+    inline string getInvokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
     inline StopInvocationRequest& setInvokeId(string invokeId) { DARABONBA_PTR_SET_VALUE(invokeId_, invokeId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline StopInvocationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The ID of cloud desktop N. Valid values of N: 1 to 50.
-    std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    shared_ptr<vector<string>> desktopId_ {};
     // The ID of the execution.
     // 
     // This parameter is required.
-    std::shared_ptr<string> invokeId_ = nullptr;
+    shared_ptr<string> invokeId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopGroupId_ == nullptr
-        && return this->desktopGroupIds_ == nullptr && return this->orderIds_ == nullptr && return this->requestId_ == nullptr; };
+        && this->desktopGroupIds_ == nullptr && this->orderIds_ == nullptr && this->requestId_ == nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline CreateDesktopGroupResponseBody& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // desktopGroupIds Field Functions 
     bool hasDesktopGroupIds() const { return this->desktopGroupIds_ != nullptr;};
     void deleteDesktopGroupIds() { this->desktopGroupIds_ = nullptr;};
-    inline const vector<string> & desktopGroupIds() const { DARABONBA_PTR_GET_CONST(desktopGroupIds_, vector<string>) };
-    inline vector<string> desktopGroupIds() { DARABONBA_PTR_GET(desktopGroupIds_, vector<string>) };
+    inline const vector<string> & getDesktopGroupIds() const { DARABONBA_PTR_GET_CONST(desktopGroupIds_, vector<string>) };
+    inline vector<string> getDesktopGroupIds() { DARABONBA_PTR_GET(desktopGroupIds_, vector<string>) };
     inline CreateDesktopGroupResponseBody& setDesktopGroupIds(const vector<string> & desktopGroupIds) { DARABONBA_PTR_SET_VALUE(desktopGroupIds_, desktopGroupIds) };
     inline CreateDesktopGroupResponseBody& setDesktopGroupIds(vector<string> && desktopGroupIds) { DARABONBA_PTR_SET_RVALUE(desktopGroupIds_, desktopGroupIds) };
 
@@ -57,8 +57,8 @@ namespace Models
     // orderIds Field Functions 
     bool hasOrderIds() const { return this->orderIds_ != nullptr;};
     void deleteOrderIds() { this->orderIds_ = nullptr;};
-    inline const vector<string> & orderIds() const { DARABONBA_PTR_GET_CONST(orderIds_, vector<string>) };
-    inline vector<string> orderIds() { DARABONBA_PTR_GET(orderIds_, vector<string>) };
+    inline const vector<string> & getOrderIds() const { DARABONBA_PTR_GET_CONST(orderIds_, vector<string>) };
+    inline vector<string> getOrderIds() { DARABONBA_PTR_GET(orderIds_, vector<string>) };
     inline CreateDesktopGroupResponseBody& setOrderIds(const vector<string> & orderIds) { DARABONBA_PTR_SET_VALUE(orderIds_, orderIds) };
     inline CreateDesktopGroupResponseBody& setOrderIds(vector<string> && orderIds) { DARABONBA_PTR_SET_RVALUE(orderIds_, orderIds) };
 
@@ -66,19 +66,19 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDesktopGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the shared group.
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
+    shared_ptr<string> desktopGroupId_ {};
     // The IDs of the shared groups.
-    std::shared_ptr<vector<string>> desktopGroupIds_ = nullptr;
+    shared_ptr<vector<string>> desktopGroupIds_ {};
     // The IDs of the orders.
-    std::shared_ptr<vector<string>> orderIds_ = nullptr;
+    shared_ptr<vector<string>> orderIds_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

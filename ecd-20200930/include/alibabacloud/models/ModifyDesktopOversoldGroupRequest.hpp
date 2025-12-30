@@ -50,97 +50,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->concurrenceCount_ == nullptr
-        && return this->description_ == nullptr && return this->idleDisconnectDuration_ == nullptr && return this->imageId_ == nullptr && return this->keepDuration_ == nullptr && return this->name_ == nullptr
-        && return this->oversoldGroupId_ == nullptr && return this->oversoldUserCount_ == nullptr && return this->oversoldWarn_ == nullptr && return this->policyGroupId_ == nullptr && return this->stopDuration_ == nullptr; };
+        && this->description_ == nullptr && this->idleDisconnectDuration_ == nullptr && this->imageId_ == nullptr && this->keepDuration_ == nullptr && this->name_ == nullptr
+        && this->oversoldGroupId_ == nullptr && this->oversoldUserCount_ == nullptr && this->oversoldWarn_ == nullptr && this->policyGroupId_ == nullptr && this->stopDuration_ == nullptr; };
     // concurrenceCount Field Functions 
     bool hasConcurrenceCount() const { return this->concurrenceCount_ != nullptr;};
     void deleteConcurrenceCount() { this->concurrenceCount_ = nullptr;};
-    inline int32_t concurrenceCount() const { DARABONBA_PTR_GET_DEFAULT(concurrenceCount_, 0) };
+    inline int32_t getConcurrenceCount() const { DARABONBA_PTR_GET_DEFAULT(concurrenceCount_, 0) };
     inline ModifyDesktopOversoldGroupRequest& setConcurrenceCount(int32_t concurrenceCount) { DARABONBA_PTR_SET_VALUE(concurrenceCount_, concurrenceCount) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyDesktopOversoldGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // idleDisconnectDuration Field Functions 
     bool hasIdleDisconnectDuration() const { return this->idleDisconnectDuration_ != nullptr;};
     void deleteIdleDisconnectDuration() { this->idleDisconnectDuration_ = nullptr;};
-    inline int64_t idleDisconnectDuration() const { DARABONBA_PTR_GET_DEFAULT(idleDisconnectDuration_, 0L) };
+    inline int64_t getIdleDisconnectDuration() const { DARABONBA_PTR_GET_DEFAULT(idleDisconnectDuration_, 0L) };
     inline ModifyDesktopOversoldGroupRequest& setIdleDisconnectDuration(int64_t idleDisconnectDuration) { DARABONBA_PTR_SET_VALUE(idleDisconnectDuration_, idleDisconnectDuration) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ModifyDesktopOversoldGroupRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // keepDuration Field Functions 
     bool hasKeepDuration() const { return this->keepDuration_ != nullptr;};
     void deleteKeepDuration() { this->keepDuration_ = nullptr;};
-    inline int32_t keepDuration() const { DARABONBA_PTR_GET_DEFAULT(keepDuration_, 0) };
+    inline int32_t getKeepDuration() const { DARABONBA_PTR_GET_DEFAULT(keepDuration_, 0) };
     inline ModifyDesktopOversoldGroupRequest& setKeepDuration(int32_t keepDuration) { DARABONBA_PTR_SET_VALUE(keepDuration_, keepDuration) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyDesktopOversoldGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // oversoldGroupId Field Functions 
     bool hasOversoldGroupId() const { return this->oversoldGroupId_ != nullptr;};
     void deleteOversoldGroupId() { this->oversoldGroupId_ = nullptr;};
-    inline string oversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
+    inline string getOversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
     inline ModifyDesktopOversoldGroupRequest& setOversoldGroupId(string oversoldGroupId) { DARABONBA_PTR_SET_VALUE(oversoldGroupId_, oversoldGroupId) };
 
 
     // oversoldUserCount Field Functions 
     bool hasOversoldUserCount() const { return this->oversoldUserCount_ != nullptr;};
     void deleteOversoldUserCount() { this->oversoldUserCount_ = nullptr;};
-    inline int32_t oversoldUserCount() const { DARABONBA_PTR_GET_DEFAULT(oversoldUserCount_, 0) };
+    inline int32_t getOversoldUserCount() const { DARABONBA_PTR_GET_DEFAULT(oversoldUserCount_, 0) };
     inline ModifyDesktopOversoldGroupRequest& setOversoldUserCount(int32_t oversoldUserCount) { DARABONBA_PTR_SET_VALUE(oversoldUserCount_, oversoldUserCount) };
 
 
     // oversoldWarn Field Functions 
     bool hasOversoldWarn() const { return this->oversoldWarn_ != nullptr;};
     void deleteOversoldWarn() { this->oversoldWarn_ = nullptr;};
-    inline int32_t oversoldWarn() const { DARABONBA_PTR_GET_DEFAULT(oversoldWarn_, 0) };
+    inline int32_t getOversoldWarn() const { DARABONBA_PTR_GET_DEFAULT(oversoldWarn_, 0) };
     inline ModifyDesktopOversoldGroupRequest& setOversoldWarn(int32_t oversoldWarn) { DARABONBA_PTR_SET_VALUE(oversoldWarn_, oversoldWarn) };
 
 
     // policyGroupId Field Functions 
     bool hasPolicyGroupId() const { return this->policyGroupId_ != nullptr;};
     void deletePolicyGroupId() { this->policyGroupId_ = nullptr;};
-    inline string policyGroupId() const { DARABONBA_PTR_GET_DEFAULT(policyGroupId_, "") };
+    inline string getPolicyGroupId() const { DARABONBA_PTR_GET_DEFAULT(policyGroupId_, "") };
     inline ModifyDesktopOversoldGroupRequest& setPolicyGroupId(string policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
 
 
     // stopDuration Field Functions 
     bool hasStopDuration() const { return this->stopDuration_ != nullptr;};
     void deleteStopDuration() { this->stopDuration_ = nullptr;};
-    inline int32_t stopDuration() const { DARABONBA_PTR_GET_DEFAULT(stopDuration_, 0) };
+    inline int32_t getStopDuration() const { DARABONBA_PTR_GET_DEFAULT(stopDuration_, 0) };
     inline ModifyDesktopOversoldGroupRequest& setStopDuration(int32_t stopDuration) { DARABONBA_PTR_SET_VALUE(stopDuration_, stopDuration) };
 
 
   protected:
-    std::shared_ptr<int32_t> concurrenceCount_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<int64_t> idleDisconnectDuration_ = nullptr;
-    std::shared_ptr<string> imageId_ = nullptr;
-    std::shared_ptr<int32_t> keepDuration_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> oversoldGroupId_ = nullptr;
-    std::shared_ptr<int32_t> oversoldUserCount_ = nullptr;
-    std::shared_ptr<int32_t> oversoldWarn_ = nullptr;
-    std::shared_ptr<string> policyGroupId_ = nullptr;
-    std::shared_ptr<int32_t> stopDuration_ = nullptr;
+    shared_ptr<int32_t> concurrenceCount_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<int64_t> idleDisconnectDuration_ {};
+    shared_ptr<string> imageId_ {};
+    shared_ptr<int32_t> keepDuration_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> oversoldGroupId_ {};
+    shared_ptr<int32_t> oversoldUserCount_ {};
+    shared_ptr<int32_t> oversoldWarn_ {};
+    shared_ptr<string> policyGroupId_ {};
+    shared_ptr<int32_t> stopDuration_ {};
   };
 
   } // namespace Models

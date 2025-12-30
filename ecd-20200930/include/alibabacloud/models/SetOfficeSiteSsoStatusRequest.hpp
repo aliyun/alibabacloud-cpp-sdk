@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableSso_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->officeSiteId_ == nullptr && this->regionId_ == nullptr; };
     // enableSso Field Functions 
     bool hasEnableSso() const { return this->enableSso_ != nullptr;};
     void deleteEnableSso() { this->enableSso_ = nullptr;};
-    inline bool enableSso() const { DARABONBA_PTR_GET_DEFAULT(enableSso_, false) };
+    inline bool getEnableSso() const { DARABONBA_PTR_GET_DEFAULT(enableSso_, false) };
     inline SetOfficeSiteSsoStatusRequest& setEnableSso(bool enableSso) { DARABONBA_PTR_SET_VALUE(enableSso_, enableSso) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline SetOfficeSiteSsoStatusRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetOfficeSiteSsoStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -78,15 +78,15 @@ namespace Models
     //     <!-- -->
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enableSso_ = nullptr;
+    shared_ptr<bool> enableSso_ {};
     // The workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> officeSiteId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

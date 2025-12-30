@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->refundType_ == nullptr && return this->regionId_ == nullptr && return this->resellerOwnerUid_ == nullptr; };
+        && this->refundType_ == nullptr && this->regionId_ == nullptr && this->resellerOwnerUid_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline const vector<string> & desktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
-    inline vector<string> desktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
+    inline const vector<string> & getDesktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
+    inline vector<string> getDesktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
     inline DescribeRefundPriceRequest& setDesktopId(const vector<string> & desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
     inline DescribeRefundPriceRequest& setDesktopId(vector<string> && desktopId) { DARABONBA_PTR_SET_RVALUE(desktopId_, desktopId) };
 
@@ -50,21 +50,21 @@ namespace Models
     // refundType Field Functions 
     bool hasRefundType() const { return this->refundType_ != nullptr;};
     void deleteRefundType() { this->refundType_ = nullptr;};
-    inline string refundType() const { DARABONBA_PTR_GET_DEFAULT(refundType_, "") };
+    inline string getRefundType() const { DARABONBA_PTR_GET_DEFAULT(refundType_, "") };
     inline DescribeRefundPriceRequest& setRefundType(string refundType) { DARABONBA_PTR_SET_VALUE(refundType_, refundType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeRefundPriceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resellerOwnerUid Field Functions 
     bool hasResellerOwnerUid() const { return this->resellerOwnerUid_ != nullptr;};
     void deleteResellerOwnerUid() { this->resellerOwnerUid_ = nullptr;};
-    inline int64_t resellerOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(resellerOwnerUid_, 0L) };
+    inline int64_t getResellerOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(resellerOwnerUid_, 0L) };
     inline DescribeRefundPriceRequest& setResellerOwnerUid(int64_t resellerOwnerUid) { DARABONBA_PTR_SET_VALUE(resellerOwnerUid_, resellerOwnerUid) };
 
 
@@ -72,19 +72,19 @@ namespace Models
     // ID of cloud computer N. Valid values of N: 1 to 20.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    shared_ptr<vector<string>> desktopId_ {};
     // The unsubscription type.
     // 
     // Valid values:
     // 
     // *   RemainRefund: refunds the remaining balance and releases resources.
     // *   RenewRefund: refunds only the renewal fee and adjusts the expiration date accordingly.
-    std::shared_ptr<string> refundType_ = nullptr;
+    shared_ptr<string> refundType_ {};
     // The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> resellerOwnerUid_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 
   } // namespace Models

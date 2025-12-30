@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cdsId_ == nullptr
-        && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->parentOrgId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->groupId_ == nullptr && this->groupName_ == nullptr && this->parentOrgId_ == nullptr && this->regionId_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};
-    inline string cdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
+    inline string getCdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
     inline DescribeCloudDiskGroupsRequest& setCdsId(string cdsId) { DARABONBA_PTR_SET_VALUE(cdsId_, cdsId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline const vector<string> & groupId() const { DARABONBA_PTR_GET_CONST(groupId_, vector<string>) };
-    inline vector<string> groupId() { DARABONBA_PTR_GET(groupId_, vector<string>) };
+    inline const vector<string> & getGroupId() const { DARABONBA_PTR_GET_CONST(groupId_, vector<string>) };
+    inline vector<string> getGroupId() { DARABONBA_PTR_GET(groupId_, vector<string>) };
     inline DescribeCloudDiskGroupsRequest& setGroupId(const vector<string> & groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
     inline DescribeCloudDiskGroupsRequest& setGroupId(vector<string> && groupId) { DARABONBA_PTR_SET_RVALUE(groupId_, groupId) };
 
@@ -59,32 +59,32 @@ namespace Models
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline DescribeCloudDiskGroupsRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // parentOrgId Field Functions 
     bool hasParentOrgId() const { return this->parentOrgId_ != nullptr;};
     void deleteParentOrgId() { this->parentOrgId_ = nullptr;};
-    inline string parentOrgId() const { DARABONBA_PTR_GET_DEFAULT(parentOrgId_, "") };
+    inline string getParentOrgId() const { DARABONBA_PTR_GET_DEFAULT(parentOrgId_, "") };
     inline DescribeCloudDiskGroupsRequest& setParentOrgId(string parentOrgId) { DARABONBA_PTR_SET_VALUE(parentOrgId_, parentOrgId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeCloudDiskGroupsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cdsId_ = nullptr;
-    std::shared_ptr<vector<string>> groupId_ = nullptr;
-    std::shared_ptr<string> groupName_ = nullptr;
-    std::shared_ptr<string> parentOrgId_ = nullptr;
+    shared_ptr<string> cdsId_ {};
+    shared_ptr<vector<string>> groupId_ {};
+    shared_ptr<string> groupName_ {};
+    shared_ptr<string> parentOrgId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

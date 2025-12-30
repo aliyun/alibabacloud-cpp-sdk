@@ -47,48 +47,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->academicProxy_ == nullptr
-        && return this->businessType_ == nullptr && return this->modelLibrary_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->policyGroupId_ == nullptr
-        && return this->portProxy_ == nullptr && return this->resourceType_ == nullptr && return this->scope_ == nullptr; };
+        && this->businessType_ == nullptr && this->modelLibrary_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->policyGroupId_ == nullptr
+        && this->portProxy_ == nullptr && this->resourceType_ == nullptr && this->scope_ == nullptr; };
     // academicProxy Field Functions 
     bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
     void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
-    inline string academicProxy() const { DARABONBA_PTR_GET_DEFAULT(academicProxy_, "") };
+    inline string getAcademicProxy() const { DARABONBA_PTR_GET_DEFAULT(academicProxy_, "") };
     inline DescribeCenterPolicyListRequest& setAcademicProxy(string academicProxy) { DARABONBA_PTR_SET_VALUE(academicProxy_, academicProxy) };
 
 
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
-    inline int32_t businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, 0) };
+    inline int32_t getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, 0) };
     inline DescribeCenterPolicyListRequest& setBusinessType(int32_t businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
 
 
     // modelLibrary Field Functions 
     bool hasModelLibrary() const { return this->modelLibrary_ != nullptr;};
     void deleteModelLibrary() { this->modelLibrary_ = nullptr;};
-    inline string modelLibrary() const { DARABONBA_PTR_GET_DEFAULT(modelLibrary_, "") };
+    inline string getModelLibrary() const { DARABONBA_PTR_GET_DEFAULT(modelLibrary_, "") };
     inline DescribeCenterPolicyListRequest& setModelLibrary(string modelLibrary) { DARABONBA_PTR_SET_VALUE(modelLibrary_, modelLibrary) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeCenterPolicyListRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeCenterPolicyListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // policyGroupId Field Functions 
     bool hasPolicyGroupId() const { return this->policyGroupId_ != nullptr;};
     void deletePolicyGroupId() { this->policyGroupId_ = nullptr;};
-    inline const vector<string> & policyGroupId() const { DARABONBA_PTR_GET_CONST(policyGroupId_, vector<string>) };
-    inline vector<string> policyGroupId() { DARABONBA_PTR_GET(policyGroupId_, vector<string>) };
+    inline const vector<string> & getPolicyGroupId() const { DARABONBA_PTR_GET_CONST(policyGroupId_, vector<string>) };
+    inline vector<string> getPolicyGroupId() { DARABONBA_PTR_GET(policyGroupId_, vector<string>) };
     inline DescribeCenterPolicyListRequest& setPolicyGroupId(const vector<string> & policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
     inline DescribeCenterPolicyListRequest& setPolicyGroupId(vector<string> && policyGroupId) { DARABONBA_PTR_SET_RVALUE(policyGroupId_, policyGroupId) };
 
@@ -96,26 +96,26 @@ namespace Models
     // portProxy Field Functions 
     bool hasPortProxy() const { return this->portProxy_ != nullptr;};
     void deletePortProxy() { this->portProxy_ = nullptr;};
-    inline string portProxy() const { DARABONBA_PTR_GET_DEFAULT(portProxy_, "") };
+    inline string getPortProxy() const { DARABONBA_PTR_GET_DEFAULT(portProxy_, "") };
     inline DescribeCenterPolicyListRequest& setPortProxy(string portProxy) { DARABONBA_PTR_SET_VALUE(portProxy_, portProxy) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline DescribeCenterPolicyListRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline DescribeCenterPolicyListRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
   protected:
-    std::shared_ptr<string> academicProxy_ = nullptr;
+    shared_ptr<string> academicProxy_ {};
     // The business type.
     // 
     // Valid values:
@@ -124,16 +124,16 @@ namespace Models
     // *   8: commercial edition.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> businessType_ = nullptr;
-    std::shared_ptr<string> modelLibrary_ = nullptr;
+    shared_ptr<int32_t> businessType_ {};
+    shared_ptr<string> modelLibrary_ {};
     // The page number.\\
     // Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The IDs of the cloud computer policies.
-    std::shared_ptr<vector<string>> policyGroupId_ = nullptr;
-    std::shared_ptr<string> portProxy_ = nullptr;
+    shared_ptr<vector<string>> policyGroupId_ {};
+    shared_ptr<string> portProxy_ {};
     // The resource type.
     // 
     // Valid values:
@@ -142,14 +142,14 @@ namespace Models
     // *   desktop: cloud computers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // The effective scope of the cloud computer policy.
     // 
     // Valid values:
     // 
     // *   IP: The policy applies to specific IP addresses.
     // *   GLOBAL: The policy applies globally.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
   };
 
   } // namespace Models

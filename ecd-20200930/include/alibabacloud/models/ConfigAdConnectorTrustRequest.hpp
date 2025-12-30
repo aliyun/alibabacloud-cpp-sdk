@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->officeSiteId_ == nullptr
-        && return this->rdsLicenseDomain_ == nullptr && return this->regionId_ == nullptr && return this->trustKey_ == nullptr; };
+        && this->rdsLicenseDomain_ == nullptr && this->regionId_ == nullptr && this->trustKey_ == nullptr; };
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline ConfigADConnectorTrustRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // rdsLicenseDomain Field Functions 
     bool hasRdsLicenseDomain() const { return this->rdsLicenseDomain_ != nullptr;};
     void deleteRdsLicenseDomain() { this->rdsLicenseDomain_ = nullptr;};
-    inline bool rdsLicenseDomain() const { DARABONBA_PTR_GET_DEFAULT(rdsLicenseDomain_, false) };
+    inline bool getRdsLicenseDomain() const { DARABONBA_PTR_GET_DEFAULT(rdsLicenseDomain_, false) };
     inline ConfigADConnectorTrustRequest& setRdsLicenseDomain(bool rdsLicenseDomain) { DARABONBA_PTR_SET_VALUE(rdsLicenseDomain_, rdsLicenseDomain) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ConfigADConnectorTrustRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // trustKey Field Functions 
     bool hasTrustKey() const { return this->trustKey_ != nullptr;};
     void deleteTrustKey() { this->trustKey_ = nullptr;};
-    inline string trustKey() const { DARABONBA_PTR_GET_DEFAULT(trustKey_, "") };
+    inline string getTrustKey() const { DARABONBA_PTR_GET_DEFAULT(trustKey_, "") };
     inline ConfigADConnectorTrustRequest& setTrustKey(string trustKey) { DARABONBA_PTR_SET_VALUE(trustKey_, trustKey) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The ID of the enterprise AD office network.
     // 
     // This parameter is required.
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> officeSiteId_ {};
     // Specifies whether to configure a trust password for the Remote Desktop Services (RDS) License Domain of the enterprise AD office network.
     // 
     // Valid values:
@@ -77,15 +77,15 @@ namespace Models
     // *   true: configures a trust password for the RDS License Domain of the AD office network.
     // 
     // *   false: configures a trust password for a regular enterprise AD office network.
-    std::shared_ptr<bool> rdsLicenseDomain_ = nullptr;
+    shared_ptr<bool> rdsLicenseDomain_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The trust password. You can specify the password when you configure a trust relationship between the AD domain and the ecd.acs domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> trustKey_ = nullptr;
+    shared_ptr<string> trustKey_ {};
   };
 
   } // namespace Models

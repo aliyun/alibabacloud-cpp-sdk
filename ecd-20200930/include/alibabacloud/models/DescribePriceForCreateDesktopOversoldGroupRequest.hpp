@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->concurrenceCount_ == nullptr
-        && return this->dataDiskSize_ == nullptr && return this->desktopType_ == nullptr && return this->oversoldUserCount_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
-        && return this->systemDiskSize_ == nullptr; };
+        && this->dataDiskSize_ == nullptr && this->desktopType_ == nullptr && this->oversoldUserCount_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
+        && this->systemDiskSize_ == nullptr; };
     // concurrenceCount Field Functions 
     bool hasConcurrenceCount() const { return this->concurrenceCount_ != nullptr;};
     void deleteConcurrenceCount() { this->concurrenceCount_ = nullptr;};
-    inline int32_t concurrenceCount() const { DARABONBA_PTR_GET_DEFAULT(concurrenceCount_, 0) };
+    inline int32_t getConcurrenceCount() const { DARABONBA_PTR_GET_DEFAULT(concurrenceCount_, 0) };
     inline DescribePriceForCreateDesktopOversoldGroupRequest& setConcurrenceCount(int32_t concurrenceCount) { DARABONBA_PTR_SET_VALUE(concurrenceCount_, concurrenceCount) };
 
 
     // dataDiskSize Field Functions 
     bool hasDataDiskSize() const { return this->dataDiskSize_ != nullptr;};
     void deleteDataDiskSize() { this->dataDiskSize_ = nullptr;};
-    inline int32_t dataDiskSize() const { DARABONBA_PTR_GET_DEFAULT(dataDiskSize_, 0) };
+    inline int32_t getDataDiskSize() const { DARABONBA_PTR_GET_DEFAULT(dataDiskSize_, 0) };
     inline DescribePriceForCreateDesktopOversoldGroupRequest& setDataDiskSize(int32_t dataDiskSize) { DARABONBA_PTR_SET_VALUE(dataDiskSize_, dataDiskSize) };
 
 
     // desktopType Field Functions 
     bool hasDesktopType() const { return this->desktopType_ != nullptr;};
     void deleteDesktopType() { this->desktopType_ = nullptr;};
-    inline string desktopType() const { DARABONBA_PTR_GET_DEFAULT(desktopType_, "") };
+    inline string getDesktopType() const { DARABONBA_PTR_GET_DEFAULT(desktopType_, "") };
     inline DescribePriceForCreateDesktopOversoldGroupRequest& setDesktopType(string desktopType) { DARABONBA_PTR_SET_VALUE(desktopType_, desktopType) };
 
 
     // oversoldUserCount Field Functions 
     bool hasOversoldUserCount() const { return this->oversoldUserCount_ != nullptr;};
     void deleteOversoldUserCount() { this->oversoldUserCount_ = nullptr;};
-    inline int32_t oversoldUserCount() const { DARABONBA_PTR_GET_DEFAULT(oversoldUserCount_, 0) };
+    inline int32_t getOversoldUserCount() const { DARABONBA_PTR_GET_DEFAULT(oversoldUserCount_, 0) };
     inline DescribePriceForCreateDesktopOversoldGroupRequest& setOversoldUserCount(int32_t oversoldUserCount) { DARABONBA_PTR_SET_VALUE(oversoldUserCount_, oversoldUserCount) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline DescribePriceForCreateDesktopOversoldGroupRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // periodUnit Field Functions 
     bool hasPeriodUnit() const { return this->periodUnit_ != nullptr;};
     void deletePeriodUnit() { this->periodUnit_ = nullptr;};
-    inline string periodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
+    inline string getPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
     inline DescribePriceForCreateDesktopOversoldGroupRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
     // systemDiskSize Field Functions 
     bool hasSystemDiskSize() const { return this->systemDiskSize_ != nullptr;};
     void deleteSystemDiskSize() { this->systemDiskSize_ = nullptr;};
-    inline int32_t systemDiskSize() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSize_, 0) };
+    inline int32_t getSystemDiskSize() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSize_, 0) };
     inline DescribePriceForCreateDesktopOversoldGroupRequest& setSystemDiskSize(int32_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
 
 
   protected:
-    std::shared_ptr<int32_t> concurrenceCount_ = nullptr;
-    std::shared_ptr<int32_t> dataDiskSize_ = nullptr;
-    std::shared_ptr<string> desktopType_ = nullptr;
-    std::shared_ptr<int32_t> oversoldUserCount_ = nullptr;
-    std::shared_ptr<int32_t> period_ = nullptr;
-    std::shared_ptr<string> periodUnit_ = nullptr;
-    std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
+    shared_ptr<int32_t> concurrenceCount_ {};
+    shared_ptr<int32_t> dataDiskSize_ {};
+    shared_ptr<string> desktopType_ {};
+    shared_ptr<int32_t> oversoldUserCount_ {};
+    shared_ptr<int32_t> period_ {};
+    shared_ptr<string> periodUnit_ {};
+    shared_ptr<int32_t> systemDiskSize_ {};
   };
 
   } // namespace Models

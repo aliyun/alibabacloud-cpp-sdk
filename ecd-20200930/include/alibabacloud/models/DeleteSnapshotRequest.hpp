@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->snapshotId_ == nullptr; };
+        && this->snapshotId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteSnapshotRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // snapshotId Field Functions 
     bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
     void deleteSnapshotId() { this->snapshotId_ = nullptr;};
-    inline const vector<string> & snapshotId() const { DARABONBA_PTR_GET_CONST(snapshotId_, vector<string>) };
-    inline vector<string> snapshotId() { DARABONBA_PTR_GET(snapshotId_, vector<string>) };
+    inline const vector<string> & getSnapshotId() const { DARABONBA_PTR_GET_CONST(snapshotId_, vector<string>) };
+    inline vector<string> getSnapshotId() { DARABONBA_PTR_GET(snapshotId_, vector<string>) };
     inline DeleteSnapshotRequest& setSnapshotId(const vector<string> & snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
     inline DeleteSnapshotRequest& setSnapshotId(vector<string> && snapshotId) { DARABONBA_PTR_SET_RVALUE(snapshotId_, snapshotId) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The snapshot IDs. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> snapshotId_ = nullptr;
+    shared_ptr<vector<string>> snapshotId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->idpEntityId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // idpEntityId Field Functions 
     bool hasIdpEntityId() const { return this->idpEntityId_ != nullptr;};
     void deleteIdpEntityId() { this->idpEntityId_ = nullptr;};
-    inline string idpEntityId() const { DARABONBA_PTR_GET_DEFAULT(idpEntityId_, "") };
+    inline string getIdpEntityId() const { DARABONBA_PTR_GET_DEFAULT(idpEntityId_, "") };
     inline SetIdpMetadataResponseBody& setIdpEntityId(string idpEntityId) { DARABONBA_PTR_SET_VALUE(idpEntityId_, idpEntityId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SetIdpMetadataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The entity ID obtained after the IdP metadata file is parsed.
-    std::shared_ptr<string> idpEntityId_ = nullptr;
+    shared_ptr<string> idpEntityId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

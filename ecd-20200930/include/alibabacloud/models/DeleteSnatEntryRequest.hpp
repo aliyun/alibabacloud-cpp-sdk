@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->snatEntryId_ == nullptr && return this->snatTableId_ == nullptr; };
+        && this->snatEntryId_ == nullptr && this->snatTableId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteSnatEntryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // snatEntryId Field Functions 
     bool hasSnatEntryId() const { return this->snatEntryId_ != nullptr;};
     void deleteSnatEntryId() { this->snatEntryId_ = nullptr;};
-    inline string snatEntryId() const { DARABONBA_PTR_GET_DEFAULT(snatEntryId_, "") };
+    inline string getSnatEntryId() const { DARABONBA_PTR_GET_DEFAULT(snatEntryId_, "") };
     inline DeleteSnatEntryRequest& setSnatEntryId(string snatEntryId) { DARABONBA_PTR_SET_VALUE(snatEntryId_, snatEntryId) };
 
 
     // snatTableId Field Functions 
     bool hasSnatTableId() const { return this->snatTableId_ != nullptr;};
     void deleteSnatTableId() { this->snatTableId_ = nullptr;};
-    inline string snatTableId() const { DARABONBA_PTR_GET_DEFAULT(snatTableId_, "") };
+    inline string getSnatTableId() const { DARABONBA_PTR_GET_DEFAULT(snatTableId_, "") };
     inline DeleteSnatEntryRequest& setSnatTableId(string snatTableId) { DARABONBA_PTR_SET_VALUE(snatTableId_, snatTableId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> snatEntryId_ = nullptr;
+    shared_ptr<string> snatEntryId_ {};
     // This parameter is required.
-    std::shared_ptr<string> snatTableId_ = nullptr;
+    shared_ptr<string> snatTableId_ {};
   };
 
   } // namespace Models

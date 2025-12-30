@@ -35,34 +35,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->oversoldGroupIds_ == nullptr; };
+        && this->nextToken_ == nullptr && this->oversoldGroupIds_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeDesktopOversoldGroupRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeDesktopOversoldGroupRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // oversoldGroupIds Field Functions 
     bool hasOversoldGroupIds() const { return this->oversoldGroupIds_ != nullptr;};
     void deleteOversoldGroupIds() { this->oversoldGroupIds_ = nullptr;};
-    inline const vector<string> & oversoldGroupIds() const { DARABONBA_PTR_GET_CONST(oversoldGroupIds_, vector<string>) };
-    inline vector<string> oversoldGroupIds() { DARABONBA_PTR_GET(oversoldGroupIds_, vector<string>) };
+    inline const vector<string> & getOversoldGroupIds() const { DARABONBA_PTR_GET_CONST(oversoldGroupIds_, vector<string>) };
+    inline vector<string> getOversoldGroupIds() { DARABONBA_PTR_GET(oversoldGroupIds_, vector<string>) };
     inline DescribeDesktopOversoldGroupRequest& setOversoldGroupIds(const vector<string> & oversoldGroupIds) { DARABONBA_PTR_SET_VALUE(oversoldGroupIds_, oversoldGroupIds) };
     inline DescribeDesktopOversoldGroupRequest& setOversoldGroupIds(vector<string> && oversoldGroupIds) { DARABONBA_PTR_SET_RVALUE(oversoldGroupIds_, oversoldGroupIds) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<string>> oversoldGroupIds_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<string>> oversoldGroupIds_ {};
   };
 
   } // namespace Models

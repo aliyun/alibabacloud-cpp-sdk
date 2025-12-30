@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deleteCascadedBundle_ == nullptr
-        && return this->imageId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->imageId_ == nullptr && this->regionId_ == nullptr; };
     // deleteCascadedBundle Field Functions 
     bool hasDeleteCascadedBundle() const { return this->deleteCascadedBundle_ != nullptr;};
     void deleteDeleteCascadedBundle() { this->deleteCascadedBundle_ = nullptr;};
-    inline bool deleteCascadedBundle() const { DARABONBA_PTR_GET_DEFAULT(deleteCascadedBundle_, false) };
+    inline bool getDeleteCascadedBundle() const { DARABONBA_PTR_GET_DEFAULT(deleteCascadedBundle_, false) };
     inline DeleteImagesRequest& setDeleteCascadedBundle(bool deleteCascadedBundle) { DARABONBA_PTR_SET_VALUE(deleteCascadedBundle_, deleteCascadedBundle) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline const vector<string> & imageId() const { DARABONBA_PTR_GET_CONST(imageId_, vector<string>) };
-    inline vector<string> imageId() { DARABONBA_PTR_GET(imageId_, vector<string>) };
+    inline const vector<string> & getImageId() const { DARABONBA_PTR_GET_CONST(imageId_, vector<string>) };
+    inline vector<string> getImageId() { DARABONBA_PTR_GET(imageId_, vector<string>) };
     inline DeleteImagesRequest& setImageId(const vector<string> & imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
     inline DeleteImagesRequest& setImageId(vector<string> && imageId) { DARABONBA_PTR_SET_RVALUE(imageId_, imageId) };
 
@@ -55,21 +55,21 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteImagesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // Specifies whether to delete the associated template.
-    std::shared_ptr<bool> deleteCascadedBundle_ = nullptr;
+    shared_ptr<bool> deleteCascadedBundle_ {};
     // The image IDs. You can specify 1 to 100 image IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> imageId_ = nullptr;
+    shared_ptr<vector<string>> imageId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

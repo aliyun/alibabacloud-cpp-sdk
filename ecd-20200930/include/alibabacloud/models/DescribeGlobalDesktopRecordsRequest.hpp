@@ -59,14 +59,14 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->desktopName_ == nullptr && return this->desktopType_ == nullptr && return this->endTime_ == nullptr && return this->endUserId_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->orderBy_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->scope_ == nullptr && return this->sortType_ == nullptr && return this->startTime_ == nullptr && return this->subPayType_ == nullptr; };
+        && this->desktopName_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr && this->endUserId_ == nullptr && this->officeSiteId_ == nullptr
+        && this->orderBy_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->scope_ == nullptr && this->sortType_ == nullptr && this->startTime_ == nullptr && this->subPayType_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline const vector<string> & desktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
-    inline vector<string> desktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
+    inline const vector<string> & getDesktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
+    inline vector<string> getDesktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
     inline DescribeGlobalDesktopRecordsRequest& setDesktopId(const vector<string> & desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
     inline DescribeGlobalDesktopRecordsRequest& setDesktopId(vector<string> && desktopId) { DARABONBA_PTR_SET_RVALUE(desktopId_, desktopId) };
 
@@ -74,153 +74,153 @@ namespace Models
     // desktopName Field Functions 
     bool hasDesktopName() const { return this->desktopName_ != nullptr;};
     void deleteDesktopName() { this->desktopName_ = nullptr;};
-    inline string desktopName() const { DARABONBA_PTR_GET_DEFAULT(desktopName_, "") };
+    inline string getDesktopName() const { DARABONBA_PTR_GET_DEFAULT(desktopName_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setDesktopName(string desktopName) { DARABONBA_PTR_SET_VALUE(desktopName_, desktopName) };
 
 
     // desktopType Field Functions 
     bool hasDesktopType() const { return this->desktopType_ != nullptr;};
     void deleteDesktopType() { this->desktopType_ = nullptr;};
-    inline string desktopType() const { DARABONBA_PTR_GET_DEFAULT(desktopType_, "") };
+    inline string getDesktopType() const { DARABONBA_PTR_GET_DEFAULT(desktopType_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setDesktopType(string desktopType) { DARABONBA_PTR_SET_VALUE(desktopType_, desktopType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeGlobalDesktopRecordsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeGlobalDesktopRecordsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // sortType Field Functions 
     bool hasSortType() const { return this->sortType_ != nullptr;};
     void deleteSortType() { this->sortType_ = nullptr;};
-    inline string sortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // subPayType Field Functions 
     bool hasSubPayType() const { return this->subPayType_ != nullptr;};
     void deleteSubPayType() { this->subPayType_ = nullptr;};
-    inline string subPayType() const { DARABONBA_PTR_GET_DEFAULT(subPayType_, "") };
+    inline string getSubPayType() const { DARABONBA_PTR_GET_DEFAULT(subPayType_, "") };
     inline DescribeGlobalDesktopRecordsRequest& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
 
 
   protected:
     // The cloud computer IDs. You can specify 1 to 100 office network IDs.
-    std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    shared_ptr<vector<string>> desktopId_ {};
     // The name of the cloud computer.
-    std::shared_ptr<string> desktopName_ = nullptr;
+    shared_ptr<string> desktopName_ {};
     // The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by the cloud computer.
-    std::shared_ptr<string> desktopType_ = nullptr;
+    shared_ptr<string> desktopType_ {};
     // The end time. The interval between the start time and end time can be up to 30 days. Supported formats:
     // 
     // *   Format: YYYY-MM-DDThh:mm:ssZ.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The end user ID.
-    std::shared_ptr<string> endUserId_ = nullptr;
+    shared_ptr<string> endUserId_ {};
     // The office network IDs.
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> officeSiteId_ {};
     // The sorting field. If this parameter is not provided, results are sorted by creation time in descending order. Valid values:
     // 
     // *   uptime: indicates that the cloud computers are sorted by startup duration.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The page number of the current page.\\
     // Default value: 1
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values: 1 to 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // *   China (Shanghai)
     // *   Singapore
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The query range. This parameter is empty by default. Optional values are:
     // 
     // *   ADVANCED: indicates that statistics such as the connection duration are queried.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
     // The sorting method. Default value: ascending. Valid value:
     // 
     // *   Asc: ascending order
     // *   Desc: descending.
-    std::shared_ptr<string> sortType_ = nullptr;
+    shared_ptr<string> sortType_ {};
     // The start time. Supported formats:
     // 
     // *   Format: YYYY-MM-DDThh:mm:ssZ.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The way to purchase cloud computers. Valid values:
     // 
     // *   prePaid: The monthly purchase is unlimited.
     // *   postPaid: pay-as-you-go
     // *   monthPackage: monthly duration.
-    std::shared_ptr<string> subPayType_ = nullptr;
+    shared_ptr<string> subPayType_ {};
   };
 
   } // namespace Models

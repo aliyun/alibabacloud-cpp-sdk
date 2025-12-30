@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->networkPackageId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resellerOwnerUid_ == nullptr; };
+        && this->regionId_ == nullptr && this->resellerOwnerUid_ == nullptr; };
     // networkPackageId Field Functions 
     bool hasNetworkPackageId() const { return this->networkPackageId_ != nullptr;};
     void deleteNetworkPackageId() { this->networkPackageId_ = nullptr;};
-    inline const vector<string> & networkPackageId() const { DARABONBA_PTR_GET_CONST(networkPackageId_, vector<string>) };
-    inline vector<string> networkPackageId() { DARABONBA_PTR_GET(networkPackageId_, vector<string>) };
+    inline const vector<string> & getNetworkPackageId() const { DARABONBA_PTR_GET_CONST(networkPackageId_, vector<string>) };
+    inline vector<string> getNetworkPackageId() { DARABONBA_PTR_GET(networkPackageId_, vector<string>) };
     inline DeleteNetworkPackagesRequest& setNetworkPackageId(const vector<string> & networkPackageId) { DARABONBA_PTR_SET_VALUE(networkPackageId_, networkPackageId) };
     inline DeleteNetworkPackagesRequest& setNetworkPackageId(vector<string> && networkPackageId) { DARABONBA_PTR_SET_RVALUE(networkPackageId_, networkPackageId) };
 
@@ -48,14 +48,14 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteNetworkPackagesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resellerOwnerUid Field Functions 
     bool hasResellerOwnerUid() const { return this->resellerOwnerUid_ != nullptr;};
     void deleteResellerOwnerUid() { this->resellerOwnerUid_ = nullptr;};
-    inline int64_t resellerOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(resellerOwnerUid_, 0L) };
+    inline int64_t getResellerOwnerUid() const { DARABONBA_PTR_GET_DEFAULT(resellerOwnerUid_, 0L) };
     inline DeleteNetworkPackagesRequest& setResellerOwnerUid(int64_t resellerOwnerUid) { DARABONBA_PTR_SET_VALUE(resellerOwnerUid_, resellerOwnerUid) };
 
 
@@ -63,12 +63,12 @@ namespace Models
     // The IDs of premium bandwidth plans. You can specify one or more IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> networkPackageId_ = nullptr;
+    shared_ptr<vector<string>> networkPackageId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> resellerOwnerUid_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 
   } // namespace Models

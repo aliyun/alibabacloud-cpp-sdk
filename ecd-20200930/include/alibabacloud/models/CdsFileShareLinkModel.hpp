@@ -78,212 +78,212 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessCount_ == nullptr
-        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->description_ == nullptr && return this->disableDownload_ == nullptr && return this->disablePreview_ == nullptr
-        && return this->disableSave_ == nullptr && return this->downloadCount_ == nullptr && return this->downloadLimit_ == nullptr && return this->driveId_ == nullptr && return this->expiration_ == nullptr
-        && return this->expired_ == nullptr && return this->fileIds_ == nullptr && return this->modifiyTime_ == nullptr && return this->previewCount_ == nullptr && return this->previewLimit_ == nullptr
-        && return this->reportCount_ == nullptr && return this->saveCount_ == nullptr && return this->saveLimit_ == nullptr && return this->shareId_ == nullptr && return this->shareLink_ == nullptr
-        && return this->shareName_ == nullptr && return this->sharePwd_ == nullptr && return this->status_ == nullptr && return this->videoPreviewCount_ == nullptr; };
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->description_ == nullptr && this->disableDownload_ == nullptr && this->disablePreview_ == nullptr
+        && this->disableSave_ == nullptr && this->downloadCount_ == nullptr && this->downloadLimit_ == nullptr && this->driveId_ == nullptr && this->expiration_ == nullptr
+        && this->expired_ == nullptr && this->fileIds_ == nullptr && this->modifiyTime_ == nullptr && this->previewCount_ == nullptr && this->previewLimit_ == nullptr
+        && this->reportCount_ == nullptr && this->saveCount_ == nullptr && this->saveLimit_ == nullptr && this->shareId_ == nullptr && this->shareLink_ == nullptr
+        && this->shareName_ == nullptr && this->sharePwd_ == nullptr && this->status_ == nullptr && this->videoPreviewCount_ == nullptr; };
     // accessCount Field Functions 
     bool hasAccessCount() const { return this->accessCount_ != nullptr;};
     void deleteAccessCount() { this->accessCount_ = nullptr;};
-    inline int64_t accessCount() const { DARABONBA_PTR_GET_DEFAULT(accessCount_, 0L) };
+    inline int64_t getAccessCount() const { DARABONBA_PTR_GET_DEFAULT(accessCount_, 0L) };
     inline CdsFileShareLinkModel& setAccessCount(int64_t accessCount) { DARABONBA_PTR_SET_VALUE(accessCount_, accessCount) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline CdsFileShareLinkModel& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline string creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline CdsFileShareLinkModel& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CdsFileShareLinkModel& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // disableDownload Field Functions 
     bool hasDisableDownload() const { return this->disableDownload_ != nullptr;};
     void deleteDisableDownload() { this->disableDownload_ = nullptr;};
-    inline bool disableDownload() const { DARABONBA_PTR_GET_DEFAULT(disableDownload_, false) };
+    inline bool getDisableDownload() const { DARABONBA_PTR_GET_DEFAULT(disableDownload_, false) };
     inline CdsFileShareLinkModel& setDisableDownload(bool disableDownload) { DARABONBA_PTR_SET_VALUE(disableDownload_, disableDownload) };
 
 
     // disablePreview Field Functions 
     bool hasDisablePreview() const { return this->disablePreview_ != nullptr;};
     void deleteDisablePreview() { this->disablePreview_ = nullptr;};
-    inline bool disablePreview() const { DARABONBA_PTR_GET_DEFAULT(disablePreview_, false) };
+    inline bool getDisablePreview() const { DARABONBA_PTR_GET_DEFAULT(disablePreview_, false) };
     inline CdsFileShareLinkModel& setDisablePreview(bool disablePreview) { DARABONBA_PTR_SET_VALUE(disablePreview_, disablePreview) };
 
 
     // disableSave Field Functions 
     bool hasDisableSave() const { return this->disableSave_ != nullptr;};
     void deleteDisableSave() { this->disableSave_ = nullptr;};
-    inline bool disableSave() const { DARABONBA_PTR_GET_DEFAULT(disableSave_, false) };
+    inline bool getDisableSave() const { DARABONBA_PTR_GET_DEFAULT(disableSave_, false) };
     inline CdsFileShareLinkModel& setDisableSave(bool disableSave) { DARABONBA_PTR_SET_VALUE(disableSave_, disableSave) };
 
 
     // downloadCount Field Functions 
     bool hasDownloadCount() const { return this->downloadCount_ != nullptr;};
     void deleteDownloadCount() { this->downloadCount_ = nullptr;};
-    inline int64_t downloadCount() const { DARABONBA_PTR_GET_DEFAULT(downloadCount_, 0L) };
+    inline int64_t getDownloadCount() const { DARABONBA_PTR_GET_DEFAULT(downloadCount_, 0L) };
     inline CdsFileShareLinkModel& setDownloadCount(int64_t downloadCount) { DARABONBA_PTR_SET_VALUE(downloadCount_, downloadCount) };
 
 
     // downloadLimit Field Functions 
     bool hasDownloadLimit() const { return this->downloadLimit_ != nullptr;};
     void deleteDownloadLimit() { this->downloadLimit_ = nullptr;};
-    inline int64_t downloadLimit() const { DARABONBA_PTR_GET_DEFAULT(downloadLimit_, 0L) };
+    inline int64_t getDownloadLimit() const { DARABONBA_PTR_GET_DEFAULT(downloadLimit_, 0L) };
     inline CdsFileShareLinkModel& setDownloadLimit(int64_t downloadLimit) { DARABONBA_PTR_SET_VALUE(downloadLimit_, downloadLimit) };
 
 
     // driveId Field Functions 
     bool hasDriveId() const { return this->driveId_ != nullptr;};
     void deleteDriveId() { this->driveId_ = nullptr;};
-    inline string driveId() const { DARABONBA_PTR_GET_DEFAULT(driveId_, "") };
+    inline string getDriveId() const { DARABONBA_PTR_GET_DEFAULT(driveId_, "") };
     inline CdsFileShareLinkModel& setDriveId(string driveId) { DARABONBA_PTR_SET_VALUE(driveId_, driveId) };
 
 
     // expiration Field Functions 
     bool hasExpiration() const { return this->expiration_ != nullptr;};
     void deleteExpiration() { this->expiration_ = nullptr;};
-    inline string expiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+    inline string getExpiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
     inline CdsFileShareLinkModel& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
 
 
     // expired Field Functions 
     bool hasExpired() const { return this->expired_ != nullptr;};
     void deleteExpired() { this->expired_ = nullptr;};
-    inline bool expired() const { DARABONBA_PTR_GET_DEFAULT(expired_, false) };
+    inline bool getExpired() const { DARABONBA_PTR_GET_DEFAULT(expired_, false) };
     inline CdsFileShareLinkModel& setExpired(bool expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
 
 
     // fileIds Field Functions 
     bool hasFileIds() const { return this->fileIds_ != nullptr;};
     void deleteFileIds() { this->fileIds_ = nullptr;};
-    inline string fileIds() const { DARABONBA_PTR_GET_DEFAULT(fileIds_, "") };
+    inline string getFileIds() const { DARABONBA_PTR_GET_DEFAULT(fileIds_, "") };
     inline CdsFileShareLinkModel& setFileIds(string fileIds) { DARABONBA_PTR_SET_VALUE(fileIds_, fileIds) };
 
 
     // modifiyTime Field Functions 
     bool hasModifiyTime() const { return this->modifiyTime_ != nullptr;};
     void deleteModifiyTime() { this->modifiyTime_ = nullptr;};
-    inline string modifiyTime() const { DARABONBA_PTR_GET_DEFAULT(modifiyTime_, "") };
+    inline string getModifiyTime() const { DARABONBA_PTR_GET_DEFAULT(modifiyTime_, "") };
     inline CdsFileShareLinkModel& setModifiyTime(string modifiyTime) { DARABONBA_PTR_SET_VALUE(modifiyTime_, modifiyTime) };
 
 
     // previewCount Field Functions 
     bool hasPreviewCount() const { return this->previewCount_ != nullptr;};
     void deletePreviewCount() { this->previewCount_ = nullptr;};
-    inline int64_t previewCount() const { DARABONBA_PTR_GET_DEFAULT(previewCount_, 0L) };
+    inline int64_t getPreviewCount() const { DARABONBA_PTR_GET_DEFAULT(previewCount_, 0L) };
     inline CdsFileShareLinkModel& setPreviewCount(int64_t previewCount) { DARABONBA_PTR_SET_VALUE(previewCount_, previewCount) };
 
 
     // previewLimit Field Functions 
     bool hasPreviewLimit() const { return this->previewLimit_ != nullptr;};
     void deletePreviewLimit() { this->previewLimit_ = nullptr;};
-    inline int64_t previewLimit() const { DARABONBA_PTR_GET_DEFAULT(previewLimit_, 0L) };
+    inline int64_t getPreviewLimit() const { DARABONBA_PTR_GET_DEFAULT(previewLimit_, 0L) };
     inline CdsFileShareLinkModel& setPreviewLimit(int64_t previewLimit) { DARABONBA_PTR_SET_VALUE(previewLimit_, previewLimit) };
 
 
     // reportCount Field Functions 
     bool hasReportCount() const { return this->reportCount_ != nullptr;};
     void deleteReportCount() { this->reportCount_ = nullptr;};
-    inline int64_t reportCount() const { DARABONBA_PTR_GET_DEFAULT(reportCount_, 0L) };
+    inline int64_t getReportCount() const { DARABONBA_PTR_GET_DEFAULT(reportCount_, 0L) };
     inline CdsFileShareLinkModel& setReportCount(int64_t reportCount) { DARABONBA_PTR_SET_VALUE(reportCount_, reportCount) };
 
 
     // saveCount Field Functions 
     bool hasSaveCount() const { return this->saveCount_ != nullptr;};
     void deleteSaveCount() { this->saveCount_ = nullptr;};
-    inline int64_t saveCount() const { DARABONBA_PTR_GET_DEFAULT(saveCount_, 0L) };
+    inline int64_t getSaveCount() const { DARABONBA_PTR_GET_DEFAULT(saveCount_, 0L) };
     inline CdsFileShareLinkModel& setSaveCount(int64_t saveCount) { DARABONBA_PTR_SET_VALUE(saveCount_, saveCount) };
 
 
     // saveLimit Field Functions 
     bool hasSaveLimit() const { return this->saveLimit_ != nullptr;};
     void deleteSaveLimit() { this->saveLimit_ = nullptr;};
-    inline int64_t saveLimit() const { DARABONBA_PTR_GET_DEFAULT(saveLimit_, 0L) };
+    inline int64_t getSaveLimit() const { DARABONBA_PTR_GET_DEFAULT(saveLimit_, 0L) };
     inline CdsFileShareLinkModel& setSaveLimit(int64_t saveLimit) { DARABONBA_PTR_SET_VALUE(saveLimit_, saveLimit) };
 
 
     // shareId Field Functions 
     bool hasShareId() const { return this->shareId_ != nullptr;};
     void deleteShareId() { this->shareId_ = nullptr;};
-    inline string shareId() const { DARABONBA_PTR_GET_DEFAULT(shareId_, "") };
+    inline string getShareId() const { DARABONBA_PTR_GET_DEFAULT(shareId_, "") };
     inline CdsFileShareLinkModel& setShareId(string shareId) { DARABONBA_PTR_SET_VALUE(shareId_, shareId) };
 
 
     // shareLink Field Functions 
     bool hasShareLink() const { return this->shareLink_ != nullptr;};
     void deleteShareLink() { this->shareLink_ = nullptr;};
-    inline string shareLink() const { DARABONBA_PTR_GET_DEFAULT(shareLink_, "") };
+    inline string getShareLink() const { DARABONBA_PTR_GET_DEFAULT(shareLink_, "") };
     inline CdsFileShareLinkModel& setShareLink(string shareLink) { DARABONBA_PTR_SET_VALUE(shareLink_, shareLink) };
 
 
     // shareName Field Functions 
     bool hasShareName() const { return this->shareName_ != nullptr;};
     void deleteShareName() { this->shareName_ = nullptr;};
-    inline string shareName() const { DARABONBA_PTR_GET_DEFAULT(shareName_, "") };
+    inline string getShareName() const { DARABONBA_PTR_GET_DEFAULT(shareName_, "") };
     inline CdsFileShareLinkModel& setShareName(string shareName) { DARABONBA_PTR_SET_VALUE(shareName_, shareName) };
 
 
     // sharePwd Field Functions 
     bool hasSharePwd() const { return this->sharePwd_ != nullptr;};
     void deleteSharePwd() { this->sharePwd_ = nullptr;};
-    inline string sharePwd() const { DARABONBA_PTR_GET_DEFAULT(sharePwd_, "") };
+    inline string getSharePwd() const { DARABONBA_PTR_GET_DEFAULT(sharePwd_, "") };
     inline CdsFileShareLinkModel& setSharePwd(string sharePwd) { DARABONBA_PTR_SET_VALUE(sharePwd_, sharePwd) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline CdsFileShareLinkModel& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // videoPreviewCount Field Functions 
     bool hasVideoPreviewCount() const { return this->videoPreviewCount_ != nullptr;};
     void deleteVideoPreviewCount() { this->videoPreviewCount_ = nullptr;};
-    inline int64_t videoPreviewCount() const { DARABONBA_PTR_GET_DEFAULT(videoPreviewCount_, 0L) };
+    inline int64_t getVideoPreviewCount() const { DARABONBA_PTR_GET_DEFAULT(videoPreviewCount_, 0L) };
     inline CdsFileShareLinkModel& setVideoPreviewCount(int64_t videoPreviewCount) { DARABONBA_PTR_SET_VALUE(videoPreviewCount_, videoPreviewCount) };
 
 
   protected:
-    std::shared_ptr<int64_t> accessCount_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> creator_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<bool> disableDownload_ = nullptr;
-    std::shared_ptr<bool> disablePreview_ = nullptr;
-    std::shared_ptr<bool> disableSave_ = nullptr;
-    std::shared_ptr<int64_t> downloadCount_ = nullptr;
-    std::shared_ptr<int64_t> downloadLimit_ = nullptr;
-    std::shared_ptr<string> driveId_ = nullptr;
-    std::shared_ptr<string> expiration_ = nullptr;
-    std::shared_ptr<bool> expired_ = nullptr;
-    std::shared_ptr<string> fileIds_ = nullptr;
-    std::shared_ptr<string> modifiyTime_ = nullptr;
-    std::shared_ptr<int64_t> previewCount_ = nullptr;
-    std::shared_ptr<int64_t> previewLimit_ = nullptr;
-    std::shared_ptr<int64_t> reportCount_ = nullptr;
-    std::shared_ptr<int64_t> saveCount_ = nullptr;
-    std::shared_ptr<int64_t> saveLimit_ = nullptr;
-    std::shared_ptr<string> shareId_ = nullptr;
-    std::shared_ptr<string> shareLink_ = nullptr;
-    std::shared_ptr<string> shareName_ = nullptr;
-    std::shared_ptr<string> sharePwd_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<int64_t> videoPreviewCount_ = nullptr;
+    shared_ptr<int64_t> accessCount_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> creator_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<bool> disableDownload_ {};
+    shared_ptr<bool> disablePreview_ {};
+    shared_ptr<bool> disableSave_ {};
+    shared_ptr<int64_t> downloadCount_ {};
+    shared_ptr<int64_t> downloadLimit_ {};
+    shared_ptr<string> driveId_ {};
+    shared_ptr<string> expiration_ {};
+    shared_ptr<bool> expired_ {};
+    shared_ptr<string> fileIds_ {};
+    shared_ptr<string> modifiyTime_ {};
+    shared_ptr<int64_t> previewCount_ {};
+    shared_ptr<int64_t> previewLimit_ {};
+    shared_ptr<int64_t> reportCount_ {};
+    shared_ptr<int64_t> saveCount_ {};
+    shared_ptr<int64_t> saveLimit_ {};
+    shared_ptr<string> shareId_ {};
+    shared_ptr<string> shareLink_ {};
+    shared_ptr<string> shareName_ {};
+    shared_ptr<string> sharePwd_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<int64_t> videoPreviewCount_ {};
   };
 
   } // namespace Models

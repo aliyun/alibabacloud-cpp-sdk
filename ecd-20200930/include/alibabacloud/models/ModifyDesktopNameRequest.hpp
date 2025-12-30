@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->newDesktopName_ == nullptr && return this->regionId_ == nullptr; };
+        && this->newDesktopName_ == nullptr && this->regionId_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline string desktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
+    inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
     inline ModifyDesktopNameRequest& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
 
 
     // newDesktopName Field Functions 
     bool hasNewDesktopName() const { return this->newDesktopName_ != nullptr;};
     void deleteNewDesktopName() { this->newDesktopName_ = nullptr;};
-    inline string newDesktopName() const { DARABONBA_PTR_GET_DEFAULT(newDesktopName_, "") };
+    inline string getNewDesktopName() const { DARABONBA_PTR_GET_DEFAULT(newDesktopName_, "") };
     inline ModifyDesktopNameRequest& setNewDesktopName(string newDesktopName) { DARABONBA_PTR_SET_VALUE(newDesktopName_, newDesktopName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDesktopNameRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The ID of the cloud computer.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desktopId_ = nullptr;
+    shared_ptr<string> desktopId_ {};
     // The new name of the cloud computer. The name of the cloud computer must meet the following requirements:
     // 
     // *   The name must be 1 to 64 characters in length.
@@ -68,11 +68,11 @@ namespace Models
     // *   The name can only contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> newDesktopName_ = nullptr;
+    shared_ptr<string> newDesktopName_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

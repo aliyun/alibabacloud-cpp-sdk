@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->extraInfo_ == nullptr
-        && return this->regionId_ == nullptr && return this->verifyCodeAction_ == nullptr; };
+        && this->regionId_ == nullptr && this->verifyCodeAction_ == nullptr; };
     // extraInfo Field Functions 
     bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
     void deleteExtraInfo() { this->extraInfo_ = nullptr;};
-    inline string extraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
+    inline string getExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
     inline SendVerifyCodeRequest& setExtraInfo(string extraInfo) { DARABONBA_PTR_SET_VALUE(extraInfo_, extraInfo) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SendVerifyCodeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // verifyCodeAction Field Functions 
     bool hasVerifyCodeAction() const { return this->verifyCodeAction_ != nullptr;};
     void deleteVerifyCodeAction() { this->verifyCodeAction_ = nullptr;};
-    inline string verifyCodeAction() const { DARABONBA_PTR_GET_DEFAULT(verifyCodeAction_, "") };
+    inline string getVerifyCodeAction() const { DARABONBA_PTR_GET_DEFAULT(verifyCodeAction_, "") };
     inline SendVerifyCodeRequest& setVerifyCodeAction(string verifyCodeAction) { DARABONBA_PTR_SET_VALUE(verifyCodeAction_, verifyCodeAction) };
 
 
@@ -63,11 +63,11 @@ namespace Models
     // *   CenOwnerId: the ID of the Alibaba Cloud account to which the CEN instance belongs.
     // 
     // >  If you own the CEN instance, skip this parameter. If you do not own the CEN instance, specify the ID of the Alibaba Cloud account that owns the CEN instance.
-    std::shared_ptr<string> extraInfo_ = nullptr;
+    shared_ptr<string> extraInfo_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The action that you want to perform by using the verification code.
     // 
     // Valid value:
@@ -75,7 +75,7 @@ namespace Models
     // *   eds_cenID_securityverification: Use the verification code to verify the CEN instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> verifyCodeAction_ = nullptr;
+    shared_ptr<string> verifyCodeAction_ {};
   };
 
   } // namespace Models

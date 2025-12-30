@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coId_ == nullptr
-        && return this->requestId_ == nullptr && return this->taskId_ == nullptr && return this->taskStatus_ == nullptr && return this->ticket_ == nullptr; };
+        && this->requestId_ == nullptr && this->taskId_ == nullptr && this->taskStatus_ == nullptr && this->ticket_ == nullptr; };
     // coId Field Functions 
     bool hasCoId() const { return this->coId_ != nullptr;};
     void deleteCoId() { this->coId_ = nullptr;};
-    inline string coId() const { DARABONBA_PTR_GET_DEFAULT(coId_, "") };
+    inline string getCoId() const { DARABONBA_PTR_GET_DEFAULT(coId_, "") };
     inline GetCoordinateTicketResponseBody& setCoId(string coId) { DARABONBA_PTR_SET_VALUE(coId_, coId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCoordinateTicketResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetCoordinateTicketResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskStatus Field Functions 
     bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
     void deleteTaskStatus() { this->taskStatus_ = nullptr;};
-    inline string taskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
+    inline string getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
     inline GetCoordinateTicketResponseBody& setTaskStatus(string taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
 
 
     // ticket Field Functions 
     bool hasTicket() const { return this->ticket_ != nullptr;};
     void deleteTicket() { this->ticket_ = nullptr;};
-    inline string ticket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
+    inline string getTicket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
     inline GetCoordinateTicketResponseBody& setTicket(string ticket) { DARABONBA_PTR_SET_VALUE(ticket_, ticket) };
 
 
   protected:
     // The ID of the stream collaboration.
-    std::shared_ptr<string> coId_ = nullptr;
+    shared_ptr<string> coId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the cloud computer connection task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The task status.
     // 
     // Possible values:
@@ -108,9 +108,9 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> taskStatus_ = nullptr;
+    shared_ptr<string> taskStatus_ {};
     // The credentials of the stream collaboration.
-    std::shared_ptr<string> ticket_ = nullptr;
+    shared_ptr<string> ticket_ {};
   };
 
   } // namespace Models

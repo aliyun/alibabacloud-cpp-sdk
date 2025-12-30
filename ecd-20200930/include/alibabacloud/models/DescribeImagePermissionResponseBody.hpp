@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliUids_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // aliUids Field Functions 
     bool hasAliUids() const { return this->aliUids_ != nullptr;};
     void deleteAliUids() { this->aliUids_ = nullptr;};
-    inline const vector<string> & aliUids() const { DARABONBA_PTR_GET_CONST(aliUids_, vector<string>) };
-    inline vector<string> aliUids() { DARABONBA_PTR_GET(aliUids_, vector<string>) };
+    inline const vector<string> & getAliUids() const { DARABONBA_PTR_GET_CONST(aliUids_, vector<string>) };
+    inline vector<string> getAliUids() { DARABONBA_PTR_GET(aliUids_, vector<string>) };
     inline DescribeImagePermissionResponseBody& setAliUids(const vector<string> & aliUids) { DARABONBA_PTR_SET_VALUE(aliUids_, aliUids) };
     inline DescribeImagePermissionResponseBody& setAliUids(vector<string> && aliUids) { DARABONBA_PTR_SET_RVALUE(aliUids_, aliUids) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeImagePermissionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of the Alibaba Cloud accounts with which the image is shared.
-    std::shared_ptr<vector<string>> aliUids_ = nullptr;
+    shared_ptr<vector<string>> aliUids_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -43,20 +43,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopGroupId_ == nullptr
-        && return this->desktopGroupIds_ == nullptr && return this->endUserIds_ == nullptr && return this->regionId_ == nullptr && return this->simpleUserGroupId_ == nullptr && return this->userGroupName_ == nullptr
-        && return this->userOuPath_ == nullptr; };
+        && this->desktopGroupIds_ == nullptr && this->endUserIds_ == nullptr && this->regionId_ == nullptr && this->simpleUserGroupId_ == nullptr && this->userGroupName_ == nullptr
+        && this->userOuPath_ == nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline RemoveUserFromDesktopGroupRequest& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // desktopGroupIds Field Functions 
     bool hasDesktopGroupIds() const { return this->desktopGroupIds_ != nullptr;};
     void deleteDesktopGroupIds() { this->desktopGroupIds_ = nullptr;};
-    inline const vector<string> & desktopGroupIds() const { DARABONBA_PTR_GET_CONST(desktopGroupIds_, vector<string>) };
-    inline vector<string> desktopGroupIds() { DARABONBA_PTR_GET(desktopGroupIds_, vector<string>) };
+    inline const vector<string> & getDesktopGroupIds() const { DARABONBA_PTR_GET_CONST(desktopGroupIds_, vector<string>) };
+    inline vector<string> getDesktopGroupIds() { DARABONBA_PTR_GET(desktopGroupIds_, vector<string>) };
     inline RemoveUserFromDesktopGroupRequest& setDesktopGroupIds(const vector<string> & desktopGroupIds) { DARABONBA_PTR_SET_VALUE(desktopGroupIds_, desktopGroupIds) };
     inline RemoveUserFromDesktopGroupRequest& setDesktopGroupIds(vector<string> && desktopGroupIds) { DARABONBA_PTR_SET_RVALUE(desktopGroupIds_, desktopGroupIds) };
 
@@ -64,8 +64,8 @@ namespace Models
     // endUserIds Field Functions 
     bool hasEndUserIds() const { return this->endUserIds_ != nullptr;};
     void deleteEndUserIds() { this->endUserIds_ = nullptr;};
-    inline const vector<string> & endUserIds() const { DARABONBA_PTR_GET_CONST(endUserIds_, vector<string>) };
-    inline vector<string> endUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
+    inline const vector<string> & getEndUserIds() const { DARABONBA_PTR_GET_CONST(endUserIds_, vector<string>) };
+    inline vector<string> getEndUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
     inline RemoveUserFromDesktopGroupRequest& setEndUserIds(const vector<string> & endUserIds) { DARABONBA_PTR_SET_VALUE(endUserIds_, endUserIds) };
     inline RemoveUserFromDesktopGroupRequest& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
 
@@ -73,45 +73,45 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline RemoveUserFromDesktopGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // simpleUserGroupId Field Functions 
     bool hasSimpleUserGroupId() const { return this->simpleUserGroupId_ != nullptr;};
     void deleteSimpleUserGroupId() { this->simpleUserGroupId_ = nullptr;};
-    inline string simpleUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(simpleUserGroupId_, "") };
+    inline string getSimpleUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(simpleUserGroupId_, "") };
     inline RemoveUserFromDesktopGroupRequest& setSimpleUserGroupId(string simpleUserGroupId) { DARABONBA_PTR_SET_VALUE(simpleUserGroupId_, simpleUserGroupId) };
 
 
     // userGroupName Field Functions 
     bool hasUserGroupName() const { return this->userGroupName_ != nullptr;};
     void deleteUserGroupName() { this->userGroupName_ = nullptr;};
-    inline string userGroupName() const { DARABONBA_PTR_GET_DEFAULT(userGroupName_, "") };
+    inline string getUserGroupName() const { DARABONBA_PTR_GET_DEFAULT(userGroupName_, "") };
     inline RemoveUserFromDesktopGroupRequest& setUserGroupName(string userGroupName) { DARABONBA_PTR_SET_VALUE(userGroupName_, userGroupName) };
 
 
     // userOuPath Field Functions 
     bool hasUserOuPath() const { return this->userOuPath_ != nullptr;};
     void deleteUserOuPath() { this->userOuPath_ = nullptr;};
-    inline string userOuPath() const { DARABONBA_PTR_GET_DEFAULT(userOuPath_, "") };
+    inline string getUserOuPath() const { DARABONBA_PTR_GET_DEFAULT(userOuPath_, "") };
     inline RemoveUserFromDesktopGroupRequest& setUserOuPath(string userOuPath) { DARABONBA_PTR_SET_VALUE(userOuPath_, userOuPath) };
 
 
   protected:
     // The ID of the cloud computer share.
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
+    shared_ptr<string> desktopGroupId_ {};
     // The IDs of the cloud computer shares.
-    std::shared_ptr<vector<string>> desktopGroupIds_ = nullptr;
+    shared_ptr<vector<string>> desktopGroupIds_ {};
     // The IDs of the authorized users that you want to remove.
-    std::shared_ptr<vector<string>> endUserIds_ = nullptr;
+    shared_ptr<vector<string>> endUserIds_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> simpleUserGroupId_ = nullptr;
-    std::shared_ptr<string> userGroupName_ = nullptr;
-    std::shared_ptr<string> userOuPath_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> simpleUserGroupId_ {};
+    shared_ptr<string> userGroupName_ {};
+    shared_ptr<string> userOuPath_ {};
   };
 
   } // namespace Models

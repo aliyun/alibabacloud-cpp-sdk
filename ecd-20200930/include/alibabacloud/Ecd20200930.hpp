@@ -3528,6 +3528,23 @@ namespace Ecd20200930
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
+       * @summary 获取文件列表
+       *
+       * @param request ListTransferFileDownloadUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTransferFileDownloadUrlResponse
+       */
+      Models::ListTransferFileDownloadUrlResponse listTransferFileDownloadUrlWithOptions(const Models::ListTransferFileDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件列表
+       *
+       * @param request ListTransferFileDownloadUrlRequest
+       * @return ListTransferFileDownloadUrlResponse
+       */
+      Models::ListTransferFileDownloadUrlResponse listTransferFileDownloadUrl(const Models::ListTransferFileDownloadUrlRequest &request);
+
+      /**
        * @summary Queries the file information of a file transmission task.
        *
        * @param request ListTransferFilesRequest

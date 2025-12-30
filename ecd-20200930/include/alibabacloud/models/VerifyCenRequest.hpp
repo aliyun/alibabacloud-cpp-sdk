@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && return this->cenOwnerId_ == nullptr && return this->cidrBlock_ == nullptr && return this->regionId_ == nullptr && return this->verifyCode_ == nullptr; };
+        && this->cenOwnerId_ == nullptr && this->cidrBlock_ == nullptr && this->regionId_ == nullptr && this->verifyCode_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline VerifyCenRequest& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // cenOwnerId Field Functions 
     bool hasCenOwnerId() const { return this->cenOwnerId_ != nullptr;};
     void deleteCenOwnerId() { this->cenOwnerId_ = nullptr;};
-    inline int64_t cenOwnerId() const { DARABONBA_PTR_GET_DEFAULT(cenOwnerId_, 0L) };
+    inline int64_t getCenOwnerId() const { DARABONBA_PTR_GET_DEFAULT(cenOwnerId_, 0L) };
     inline VerifyCenRequest& setCenOwnerId(int64_t cenOwnerId) { DARABONBA_PTR_SET_VALUE(cenOwnerId_, cenOwnerId) };
 
 
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
-    inline string cidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
+    inline string getCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
     inline VerifyCenRequest& setCidrBlock(string cidrBlock) { DARABONBA_PTR_SET_VALUE(cidrBlock_, cidrBlock) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline VerifyCenRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // verifyCode Field Functions 
     bool hasVerifyCode() const { return this->verifyCode_ != nullptr;};
     void deleteVerifyCode() { this->verifyCode_ = nullptr;};
-    inline string verifyCode() const { DARABONBA_PTR_GET_DEFAULT(verifyCode_, "") };
+    inline string getVerifyCode() const { DARABONBA_PTR_GET_DEFAULT(verifyCode_, "") };
     inline VerifyCenRequest& setVerifyCode(string verifyCode) { DARABONBA_PTR_SET_VALUE(verifyCode_, verifyCode) };
 
 
@@ -78,22 +78,22 @@ namespace Models
     // The ID of the CEN instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cenId_ = nullptr;
+    shared_ptr<string> cenId_ {};
     // The Alibaba Cloud account to which the CEN instance belongs.
     // 
     // *   If you own the CEN instance, you can skip this parameter.
     // *   If you do not own the CEN instance, you must specify the ID of the account that owns the CEN instance.
-    std::shared_ptr<int64_t> cenOwnerId_ = nullptr;
+    shared_ptr<int64_t> cenOwnerId_ {};
     // The IPv4 CIDR block of the associated office network.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cidrBlock_ = nullptr;
+    shared_ptr<string> cidrBlock_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The verification code. If you do not own the CEN instance, you must call the [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) operation to obtain a verification code.
-    std::shared_ptr<string> verifyCode_ = nullptr;
+    shared_ptr<string> verifyCode_ {};
   };
 
   } // namespace Models

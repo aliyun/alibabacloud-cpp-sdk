@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopAgentIds_ == nullptr
-        && return this->desktopGroupId_ == nullptr && return this->desktopIds_ == nullptr && return this->force_ == nullptr && return this->reason_ == nullptr && return this->userDesktopIds_ == nullptr; };
+        && this->desktopGroupId_ == nullptr && this->desktopIds_ == nullptr && this->force_ == nullptr && this->reason_ == nullptr && this->userDesktopIds_ == nullptr; };
     // desktopAgentIds Field Functions 
     bool hasDesktopAgentIds() const { return this->desktopAgentIds_ != nullptr;};
     void deleteDesktopAgentIds() { this->desktopAgentIds_ = nullptr;};
-    inline const vector<string> & desktopAgentIds() const { DARABONBA_PTR_GET_CONST(desktopAgentIds_, vector<string>) };
-    inline vector<string> desktopAgentIds() { DARABONBA_PTR_GET(desktopAgentIds_, vector<string>) };
+    inline const vector<string> & getDesktopAgentIds() const { DARABONBA_PTR_GET_CONST(desktopAgentIds_, vector<string>) };
+    inline vector<string> getDesktopAgentIds() { DARABONBA_PTR_GET(desktopAgentIds_, vector<string>) };
     inline UnbindUserDesktopRequest& setDesktopAgentIds(const vector<string> & desktopAgentIds) { DARABONBA_PTR_SET_VALUE(desktopAgentIds_, desktopAgentIds) };
     inline UnbindUserDesktopRequest& setDesktopAgentIds(vector<string> && desktopAgentIds) { DARABONBA_PTR_SET_RVALUE(desktopAgentIds_, desktopAgentIds) };
 
@@ -54,15 +54,15 @@ namespace Models
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline UnbindUserDesktopRequest& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // desktopIds Field Functions 
     bool hasDesktopIds() const { return this->desktopIds_ != nullptr;};
     void deleteDesktopIds() { this->desktopIds_ = nullptr;};
-    inline const vector<string> & desktopIds() const { DARABONBA_PTR_GET_CONST(desktopIds_, vector<string>) };
-    inline vector<string> desktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
+    inline const vector<string> & getDesktopIds() const { DARABONBA_PTR_GET_CONST(desktopIds_, vector<string>) };
+    inline vector<string> getDesktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
     inline UnbindUserDesktopRequest& setDesktopIds(const vector<string> & desktopIds) { DARABONBA_PTR_SET_VALUE(desktopIds_, desktopIds) };
     inline UnbindUserDesktopRequest& setDesktopIds(vector<string> && desktopIds) { DARABONBA_PTR_SET_RVALUE(desktopIds_, desktopIds) };
 
@@ -70,33 +70,33 @@ namespace Models
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline UnbindUserDesktopRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline UnbindUserDesktopRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // userDesktopIds Field Functions 
     bool hasUserDesktopIds() const { return this->userDesktopIds_ != nullptr;};
     void deleteUserDesktopIds() { this->userDesktopIds_ = nullptr;};
-    inline const vector<string> & userDesktopIds() const { DARABONBA_PTR_GET_CONST(userDesktopIds_, vector<string>) };
-    inline vector<string> userDesktopIds() { DARABONBA_PTR_GET(userDesktopIds_, vector<string>) };
+    inline const vector<string> & getUserDesktopIds() const { DARABONBA_PTR_GET_CONST(userDesktopIds_, vector<string>) };
+    inline vector<string> getUserDesktopIds() { DARABONBA_PTR_GET(userDesktopIds_, vector<string>) };
     inline UnbindUserDesktopRequest& setUserDesktopIds(const vector<string> & userDesktopIds) { DARABONBA_PTR_SET_VALUE(userDesktopIds_, userDesktopIds) };
     inline UnbindUserDesktopRequest& setUserDesktopIds(vector<string> && userDesktopIds) { DARABONBA_PTR_SET_RVALUE(userDesktopIds_, userDesktopIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> desktopAgentIds_ = nullptr;
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
-    std::shared_ptr<vector<string>> desktopIds_ = nullptr;
-    std::shared_ptr<bool> force_ = nullptr;
-    std::shared_ptr<string> reason_ = nullptr;
-    std::shared_ptr<vector<string>> userDesktopIds_ = nullptr;
+    shared_ptr<vector<string>> desktopAgentIds_ {};
+    shared_ptr<string> desktopGroupId_ {};
+    shared_ptr<vector<string>> desktopIds_ {};
+    shared_ptr<bool> force_ {};
+    shared_ptr<string> reason_ {};
+    shared_ptr<vector<string>> userDesktopIds_ {};
   };
 
   } // namespace Models

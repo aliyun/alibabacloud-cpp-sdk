@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forwardEntryId_ == nullptr
-        && return this->forwardTableId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->forwardTableId_ == nullptr && this->regionId_ == nullptr; };
     // forwardEntryId Field Functions 
     bool hasForwardEntryId() const { return this->forwardEntryId_ != nullptr;};
     void deleteForwardEntryId() { this->forwardEntryId_ = nullptr;};
-    inline string forwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
+    inline string getForwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
     inline DeleteForwardEntryRequest& setForwardEntryId(string forwardEntryId) { DARABONBA_PTR_SET_VALUE(forwardEntryId_, forwardEntryId) };
 
 
     // forwardTableId Field Functions 
     bool hasForwardTableId() const { return this->forwardTableId_ != nullptr;};
     void deleteForwardTableId() { this->forwardTableId_ = nullptr;};
-    inline string forwardTableId() const { DARABONBA_PTR_GET_DEFAULT(forwardTableId_, "") };
+    inline string getForwardTableId() const { DARABONBA_PTR_GET_DEFAULT(forwardTableId_, "") };
     inline DeleteForwardEntryRequest& setForwardTableId(string forwardTableId) { DARABONBA_PTR_SET_VALUE(forwardTableId_, forwardTableId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteForwardEntryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> forwardEntryId_ = nullptr;
+    shared_ptr<string> forwardEntryId_ {};
     // This parameter is required.
-    std::shared_ptr<string> forwardTableId_ = nullptr;
+    shared_ptr<string> forwardTableId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

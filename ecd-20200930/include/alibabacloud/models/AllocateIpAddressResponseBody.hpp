@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eipAddress_ == nullptr
-        && return this->eipId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->eipId_ == nullptr && this->requestId_ == nullptr; };
     // eipAddress Field Functions 
     bool hasEipAddress() const { return this->eipAddress_ != nullptr;};
     void deleteEipAddress() { this->eipAddress_ = nullptr;};
-    inline string eipAddress() const { DARABONBA_PTR_GET_DEFAULT(eipAddress_, "") };
+    inline string getEipAddress() const { DARABONBA_PTR_GET_DEFAULT(eipAddress_, "") };
     inline AllocateIpAddressResponseBody& setEipAddress(string eipAddress) { DARABONBA_PTR_SET_VALUE(eipAddress_, eipAddress) };
 
 
     // eipId Field Functions 
     bool hasEipId() const { return this->eipId_ != nullptr;};
     void deleteEipId() { this->eipId_ = nullptr;};
-    inline string eipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
+    inline string getEipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
     inline AllocateIpAddressResponseBody& setEipId(string eipId) { DARABONBA_PTR_SET_VALUE(eipId_, eipId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AllocateIpAddressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> eipAddress_ = nullptr;
-    std::shared_ptr<string> eipId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> eipAddress_ {};
+    shared_ptr<string> eipId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

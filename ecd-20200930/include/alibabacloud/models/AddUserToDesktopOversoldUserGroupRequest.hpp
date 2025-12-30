@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addUserAmount_ == nullptr
-        && return this->endUserId_ == nullptr && return this->oversoldGroupId_ == nullptr && return this->userGroupId_ == nullptr; };
+        && this->endUserId_ == nullptr && this->oversoldGroupId_ == nullptr && this->userGroupId_ == nullptr; };
     // addUserAmount Field Functions 
     bool hasAddUserAmount() const { return this->addUserAmount_ != nullptr;};
     void deleteAddUserAmount() { this->addUserAmount_ = nullptr;};
-    inline int32_t addUserAmount() const { DARABONBA_PTR_GET_DEFAULT(addUserAmount_, 0) };
+    inline int32_t getAddUserAmount() const { DARABONBA_PTR_GET_DEFAULT(addUserAmount_, 0) };
     inline AddUserToDesktopOversoldUserGroupRequest& setAddUserAmount(int32_t addUserAmount) { DARABONBA_PTR_SET_VALUE(addUserAmount_, addUserAmount) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline AddUserToDesktopOversoldUserGroupRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // oversoldGroupId Field Functions 
     bool hasOversoldGroupId() const { return this->oversoldGroupId_ != nullptr;};
     void deleteOversoldGroupId() { this->oversoldGroupId_ = nullptr;};
-    inline string oversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
+    inline string getOversoldGroupId() const { DARABONBA_PTR_GET_DEFAULT(oversoldGroupId_, "") };
     inline AddUserToDesktopOversoldUserGroupRequest& setOversoldGroupId(string oversoldGroupId) { DARABONBA_PTR_SET_VALUE(oversoldGroupId_, oversoldGroupId) };
 
 
     // userGroupId Field Functions 
     bool hasUserGroupId() const { return this->userGroupId_ != nullptr;};
     void deleteUserGroupId() { this->userGroupId_ = nullptr;};
-    inline string userGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
+    inline string getUserGroupId() const { DARABONBA_PTR_GET_DEFAULT(userGroupId_, "") };
     inline AddUserToDesktopOversoldUserGroupRequest& setUserGroupId(string userGroupId) { DARABONBA_PTR_SET_VALUE(userGroupId_, userGroupId) };
 
 
   protected:
-    std::shared_ptr<int32_t> addUserAmount_ = nullptr;
-    std::shared_ptr<string> endUserId_ = nullptr;
-    std::shared_ptr<string> oversoldGroupId_ = nullptr;
-    std::shared_ptr<string> userGroupId_ = nullptr;
+    shared_ptr<int32_t> addUserAmount_ {};
+    shared_ptr<string> endUserId_ {};
+    shared_ptr<string> oversoldGroupId_ {};
+    shared_ptr<string> userGroupId_ {};
   };
 
   } // namespace Models

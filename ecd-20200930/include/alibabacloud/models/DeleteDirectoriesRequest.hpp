@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->directoryId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
-    inline const vector<string> & directoryId() const { DARABONBA_PTR_GET_CONST(directoryId_, vector<string>) };
-    inline vector<string> directoryId() { DARABONBA_PTR_GET(directoryId_, vector<string>) };
+    inline const vector<string> & getDirectoryId() const { DARABONBA_PTR_GET_CONST(directoryId_, vector<string>) };
+    inline vector<string> getDirectoryId() { DARABONBA_PTR_GET(directoryId_, vector<string>) };
     inline DeleteDirectoriesRequest& setDirectoryId(const vector<string> & directoryId) { DARABONBA_PTR_SET_VALUE(directoryId_, directoryId) };
     inline DeleteDirectoriesRequest& setDirectoryId(vector<string> && directoryId) { DARABONBA_PTR_SET_RVALUE(directoryId_, directoryId) };
 
@@ -46,7 +46,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDirectoriesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The directory IDs. You can specify one or more directory IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> directoryId_ = nullptr;
+    shared_ptr<vector<string>> directoryId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

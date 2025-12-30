@@ -47,20 +47,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopGroupId_ == nullptr
-        && return this->desktopGroupIds_ == nullptr && return this->desktopId_ == nullptr && return this->imageId_ == nullptr && return this->lastRetryTime_ == nullptr && return this->payType_ == nullptr
-        && return this->regionId_ == nullptr && return this->resetScope_ == nullptr && return this->resetType_ == nullptr; };
+        && this->desktopGroupIds_ == nullptr && this->desktopId_ == nullptr && this->imageId_ == nullptr && this->lastRetryTime_ == nullptr && this->payType_ == nullptr
+        && this->regionId_ == nullptr && this->resetScope_ == nullptr && this->resetType_ == nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline ResetDesktopsRequest& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // desktopGroupIds Field Functions 
     bool hasDesktopGroupIds() const { return this->desktopGroupIds_ != nullptr;};
     void deleteDesktopGroupIds() { this->desktopGroupIds_ = nullptr;};
-    inline const vector<string> & desktopGroupIds() const { DARABONBA_PTR_GET_CONST(desktopGroupIds_, vector<string>) };
-    inline vector<string> desktopGroupIds() { DARABONBA_PTR_GET(desktopGroupIds_, vector<string>) };
+    inline const vector<string> & getDesktopGroupIds() const { DARABONBA_PTR_GET_CONST(desktopGroupIds_, vector<string>) };
+    inline vector<string> getDesktopGroupIds() { DARABONBA_PTR_GET(desktopGroupIds_, vector<string>) };
     inline ResetDesktopsRequest& setDesktopGroupIds(const vector<string> & desktopGroupIds) { DARABONBA_PTR_SET_VALUE(desktopGroupIds_, desktopGroupIds) };
     inline ResetDesktopsRequest& setDesktopGroupIds(vector<string> && desktopGroupIds) { DARABONBA_PTR_SET_RVALUE(desktopGroupIds_, desktopGroupIds) };
 
@@ -68,8 +68,8 @@ namespace Models
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline const vector<string> & desktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
-    inline vector<string> desktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
+    inline const vector<string> & getDesktopId() const { DARABONBA_PTR_GET_CONST(desktopId_, vector<string>) };
+    inline vector<string> getDesktopId() { DARABONBA_PTR_GET(desktopId_, vector<string>) };
     inline ResetDesktopsRequest& setDesktopId(const vector<string> & desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
     inline ResetDesktopsRequest& setDesktopId(vector<string> && desktopId) { DARABONBA_PTR_SET_RVALUE(desktopId_, desktopId) };
 
@@ -77,42 +77,42 @@ namespace Models
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ResetDesktopsRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // lastRetryTime Field Functions 
     bool hasLastRetryTime() const { return this->lastRetryTime_ != nullptr;};
     void deleteLastRetryTime() { this->lastRetryTime_ = nullptr;};
-    inline int64_t lastRetryTime() const { DARABONBA_PTR_GET_DEFAULT(lastRetryTime_, 0L) };
+    inline int64_t getLastRetryTime() const { DARABONBA_PTR_GET_DEFAULT(lastRetryTime_, 0L) };
     inline ResetDesktopsRequest& setLastRetryTime(int64_t lastRetryTime) { DARABONBA_PTR_SET_VALUE(lastRetryTime_, lastRetryTime) };
 
 
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
-    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline ResetDesktopsRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ResetDesktopsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resetScope Field Functions 
     bool hasResetScope() const { return this->resetScope_ != nullptr;};
     void deleteResetScope() { this->resetScope_ = nullptr;};
-    inline string resetScope() const { DARABONBA_PTR_GET_DEFAULT(resetScope_, "") };
+    inline string getResetScope() const { DARABONBA_PTR_GET_DEFAULT(resetScope_, "") };
     inline ResetDesktopsRequest& setResetScope(string resetScope) { DARABONBA_PTR_SET_VALUE(resetScope_, resetScope) };
 
 
     // resetType Field Functions 
     bool hasResetType() const { return this->resetType_ != nullptr;};
     void deleteResetType() { this->resetType_ = nullptr;};
-    inline string resetType() const { DARABONBA_PTR_GET_DEFAULT(resetType_, "") };
+    inline string getResetType() const { DARABONBA_PTR_GET_DEFAULT(resetType_, "") };
     inline ResetDesktopsRequest& setResetType(string resetType) { DARABONBA_PTR_SET_VALUE(resetType_, resetType) };
 
 
@@ -121,14 +121,14 @@ namespace Models
     // 
     // *   If you specify `DesktopId`, ignore `DesktopGroupId`.
     // *   If you leave `DesktopId` empty, the system obtains the IDs of all cloud computers within the share specified by `DesktopGroupId`.``
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
+    shared_ptr<string> desktopGroupId_ {};
     // The IDs of the cloud computer shares.
-    std::shared_ptr<vector<string>> desktopGroupIds_ = nullptr;
+    shared_ptr<vector<string>> desktopGroupIds_ {};
     // The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
-    std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    shared_ptr<vector<string>> desktopId_ {};
     // The ID of the image.
-    std::shared_ptr<string> imageId_ = nullptr;
-    std::shared_ptr<int64_t> lastRetryTime_ = nullptr;
+    shared_ptr<string> imageId_ {};
+    shared_ptr<int64_t> lastRetryTime_ {};
     // The billing method of the cloud computer share.
     // 
     // >  This parameter takes effect when you reset a cloud computer share. If you leave this parameter empty, all cloud computers in that share are reset.
@@ -137,18 +137,18 @@ namespace Models
     // 
     // *   PostPaid: pay-as-you-go.
     // *   PrePaid: subscription.
-    std::shared_ptr<string> payType_ = nullptr;
+    shared_ptr<string> payType_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The reset scope. You can configure this parameter to reset the image or cloud computer.
     // 
     // Valid values:
     // 
     // *   ALL (default): resets the image and cloud computer.
     // *   IMAGE: resets only the image.
-    std::shared_ptr<string> resetScope_ = nullptr;
+    shared_ptr<string> resetScope_ {};
     // The disk reset type.
     // 
     // Valid values:
@@ -159,7 +159,7 @@ namespace Models
     // *   3: resets the system disk and the user disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resetType_ = nullptr;
+    shared_ptr<string> resetType_ {};
   };
 
   } // namespace Models

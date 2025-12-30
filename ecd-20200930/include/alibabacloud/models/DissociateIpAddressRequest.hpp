@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eipId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // eipId Field Functions 
     bool hasEipId() const { return this->eipId_ != nullptr;};
     void deleteEipId() { this->eipId_ = nullptr;};
-    inline string eipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
+    inline string getEipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
     inline DissociateIpAddressRequest& setEipId(string eipId) { DARABONBA_PTR_SET_VALUE(eipId_, eipId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DissociateIpAddressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> eipId_ = nullptr;
+    shared_ptr<string> eipId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

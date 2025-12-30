@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->asyncTaskId_ == nullptr
-        && return this->cdsId_ == nullptr; };
+        && this->cdsId_ == nullptr; };
     // asyncTaskId Field Functions 
     bool hasAsyncTaskId() const { return this->asyncTaskId_ != nullptr;};
     void deleteAsyncTaskId() { this->asyncTaskId_ = nullptr;};
-    inline string asyncTaskId() const { DARABONBA_PTR_GET_DEFAULT(asyncTaskId_, "") };
+    inline string getAsyncTaskId() const { DARABONBA_PTR_GET_DEFAULT(asyncTaskId_, "") };
     inline GetAsyncTaskRequest& setAsyncTaskId(string asyncTaskId) { DARABONBA_PTR_SET_VALUE(asyncTaskId_, asyncTaskId) };
 
 
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};
-    inline string cdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
+    inline string getCdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
     inline GetAsyncTaskRequest& setCdsId(string cdsId) { DARABONBA_PTR_SET_VALUE(cdsId_, cdsId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The asynchronous task ID. This parameter is not returned if you copy files. This parameter is returned if you copy folders in the backend in an asynchronous manner. You can call the GetAsyncTask operation to obtain the ID and information about an asynchronous task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> asyncTaskId_ = nullptr;
+    shared_ptr<string> asyncTaskId_ {};
     // The ID of the cloud disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cdsId_ = nullptr;
+    shared_ptr<string> cdsId_ {};
   };
 
   } // namespace Models

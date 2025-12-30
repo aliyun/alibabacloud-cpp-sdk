@@ -42,62 +42,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && return this->requestId_ == nullptr && return this->taskCode_ == nullptr && return this->taskId_ == nullptr && return this->taskMessage_ == nullptr && return this->taskStatus_ == nullptr
-        && return this->ticket_ == nullptr; };
+        && this->requestId_ == nullptr && this->taskCode_ == nullptr && this->taskId_ == nullptr && this->taskMessage_ == nullptr && this->taskStatus_ == nullptr
+        && this->ticket_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
-    inline string desktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
+    inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
     inline GetConnectionTicketResponseBody& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetConnectionTicketResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskCode Field Functions 
     bool hasTaskCode() const { return this->taskCode_ != nullptr;};
     void deleteTaskCode() { this->taskCode_ = nullptr;};
-    inline string taskCode() const { DARABONBA_PTR_GET_DEFAULT(taskCode_, "") };
+    inline string getTaskCode() const { DARABONBA_PTR_GET_DEFAULT(taskCode_, "") };
     inline GetConnectionTicketResponseBody& setTaskCode(string taskCode) { DARABONBA_PTR_SET_VALUE(taskCode_, taskCode) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline GetConnectionTicketResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // taskMessage Field Functions 
     bool hasTaskMessage() const { return this->taskMessage_ != nullptr;};
     void deleteTaskMessage() { this->taskMessage_ = nullptr;};
-    inline string taskMessage() const { DARABONBA_PTR_GET_DEFAULT(taskMessage_, "") };
+    inline string getTaskMessage() const { DARABONBA_PTR_GET_DEFAULT(taskMessage_, "") };
     inline GetConnectionTicketResponseBody& setTaskMessage(string taskMessage) { DARABONBA_PTR_SET_VALUE(taskMessage_, taskMessage) };
 
 
     // taskStatus Field Functions 
     bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
     void deleteTaskStatus() { this->taskStatus_ = nullptr;};
-    inline string taskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
+    inline string getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
     inline GetConnectionTicketResponseBody& setTaskStatus(string taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
 
 
     // ticket Field Functions 
     bool hasTicket() const { return this->ticket_ != nullptr;};
     void deleteTicket() { this->ticket_ = nullptr;};
-    inline string ticket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
+    inline string getTicket() const { DARABONBA_PTR_GET_DEFAULT(ticket_, "") };
     inline GetConnectionTicketResponseBody& setTicket(string ticket) { DARABONBA_PTR_SET_VALUE(ticket_, ticket) };
 
 
   protected:
     // The ID of the cloud computer.
-    std::shared_ptr<string> desktopId_ = nullptr;
+    shared_ptr<string> desktopId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Before you use the credential, you must Base64 decode the content of the credential, save the credential as an xxx.ica file, and then open the file. Python sample code:
     // 
     //     import base64
@@ -109,11 +109,11 @@ namespace Models
     //     out = base64.b64decode(response[\\"Ticket\\"])
     //     f.write(out)
     //     f.close()
-    std::shared_ptr<string> taskCode_ = nullptr;
+    shared_ptr<string> taskCode_ {};
     // The ID of the cloud computer connection task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
     // The ID of the connection task.
-    std::shared_ptr<string> taskMessage_ = nullptr;
+    shared_ptr<string> taskMessage_ {};
     // The task status.
     // 
     // Valid values:
@@ -141,9 +141,9 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> taskStatus_ = nullptr;
+    shared_ptr<string> taskStatus_ {};
     // The credentials for connecting to the cloud computer.
-    std::shared_ptr<string> ticket_ = nullptr;
+    shared_ptr<string> ticket_ {};
   };
 
   } // namespace Models

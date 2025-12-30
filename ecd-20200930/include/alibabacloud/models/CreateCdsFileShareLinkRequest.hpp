@@ -57,70 +57,70 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cdsId_ == nullptr
-        && return this->description_ == nullptr && return this->disableDownload_ == nullptr && return this->disablePreview_ == nullptr && return this->disableSave_ == nullptr && return this->downloadLimit_ == nullptr
-        && return this->endUserId_ == nullptr && return this->expiration_ == nullptr && return this->fileIds_ == nullptr && return this->groupId_ == nullptr && return this->previewLimit_ == nullptr
-        && return this->saveLimit_ == nullptr && return this->shareName_ == nullptr && return this->sharePwd_ == nullptr; };
+        && this->description_ == nullptr && this->disableDownload_ == nullptr && this->disablePreview_ == nullptr && this->disableSave_ == nullptr && this->downloadLimit_ == nullptr
+        && this->endUserId_ == nullptr && this->expiration_ == nullptr && this->fileIds_ == nullptr && this->groupId_ == nullptr && this->previewLimit_ == nullptr
+        && this->saveLimit_ == nullptr && this->shareName_ == nullptr && this->sharePwd_ == nullptr; };
     // cdsId Field Functions 
     bool hasCdsId() const { return this->cdsId_ != nullptr;};
     void deleteCdsId() { this->cdsId_ = nullptr;};
-    inline string cdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
+    inline string getCdsId() const { DARABONBA_PTR_GET_DEFAULT(cdsId_, "") };
     inline CreateCdsFileShareLinkRequest& setCdsId(string cdsId) { DARABONBA_PTR_SET_VALUE(cdsId_, cdsId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateCdsFileShareLinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // disableDownload Field Functions 
     bool hasDisableDownload() const { return this->disableDownload_ != nullptr;};
     void deleteDisableDownload() { this->disableDownload_ = nullptr;};
-    inline bool disableDownload() const { DARABONBA_PTR_GET_DEFAULT(disableDownload_, false) };
+    inline bool getDisableDownload() const { DARABONBA_PTR_GET_DEFAULT(disableDownload_, false) };
     inline CreateCdsFileShareLinkRequest& setDisableDownload(bool disableDownload) { DARABONBA_PTR_SET_VALUE(disableDownload_, disableDownload) };
 
 
     // disablePreview Field Functions 
     bool hasDisablePreview() const { return this->disablePreview_ != nullptr;};
     void deleteDisablePreview() { this->disablePreview_ = nullptr;};
-    inline bool disablePreview() const { DARABONBA_PTR_GET_DEFAULT(disablePreview_, false) };
+    inline bool getDisablePreview() const { DARABONBA_PTR_GET_DEFAULT(disablePreview_, false) };
     inline CreateCdsFileShareLinkRequest& setDisablePreview(bool disablePreview) { DARABONBA_PTR_SET_VALUE(disablePreview_, disablePreview) };
 
 
     // disableSave Field Functions 
     bool hasDisableSave() const { return this->disableSave_ != nullptr;};
     void deleteDisableSave() { this->disableSave_ = nullptr;};
-    inline bool disableSave() const { DARABONBA_PTR_GET_DEFAULT(disableSave_, false) };
+    inline bool getDisableSave() const { DARABONBA_PTR_GET_DEFAULT(disableSave_, false) };
     inline CreateCdsFileShareLinkRequest& setDisableSave(bool disableSave) { DARABONBA_PTR_SET_VALUE(disableSave_, disableSave) };
 
 
     // downloadLimit Field Functions 
     bool hasDownloadLimit() const { return this->downloadLimit_ != nullptr;};
     void deleteDownloadLimit() { this->downloadLimit_ = nullptr;};
-    inline int64_t downloadLimit() const { DARABONBA_PTR_GET_DEFAULT(downloadLimit_, 0L) };
+    inline int64_t getDownloadLimit() const { DARABONBA_PTR_GET_DEFAULT(downloadLimit_, 0L) };
     inline CreateCdsFileShareLinkRequest& setDownloadLimit(int64_t downloadLimit) { DARABONBA_PTR_SET_VALUE(downloadLimit_, downloadLimit) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline CreateCdsFileShareLinkRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // expiration Field Functions 
     bool hasExpiration() const { return this->expiration_ != nullptr;};
     void deleteExpiration() { this->expiration_ = nullptr;};
-    inline string expiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+    inline string getExpiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
     inline CreateCdsFileShareLinkRequest& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
 
 
     // fileIds Field Functions 
     bool hasFileIds() const { return this->fileIds_ != nullptr;};
     void deleteFileIds() { this->fileIds_ = nullptr;};
-    inline const vector<string> & fileIds() const { DARABONBA_PTR_GET_CONST(fileIds_, vector<string>) };
-    inline vector<string> fileIds() { DARABONBA_PTR_GET(fileIds_, vector<string>) };
+    inline const vector<string> & getFileIds() const { DARABONBA_PTR_GET_CONST(fileIds_, vector<string>) };
+    inline vector<string> getFileIds() { DARABONBA_PTR_GET(fileIds_, vector<string>) };
     inline CreateCdsFileShareLinkRequest& setFileIds(const vector<string> & fileIds) { DARABONBA_PTR_SET_VALUE(fileIds_, fileIds) };
     inline CreateCdsFileShareLinkRequest& setFileIds(vector<string> && fileIds) { DARABONBA_PTR_SET_RVALUE(fileIds_, fileIds) };
 
@@ -128,35 +128,35 @@ namespace Models
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline CreateCdsFileShareLinkRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // previewLimit Field Functions 
     bool hasPreviewLimit() const { return this->previewLimit_ != nullptr;};
     void deletePreviewLimit() { this->previewLimit_ = nullptr;};
-    inline int64_t previewLimit() const { DARABONBA_PTR_GET_DEFAULT(previewLimit_, 0L) };
+    inline int64_t getPreviewLimit() const { DARABONBA_PTR_GET_DEFAULT(previewLimit_, 0L) };
     inline CreateCdsFileShareLinkRequest& setPreviewLimit(int64_t previewLimit) { DARABONBA_PTR_SET_VALUE(previewLimit_, previewLimit) };
 
 
     // saveLimit Field Functions 
     bool hasSaveLimit() const { return this->saveLimit_ != nullptr;};
     void deleteSaveLimit() { this->saveLimit_ = nullptr;};
-    inline int64_t saveLimit() const { DARABONBA_PTR_GET_DEFAULT(saveLimit_, 0L) };
+    inline int64_t getSaveLimit() const { DARABONBA_PTR_GET_DEFAULT(saveLimit_, 0L) };
     inline CreateCdsFileShareLinkRequest& setSaveLimit(int64_t saveLimit) { DARABONBA_PTR_SET_VALUE(saveLimit_, saveLimit) };
 
 
     // shareName Field Functions 
     bool hasShareName() const { return this->shareName_ != nullptr;};
     void deleteShareName() { this->shareName_ = nullptr;};
-    inline string shareName() const { DARABONBA_PTR_GET_DEFAULT(shareName_, "") };
+    inline string getShareName() const { DARABONBA_PTR_GET_DEFAULT(shareName_, "") };
     inline CreateCdsFileShareLinkRequest& setShareName(string shareName) { DARABONBA_PTR_SET_VALUE(shareName_, shareName) };
 
 
     // sharePwd Field Functions 
     bool hasSharePwd() const { return this->sharePwd_ != nullptr;};
     void deleteSharePwd() { this->sharePwd_ = nullptr;};
-    inline string sharePwd() const { DARABONBA_PTR_GET_DEFAULT(sharePwd_, "") };
+    inline string getSharePwd() const { DARABONBA_PTR_GET_DEFAULT(sharePwd_, "") };
     inline CreateCdsFileShareLinkRequest& setSharePwd(string sharePwd) { DARABONBA_PTR_SET_VALUE(sharePwd_, sharePwd) };
 
 
@@ -164,9 +164,9 @@ namespace Models
     // The ID of the cloud disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cdsId_ = nullptr;
+    shared_ptr<string> cdsId_ {};
     // The description of the file sharing task. The description must be 0 to 1,024 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to prohibit the download of the files that are being shared.
     // 
     // Valid values:
@@ -198,7 +198,7 @@ namespace Models
     //     <!-- -->
     // 
     //     .
-    std::shared_ptr<bool> disableDownload_ = nullptr;
+    shared_ptr<bool> disableDownload_ {};
     // Specifies whether to prohibit the preview of the files that are being shared.
     // 
     // Valid values:
@@ -230,7 +230,7 @@ namespace Models
     //     <!-- -->
     // 
     //     .
-    std::shared_ptr<bool> disablePreview_ = nullptr;
+    shared_ptr<bool> disablePreview_ {};
     // Specifies whether to prohibit the dump of the files that are being shared.
     // 
     // Valid values:
@@ -262,24 +262,24 @@ namespace Models
     //     <!-- -->
     // 
     //     .
-    std::shared_ptr<bool> disableSave_ = nullptr;
+    shared_ptr<bool> disableSave_ {};
     // The limit on the number of times that the shared files can be downloaded. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
-    std::shared_ptr<int64_t> downloadLimit_ = nullptr;
+    shared_ptr<int64_t> downloadLimit_ {};
     // The ID of the end user.
-    std::shared_ptr<string> endUserId_ = nullptr;
+    shared_ptr<string> endUserId_ {};
     // The time when the file sharing link expires. The value of this parameter follows the RFC 3339 standard. Example: "2020-06-28T11:33:00.000+08:00". If this parameter is set to "", the file sharing link never expires.
-    std::shared_ptr<string> expiration_ = nullptr;
+    shared_ptr<string> expiration_ {};
     // The file IDs.
-    std::shared_ptr<vector<string>> fileIds_ = nullptr;
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<vector<string>> fileIds_ {};
+    shared_ptr<string> groupId_ {};
     // The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be previewed.
-    std::shared_ptr<int64_t> previewLimit_ = nullptr;
+    shared_ptr<int64_t> previewLimit_ {};
     // The limit on the number of times that the shared files can be dumped. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be dumped.
-    std::shared_ptr<int64_t> saveLimit_ = nullptr;
+    shared_ptr<int64_t> saveLimit_ {};
     // The name of the file sharing task. If you leave this parameter empty, the file name that corresponds to the first ID in the file ID list is used. The name must be 0 to 128 characters in length.
-    std::shared_ptr<string> shareName_ = nullptr;
+    shared_ptr<string> shareName_ {};
     // The length of the access code. Valid values: 6 to 8. Unit: bytes. If you leave this parameter empty or set it to null, no access code is required. If you use a token to share files, you do not need to configure this parameter. The access code can contain only visible ASCII characters.
-    std::shared_ptr<string> sharePwd_ = nullptr;
+    shared_ptr<string> sharePwd_ {};
   };
 
   } // namespace Models

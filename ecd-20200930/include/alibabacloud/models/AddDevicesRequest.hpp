@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientType_ == nullptr
-        && return this->deviceIds_ == nullptr && return this->regionId_ == nullptr; };
+        && this->deviceIds_ == nullptr && this->regionId_ == nullptr; };
     // clientType Field Functions 
     bool hasClientType() const { return this->clientType_ != nullptr;};
     void deleteClientType() { this->clientType_ = nullptr;};
-    inline int32_t clientType() const { DARABONBA_PTR_GET_DEFAULT(clientType_, 0) };
+    inline int32_t getClientType() const { DARABONBA_PTR_GET_DEFAULT(clientType_, 0) };
     inline AddDevicesRequest& setClientType(int32_t clientType) { DARABONBA_PTR_SET_VALUE(clientType_, clientType) };
 
 
     // deviceIds Field Functions 
     bool hasDeviceIds() const { return this->deviceIds_ != nullptr;};
     void deleteDeviceIds() { this->deviceIds_ = nullptr;};
-    inline const vector<string> & deviceIds() const { DARABONBA_PTR_GET_CONST(deviceIds_, vector<string>) };
-    inline vector<string> deviceIds() { DARABONBA_PTR_GET(deviceIds_, vector<string>) };
+    inline const vector<string> & getDeviceIds() const { DARABONBA_PTR_GET_CONST(deviceIds_, vector<string>) };
+    inline vector<string> getDeviceIds() { DARABONBA_PTR_GET(deviceIds_, vector<string>) };
     inline AddDevicesRequest& setDeviceIds(const vector<string> & deviceIds) { DARABONBA_PTR_SET_VALUE(deviceIds_, deviceIds) };
     inline AddDevicesRequest& setDeviceIds(vector<string> && deviceIds) { DARABONBA_PTR_SET_RVALUE(deviceIds_, deviceIds) };
 
@@ -55,7 +55,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddDevicesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -68,13 +68,13 @@ namespace Models
     // *   2: software client.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> clientType_ = nullptr;
+    shared_ptr<int32_t> clientType_ {};
     // The IDs of the devices. You can specify up to 200 IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> deviceIds_ = nullptr;
+    shared_ptr<vector<string>> deviceIds_ {};
     // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -36,49 +36,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ossBucketName_ == nullptr
-        && return this->ossBucketRegionId_ == nullptr && return this->result_ == nullptr && return this->taskId_ == nullptr; };
+        && this->ossBucketRegionId_ == nullptr && this->result_ == nullptr && this->taskId_ == nullptr; };
     // ossBucketName Field Functions 
     bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
     void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
-    inline string ossBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
+    inline string getOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
     inline TransferTaskApprovalCallbackRequest& setOssBucketName(string ossBucketName) { DARABONBA_PTR_SET_VALUE(ossBucketName_, ossBucketName) };
 
 
     // ossBucketRegionId Field Functions 
     bool hasOssBucketRegionId() const { return this->ossBucketRegionId_ != nullptr;};
     void deleteOssBucketRegionId() { this->ossBucketRegionId_ = nullptr;};
-    inline string ossBucketRegionId() const { DARABONBA_PTR_GET_DEFAULT(ossBucketRegionId_, "") };
+    inline string getOssBucketRegionId() const { DARABONBA_PTR_GET_DEFAULT(ossBucketRegionId_, "") };
     inline TransferTaskApprovalCallbackRequest& setOssBucketRegionId(string ossBucketRegionId) { DARABONBA_PTR_SET_VALUE(ossBucketRegionId_, ossBucketRegionId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline string result() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+    inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
     inline TransferTaskApprovalCallbackRequest& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline TransferTaskApprovalCallbackRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // The name of the OSS bucket where the file resides.
-    std::shared_ptr<string> ossBucketName_ = nullptr;
+    shared_ptr<string> ossBucketName_ {};
     // The region where the OSS bucket storing the file resides.
-    std::shared_ptr<string> ossBucketRegionId_ = nullptr;
+    shared_ptr<string> ossBucketRegionId_ {};
     // The approval result.
     // 
     // Valid values:
     // 
     // *   Approved
     // *   Rejected
-    std::shared_ptr<string> result_ = nullptr;
+    shared_ptr<string> result_ {};
     // The ID of the transmission task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

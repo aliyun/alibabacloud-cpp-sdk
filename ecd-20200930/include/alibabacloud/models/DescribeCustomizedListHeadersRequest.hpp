@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->langType_ == nullptr
-        && return this->listType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->listType_ == nullptr && this->regionId_ == nullptr; };
     // langType Field Functions 
     bool hasLangType() const { return this->langType_ != nullptr;};
     void deleteLangType() { this->langType_ = nullptr;};
-    inline string langType() const { DARABONBA_PTR_GET_DEFAULT(langType_, "") };
+    inline string getLangType() const { DARABONBA_PTR_GET_DEFAULT(langType_, "") };
     inline DescribeCustomizedListHeadersRequest& setLangType(string langType) { DARABONBA_PTR_SET_VALUE(langType_, langType) };
 
 
     // listType Field Functions 
     bool hasListType() const { return this->listType_ != nullptr;};
     void deleteListType() { this->listType_ = nullptr;};
-    inline string listType() const { DARABONBA_PTR_GET_DEFAULT(listType_, "") };
+    inline string getListType() const { DARABONBA_PTR_GET_DEFAULT(listType_, "") };
     inline DescribeCustomizedListHeadersRequest& setListType(string listType) { DARABONBA_PTR_SET_VALUE(listType_, listType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeCustomizedListHeadersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    std::shared_ptr<string> langType_ = nullptr;
-    std::shared_ptr<string> listType_ = nullptr;
+    shared_ptr<string> langType_ {};
+    shared_ptr<string> listType_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_FILEPERMISSIONMEMBER_HPP_
 #define ALIBABACLOUD_MODELS_FILEPERMISSIONMEMBER_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/FilePermissionMemberCdsIdentity.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,45 +35,89 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class CdsIdentity : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CdsIdentity& obj) { 
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, CdsIdentity& obj) { 
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      CdsIdentity() = default ;
+      CdsIdentity(const CdsIdentity &) = default ;
+      CdsIdentity(CdsIdentity &&) = default ;
+      CdsIdentity(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CdsIdentity() = default ;
+      CdsIdentity& operator=(const CdsIdentity &) = default ;
+      CdsIdentity& operator=(CdsIdentity &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->id_ == nullptr
+        && this->type_ == nullptr; };
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline CdsIdentity& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline CdsIdentity& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // This parameter is required.
+      shared_ptr<string> id_ {};
+      // This parameter is required.
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->cdsIdentity_ == nullptr
-        && return this->disinheritSubGroup_ == nullptr && return this->expireTime_ == nullptr && return this->roleId_ == nullptr; };
+        && this->disinheritSubGroup_ == nullptr && this->expireTime_ == nullptr && this->roleId_ == nullptr; };
     // cdsIdentity Field Functions 
     bool hasCdsIdentity() const { return this->cdsIdentity_ != nullptr;};
     void deleteCdsIdentity() { this->cdsIdentity_ = nullptr;};
-    inline const FilePermissionMemberCdsIdentity & cdsIdentity() const { DARABONBA_PTR_GET_CONST(cdsIdentity_, FilePermissionMemberCdsIdentity) };
-    inline FilePermissionMemberCdsIdentity cdsIdentity() { DARABONBA_PTR_GET(cdsIdentity_, FilePermissionMemberCdsIdentity) };
-    inline FilePermissionMember& setCdsIdentity(const FilePermissionMemberCdsIdentity & cdsIdentity) { DARABONBA_PTR_SET_VALUE(cdsIdentity_, cdsIdentity) };
-    inline FilePermissionMember& setCdsIdentity(FilePermissionMemberCdsIdentity && cdsIdentity) { DARABONBA_PTR_SET_RVALUE(cdsIdentity_, cdsIdentity) };
+    inline const FilePermissionMember::CdsIdentity & getCdsIdentity() const { DARABONBA_PTR_GET_CONST(cdsIdentity_, FilePermissionMember::CdsIdentity) };
+    inline FilePermissionMember::CdsIdentity getCdsIdentity() { DARABONBA_PTR_GET(cdsIdentity_, FilePermissionMember::CdsIdentity) };
+    inline FilePermissionMember& setCdsIdentity(const FilePermissionMember::CdsIdentity & cdsIdentity) { DARABONBA_PTR_SET_VALUE(cdsIdentity_, cdsIdentity) };
+    inline FilePermissionMember& setCdsIdentity(FilePermissionMember::CdsIdentity && cdsIdentity) { DARABONBA_PTR_SET_RVALUE(cdsIdentity_, cdsIdentity) };
 
 
     // disinheritSubGroup Field Functions 
     bool hasDisinheritSubGroup() const { return this->disinheritSubGroup_ != nullptr;};
     void deleteDisinheritSubGroup() { this->disinheritSubGroup_ = nullptr;};
-    inline bool disinheritSubGroup() const { DARABONBA_PTR_GET_DEFAULT(disinheritSubGroup_, false) };
+    inline bool getDisinheritSubGroup() const { DARABONBA_PTR_GET_DEFAULT(disinheritSubGroup_, false) };
     inline FilePermissionMember& setDisinheritSubGroup(bool disinheritSubGroup) { DARABONBA_PTR_SET_VALUE(disinheritSubGroup_, disinheritSubGroup) };
 
 
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
-    inline int64_t expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
+    inline int64_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
     inline FilePermissionMember& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline string roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
+    inline string getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
     inline FilePermissionMember& setRoleId(string roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<FilePermissionMemberCdsIdentity> cdsIdentity_ = nullptr;
-    std::shared_ptr<bool> disinheritSubGroup_ = nullptr;
-    std::shared_ptr<int64_t> expireTime_ = nullptr;
+    shared_ptr<FilePermissionMember::CdsIdentity> cdsIdentity_ {};
+    shared_ptr<bool> disinheritSubGroup_ {};
+    shared_ptr<int64_t> expireTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> roleId_ = nullptr;
+    shared_ptr<string> roleId_ {};
   };
 
   } // namespace Models

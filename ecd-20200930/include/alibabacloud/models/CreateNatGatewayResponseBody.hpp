@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forwardTableIds_ == nullptr
-        && return this->natGatewayId_ == nullptr && return this->requestId_ == nullptr && return this->snatTableIds_ == nullptr; };
+        && this->natGatewayId_ == nullptr && this->requestId_ == nullptr && this->snatTableIds_ == nullptr; };
     // forwardTableIds Field Functions 
     bool hasForwardTableIds() const { return this->forwardTableIds_ != nullptr;};
     void deleteForwardTableIds() { this->forwardTableIds_ = nullptr;};
-    inline const vector<string> & forwardTableIds() const { DARABONBA_PTR_GET_CONST(forwardTableIds_, vector<string>) };
-    inline vector<string> forwardTableIds() { DARABONBA_PTR_GET(forwardTableIds_, vector<string>) };
+    inline const vector<string> & getForwardTableIds() const { DARABONBA_PTR_GET_CONST(forwardTableIds_, vector<string>) };
+    inline vector<string> getForwardTableIds() { DARABONBA_PTR_GET(forwardTableIds_, vector<string>) };
     inline CreateNatGatewayResponseBody& setForwardTableIds(const vector<string> & forwardTableIds) { DARABONBA_PTR_SET_VALUE(forwardTableIds_, forwardTableIds) };
     inline CreateNatGatewayResponseBody& setForwardTableIds(vector<string> && forwardTableIds) { DARABONBA_PTR_SET_RVALUE(forwardTableIds_, forwardTableIds) };
 
@@ -50,31 +50,31 @@ namespace Models
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline CreateNatGatewayResponseBody& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateNatGatewayResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // snatTableIds Field Functions 
     bool hasSnatTableIds() const { return this->snatTableIds_ != nullptr;};
     void deleteSnatTableIds() { this->snatTableIds_ = nullptr;};
-    inline const vector<string> & snatTableIds() const { DARABONBA_PTR_GET_CONST(snatTableIds_, vector<string>) };
-    inline vector<string> snatTableIds() { DARABONBA_PTR_GET(snatTableIds_, vector<string>) };
+    inline const vector<string> & getSnatTableIds() const { DARABONBA_PTR_GET_CONST(snatTableIds_, vector<string>) };
+    inline vector<string> getSnatTableIds() { DARABONBA_PTR_GET(snatTableIds_, vector<string>) };
     inline CreateNatGatewayResponseBody& setSnatTableIds(const vector<string> & snatTableIds) { DARABONBA_PTR_SET_VALUE(snatTableIds_, snatTableIds) };
     inline CreateNatGatewayResponseBody& setSnatTableIds(vector<string> && snatTableIds) { DARABONBA_PTR_SET_RVALUE(snatTableIds_, snatTableIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> forwardTableIds_ = nullptr;
-    std::shared_ptr<string> natGatewayId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<string>> snatTableIds_ = nullptr;
+    shared_ptr<vector<string>> forwardTableIds_ {};
+    shared_ptr<string> natGatewayId_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<string>> snatTableIds_ {};
   };
 
   } // namespace Models

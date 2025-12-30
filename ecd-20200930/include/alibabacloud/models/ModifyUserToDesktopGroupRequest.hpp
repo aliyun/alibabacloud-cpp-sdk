@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopGroupId_ == nullptr
-        && return this->newEndUserIds_ == nullptr && return this->oldEndUserIds_ == nullptr && return this->regionId_ == nullptr; };
+        && this->newEndUserIds_ == nullptr && this->oldEndUserIds_ == nullptr && this->regionId_ == nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline ModifyUserToDesktopGroupRequest& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // newEndUserIds Field Functions 
     bool hasNewEndUserIds() const { return this->newEndUserIds_ != nullptr;};
     void deleteNewEndUserIds() { this->newEndUserIds_ = nullptr;};
-    inline const vector<string> & newEndUserIds() const { DARABONBA_PTR_GET_CONST(newEndUserIds_, vector<string>) };
-    inline vector<string> newEndUserIds() { DARABONBA_PTR_GET(newEndUserIds_, vector<string>) };
+    inline const vector<string> & getNewEndUserIds() const { DARABONBA_PTR_GET_CONST(newEndUserIds_, vector<string>) };
+    inline vector<string> getNewEndUserIds() { DARABONBA_PTR_GET(newEndUserIds_, vector<string>) };
     inline ModifyUserToDesktopGroupRequest& setNewEndUserIds(const vector<string> & newEndUserIds) { DARABONBA_PTR_SET_VALUE(newEndUserIds_, newEndUserIds) };
     inline ModifyUserToDesktopGroupRequest& setNewEndUserIds(vector<string> && newEndUserIds) { DARABONBA_PTR_SET_RVALUE(newEndUserIds_, newEndUserIds) };
 
@@ -57,8 +57,8 @@ namespace Models
     // oldEndUserIds Field Functions 
     bool hasOldEndUserIds() const { return this->oldEndUserIds_ != nullptr;};
     void deleteOldEndUserIds() { this->oldEndUserIds_ = nullptr;};
-    inline const vector<string> & oldEndUserIds() const { DARABONBA_PTR_GET_CONST(oldEndUserIds_, vector<string>) };
-    inline vector<string> oldEndUserIds() { DARABONBA_PTR_GET(oldEndUserIds_, vector<string>) };
+    inline const vector<string> & getOldEndUserIds() const { DARABONBA_PTR_GET_CONST(oldEndUserIds_, vector<string>) };
+    inline vector<string> getOldEndUserIds() { DARABONBA_PTR_GET(oldEndUserIds_, vector<string>) };
     inline ModifyUserToDesktopGroupRequest& setOldEndUserIds(const vector<string> & oldEndUserIds) { DARABONBA_PTR_SET_VALUE(oldEndUserIds_, oldEndUserIds) };
     inline ModifyUserToDesktopGroupRequest& setOldEndUserIds(vector<string> && oldEndUserIds) { DARABONBA_PTR_SET_RVALUE(oldEndUserIds_, oldEndUserIds) };
 
@@ -66,7 +66,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyUserToDesktopGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -74,19 +74,19 @@ namespace Models
     // The ID of the cloud computer share.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
+    shared_ptr<string> desktopGroupId_ {};
     // The IDs of the end users that you want to add. You can configure 1 to 500 IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> newEndUserIds_ = nullptr;
+    shared_ptr<vector<string>> newEndUserIds_ {};
     // The IDs of the end users that you want to remove. You can configure 1 to 500 IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> oldEndUserIds_ = nullptr;
+    shared_ptr<vector<string>> oldEndUserIds_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

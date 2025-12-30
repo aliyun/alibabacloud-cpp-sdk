@@ -41,47 +41,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopAccessType_ == nullptr
-        && return this->directoryName_ == nullptr && return this->enableAdminAccess_ == nullptr && return this->enableInternetAccess_ == nullptr && return this->regionId_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && this->directoryName_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr; };
     // desktopAccessType Field Functions 
     bool hasDesktopAccessType() const { return this->desktopAccessType_ != nullptr;};
     void deleteDesktopAccessType() { this->desktopAccessType_ = nullptr;};
-    inline string desktopAccessType() const { DARABONBA_PTR_GET_DEFAULT(desktopAccessType_, "") };
+    inline string getDesktopAccessType() const { DARABONBA_PTR_GET_DEFAULT(desktopAccessType_, "") };
     inline CreateRAMDirectoryRequest& setDesktopAccessType(string desktopAccessType) { DARABONBA_PTR_SET_VALUE(desktopAccessType_, desktopAccessType) };
 
 
     // directoryName Field Functions 
     bool hasDirectoryName() const { return this->directoryName_ != nullptr;};
     void deleteDirectoryName() { this->directoryName_ = nullptr;};
-    inline string directoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
+    inline string getDirectoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
     inline CreateRAMDirectoryRequest& setDirectoryName(string directoryName) { DARABONBA_PTR_SET_VALUE(directoryName_, directoryName) };
 
 
     // enableAdminAccess Field Functions 
     bool hasEnableAdminAccess() const { return this->enableAdminAccess_ != nullptr;};
     void deleteEnableAdminAccess() { this->enableAdminAccess_ = nullptr;};
-    inline bool enableAdminAccess() const { DARABONBA_PTR_GET_DEFAULT(enableAdminAccess_, false) };
+    inline bool getEnableAdminAccess() const { DARABONBA_PTR_GET_DEFAULT(enableAdminAccess_, false) };
     inline CreateRAMDirectoryRequest& setEnableAdminAccess(bool enableAdminAccess) { DARABONBA_PTR_SET_VALUE(enableAdminAccess_, enableAdminAccess) };
 
 
     // enableInternetAccess Field Functions 
     bool hasEnableInternetAccess() const { return this->enableInternetAccess_ != nullptr;};
     void deleteEnableInternetAccess() { this->enableInternetAccess_ = nullptr;};
-    inline bool enableInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(enableInternetAccess_, false) };
+    inline bool getEnableInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(enableInternetAccess_, false) };
     inline CreateRAMDirectoryRequest& setEnableInternetAccess(bool enableInternetAccess) { DARABONBA_PTR_SET_VALUE(enableInternetAccess_, enableInternetAccess) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateRAMDirectoryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline const vector<string> & vSwitchId() const { DARABONBA_PTR_GET_CONST(vSwitchId_, vector<string>) };
-    inline vector<string> vSwitchId() { DARABONBA_PTR_GET(vSwitchId_, vector<string>) };
+    inline const vector<string> & getVSwitchId() const { DARABONBA_PTR_GET_CONST(vSwitchId_, vector<string>) };
+    inline vector<string> getVSwitchId() { DARABONBA_PTR_GET(vSwitchId_, vector<string>) };
     inline CreateRAMDirectoryRequest& setVSwitchId(const vector<string> & vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
     inline CreateRAMDirectoryRequest& setVSwitchId(vector<string> && vSwitchId) { DARABONBA_PTR_SET_RVALUE(vSwitchId_, vSwitchId) };
 
@@ -114,11 +114,11 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> desktopAccessType_ = nullptr;
+    shared_ptr<string> desktopAccessType_ {};
     // The directory name. The name must be 2 to 255 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> directoryName_ = nullptr;
+    shared_ptr<string> directoryName_ {};
     // Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
     // 
     // Valid values:
@@ -140,7 +140,7 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<bool> enableAdminAccess_ = nullptr;
+    shared_ptr<bool> enableAdminAccess_ {};
     // Specifies whether to enable Internet access.
     // 
     // Valid values:
@@ -160,15 +160,15 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<bool> enableInternetAccess_ = nullptr;
+    shared_ptr<bool> enableInternetAccess_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The vSwitch IDs. You can configure only one vSwitch.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> vSwitchId_ = nullptr;
+    shared_ptr<vector<string>> vSwitchId_ {};
   };
 
   } // namespace Models

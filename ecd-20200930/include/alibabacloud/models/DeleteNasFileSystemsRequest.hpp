@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline const vector<string> & fileSystemId() const { DARABONBA_PTR_GET_CONST(fileSystemId_, vector<string>) };
-    inline vector<string> fileSystemId() { DARABONBA_PTR_GET(fileSystemId_, vector<string>) };
+    inline const vector<string> & getFileSystemId() const { DARABONBA_PTR_GET_CONST(fileSystemId_, vector<string>) };
+    inline vector<string> getFileSystemId() { DARABONBA_PTR_GET(fileSystemId_, vector<string>) };
     inline DeleteNASFileSystemsRequest& setFileSystemId(const vector<string> & fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
     inline DeleteNASFileSystemsRequest& setFileSystemId(vector<string> && fileSystemId) { DARABONBA_PTR_SET_RVALUE(fileSystemId_, fileSystemId) };
 
@@ -46,7 +46,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteNASFileSystemsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The IDs of the NAS file systems that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> fileSystemId_ = nullptr;
+    shared_ptr<vector<string>> fileSystemId_ {};
     // The region ID of the NAS file system that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

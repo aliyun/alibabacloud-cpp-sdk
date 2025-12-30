@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eipId_ == nullptr
-        && return this->natGatewayId_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->natGatewayId_ == nullptr && this->networkInterfaceId_ == nullptr && this->officeSiteId_ == nullptr && this->regionId_ == nullptr; };
     // eipId Field Functions 
     bool hasEipId() const { return this->eipId_ != nullptr;};
     void deleteEipId() { this->eipId_ = nullptr;};
-    inline string eipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
+    inline string getEipId() const { DARABONBA_PTR_GET_DEFAULT(eipId_, "") };
     inline AssociateIpAddressRequest& setEipId(string eipId) { DARABONBA_PTR_SET_VALUE(eipId_, eipId) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline AssociateIpAddressRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // networkInterfaceId Field Functions 
     bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
     void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
-    inline string networkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
+    inline string getNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
     inline AssociateIpAddressRequest& setNetworkInterfaceId(string networkInterfaceId) { DARABONBA_PTR_SET_VALUE(networkInterfaceId_, networkInterfaceId) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline AssociateIpAddressRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AssociateIpAddressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> eipId_ = nullptr;
-    std::shared_ptr<string> natGatewayId_ = nullptr;
-    std::shared_ptr<string> networkInterfaceId_ = nullptr;
-    std::shared_ptr<string> officeSiteId_ = nullptr;
+    shared_ptr<string> eipId_ {};
+    shared_ptr<string> natGatewayId_ {};
+    shared_ptr<string> networkInterfaceId_ {};
+    shared_ptr<string> officeSiteId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

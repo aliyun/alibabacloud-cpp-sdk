@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopIds_ == nullptr
-        && return this->mode_ == nullptr && return this->regionId_ == nullptr; };
+        && this->mode_ == nullptr && this->regionId_ == nullptr; };
     // desktopIds Field Functions 
     bool hasDesktopIds() const { return this->desktopIds_ != nullptr;};
     void deleteDesktopIds() { this->desktopIds_ = nullptr;};
-    inline const vector<string> & desktopIds() const { DARABONBA_PTR_GET_CONST(desktopIds_, vector<string>) };
-    inline vector<string> desktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
+    inline const vector<string> & getDesktopIds() const { DARABONBA_PTR_GET_CONST(desktopIds_, vector<string>) };
+    inline vector<string> getDesktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
     inline SetDesktopMaintenanceRequest& setDesktopIds(const vector<string> & desktopIds) { DARABONBA_PTR_SET_VALUE(desktopIds_, desktopIds) };
     inline SetDesktopMaintenanceRequest& setDesktopIds(vector<string> && desktopIds) { DARABONBA_PTR_SET_RVALUE(desktopIds_, desktopIds) };
 
@@ -48,14 +48,14 @@ namespace Models
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline SetDesktopMaintenanceRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetDesktopMaintenanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -63,7 +63,7 @@ namespace Models
     // A list of cloud computer IDs for which you want to set maintenance mode. A maximum of 100 cloud computer IDs are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> desktopIds_ = nullptr;
+    shared_ptr<vector<string>> desktopIds_ {};
     // Enter or exit cloud computer maintenance mode.
     // 
     // Enumerated values:
@@ -72,11 +72,11 @@ namespace Models
     // *   EXIT: The exits the maintenance mode.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyGroupId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // policyGroupId Field Functions 
     bool hasPolicyGroupId() const { return this->policyGroupId_ != nullptr;};
     void deletePolicyGroupId() { this->policyGroupId_ = nullptr;};
-    inline const vector<string> & policyGroupId() const { DARABONBA_PTR_GET_CONST(policyGroupId_, vector<string>) };
-    inline vector<string> policyGroupId() { DARABONBA_PTR_GET(policyGroupId_, vector<string>) };
+    inline const vector<string> & getPolicyGroupId() const { DARABONBA_PTR_GET_CONST(policyGroupId_, vector<string>) };
+    inline vector<string> getPolicyGroupId() { DARABONBA_PTR_GET(policyGroupId_, vector<string>) };
     inline DeletePolicyGroupsRequest& setPolicyGroupId(const vector<string> & policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
     inline DeletePolicyGroupsRequest& setPolicyGroupId(vector<string> && policyGroupId) { DARABONBA_PTR_SET_RVALUE(policyGroupId_, policyGroupId) };
 
@@ -46,7 +46,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeletePolicyGroupsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The cloud computer policy IDs. You can specify 1 to 100 policies.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> policyGroupId_ = nullptr;
+    shared_ptr<vector<string>> policyGroupId_ {};
     // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by EDS.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -55,21 +55,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creationTimeStart_ == nullptr
-        && return this->desktopIds_ == nullptr && return this->groupId_ == nullptr && return this->hostName_ == nullptr && return this->imageId_ == nullptr && return this->includeDesktopGroup_ == nullptr
-        && return this->keyword_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->officeSiteId_ == nullptr && return this->operationTimeStart_ == nullptr
-        && return this->regionId_ == nullptr && return this->searchRegionId_ == nullptr; };
+        && this->desktopIds_ == nullptr && this->groupId_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr && this->includeDesktopGroup_ == nullptr
+        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr && this->operationTimeStart_ == nullptr
+        && this->regionId_ == nullptr && this->searchRegionId_ == nullptr; };
     // creationTimeStart Field Functions 
     bool hasCreationTimeStart() const { return this->creationTimeStart_ != nullptr;};
     void deleteCreationTimeStart() { this->creationTimeStart_ = nullptr;};
-    inline string creationTimeStart() const { DARABONBA_PTR_GET_DEFAULT(creationTimeStart_, "") };
+    inline string getCreationTimeStart() const { DARABONBA_PTR_GET_DEFAULT(creationTimeStart_, "") };
     inline DescribeDesktopMetadataRequest& setCreationTimeStart(string creationTimeStart) { DARABONBA_PTR_SET_VALUE(creationTimeStart_, creationTimeStart) };
 
 
     // desktopIds Field Functions 
     bool hasDesktopIds() const { return this->desktopIds_ != nullptr;};
     void deleteDesktopIds() { this->desktopIds_ = nullptr;};
-    inline const vector<string> & desktopIds() const { DARABONBA_PTR_GET_CONST(desktopIds_, vector<string>) };
-    inline vector<string> desktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
+    inline const vector<string> & getDesktopIds() const { DARABONBA_PTR_GET_CONST(desktopIds_, vector<string>) };
+    inline vector<string> getDesktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
     inline DescribeDesktopMetadataRequest& setDesktopIds(const vector<string> & desktopIds) { DARABONBA_PTR_SET_VALUE(desktopIds_, desktopIds) };
     inline DescribeDesktopMetadataRequest& setDesktopIds(vector<string> && desktopIds) { DARABONBA_PTR_SET_RVALUE(desktopIds_, desktopIds) };
 
@@ -77,94 +77,94 @@ namespace Models
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DescribeDesktopMetadataRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // hostName Field Functions 
     bool hasHostName() const { return this->hostName_ != nullptr;};
     void deleteHostName() { this->hostName_ = nullptr;};
-    inline string hostName() const { DARABONBA_PTR_GET_DEFAULT(hostName_, "") };
+    inline string getHostName() const { DARABONBA_PTR_GET_DEFAULT(hostName_, "") };
     inline DescribeDesktopMetadataRequest& setHostName(string hostName) { DARABONBA_PTR_SET_VALUE(hostName_, hostName) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline DescribeDesktopMetadataRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // includeDesktopGroup Field Functions 
     bool hasIncludeDesktopGroup() const { return this->includeDesktopGroup_ != nullptr;};
     void deleteIncludeDesktopGroup() { this->includeDesktopGroup_ = nullptr;};
-    inline bool includeDesktopGroup() const { DARABONBA_PTR_GET_DEFAULT(includeDesktopGroup_, false) };
+    inline bool getIncludeDesktopGroup() const { DARABONBA_PTR_GET_DEFAULT(includeDesktopGroup_, false) };
     inline DescribeDesktopMetadataRequest& setIncludeDesktopGroup(bool includeDesktopGroup) { DARABONBA_PTR_SET_VALUE(includeDesktopGroup_, includeDesktopGroup) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline DescribeDesktopMetadataRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeDesktopMetadataRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeDesktopMetadataRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // officeSiteId Field Functions 
     bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
     void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
-    inline string officeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
     inline DescribeDesktopMetadataRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
     // operationTimeStart Field Functions 
     bool hasOperationTimeStart() const { return this->operationTimeStart_ != nullptr;};
     void deleteOperationTimeStart() { this->operationTimeStart_ = nullptr;};
-    inline string operationTimeStart() const { DARABONBA_PTR_GET_DEFAULT(operationTimeStart_, "") };
+    inline string getOperationTimeStart() const { DARABONBA_PTR_GET_DEFAULT(operationTimeStart_, "") };
     inline DescribeDesktopMetadataRequest& setOperationTimeStart(string operationTimeStart) { DARABONBA_PTR_SET_VALUE(operationTimeStart_, operationTimeStart) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDesktopMetadataRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // searchRegionId Field Functions 
     bool hasSearchRegionId() const { return this->searchRegionId_ != nullptr;};
     void deleteSearchRegionId() { this->searchRegionId_ = nullptr;};
-    inline string searchRegionId() const { DARABONBA_PTR_GET_DEFAULT(searchRegionId_, "") };
+    inline string getSearchRegionId() const { DARABONBA_PTR_GET_DEFAULT(searchRegionId_, "") };
     inline DescribeDesktopMetadataRequest& setSearchRegionId(string searchRegionId) { DARABONBA_PTR_SET_VALUE(searchRegionId_, searchRegionId) };
 
 
   protected:
-    std::shared_ptr<string> creationTimeStart_ = nullptr;
-    std::shared_ptr<vector<string>> desktopIds_ = nullptr;
-    std::shared_ptr<string> groupId_ = nullptr;
-    std::shared_ptr<string> hostName_ = nullptr;
-    std::shared_ptr<string> imageId_ = nullptr;
-    std::shared_ptr<bool> includeDesktopGroup_ = nullptr;
-    std::shared_ptr<string> keyword_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> officeSiteId_ = nullptr;
-    std::shared_ptr<string> operationTimeStart_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> searchRegionId_ = nullptr;
+    shared_ptr<string> creationTimeStart_ {};
+    shared_ptr<vector<string>> desktopIds_ {};
+    shared_ptr<string> groupId_ {};
+    shared_ptr<string> hostName_ {};
+    shared_ptr<string> imageId_ {};
+    shared_ptr<bool> includeDesktopGroup_ {};
+    shared_ptr<string> keyword_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> officeSiteId_ {};
+    shared_ptr<string> operationTimeStart_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> searchRegionId_ {};
   };
 
   } // namespace Models

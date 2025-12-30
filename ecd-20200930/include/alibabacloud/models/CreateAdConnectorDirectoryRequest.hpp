@@ -55,28 +55,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopAccessType_ == nullptr
-        && return this->directoryName_ == nullptr && return this->dnsAddress_ == nullptr && return this->domainName_ == nullptr && return this->domainPassword_ == nullptr && return this->domainUserName_ == nullptr
-        && return this->enableAdminAccess_ == nullptr && return this->mfaEnabled_ == nullptr && return this->regionId_ == nullptr && return this->specification_ == nullptr && return this->subDomainDnsAddress_ == nullptr
-        && return this->subDomainName_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && this->directoryName_ == nullptr && this->dnsAddress_ == nullptr && this->domainName_ == nullptr && this->domainPassword_ == nullptr && this->domainUserName_ == nullptr
+        && this->enableAdminAccess_ == nullptr && this->mfaEnabled_ == nullptr && this->regionId_ == nullptr && this->specification_ == nullptr && this->subDomainDnsAddress_ == nullptr
+        && this->subDomainName_ == nullptr && this->vSwitchId_ == nullptr; };
     // desktopAccessType Field Functions 
     bool hasDesktopAccessType() const { return this->desktopAccessType_ != nullptr;};
     void deleteDesktopAccessType() { this->desktopAccessType_ = nullptr;};
-    inline string desktopAccessType() const { DARABONBA_PTR_GET_DEFAULT(desktopAccessType_, "") };
+    inline string getDesktopAccessType() const { DARABONBA_PTR_GET_DEFAULT(desktopAccessType_, "") };
     inline CreateADConnectorDirectoryRequest& setDesktopAccessType(string desktopAccessType) { DARABONBA_PTR_SET_VALUE(desktopAccessType_, desktopAccessType) };
 
 
     // directoryName Field Functions 
     bool hasDirectoryName() const { return this->directoryName_ != nullptr;};
     void deleteDirectoryName() { this->directoryName_ = nullptr;};
-    inline string directoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
+    inline string getDirectoryName() const { DARABONBA_PTR_GET_DEFAULT(directoryName_, "") };
     inline CreateADConnectorDirectoryRequest& setDirectoryName(string directoryName) { DARABONBA_PTR_SET_VALUE(directoryName_, directoryName) };
 
 
     // dnsAddress Field Functions 
     bool hasDnsAddress() const { return this->dnsAddress_ != nullptr;};
     void deleteDnsAddress() { this->dnsAddress_ = nullptr;};
-    inline const vector<string> & dnsAddress() const { DARABONBA_PTR_GET_CONST(dnsAddress_, vector<string>) };
-    inline vector<string> dnsAddress() { DARABONBA_PTR_GET(dnsAddress_, vector<string>) };
+    inline const vector<string> & getDnsAddress() const { DARABONBA_PTR_GET_CONST(dnsAddress_, vector<string>) };
+    inline vector<string> getDnsAddress() { DARABONBA_PTR_GET(dnsAddress_, vector<string>) };
     inline CreateADConnectorDirectoryRequest& setDnsAddress(const vector<string> & dnsAddress) { DARABONBA_PTR_SET_VALUE(dnsAddress_, dnsAddress) };
     inline CreateADConnectorDirectoryRequest& setDnsAddress(vector<string> && dnsAddress) { DARABONBA_PTR_SET_RVALUE(dnsAddress_, dnsAddress) };
 
@@ -84,57 +84,57 @@ namespace Models
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateADConnectorDirectoryRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // domainPassword Field Functions 
     bool hasDomainPassword() const { return this->domainPassword_ != nullptr;};
     void deleteDomainPassword() { this->domainPassword_ = nullptr;};
-    inline string domainPassword() const { DARABONBA_PTR_GET_DEFAULT(domainPassword_, "") };
+    inline string getDomainPassword() const { DARABONBA_PTR_GET_DEFAULT(domainPassword_, "") };
     inline CreateADConnectorDirectoryRequest& setDomainPassword(string domainPassword) { DARABONBA_PTR_SET_VALUE(domainPassword_, domainPassword) };
 
 
     // domainUserName Field Functions 
     bool hasDomainUserName() const { return this->domainUserName_ != nullptr;};
     void deleteDomainUserName() { this->domainUserName_ = nullptr;};
-    inline string domainUserName() const { DARABONBA_PTR_GET_DEFAULT(domainUserName_, "") };
+    inline string getDomainUserName() const { DARABONBA_PTR_GET_DEFAULT(domainUserName_, "") };
     inline CreateADConnectorDirectoryRequest& setDomainUserName(string domainUserName) { DARABONBA_PTR_SET_VALUE(domainUserName_, domainUserName) };
 
 
     // enableAdminAccess Field Functions 
     bool hasEnableAdminAccess() const { return this->enableAdminAccess_ != nullptr;};
     void deleteEnableAdminAccess() { this->enableAdminAccess_ = nullptr;};
-    inline bool enableAdminAccess() const { DARABONBA_PTR_GET_DEFAULT(enableAdminAccess_, false) };
+    inline bool getEnableAdminAccess() const { DARABONBA_PTR_GET_DEFAULT(enableAdminAccess_, false) };
     inline CreateADConnectorDirectoryRequest& setEnableAdminAccess(bool enableAdminAccess) { DARABONBA_PTR_SET_VALUE(enableAdminAccess_, enableAdminAccess) };
 
 
     // mfaEnabled Field Functions 
     bool hasMfaEnabled() const { return this->mfaEnabled_ != nullptr;};
     void deleteMfaEnabled() { this->mfaEnabled_ = nullptr;};
-    inline bool mfaEnabled() const { DARABONBA_PTR_GET_DEFAULT(mfaEnabled_, false) };
+    inline bool getMfaEnabled() const { DARABONBA_PTR_GET_DEFAULT(mfaEnabled_, false) };
     inline CreateADConnectorDirectoryRequest& setMfaEnabled(bool mfaEnabled) { DARABONBA_PTR_SET_VALUE(mfaEnabled_, mfaEnabled) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateADConnectorDirectoryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // specification Field Functions 
     bool hasSpecification() const { return this->specification_ != nullptr;};
     void deleteSpecification() { this->specification_ = nullptr;};
-    inline int64_t specification() const { DARABONBA_PTR_GET_DEFAULT(specification_, 0L) };
+    inline int64_t getSpecification() const { DARABONBA_PTR_GET_DEFAULT(specification_, 0L) };
     inline CreateADConnectorDirectoryRequest& setSpecification(int64_t specification) { DARABONBA_PTR_SET_VALUE(specification_, specification) };
 
 
     // subDomainDnsAddress Field Functions 
     bool hasSubDomainDnsAddress() const { return this->subDomainDnsAddress_ != nullptr;};
     void deleteSubDomainDnsAddress() { this->subDomainDnsAddress_ = nullptr;};
-    inline const vector<string> & subDomainDnsAddress() const { DARABONBA_PTR_GET_CONST(subDomainDnsAddress_, vector<string>) };
-    inline vector<string> subDomainDnsAddress() { DARABONBA_PTR_GET(subDomainDnsAddress_, vector<string>) };
+    inline const vector<string> & getSubDomainDnsAddress() const { DARABONBA_PTR_GET_CONST(subDomainDnsAddress_, vector<string>) };
+    inline vector<string> getSubDomainDnsAddress() { DARABONBA_PTR_GET(subDomainDnsAddress_, vector<string>) };
     inline CreateADConnectorDirectoryRequest& setSubDomainDnsAddress(const vector<string> & subDomainDnsAddress) { DARABONBA_PTR_SET_VALUE(subDomainDnsAddress_, subDomainDnsAddress) };
     inline CreateADConnectorDirectoryRequest& setSubDomainDnsAddress(vector<string> && subDomainDnsAddress) { DARABONBA_PTR_SET_RVALUE(subDomainDnsAddress_, subDomainDnsAddress) };
 
@@ -142,15 +142,15 @@ namespace Models
     // subDomainName Field Functions 
     bool hasSubDomainName() const { return this->subDomainName_ != nullptr;};
     void deleteSubDomainName() { this->subDomainName_ = nullptr;};
-    inline string subDomainName() const { DARABONBA_PTR_GET_DEFAULT(subDomainName_, "") };
+    inline string getSubDomainName() const { DARABONBA_PTR_GET_DEFAULT(subDomainName_, "") };
     inline CreateADConnectorDirectoryRequest& setSubDomainName(string subDomainName) { DARABONBA_PTR_SET_VALUE(subDomainName_, subDomainName) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline const vector<string> & vSwitchId() const { DARABONBA_PTR_GET_CONST(vSwitchId_, vector<string>) };
-    inline vector<string> vSwitchId() { DARABONBA_PTR_GET(vSwitchId_, vector<string>) };
+    inline const vector<string> & getVSwitchId() const { DARABONBA_PTR_GET_CONST(vSwitchId_, vector<string>) };
+    inline vector<string> getVSwitchId() { DARABONBA_PTR_GET(vSwitchId_, vector<string>) };
     inline CreateADConnectorDirectoryRequest& setVSwitchId(const vector<string> & vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
     inline CreateADConnectorDirectoryRequest& setVSwitchId(vector<string> && vSwitchId) { DARABONBA_PTR_SET_RVALUE(vSwitchId_, vSwitchId) };
 
@@ -183,27 +183,27 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> desktopAccessType_ = nullptr;
+    shared_ptr<string> desktopAccessType_ {};
     // The directory name. The name must be 2 to 255 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> directoryName_ = nullptr;
+    shared_ptr<string> directoryName_ {};
     // The IP address of the DNS server corresponding to the enterprise AD. You can specify only one IP address. Make sure that the specified IP address is accessible in the network of the selected vSwitch.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> dnsAddress_ = nullptr;
+    shared_ptr<vector<string>> dnsAddress_ {};
     // The fully qualified domain name (FQDN) of the enterprise AD system. The value must contain the hostname and the domain name. You can register each FQDN only once.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The password of the domain administrator. The password can be up to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainPassword_ = nullptr;
+    shared_ptr<string> domainPassword_ {};
     // The username of the domain administrator. The username can be up to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainUserName_ = nullptr;
+    shared_ptr<string> domainUserName_ {};
     // Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
     // 
     // Valid values:
@@ -225,7 +225,7 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<bool> enableAdminAccess_ = nullptr;
+    shared_ptr<bool> enableAdminAccess_ {};
     // Specifies whether to enable Multi-Factor Authentication (MFA). After you enable MFA, all AD users in the directory must enter a dynamic verification code generated by the virtual MFA device in addition to a correct password when they log on to a cloud computer.
     // 
     // >  When end users log on to a cloud computer for the first time, they must bind an MFA device.
@@ -247,26 +247,26 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<bool> mfaEnabled_ = nullptr;
+    shared_ptr<bool> mfaEnabled_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the AD connector.
     // 
     // Valid values:
     // - 1 (General)
     // - 2 (Advanced)
-    std::shared_ptr<int64_t> specification_ = nullptr;
+    shared_ptr<int64_t> specification_ {};
     // The DNS address of the existing AD subdomain.\\
     // If you specify the `SubDomainName` parameter but you do not specify this parameter, the DNS address of the subdomain is the same as the DNS address of the parent domain.
-    std::shared_ptr<vector<string>> subDomainDnsAddress_ = nullptr;
+    shared_ptr<vector<string>> subDomainDnsAddress_ {};
     // The FQDN of the enterprise AD subdomain. The value must contain the hostname and the subdomain name.
-    std::shared_ptr<string> subDomainName_ = nullptr;
+    shared_ptr<string> subDomainName_ {};
     // Details of the vSwitch IDs. You can specify only one vSwitch ID.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> vSwitchId_ = nullptr;
+    shared_ptr<vector<string>> vSwitchId_ {};
   };
 
   } // namespace Models

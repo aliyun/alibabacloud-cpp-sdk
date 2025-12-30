@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopGroupId_ == nullptr
-        && return this->regionId_ == nullptr && return this->userProfilePathRuleShrink_ == nullptr && return this->userProfileRuleType_ == nullptr; };
+        && this->regionId_ == nullptr && this->userProfilePathRuleShrink_ == nullptr && this->userProfileRuleType_ == nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline SetUserProfilePathRulesShrinkRequest& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetUserProfilePathRulesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // userProfilePathRuleShrink Field Functions 
     bool hasUserProfilePathRuleShrink() const { return this->userProfilePathRuleShrink_ != nullptr;};
     void deleteUserProfilePathRuleShrink() { this->userProfilePathRuleShrink_ = nullptr;};
-    inline string userProfilePathRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(userProfilePathRuleShrink_, "") };
+    inline string getUserProfilePathRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(userProfilePathRuleShrink_, "") };
     inline SetUserProfilePathRulesShrinkRequest& setUserProfilePathRuleShrink(string userProfilePathRuleShrink) { DARABONBA_PTR_SET_VALUE(userProfilePathRuleShrink_, userProfilePathRuleShrink) };
 
 
     // userProfileRuleType Field Functions 
     bool hasUserProfileRuleType() const { return this->userProfileRuleType_ != nullptr;};
     void deleteUserProfileRuleType() { this->userProfileRuleType_ = nullptr;};
-    inline string userProfileRuleType() const { DARABONBA_PTR_GET_DEFAULT(userProfileRuleType_, "") };
+    inline string getUserProfileRuleType() const { DARABONBA_PTR_GET_DEFAULT(userProfileRuleType_, "") };
     inline SetUserProfilePathRulesShrinkRequest& setUserProfileRuleType(string userProfileRuleType) { DARABONBA_PTR_SET_VALUE(userProfileRuleType_, userProfileRuleType) };
 
 
   protected:
     // The desktop group ID.
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
+    shared_ptr<string> desktopGroupId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The directories that you want to configure in the blacklist and whitelist.
-    std::shared_ptr<string> userProfilePathRuleShrink_ = nullptr;
+    shared_ptr<string> userProfilePathRuleShrink_ {};
     // The directory type that you want to configure.
     // 
     // Valid values:
@@ -101,7 +101,7 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> userProfileRuleType_ = nullptr;
+    shared_ptr<string> userProfileRuleType_ {};
   };
 
   } // namespace Models

@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->regionId_ == nullptr && return this->targetProtocolType_ == nullptr; };
+        && this->regionId_ == nullptr && this->targetProtocolType_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline const vector<string> & imageId() const { DARABONBA_PTR_GET_CONST(imageId_, vector<string>) };
-    inline vector<string> imageId() { DARABONBA_PTR_GET(imageId_, vector<string>) };
+    inline const vector<string> & getImageId() const { DARABONBA_PTR_GET_CONST(imageId_, vector<string>) };
+    inline vector<string> getImageId() { DARABONBA_PTR_GET(imageId_, vector<string>) };
     inline MigrateImageProtocolRequest& setImageId(const vector<string> & imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
     inline MigrateImageProtocolRequest& setImageId(vector<string> && imageId) { DARABONBA_PTR_SET_RVALUE(imageId_, imageId) };
 
@@ -48,14 +48,14 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline MigrateImageProtocolRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // targetProtocolType Field Functions 
     bool hasTargetProtocolType() const { return this->targetProtocolType_ != nullptr;};
     void deleteTargetProtocolType() { this->targetProtocolType_ = nullptr;};
-    inline string targetProtocolType() const { DARABONBA_PTR_GET_DEFAULT(targetProtocolType_, "") };
+    inline string getTargetProtocolType() const { DARABONBA_PTR_GET_DEFAULT(targetProtocolType_, "") };
     inline MigrateImageProtocolRequest& setTargetProtocolType(string targetProtocolType) { DARABONBA_PTR_SET_VALUE(targetProtocolType_, targetProtocolType) };
 
 
@@ -63,13 +63,13 @@ namespace Models
     // The image IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> imageId_ = nullptr;
+    shared_ptr<vector<string>> imageId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The protocol to which you want to update the image protocols. Set the value to ASP.
-    std::shared_ptr<string> targetProtocolType_ = nullptr;
+    shared_ptr<string> targetProtocolType_ {};
   };
 
   } // namespace Models

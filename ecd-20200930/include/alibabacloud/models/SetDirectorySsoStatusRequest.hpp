@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->directoryId_ == nullptr
-        && return this->enableSso_ == nullptr && return this->regionId_ == nullptr; };
+        && this->enableSso_ == nullptr && this->regionId_ == nullptr; };
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
-    inline string directoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
+    inline string getDirectoryId() const { DARABONBA_PTR_GET_DEFAULT(directoryId_, "") };
     inline SetDirectorySsoStatusRequest& setDirectoryId(string directoryId) { DARABONBA_PTR_SET_VALUE(directoryId_, directoryId) };
 
 
     // enableSso Field Functions 
     bool hasEnableSso() const { return this->enableSso_ != nullptr;};
     void deleteEnableSso() { this->enableSso_ = nullptr;};
-    inline bool enableSso() const { DARABONBA_PTR_GET_DEFAULT(enableSso_, false) };
+    inline bool getEnableSso() const { DARABONBA_PTR_GET_DEFAULT(enableSso_, false) };
     inline SetDirectorySsoStatusRequest& setEnableSso(bool enableSso) { DARABONBA_PTR_SET_VALUE(enableSso_, enableSso) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetDirectorySsoStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,18 +60,18 @@ namespace Models
     // The AD directory ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> directoryId_ = nullptr;
+    shared_ptr<string> directoryId_ {};
     // Specifies whether to enable SSO. Valid values:
     // 
     // *   true: enables SSO.
     // *   false: disables SSO.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enableSso_ = nullptr;
+    shared_ptr<bool> enableSso_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

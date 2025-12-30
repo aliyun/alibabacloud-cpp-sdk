@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cronExpression_ == nullptr
-        && return this->desktopGroupId_ == nullptr && return this->force_ == nullptr && return this->regionId_ == nullptr && return this->resetType_ == nullptr && return this->timerType_ == nullptr; };
+        && this->desktopGroupId_ == nullptr && this->force_ == nullptr && this->regionId_ == nullptr && this->resetType_ == nullptr && this->timerType_ == nullptr; };
     // cronExpression Field Functions 
     bool hasCronExpression() const { return this->cronExpression_ != nullptr;};
     void deleteCronExpression() { this->cronExpression_ = nullptr;};
-    inline string cronExpression() const { DARABONBA_PTR_GET_DEFAULT(cronExpression_, "") };
+    inline string getCronExpression() const { DARABONBA_PTR_GET_DEFAULT(cronExpression_, "") };
     inline SetDesktopGroupTimerRequest& setCronExpression(string cronExpression) { DARABONBA_PTR_SET_VALUE(cronExpression_, cronExpression) };
 
 
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
-    inline string desktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
+    inline string getDesktopGroupId() const { DARABONBA_PTR_GET_DEFAULT(desktopGroupId_, "") };
     inline SetDesktopGroupTimerRequest& setDesktopGroupId(string desktopGroupId) { DARABONBA_PTR_SET_VALUE(desktopGroupId_, desktopGroupId) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline SetDesktopGroupTimerRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetDesktopGroupTimerRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resetType Field Functions 
     bool hasResetType() const { return this->resetType_ != nullptr;};
     void deleteResetType() { this->resetType_ = nullptr;};
-    inline int32_t resetType() const { DARABONBA_PTR_GET_DEFAULT(resetType_, 0) };
+    inline int32_t getResetType() const { DARABONBA_PTR_GET_DEFAULT(resetType_, 0) };
     inline SetDesktopGroupTimerRequest& setResetType(int32_t resetType) { DARABONBA_PTR_SET_VALUE(resetType_, resetType) };
 
 
     // timerType Field Functions 
     bool hasTimerType() const { return this->timerType_ != nullptr;};
     void deleteTimerType() { this->timerType_ = nullptr;};
-    inline int32_t timerType() const { DARABONBA_PTR_GET_DEFAULT(timerType_, 0) };
+    inline int32_t getTimerType() const { DARABONBA_PTR_GET_DEFAULT(timerType_, 0) };
     inline SetDesktopGroupTimerRequest& setTimerType(int32_t timerType) { DARABONBA_PTR_SET_VALUE(timerType_, timerType) };
 
 
   protected:
     // The cron expression for the scheduled task. This parameter is required when `TimerType` is set to 2, 3, or 4.
-    std::shared_ptr<string> cronExpression_ = nullptr;
+    shared_ptr<string> cronExpression_ {};
     // The ID of the cloud computer share.
     // 
     // This parameter is required.
-    std::shared_ptr<string> desktopGroupId_ = nullptr;
+    shared_ptr<string> desktopGroupId_ {};
     // Specifies whether to forcefully execute the scheduled task.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the disk that you want to reset.
     // 
     // Valid values:
@@ -104,7 +104,7 @@ namespace Models
     // - resets only the system disk.
     // - resets only the user disk.
     // - resets the system disk and the user disk.
-    std::shared_ptr<int32_t> resetType_ = nullptr;
+    shared_ptr<int32_t> resetType_ {};
     // The type of the scheduled task.
     // 
     // Valid values:
@@ -115,7 +115,7 @@ namespace Models
     // *   4: scheduled restart
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> timerType_ = nullptr;
+    shared_ptr<int32_t> timerType_ {};
   };
 
   } // namespace Models
