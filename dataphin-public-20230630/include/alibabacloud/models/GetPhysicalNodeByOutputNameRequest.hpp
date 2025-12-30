@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->env_ == nullptr
-        && return this->opTenantId_ == nullptr && return this->outputName_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->outputName_ == nullptr; };
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
-    inline string env() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+    inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
     inline GetPhysicalNodeByOutputNameRequest& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetPhysicalNodeByOutputNameRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // outputName Field Functions 
     bool hasOutputName() const { return this->outputName_ != nullptr;};
     void deleteOutputName() { this->outputName_ = nullptr;};
-    inline string outputName() const { DARABONBA_PTR_GET_DEFAULT(outputName_, "") };
+    inline string getOutputName() const { DARABONBA_PTR_GET_DEFAULT(outputName_, "") };
     inline GetPhysicalNodeByOutputNameRequest& setOutputName(string outputName) { DARABONBA_PTR_SET_VALUE(outputName_, outputName) };
 
 
   protected:
-    std::shared_ptr<string> env_ = nullptr;
+    shared_ptr<string> env_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> outputName_ = nullptr;
+    shared_ptr<string> outputName_ {};
   };
 
   } // namespace Models

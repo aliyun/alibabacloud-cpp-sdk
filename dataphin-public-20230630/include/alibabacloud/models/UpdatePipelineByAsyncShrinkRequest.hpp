@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contextShrink_ == nullptr
-        && return this->opTenantId_ == nullptr && return this->updateCommandShrink_ == nullptr; };
+        && this->opTenantId_ == nullptr && this->updateCommandShrink_ == nullptr; };
     // contextShrink Field Functions 
     bool hasContextShrink() const { return this->contextShrink_ != nullptr;};
     void deleteContextShrink() { this->contextShrink_ = nullptr;};
-    inline string contextShrink() const { DARABONBA_PTR_GET_DEFAULT(contextShrink_, "") };
+    inline string getContextShrink() const { DARABONBA_PTR_GET_DEFAULT(contextShrink_, "") };
     inline UpdatePipelineByAsyncShrinkRequest& setContextShrink(string contextShrink) { DARABONBA_PTR_SET_VALUE(contextShrink_, contextShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpdatePipelineByAsyncShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // updateCommandShrink Field Functions 
     bool hasUpdateCommandShrink() const { return this->updateCommandShrink_ != nullptr;};
     void deleteUpdateCommandShrink() { this->updateCommandShrink_ = nullptr;};
-    inline string updateCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(updateCommandShrink_, "") };
+    inline string getUpdateCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(updateCommandShrink_, "") };
     inline UpdatePipelineByAsyncShrinkRequest& setUpdateCommandShrink(string updateCommandShrink) { DARABONBA_PTR_SET_VALUE(updateCommandShrink_, updateCommandShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> contextShrink_ = nullptr;
+    shared_ptr<string> contextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> updateCommandShrink_ = nullptr;
+    shared_ptr<string> updateCommandShrink_ {};
   };
 
   } // namespace Models

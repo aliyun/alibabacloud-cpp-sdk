@@ -47,21 +47,21 @@ AddDataServiceProjectMemberResponse Client::addDataServiceProjectMemberWithOptio
   AddDataServiceProjectMemberShrinkRequest request = AddDataServiceProjectMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddCommand()) {
-    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addCommand(), "AddCommand", "json"));
+    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddCommand(), "AddCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasAddCommandShrink()) {
-    body["AddCommand"] = request.addCommandShrink();
+    body["AddCommand"] = request.getAddCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -105,21 +105,21 @@ AddProjectMemberResponse Client::addProjectMemberWithOptions(const AddProjectMem
   AddProjectMemberShrinkRequest request = AddProjectMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddCommand()) {
-    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addCommand(), "AddCommand", "json"));
+    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddCommand(), "AddCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasAddCommandShrink()) {
-    body["AddCommand"] = request.addCommandShrink();
+    body["AddCommand"] = request.getAddCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -163,17 +163,17 @@ AddRegisterLineageResponse Client::addRegisterLineageWithOptions(const AddRegist
   AddRegisterLineageShrinkRequest request = AddRegisterLineageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddRegisterLineageCommand()) {
-    request.setAddRegisterLineageCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addRegisterLineageCommand(), "AddRegisterLineageCommand", "json"));
+    request.setAddRegisterLineageCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddRegisterLineageCommand(), "AddRegisterLineageCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasAddRegisterLineageCommandShrink()) {
-    body["AddRegisterLineageCommand"] = request.addRegisterLineageCommandShrink();
+    body["AddRegisterLineageCommand"] = request.getAddRegisterLineageCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -217,17 +217,17 @@ AddTenantMembersResponse Client::addTenantMembersWithOptions(const AddTenantMemb
   AddTenantMembersShrinkRequest request = AddTenantMembersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddCommand()) {
-    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addCommand(), "AddCommand", "json"));
+    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddCommand(), "AddCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasAddCommandShrink()) {
-    body["AddCommand"] = request.addCommandShrink();
+    body["AddCommand"] = request.getAddCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -271,17 +271,17 @@ AddTenantMembersBySourceUserResponse Client::addTenantMembersBySourceUserWithOpt
   AddTenantMembersBySourceUserShrinkRequest request = AddTenantMembersBySourceUserShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddCommand()) {
-    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addCommand(), "AddCommand", "json"));
+    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddCommand(), "AddCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasAddCommandShrink()) {
-    body["AddCommand"] = request.addCommandShrink();
+    body["AddCommand"] = request.getAddCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -325,17 +325,17 @@ AddUserGroupMemberResponse Client::addUserGroupMemberWithOptions(const AddUserGr
   AddUserGroupMemberShrinkRequest request = AddUserGroupMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddCommand()) {
-    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addCommand(), "AddCommand", "json"));
+    request.setAddCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddCommand(), "AddCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasAddCommandShrink()) {
-    body["AddCommand"] = request.addCommandShrink();
+    body["AddCommand"] = request.getAddCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -379,21 +379,21 @@ ApplyDataServiceApiResponse Client::applyDataServiceApiWithOptions(const ApplyDa
   ApplyDataServiceApiShrinkRequest request = ApplyDataServiceApiShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApplyCommand()) {
-    request.setApplyCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applyCommand(), "ApplyCommand", "json"));
+    request.setApplyCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplyCommand(), "ApplyCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasApplyCommandShrink()) {
-    body["ApplyCommand"] = request.applyCommandShrink();
+    body["ApplyCommand"] = request.getApplyCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -437,21 +437,21 @@ ApplyDataServiceAppResponse Client::applyDataServiceAppWithOptions(const ApplyDa
   ApplyDataServiceAppShrinkRequest request = ApplyDataServiceAppShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasApplyCommand()) {
-    request.setApplyCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.applyCommand(), "ApplyCommand", "json"));
+    request.setApplyCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplyCommand(), "ApplyCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasApplyCommandShrink()) {
-    body["ApplyCommand"] = request.applyCommandShrink();
+    body["ApplyCommand"] = request.getApplyCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -495,17 +495,17 @@ CheckComputeSourceConnectivityResponse Client::checkComputeSourceConnectivityWit
   CheckComputeSourceConnectivityShrinkRequest request = CheckComputeSourceConnectivityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCheckCommand()) {
-    request.setCheckCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.checkCommand(), "CheckCommand", "json"));
+    request.setCheckCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckCommand(), "CheckCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCheckCommandShrink()) {
-    body["CheckCommand"] = request.checkCommandShrink();
+    body["CheckCommand"] = request.getCheckCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -548,11 +548,11 @@ CheckComputeSourceConnectivityByIdResponse Client::checkComputeSourceConnectivit
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -595,17 +595,17 @@ CheckDataSourceConnectivityResponse Client::checkDataSourceConnectivityWithOptio
   CheckDataSourceConnectivityShrinkRequest request = CheckDataSourceConnectivityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCheckCommand()) {
-    request.setCheckCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.checkCommand(), "CheckCommand", "json"));
+    request.setCheckCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckCommand(), "CheckCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCheckCommandShrink()) {
-    body["CheckCommand"] = request.checkCommandShrink();
+    body["CheckCommand"] = request.getCheckCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -648,11 +648,11 @@ CheckDataSourceConnectivityByIdResponse Client::checkDataSourceConnectivityByIdW
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -694,11 +694,11 @@ CheckProjectHasDependencyResponse Client::checkProjectHasDependencyWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -741,17 +741,17 @@ CheckResourcePermissionResponse Client::checkResourcePermissionWithOptions(const
   CheckResourcePermissionShrinkRequest request = CheckResourcePermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCheckCommand()) {
-    request.setCheckCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.checkCommand(), "CheckCommand", "json"));
+    request.setCheckCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckCommand(), "CheckCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCheckCommandShrink()) {
-    body["CheckCommand"] = request.checkCommandShrink();
+    body["CheckCommand"] = request.getCheckCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -795,17 +795,17 @@ CreateAdHocFileResponse Client::createAdHocFileWithOptions(const CreateAdHocFile
   CreateAdHocFileShrinkRequest request = CreateAdHocFileShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -849,17 +849,17 @@ CreateBatchTaskResponse Client::createBatchTaskWithOptions(const CreateBatchTask
   CreateBatchTaskShrinkRequest request = CreateBatchTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -903,17 +903,17 @@ CreateBizEntityResponse Client::createBizEntityWithOptions(const CreateBizEntity
   CreateBizEntityShrinkRequest request = CreateBizEntityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -946,6 +946,60 @@ CreateBizEntityResponse Client::createBizEntity(const CreateBizEntityRequest &re
 }
 
 /**
+ * @summary 新建业务指标
+ *
+ * @param tmpReq CreateBizMetricRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBizMetricResponse
+ */
+CreateBizMetricResponse Client::createBizMetricWithOptions(const CreateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateBizMetricShrinkRequest request = CreateBizMetricShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateBizMetricCommand()) {
+    request.setCreateBizMetricCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateBizMetricCommand(), "CreateBizMetricCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateBizMetricCommandShrink()) {
+    body["CreateBizMetricCommand"] = request.getCreateBizMetricCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateBizMetric"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBizMetricResponse>();
+}
+
+/**
+ * @summary 新建业务指标
+ *
+ * @param request CreateBizMetricRequest
+ * @return CreateBizMetricResponse
+ */
+CreateBizMetricResponse Client::createBizMetric(const CreateBizMetricRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBizMetricWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建数据板块。
  *
  * @param tmpReq CreateBizUnitRequest
@@ -957,17 +1011,17 @@ CreateBizUnitResponse Client::createBizUnitWithOptions(const CreateBizUnitReques
   CreateBizUnitShrinkRequest request = CreateBizUnitShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1011,17 +1065,17 @@ CreateComputeSourceResponse Client::createComputeSourceWithOptions(const CreateC
   CreateComputeSourceShrinkRequest request = CreateComputeSourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1065,17 +1119,17 @@ CreateDataDomainResponse Client::createDataDomainWithOptions(const CreateDataDom
   CreateDataDomainShrinkRequest request = CreateDataDomainShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1119,17 +1173,17 @@ CreateDataServiceApiResponse Client::createDataServiceApiWithOptions(const Creat
   CreateDataServiceApiShrinkRequest request = CreateDataServiceApiShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1173,17 +1227,17 @@ CreateDataSourceResponse Client::createDataSourceWithOptions(const CreateDataSou
   CreateDataSourceShrinkRequest request = CreateDataSourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1227,17 +1281,17 @@ CreateDirectoryResponse Client::createDirectoryWithOptions(const CreateDirectory
   CreateDirectoryShrinkRequest request = CreateDirectoryShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1281,21 +1335,21 @@ CreateNodeSupplementResponse Client::createNodeSupplementWithOptions(const Creat
   CreateNodeSupplementShrinkRequest request = CreateNodeSupplementShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1339,25 +1393,25 @@ CreatePipelineResponse Client::createPipelineWithOptions(const CreatePipelineReq
   CreatePipelineShrinkRequest request = CreatePipelineShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1401,25 +1455,25 @@ CreatePipelineByAsyncResponse Client::createPipelineByAsyncWithOptions(const Cre
   CreatePipelineByAsyncShrinkRequest request = CreatePipelineByAsyncShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1463,17 +1517,17 @@ CreatePipelineNodeResponse Client::createPipelineNodeWithOptions(const CreatePip
   CreatePipelineNodeShrinkRequest request = CreatePipelineNodeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreatePipelineNodeCommand()) {
-    request.setCreatePipelineNodeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createPipelineNodeCommand(), "CreatePipelineNodeCommand", "json"));
+    request.setCreatePipelineNodeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreatePipelineNodeCommand(), "CreatePipelineNodeCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreatePipelineNodeCommandShrink()) {
-    body["CreatePipelineNodeCommand"] = request.createPipelineNodeCommandShrink();
+    body["CreatePipelineNodeCommand"] = request.getCreatePipelineNodeCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1517,17 +1571,17 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
   CreateResourceShrinkRequest request = CreateResourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1571,17 +1625,17 @@ CreateRowPermissionResponse Client::createRowPermissionWithOptions(const CreateR
   CreateRowPermissionShrinkRequest request = CreateRowPermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateRowPermissionCommand()) {
-    request.setCreateRowPermissionCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createRowPermissionCommand(), "CreateRowPermissionCommand", "json"));
+    request.setCreateRowPermissionCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateRowPermissionCommand(), "CreateRowPermissionCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateRowPermissionCommandShrink()) {
-    body["CreateRowPermissionCommand"] = request.createRowPermissionCommandShrink();
+    body["CreateRowPermissionCommand"] = request.getCreateRowPermissionCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1625,17 +1679,17 @@ CreateStreamBatchJobMappingResponse Client::createStreamBatchJobMappingWithOptio
   CreateStreamBatchJobMappingShrinkRequest request = CreateStreamBatchJobMappingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStreamBatchJobMappingCreateCommand()) {
-    request.setStreamBatchJobMappingCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.streamBatchJobMappingCreateCommand(), "StreamBatchJobMappingCreateCommand", "json"));
+    request.setStreamBatchJobMappingCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStreamBatchJobMappingCreateCommand(), "StreamBatchJobMappingCreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasStreamBatchJobMappingCreateCommandShrink()) {
-    body["StreamBatchJobMappingCreateCommand"] = request.streamBatchJobMappingCreateCommandShrink();
+    body["StreamBatchJobMappingCreateCommand"] = request.getStreamBatchJobMappingCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1679,17 +1733,17 @@ CreateUdfResponse Client::createUdfWithOptions(const CreateUdfRequest &tmpReq, c
   CreateUdfShrinkRequest request = CreateUdfShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1733,17 +1787,17 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
   CreateUserGroupShrinkRequest request = CreateUserGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCreateCommand()) {
-    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasCreateCommandShrink()) {
-    body["CreateCommand"] = request.createCommandShrink();
+    body["CreateCommand"] = request.getCreateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1786,15 +1840,15 @@ DeleteAdHocFileResponse Client::deleteAdHocFileWithOptions(const DeleteAdHocFile
   request.validate();
   json query = {};
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1837,17 +1891,17 @@ DeleteBatchTaskResponse Client::deleteBatchTaskWithOptions(const DeleteBatchTask
   DeleteBatchTaskShrinkRequest request = DeleteBatchTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeleteCommand()) {
-    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand(), "DeleteCommand", "json"));
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasDeleteCommandShrink()) {
-    body["DeleteCommand"] = request.deleteCommandShrink();
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1890,19 +1944,19 @@ DeleteBizEntityResponse Client::deleteBizEntityWithOptions(const DeleteBizEntity
   request.validate();
   json query = {};
   if (!!request.hasBizUnitId()) {
-    query["BizUnitId"] = request.bizUnitId();
+    query["BizUnitId"] = request.getBizUnitId();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1934,6 +1988,60 @@ DeleteBizEntityResponse Client::deleteBizEntity(const DeleteBizEntityRequest &re
 }
 
 /**
+ * @summary 删除业务指标
+ *
+ * @param tmpReq DeleteBizMetricRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBizMetricResponse
+ */
+DeleteBizMetricResponse Client::deleteBizMetricWithOptions(const DeleteBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteBizMetricShrinkRequest request = DeleteBizMetricShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteBizMetricCommand()) {
+    request.setDeleteBizMetricCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteBizMetricCommand(), "DeleteBizMetricCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteBizMetricCommandShrink()) {
+    body["DeleteBizMetricCommand"] = request.getDeleteBizMetricCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteBizMetric"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBizMetricResponse>();
+}
+
+/**
+ * @summary 删除业务指标
+ *
+ * @param request DeleteBizMetricRequest
+ * @return DeleteBizMetricResponse
+ */
+DeleteBizMetricResponse Client::deleteBizMetric(const DeleteBizMetricRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteBizMetricWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除数据板块。
  *
  * @param request DeleteBizUnitRequest
@@ -1944,11 +2052,11 @@ DeleteBizUnitResponse Client::deleteBizUnitWithOptions(const DeleteBizUnitReques
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1990,11 +2098,11 @@ DeleteComputeSourceResponse Client::deleteComputeSourceWithOptions(const DeleteC
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2036,15 +2144,15 @@ DeleteDataDomainResponse Client::deleteDataDomainWithOptions(const DeleteDataDom
   request.validate();
   json query = {};
   if (!!request.hasBizUnitId()) {
-    query["BizUnitId"] = request.bizUnitId();
+    query["BizUnitId"] = request.getBizUnitId();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2087,17 +2195,17 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
   DeleteDataSourceShrinkRequest request = DeleteDataSourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeleteCommand()) {
-    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deleteCommand(), "DeleteCommand", "json"));
+    request.setDeleteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteCommand(), "DeleteCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasDeleteCommandShrink()) {
-    body["DeleteCommand"] = request.deleteCommandShrink();
+    body["DeleteCommand"] = request.getDeleteCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2140,15 +2248,15 @@ DeleteDirectoryResponse Client::deleteDirectoryWithOptions(const DeleteDirectory
   request.validate();
   json query = {};
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2191,17 +2299,17 @@ DeleteRegisterLineageResponse Client::deleteRegisterLineageWithOptions(const Del
   DeleteRegisterLineageShrinkRequest request = DeleteRegisterLineageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeleteRegisterLineageCommand()) {
-    request.setDeleteRegisterLineageCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deleteRegisterLineageCommand(), "DeleteRegisterLineageCommand", "json"));
+    request.setDeleteRegisterLineageCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteRegisterLineageCommand(), "DeleteRegisterLineageCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasDeleteRegisterLineageCommandShrink()) {
-    body["DeleteRegisterLineageCommand"] = request.deleteRegisterLineageCommandShrink();
+    body["DeleteRegisterLineageCommand"] = request.getDeleteRegisterLineageCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2244,19 +2352,19 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const DeleteResourceReq
   request.validate();
   json query = {};
   if (!!request.hasComment()) {
-    query["Comment"] = request.comment();
+    query["Comment"] = request.getComment();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2299,17 +2407,17 @@ DeleteRowPermissionResponse Client::deleteRowPermissionWithOptions(const DeleteR
   DeleteRowPermissionShrinkRequest request = DeleteRowPermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeleteRowPermissionCommand()) {
-    request.setDeleteRowPermissionCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deleteRowPermissionCommand(), "DeleteRowPermissionCommand", "json"));
+    request.setDeleteRowPermissionCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteRowPermissionCommand(), "DeleteRowPermissionCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasDeleteRowPermissionCommandShrink()) {
-    body["DeleteRowPermissionCommand"] = request.deleteRowPermissionCommandShrink();
+    body["DeleteRowPermissionCommand"] = request.getDeleteRowPermissionCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2352,19 +2460,19 @@ DeleteUdfResponse Client::deleteUdfWithOptions(const DeleteUdfRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasComment()) {
-    query["Comment"] = request.comment();
+    query["Comment"] = request.getComment();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2406,11 +2514,11 @@ DeleteUserGroupResponse Client::deleteUserGroupWithOptions(const DeleteUserGroup
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasUserGroupId()) {
-    query["UserGroupId"] = request.userGroupId();
+    query["UserGroupId"] = request.getUserGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2453,17 +2561,17 @@ ExecuteAdHocTaskResponse Client::executeAdHocTaskWithOptions(const ExecuteAdHocT
   ExecuteAdHocTaskShrinkRequest request = ExecuteAdHocTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExecuteCommand()) {
-    request.setExecuteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executeCommand(), "ExecuteCommand", "json"));
+    request.setExecuteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecuteCommand(), "ExecuteCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasExecuteCommandShrink()) {
-    body["ExecuteCommand"] = request.executeCommandShrink();
+    body["ExecuteCommand"] = request.getExecuteCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2507,21 +2615,21 @@ ExecuteManualNodeResponse Client::executeManualNodeWithOptions(const ExecuteManu
   ExecuteManualNodeShrinkRequest request = ExecuteManualNodeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExecuteCommand()) {
-    request.setExecuteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executeCommand(), "ExecuteCommand", "json"));
+    request.setExecuteCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecuteCommand(), "ExecuteCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasExecuteCommandShrink()) {
-    body["ExecuteCommand"] = request.executeCommandShrink();
+    body["ExecuteCommand"] = request.getExecuteCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2565,21 +2673,21 @@ FixDataResponse Client::fixDataWithOptions(const FixDataRequest &tmpReq, const D
   FixDataShrinkRequest request = FixDataShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFixDataCommand()) {
-    request.setFixDataCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.fixDataCommand(), "FixDataCommand", "json"));
+    request.setFixDataCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFixDataCommand(), "FixDataCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasFixDataCommandShrink()) {
-    body["FixDataCommand"] = request.fixDataCommandShrink();
+    body["FixDataCommand"] = request.getFixDataCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2623,17 +2731,17 @@ GetAccountByRowPermissionIdResponse Client::getAccountByRowPermissionIdWithOptio
   GetAccountByRowPermissionIdShrinkRequest request = GetAccountByRowPermissionIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasGetAccountByRowPermissionIdQuery()) {
-    request.setGetAccountByRowPermissionIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccountByRowPermissionIdQuery(), "GetAccountByRowPermissionIdQuery", "json"));
+    request.setGetAccountByRowPermissionIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGetAccountByRowPermissionIdQuery(), "GetAccountByRowPermissionIdQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasGetAccountByRowPermissionIdQueryShrink()) {
-    body["GetAccountByRowPermissionIdQuery"] = request.getAccountByRowPermissionIdQueryShrink();
+    body["GetAccountByRowPermissionIdQuery"] = request.getGetAccountByRowPermissionIdQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2676,15 +2784,15 @@ GetAdHocFileResponse Client::getAdHocFileWithOptions(const GetAdHocFileRequest &
   request.validate();
   json query = {};
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2726,23 +2834,23 @@ GetAdHocTaskLogResponse Client::getAdHocTaskLogWithOptions(const GetAdHocTaskLog
   request.validate();
   json query = {};
   if (!!request.hasOffset()) {
-    query["Offset"] = request.offset();
+    query["Offset"] = request.getOffset();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSubTaskId()) {
-    query["SubTaskId"] = request.subTaskId();
+    query["SubTaskId"] = request.getSubTaskId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2784,19 +2892,19 @@ GetAdHocTaskResultResponse Client::getAdHocTaskResultWithOptions(const GetAdHocT
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSubTaskId()) {
-    query["SubTaskId"] = request.subTaskId();
+    query["SubTaskId"] = request.getSubTaskId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2838,11 +2946,11 @@ GetAlertEventResponse Client::getAlertEventWithOptions(const GetAlertEventReques
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2884,23 +2992,23 @@ GetBatchTaskInfoResponse Client::getBatchTaskInfoWithOptions(const GetBatchTaskI
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasIncludeAllUpStreams()) {
-    query["IncludeAllUpStreams"] = request.includeAllUpStreams();
+    query["IncludeAllUpStreams"] = request.getIncludeAllUpStreams();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2942,19 +3050,19 @@ GetBatchTaskInfoByVersionResponse Client::getBatchTaskInfoByVersionWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2996,15 +3104,15 @@ GetBatchTaskUdfLineagesResponse Client::getBatchTaskUdfLineagesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3046,15 +3154,15 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersionsWithOptions(const GetBa
   request.validate();
   json query = {};
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3096,15 +3204,15 @@ GetBizEntityInfoResponse Client::getBizEntityInfoWithOptions(const GetBizEntityI
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3146,19 +3254,19 @@ GetBizEntityInfoByVersionResponse Client::getBizEntityInfoByVersionWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3190,6 +3298,60 @@ GetBizEntityInfoByVersionResponse Client::getBizEntityInfoByVersion(const GetBiz
 }
 
 /**
+ * @summary 查询业务指标详情
+ *
+ * @param tmpReq GetBizMetricByNameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBizMetricByNameResponse
+ */
+GetBizMetricByNameResponse Client::getBizMetricByNameWithOptions(const GetBizMetricByNameRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetBizMetricByNameShrinkRequest request = GetBizMetricByNameShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBizMetricByNameQuery()) {
+    request.setBizMetricByNameQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBizMetricByNameQuery(), "BizMetricByNameQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasBizMetricByNameQueryShrink()) {
+    body["BizMetricByNameQuery"] = request.getBizMetricByNameQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetBizMetricByName"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBizMetricByNameResponse>();
+}
+
+/**
+ * @summary 查询业务指标详情
+ *
+ * @param request GetBizMetricByNameRequest
+ * @return GetBizMetricByNameResponse
+ */
+GetBizMetricByNameResponse Client::getBizMetricByName(const GetBizMetricByNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getBizMetricByNameWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取数据板块详情。
  *
  * @param request GetBizUnitInfoRequest
@@ -3200,11 +3362,11 @@ GetBizUnitInfoResponse Client::getBizUnitInfoWithOptions(const GetBizUnitInfoReq
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3236,6 +3398,52 @@ GetBizUnitInfoResponse Client::getBizUnitInfo(const GetBizUnitInfoRequest &reque
 }
 
 /**
+ * @summary 查询数据源连通性检查任务。
+ *
+ * @param request GetCheckConnectivityJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCheckConnectivityJobsResponse
+ */
+GetCheckConnectivityJobsResponse Client::getCheckConnectivityJobsWithOptions(const GetCheckConnectivityJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataSourceId()) {
+    query["DataSourceId"] = request.getDataSourceId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCheckConnectivityJobs"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCheckConnectivityJobsResponse>();
+}
+
+/**
+ * @summary 查询数据源连通性检查任务。
+ *
+ * @param request GetCheckConnectivityJobsRequest
+ * @return GetCheckConnectivityJobsResponse
+ */
+GetCheckConnectivityJobsResponse Client::getCheckConnectivityJobs(const GetCheckConnectivityJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCheckConnectivityJobsWithOptions(request, runtime);
+}
+
+/**
  * @summary 根据环境获取集群信息
  *
  * @param request GetClusterQueueInfoByEnvRequest
@@ -3246,19 +3454,19 @@ GetClusterQueueInfoByEnvResponse Client::getClusterQueueInfoByEnvWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasStreamBatchMode()) {
-    query["StreamBatchMode"] = request.streamBatchMode();
+    query["StreamBatchMode"] = request.getStreamBatchMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3300,11 +3508,11 @@ GetComputeSourceResponse Client::getComputeSourceWithOptions(const GetComputeSou
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3346,11 +3554,11 @@ GetDataDomainInfoResponse Client::getDataDomainInfoWithOptions(const GetDataDoma
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3392,19 +3600,19 @@ GetDataServiceApiCallSummaryResponse Client::getDataServiceApiCallSummaryWithOpt
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3446,19 +3654,19 @@ GetDataServiceApiCallTrendResponse Client::getDataServiceApiCallTrendWithOptions
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3500,15 +3708,15 @@ GetDataServiceApiDocumentResponse Client::getDataServiceApiDocumentWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3550,19 +3758,19 @@ GetDataServiceApiErrorImpactResponse Client::getDataServiceApiErrorImpactWithOpt
   request.validate();
   json query = {};
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3604,11 +3812,11 @@ GetDataServiceApiGroupsResponse Client::getDataServiceApiGroupsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3650,15 +3858,15 @@ GetDataServiceAppAuthorizedUsersResponse Client::getDataServiceAppAuthorizedUser
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3700,11 +3908,11 @@ GetDataServiceAppGroupsResponse Client::getDataServiceAppGroupsWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3746,15 +3954,15 @@ GetDataServiceAppsByGroupIdResponse Client::getDataServiceAppsByGroupIdWithOptio
   request.validate();
   json query = {};
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3796,15 +4004,15 @@ GetDataServiceAuthorizedAppsByGroupIdResponse Client::getDataServiceAuthorizedAp
   request.validate();
   json query = {};
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3846,7 +4054,7 @@ GetDataServiceAuthorizedProjectsResponse Client::getDataServiceAuthorizedProject
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3888,7 +4096,7 @@ GetDataServiceMyProjectsResponse Client::getDataServiceMyProjectsWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3930,11 +4138,11 @@ GetDataServiceProjectAddableUsersResponse Client::getDataServiceProjectAddableUs
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3976,11 +4184,11 @@ GetDataSourceDependenciesResponse Client::getDataSourceDependenciesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4022,23 +4230,23 @@ GetDevObjectDependencyResponse Client::getDevObjectDependencyWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasObjectFrom()) {
-    query["ObjectFrom"] = request.objectFrom();
+    query["ObjectFrom"] = request.getObjectFrom();
   }
 
   if (!!request.hasObjectId()) {
-    query["ObjectId"] = request.objectId();
+    query["ObjectId"] = request.getObjectId();
   }
 
   if (!!request.hasObjectType()) {
-    query["ObjectType"] = request.objectType();
+    query["ObjectType"] = request.getObjectType();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4080,15 +4288,15 @@ GetDirectoryTreeResponse Client::getDirectoryTreeWithOptions(const GetDirectoryT
   request.validate();
   json query = {};
   if (!!request.hasCategory()) {
-    query["Category"] = request.category();
+    query["Category"] = request.getCategory();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4130,19 +4338,19 @@ GetFileStorageCredentialResponse Client::getFileStorageCredentialWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasPurpose()) {
-    query["Purpose"] = request.purpose();
+    query["Purpose"] = request.getPurpose();
   }
 
   if (!!request.hasUseVpcEndpoint()) {
-    query["UseVpcEndpoint"] = request.useVpcEndpoint();
+    query["UseVpcEndpoint"] = request.getUseVpcEndpoint();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4185,29 +4393,29 @@ GetInstanceDownStreamResponse Client::getInstanceDownStreamWithOptions(const Get
   GetInstanceDownStreamShrinkRequest request = GetInstanceDownStreamShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInstanceGet()) {
-    request.setInstanceGetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.instanceGet(), "InstanceGet", "json"));
+    request.setInstanceGetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceGet(), "InstanceGet", "json"));
   }
 
   json query = {};
   if (!!request.hasDownStreamDepth()) {
-    query["DownStreamDepth"] = request.downStreamDepth();
+    query["DownStreamDepth"] = request.getDownStreamDepth();
   }
 
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasRunStatus()) {
-    query["RunStatus"] = request.runStatus();
+    query["RunStatus"] = request.getRunStatus();
   }
 
   json body = {};
   if (!!request.hasInstanceGetShrink()) {
-    body["InstanceGet"] = request.instanceGetShrink();
+    body["InstanceGet"] = request.getInstanceGetShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4251,33 +4459,33 @@ GetInstanceUpDownStreamResponse Client::getInstanceUpDownStreamWithOptions(const
   GetInstanceUpDownStreamShrinkRequest request = GetInstanceUpDownStreamShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInstanceId()) {
-    request.setInstanceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.instanceId(), "InstanceId", "json"));
+    request.setInstanceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceId(), "InstanceId", "json"));
   }
 
   json query = {};
   if (!!request.hasDownStreamDepth()) {
-    query["DownStreamDepth"] = request.downStreamDepth();
+    query["DownStreamDepth"] = request.getDownStreamDepth();
   }
 
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasUpStreamDepth()) {
-    query["UpStreamDepth"] = request.upStreamDepth();
+    query["UpStreamDepth"] = request.getUpStreamDepth();
   }
 
   json body = {};
   if (!!request.hasInstanceIdShrink()) {
-    body["InstanceId"] = request.instanceIdShrink();
+    body["InstanceId"] = request.getInstanceIdShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4321,17 +4529,17 @@ GetLatestSubmitDetailResponse Client::getLatestSubmitDetailWithOptions(const Get
   GetLatestSubmitDetailShrinkRequest request = GetLatestSubmitDetailShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSubmitDetailQuery()) {
-    request.setSubmitDetailQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.submitDetailQuery(), "SubmitDetailQuery", "json"));
+    request.setSubmitDetailQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubmitDetailQuery(), "SubmitDetailQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasSubmitDetailQueryShrink()) {
-    body["SubmitDetailQuery"] = request.submitDetailQueryShrink();
+    body["SubmitDetailQuery"] = request.getSubmitDetailQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4374,7 +4582,7 @@ GetMyRolesResponse Client::getMyRolesWithOptions(const GetMyRolesRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4417,17 +4625,17 @@ GetMyTenantsResponse Client::getMyTenantsWithOptions(const GetMyTenantsRequest &
   GetMyTenantsShrinkRequest request = GetMyTenantsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFeatureCodeList()) {
-    request.setFeatureCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.featureCodeList(), "FeatureCodeList", "json"));
+    request.setFeatureCodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFeatureCodeList(), "FeatureCodeList", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasFeatureCodeListShrink()) {
-    body["FeatureCodeList"] = request.featureCodeListShrink();
+    body["FeatureCodeList"] = request.getFeatureCodeListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4471,33 +4679,33 @@ GetNodeUpDownStreamResponse Client::getNodeUpDownStreamWithOptions(const GetNode
   GetNodeUpDownStreamShrinkRequest request = GetNodeUpDownStreamShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNodeId()) {
-    request.setNodeIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.nodeId(), "NodeId", "json"));
+    request.setNodeIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodeId(), "NodeId", "json"));
   }
 
   json query = {};
   if (!!request.hasDownStreamDepth()) {
-    query["DownStreamDepth"] = request.downStreamDepth();
+    query["DownStreamDepth"] = request.getDownStreamDepth();
   }
 
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasUpStreamDepth()) {
-    query["UpStreamDepth"] = request.upStreamDepth();
+    query["UpStreamDepth"] = request.getUpStreamDepth();
   }
 
   json body = {};
   if (!!request.hasNodeIdShrink()) {
-    body["NodeId"] = request.nodeIdShrink();
+    body["NodeId"] = request.getNodeIdShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4540,15 +4748,15 @@ GetOperationSubmitStatusResponse Client::getOperationSubmitStatusWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4590,19 +4798,19 @@ GetPhysicalInstanceResponse Client::getPhysicalInstanceWithOptions(const GetPhys
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4644,19 +4852,19 @@ GetPhysicalInstanceLogResponse Client::getPhysicalInstanceLogWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4698,15 +4906,15 @@ GetPhysicalNodeResponse Client::getPhysicalNodeWithOptions(const GetPhysicalNode
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4748,15 +4956,15 @@ GetPhysicalNodeByOutputNameResponse Client::getPhysicalNodeByOutputNameWithOptio
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasOutputName()) {
-    query["OutputName"] = request.outputName();
+    query["OutputName"] = request.getOutputName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4798,15 +5006,15 @@ GetPhysicalNodeContentResponse Client::getPhysicalNodeContentWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4848,15 +5056,15 @@ GetPhysicalNodeOperationLogResponse Client::getPhysicalNodeOperationLogWithOptio
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4899,21 +5107,21 @@ GetPipelineAsyncResultResponse Client::getPipelineAsyncResultWithOptions(const G
   GetPipelineAsyncResultShrinkRequest request = GetPipelineAsyncResultShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   json query = {};
   if (!!request.hasAsyncId()) {
-    query["AsyncId"] = request.asyncId();
+    query["AsyncId"] = request.getAsyncId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4957,25 +5165,25 @@ GetPipelineByIdResponse Client::getPipelineByIdWithOptions(const GetPipelineById
   GetPipelineByIdShrinkRequest request = GetPipelineByIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   if (!!tmpReq.hasQueryId()) {
-    request.setQueryIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryId(), "QueryId", "json"));
+    request.setQueryIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryId(), "QueryId", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   if (!!request.hasQueryIdShrink()) {
-    body["QueryId"] = request.queryIdShrink();
+    body["QueryId"] = request.getQueryIdShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5018,15 +5226,15 @@ GetProjectResponse Client::getProjectWithOptions(const GetProjectRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5068,11 +5276,11 @@ GetProjectByNameResponse Client::getProjectByNameWithOptions(const GetProjectByN
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5114,11 +5322,11 @@ GetProjectProduceUserResponse Client::getProjectProduceUserWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5160,11 +5368,11 @@ GetProjectWhiteListsResponse Client::getProjectWhiteListsWithOptions(const GetPr
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5206,27 +5414,27 @@ GetQueueEngineVersionByEnvResponse Client::getQueueEngineVersionByEnvWithOptions
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasQueueName()) {
-    query["QueueName"] = request.queueName();
+    query["QueueName"] = request.getQueueName();
   }
 
   if (!!request.hasStreamBatchMode()) {
-    query["StreamBatchMode"] = request.streamBatchMode();
+    query["StreamBatchMode"] = request.getStreamBatchMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5268,15 +5476,15 @@ GetResourceResponse Client::getResourceWithOptions(const GetResourceRequest &req
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5318,19 +5526,19 @@ GetResourceByVersionResponse Client::getResourceByVersionWithOptions(const GetRe
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5372,15 +5580,15 @@ GetSparkLocalClientInfoResponse Client::getSparkLocalClientInfoWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasEnvEnum()) {
-    query["EnvEnum"] = request.envEnum();
+    query["EnvEnum"] = request.getEnvEnum();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5422,15 +5630,15 @@ GetStreamJobsResponse Client::getStreamJobsWithOptions(const GetStreamJobsReques
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5472,15 +5680,15 @@ GetSupplementDagrunResponse Client::getSupplementDagrunWithOptions(const GetSupp
   request.validate();
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasSupplementId()) {
-    query["SupplementId"] = request.supplementId();
+    query["SupplementId"] = request.getSupplementId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5522,15 +5730,15 @@ GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstanceWithOptio
   request.validate();
   json query = {};
   if (!!request.hasDagrunId()) {
-    query["DagrunId"] = request.dagrunId();
+    query["DagrunId"] = request.getDagrunId();
   }
 
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5573,17 +5781,17 @@ GetTableColumnLineageByTaskIdResponse Client::getTableColumnLineageByTaskIdWithO
   GetTableColumnLineageByTaskIdShrinkRequest request = GetTableColumnLineageByTaskIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTableColumnLineageByTaskIdQuery()) {
-    request.setTableColumnLineageByTaskIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableColumnLineageByTaskIdQuery(), "TableColumnLineageByTaskIdQuery", "json"));
+    request.setTableColumnLineageByTaskIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableColumnLineageByTaskIdQuery(), "TableColumnLineageByTaskIdQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasTableColumnLineageByTaskIdQueryShrink()) {
-    body["TableColumnLineageByTaskIdQuery"] = request.tableColumnLineageByTaskIdQueryShrink();
+    body["TableColumnLineageByTaskIdQuery"] = request.getTableColumnLineageByTaskIdQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5627,17 +5835,17 @@ GetTableLineageByTaskIdResponse Client::getTableLineageByTaskIdWithOptions(const
   GetTableLineageByTaskIdShrinkRequest request = GetTableLineageByTaskIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTableLineageByTaskIdQuery()) {
-    request.setTableLineageByTaskIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableLineageByTaskIdQuery(), "TableLineageByTaskIdQuery", "json"));
+    request.setTableLineageByTaskIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableLineageByTaskIdQuery(), "TableLineageByTaskIdQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasTableLineageByTaskIdQueryShrink()) {
-    body["TableLineageByTaskIdQuery"] = request.tableLineageByTaskIdQueryShrink();
+    body["TableLineageByTaskIdQuery"] = request.getTableLineageByTaskIdQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5680,11 +5888,11 @@ GetTransferInfoResponse Client::getTransferInfoWithOptions(const GetTransferInfo
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProposalId()) {
-    query["ProposalId"] = request.proposalId();
+    query["ProposalId"] = request.getProposalId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5726,15 +5934,15 @@ GetUdfResponse Client::getUdfWithOptions(const GetUdfRequest &request, const Dar
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5776,19 +5984,19 @@ GetUdfByVersionResponse Client::getUdfByVersionWithOptions(const GetUdfByVersion
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5830,11 +6038,11 @@ GetUserBySourceIdResponse Client::getUserBySourceIdWithOptions(const GetUserBySo
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasSourceId()) {
-    query["SourceId"] = request.sourceId();
+    query["SourceId"] = request.getSourceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5876,11 +6084,11 @@ GetUserGroupResponse Client::getUserGroupWithOptions(const GetUserGroupRequest &
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasUserGroupId()) {
-    query["UserGroupId"] = request.userGroupId();
+    query["UserGroupId"] = request.getUserGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5923,17 +6131,17 @@ GetUsersResponse Client::getUsersWithOptions(const GetUsersRequest &tmpReq, cons
   GetUsersShrinkRequest request = GetUsersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserIdList()) {
-    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIdList(), "UserIdList", "json"));
+    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIdList(), "UserIdList", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUserIdListShrink()) {
-    body["UserIdList"] = request.userIdListShrink();
+    body["UserIdList"] = request.getUserIdListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5977,21 +6185,21 @@ GrantDataServiceApiResponse Client::grantDataServiceApiWithOptions(const GrantDa
   GrantDataServiceApiShrinkRequest request = GrantDataServiceApiShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasGrantCommand()) {
-    request.setGrantCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.grantCommand(), "GrantCommand", "json"));
+    request.setGrantCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGrantCommand(), "GrantCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasGrantCommandShrink()) {
-    body["GrantCommand"] = request.grantCommandShrink();
+    body["GrantCommand"] = request.getGrantCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6035,17 +6243,17 @@ GrantResourcePermissionResponse Client::grantResourcePermissionWithOptions(const
   GrantResourcePermissionShrinkRequest request = GrantResourcePermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasGrantCommand()) {
-    request.setGrantCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.grantCommand(), "GrantCommand", "json"));
+    request.setGrantCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGrantCommand(), "GrantCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasGrantCommandShrink()) {
-    body["GrantCommand"] = request.grantCommandShrink();
+    body["GrantCommand"] = request.getGrantCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6088,7 +6296,7 @@ ListAddableRolesResponse Client::listAddableRolesWithOptions(const ListAddableRo
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6131,17 +6339,17 @@ ListAddableUsersResponse Client::listAddableUsersWithOptions(const ListAddableUs
   ListAddableUsersShrinkRequest request = ListAddableUsersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6185,17 +6393,17 @@ ListAlertEventsResponse Client::listAlertEventsWithOptions(const ListAlertEvents
   ListAlertEventsShrinkRequest request = ListAlertEventsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6239,17 +6447,17 @@ ListAlertNotificationsResponse Client::listAlertNotificationsWithOptions(const L
   ListAlertNotificationsShrinkRequest request = ListAlertNotificationsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6293,17 +6501,17 @@ ListApiByAppResponse Client::listApiByAppWithOptions(const ListApiByAppRequest &
   ListApiByAppShrinkRequest request = ListApiByAppShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPageQuery()) {
-    request.setPageQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pageQuery(), "PageQuery", "json"));
+    request.setPageQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPageQuery(), "PageQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasPageQueryShrink()) {
-    body["PageQuery"] = request.pageQueryShrink();
+    body["PageQuery"] = request.getPageQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6347,17 +6555,17 @@ ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApi
   ListAuthorizedDataServiceApiDetailsShrinkRequest request = ListAuthorizedDataServiceApiDetailsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6401,17 +6609,17 @@ ListBizEntitiesResponse Client::listBizEntitiesWithOptions(const ListBizEntities
   ListBizEntitiesShrinkRequest request = ListBizEntitiesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6454,7 +6662,7 @@ ListBizUnitsResponse Client::listBizUnitsWithOptions(const ListBizUnitsRequest &
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6497,17 +6705,17 @@ ListComputeSourcesResponse Client::listComputeSourcesWithOptions(const ListCompu
   ListComputeSourcesShrinkRequest request = ListComputeSourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6551,17 +6759,17 @@ ListDataDomainsResponse Client::listDataDomainsWithOptions(const ListDataDomains
   ListDataDomainsShrinkRequest request = ListDataDomainsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6605,21 +6813,21 @@ ListDataServiceApiCallStatisticsResponse Client::listDataServiceApiCallStatistic
   ListDataServiceApiCallStatisticsShrinkRequest request = ListDataServiceApiCallStatisticsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6663,21 +6871,21 @@ ListDataServiceApiCallsResponse Client::listDataServiceApiCallsWithOptions(const
   ListDataServiceApiCallsShrinkRequest request = ListDataServiceApiCallsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6721,21 +6929,21 @@ ListDataServiceApiImpactsResponse Client::listDataServiceApiImpactsWithOptions(c
   ListDataServiceApiImpactsShrinkRequest request = ListDataServiceApiImpactsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6779,21 +6987,21 @@ ListDataServiceAuthorizedAppsResponse Client::listDataServiceAuthorizedAppsWithO
   ListDataServiceAuthorizedAppsShrinkRequest request = ListDataServiceAuthorizedAppsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6837,21 +7045,21 @@ ListDataServiceMyApiPermissionsResponse Client::listDataServiceMyApiPermissionsW
   ListDataServiceMyApiPermissionsShrinkRequest request = ListDataServiceMyApiPermissionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6895,21 +7103,21 @@ ListDataServiceMyAppPermissionsResponse Client::listDataServiceMyAppPermissionsW
   ListDataServiceMyAppPermissionsShrinkRequest request = ListDataServiceMyAppPermissionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6953,21 +7161,21 @@ ListDataServicePublishedApisResponse Client::listDataServicePublishedApisWithOpt
   ListDataServicePublishedApisShrinkRequest request = ListDataServicePublishedApisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7011,17 +7219,17 @@ ListDataSourceWithConfigResponse Client::listDataSourceWithConfigWithOptions(con
   ListDataSourceWithConfigShrinkRequest request = ListDataSourceWithConfigShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7065,17 +7273,17 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &tmpReq, c
   ListFilesShrinkRequest request = ListFilesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7119,21 +7327,21 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
   ListInstancesShrinkRequest request = ListInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7177,21 +7385,21 @@ ListNodeDownStreamResponse Client::listNodeDownStreamWithOptions(const ListNodeD
   ListNodeDownStreamShrinkRequest request = ListNodeDownStreamShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7235,21 +7443,21 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
   ListNodesShrinkRequest request = ListNodesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7293,21 +7501,21 @@ ListProjectMembersResponse Client::listProjectMembersWithOptions(const ListProje
   ListProjectMembersShrinkRequest request = ListProjectMembersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7351,17 +7559,17 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
   ListProjectsShrinkRequest request = ListProjectsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7405,17 +7613,17 @@ ListPublishRecordsResponse Client::listPublishRecordsWithOptions(const ListPubli
   ListPublishRecordsShrinkRequest request = ListPublishRecordsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7459,17 +7667,17 @@ ListResourcePermissionOperationLogResponse Client::listResourcePermissionOperati
   ListResourcePermissionOperationLogShrinkRequest request = ListResourcePermissionOperationLogShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7513,17 +7721,17 @@ ListResourcePermissionsResponse Client::listResourcePermissionsWithOptions(const
   ListResourcePermissionsShrinkRequest request = ListResourcePermissionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7567,17 +7775,17 @@ ListRowPermissionResponse Client::listRowPermissionWithOptions(const ListRowPerm
   ListRowPermissionShrinkRequest request = ListRowPermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPageRowPermissionQuery()) {
-    request.setPageRowPermissionQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pageRowPermissionQuery(), "PageRowPermissionQuery", "json"));
+    request.setPageRowPermissionQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPageRowPermissionQuery(), "PageRowPermissionQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasPageRowPermissionQueryShrink()) {
-    body["PageRowPermissionQuery"] = request.pageRowPermissionQueryShrink();
+    body["PageRowPermissionQuery"] = request.getPageRowPermissionQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7621,17 +7829,17 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserIdWithOptions(c
   ListRowPermissionByUserIdShrinkRequest request = ListRowPermissionByUserIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListRowPermissionByUserIdQuery()) {
-    request.setListRowPermissionByUserIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listRowPermissionByUserIdQuery(), "ListRowPermissionByUserIdQuery", "json"));
+    request.setListRowPermissionByUserIdQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListRowPermissionByUserIdQuery(), "ListRowPermissionByUserIdQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListRowPermissionByUserIdQueryShrink()) {
-    body["ListRowPermissionByUserIdQuery"] = request.listRowPermissionByUserIdQueryShrink();
+    body["ListRowPermissionByUserIdQuery"] = request.getListRowPermissionByUserIdQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7675,17 +7883,17 @@ ListSubmitRecordsResponse Client::listSubmitRecordsWithOptions(const ListSubmitR
   ListSubmitRecordsShrinkRequest request = ListSubmitRecordsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7729,17 +7937,17 @@ ListTenantMembersResponse Client::listTenantMembersWithOptions(const ListTenantM
   ListTenantMembersShrinkRequest request = ListTenantMembersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7783,17 +7991,17 @@ ListUserGroupMembersResponse Client::listUserGroupMembersWithOptions(const ListU
   ListUserGroupMembersShrinkRequest request = ListUserGroupMembersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7837,17 +8045,17 @@ ListUserGroupsResponse Client::listUserGroupsWithOptions(const ListUserGroupsReq
   ListUserGroupsShrinkRequest request = ListUserGroupsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasListQuery()) {
-    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.listQuery(), "ListQuery", "json"));
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasListQueryShrink()) {
-    body["ListQuery"] = request.listQueryShrink();
+    body["ListQuery"] = request.getListQueryShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7890,19 +8098,19 @@ OfflineBatchTaskResponse Client::offlineBatchTaskWithOptions(const OfflineBatchT
   request.validate();
   json query = {};
   if (!!request.hasComment()) {
-    query["Comment"] = request.comment();
+    query["Comment"] = request.getComment();
   }
 
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7945,17 +8153,17 @@ OfflineBizEntityResponse Client::offlineBizEntityWithOptions(const OfflineBizEnt
   OfflineBizEntityShrinkRequest request = OfflineBizEntityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOfflineCommand()) {
-    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand(), "OfflineCommand", "json"));
+    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOfflineCommand(), "OfflineCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasOfflineCommandShrink()) {
-    body["OfflineCommand"] = request.offlineCommandShrink();
+    body["OfflineCommand"] = request.getOfflineCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7999,25 +8207,25 @@ OfflinePipelineResponse Client::offlinePipelineWithOptions(const OfflinePipeline
   OfflinePipelineShrinkRequest request = OfflinePipelineShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   if (!!tmpReq.hasOfflineCommand()) {
-    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand(), "OfflineCommand", "json"));
+    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOfflineCommand(), "OfflineCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   if (!!request.hasOfflineCommandShrink()) {
-    body["OfflineCommand"] = request.offlineCommandShrink();
+    body["OfflineCommand"] = request.getOfflineCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8061,25 +8269,25 @@ OfflinePipelineByAsyncResponse Client::offlinePipelineByAsyncWithOptions(const O
   OfflinePipelineByAsyncShrinkRequest request = OfflinePipelineByAsyncShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   if (!!tmpReq.hasOfflineCommand()) {
-    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand(), "OfflineCommand", "json"));
+    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOfflineCommand(), "OfflineCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   if (!!request.hasOfflineCommandShrink()) {
-    body["OfflineCommand"] = request.offlineCommandShrink();
+    body["OfflineCommand"] = request.getOfflineCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8123,17 +8331,17 @@ OnlineBizEntityResponse Client::onlineBizEntityWithOptions(const OnlineBizEntity
   OnlineBizEntityShrinkRequest request = OnlineBizEntityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOnlineCommand()) {
-    request.setOnlineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.onlineCommand(), "OnlineCommand", "json"));
+    request.setOnlineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOnlineCommand(), "OnlineCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasOnlineCommandShrink()) {
-    body["OnlineCommand"] = request.onlineCommandShrink();
+    body["OnlineCommand"] = request.getOnlineCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8177,21 +8385,21 @@ OperateInstanceResponse Client::operateInstanceWithOptions(const OperateInstance
   OperateInstanceShrinkRequest request = OperateInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOperateCommand()) {
-    request.setOperateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.operateCommand(), "OperateCommand", "json"));
+    request.setOperateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOperateCommand(), "OperateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasOperateCommandShrink()) {
-    body["OperateCommand"] = request.operateCommandShrink();
+    body["OperateCommand"] = request.getOperateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8235,17 +8443,17 @@ ParseBatchTaskDependencyResponse Client::parseBatchTaskDependencyWithOptions(con
   ParseBatchTaskDependencyShrinkRequest request = ParseBatchTaskDependencyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasParseCommand()) {
-    request.setParseCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parseCommand(), "ParseCommand", "json"));
+    request.setParseCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParseCommand(), "ParseCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasParseCommandShrink()) {
-    body["ParseCommand"] = request.parseCommandShrink();
+    body["ParseCommand"] = request.getParseCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8289,21 +8497,21 @@ PausePhysicalNodeResponse Client::pausePhysicalNodeWithOptions(const PausePhysic
   PausePhysicalNodeShrinkRequest request = PausePhysicalNodeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPauseCommand()) {
-    request.setPauseCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pauseCommand(), "PauseCommand", "json"));
+    request.setPauseCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPauseCommand(), "PauseCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasPauseCommandShrink()) {
-    body["PauseCommand"] = request.pauseCommandShrink();
+    body["PauseCommand"] = request.getPauseCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8346,19 +8554,19 @@ PublishDataServiceApiResponse Client::publishDataServiceApiWithOptions(const Pub
   request.validate();
   json query = {};
   if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
+    query["ApiId"] = request.getApiId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasVersionId()) {
-    query["VersionId"] = request.versionId();
+    query["VersionId"] = request.getVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8401,17 +8609,17 @@ PublishObjectListResponse Client::publishObjectListWithOptions(const PublishObje
   PublishObjectListShrinkRequest request = PublishObjectListShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPublishCommand()) {
-    request.setPublishCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.publishCommand(), "PublishCommand", "json"));
+    request.setPublishCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPublishCommand(), "PublishCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasPublishCommandShrink()) {
-    body["PublishCommand"] = request.publishCommandShrink();
+    body["PublishCommand"] = request.getPublishCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8455,21 +8663,21 @@ RemoveProjectMemberResponse Client::removeProjectMemberWithOptions(const RemoveP
   RemoveProjectMemberShrinkRequest request = RemoveProjectMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRemoveCommand()) {
-    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.removeCommand(), "RemoveCommand", "json"));
+    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemoveCommand(), "RemoveCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasRemoveCommandShrink()) {
-    body["RemoveCommand"] = request.removeCommandShrink();
+    body["RemoveCommand"] = request.getRemoveCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8513,17 +8721,17 @@ RemoveTenantMemberResponse Client::removeTenantMemberWithOptions(const RemoveTen
   RemoveTenantMemberShrinkRequest request = RemoveTenantMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRemoveCommand()) {
-    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.removeCommand(), "RemoveCommand", "json"));
+    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemoveCommand(), "RemoveCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasRemoveCommandShrink()) {
-    body["RemoveCommand"] = request.removeCommandShrink();
+    body["RemoveCommand"] = request.getRemoveCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8567,17 +8775,17 @@ RemoveUserGroupMemberResponse Client::removeUserGroupMemberWithOptions(const Rem
   RemoveUserGroupMemberShrinkRequest request = RemoveUserGroupMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRemoveCommand()) {
-    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.removeCommand(), "RemoveCommand", "json"));
+    request.setRemoveCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemoveCommand(), "RemoveCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasRemoveCommandShrink()) {
-    body["RemoveCommand"] = request.removeCommandShrink();
+    body["RemoveCommand"] = request.getRemoveCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8621,21 +8829,21 @@ ReplaceProjectWhiteListsResponse Client::replaceProjectWhiteListsWithOptions(con
   ReplaceProjectWhiteListsShrinkRequest request = ReplaceProjectWhiteListsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasReplaceCommand()) {
-    request.setReplaceCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.replaceCommand(), "ReplaceCommand", "json"));
+    request.setReplaceCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReplaceCommand(), "ReplaceCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasReplaceCommandShrink()) {
-    body["ReplaceCommand"] = request.replaceCommandShrink();
+    body["ReplaceCommand"] = request.getReplaceCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8679,21 +8887,21 @@ ResumePhysicalNodeResponse Client::resumePhysicalNodeWithOptions(const ResumePhy
   ResumePhysicalNodeShrinkRequest request = ResumePhysicalNodeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResumeCommand()) {
-    request.setResumeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resumeCommand(), "ResumeCommand", "json"));
+    request.setResumeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResumeCommand(), "ResumeCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasEnv()) {
-    query["Env"] = request.env();
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasResumeCommandShrink()) {
-    body["ResumeCommand"] = request.resumeCommandShrink();
+    body["ResumeCommand"] = request.getResumeCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8737,17 +8945,17 @@ RetryTransferOwnershipResponse Client::retryTransferOwnershipWithOptions(const R
   RetryTransferOwnershipShrinkRequest request = RetryTransferOwnershipShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPrivilegeTransferRecord()) {
-    request.setPrivilegeTransferRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.privilegeTransferRecord(), "PrivilegeTransferRecord", "json"));
+    request.setPrivilegeTransferRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPrivilegeTransferRecord(), "PrivilegeTransferRecord", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasPrivilegeTransferRecordShrink()) {
-    body["PrivilegeTransferRecord"] = request.privilegeTransferRecordShrink();
+    body["PrivilegeTransferRecord"] = request.getPrivilegeTransferRecordShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8791,21 +8999,21 @@ RevokeDataServiceApiResponse Client::revokeDataServiceApiWithOptions(const Revok
   RevokeDataServiceApiShrinkRequest request = RevokeDataServiceApiShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRevokeCommand()) {
-    request.setRevokeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.revokeCommand(), "RevokeCommand", "json"));
+    request.setRevokeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRevokeCommand(), "RevokeCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasRevokeCommandShrink()) {
-    body["RevokeCommand"] = request.revokeCommandShrink();
+    body["RevokeCommand"] = request.getRevokeCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8849,17 +9057,17 @@ RevokeResourcePermissionResponse Client::revokeResourcePermissionWithOptions(con
   RevokeResourcePermissionShrinkRequest request = RevokeResourcePermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRevokeCommand()) {
-    request.setRevokeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.revokeCommand(), "RevokeCommand", "json"));
+    request.setRevokeCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRevokeCommand(), "RevokeCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasRevokeCommandShrink()) {
-    body["RevokeCommand"] = request.revokeCommandShrink();
+    body["RevokeCommand"] = request.getRevokeCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8902,15 +9110,15 @@ StopAdHocTaskResponse Client::stopAdHocTaskWithOptions(const StopAdHocTaskReques
   request.validate();
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8953,17 +9161,17 @@ SubmitBatchTaskResponse Client::submitBatchTaskWithOptions(const SubmitBatchTask
   SubmitBatchTaskShrinkRequest request = SubmitBatchTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSubmitCommand()) {
-    request.setSubmitCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.submitCommand(), "SubmitCommand", "json"));
+    request.setSubmitCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubmitCommand(), "SubmitCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasSubmitCommandShrink()) {
-    body["SubmitCommand"] = request.submitCommandShrink();
+    body["SubmitCommand"] = request.getSubmitCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9007,17 +9215,17 @@ SyncDepartmentResponse Client::syncDepartmentWithOptions(const SyncDepartmentReq
   SyncDepartmentShrinkRequest request = SyncDepartmentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSyncDepartmentCommand()) {
-    request.setSyncDepartmentCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.syncDepartmentCommand(), "SyncDepartmentCommand", "json"));
+    request.setSyncDepartmentCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSyncDepartmentCommand(), "SyncDepartmentCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasSyncDepartmentCommandShrink()) {
-    body["SyncDepartmentCommand"] = request.syncDepartmentCommandShrink();
+    body["SyncDepartmentCommand"] = request.getSyncDepartmentCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9061,17 +9269,17 @@ SyncDepartmentUserResponse Client::syncDepartmentUserWithOptions(const SyncDepar
   SyncDepartmentUserShrinkRequest request = SyncDepartmentUserShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSyncDepartmentUserCommand()) {
-    request.setSyncDepartmentUserCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.syncDepartmentUserCommand(), "SyncDepartmentUserCommand", "json"));
+    request.setSyncDepartmentUserCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSyncDepartmentUserCommand(), "SyncDepartmentUserCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasSyncDepartmentUserCommandShrink()) {
-    body["SyncDepartmentUserCommand"] = request.syncDepartmentUserCommandShrink();
+    body["SyncDepartmentUserCommand"] = request.getSyncDepartmentUserCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9115,17 +9323,17 @@ TransferOwnershipForAllObjectResponse Client::transferOwnershipForAllObjectWithO
   TransferOwnershipForAllObjectShrinkRequest request = TransferOwnershipForAllObjectShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasPrivilegeTransferRecord()) {
-    request.setPrivilegeTransferRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.privilegeTransferRecord(), "PrivilegeTransferRecord", "json"));
+    request.setPrivilegeTransferRecordShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPrivilegeTransferRecord(), "PrivilegeTransferRecord", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasPrivilegeTransferRecordShrink()) {
-    body["PrivilegeTransferRecord"] = request.privilegeTransferRecordShrink();
+    body["PrivilegeTransferRecord"] = request.getPrivilegeTransferRecordShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9169,17 +9377,17 @@ UpdateAdHocFileResponse Client::updateAdHocFileWithOptions(const UpdateAdHocFile
   UpdateAdHocFileShrinkRequest request = UpdateAdHocFileShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9223,17 +9431,17 @@ UpdateBatchTaskResponse Client::updateBatchTaskWithOptions(const UpdateBatchTask
   UpdateBatchTaskShrinkRequest request = UpdateBatchTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9277,17 +9485,17 @@ UpdateBatchTaskUdfLineagesResponse Client::updateBatchTaskUdfLineagesWithOptions
   UpdateBatchTaskUdfLineagesShrinkRequest request = UpdateBatchTaskUdfLineagesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9331,17 +9539,17 @@ UpdateBizEntityResponse Client::updateBizEntityWithOptions(const UpdateBizEntity
   UpdateBizEntityShrinkRequest request = UpdateBizEntityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9374,6 +9582,60 @@ UpdateBizEntityResponse Client::updateBizEntity(const UpdateBizEntityRequest &re
 }
 
 /**
+ * @summary 更新业务指标
+ *
+ * @param tmpReq UpdateBizMetricRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateBizMetricResponse
+ */
+UpdateBizMetricResponse Client::updateBizMetricWithOptions(const UpdateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateBizMetricShrinkRequest request = UpdateBizMetricShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateBizMetricCommand()) {
+    request.setUpdateBizMetricCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateBizMetricCommand(), "UpdateBizMetricCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateBizMetricCommandShrink()) {
+    body["UpdateBizMetricCommand"] = request.getUpdateBizMetricCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateBizMetric"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateBizMetricResponse>();
+}
+
+/**
+ * @summary 更新业务指标
+ *
+ * @param request UpdateBizMetricRequest
+ * @return UpdateBizMetricResponse
+ */
+UpdateBizMetricResponse Client::updateBizMetric(const UpdateBizMetricRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateBizMetricWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新数据板块。
  *
  * @param tmpReq UpdateBizUnitRequest
@@ -9385,17 +9647,17 @@ UpdateBizUnitResponse Client::updateBizUnitWithOptions(const UpdateBizUnitReques
   UpdateBizUnitShrinkRequest request = UpdateBizUnitShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9439,17 +9701,17 @@ UpdateComputeSourceResponse Client::updateComputeSourceWithOptions(const UpdateC
   UpdateComputeSourceShrinkRequest request = UpdateComputeSourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9493,17 +9755,17 @@ UpdateDataDomainResponse Client::updateDataDomainWithOptions(const UpdateDataDom
   UpdateDataDomainShrinkRequest request = UpdateDataDomainShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9547,17 +9809,17 @@ UpdateDataSourceBasicInfoResponse Client::updateDataSourceBasicInfoWithOptions(c
   UpdateDataSourceBasicInfoShrinkRequest request = UpdateDataSourceBasicInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9601,17 +9863,17 @@ UpdateDataSourceConfigResponse Client::updateDataSourceConfigWithOptions(const U
   UpdateDataSourceConfigShrinkRequest request = UpdateDataSourceConfigShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9654,19 +9916,19 @@ UpdateFileDirectoryResponse Client::updateFileDirectoryWithOptions(const UpdateF
   request.validate();
   json query = {};
   if (!!request.hasDirectory()) {
-    query["Directory"] = request.directory();
+    query["Directory"] = request.getDirectory();
   }
 
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9708,19 +9970,19 @@ UpdateFileNameResponse Client::updateFileNameWithOptions(const UpdateFileNameReq
   request.validate();
   json query = {};
   if (!!request.hasFileId()) {
-    query["FileId"] = request.fileId();
+    query["FileId"] = request.getFileId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9763,25 +10025,25 @@ UpdatePipelineResponse Client::updatePipelineWithOptions(const UpdatePipelineReq
   UpdatePipelineShrinkRequest request = UpdatePipelineShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9825,25 +10087,25 @@ UpdatePipelineByAsyncResponse Client::updatePipelineByAsyncWithOptions(const Upd
   UpdatePipelineByAsyncShrinkRequest request = UpdatePipelineByAsyncShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContext()) {
-    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
   }
 
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasContextShrink()) {
-    body["Context"] = request.contextShrink();
+    body["Context"] = request.getContextShrink();
   }
 
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9887,21 +10149,21 @@ UpdateProjectMemberResponse Client::updateProjectMemberWithOptions(const UpdateP
   UpdateProjectMemberShrinkRequest request = UpdateProjectMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9945,17 +10207,17 @@ UpdateResourceResponse Client::updateResourceWithOptions(const UpdateResourceReq
   UpdateResourceShrinkRequest request = UpdateResourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9999,17 +10261,17 @@ UpdateRowPermissionResponse Client::updateRowPermissionWithOptions(const UpdateR
   UpdateRowPermissionShrinkRequest request = UpdateRowPermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateRowPermissionCommand()) {
-    request.setUpdateRowPermissionCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateRowPermissionCommand(), "UpdateRowPermissionCommand", "json"));
+    request.setUpdateRowPermissionCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateRowPermissionCommand(), "UpdateRowPermissionCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateRowPermissionCommandShrink()) {
-    body["UpdateRowPermissionCommand"] = request.updateRowPermissionCommandShrink();
+    body["UpdateRowPermissionCommand"] = request.getUpdateRowPermissionCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10053,17 +10315,17 @@ UpdateTenantComputeEngineResponse Client::updateTenantComputeEngineWithOptions(c
   UpdateTenantComputeEngineShrinkRequest request = UpdateTenantComputeEngineShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10107,17 +10369,17 @@ UpdateTenantMemberResponse Client::updateTenantMemberWithOptions(const UpdateTen
   UpdateTenantMemberShrinkRequest request = UpdateTenantMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10161,17 +10423,17 @@ UpdateUdfResponse Client::updateUdfWithOptions(const UpdateUdfRequest &tmpReq, c
   UpdateUdfShrinkRequest request = UpdateUdfShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10215,17 +10477,17 @@ UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroup
   UpdateUserGroupShrinkRequest request = UpdateUserGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpdateCommand()) {
-    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
   }
 
   json query = {};
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   json body = {};
   if (!!request.hasUpdateCommandShrink()) {
-    body["UpdateCommand"] = request.updateCommandShrink();
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10268,15 +10530,15 @@ UpdateUserGroupSwitchResponse Client::updateUserGroupSwitchWithOptions(const Upd
   request.validate();
   json query = {};
   if (!!request.hasActive()) {
-    query["Active"] = request.active();
+    query["Active"] = request.getActive();
   }
 
   if (!!request.hasOpTenantId()) {
-    query["OpTenantId"] = request.opTenantId();
+    query["OpTenantId"] = request.getOpTenantId();
   }
 
   if (!!request.hasUserGroupId()) {
-    query["UserGroupId"] = request.userGroupId();
+    query["UserGroupId"] = request.getUserGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

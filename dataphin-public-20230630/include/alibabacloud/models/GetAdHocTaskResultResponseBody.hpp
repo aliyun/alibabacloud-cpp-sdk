@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETADHOCTASKRESULTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETADHOCTASKRESULTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetAdHocTaskResultResponseBodyExecuteResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,59 +39,111 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ExecuteResult : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ExecuteResult& obj) { 
+        DARABONBA_PTR_TO_JSON(Result, result_);
+        DARABONBA_PTR_TO_JSON(ScheduleTaskId, scheduleTaskId_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ExecuteResult& obj) { 
+        DARABONBA_PTR_FROM_JSON(Result, result_);
+        DARABONBA_PTR_FROM_JSON(ScheduleTaskId, scheduleTaskId_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      };
+      ExecuteResult() = default ;
+      ExecuteResult(const ExecuteResult &) = default ;
+      ExecuteResult(ExecuteResult &&) = default ;
+      ExecuteResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ExecuteResult() = default ;
+      ExecuteResult& operator=(const ExecuteResult &) = default ;
+      ExecuteResult& operator=(ExecuteResult &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->result_ == nullptr
+        && this->scheduleTaskId_ == nullptr && this->taskId_ == nullptr; };
+      // result Field Functions 
+      bool hasResult() const { return this->result_ != nullptr;};
+      void deleteResult() { this->result_ = nullptr;};
+      inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+      inline ExecuteResult& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+
+
+      // scheduleTaskId Field Functions 
+      bool hasScheduleTaskId() const { return this->scheduleTaskId_ != nullptr;};
+      void deleteScheduleTaskId() { this->scheduleTaskId_ = nullptr;};
+      inline string getScheduleTaskId() const { DARABONBA_PTR_GET_DEFAULT(scheduleTaskId_, "") };
+      inline ExecuteResult& setScheduleTaskId(string scheduleTaskId) { DARABONBA_PTR_SET_VALUE(scheduleTaskId_, scheduleTaskId) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+      inline ExecuteResult& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+    protected:
+      shared_ptr<string> result_ {};
+      shared_ptr<string> scheduleTaskId_ {};
+      shared_ptr<string> taskId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->executeResult_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->executeResult_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetAdHocTaskResultResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // executeResult Field Functions 
     bool hasExecuteResult() const { return this->executeResult_ != nullptr;};
     void deleteExecuteResult() { this->executeResult_ = nullptr;};
-    inline const GetAdHocTaskResultResponseBodyExecuteResult & executeResult() const { DARABONBA_PTR_GET_CONST(executeResult_, GetAdHocTaskResultResponseBodyExecuteResult) };
-    inline GetAdHocTaskResultResponseBodyExecuteResult executeResult() { DARABONBA_PTR_GET(executeResult_, GetAdHocTaskResultResponseBodyExecuteResult) };
-    inline GetAdHocTaskResultResponseBody& setExecuteResult(const GetAdHocTaskResultResponseBodyExecuteResult & executeResult) { DARABONBA_PTR_SET_VALUE(executeResult_, executeResult) };
-    inline GetAdHocTaskResultResponseBody& setExecuteResult(GetAdHocTaskResultResponseBodyExecuteResult && executeResult) { DARABONBA_PTR_SET_RVALUE(executeResult_, executeResult) };
+    inline const GetAdHocTaskResultResponseBody::ExecuteResult & getExecuteResult() const { DARABONBA_PTR_GET_CONST(executeResult_, GetAdHocTaskResultResponseBody::ExecuteResult) };
+    inline GetAdHocTaskResultResponseBody::ExecuteResult getExecuteResult() { DARABONBA_PTR_GET(executeResult_, GetAdHocTaskResultResponseBody::ExecuteResult) };
+    inline GetAdHocTaskResultResponseBody& setExecuteResult(const GetAdHocTaskResultResponseBody::ExecuteResult & executeResult) { DARABONBA_PTR_SET_VALUE(executeResult_, executeResult) };
+    inline GetAdHocTaskResultResponseBody& setExecuteResult(GetAdHocTaskResultResponseBody::ExecuteResult && executeResult) { DARABONBA_PTR_SET_RVALUE(executeResult_, executeResult) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetAdHocTaskResultResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetAdHocTaskResultResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAdHocTaskResultResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetAdHocTaskResultResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<GetAdHocTaskResultResponseBodyExecuteResult> executeResult_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<GetAdHocTaskResultResponseBody::ExecuteResult> executeResult_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

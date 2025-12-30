@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && return this->syncDepartmentCommandShrink_ == nullptr; };
+        && this->syncDepartmentCommandShrink_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline SyncDepartmentShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // syncDepartmentCommandShrink Field Functions 
     bool hasSyncDepartmentCommandShrink() const { return this->syncDepartmentCommandShrink_ != nullptr;};
     void deleteSyncDepartmentCommandShrink() { this->syncDepartmentCommandShrink_ = nullptr;};
-    inline string syncDepartmentCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(syncDepartmentCommandShrink_, "") };
+    inline string getSyncDepartmentCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(syncDepartmentCommandShrink_, "") };
     inline SyncDepartmentShrinkRequest& setSyncDepartmentCommandShrink(string syncDepartmentCommandShrink) { DARABONBA_PTR_SET_VALUE(syncDepartmentCommandShrink_, syncDepartmentCommandShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> syncDepartmentCommandShrink_ = nullptr;
+    shared_ptr<string> syncDepartmentCommandShrink_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->asyncId_ == nullptr
-        && return this->contextShrink_ == nullptr && return this->opTenantId_ == nullptr; };
+        && this->contextShrink_ == nullptr && this->opTenantId_ == nullptr; };
     // asyncId Field Functions 
     bool hasAsyncId() const { return this->asyncId_ != nullptr;};
     void deleteAsyncId() { this->asyncId_ = nullptr;};
-    inline int64_t asyncId() const { DARABONBA_PTR_GET_DEFAULT(asyncId_, 0L) };
+    inline int64_t getAsyncId() const { DARABONBA_PTR_GET_DEFAULT(asyncId_, 0L) };
     inline GetPipelineAsyncResultShrinkRequest& setAsyncId(int64_t asyncId) { DARABONBA_PTR_SET_VALUE(asyncId_, asyncId) };
 
 
     // contextShrink Field Functions 
     bool hasContextShrink() const { return this->contextShrink_ != nullptr;};
     void deleteContextShrink() { this->contextShrink_ = nullptr;};
-    inline string contextShrink() const { DARABONBA_PTR_GET_DEFAULT(contextShrink_, "") };
+    inline string getContextShrink() const { DARABONBA_PTR_GET_DEFAULT(contextShrink_, "") };
     inline GetPipelineAsyncResultShrinkRequest& setContextShrink(string contextShrink) { DARABONBA_PTR_SET_VALUE(contextShrink_, contextShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetPipelineAsyncResultShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> asyncId_ = nullptr;
+    shared_ptr<int64_t> asyncId_ {};
     // This parameter is required.
-    std::shared_ptr<string> contextShrink_ = nullptr;
+    shared_ptr<string> contextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models

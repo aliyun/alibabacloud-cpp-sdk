@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->env_ == nullptr
-        && return this->fixDataCommandShrink_ == nullptr && return this->opTenantId_ == nullptr; };
+        && this->fixDataCommandShrink_ == nullptr && this->opTenantId_ == nullptr; };
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
-    inline string env() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+    inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
     inline FixDataShrinkRequest& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
     // fixDataCommandShrink Field Functions 
     bool hasFixDataCommandShrink() const { return this->fixDataCommandShrink_ != nullptr;};
     void deleteFixDataCommandShrink() { this->fixDataCommandShrink_ = nullptr;};
-    inline string fixDataCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(fixDataCommandShrink_, "") };
+    inline string getFixDataCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(fixDataCommandShrink_, "") };
     inline FixDataShrinkRequest& setFixDataCommandShrink(string fixDataCommandShrink) { DARABONBA_PTR_SET_VALUE(fixDataCommandShrink_, fixDataCommandShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline FixDataShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
-    std::shared_ptr<string> env_ = nullptr;
+    shared_ptr<string> env_ {};
     // This parameter is required.
-    std::shared_ptr<string> fixDataCommandShrink_ = nullptr;
+    shared_ptr<string> fixDataCommandShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models

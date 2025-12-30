@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && return this->parseCommandShrink_ == nullptr; };
+        && this->parseCommandShrink_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline ParseBatchTaskDependencyShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // parseCommandShrink Field Functions 
     bool hasParseCommandShrink() const { return this->parseCommandShrink_ != nullptr;};
     void deleteParseCommandShrink() { this->parseCommandShrink_ = nullptr;};
-    inline string parseCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(parseCommandShrink_, "") };
+    inline string getParseCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(parseCommandShrink_, "") };
     inline ParseBatchTaskDependencyShrinkRequest& setParseCommandShrink(string parseCommandShrink) { DARABONBA_PTR_SET_VALUE(parseCommandShrink_, parseCommandShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> parseCommandShrink_ = nullptr;
+    shared_ptr<string> parseCommandShrink_ {};
   };
 
   } // namespace Models

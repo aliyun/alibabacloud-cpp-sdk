@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createPipelineNodeCommandShrink_ == nullptr
-        && return this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr; };
     // createPipelineNodeCommandShrink Field Functions 
     bool hasCreatePipelineNodeCommandShrink() const { return this->createPipelineNodeCommandShrink_ != nullptr;};
     void deleteCreatePipelineNodeCommandShrink() { this->createPipelineNodeCommandShrink_ = nullptr;};
-    inline string createPipelineNodeCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(createPipelineNodeCommandShrink_, "") };
+    inline string getCreatePipelineNodeCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(createPipelineNodeCommandShrink_, "") };
     inline CreatePipelineNodeShrinkRequest& setCreatePipelineNodeCommandShrink(string createPipelineNodeCommandShrink) { DARABONBA_PTR_SET_VALUE(createPipelineNodeCommandShrink_, createPipelineNodeCommandShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline CreatePipelineNodeShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> createPipelineNodeCommandShrink_ = nullptr;
+    shared_ptr<string> createPipelineNodeCommandShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models

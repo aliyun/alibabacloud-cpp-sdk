@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->directory_ == nullptr
-        && return this->fileId_ == nullptr && return this->opTenantId_ == nullptr && return this->projectId_ == nullptr; };
+        && this->fileId_ == nullptr && this->opTenantId_ == nullptr && this->projectId_ == nullptr; };
     // directory Field Functions 
     bool hasDirectory() const { return this->directory_ != nullptr;};
     void deleteDirectory() { this->directory_ = nullptr;};
-    inline string directory() const { DARABONBA_PTR_GET_DEFAULT(directory_, "") };
+    inline string getDirectory() const { DARABONBA_PTR_GET_DEFAULT(directory_, "") };
     inline UpdateFileDirectoryRequest& setDirectory(string directory) { DARABONBA_PTR_SET_VALUE(directory_, directory) };
 
 
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
-    inline int64_t fileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, 0L) };
+    inline int64_t getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, 0L) };
     inline UpdateFileDirectoryRequest& setFileId(int64_t fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline UpdateFileDirectoryRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline UpdateFileDirectoryRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> directory_ = nullptr;
+    shared_ptr<string> directory_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> fileId_ = nullptr;
+    shared_ptr<int64_t> fileId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

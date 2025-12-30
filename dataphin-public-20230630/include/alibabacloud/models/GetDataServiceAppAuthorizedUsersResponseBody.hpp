@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETDATASERVICEAPPAUTHORIZEDUSERSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetDataServiceAppAuthorizedUsersResponseBodyUserList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,60 +40,102 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class UserList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const UserList& obj) { 
+        DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+      };
+      friend void from_json(const Darabonba::Json& j, UserList& obj) { 
+        DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+      };
+      UserList() = default ;
+      UserList(const UserList &) = default ;
+      UserList(UserList &&) = default ;
+      UserList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~UserList() = default ;
+      UserList& operator=(const UserList &) = default ;
+      UserList& operator=(UserList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->displayName_ == nullptr
+        && this->id_ == nullptr; };
+      // displayName Field Functions 
+      bool hasDisplayName() const { return this->displayName_ != nullptr;};
+      void deleteDisplayName() { this->displayName_ = nullptr;};
+      inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+      inline UserList& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline UserList& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    protected:
+      shared_ptr<string> displayName_ {};
+      shared_ptr<string> id_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->userList_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr && this->userList_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetDataServiceAppAuthorizedUsersResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetDataServiceAppAuthorizedUsersResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetDataServiceAppAuthorizedUsersResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDataServiceAppAuthorizedUsersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetDataServiceAppAuthorizedUsersResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // userList Field Functions 
     bool hasUserList() const { return this->userList_ != nullptr;};
     void deleteUserList() { this->userList_ = nullptr;};
-    inline const vector<GetDataServiceAppAuthorizedUsersResponseBodyUserList> & userList() const { DARABONBA_PTR_GET_CONST(userList_, vector<GetDataServiceAppAuthorizedUsersResponseBodyUserList>) };
-    inline vector<GetDataServiceAppAuthorizedUsersResponseBodyUserList> userList() { DARABONBA_PTR_GET(userList_, vector<GetDataServiceAppAuthorizedUsersResponseBodyUserList>) };
-    inline GetDataServiceAppAuthorizedUsersResponseBody& setUserList(const vector<GetDataServiceAppAuthorizedUsersResponseBodyUserList> & userList) { DARABONBA_PTR_SET_VALUE(userList_, userList) };
-    inline GetDataServiceAppAuthorizedUsersResponseBody& setUserList(vector<GetDataServiceAppAuthorizedUsersResponseBodyUserList> && userList) { DARABONBA_PTR_SET_RVALUE(userList_, userList) };
+    inline const vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList> & getUserList() const { DARABONBA_PTR_GET_CONST(userList_, vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList>) };
+    inline vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList> getUserList() { DARABONBA_PTR_GET(userList_, vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList>) };
+    inline GetDataServiceAppAuthorizedUsersResponseBody& setUserList(const vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList> & userList) { DARABONBA_PTR_SET_VALUE(userList_, userList) };
+    inline GetDataServiceAppAuthorizedUsersResponseBody& setUserList(vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList> && userList) { DARABONBA_PTR_SET_RVALUE(userList_, userList) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<vector<GetDataServiceAppAuthorizedUsersResponseBodyUserList>> userList_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<vector<GetDataServiceAppAuthorizedUsersResponseBody::UserList>> userList_ {};
   };
 
   } // namespace Models

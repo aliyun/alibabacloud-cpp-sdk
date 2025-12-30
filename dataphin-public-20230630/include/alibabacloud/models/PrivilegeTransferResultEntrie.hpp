@@ -44,13 +44,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->children_ == nullptr
-        && return this->errMsg_ == nullptr && return this->isLeaf_ == nullptr && return this->privilege_ == nullptr && return this->privilegeDisplayName_ == nullptr && return this->status_ == nullptr
-        && return this->test_ == nullptr; };
+        && this->errMsg_ == nullptr && this->isLeaf_ == nullptr && this->privilege_ == nullptr && this->privilegeDisplayName_ == nullptr && this->status_ == nullptr
+        && this->test_ == nullptr; };
     // children Field Functions 
     bool hasChildren() const { return this->children_ != nullptr;};
     void deleteChildren() { this->children_ = nullptr;};
-    inline const vector<PrivilegeTransferResultEntrie> & children() const { DARABONBA_PTR_GET_CONST(children_, vector<PrivilegeTransferResultEntrie>) };
-    inline vector<PrivilegeTransferResultEntrie> children() { DARABONBA_PTR_GET(children_, vector<PrivilegeTransferResultEntrie>) };
+    inline const vector<PrivilegeTransferResultEntrie> & getChildren() const { DARABONBA_PTR_GET_CONST(children_, vector<PrivilegeTransferResultEntrie>) };
+    inline vector<PrivilegeTransferResultEntrie> getChildren() { DARABONBA_PTR_GET(children_, vector<PrivilegeTransferResultEntrie>) };
     inline PrivilegeTransferResultEntrie& setChildren(const vector<PrivilegeTransferResultEntrie> & children) { DARABONBA_PTR_SET_VALUE(children_, children) };
     inline PrivilegeTransferResultEntrie& setChildren(vector<PrivilegeTransferResultEntrie> && children) { DARABONBA_PTR_SET_RVALUE(children_, children) };
 
@@ -58,53 +58,53 @@ namespace Models
     // errMsg Field Functions 
     bool hasErrMsg() const { return this->errMsg_ != nullptr;};
     void deleteErrMsg() { this->errMsg_ = nullptr;};
-    inline string errMsg() const { DARABONBA_PTR_GET_DEFAULT(errMsg_, "") };
+    inline string getErrMsg() const { DARABONBA_PTR_GET_DEFAULT(errMsg_, "") };
     inline PrivilegeTransferResultEntrie& setErrMsg(string errMsg) { DARABONBA_PTR_SET_VALUE(errMsg_, errMsg) };
 
 
     // isLeaf Field Functions 
     bool hasIsLeaf() const { return this->isLeaf_ != nullptr;};
     void deleteIsLeaf() { this->isLeaf_ = nullptr;};
-    inline bool isLeaf() const { DARABONBA_PTR_GET_DEFAULT(isLeaf_, false) };
+    inline bool getIsLeaf() const { DARABONBA_PTR_GET_DEFAULT(isLeaf_, false) };
     inline PrivilegeTransferResultEntrie& setIsLeaf(bool isLeaf) { DARABONBA_PTR_SET_VALUE(isLeaf_, isLeaf) };
 
 
     // privilege Field Functions 
     bool hasPrivilege() const { return this->privilege_ != nullptr;};
     void deletePrivilege() { this->privilege_ = nullptr;};
-    inline string privilege() const { DARABONBA_PTR_GET_DEFAULT(privilege_, "") };
+    inline string getPrivilege() const { DARABONBA_PTR_GET_DEFAULT(privilege_, "") };
     inline PrivilegeTransferResultEntrie& setPrivilege(string privilege) { DARABONBA_PTR_SET_VALUE(privilege_, privilege) };
 
 
     // privilegeDisplayName Field Functions 
     bool hasPrivilegeDisplayName() const { return this->privilegeDisplayName_ != nullptr;};
     void deletePrivilegeDisplayName() { this->privilegeDisplayName_ = nullptr;};
-    inline string privilegeDisplayName() const { DARABONBA_PTR_GET_DEFAULT(privilegeDisplayName_, "") };
+    inline string getPrivilegeDisplayName() const { DARABONBA_PTR_GET_DEFAULT(privilegeDisplayName_, "") };
     inline PrivilegeTransferResultEntrie& setPrivilegeDisplayName(string privilegeDisplayName) { DARABONBA_PTR_SET_VALUE(privilegeDisplayName_, privilegeDisplayName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline PrivilegeTransferResultEntrie& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // test Field Functions 
     bool hasTest() const { return this->test_ != nullptr;};
     void deleteTest() { this->test_ = nullptr;};
-    inline string test() const { DARABONBA_PTR_GET_DEFAULT(test_, "") };
+    inline string getTest() const { DARABONBA_PTR_GET_DEFAULT(test_, "") };
     inline PrivilegeTransferResultEntrie& setTest(string test) { DARABONBA_PTR_SET_VALUE(test_, test) };
 
 
   protected:
-    std::shared_ptr<vector<PrivilegeTransferResultEntrie>> children_ = nullptr;
-    std::shared_ptr<string> errMsg_ = nullptr;
-    std::shared_ptr<bool> isLeaf_ = nullptr;
-    std::shared_ptr<string> privilege_ = nullptr;
-    std::shared_ptr<string> privilegeDisplayName_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> test_ = nullptr;
+    shared_ptr<vector<PrivilegeTransferResultEntrie>> children_ {};
+    shared_ptr<string> errMsg_ {};
+    shared_ptr<bool> isLeaf_ {};
+    shared_ptr<string> privilege_ {};
+    shared_ptr<string> privilegeDisplayName_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> test_ {};
   };
 
   } // namespace Models

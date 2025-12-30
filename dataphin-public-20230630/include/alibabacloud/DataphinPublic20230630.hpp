@@ -310,6 +310,23 @@ namespace DataphinPublic20230630
       Models::CreateBizEntityResponse createBizEntity(const Models::CreateBizEntityRequest &request);
 
       /**
+       * @summary 新建业务指标
+       *
+       * @param tmpReq CreateBizMetricRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBizMetricResponse
+       */
+      Models::CreateBizMetricResponse createBizMetricWithOptions(const Models::CreateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新建业务指标
+       *
+       * @param request CreateBizMetricRequest
+       * @return CreateBizMetricResponse
+       */
+      Models::CreateBizMetricResponse createBizMetric(const Models::CreateBizMetricRequest &request);
+
+      /**
        * @summary 创建数据板块。
        *
        * @param tmpReq CreateBizUnitRequest
@@ -614,6 +631,23 @@ namespace DataphinPublic20230630
        * @return DeleteBizEntityResponse
        */
       Models::DeleteBizEntityResponse deleteBizEntity(const Models::DeleteBizEntityRequest &request);
+
+      /**
+       * @summary 删除业务指标
+       *
+       * @param tmpReq DeleteBizMetricRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBizMetricResponse
+       */
+      Models::DeleteBizMetricResponse deleteBizMetricWithOptions(const Models::DeleteBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除业务指标
+       *
+       * @param request DeleteBizMetricRequest
+       * @return DeleteBizMetricResponse
+       */
+      Models::DeleteBizMetricResponse deleteBizMetric(const Models::DeleteBizMetricRequest &request);
 
       /**
        * @summary 删除数据板块。
@@ -1024,6 +1058,23 @@ namespace DataphinPublic20230630
       Models::GetBizEntityInfoByVersionResponse getBizEntityInfoByVersion(const Models::GetBizEntityInfoByVersionRequest &request);
 
       /**
+       * @summary 查询业务指标详情
+       *
+       * @param tmpReq GetBizMetricByNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBizMetricByNameResponse
+       */
+      Models::GetBizMetricByNameResponse getBizMetricByNameWithOptions(const Models::GetBizMetricByNameRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询业务指标详情
+       *
+       * @param request GetBizMetricByNameRequest
+       * @return GetBizMetricByNameResponse
+       */
+      Models::GetBizMetricByNameResponse getBizMetricByName(const Models::GetBizMetricByNameRequest &request);
+
+      /**
        * @summary 获取数据板块详情。
        *
        * @param request GetBizUnitInfoRequest
@@ -1039,6 +1090,23 @@ namespace DataphinPublic20230630
        * @return GetBizUnitInfoResponse
        */
       Models::GetBizUnitInfoResponse getBizUnitInfo(const Models::GetBizUnitInfoRequest &request);
+
+      /**
+       * @summary 查询数据源连通性检查任务。
+       *
+       * @param request GetCheckConnectivityJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCheckConnectivityJobsResponse
+       */
+      Models::GetCheckConnectivityJobsResponse getCheckConnectivityJobsWithOptions(const Models::GetCheckConnectivityJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据源连通性检查任务。
+       *
+       * @param request GetCheckConnectivityJobsRequest
+       * @return GetCheckConnectivityJobsResponse
+       */
+      Models::GetCheckConnectivityJobsResponse getCheckConnectivityJobs(const Models::GetCheckConnectivityJobsRequest &request);
 
       /**
        * @summary 根据环境获取集群信息
@@ -2994,6 +3062,23 @@ namespace DataphinPublic20230630
        * @return UpdateBizEntityResponse
        */
       Models::UpdateBizEntityResponse updateBizEntity(const Models::UpdateBizEntityRequest &request);
+
+      /**
+       * @summary 更新业务指标
+       *
+       * @param tmpReq UpdateBizMetricRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBizMetricResponse
+       */
+      Models::UpdateBizMetricResponse updateBizMetricWithOptions(const Models::UpdateBizMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新业务指标
+       *
+       * @param request UpdateBizMetricRequest
+       * @return UpdateBizMetricResponse
+       */
+      Models::UpdateBizMetricResponse updateBizMetric(const Models::UpdateBizMetricRequest &request);
 
       /**
        * @summary 更新数据板块。

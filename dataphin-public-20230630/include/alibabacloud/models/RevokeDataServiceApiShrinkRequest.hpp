@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && return this->projectId_ == nullptr && return this->revokeCommandShrink_ == nullptr; };
+        && this->projectId_ == nullptr && this->revokeCommandShrink_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline RevokeDataServiceApiShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int32_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0) };
+    inline int32_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0) };
     inline RevokeDataServiceApiShrinkRequest& setProjectId(int32_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // revokeCommandShrink Field Functions 
     bool hasRevokeCommandShrink() const { return this->revokeCommandShrink_ != nullptr;};
     void deleteRevokeCommandShrink() { this->revokeCommandShrink_ = nullptr;};
-    inline string revokeCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(revokeCommandShrink_, "") };
+    inline string getRevokeCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(revokeCommandShrink_, "") };
     inline RevokeDataServiceApiShrinkRequest& setRevokeCommandShrink(string revokeCommandShrink) { DARABONBA_PTR_SET_VALUE(revokeCommandShrink_, revokeCommandShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> projectId_ = nullptr;
+    shared_ptr<int32_t> projectId_ {};
     // This parameter is required.
-    std::shared_ptr<string> revokeCommandShrink_ = nullptr;
+    shared_ptr<string> revokeCommandShrink_ {};
   };
 
   } // namespace Models

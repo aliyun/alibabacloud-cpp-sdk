@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->env_ == nullptr && return this->opTenantId_ == nullptr && return this->projectId_ == nullptr && return this->queueName_ == nullptr && return this->streamBatchMode_ == nullptr; };
+        && this->env_ == nullptr && this->opTenantId_ == nullptr && this->projectId_ == nullptr && this->queueName_ == nullptr && this->streamBatchMode_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetQueueEngineVersionByEnvRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // env Field Functions 
     bool hasEnv() const { return this->env_ != nullptr;};
     void deleteEnv() { this->env_ = nullptr;};
-    inline string env() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+    inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
     inline GetQueueEngineVersionByEnvRequest& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetQueueEngineVersionByEnvRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline GetQueueEngineVersionByEnvRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline GetQueueEngineVersionByEnvRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // streamBatchMode Field Functions 
     bool hasStreamBatchMode() const { return this->streamBatchMode_ != nullptr;};
     void deleteStreamBatchMode() { this->streamBatchMode_ = nullptr;};
-    inline string streamBatchMode() const { DARABONBA_PTR_GET_DEFAULT(streamBatchMode_, "") };
+    inline string getStreamBatchMode() const { DARABONBA_PTR_GET_DEFAULT(streamBatchMode_, "") };
     inline GetQueueEngineVersionByEnvRequest& setStreamBatchMode(string streamBatchMode) { DARABONBA_PTR_SET_VALUE(streamBatchMode_, streamBatchMode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> env_ = nullptr;
+    shared_ptr<string> env_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // This parameter is required.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
     // This parameter is required.
-    std::shared_ptr<string> streamBatchMode_ = nullptr;
+    shared_ptr<string> streamBatchMode_ {};
   };
 
   } // namespace Models

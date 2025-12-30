@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createRowPermissionCommandShrink_ == nullptr
-        && return this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr; };
     // createRowPermissionCommandShrink Field Functions 
     bool hasCreateRowPermissionCommandShrink() const { return this->createRowPermissionCommandShrink_ != nullptr;};
     void deleteCreateRowPermissionCommandShrink() { this->createRowPermissionCommandShrink_ = nullptr;};
-    inline string createRowPermissionCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(createRowPermissionCommandShrink_, "") };
+    inline string getCreateRowPermissionCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(createRowPermissionCommandShrink_, "") };
     inline CreateRowPermissionShrinkRequest& setCreateRowPermissionCommandShrink(string createRowPermissionCommandShrink) { DARABONBA_PTR_SET_VALUE(createRowPermissionCommandShrink_, createRowPermissionCommandShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline CreateRowPermissionShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> createRowPermissionCommandShrink_ = nullptr;
+    shared_ptr<string> createRowPermissionCommandShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models

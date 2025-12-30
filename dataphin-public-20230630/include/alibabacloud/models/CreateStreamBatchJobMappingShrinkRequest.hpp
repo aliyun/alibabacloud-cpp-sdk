@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && return this->streamBatchJobMappingCreateCommandShrink_ == nullptr; };
+        && this->streamBatchJobMappingCreateCommandShrink_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline CreateStreamBatchJobMappingShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // streamBatchJobMappingCreateCommandShrink Field Functions 
     bool hasStreamBatchJobMappingCreateCommandShrink() const { return this->streamBatchJobMappingCreateCommandShrink_ != nullptr;};
     void deleteStreamBatchJobMappingCreateCommandShrink() { this->streamBatchJobMappingCreateCommandShrink_ = nullptr;};
-    inline string streamBatchJobMappingCreateCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(streamBatchJobMappingCreateCommandShrink_, "") };
+    inline string getStreamBatchJobMappingCreateCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(streamBatchJobMappingCreateCommandShrink_, "") };
     inline CreateStreamBatchJobMappingShrinkRequest& setStreamBatchJobMappingCreateCommandShrink(string streamBatchJobMappingCreateCommandShrink) { DARABONBA_PTR_SET_VALUE(streamBatchJobMappingCreateCommandShrink_, streamBatchJobMappingCreateCommandShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> streamBatchJobMappingCreateCommandShrink_ = nullptr;
+    shared_ptr<string> streamBatchJobMappingCreateCommandShrink_ {};
   };
 
   } // namespace Models

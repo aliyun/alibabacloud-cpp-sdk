@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_OFFLINEBATCHTASKRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_OFFLINEBATCHTASKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/OfflineBatchTaskResponseBodyOfflineResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,59 +39,90 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class OfflineResult : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const OfflineResult& obj) { 
+        DARABONBA_PTR_TO_JSON(PublishObjectId, publishObjectId_);
+      };
+      friend void from_json(const Darabonba::Json& j, OfflineResult& obj) { 
+        DARABONBA_PTR_FROM_JSON(PublishObjectId, publishObjectId_);
+      };
+      OfflineResult() = default ;
+      OfflineResult(const OfflineResult &) = default ;
+      OfflineResult(OfflineResult &&) = default ;
+      OfflineResult(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~OfflineResult() = default ;
+      OfflineResult& operator=(const OfflineResult &) = default ;
+      OfflineResult& operator=(OfflineResult &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->publishObjectId_ == nullptr; };
+      // publishObjectId Field Functions 
+      bool hasPublishObjectId() const { return this->publishObjectId_ != nullptr;};
+      void deletePublishObjectId() { this->publishObjectId_ = nullptr;};
+      inline int64_t getPublishObjectId() const { DARABONBA_PTR_GET_DEFAULT(publishObjectId_, 0L) };
+      inline OfflineResult& setPublishObjectId(int64_t publishObjectId) { DARABONBA_PTR_SET_VALUE(publishObjectId_, publishObjectId) };
+
+
+    protected:
+      shared_ptr<int64_t> publishObjectId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->offlineResult_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->offlineResult_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline OfflineBatchTaskResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline OfflineBatchTaskResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline OfflineBatchTaskResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // offlineResult Field Functions 
     bool hasOfflineResult() const { return this->offlineResult_ != nullptr;};
     void deleteOfflineResult() { this->offlineResult_ = nullptr;};
-    inline const OfflineBatchTaskResponseBodyOfflineResult & offlineResult() const { DARABONBA_PTR_GET_CONST(offlineResult_, OfflineBatchTaskResponseBodyOfflineResult) };
-    inline OfflineBatchTaskResponseBodyOfflineResult offlineResult() { DARABONBA_PTR_GET(offlineResult_, OfflineBatchTaskResponseBodyOfflineResult) };
-    inline OfflineBatchTaskResponseBody& setOfflineResult(const OfflineBatchTaskResponseBodyOfflineResult & offlineResult) { DARABONBA_PTR_SET_VALUE(offlineResult_, offlineResult) };
-    inline OfflineBatchTaskResponseBody& setOfflineResult(OfflineBatchTaskResponseBodyOfflineResult && offlineResult) { DARABONBA_PTR_SET_RVALUE(offlineResult_, offlineResult) };
+    inline const OfflineBatchTaskResponseBody::OfflineResult & getOfflineResult() const { DARABONBA_PTR_GET_CONST(offlineResult_, OfflineBatchTaskResponseBody::OfflineResult) };
+    inline OfflineBatchTaskResponseBody::OfflineResult getOfflineResult() { DARABONBA_PTR_GET(offlineResult_, OfflineBatchTaskResponseBody::OfflineResult) };
+    inline OfflineBatchTaskResponseBody& setOfflineResult(const OfflineBatchTaskResponseBody::OfflineResult & offlineResult) { DARABONBA_PTR_SET_VALUE(offlineResult_, offlineResult) };
+    inline OfflineBatchTaskResponseBody& setOfflineResult(OfflineBatchTaskResponseBody::OfflineResult && offlineResult) { DARABONBA_PTR_SET_RVALUE(offlineResult_, offlineResult) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline OfflineBatchTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline OfflineBatchTaskResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<OfflineBatchTaskResponseBodyOfflineResult> offlineResult_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<OfflineBatchTaskResponseBody::OfflineResult> offlineResult_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

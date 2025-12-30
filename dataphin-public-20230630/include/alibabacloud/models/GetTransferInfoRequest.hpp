@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && return this->proposalId_ == nullptr; };
+        && this->proposalId_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetTransferInfoRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // proposalId Field Functions 
     bool hasProposalId() const { return this->proposalId_ != nullptr;};
     void deleteProposalId() { this->proposalId_ = nullptr;};
-    inline int64_t proposalId() const { DARABONBA_PTR_GET_DEFAULT(proposalId_, 0L) };
+    inline int64_t getProposalId() const { DARABONBA_PTR_GET_DEFAULT(proposalId_, 0L) };
     inline GetTransferInfoRequest& setProposalId(int64_t proposalId) { DARABONBA_PTR_SET_VALUE(proposalId_, proposalId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> proposalId_ = nullptr;
+    shared_ptr<int64_t> proposalId_ {};
   };
 
   } // namespace Models

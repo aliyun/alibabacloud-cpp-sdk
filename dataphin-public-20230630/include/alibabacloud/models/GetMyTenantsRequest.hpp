@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->featureCodeList_ == nullptr
-        && return this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr; };
     // featureCodeList Field Functions 
     bool hasFeatureCodeList() const { return this->featureCodeList_ != nullptr;};
     void deleteFeatureCodeList() { this->featureCodeList_ = nullptr;};
-    inline const vector<string> & featureCodeList() const { DARABONBA_PTR_GET_CONST(featureCodeList_, vector<string>) };
-    inline vector<string> featureCodeList() { DARABONBA_PTR_GET(featureCodeList_, vector<string>) };
+    inline const vector<string> & getFeatureCodeList() const { DARABONBA_PTR_GET_CONST(featureCodeList_, vector<string>) };
+    inline vector<string> getFeatureCodeList() { DARABONBA_PTR_GET(featureCodeList_, vector<string>) };
     inline GetMyTenantsRequest& setFeatureCodeList(const vector<string> & featureCodeList) { DARABONBA_PTR_SET_VALUE(featureCodeList_, featureCodeList) };
     inline GetMyTenantsRequest& setFeatureCodeList(vector<string> && featureCodeList) { DARABONBA_PTR_SET_RVALUE(featureCodeList_, featureCodeList) };
 
@@ -46,14 +46,14 @@ namespace Models
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline GetMyTenantsRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> featureCodeList_ = nullptr;
+    shared_ptr<vector<string>> featureCodeList_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && return this->syncDepartmentUserCommandShrink_ == nullptr; };
+        && this->syncDepartmentUserCommandShrink_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline SyncDepartmentUserShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // syncDepartmentUserCommandShrink Field Functions 
     bool hasSyncDepartmentUserCommandShrink() const { return this->syncDepartmentUserCommandShrink_ != nullptr;};
     void deleteSyncDepartmentUserCommandShrink() { this->syncDepartmentUserCommandShrink_ = nullptr;};
-    inline string syncDepartmentUserCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(syncDepartmentUserCommandShrink_, "") };
+    inline string getSyncDepartmentUserCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(syncDepartmentUserCommandShrink_, "") };
     inline SyncDepartmentUserShrinkRequest& setSyncDepartmentUserCommandShrink(string syncDepartmentUserCommandShrink) { DARABONBA_PTR_SET_VALUE(syncDepartmentUserCommandShrink_, syncDepartmentUserCommandShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> syncDepartmentUserCommandShrink_ = nullptr;
+    shared_ptr<string> syncDepartmentUserCommandShrink_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkCommandShrink_ == nullptr
-        && return this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr; };
     // checkCommandShrink Field Functions 
     bool hasCheckCommandShrink() const { return this->checkCommandShrink_ != nullptr;};
     void deleteCheckCommandShrink() { this->checkCommandShrink_ = nullptr;};
-    inline string checkCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(checkCommandShrink_, "") };
+    inline string getCheckCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(checkCommandShrink_, "") };
     inline CheckResourcePermissionShrinkRequest& setCheckCommandShrink(string checkCommandShrink) { DARABONBA_PTR_SET_VALUE(checkCommandShrink_, checkCommandShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline CheckResourcePermissionShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> checkCommandShrink_ = nullptr;
+    shared_ptr<string> checkCommandShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->opTenantId_ == nullptr
-        && return this->removeCommandShrink_ == nullptr; };
+        && this->removeCommandShrink_ == nullptr; };
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline RemoveTenantMemberShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
     // removeCommandShrink Field Functions 
     bool hasRemoveCommandShrink() const { return this->removeCommandShrink_ != nullptr;};
     void deleteRemoveCommandShrink() { this->removeCommandShrink_ = nullptr;};
-    inline string removeCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(removeCommandShrink_, "") };
+    inline string getRemoveCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(removeCommandShrink_, "") };
     inline RemoveTenantMemberShrinkRequest& setRemoveCommandShrink(string removeCommandShrink) { DARABONBA_PTR_SET_VALUE(removeCommandShrink_, removeCommandShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
     // This parameter is required.
-    std::shared_ptr<string> removeCommandShrink_ = nullptr;
+    shared_ptr<string> removeCommandShrink_ {};
   };
 
   } // namespace Models

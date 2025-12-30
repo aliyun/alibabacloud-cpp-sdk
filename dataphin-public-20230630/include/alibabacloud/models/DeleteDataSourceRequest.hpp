@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DELETEDATASOURCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DELETEDATASOURCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DeleteDataSourceRequestDeleteCommand.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,73 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DeleteCommand : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DeleteCommand& obj) { 
+        DARABONBA_PTR_TO_JSON(Mode, mode_);
+        DARABONBA_PTR_TO_JSON(ProdDataSourceId, prodDataSourceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, DeleteCommand& obj) { 
+        DARABONBA_PTR_FROM_JSON(Mode, mode_);
+        DARABONBA_PTR_FROM_JSON(ProdDataSourceId, prodDataSourceId_);
+      };
+      DeleteCommand() = default ;
+      DeleteCommand(const DeleteCommand &) = default ;
+      DeleteCommand(DeleteCommand &&) = default ;
+      DeleteCommand(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DeleteCommand() = default ;
+      DeleteCommand& operator=(const DeleteCommand &) = default ;
+      DeleteCommand& operator=(DeleteCommand &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->mode_ == nullptr
+        && this->prodDataSourceId_ == nullptr; };
+      // mode Field Functions 
+      bool hasMode() const { return this->mode_ != nullptr;};
+      void deleteMode() { this->mode_ = nullptr;};
+      inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+      inline DeleteCommand& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+      // prodDataSourceId Field Functions 
+      bool hasProdDataSourceId() const { return this->prodDataSourceId_ != nullptr;};
+      void deleteProdDataSourceId() { this->prodDataSourceId_ = nullptr;};
+      inline int64_t getProdDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(prodDataSourceId_, 0L) };
+      inline DeleteCommand& setProdDataSourceId(int64_t prodDataSourceId) { DARABONBA_PTR_SET_VALUE(prodDataSourceId_, prodDataSourceId) };
+
+
+    protected:
+      // This parameter is required.
+      shared_ptr<string> mode_ {};
+      // This parameter is required.
+      shared_ptr<int64_t> prodDataSourceId_ {};
+    };
+
     virtual bool empty() const override { return this->deleteCommand_ == nullptr
-        && return this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr; };
     // deleteCommand Field Functions 
     bool hasDeleteCommand() const { return this->deleteCommand_ != nullptr;};
     void deleteDeleteCommand() { this->deleteCommand_ = nullptr;};
-    inline const DeleteDataSourceRequestDeleteCommand & deleteCommand() const { DARABONBA_PTR_GET_CONST(deleteCommand_, DeleteDataSourceRequestDeleteCommand) };
-    inline DeleteDataSourceRequestDeleteCommand deleteCommand() { DARABONBA_PTR_GET(deleteCommand_, DeleteDataSourceRequestDeleteCommand) };
-    inline DeleteDataSourceRequest& setDeleteCommand(const DeleteDataSourceRequestDeleteCommand & deleteCommand) { DARABONBA_PTR_SET_VALUE(deleteCommand_, deleteCommand) };
-    inline DeleteDataSourceRequest& setDeleteCommand(DeleteDataSourceRequestDeleteCommand && deleteCommand) { DARABONBA_PTR_SET_RVALUE(deleteCommand_, deleteCommand) };
+    inline const DeleteDataSourceRequest::DeleteCommand & getDeleteCommand() const { DARABONBA_PTR_GET_CONST(deleteCommand_, DeleteDataSourceRequest::DeleteCommand) };
+    inline DeleteDataSourceRequest::DeleteCommand getDeleteCommand() { DARABONBA_PTR_GET(deleteCommand_, DeleteDataSourceRequest::DeleteCommand) };
+    inline DeleteDataSourceRequest& setDeleteCommand(const DeleteDataSourceRequest::DeleteCommand & deleteCommand) { DARABONBA_PTR_SET_VALUE(deleteCommand_, deleteCommand) };
+    inline DeleteDataSourceRequest& setDeleteCommand(DeleteDataSourceRequest::DeleteCommand && deleteCommand) { DARABONBA_PTR_SET_RVALUE(deleteCommand_, deleteCommand) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline DeleteDataSourceRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<DeleteDataSourceRequestDeleteCommand> deleteCommand_ = nullptr;
+    shared_ptr<DeleteDataSourceRequest::DeleteCommand> deleteCommand_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addRegisterLineageCommandShrink_ == nullptr
-        && return this->opTenantId_ == nullptr; };
+        && this->opTenantId_ == nullptr; };
     // addRegisterLineageCommandShrink Field Functions 
     bool hasAddRegisterLineageCommandShrink() const { return this->addRegisterLineageCommandShrink_ != nullptr;};
     void deleteAddRegisterLineageCommandShrink() { this->addRegisterLineageCommandShrink_ = nullptr;};
-    inline string addRegisterLineageCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(addRegisterLineageCommandShrink_, "") };
+    inline string getAddRegisterLineageCommandShrink() const { DARABONBA_PTR_GET_DEFAULT(addRegisterLineageCommandShrink_, "") };
     inline AddRegisterLineageShrinkRequest& setAddRegisterLineageCommandShrink(string addRegisterLineageCommandShrink) { DARABONBA_PTR_SET_VALUE(addRegisterLineageCommandShrink_, addRegisterLineageCommandShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
-    inline int64_t opTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
     inline AddRegisterLineageShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> addRegisterLineageCommandShrink_ = nullptr;
+    shared_ptr<string> addRegisterLineageCommandShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> opTenantId_ = nullptr;
+    shared_ptr<int64_t> opTenantId_ {};
   };
 
   } // namespace Models
