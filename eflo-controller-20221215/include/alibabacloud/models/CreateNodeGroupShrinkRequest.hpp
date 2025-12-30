@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->nodeGroupShrink_ == nullptr && return this->nodeUnitShrink_ == nullptr; };
+        && this->nodeGroupShrink_ == nullptr && this->nodeUnitShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateNodeGroupShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // nodeGroupShrink Field Functions 
     bool hasNodeGroupShrink() const { return this->nodeGroupShrink_ != nullptr;};
     void deleteNodeGroupShrink() { this->nodeGroupShrink_ = nullptr;};
-    inline string nodeGroupShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupShrink_, "") };
+    inline string getNodeGroupShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupShrink_, "") };
     inline CreateNodeGroupShrinkRequest& setNodeGroupShrink(string nodeGroupShrink) { DARABONBA_PTR_SET_VALUE(nodeGroupShrink_, nodeGroupShrink) };
 
 
     // nodeUnitShrink Field Functions 
     bool hasNodeUnitShrink() const { return this->nodeUnitShrink_ != nullptr;};
     void deleteNodeUnitShrink() { this->nodeUnitShrink_ = nullptr;};
-    inline string nodeUnitShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeUnitShrink_, "") };
+    inline string getNodeUnitShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeUnitShrink_, "") };
     inline CreateNodeGroupShrinkRequest& setNodeUnitShrink(string nodeUnitShrink) { DARABONBA_PTR_SET_VALUE(nodeUnitShrink_, nodeUnitShrink) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // Cluster ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // Node ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeGroupShrink_ = nullptr;
+    shared_ptr<string> nodeGroupShrink_ {};
     // Node information
-    std::shared_ptr<string> nodeUnitShrink_ = nullptr;
+    shared_ptr<string> nodeUnitShrink_ {};
   };
 
   } // namespace Models

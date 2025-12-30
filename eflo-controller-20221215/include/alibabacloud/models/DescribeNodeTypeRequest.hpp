@@ -33,12 +33,12 @@ namespace Models
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline DescribeNodeTypeRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
   protected:
-    std::shared_ptr<string> nodeType_ = nullptr;
+    shared_ptr<string> nodeType_ {};
   };
 
   } // namespace Models

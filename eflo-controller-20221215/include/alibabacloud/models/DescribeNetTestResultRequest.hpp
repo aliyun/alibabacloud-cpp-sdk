@@ -33,13 +33,13 @@ namespace Models
     // testId Field Functions 
     bool hasTestId() const { return this->testId_ != nullptr;};
     void deleteTestId() { this->testId_ = nullptr;};
-    inline string testId() const { DARABONBA_PTR_GET_DEFAULT(testId_, "") };
+    inline string getTestId() const { DARABONBA_PTR_GET_DEFAULT(testId_, "") };
     inline DescribeNetTestResultRequest& setTestId(string testId) { DARABONBA_PTR_SET_VALUE(testId_, testId) };
 
 
   protected:
     // The ID of the test task. The unique identifier of a network test task.
-    std::shared_ptr<string> testId_ = nullptr;
+    shared_ptr<string> testId_ {};
   };
 
   } // namespace Models

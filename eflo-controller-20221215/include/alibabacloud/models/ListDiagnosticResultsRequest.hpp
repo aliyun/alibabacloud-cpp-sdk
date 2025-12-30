@@ -36,49 +36,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diagType_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->resourceGroupId_ == nullptr; };
     // diagType Field Functions 
     bool hasDiagType() const { return this->diagType_ != nullptr;};
     void deleteDiagType() { this->diagType_ = nullptr;};
-    inline string diagType() const { DARABONBA_PTR_GET_DEFAULT(diagType_, "") };
+    inline string getDiagType() const { DARABONBA_PTR_GET_DEFAULT(diagType_, "") };
     inline ListDiagnosticResultsRequest& setDiagType(string diagType) { DARABONBA_PTR_SET_VALUE(diagType_, diagType) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListDiagnosticResultsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDiagnosticResultsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListDiagnosticResultsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
     // Type of diagnosis, indicating which diagnostic rules are hit.
-    std::shared_ptr<string> diagType_ = nullptr;
+    shared_ptr<string> diagType_ {};
     // Number of items per page in a paginated query. The maximum value is 100.
     // 
     // Default value:
     // 
     // - If no value is set or the set value is less than 20, the default value is 20.
     // - If the set value is greater than 100, the default value is 100.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // NextToken for the next page. Include this value when requesting the next page.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

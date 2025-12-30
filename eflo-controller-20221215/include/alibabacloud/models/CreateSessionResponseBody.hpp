@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->serverSn_ == nullptr && return this->sessionId_ == nullptr && return this->sessionToken_ == nullptr && return this->wssEndpoint_ == nullptr; };
+        && this->serverSn_ == nullptr && this->sessionId_ == nullptr && this->sessionToken_ == nullptr && this->wssEndpoint_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateSessionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serverSn Field Functions 
     bool hasServerSn() const { return this->serverSn_ != nullptr;};
     void deleteServerSn() { this->serverSn_ = nullptr;};
-    inline string serverSn() const { DARABONBA_PTR_GET_DEFAULT(serverSn_, "") };
+    inline string getServerSn() const { DARABONBA_PTR_GET_DEFAULT(serverSn_, "") };
     inline CreateSessionResponseBody& setServerSn(string serverSn) { DARABONBA_PTR_SET_VALUE(serverSn_, serverSn) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline CreateSessionResponseBody& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // sessionToken Field Functions 
     bool hasSessionToken() const { return this->sessionToken_ != nullptr;};
     void deleteSessionToken() { this->sessionToken_ = nullptr;};
-    inline string sessionToken() const { DARABONBA_PTR_GET_DEFAULT(sessionToken_, "") };
+    inline string getSessionToken() const { DARABONBA_PTR_GET_DEFAULT(sessionToken_, "") };
     inline CreateSessionResponseBody& setSessionToken(string sessionToken) { DARABONBA_PTR_SET_VALUE(sessionToken_, sessionToken) };
 
 
     // wssEndpoint Field Functions 
     bool hasWssEndpoint() const { return this->wssEndpoint_ != nullptr;};
     void deleteWssEndpoint() { this->wssEndpoint_ = nullptr;};
-    inline string wssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(wssEndpoint_, "") };
+    inline string getWssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(wssEndpoint_, "") };
     inline CreateSessionResponseBody& setWssEndpoint(string wssEndpoint) { DARABONBA_PTR_SET_VALUE(wssEndpoint_, wssEndpoint) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The node ID.
-    std::shared_ptr<string> serverSn_ = nullptr;
+    shared_ptr<string> serverSn_ {};
     // The session ID.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
     // The session credential.
-    std::shared_ptr<string> sessionToken_ = nullptr;
+    shared_ptr<string> sessionToken_ {};
     // The WebSocket address.
-    std::shared_ptr<string> wssEndpoint_ = nullptr;
+    shared_ptr<string> wssEndpoint_ {};
   };
 
   } // namespace Models

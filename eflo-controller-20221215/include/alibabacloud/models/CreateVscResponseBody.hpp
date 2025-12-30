@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->vscId_ == nullptr; };
+        && this->vscId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateVscResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vscId Field Functions 
     bool hasVscId() const { return this->vscId_ != nullptr;};
     void deleteVscId() { this->vscId_ = nullptr;};
-    inline string vscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
+    inline string getVscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
     inline CreateVscResponseBody& setVscId(string vscId) { DARABONBA_PTR_SET_VALUE(vscId_, vscId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The VSC ID.
-    std::shared_ptr<string> vscId_ = nullptr;
+    shared_ptr<string> vscId_ {};
   };
 
   } // namespace Models

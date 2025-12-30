@@ -42,64 +42,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeId_ == nullptr
-        && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->vscId_ == nullptr && return this->vscName_ == nullptr
-        && return this->vscType_ == nullptr; };
+        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->vscId_ == nullptr && this->vscName_ == nullptr
+        && this->vscType_ == nullptr; };
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline DescribeVscResponseBody& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVscResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeVscResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeVscResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // vscId Field Functions 
     bool hasVscId() const { return this->vscId_ != nullptr;};
     void deleteVscId() { this->vscId_ = nullptr;};
-    inline string vscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
+    inline string getVscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
     inline DescribeVscResponseBody& setVscId(string vscId) { DARABONBA_PTR_SET_VALUE(vscId_, vscId) };
 
 
     // vscName Field Functions 
     bool hasVscName() const { return this->vscName_ != nullptr;};
     void deleteVscName() { this->vscName_ = nullptr;};
-    inline string vscName() const { DARABONBA_PTR_GET_DEFAULT(vscName_, "") };
+    inline string getVscName() const { DARABONBA_PTR_GET_DEFAULT(vscName_, "") };
     inline DescribeVscResponseBody& setVscName(string vscName) { DARABONBA_PTR_SET_VALUE(vscName_, vscName) };
 
 
     // vscType Field Functions 
     bool hasVscType() const { return this->vscType_ != nullptr;};
     void deleteVscType() { this->vscType_ = nullptr;};
-    inline string vscType() const { DARABONBA_PTR_GET_DEFAULT(vscType_, "") };
+    inline string getVscType() const { DARABONBA_PTR_GET_DEFAULT(vscType_, "") };
     inline DescribeVscResponseBody& setVscType(string vscType) { DARABONBA_PTR_SET_VALUE(vscType_, vscType) };
 
 
   protected:
     // The ID of the compute node in which the VSC resides.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The VSC status.
     // 
     // Valid values:
@@ -107,13 +107,13 @@ namespace Models
     // *   Creating
     // *   Normal
     // *   Deleting
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The VSC ID.
-    std::shared_ptr<string> vscId_ = nullptr;
+    shared_ptr<string> vscId_ {};
     // The custom name of the VSC.
-    std::shared_ptr<string> vscName_ = nullptr;
+    shared_ptr<string> vscName_ {};
     // The VSC type.
-    std::shared_ptr<string> vscType_ = nullptr;
+    shared_ptr<string> vscType_ {};
   };
 
   } // namespace Models

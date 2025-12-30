@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->invokeId_ == nullptr
-        && return this->nodeIdList_ == nullptr; };
+        && this->nodeIdList_ == nullptr; };
     // invokeId Field Functions 
     bool hasInvokeId() const { return this->invokeId_ != nullptr;};
     void deleteInvokeId() { this->invokeId_ = nullptr;};
-    inline string invokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
+    inline string getInvokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
     inline StopInvocationRequest& setInvokeId(string invokeId) { DARABONBA_PTR_SET_VALUE(invokeId_, invokeId) };
 
 
     // nodeIdList Field Functions 
     bool hasNodeIdList() const { return this->nodeIdList_ != nullptr;};
     void deleteNodeIdList() { this->nodeIdList_ = nullptr;};
-    inline const vector<string> & nodeIdList() const { DARABONBA_PTR_GET_CONST(nodeIdList_, vector<string>) };
-    inline vector<string> nodeIdList() { DARABONBA_PTR_GET(nodeIdList_, vector<string>) };
+    inline const vector<string> & getNodeIdList() const { DARABONBA_PTR_GET_CONST(nodeIdList_, vector<string>) };
+    inline vector<string> getNodeIdList() { DARABONBA_PTR_GET(nodeIdList_, vector<string>) };
     inline StopInvocationRequest& setNodeIdList(const vector<string> & nodeIdList) { DARABONBA_PTR_SET_VALUE(nodeIdList_, nodeIdList) };
     inline StopInvocationRequest& setNodeIdList(vector<string> && nodeIdList) { DARABONBA_PTR_SET_RVALUE(nodeIdList_, nodeIdList) };
 
@@ -54,9 +54,9 @@ namespace Models
     // The execution ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> invokeId_ = nullptr;
+    shared_ptr<string> invokeId_ {};
     // The nodes.
-    std::shared_ptr<vector<string>> nodeIdList_ = nullptr;
+    shared_ptr<vector<string>> nodeIdList_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // diagnosticId Field Functions 
     bool hasDiagnosticId() const { return this->diagnosticId_ != nullptr;};
     void deleteDiagnosticId() { this->diagnosticId_ = nullptr;};
-    inline string diagnosticId() const { DARABONBA_PTR_GET_DEFAULT(diagnosticId_, "") };
+    inline string getDiagnosticId() const { DARABONBA_PTR_GET_DEFAULT(diagnosticId_, "") };
     inline DescribeDiagnosticResultRequest& setDiagnosticId(string diagnosticId) { DARABONBA_PTR_SET_VALUE(diagnosticId_, diagnosticId) };
 
 
   protected:
     // The diagnostic task ID.
-    std::shared_ptr<string> diagnosticId_ = nullptr;
+    shared_ptr<string> diagnosticId_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->architecture_ == nullptr
-        && return this->imageVersion_ == nullptr && return this->platform_ == nullptr; };
+        && this->imageVersion_ == nullptr && this->platform_ == nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};
-    inline string architecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
+    inline string getArchitecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
     inline ListImagesRequest& setArchitecture(string architecture) { DARABONBA_PTR_SET_VALUE(architecture_, architecture) };
 
 
     // imageVersion Field Functions 
     bool hasImageVersion() const { return this->imageVersion_ != nullptr;};
     void deleteImageVersion() { this->imageVersion_ = nullptr;};
-    inline string imageVersion() const { DARABONBA_PTR_GET_DEFAULT(imageVersion_, "") };
+    inline string getImageVersion() const { DARABONBA_PTR_GET_DEFAULT(imageVersion_, "") };
     inline ListImagesRequest& setImageVersion(string imageVersion) { DARABONBA_PTR_SET_VALUE(imageVersion_, imageVersion) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline ListImagesRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
   protected:
     // The architecture.
-    std::shared_ptr<string> architecture_ = nullptr;
+    shared_ptr<string> architecture_ {};
     // The image version.
-    std::shared_ptr<string> imageVersion_ = nullptr;
+    shared_ptr<string> imageVersion_ {};
     // The platform.
-    std::shared_ptr<string> platform_ = nullptr;
+    shared_ptr<string> platform_ {};
   };
 
   } // namespace Models

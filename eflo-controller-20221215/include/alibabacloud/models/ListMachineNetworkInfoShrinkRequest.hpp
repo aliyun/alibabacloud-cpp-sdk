@@ -33,13 +33,13 @@ namespace Models
     // machineHpnInfoShrink Field Functions 
     bool hasMachineHpnInfoShrink() const { return this->machineHpnInfoShrink_ != nullptr;};
     void deleteMachineHpnInfoShrink() { this->machineHpnInfoShrink_ = nullptr;};
-    inline string machineHpnInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(machineHpnInfoShrink_, "") };
+    inline string getMachineHpnInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(machineHpnInfoShrink_, "") };
     inline ListMachineNetworkInfoShrinkRequest& setMachineHpnInfoShrink(string machineHpnInfoShrink) { DARABONBA_PTR_SET_VALUE(machineHpnInfoShrink_, machineHpnInfoShrink) };
 
 
   protected:
     // hpn information of machine
-    std::shared_ptr<string> machineHpnInfoShrink_ = nullptr;
+    shared_ptr<string> machineHpnInfoShrink_ {};
   };
 
   } // namespace Models

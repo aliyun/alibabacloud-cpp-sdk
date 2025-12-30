@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBENODERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeNodeResponseBodyDisks.hpp>
-#include <alibabacloud/models/DescribeNodeResponseBodyNetworks.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -76,210 +74,361 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Networks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Networks& obj) { 
+        DARABONBA_PTR_TO_JSON(BondName, bondName_);
+        DARABONBA_PTR_TO_JSON(Ip, ip_);
+        DARABONBA_PTR_TO_JSON(SubnetId, subnetId_);
+        DARABONBA_PTR_TO_JSON(VpdId, vpdId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Networks& obj) { 
+        DARABONBA_PTR_FROM_JSON(BondName, bondName_);
+        DARABONBA_PTR_FROM_JSON(Ip, ip_);
+        DARABONBA_PTR_FROM_JSON(SubnetId, subnetId_);
+        DARABONBA_PTR_FROM_JSON(VpdId, vpdId_);
+      };
+      Networks() = default ;
+      Networks(const Networks &) = default ;
+      Networks(Networks &&) = default ;
+      Networks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Networks() = default ;
+      Networks& operator=(const Networks &) = default ;
+      Networks& operator=(Networks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->bondName_ == nullptr
+        && this->ip_ == nullptr && this->subnetId_ == nullptr && this->vpdId_ == nullptr; };
+      // bondName Field Functions 
+      bool hasBondName() const { return this->bondName_ != nullptr;};
+      void deleteBondName() { this->bondName_ = nullptr;};
+      inline string getBondName() const { DARABONBA_PTR_GET_DEFAULT(bondName_, "") };
+      inline Networks& setBondName(string bondName) { DARABONBA_PTR_SET_VALUE(bondName_, bondName) };
+
+
+      // ip Field Functions 
+      bool hasIp() const { return this->ip_ != nullptr;};
+      void deleteIp() { this->ip_ = nullptr;};
+      inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+      inline Networks& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
+
+
+      // subnetId Field Functions 
+      bool hasSubnetId() const { return this->subnetId_ != nullptr;};
+      void deleteSubnetId() { this->subnetId_ = nullptr;};
+      inline string getSubnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
+      inline Networks& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
+
+
+      // vpdId Field Functions 
+      bool hasVpdId() const { return this->vpdId_ != nullptr;};
+      void deleteVpdId() { this->vpdId_ = nullptr;};
+      inline string getVpdId() const { DARABONBA_PTR_GET_DEFAULT(vpdId_, "") };
+      inline Networks& setVpdId(string vpdId) { DARABONBA_PTR_SET_VALUE(vpdId_, vpdId) };
+
+
+    protected:
+      // The port information of the elastic network interface (ENI).
+      shared_ptr<string> bondName_ {};
+      // The IP address of the node.
+      shared_ptr<string> ip_ {};
+      // The subnet ID.
+      shared_ptr<string> subnetId_ {};
+      // The ID of the cluster network.
+      shared_ptr<string> vpdId_ {};
+    };
+
+    class Disks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Disks& obj) { 
+        DARABONBA_PTR_TO_JSON(Category, category_);
+        DARABONBA_PTR_TO_JSON(DiskId, diskId_);
+        DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
+        DARABONBA_PTR_TO_JSON(Size, size_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Disks& obj) { 
+        DARABONBA_PTR_FROM_JSON(Category, category_);
+        DARABONBA_PTR_FROM_JSON(DiskId, diskId_);
+        DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
+        DARABONBA_PTR_FROM_JSON(Size, size_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      Disks() = default ;
+      Disks(const Disks &) = default ;
+      Disks(Disks &&) = default ;
+      Disks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Disks() = default ;
+      Disks& operator=(const Disks &) = default ;
+      Disks& operator=(Disks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->category_ == nullptr
+        && this->diskId_ == nullptr && this->performanceLevel_ == nullptr && this->size_ == nullptr && this->type_ == nullptr; };
+      // category Field Functions 
+      bool hasCategory() const { return this->category_ != nullptr;};
+      void deleteCategory() { this->category_ = nullptr;};
+      inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+      inline Disks& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+      // diskId Field Functions 
+      bool hasDiskId() const { return this->diskId_ != nullptr;};
+      void deleteDiskId() { this->diskId_ = nullptr;};
+      inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
+      inline Disks& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
+
+
+      // performanceLevel Field Functions 
+      bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+      void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+      inline string getPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+      inline Disks& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
+      // size Field Functions 
+      bool hasSize() const { return this->size_ != nullptr;};
+      void deleteSize() { this->size_ = nullptr;};
+      inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+      inline Disks& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Disks& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // The disk type. Valid values:
+      // 
+      // *   cloud_essd
+      shared_ptr<string> category_ {};
+      // The disk ID.
+      shared_ptr<string> diskId_ {};
+      // The performance level of the ESSD that is used as the system disk. Valid values:
+      // 
+      // *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+      // *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+      shared_ptr<string> performanceLevel_ {};
+      // The disk size. Unit: GiB.
+      shared_ptr<int32_t> size_ {};
+      // The disk type. Valid values:
+      // 
+      // *   system: system disk
+      // *   data: data disk
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->clusterName_ == nullptr && return this->createTime_ == nullptr && return this->disks_ == nullptr && return this->expiredTime_ == nullptr && return this->fileSystemMountEnabled_ == nullptr
-        && return this->hostname_ == nullptr && return this->hpnZone_ == nullptr && return this->hyperNodeId_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr
-        && return this->machineType_ == nullptr && return this->networks_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodeId_ == nullptr
-        && return this->nodeType_ == nullptr && return this->operatingState_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sn_ == nullptr
-        && return this->userData_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->clusterName_ == nullptr && this->createTime_ == nullptr && this->disks_ == nullptr && this->expiredTime_ == nullptr && this->fileSystemMountEnabled_ == nullptr
+        && this->hostname_ == nullptr && this->hpnZone_ == nullptr && this->hyperNodeId_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr
+        && this->machineType_ == nullptr && this->networks_ == nullptr && this->nodeGroupId_ == nullptr && this->nodeGroupName_ == nullptr && this->nodeId_ == nullptr
+        && this->nodeType_ == nullptr && this->operatingState_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->sn_ == nullptr
+        && this->userData_ == nullptr && this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeNodeResponseBody& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline DescribeNodeResponseBody& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescribeNodeResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // disks Field Functions 
     bool hasDisks() const { return this->disks_ != nullptr;};
     void deleteDisks() { this->disks_ = nullptr;};
-    inline const vector<DescribeNodeResponseBodyDisks> & disks() const { DARABONBA_PTR_GET_CONST(disks_, vector<DescribeNodeResponseBodyDisks>) };
-    inline vector<DescribeNodeResponseBodyDisks> disks() { DARABONBA_PTR_GET(disks_, vector<DescribeNodeResponseBodyDisks>) };
-    inline DescribeNodeResponseBody& setDisks(const vector<DescribeNodeResponseBodyDisks> & disks) { DARABONBA_PTR_SET_VALUE(disks_, disks) };
-    inline DescribeNodeResponseBody& setDisks(vector<DescribeNodeResponseBodyDisks> && disks) { DARABONBA_PTR_SET_RVALUE(disks_, disks) };
+    inline const vector<DescribeNodeResponseBody::Disks> & getDisks() const { DARABONBA_PTR_GET_CONST(disks_, vector<DescribeNodeResponseBody::Disks>) };
+    inline vector<DescribeNodeResponseBody::Disks> getDisks() { DARABONBA_PTR_GET(disks_, vector<DescribeNodeResponseBody::Disks>) };
+    inline DescribeNodeResponseBody& setDisks(const vector<DescribeNodeResponseBody::Disks> & disks) { DARABONBA_PTR_SET_VALUE(disks_, disks) };
+    inline DescribeNodeResponseBody& setDisks(vector<DescribeNodeResponseBody::Disks> && disks) { DARABONBA_PTR_SET_RVALUE(disks_, disks) };
 
 
     // expiredTime Field Functions 
     bool hasExpiredTime() const { return this->expiredTime_ != nullptr;};
     void deleteExpiredTime() { this->expiredTime_ = nullptr;};
-    inline string expiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, "") };
+    inline string getExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, "") };
     inline DescribeNodeResponseBody& setExpiredTime(string expiredTime) { DARABONBA_PTR_SET_VALUE(expiredTime_, expiredTime) };
 
 
     // fileSystemMountEnabled Field Functions 
     bool hasFileSystemMountEnabled() const { return this->fileSystemMountEnabled_ != nullptr;};
     void deleteFileSystemMountEnabled() { this->fileSystemMountEnabled_ = nullptr;};
-    inline bool fileSystemMountEnabled() const { DARABONBA_PTR_GET_DEFAULT(fileSystemMountEnabled_, false) };
+    inline bool getFileSystemMountEnabled() const { DARABONBA_PTR_GET_DEFAULT(fileSystemMountEnabled_, false) };
     inline DescribeNodeResponseBody& setFileSystemMountEnabled(bool fileSystemMountEnabled) { DARABONBA_PTR_SET_VALUE(fileSystemMountEnabled_, fileSystemMountEnabled) };
 
 
     // hostname Field Functions 
     bool hasHostname() const { return this->hostname_ != nullptr;};
     void deleteHostname() { this->hostname_ = nullptr;};
-    inline string hostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
+    inline string getHostname() const { DARABONBA_PTR_GET_DEFAULT(hostname_, "") };
     inline DescribeNodeResponseBody& setHostname(string hostname) { DARABONBA_PTR_SET_VALUE(hostname_, hostname) };
 
 
     // hpnZone Field Functions 
     bool hasHpnZone() const { return this->hpnZone_ != nullptr;};
     void deleteHpnZone() { this->hpnZone_ = nullptr;};
-    inline string hpnZone() const { DARABONBA_PTR_GET_DEFAULT(hpnZone_, "") };
+    inline string getHpnZone() const { DARABONBA_PTR_GET_DEFAULT(hpnZone_, "") };
     inline DescribeNodeResponseBody& setHpnZone(string hpnZone) { DARABONBA_PTR_SET_VALUE(hpnZone_, hpnZone) };
 
 
     // hyperNodeId Field Functions 
     bool hasHyperNodeId() const { return this->hyperNodeId_ != nullptr;};
     void deleteHyperNodeId() { this->hyperNodeId_ = nullptr;};
-    inline string hyperNodeId() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeId_, "") };
+    inline string getHyperNodeId() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeId_, "") };
     inline DescribeNodeResponseBody& setHyperNodeId(string hyperNodeId) { DARABONBA_PTR_SET_VALUE(hyperNodeId_, hyperNodeId) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline DescribeNodeResponseBody& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // imageName Field Functions 
     bool hasImageName() const { return this->imageName_ != nullptr;};
     void deleteImageName() { this->imageName_ = nullptr;};
-    inline string imageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
+    inline string getImageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
     inline DescribeNodeResponseBody& setImageName(string imageName) { DARABONBA_PTR_SET_VALUE(imageName_, imageName) };
 
 
     // machineType Field Functions 
     bool hasMachineType() const { return this->machineType_ != nullptr;};
     void deleteMachineType() { this->machineType_ = nullptr;};
-    inline string machineType() const { DARABONBA_PTR_GET_DEFAULT(machineType_, "") };
+    inline string getMachineType() const { DARABONBA_PTR_GET_DEFAULT(machineType_, "") };
     inline DescribeNodeResponseBody& setMachineType(string machineType) { DARABONBA_PTR_SET_VALUE(machineType_, machineType) };
 
 
     // networks Field Functions 
     bool hasNetworks() const { return this->networks_ != nullptr;};
     void deleteNetworks() { this->networks_ = nullptr;};
-    inline const vector<DescribeNodeResponseBodyNetworks> & networks() const { DARABONBA_PTR_GET_CONST(networks_, vector<DescribeNodeResponseBodyNetworks>) };
-    inline vector<DescribeNodeResponseBodyNetworks> networks() { DARABONBA_PTR_GET(networks_, vector<DescribeNodeResponseBodyNetworks>) };
-    inline DescribeNodeResponseBody& setNetworks(const vector<DescribeNodeResponseBodyNetworks> & networks) { DARABONBA_PTR_SET_VALUE(networks_, networks) };
-    inline DescribeNodeResponseBody& setNetworks(vector<DescribeNodeResponseBodyNetworks> && networks) { DARABONBA_PTR_SET_RVALUE(networks_, networks) };
+    inline const vector<DescribeNodeResponseBody::Networks> & getNetworks() const { DARABONBA_PTR_GET_CONST(networks_, vector<DescribeNodeResponseBody::Networks>) };
+    inline vector<DescribeNodeResponseBody::Networks> getNetworks() { DARABONBA_PTR_GET(networks_, vector<DescribeNodeResponseBody::Networks>) };
+    inline DescribeNodeResponseBody& setNetworks(const vector<DescribeNodeResponseBody::Networks> & networks) { DARABONBA_PTR_SET_VALUE(networks_, networks) };
+    inline DescribeNodeResponseBody& setNetworks(vector<DescribeNodeResponseBody::Networks> && networks) { DARABONBA_PTR_SET_RVALUE(networks_, networks) };
 
 
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
-    inline string nodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
+    inline string getNodeGroupId() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupId_, "") };
     inline DescribeNodeResponseBody& setNodeGroupId(string nodeGroupId) { DARABONBA_PTR_SET_VALUE(nodeGroupId_, nodeGroupId) };
 
 
     // nodeGroupName Field Functions 
     bool hasNodeGroupName() const { return this->nodeGroupName_ != nullptr;};
     void deleteNodeGroupName() { this->nodeGroupName_ = nullptr;};
-    inline string nodeGroupName() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupName_, "") };
+    inline string getNodeGroupName() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupName_, "") };
     inline DescribeNodeResponseBody& setNodeGroupName(string nodeGroupName) { DARABONBA_PTR_SET_VALUE(nodeGroupName_, nodeGroupName) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline DescribeNodeResponseBody& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline DescribeNodeResponseBody& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // operatingState Field Functions 
     bool hasOperatingState() const { return this->operatingState_ != nullptr;};
     void deleteOperatingState() { this->operatingState_ = nullptr;};
-    inline string operatingState() const { DARABONBA_PTR_GET_DEFAULT(operatingState_, "") };
+    inline string getOperatingState() const { DARABONBA_PTR_GET_DEFAULT(operatingState_, "") };
     inline DescribeNodeResponseBody& setOperatingState(string operatingState) { DARABONBA_PTR_SET_VALUE(operatingState_, operatingState) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeNodeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeNodeResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // sn Field Functions 
     bool hasSn() const { return this->sn_ != nullptr;};
     void deleteSn() { this->sn_ = nullptr;};
-    inline string sn() const { DARABONBA_PTR_GET_DEFAULT(sn_, "") };
+    inline string getSn() const { DARABONBA_PTR_GET_DEFAULT(sn_, "") };
     inline DescribeNodeResponseBody& setSn(string sn) { DARABONBA_PTR_SET_VALUE(sn_, sn) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline DescribeNodeResponseBody& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline DescribeNodeResponseBody& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The cluster name.
-    std::shared_ptr<string> clusterName_ = nullptr;
+    shared_ptr<string> clusterName_ {};
     // The creation time.
-    std::shared_ptr<string> createTime_ = nullptr;
+    shared_ptr<string> createTime_ {};
     // The disks.
-    std::shared_ptr<vector<DescribeNodeResponseBodyDisks>> disks_ = nullptr;
+    shared_ptr<vector<DescribeNodeResponseBody::Disks>> disks_ {};
     // The expiration time.
-    std::shared_ptr<string> expiredTime_ = nullptr;
+    shared_ptr<string> expiredTime_ {};
     // Indicates whether file storage mounting is supported.
-    std::shared_ptr<bool> fileSystemMountEnabled_ = nullptr;
+    shared_ptr<bool> fileSystemMountEnabled_ {};
     // The hostname.
-    std::shared_ptr<string> hostname_ = nullptr;
+    shared_ptr<string> hostname_ {};
     // The cluster number.
-    std::shared_ptr<string> hpnZone_ = nullptr;
-    std::shared_ptr<string> hyperNodeId_ = nullptr;
+    shared_ptr<string> hpnZone_ {};
+    shared_ptr<string> hyperNodeId_ {};
     // The image ID.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The image name.
-    std::shared_ptr<string> imageName_ = nullptr;
+    shared_ptr<string> imageName_ {};
     // The instance type.
-    std::shared_ptr<string> machineType_ = nullptr;
+    shared_ptr<string> machineType_ {};
     // The network information.
-    std::shared_ptr<vector<DescribeNodeResponseBodyNetworks>> networks_ = nullptr;
+    shared_ptr<vector<DescribeNodeResponseBody::Networks>> networks_ {};
     // The node group ID.
-    std::shared_ptr<string> nodeGroupId_ = nullptr;
+    shared_ptr<string> nodeGroupId_ {};
     // The node group name.
-    std::shared_ptr<string> nodeGroupName_ = nullptr;
+    shared_ptr<string> nodeGroupName_ {};
     // The node ID.
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> nodeType_ = nullptr;
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> nodeType_ {};
     // The node status.
     // 
     // Valid values:
@@ -297,17 +446,17 @@ namespace Models
     // *   ClusterNodeStopping
     // *   ClusterNodeRecovering
     // *   Replacing
-    std::shared_ptr<string> operatingState_ = nullptr;
+    shared_ptr<string> operatingState_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The serial number of the node.
-    std::shared_ptr<string> sn_ = nullptr;
+    shared_ptr<string> sn_ {};
     // The custom script.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
     // The zone ID.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

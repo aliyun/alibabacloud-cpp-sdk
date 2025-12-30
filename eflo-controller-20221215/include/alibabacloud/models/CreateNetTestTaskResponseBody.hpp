@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->testId_ == nullptr; };
+        && this->testId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateNetTestTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // testId Field Functions 
     bool hasTestId() const { return this->testId_ != nullptr;};
     void deleteTestId() { this->testId_ = nullptr;};
-    inline string testId() const { DARABONBA_PTR_GET_DEFAULT(testId_, "") };
+    inline string getTestId() const { DARABONBA_PTR_GET_DEFAULT(testId_, "") };
     inline CreateNetTestTaskResponseBody& setTestId(string testId) { DARABONBA_PTR_SET_VALUE(testId_, testId) };
 
 
   protected:
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the test task. The unique identifier of a network test task.
-    std::shared_ptr<string> testId_ = nullptr;
+    shared_ptr<string> testId_ {};
   };
 
   } // namespace Models

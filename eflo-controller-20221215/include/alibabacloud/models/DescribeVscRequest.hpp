@@ -33,7 +33,7 @@ namespace Models
     // vscId Field Functions 
     bool hasVscId() const { return this->vscId_ != nullptr;};
     void deleteVscId() { this->vscId_ = nullptr;};
-    inline string vscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
+    inline string getVscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
     inline DescribeVscRequest& setVscId(string vscId) { DARABONBA_PTR_SET_VALUE(vscId_, vscId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The VSC ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vscId_ = nullptr;
+    shared_ptr<string> vscId_ {};
   };
 
   } // namespace Models

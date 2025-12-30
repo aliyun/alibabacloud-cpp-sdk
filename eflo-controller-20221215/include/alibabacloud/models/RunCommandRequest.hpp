@@ -61,77 +61,77 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->commandContent_ == nullptr && return this->commandId_ == nullptr && return this->contentEncoding_ == nullptr && return this->description_ == nullptr && return this->enableParameter_ == nullptr
-        && return this->frequency_ == nullptr && return this->launcher_ == nullptr && return this->name_ == nullptr && return this->nodeIdList_ == nullptr && return this->parameters_ == nullptr
-        && return this->repeatMode_ == nullptr && return this->terminationMode_ == nullptr && return this->timeout_ == nullptr && return this->username_ == nullptr && return this->workingDir_ == nullptr; };
+        && this->commandContent_ == nullptr && this->commandId_ == nullptr && this->contentEncoding_ == nullptr && this->description_ == nullptr && this->enableParameter_ == nullptr
+        && this->frequency_ == nullptr && this->launcher_ == nullptr && this->name_ == nullptr && this->nodeIdList_ == nullptr && this->parameters_ == nullptr
+        && this->repeatMode_ == nullptr && this->terminationMode_ == nullptr && this->timeout_ == nullptr && this->username_ == nullptr && this->workingDir_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline RunCommandRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};
-    inline string commandContent() const { DARABONBA_PTR_GET_DEFAULT(commandContent_, "") };
+    inline string getCommandContent() const { DARABONBA_PTR_GET_DEFAULT(commandContent_, "") };
     inline RunCommandRequest& setCommandContent(string commandContent) { DARABONBA_PTR_SET_VALUE(commandContent_, commandContent) };
 
 
     // commandId Field Functions 
     bool hasCommandId() const { return this->commandId_ != nullptr;};
     void deleteCommandId() { this->commandId_ = nullptr;};
-    inline string commandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
+    inline string getCommandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
     inline RunCommandRequest& setCommandId(string commandId) { DARABONBA_PTR_SET_VALUE(commandId_, commandId) };
 
 
     // contentEncoding Field Functions 
     bool hasContentEncoding() const { return this->contentEncoding_ != nullptr;};
     void deleteContentEncoding() { this->contentEncoding_ = nullptr;};
-    inline string contentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
+    inline string getContentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
     inline RunCommandRequest& setContentEncoding(string contentEncoding) { DARABONBA_PTR_SET_VALUE(contentEncoding_, contentEncoding) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline RunCommandRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enableParameter Field Functions 
     bool hasEnableParameter() const { return this->enableParameter_ != nullptr;};
     void deleteEnableParameter() { this->enableParameter_ = nullptr;};
-    inline bool enableParameter() const { DARABONBA_PTR_GET_DEFAULT(enableParameter_, false) };
+    inline bool getEnableParameter() const { DARABONBA_PTR_GET_DEFAULT(enableParameter_, false) };
     inline RunCommandRequest& setEnableParameter(bool enableParameter) { DARABONBA_PTR_SET_VALUE(enableParameter_, enableParameter) };
 
 
     // frequency Field Functions 
     bool hasFrequency() const { return this->frequency_ != nullptr;};
     void deleteFrequency() { this->frequency_ = nullptr;};
-    inline string frequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
+    inline string getFrequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
     inline RunCommandRequest& setFrequency(string frequency) { DARABONBA_PTR_SET_VALUE(frequency_, frequency) };
 
 
     // launcher Field Functions 
     bool hasLauncher() const { return this->launcher_ != nullptr;};
     void deleteLauncher() { this->launcher_ = nullptr;};
-    inline string launcher() const { DARABONBA_PTR_GET_DEFAULT(launcher_, "") };
+    inline string getLauncher() const { DARABONBA_PTR_GET_DEFAULT(launcher_, "") };
     inline RunCommandRequest& setLauncher(string launcher) { DARABONBA_PTR_SET_VALUE(launcher_, launcher) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline RunCommandRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nodeIdList Field Functions 
     bool hasNodeIdList() const { return this->nodeIdList_ != nullptr;};
     void deleteNodeIdList() { this->nodeIdList_ = nullptr;};
-    inline const vector<string> & nodeIdList() const { DARABONBA_PTR_GET_CONST(nodeIdList_, vector<string>) };
-    inline vector<string> nodeIdList() { DARABONBA_PTR_GET(nodeIdList_, vector<string>) };
+    inline const vector<string> & getNodeIdList() const { DARABONBA_PTR_GET_CONST(nodeIdList_, vector<string>) };
+    inline vector<string> getNodeIdList() { DARABONBA_PTR_GET(nodeIdList_, vector<string>) };
     inline RunCommandRequest& setNodeIdList(const vector<string> & nodeIdList) { DARABONBA_PTR_SET_VALUE(nodeIdList_, nodeIdList) };
     inline RunCommandRequest& setNodeIdList(vector<string> && nodeIdList) { DARABONBA_PTR_SET_RVALUE(nodeIdList_, nodeIdList) };
 
@@ -139,50 +139,50 @@ namespace Models
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline RunCommandRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline RunCommandRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline RunCommandRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
     // repeatMode Field Functions 
     bool hasRepeatMode() const { return this->repeatMode_ != nullptr;};
     void deleteRepeatMode() { this->repeatMode_ = nullptr;};
-    inline string repeatMode() const { DARABONBA_PTR_GET_DEFAULT(repeatMode_, "") };
+    inline string getRepeatMode() const { DARABONBA_PTR_GET_DEFAULT(repeatMode_, "") };
     inline RunCommandRequest& setRepeatMode(string repeatMode) { DARABONBA_PTR_SET_VALUE(repeatMode_, repeatMode) };
 
 
     // terminationMode Field Functions 
     bool hasTerminationMode() const { return this->terminationMode_ != nullptr;};
     void deleteTerminationMode() { this->terminationMode_ = nullptr;};
-    inline string terminationMode() const { DARABONBA_PTR_GET_DEFAULT(terminationMode_, "") };
+    inline string getTerminationMode() const { DARABONBA_PTR_GET_DEFAULT(terminationMode_, "") };
     inline RunCommandRequest& setTerminationMode(string terminationMode) { DARABONBA_PTR_SET_VALUE(terminationMode_, terminationMode) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline RunCommandRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline RunCommandRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
     // workingDir Field Functions 
     bool hasWorkingDir() const { return this->workingDir_ != nullptr;};
     void deleteWorkingDir() { this->workingDir_ = nullptr;};
-    inline string workingDir() const { DARABONBA_PTR_GET_DEFAULT(workingDir_, "") };
+    inline string getWorkingDir() const { DARABONBA_PTR_GET_DEFAULT(workingDir_, "") };
     inline RunCommandRequest& setWorkingDir(string workingDir) { DARABONBA_PTR_SET_VALUE(workingDir_, workingDir) };
 
 
   protected:
     // The client token to ensure the idempotency of the request. Use your client to generate the token that is unique among requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see "How to ensure idempotence".
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The command content. Take note of the following:
     // 
     // *   When `EnableParameter` is set to true, you can use custom parameters in the command.
@@ -190,22 +190,22 @@ namespace Models
     // *   You can specify up to 20 custom parameters.
     // *   A custom parameter name can contain only letters, digits, underscores (_), and hyphens (-). The name is not case-sensitive.
     // *   Each custom parameter name is up to 64 bytes in length.
-    std::shared_ptr<string> commandContent_ = nullptr;
+    shared_ptr<string> commandContent_ {};
     // The ID of the command.
-    std::shared_ptr<string> commandId_ = nullptr;
+    shared_ptr<string> commandId_ {};
     // The encoding mode of the command content. Valid values:
     // 
     // *   PlainText
     // *   Base64
     // 
     // Default value: PlainText. If the specified value of this parameter is invalid, PlainText is used by default.
-    std::shared_ptr<string> contentEncoding_ = nullptr;
+    shared_ptr<string> contentEncoding_ {};
     // The command description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to use custom parameters in the command.
     // 
     // Default value: false.
-    std::shared_ptr<bool> enableParameter_ = nullptr;
+    shared_ptr<bool> enableParameter_ {};
     // The schedule to run the command. Supported schedule types: at a fixed interval based on a rate expression, run only once at a specific time, or run at specific times based on a cron expression.
     // 
     // *   To run the command at a fixed interval, use a rate expression to specify the interval. The interval can be in seconds, minutes, hours, or days. This option is suitable for scenarios in which tasks need to be executed at a fixed interval. Format: rate(\\<Execution interval value> \\<Execution interval unit>). For example, rate(5m) means to run the command every 5 minutes. When you specify an interval, take note of the following limits:
@@ -223,13 +223,13 @@ namespace Models
     //     *   The time zone abbreviation. Only UTC is supported.
     // 
     //     For example, if you specify a command to run at 10:15:00 every day in 2022 in China/Shanghai time, set the time to 0 15 10 ? \\* \\* 2022 Asia/Shanghai. To configure a command to run every half an hour from 10:00:00 to 11:30:00 every day in 2022 (UTC+8), set the schedule to 0 0/30 10-11 \\* \\* ? 2022 GMT+8:00. To configure a command to run every 5 minutes from 14:00:00 to 14:55:00 every October every two years from 2022 in UTC, set the schedule to 0 0/5 14 \\* 10 ? 2022/2 UTC.
-    std::shared_ptr<string> frequency_ = nullptr;
+    shared_ptr<string> frequency_ {};
     // The launcher for script execution. Cannot exceed 1 KB.
-    std::shared_ptr<string> launcher_ = nullptr;
+    shared_ptr<string> launcher_ {};
     // The command name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The node list.
-    std::shared_ptr<vector<string>> nodeIdList_ = nullptr;
+    shared_ptr<vector<string>> nodeIdList_ {};
     // The key-value pairs of custom parameters to pass in when the command includes custom parameters. For example, the command content is `echo {{name}}`. You can use `Parameters` to pass in the `{"name":"Jack"}` key-value pair. The `name` key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. As a result, the `echo Jack` command is run.
     // 
     // You can specify 0 to 10 custom parameters. Take note of the following:
@@ -240,7 +240,7 @@ namespace Models
     // *   The specified custom parameter names must be included in the custom parameter names that you specify when you create the command. You can use empty strings to represent the parameters that are not passed in.
     // 
     // This parameter is left empty by default, which indicates that the custom parameter feature is disabled.
-    Darabonba::Json parameters_ = nullptr;
+    Darabonba::Json parameters_ {};
     // The mode to run the command. Valid values:
     // 
     // *   Once: runs the command immediately.
@@ -252,19 +252,19 @@ namespace Models
     // 
     // *   If you do not specify `Frequency`, the default value is `Once`.
     // *   If you specify `Frequency`, RepeatMode is set to `Period` regardless of whether a value is already specified.
-    std::shared_ptr<string> repeatMode_ = nullptr;
+    shared_ptr<string> repeatMode_ {};
     // Indicates how the command task is stopped when a command execution is manually stopped or times out. Valid values:
     // 
     // Process: The process of the command is stopped. ProcessTree: The process tree of the command is stopped. In this case, the process of the command and all subprocesses are stopped.
-    std::shared_ptr<string> terminationMode_ = nullptr;
+    shared_ptr<string> terminationMode_ {};
     // The timeout period for the command. Unit: seconds. A timeout error occurs if the command cannot be run because the process slows down or because a specific module or Cloud Assistant Agent does not exist. When the specified timeout period ends, the command process is forcefully terminated. Default value: 60.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
     // The username that you use to run the command. The name can be up to 255 characters in length. For Linux instances, the root user is used by default.
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
     // The working path of the command. You can specify a custom path. Default path:
     // 
     // Linux instances: By default, the path is in the /home directory of the root user.
-    std::shared_ptr<string> workingDir_ = nullptr;
+    shared_ptr<string> workingDir_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // hyperNodeId Field Functions 
     bool hasHyperNodeId() const { return this->hyperNodeId_ != nullptr;};
     void deleteHyperNodeId() { this->hyperNodeId_ = nullptr;};
-    inline string hyperNodeId() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeId_, "") };
+    inline string getHyperNodeId() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeId_, "") };
     inline DescribeHyperNodeRequest& setHyperNodeId(string hyperNodeId) { DARABONBA_PTR_SET_VALUE(hyperNodeId_, hyperNodeId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> hyperNodeId_ = nullptr;
+    shared_ptr<string> hyperNodeId_ {};
   };
 
   } // namespace Models

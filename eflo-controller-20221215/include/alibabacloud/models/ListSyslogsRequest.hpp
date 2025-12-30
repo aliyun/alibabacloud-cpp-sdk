@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fromTime_ == nullptr
-        && return this->nextToken_ == nullptr && return this->nodeId_ == nullptr && return this->query_ == nullptr && return this->reverse_ == nullptr && return this->toTime_ == nullptr; };
+        && this->nextToken_ == nullptr && this->nodeId_ == nullptr && this->query_ == nullptr && this->reverse_ == nullptr && this->toTime_ == nullptr; };
     // fromTime Field Functions 
     bool hasFromTime() const { return this->fromTime_ != nullptr;};
     void deleteFromTime() { this->fromTime_ = nullptr;};
-    inline string fromTime() const { DARABONBA_PTR_GET_DEFAULT(fromTime_, "") };
+    inline string getFromTime() const { DARABONBA_PTR_GET_DEFAULT(fromTime_, "") };
     inline ListSyslogsRequest& setFromTime(string fromTime) { DARABONBA_PTR_SET_VALUE(fromTime_, fromTime) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListSyslogsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline ListSyslogsRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline ListSyslogsRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // reverse Field Functions 
     bool hasReverse() const { return this->reverse_ != nullptr;};
     void deleteReverse() { this->reverse_ = nullptr;};
-    inline bool reverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
+    inline bool getReverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
     inline ListSyslogsRequest& setReverse(bool reverse) { DARABONBA_PTR_SET_VALUE(reverse_, reverse) };
 
 
     // toTime Field Functions 
     bool hasToTime() const { return this->toTime_ != nullptr;};
     void deleteToTime() { this->toTime_ = nullptr;};
-    inline string toTime() const { DARABONBA_PTR_GET_DEFAULT(toTime_, "") };
+    inline string getToTime() const { DARABONBA_PTR_GET_DEFAULT(toTime_, "") };
     inline ListSyslogsRequest& setToTime(string toTime) { DARABONBA_PTR_SET_VALUE(toTime_, toTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fromTime_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> fromTime_ {};
+    shared_ptr<string> nextToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> query_ = nullptr;
-    std::shared_ptr<bool> reverse_ = nullptr;
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> query_ {};
+    shared_ptr<bool> reverse_ {};
     // This parameter is required.
-    std::shared_ptr<string> toTime_ = nullptr;
+    shared_ptr<string> toTime_ {};
   };
 
   } // namespace Models

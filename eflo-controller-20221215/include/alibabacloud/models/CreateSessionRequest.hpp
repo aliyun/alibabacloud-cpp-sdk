@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeId_ == nullptr
-        && return this->sessionType_ == nullptr && return this->startTime_ == nullptr; };
+        && this->sessionType_ == nullptr && this->startTime_ == nullptr; };
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline CreateSessionRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // sessionType Field Functions 
     bool hasSessionType() const { return this->sessionType_ != nullptr;};
     void deleteSessionType() { this->sessionType_ = nullptr;};
-    inline string sessionType() const { DARABONBA_PTR_GET_DEFAULT(sessionType_, "") };
+    inline string getSessionType() const { DARABONBA_PTR_GET_DEFAULT(sessionType_, "") };
     inline CreateSessionRequest& setSessionType(string sessionType) { DARABONBA_PTR_SET_VALUE(sessionType_, sessionType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline CreateSessionRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // The instance ID.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The type of the session corresponding to the session package.
-    std::shared_ptr<string> sessionType_ = nullptr;
+    shared_ptr<string> sessionType_ {};
     // The start time. The value is a 13-digit timestamp.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

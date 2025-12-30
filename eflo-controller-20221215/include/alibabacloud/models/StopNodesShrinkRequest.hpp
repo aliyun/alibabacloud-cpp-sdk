@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ignoreFailedNodeTasks_ == nullptr
-        && return this->nodesShrink_ == nullptr; };
+        && this->nodesShrink_ == nullptr; };
     // ignoreFailedNodeTasks Field Functions 
     bool hasIgnoreFailedNodeTasks() const { return this->ignoreFailedNodeTasks_ != nullptr;};
     void deleteIgnoreFailedNodeTasks() { this->ignoreFailedNodeTasks_ = nullptr;};
-    inline bool ignoreFailedNodeTasks() const { DARABONBA_PTR_GET_DEFAULT(ignoreFailedNodeTasks_, false) };
+    inline bool getIgnoreFailedNodeTasks() const { DARABONBA_PTR_GET_DEFAULT(ignoreFailedNodeTasks_, false) };
     inline StopNodesShrinkRequest& setIgnoreFailedNodeTasks(bool ignoreFailedNodeTasks) { DARABONBA_PTR_SET_VALUE(ignoreFailedNodeTasks_, ignoreFailedNodeTasks) };
 
 
     // nodesShrink Field Functions 
     bool hasNodesShrink() const { return this->nodesShrink_ != nullptr;};
     void deleteNodesShrink() { this->nodesShrink_ = nullptr;};
-    inline string nodesShrink() const { DARABONBA_PTR_GET_DEFAULT(nodesShrink_, "") };
+    inline string getNodesShrink() const { DARABONBA_PTR_GET_DEFAULT(nodesShrink_, "") };
     inline StopNodesShrinkRequest& setNodesShrink(string nodesShrink) { DARABONBA_PTR_SET_VALUE(nodesShrink_, nodesShrink) };
 
 
   protected:
     // Specifies whether to allow skipping failed nodes. Default value: False.
-    std::shared_ptr<bool> ignoreFailedNodeTasks_ = nullptr;
+    shared_ptr<bool> ignoreFailedNodeTasks_ {};
     // The nodes.
-    std::shared_ptr<string> nodesShrink_ = nullptr;
+    shared_ptr<string> nodesShrink_ {};
   };
 
   } // namespace Models

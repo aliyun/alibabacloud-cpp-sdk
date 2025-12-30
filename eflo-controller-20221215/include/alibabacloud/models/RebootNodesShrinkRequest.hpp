@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->ignoreFailedNodeTasks_ == nullptr && return this->nodesShrink_ == nullptr; };
+        && this->ignoreFailedNodeTasks_ == nullptr && this->nodesShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline RebootNodesShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // ignoreFailedNodeTasks Field Functions 
     bool hasIgnoreFailedNodeTasks() const { return this->ignoreFailedNodeTasks_ != nullptr;};
     void deleteIgnoreFailedNodeTasks() { this->ignoreFailedNodeTasks_ = nullptr;};
-    inline bool ignoreFailedNodeTasks() const { DARABONBA_PTR_GET_DEFAULT(ignoreFailedNodeTasks_, false) };
+    inline bool getIgnoreFailedNodeTasks() const { DARABONBA_PTR_GET_DEFAULT(ignoreFailedNodeTasks_, false) };
     inline RebootNodesShrinkRequest& setIgnoreFailedNodeTasks(bool ignoreFailedNodeTasks) { DARABONBA_PTR_SET_VALUE(ignoreFailedNodeTasks_, ignoreFailedNodeTasks) };
 
 
     // nodesShrink Field Functions 
     bool hasNodesShrink() const { return this->nodesShrink_ != nullptr;};
     void deleteNodesShrink() { this->nodesShrink_ = nullptr;};
-    inline string nodesShrink() const { DARABONBA_PTR_GET_DEFAULT(nodesShrink_, "") };
+    inline string getNodesShrink() const { DARABONBA_PTR_GET_DEFAULT(nodesShrink_, "") };
     inline RebootNodesShrinkRequest& setNodesShrink(string nodesShrink) { DARABONBA_PTR_SET_VALUE(nodesShrink_, nodesShrink) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // Specifies whether to allow skipping failed nodes. Default value: False.
-    std::shared_ptr<bool> ignoreFailedNodeTasks_ = nullptr;
+    shared_ptr<bool> ignoreFailedNodeTasks_ {};
     // The nodes.
-    std::shared_ptr<string> nodesShrink_ = nullptr;
+    shared_ptr<string> nodesShrink_ {};
   };
 
   } // namespace Models

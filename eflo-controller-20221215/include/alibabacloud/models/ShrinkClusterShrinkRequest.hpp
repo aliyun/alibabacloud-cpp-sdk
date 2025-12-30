@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->ignoreFailedNodeTasks_ == nullptr && return this->nodeGroupsShrink_ == nullptr; };
+        && this->ignoreFailedNodeTasks_ == nullptr && this->nodeGroupsShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ShrinkClusterShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // ignoreFailedNodeTasks Field Functions 
     bool hasIgnoreFailedNodeTasks() const { return this->ignoreFailedNodeTasks_ != nullptr;};
     void deleteIgnoreFailedNodeTasks() { this->ignoreFailedNodeTasks_ = nullptr;};
-    inline bool ignoreFailedNodeTasks() const { DARABONBA_PTR_GET_DEFAULT(ignoreFailedNodeTasks_, false) };
+    inline bool getIgnoreFailedNodeTasks() const { DARABONBA_PTR_GET_DEFAULT(ignoreFailedNodeTasks_, false) };
     inline ShrinkClusterShrinkRequest& setIgnoreFailedNodeTasks(bool ignoreFailedNodeTasks) { DARABONBA_PTR_SET_VALUE(ignoreFailedNodeTasks_, ignoreFailedNodeTasks) };
 
 
     // nodeGroupsShrink Field Functions 
     bool hasNodeGroupsShrink() const { return this->nodeGroupsShrink_ != nullptr;};
     void deleteNodeGroupsShrink() { this->nodeGroupsShrink_ = nullptr;};
-    inline string nodeGroupsShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupsShrink_, "") };
+    inline string getNodeGroupsShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeGroupsShrink_, "") };
     inline ShrinkClusterShrinkRequest& setNodeGroupsShrink(string nodeGroupsShrink) { DARABONBA_PTR_SET_VALUE(nodeGroupsShrink_, nodeGroupsShrink) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // Specifies whether to allow skipping failed nodes. Default value: False.
-    std::shared_ptr<bool> ignoreFailedNodeTasks_ = nullptr;
+    shared_ptr<bool> ignoreFailedNodeTasks_ {};
     // The node groups.
-    std::shared_ptr<string> nodeGroupsShrink_ = nullptr;
+    shared_ptr<string> nodeGroupsShrink_ {};
   };
 
   } // namespace Models

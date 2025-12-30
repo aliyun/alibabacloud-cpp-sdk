@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeId_ == nullptr
-        && return this->operationType_ == nullptr; };
+        && this->operationType_ == nullptr; };
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline ApproveOperationRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // operationType Field Functions 
     bool hasOperationType() const { return this->operationType_ != nullptr;};
     void deleteOperationType() { this->operationType_ = nullptr;};
-    inline string operationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
+    inline string getOperationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
     inline ApproveOperationRequest& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
 
 
   protected:
     // The node ID.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The O\\&M operation type
     // 
     // Valid value:
     // 
     // *   RepairMachine
-    std::shared_ptr<string> operationType_ = nullptr;
+    shared_ptr<string> operationType_ {};
   };
 
   } // namespace Models

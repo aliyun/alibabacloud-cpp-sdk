@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->invokeId_ == nullptr
-        && return this->nodeIdListShrink_ == nullptr; };
+        && this->nodeIdListShrink_ == nullptr; };
     // invokeId Field Functions 
     bool hasInvokeId() const { return this->invokeId_ != nullptr;};
     void deleteInvokeId() { this->invokeId_ = nullptr;};
-    inline string invokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
+    inline string getInvokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
     inline StopInvocationShrinkRequest& setInvokeId(string invokeId) { DARABONBA_PTR_SET_VALUE(invokeId_, invokeId) };
 
 
     // nodeIdListShrink Field Functions 
     bool hasNodeIdListShrink() const { return this->nodeIdListShrink_ != nullptr;};
     void deleteNodeIdListShrink() { this->nodeIdListShrink_ = nullptr;};
-    inline string nodeIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeIdListShrink_, "") };
+    inline string getNodeIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeIdListShrink_, "") };
     inline StopInvocationShrinkRequest& setNodeIdListShrink(string nodeIdListShrink) { DARABONBA_PTR_SET_VALUE(nodeIdListShrink_, nodeIdListShrink) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The execution ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> invokeId_ = nullptr;
+    shared_ptr<string> invokeId_ {};
     // The nodes.
-    std::shared_ptr<string> nodeIdListShrink_ = nullptr;
+    shared_ptr<string> nodeIdListShrink_ {};
   };
 
   } // namespace Models

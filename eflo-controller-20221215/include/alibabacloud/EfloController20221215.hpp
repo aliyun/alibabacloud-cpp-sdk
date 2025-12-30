@@ -647,11 +647,11 @@ namespace EfloController20221215
       /**
        * @summary 机器列表
        *
-       * @param request ListHyperNodesRequest
+       * @param tmpReq ListHyperNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListHyperNodesResponse
        */
-      Models::ListHyperNodesResponse listHyperNodesWithOptions(const Models::ListHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListHyperNodesResponse listHyperNodesWithOptions(const Models::ListHyperNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 机器列表
