@@ -21,6 +21,24 @@ namespace Cms20240330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 修改资源所属资源组
+       *
+       * @param request ChangeResourceGroupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeResourceGroupResponse
+       */
+      Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改资源所属资源组
+       *
+       * @param request ChangeResourceGroupRequest
+       * @return ChangeResourceGroupResponse
+       */
+      Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
+
+      /**
        * @summary Install the access component, representing a single access attempt
        *
        * @description Used to create a site monitoring task
@@ -1419,6 +1437,24 @@ namespace Cms20240330
       Models::ListServicesResponse listServices(const string &workspace, const Models::ListServicesRequest &request);
 
       /**
+       * @summary 查标签接口
+       *
+       * @param tmpReq ListTagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查标签接口
+       *
+       * @param request ListTagResourcesRequest
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
        * @summary 列出会话
        *
        * @param tmpReq ListThreadsRequest
@@ -1471,6 +1507,42 @@ namespace Cms20240330
        * @return PutWorkspaceResponse
        */
       Models::PutWorkspaceResponse putWorkspace(const string &workspaceName, const Models::PutWorkspaceRequest &request);
+
+      /**
+       * @summary 打标签接口
+       *
+       * @param request TagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 打标签接口
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
+       * @summary 删标签接口
+       *
+       * @param tmpReq UntagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删标签接口
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
        * @summary Upgrade Access Component

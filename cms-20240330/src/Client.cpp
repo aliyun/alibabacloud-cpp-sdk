@@ -39,6 +39,59 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 修改资源所属资源组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceId()) {
+    body["resourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChangeResourceGroup"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/resourcegroup")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
+}
+
+/**
+ * @summary 修改资源所属资源组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return changeResourceGroupWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Install the access component, representing a single access attempt
  *
  * @description Used to create a site monitoring task
@@ -4009,6 +4062,77 @@ ListServicesResponse Client::listServices(const string &workspace, const ListSer
 }
 
 /**
+ * @summary 查标签接口
+ *
+ * @param tmpReq ListTagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListTagResourcesShrinkRequest request = ListTagResourcesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceId()) {
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "resourceId", "json"));
+  }
+
+  if (!!tmpReq.hasTag()) {
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "tag", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceIdShrink()) {
+    query["resourceId"] = request.getResourceIdShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagShrink()) {
+    query["tag"] = request.getTagShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagResources"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tags")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
+}
+
+/**
+ * @summary 查标签接口
+ *
+ * @param request ListTagResourcesRequest
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 列出会话
  *
  * @param tmpReq ListThreadsRequest
@@ -4193,6 +4317,126 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return putWorkspaceWithOptions(workspaceName, request, headers, runtime);
+}
+
+/**
+ * @summary 打标签接口
+ *
+ * @param request TagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasResourceId()) {
+    body["resourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    body["tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tags")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary 打标签接口
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return tagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删标签接口
+ *
+ * @param tmpReq UntagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UntagResourcesShrinkRequest request = UntagResourcesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceId()) {
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "resourceId", "json"));
+  }
+
+  if (!!tmpReq.hasTagKey()) {
+    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKey(), "tagKey", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAll()) {
+    query["all"] = request.getAll();
+  }
+
+  if (!!request.hasResourceIdShrink()) {
+    query["resourceId"] = request.getResourceIdShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKeyShrink()) {
+    query["tagKey"] = request.getTagKeyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tags")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary 删标签接口
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return untagResourcesWithOptions(request, headers, runtime);
 }
 
 /**

@@ -70,6 +70,9 @@
 #include <alibabacloud/models/Tag.hpp>
 #include <alibabacloud/models/TransformerForModify.hpp>
 #include <alibabacloud/models/TransformerForView.hpp>
+#include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
+#include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
 #include <alibabacloud/models/CreateAddonReleaseRequest.hpp>
 #include <alibabacloud/models/CreateAddonReleaseResponseBody.hpp>
 #include <alibabacloud/models/CreateAddonReleaseResponse.hpp>
@@ -275,6 +278,10 @@
 #include <alibabacloud/models/ListServicesShrinkRequest.hpp>
 #include <alibabacloud/models/ListServicesResponseBody.hpp>
 #include <alibabacloud/models/ListServicesResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
 #include <alibabacloud/models/ListThreadsRequest.hpp>
 #include <alibabacloud/models/ListThreadsShrinkRequest.hpp>
 #include <alibabacloud/models/ListThreadsResponseBody.hpp>
@@ -286,6 +293,13 @@
 #include <alibabacloud/models/PutWorkspaceRequest.hpp>
 #include <alibabacloud/models/PutWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/PutWorkspaceResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateAddonReleaseRequest.hpp>
 #include <alibabacloud/models/UpdateAddonReleaseResponseBody.hpp>
 #include <alibabacloud/models/UpdateAddonReleaseResponse.hpp>
