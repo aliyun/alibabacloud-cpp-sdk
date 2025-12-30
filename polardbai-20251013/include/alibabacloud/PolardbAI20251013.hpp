@@ -1,0 +1,612 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_POLARDBAI20251013_HPP_
+#define ALIBABACLOUD_POLARDBAI20251013_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/PolardbAI20251013Model.hpp>
+#include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/Utils.hpp>
+#include <map>
+#include <alibabacloud/PolardbAI20251013.hpp>
+#include <darabonba/Runtime.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace PolardbAI20251013
+{
+  class Client : public AlibabaCloud::OpenApi::Client {
+    public:
+
+      Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
+      string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
+
+      /**
+       * @summary 创建chatbi配置表
+       *
+       * @param request ChatBIConfigCreateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIConfigCreateResponse
+       */
+      Models::ChatBIConfigCreateResponse chatBIConfigCreateWithOptions(const Models::ChatBIConfigCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建chatbi配置表
+       *
+       * @param request ChatBIConfigCreateRequest
+       * @return ChatBIConfigCreateResponse
+       */
+      Models::ChatBIConfigCreateResponse chatBIConfigCreate(const Models::ChatBIConfigCreateRequest &request);
+
+      /**
+       * @summary 删除chatbi配置表
+       *
+       * @param request ChatBIConfigDeleteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIConfigDeleteResponse
+       */
+      Models::ChatBIConfigDeleteResponse chatBIConfigDeleteWithOptions(const Models::ChatBIConfigDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除chatbi配置表
+       *
+       * @param request ChatBIConfigDeleteRequest
+       * @return ChatBIConfigDeleteResponse
+       */
+      Models::ChatBIConfigDeleteResponse chatBIConfigDelete(const Models::ChatBIConfigDeleteRequest &request);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIConfigDeleteEntryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIConfigDeleteEntryResponse
+       */
+      Models::ChatBIConfigDeleteEntryResponse chatBIConfigDeleteEntryWithOptions(const Models::ChatBIConfigDeleteEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIConfigDeleteEntryRequest
+       * @return ChatBIConfigDeleteEntryResponse
+       */
+      Models::ChatBIConfigDeleteEntryResponse chatBIConfigDeleteEntry(const Models::ChatBIConfigDeleteEntryRequest &request);
+
+      /**
+       * @summary 查询chatbi配置表内容
+       *
+       * @param request ChatBIConfigQueryEntriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIConfigQueryEntriesResponse
+       */
+      Models::ChatBIConfigQueryEntriesResponse chatBIConfigQueryEntriesWithOptions(const Models::ChatBIConfigQueryEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询chatbi配置表内容
+       *
+       * @param request ChatBIConfigQueryEntriesRequest
+       * @return ChatBIConfigQueryEntriesResponse
+       */
+      Models::ChatBIConfigQueryEntriesResponse chatBIConfigQueryEntries(const Models::ChatBIConfigQueryEntriesRequest &request);
+
+      /**
+       * @summary 查询客户chatbi配置表名
+       *
+       * @param request ChatBIConfigQueryTablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIConfigQueryTablesResponse
+       */
+      Models::ChatBIConfigQueryTablesResponse chatBIConfigQueryTablesWithOptions(const Models::ChatBIConfigQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询客户chatbi配置表名
+       *
+       * @param request ChatBIConfigQueryTablesRequest
+       * @return ChatBIConfigQueryTablesResponse
+       */
+      Models::ChatBIConfigQueryTablesResponse chatBIConfigQueryTables(const Models::ChatBIConfigQueryTablesRequest &request);
+
+      /**
+       * @summary 修改chatbi配置表内容
+       *
+       * @param request ChatBIConfigUpdateEntryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIConfigUpdateEntryResponse
+       */
+      Models::ChatBIConfigUpdateEntryResponse chatBIConfigUpdateEntryWithOptions(const Models::ChatBIConfigUpdateEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改chatbi配置表内容
+       *
+       * @param request ChatBIConfigUpdateEntryRequest
+       * @return ChatBIConfigUpdateEntryResponse
+       */
+      Models::ChatBIConfigUpdateEntryResponse chatBIConfigUpdateEntry(const Models::ChatBIConfigUpdateEntryRequest &request);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIFileTemplateDownloadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIFileTemplateDownloadResponse
+       */
+      Models::ChatBIFileTemplateDownloadResponse chatBIFileTemplateDownloadWithOptions(const Models::ChatBIFileTemplateDownloadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIFileTemplateDownloadRequest
+       * @return ChatBIFileTemplateDownloadResponse
+       */
+      Models::ChatBIFileTemplateDownloadResponse chatBIFileTemplateDownload(const Models::ChatBIFileTemplateDownloadRequest &request);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIFileUploadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIFileUploadResponse
+       */
+      Models::ChatBIFileUploadResponse chatBIFileUploadWithOptions(const Models::ChatBIFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIFileUploadRequest
+       * @return ChatBIFileUploadResponse
+       */
+      Models::ChatBIFileUploadResponse chatBIFileUpload(const Models::ChatBIFileUploadRequest &request);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIFileUploadCallbackRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIFileUploadCallbackResponse
+       */
+      Models::ChatBIFileUploadCallbackResponse chatBIFileUploadCallbackWithOptions(const Models::ChatBIFileUploadCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIFileUploadCallbackRequest
+       * @return ChatBIFileUploadCallbackResponse
+       */
+      Models::ChatBIFileUploadCallbackResponse chatBIFileUploadCallback(const Models::ChatBIFileUploadCallbackRequest &request);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIPatternCreateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternCreateResponse
+       */
+      Models::ChatBIPatternCreateResponse chatBIPatternCreateWithOptions(const Models::ChatBIPatternCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建chatbi问题模板表
+       *
+       * @param request ChatBIPatternCreateRequest
+       * @return ChatBIPatternCreateResponse
+       */
+      Models::ChatBIPatternCreateResponse chatBIPatternCreate(const Models::ChatBIPatternCreateRequest &request);
+
+      /**
+       * @summary 删除chatbi问题模板表
+       *
+       * @param request ChatBIPatternDeleteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternDeleteResponse
+       */
+      Models::ChatBIPatternDeleteResponse chatBIPatternDeleteWithOptions(const Models::ChatBIPatternDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除chatbi问题模板表
+       *
+       * @param request ChatBIPatternDeleteRequest
+       * @return ChatBIPatternDeleteResponse
+       */
+      Models::ChatBIPatternDeleteResponse chatBIPatternDelete(const Models::ChatBIPatternDeleteRequest &request);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIPatternDeleteEntryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternDeleteEntryResponse
+       */
+      Models::ChatBIPatternDeleteEntryResponse chatBIPatternDeleteEntryWithOptions(const Models::ChatBIPatternDeleteEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIPatternDeleteEntryRequest
+       * @return ChatBIPatternDeleteEntryResponse
+       */
+      Models::ChatBIPatternDeleteEntryResponse chatBIPatternDeleteEntry(const Models::ChatBIPatternDeleteEntryRequest &request);
+
+      /**
+       * @summary 创建chatbi检索索引表
+       *
+       * @param request ChatBIPatternIndexCreateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternIndexCreateResponse
+       */
+      Models::ChatBIPatternIndexCreateResponse chatBIPatternIndexCreateWithOptions(const Models::ChatBIPatternIndexCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建chatbi检索索引表
+       *
+       * @param request ChatBIPatternIndexCreateRequest
+       * @return ChatBIPatternIndexCreateResponse
+       */
+      Models::ChatBIPatternIndexCreateResponse chatBIPatternIndexCreate(const Models::ChatBIPatternIndexCreateRequest &request);
+
+      /**
+       * @summary 删除检索索引表
+       *
+       * @param request ChatBIPatternIndexDeleteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternIndexDeleteResponse
+       */
+      Models::ChatBIPatternIndexDeleteResponse chatBIPatternIndexDeleteWithOptions(const Models::ChatBIPatternIndexDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除检索索引表
+       *
+       * @param request ChatBIPatternIndexDeleteRequest
+       * @return ChatBIPatternIndexDeleteResponse
+       */
+      Models::ChatBIPatternIndexDeleteResponse chatBIPatternIndexDelete(const Models::ChatBIPatternIndexDeleteRequest &request);
+
+      /**
+       * @summary 查询检索索引表名
+       *
+       * @param request ChatBIPatternIndexQueryTablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternIndexQueryTablesResponse
+       */
+      Models::ChatBIPatternIndexQueryTablesResponse chatBIPatternIndexQueryTablesWithOptions(const Models::ChatBIPatternIndexQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询检索索引表名
+       *
+       * @param request ChatBIPatternIndexQueryTablesRequest
+       * @return ChatBIPatternIndexQueryTablesResponse
+       */
+      Models::ChatBIPatternIndexQueryTablesResponse chatBIPatternIndexQueryTables(const Models::ChatBIPatternIndexQueryTablesRequest &request);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIPatternQueryEntriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternQueryEntriesResponse
+       */
+      Models::ChatBIPatternQueryEntriesResponse chatBIPatternQueryEntriesWithOptions(const Models::ChatBIPatternQueryEntriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIPatternQueryEntriesRequest
+       * @return ChatBIPatternQueryEntriesResponse
+       */
+      Models::ChatBIPatternQueryEntriesResponse chatBIPatternQueryEntries(const Models::ChatBIPatternQueryEntriesRequest &request);
+
+      /**
+       * @summary 查询chatbi问题模板表名
+       *
+       * @param request ChatBIPatternQueryTablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternQueryTablesResponse
+       */
+      Models::ChatBIPatternQueryTablesResponse chatBIPatternQueryTablesWithOptions(const Models::ChatBIPatternQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询chatbi问题模板表名
+       *
+       * @param request ChatBIPatternQueryTablesRequest
+       * @return ChatBIPatternQueryTablesResponse
+       */
+      Models::ChatBIPatternQueryTablesResponse chatBIPatternQueryTables(const Models::ChatBIPatternQueryTablesRequest &request);
+
+      /**
+       * @summary 修改chatbi问题模板表内容
+       *
+       * @param request ChatBIPatternUpdateEntryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPatternUpdateEntryResponse
+       */
+      Models::ChatBIPatternUpdateEntryResponse chatBIPatternUpdateEntryWithOptions(const Models::ChatBIPatternUpdateEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改chatbi问题模板表内容
+       *
+       * @param request ChatBIPatternUpdateEntryRequest
+       * @return ChatBIPatternUpdateEntryResponse
+       */
+      Models::ChatBIPatternUpdateEntryResponse chatBIPatternUpdateEntry(const Models::ChatBIPatternUpdateEntryRequest &request);
+
+      /**
+       * @summary 流式返回
+       *
+       * @param tmpReq ChatBIPredictSseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPredictSseResponse
+       */
+      FutureGenerator<Models::ChatBIPredictSseResponse> chatBIPredictSseWithSSE(const Models::ChatBIPredictSseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式返回
+       *
+       * @param tmpReq ChatBIPredictSseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIPredictSseResponse
+       */
+      Models::ChatBIPredictSseResponse chatBIPredictSseWithOptions(const Models::ChatBIPredictSseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式返回
+       *
+       * @param request ChatBIPredictSseRequest
+       * @return ChatBIPredictSseResponse
+       */
+      Models::ChatBIPredictSseResponse chatBIPredictSse(const Models::ChatBIPredictSseRequest &request);
+
+      /**
+       * @summary 创建chatbi检索索引表
+       *
+       * @param request ChatBISchemaIndexCreateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBISchemaIndexCreateResponse
+       */
+      Models::ChatBISchemaIndexCreateResponse chatBISchemaIndexCreateWithOptions(const Models::ChatBISchemaIndexCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建chatbi检索索引表
+       *
+       * @param request ChatBISchemaIndexCreateRequest
+       * @return ChatBISchemaIndexCreateResponse
+       */
+      Models::ChatBISchemaIndexCreateResponse chatBISchemaIndexCreate(const Models::ChatBISchemaIndexCreateRequest &request);
+
+      /**
+       * @summary 删除检索索引表
+       *
+       * @param request ChatBISchemaIndexDeleteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBISchemaIndexDeleteResponse
+       */
+      Models::ChatBISchemaIndexDeleteResponse chatBISchemaIndexDeleteWithOptions(const Models::ChatBISchemaIndexDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除检索索引表
+       *
+       * @param request ChatBISchemaIndexDeleteRequest
+       * @return ChatBISchemaIndexDeleteResponse
+       */
+      Models::ChatBISchemaIndexDeleteResponse chatBISchemaIndexDelete(const Models::ChatBISchemaIndexDeleteRequest &request);
+
+      /**
+       * @summary 查询检索索引表名
+       *
+       * @param request ChatBISchemaIndexQueryTablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBISchemaIndexQueryTablesResponse
+       */
+      Models::ChatBISchemaIndexQueryTablesResponse chatBISchemaIndexQueryTablesWithOptions(const Models::ChatBISchemaIndexQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询检索索引表名
+       *
+       * @param request ChatBISchemaIndexQueryTablesRequest
+       * @return ChatBISchemaIndexQueryTablesResponse
+       */
+      Models::ChatBISchemaIndexQueryTablesResponse chatBISchemaIndexQueryTables(const Models::ChatBISchemaIndexQueryTablesRequest &request);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIUpdateTableValidationColumnsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatBIUpdateTableValidationColumnsResponse
+       */
+      Models::ChatBIUpdateTableValidationColumnsResponse chatBIUpdateTableValidationColumnsWithOptions(const Models::ChatBIUpdateTableValidationColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询chatbi问题模板表内容
+       *
+       * @param request ChatBIUpdateTableValidationColumnsRequest
+       * @return ChatBIUpdateTableValidationColumnsResponse
+       */
+      Models::ChatBIUpdateTableValidationColumnsResponse chatBIUpdateTableValidationColumns(const Models::ChatBIUpdateTableValidationColumnsRequest &request);
+
+      /**
+       * @summary 查询多模态数据集列表
+       *
+       * @param request CreateMultimodalDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMultimodalDatasetResponse
+       */
+      Models::CreateMultimodalDatasetResponse createMultimodalDatasetWithOptions(const Models::CreateMultimodalDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询多模态数据集列表
+       *
+       * @param request CreateMultimodalDatasetRequest
+       * @return CreateMultimodalDatasetResponse
+       */
+      Models::CreateMultimodalDatasetResponse createMultimodalDataset(const Models::CreateMultimodalDatasetRequest &request);
+
+      /**
+       * @summary 创建Embedding
+       *
+       * @param request CreateMultimodalDatasetEmbeddingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMultimodalDatasetEmbeddingResponse
+       */
+      Models::CreateMultimodalDatasetEmbeddingResponse createMultimodalDatasetEmbeddingWithOptions(const Models::CreateMultimodalDatasetEmbeddingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Embedding
+       *
+       * @param request CreateMultimodalDatasetEmbeddingRequest
+       * @return CreateMultimodalDatasetEmbeddingResponse
+       */
+      Models::CreateMultimodalDatasetEmbeddingResponse createMultimodalDatasetEmbedding(const Models::CreateMultimodalDatasetEmbeddingRequest &request);
+
+      /**
+       * @summary 创建SearchTask
+       *
+       * @param tmpReq CreateMultimodalSearchTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMultimodalSearchTaskResponse
+       */
+      Models::CreateMultimodalSearchTaskResponse createMultimodalSearchTaskWithOptions(const Models::CreateMultimodalSearchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建SearchTask
+       *
+       * @param request CreateMultimodalSearchTaskRequest
+       * @return CreateMultimodalSearchTaskResponse
+       */
+      Models::CreateMultimodalSearchTaskResponse createMultimodalSearchTask(const Models::CreateMultimodalSearchTaskRequest &request);
+
+      /**
+       * @summary 删除多模态数据集
+       *
+       * @param request DeleteMultimodalDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMultimodalDatasetResponse
+       */
+      Models::DeleteMultimodalDatasetResponse deleteMultimodalDatasetWithOptions(const Models::DeleteMultimodalDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除多模态数据集
+       *
+       * @param request DeleteMultimodalDatasetRequest
+       * @return DeleteMultimodalDatasetResponse
+       */
+      Models::DeleteMultimodalDatasetResponse deleteMultimodalDataset(const Models::DeleteMultimodalDatasetRequest &request);
+
+      /**
+       * @summary 删除多模态数据集embedding
+       *
+       * @param request DeleteMultimodalEmbeddingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMultimodalEmbeddingResponse
+       */
+      Models::DeleteMultimodalEmbeddingResponse deleteMultimodalEmbeddingWithOptions(const Models::DeleteMultimodalEmbeddingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除多模态数据集embedding
+       *
+       * @param request DeleteMultimodalEmbeddingRequest
+       * @return DeleteMultimodalEmbeddingResponse
+       */
+      Models::DeleteMultimodalEmbeddingResponse deleteMultimodalEmbedding(const Models::DeleteMultimodalEmbeddingRequest &request);
+
+      /**
+       * @summary 下载Search任务的结果元数据
+       *
+       * @param request DownloadMultimodalSearchTaskResultMetadataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadMultimodalSearchTaskResultMetadataResponse
+       */
+      Models::DownloadMultimodalSearchTaskResultMetadataResponse downloadMultimodalSearchTaskResultMetadataWithOptions(const Models::DownloadMultimodalSearchTaskResultMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下载Search任务的结果元数据
+       *
+       * @param request DownloadMultimodalSearchTaskResultMetadataRequest
+       * @return DownloadMultimodalSearchTaskResultMetadataResponse
+       */
+      Models::DownloadMultimodalSearchTaskResultMetadataResponse downloadMultimodalSearchTaskResultMetadata(const Models::DownloadMultimodalSearchTaskResultMetadataRequest &request);
+
+      /**
+       * @summary 查询多模态数据集列表
+       *
+       * @param request ListMultimodalDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalDatasetResponse
+       */
+      Models::ListMultimodalDatasetResponse listMultimodalDatasetWithOptions(const Models::ListMultimodalDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询多模态数据集列表
+       *
+       * @param request ListMultimodalDatasetRequest
+       * @return ListMultimodalDatasetResponse
+       */
+      Models::ListMultimodalDatasetResponse listMultimodalDataset(const Models::ListMultimodalDatasetRequest &request);
+
+      /**
+       * @summary 查询模型列表
+       *
+       * @param request ListMultimodalEmbeddingModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalEmbeddingModelResponse
+       */
+      Models::ListMultimodalEmbeddingModelResponse listMultimodalEmbeddingModelWithOptions(const Models::ListMultimodalEmbeddingModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型列表
+       *
+       * @param request ListMultimodalEmbeddingModelRequest
+       * @return ListMultimodalEmbeddingModelResponse
+       */
+      Models::ListMultimodalEmbeddingModelResponse listMultimodalEmbeddingModel(const Models::ListMultimodalEmbeddingModelRequest &request);
+
+      /**
+       * @summary 查询search task列表
+       *
+       * @param request ListMultimodalSearchTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalSearchTaskResponse
+       */
+      Models::ListMultimodalSearchTaskResponse listMultimodalSearchTaskWithOptions(const Models::ListMultimodalSearchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询search task列表
+       *
+       * @param request ListMultimodalSearchTaskRequest
+       * @return ListMultimodalSearchTaskResponse
+       */
+      Models::ListMultimodalSearchTaskResponse listMultimodalSearchTask(const Models::ListMultimodalSearchTaskRequest &request);
+
+      /**
+       * @summary 更新数据集信息
+       *
+       * @param request UpdateMultimodalDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMultimodalDatasetResponse
+       */
+      Models::UpdateMultimodalDatasetResponse updateMultimodalDatasetWithOptions(const Models::UpdateMultimodalDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据集信息
+       *
+       * @param request UpdateMultimodalDatasetRequest
+       * @return UpdateMultimodalDatasetResponse
+       */
+      Models::UpdateMultimodalDatasetResponse updateMultimodalDataset(const Models::UpdateMultimodalDatasetRequest &request);
+
+      /**
+       * @summary 导入OSS数据集
+       *
+       * @param request UploadOSSMultimodalDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadOSSMultimodalDatasetResponse
+       */
+      Models::UploadOSSMultimodalDatasetResponse uploadOSSMultimodalDatasetWithOptions(const Models::UploadOSSMultimodalDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导入OSS数据集
+       *
+       * @param request UploadOSSMultimodalDatasetRequest
+       * @return UploadOSSMultimodalDatasetResponse
+       */
+      Models::UploadOSSMultimodalDatasetResponse uploadOSSMultimodalDataset(const Models::UploadOSSMultimodalDatasetRequest &request);
+  };
+} // namespace AlibabaCloud
+} // namespace PolardbAI20251013
+#endif
