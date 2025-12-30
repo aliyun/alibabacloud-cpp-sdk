@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->license_ == nullptr && return this->platform_ == nullptr; };
+        && this->license_ == nullptr && this->platform_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateChatSessionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // license Field Functions 
     bool hasLicense() const { return this->license_ != nullptr;};
     void deleteLicense() { this->license_ = nullptr;};
-    inline string license() const { DARABONBA_PTR_GET_DEFAULT(license_, "") };
+    inline string getLicense() const { DARABONBA_PTR_GET_DEFAULT(license_, "") };
     inline CreateChatSessionRequest& setLicense(string license) { DARABONBA_PTR_SET_VALUE(license_, license) };
 
 
     // platform Field Functions 
     bool hasPlatform() const { return this->platform_ != nullptr;};
     void deletePlatform() { this->platform_ = nullptr;};
-    inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+    inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline CreateChatSessionRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> license_ = nullptr;
-    std::shared_ptr<string> platform_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> license_ {};
+    shared_ptr<string> platform_ {};
   };
 
   } // namespace Models

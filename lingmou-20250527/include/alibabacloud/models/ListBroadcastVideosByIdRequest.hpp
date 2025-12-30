@@ -34,14 +34,14 @@ namespace Models
     // videoIds Field Functions 
     bool hasVideoIds() const { return this->videoIds_ != nullptr;};
     void deleteVideoIds() { this->videoIds_ = nullptr;};
-    inline const vector<string> & videoIds() const { DARABONBA_PTR_GET_CONST(videoIds_, vector<string>) };
-    inline vector<string> videoIds() { DARABONBA_PTR_GET(videoIds_, vector<string>) };
+    inline const vector<string> & getVideoIds() const { DARABONBA_PTR_GET_CONST(videoIds_, vector<string>) };
+    inline vector<string> getVideoIds() { DARABONBA_PTR_GET(videoIds_, vector<string>) };
     inline ListBroadcastVideosByIdRequest& setVideoIds(const vector<string> & videoIds) { DARABONBA_PTR_SET_VALUE(videoIds_, videoIds) };
     inline ListBroadcastVideosByIdRequest& setVideoIds(vector<string> && videoIds) { DARABONBA_PTR_SET_RVALUE(videoIds_, videoIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> videoIds_ = nullptr;
+    shared_ptr<vector<string>> videoIds_ {};
   };
 
   } // namespace Models

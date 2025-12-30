@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->avatarId_ == nullptr
-        && return this->backgroundId_ == nullptr; };
+        && this->backgroundId_ == nullptr; };
     // avatarId Field Functions 
     bool hasAvatarId() const { return this->avatarId_ != nullptr;};
     void deleteAvatarId() { this->avatarId_ = nullptr;};
-    inline string avatarId() const { DARABONBA_PTR_GET_DEFAULT(avatarId_, "") };
+    inline string getAvatarId() const { DARABONBA_PTR_GET_DEFAULT(avatarId_, "") };
     inline CreateChatConfigRequest& setAvatarId(string avatarId) { DARABONBA_PTR_SET_VALUE(avatarId_, avatarId) };
 
 
     // backgroundId Field Functions 
     bool hasBackgroundId() const { return this->backgroundId_ != nullptr;};
     void deleteBackgroundId() { this->backgroundId_ = nullptr;};
-    inline string backgroundId() const { DARABONBA_PTR_GET_DEFAULT(backgroundId_, "") };
+    inline string getBackgroundId() const { DARABONBA_PTR_GET_DEFAULT(backgroundId_, "") };
     inline CreateChatConfigRequest& setBackgroundId(string backgroundId) { DARABONBA_PTR_SET_VALUE(backgroundId_, backgroundId) };
 
 
   protected:
-    std::shared_ptr<string> avatarId_ = nullptr;
-    std::shared_ptr<string> backgroundId_ = nullptr;
+    shared_ptr<string> avatarId_ {};
+    shared_ptr<string> backgroundId_ {};
   };
 
   } // namespace Models

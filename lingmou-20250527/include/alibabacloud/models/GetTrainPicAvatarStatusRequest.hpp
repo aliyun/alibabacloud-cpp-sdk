@@ -33,13 +33,13 @@ namespace Models
     // avatarId Field Functions 
     bool hasAvatarId() const { return this->avatarId_ != nullptr;};
     void deleteAvatarId() { this->avatarId_ = nullptr;};
-    inline string avatarId() const { DARABONBA_PTR_GET_DEFAULT(avatarId_, "") };
+    inline string getAvatarId() const { DARABONBA_PTR_GET_DEFAULT(avatarId_, "") };
     inline GetTrainPicAvatarStatusRequest& setAvatarId(string avatarId) { DARABONBA_PTR_SET_VALUE(avatarId_, avatarId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> avatarId_ = nullptr;
+    shared_ptr<string> avatarId_ {};
   };
 
   } // namespace Models

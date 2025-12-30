@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jwtToken_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // jwtToken Field Functions 
     bool hasJwtToken() const { return this->jwtToken_ != nullptr;};
     void deleteJwtToken() { this->jwtToken_ = nullptr;};
-    inline string jwtToken() const { DARABONBA_PTR_GET_DEFAULT(jwtToken_, "") };
+    inline string getJwtToken() const { DARABONBA_PTR_GET_DEFAULT(jwtToken_, "") };
     inline GetUploadPolicyRequest& setJwtToken(string jwtToken) { DARABONBA_PTR_SET_VALUE(jwtToken_, jwtToken) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetUploadPolicyRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> jwtToken_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> jwtToken_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

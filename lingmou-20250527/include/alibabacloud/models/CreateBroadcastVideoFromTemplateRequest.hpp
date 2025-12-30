@@ -4,7 +4,6 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/TemplateVariable.hpp>
-#include <alibabacloud/models/CreateBroadcastVideoFromTemplateRequestVideoOptions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,27 +37,79 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class VideoOptions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const VideoOptions& obj) { 
+        DARABONBA_PTR_TO_JSON(fps, fps_);
+        DARABONBA_PTR_TO_JSON(resolution, resolution_);
+        DARABONBA_PTR_TO_JSON(watermark, watermark_);
+      };
+      friend void from_json(const Darabonba::Json& j, VideoOptions& obj) { 
+        DARABONBA_PTR_FROM_JSON(fps, fps_);
+        DARABONBA_PTR_FROM_JSON(resolution, resolution_);
+        DARABONBA_PTR_FROM_JSON(watermark, watermark_);
+      };
+      VideoOptions() = default ;
+      VideoOptions(const VideoOptions &) = default ;
+      VideoOptions(VideoOptions &&) = default ;
+      VideoOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~VideoOptions() = default ;
+      VideoOptions& operator=(const VideoOptions &) = default ;
+      VideoOptions& operator=(VideoOptions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->fps_ == nullptr
+        && this->resolution_ == nullptr && this->watermark_ == nullptr; };
+      // fps Field Functions 
+      bool hasFps() const { return this->fps_ != nullptr;};
+      void deleteFps() { this->fps_ = nullptr;};
+      inline int32_t getFps() const { DARABONBA_PTR_GET_DEFAULT(fps_, 0) };
+      inline VideoOptions& setFps(int32_t fps) { DARABONBA_PTR_SET_VALUE(fps_, fps) };
+
+
+      // resolution Field Functions 
+      bool hasResolution() const { return this->resolution_ != nullptr;};
+      void deleteResolution() { this->resolution_ = nullptr;};
+      inline string getResolution() const { DARABONBA_PTR_GET_DEFAULT(resolution_, "") };
+      inline VideoOptions& setResolution(string resolution) { DARABONBA_PTR_SET_VALUE(resolution_, resolution) };
+
+
+      // watermark Field Functions 
+      bool hasWatermark() const { return this->watermark_ != nullptr;};
+      void deleteWatermark() { this->watermark_ = nullptr;};
+      inline bool getWatermark() const { DARABONBA_PTR_GET_DEFAULT(watermark_, false) };
+      inline VideoOptions& setWatermark(bool watermark) { DARABONBA_PTR_SET_VALUE(watermark_, watermark) };
+
+
+    protected:
+      shared_ptr<int32_t> fps_ {};
+      shared_ptr<string> resolution_ {};
+      shared_ptr<bool> watermark_ {};
+    };
+
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->templateId_ == nullptr && return this->variables_ == nullptr && return this->videoOptions_ == nullptr; };
+        && this->templateId_ == nullptr && this->variables_ == nullptr && this->videoOptions_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateBroadcastVideoFromTemplateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline CreateBroadcastVideoFromTemplateRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // variables Field Functions 
     bool hasVariables() const { return this->variables_ != nullptr;};
     void deleteVariables() { this->variables_ = nullptr;};
-    inline const vector<TemplateVariable> & variables() const { DARABONBA_PTR_GET_CONST(variables_, vector<TemplateVariable>) };
-    inline vector<TemplateVariable> variables() { DARABONBA_PTR_GET(variables_, vector<TemplateVariable>) };
+    inline const vector<TemplateVariable> & getVariables() const { DARABONBA_PTR_GET_CONST(variables_, vector<TemplateVariable>) };
+    inline vector<TemplateVariable> getVariables() { DARABONBA_PTR_GET(variables_, vector<TemplateVariable>) };
     inline CreateBroadcastVideoFromTemplateRequest& setVariables(const vector<TemplateVariable> & variables) { DARABONBA_PTR_SET_VALUE(variables_, variables) };
     inline CreateBroadcastVideoFromTemplateRequest& setVariables(vector<TemplateVariable> && variables) { DARABONBA_PTR_SET_RVALUE(variables_, variables) };
 
@@ -66,17 +117,17 @@ namespace Models
     // videoOptions Field Functions 
     bool hasVideoOptions() const { return this->videoOptions_ != nullptr;};
     void deleteVideoOptions() { this->videoOptions_ = nullptr;};
-    inline const CreateBroadcastVideoFromTemplateRequestVideoOptions & videoOptions() const { DARABONBA_PTR_GET_CONST(videoOptions_, CreateBroadcastVideoFromTemplateRequestVideoOptions) };
-    inline CreateBroadcastVideoFromTemplateRequestVideoOptions videoOptions() { DARABONBA_PTR_GET(videoOptions_, CreateBroadcastVideoFromTemplateRequestVideoOptions) };
-    inline CreateBroadcastVideoFromTemplateRequest& setVideoOptions(const CreateBroadcastVideoFromTemplateRequestVideoOptions & videoOptions) { DARABONBA_PTR_SET_VALUE(videoOptions_, videoOptions) };
-    inline CreateBroadcastVideoFromTemplateRequest& setVideoOptions(CreateBroadcastVideoFromTemplateRequestVideoOptions && videoOptions) { DARABONBA_PTR_SET_RVALUE(videoOptions_, videoOptions) };
+    inline const CreateBroadcastVideoFromTemplateRequest::VideoOptions & getVideoOptions() const { DARABONBA_PTR_GET_CONST(videoOptions_, CreateBroadcastVideoFromTemplateRequest::VideoOptions) };
+    inline CreateBroadcastVideoFromTemplateRequest::VideoOptions getVideoOptions() { DARABONBA_PTR_GET(videoOptions_, CreateBroadcastVideoFromTemplateRequest::VideoOptions) };
+    inline CreateBroadcastVideoFromTemplateRequest& setVideoOptions(const CreateBroadcastVideoFromTemplateRequest::VideoOptions & videoOptions) { DARABONBA_PTR_SET_VALUE(videoOptions_, videoOptions) };
+    inline CreateBroadcastVideoFromTemplateRequest& setVideoOptions(CreateBroadcastVideoFromTemplateRequest::VideoOptions && videoOptions) { DARABONBA_PTR_SET_RVALUE(videoOptions_, videoOptions) };
 
 
   protected:
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> templateId_ = nullptr;
-    std::shared_ptr<vector<TemplateVariable>> variables_ = nullptr;
-    std::shared_ptr<CreateBroadcastVideoFromTemplateRequestVideoOptions> videoOptions_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> templateId_ {};
+    shared_ptr<vector<TemplateVariable>> variables_ {};
+    shared_ptr<CreateBroadcastVideoFromTemplateRequest::VideoOptions> videoOptions_ {};
   };
 
   } // namespace Models

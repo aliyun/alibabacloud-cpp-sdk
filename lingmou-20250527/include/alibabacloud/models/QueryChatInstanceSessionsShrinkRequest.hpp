@@ -33,12 +33,12 @@ namespace Models
     // sessionIdsShrink Field Functions 
     bool hasSessionIdsShrink() const { return this->sessionIdsShrink_ != nullptr;};
     void deleteSessionIdsShrink() { this->sessionIdsShrink_ = nullptr;};
-    inline string sessionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(sessionIdsShrink_, "") };
+    inline string getSessionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(sessionIdsShrink_, "") };
     inline QueryChatInstanceSessionsShrinkRequest& setSessionIdsShrink(string sessionIdsShrink) { DARABONBA_PTR_SET_VALUE(sessionIdsShrink_, sessionIdsShrink) };
 
 
   protected:
-    std::shared_ptr<string> sessionIdsShrink_ = nullptr;
+    shared_ptr<string> sessionIdsShrink_ {};
   };
 
   } // namespace Models

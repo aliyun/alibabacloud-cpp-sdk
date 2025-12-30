@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->gender_ == nullptr && return this->name_ == nullptr && return this->ossKey_ == nullptr; };
+        && this->gender_ == nullptr && this->name_ == nullptr && this->ossKey_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline CreateTTSVoiceCustomRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // gender Field Functions 
     bool hasGender() const { return this->gender_ != nullptr;};
     void deleteGender() { this->gender_ = nullptr;};
-    inline string gender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
+    inline string getGender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
     inline CreateTTSVoiceCustomRequest& setGender(string gender) { DARABONBA_PTR_SET_VALUE(gender_, gender) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateTTSVoiceCustomRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ossKey Field Functions 
     bool hasOssKey() const { return this->ossKey_ != nullptr;};
     void deleteOssKey() { this->ossKey_ = nullptr;};
-    inline string ossKey() const { DARABONBA_PTR_GET_DEFAULT(ossKey_, "") };
+    inline string getOssKey() const { DARABONBA_PTR_GET_DEFAULT(ossKey_, "") };
     inline CreateTTSVoiceCustomRequest& setOssKey(string ossKey) { DARABONBA_PTR_SET_VALUE(ossKey_, ossKey) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
-    std::shared_ptr<string> gender_ = nullptr;
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> gender_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> ossKey_ = nullptr;
+    shared_ptr<string> ossKey_ {};
   };
 
   } // namespace Models

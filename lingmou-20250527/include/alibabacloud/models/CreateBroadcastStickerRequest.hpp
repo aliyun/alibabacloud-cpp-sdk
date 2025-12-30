@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->ossKey_ == nullptr; };
+        && this->ossKey_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline CreateBroadcastStickerRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // ossKey Field Functions 
     bool hasOssKey() const { return this->ossKey_ != nullptr;};
     void deleteOssKey() { this->ossKey_ = nullptr;};
-    inline string ossKey() const { DARABONBA_PTR_GET_DEFAULT(ossKey_, "") };
+    inline string getOssKey() const { DARABONBA_PTR_GET_DEFAULT(ossKey_, "") };
     inline CreateBroadcastStickerRequest& setOssKey(string ossKey) { DARABONBA_PTR_SET_VALUE(ossKey_, ossKey) };
 
 
   protected:
-    std::shared_ptr<string> fileName_ = nullptr;
-    std::shared_ptr<string> ossKey_ = nullptr;
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> ossKey_ {};
   };
 
   } // namespace Models

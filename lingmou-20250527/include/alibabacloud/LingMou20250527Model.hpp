@@ -66,22 +66,5 @@
 #include <alibabacloud/models/QueryChatInstanceSessionsShrinkRequest.hpp>
 #include <alibabacloud/models/QueryChatInstanceSessionsResponseBody.hpp>
 #include <alibabacloud/models/QueryChatInstanceSessionsResponse.hpp>
-#include <alibabacloud/models/CreateBackgroundPicResponseBodyData.hpp>
-#include <alibabacloud/models/CreateBroadcastStickerResponseBodyData.hpp>
-#include <alibabacloud/models/CreateBroadcastVideoFromTemplateRequestVideoOptions.hpp>
-#include <alibabacloud/models/CreateChatConfigResponseBodyData.hpp>
-#include <alibabacloud/models/CreateChatSessionResponseBodyDataAvatarAssets.hpp>
-#include <alibabacloud/models/CreateChatSessionResponseBodyDataRtcParams.hpp>
-#include <alibabacloud/models/CreateChatSessionResponseBodyData.hpp>
-#include <alibabacloud/models/CreateNoTrainPicAvatarResponseBodyData.hpp>
-#include <alibabacloud/models/CreateTtsVoiceCustomResponseBodyData.hpp>
-#include <alibabacloud/models/CreateTrainPicAvatarResponseBodyData.hpp>
-#include <alibabacloud/models/GetTtsVoiceByIdCustomResponseBodyData.hpp>
-#include <alibabacloud/models/GetTrainPicAvatarStatusResponseBodyData.hpp>
-#include <alibabacloud/models/GetUploadPolicyResponseBodyDataOssPolicy.hpp>
-#include <alibabacloud/models/GetUploadPolicyResponseBodyData.hpp>
-#include <alibabacloud/models/ListPrivateTtsVoicesCustomResponseBodyDataData.hpp>
-#include <alibabacloud/models/ListPrivateTtsVoicesCustomResponseBodyData.hpp>
-#include <alibabacloud/models/ListTemplateMaterialResponseBodyData.hpp>
 
 #endif

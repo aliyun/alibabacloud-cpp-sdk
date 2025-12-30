@@ -34,14 +34,14 @@ namespace Models
     // sessionIds Field Functions 
     bool hasSessionIds() const { return this->sessionIds_ != nullptr;};
     void deleteSessionIds() { this->sessionIds_ = nullptr;};
-    inline const vector<string> & sessionIds() const { DARABONBA_PTR_GET_CONST(sessionIds_, vector<string>) };
-    inline vector<string> sessionIds() { DARABONBA_PTR_GET(sessionIds_, vector<string>) };
+    inline const vector<string> & getSessionIds() const { DARABONBA_PTR_GET_CONST(sessionIds_, vector<string>) };
+    inline vector<string> getSessionIds() { DARABONBA_PTR_GET(sessionIds_, vector<string>) };
     inline QueryChatInstanceSessionsRequest& setSessionIds(const vector<string> & sessionIds) { DARABONBA_PTR_SET_VALUE(sessionIds_, sessionIds) };
     inline QueryChatInstanceSessionsRequest& setSessionIds(vector<string> && sessionIds) { DARABONBA_PTR_SET_RVALUE(sessionIds_, sessionIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> sessionIds_ = nullptr;
+    shared_ptr<vector<string>> sessionIds_ {};
   };
 
   } // namespace Models

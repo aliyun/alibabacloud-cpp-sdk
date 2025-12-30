@@ -33,12 +33,12 @@ namespace Models
     // videoIdsShrink Field Functions 
     bool hasVideoIdsShrink() const { return this->videoIdsShrink_ != nullptr;};
     void deleteVideoIdsShrink() { this->videoIdsShrink_ = nullptr;};
-    inline string videoIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(videoIdsShrink_, "") };
+    inline string getVideoIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(videoIdsShrink_, "") };
     inline ListBroadcastVideosByIdShrinkRequest& setVideoIdsShrink(string videoIdsShrink) { DARABONBA_PTR_SET_VALUE(videoIdsShrink_, videoIdsShrink) };
 
 
   protected:
-    std::shared_ptr<string> videoIdsShrink_ = nullptr;
+    shared_ptr<string> videoIdsShrink_ {};
   };
 
   } // namespace Models

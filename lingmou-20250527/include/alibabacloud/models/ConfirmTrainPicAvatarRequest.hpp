@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->avatarId_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // avatarId Field Functions 
     bool hasAvatarId() const { return this->avatarId_ != nullptr;};
     void deleteAvatarId() { this->avatarId_ = nullptr;};
-    inline string avatarId() const { DARABONBA_PTR_GET_DEFAULT(avatarId_, "") };
+    inline string getAvatarId() const { DARABONBA_PTR_GET_DEFAULT(avatarId_, "") };
     inline ConfirmTrainPicAvatarRequest& setAvatarId(string avatarId) { DARABONBA_PTR_SET_VALUE(avatarId_, avatarId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ConfirmTrainPicAvatarRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> avatarId_ = nullptr;
+    shared_ptr<string> avatarId_ {};
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models
