@@ -43,43 +43,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channel_ == nullptr
-        && return this->enableLibrary_ == nullptr && return this->metaData_ == nullptr && return this->playCode_ == nullptr && return this->qaLibraryList_ == nullptr && return this->requestId_ == nullptr
-        && return this->selfDirected_ == nullptr; };
+        && this->enableLibrary_ == nullptr && this->metaData_ == nullptr && this->playCode_ == nullptr && this->qaLibraryList_ == nullptr && this->requestId_ == nullptr
+        && this->selfDirected_ == nullptr; };
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
-    inline string channel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
     inline CreateDialogRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // enableLibrary Field Functions 
     bool hasEnableLibrary() const { return this->enableLibrary_ != nullptr;};
     void deleteEnableLibrary() { this->enableLibrary_ = nullptr;};
-    inline bool enableLibrary() const { DARABONBA_PTR_GET_DEFAULT(enableLibrary_, false) };
+    inline bool getEnableLibrary() const { DARABONBA_PTR_GET_DEFAULT(enableLibrary_, false) };
     inline CreateDialogRequest& setEnableLibrary(bool enableLibrary) { DARABONBA_PTR_SET_VALUE(enableLibrary_, enableLibrary) };
 
 
     // metaData Field Functions 
     bool hasMetaData() const { return this->metaData_ != nullptr;};
     void deleteMetaData() { this->metaData_ = nullptr;};
-    inline     const Darabonba::Json & metaData() const { DARABONBA_GET(metaData_) };
-    Darabonba::Json & metaData() { DARABONBA_GET(metaData_) };
+    inline     const Darabonba::Json & getMetaData() const { DARABONBA_GET(metaData_) };
+    Darabonba::Json & getMetaData() { DARABONBA_GET(metaData_) };
     inline CreateDialogRequest& setMetaData(const Darabonba::Json & metaData) { DARABONBA_SET_VALUE(metaData_, metaData) };
-    inline CreateDialogRequest& setMetaData(Darabonba::Json & metaData) { DARABONBA_SET_RVALUE(metaData_, metaData) };
+    inline CreateDialogRequest& setMetaData(Darabonba::Json && metaData) { DARABONBA_SET_RVALUE(metaData_, metaData) };
 
 
     // playCode Field Functions 
     bool hasPlayCode() const { return this->playCode_ != nullptr;};
     void deletePlayCode() { this->playCode_ = nullptr;};
-    inline string playCode() const { DARABONBA_PTR_GET_DEFAULT(playCode_, "") };
+    inline string getPlayCode() const { DARABONBA_PTR_GET_DEFAULT(playCode_, "") };
     inline CreateDialogRequest& setPlayCode(string playCode) { DARABONBA_PTR_SET_VALUE(playCode_, playCode) };
 
 
     // qaLibraryList Field Functions 
     bool hasQaLibraryList() const { return this->qaLibraryList_ != nullptr;};
     void deleteQaLibraryList() { this->qaLibraryList_ = nullptr;};
-    inline const vector<string> & qaLibraryList() const { DARABONBA_PTR_GET_CONST(qaLibraryList_, vector<string>) };
-    inline vector<string> qaLibraryList() { DARABONBA_PTR_GET(qaLibraryList_, vector<string>) };
+    inline const vector<string> & getQaLibraryList() const { DARABONBA_PTR_GET_CONST(qaLibraryList_, vector<string>) };
+    inline vector<string> getQaLibraryList() { DARABONBA_PTR_GET(qaLibraryList_, vector<string>) };
     inline CreateDialogRequest& setQaLibraryList(const vector<string> & qaLibraryList) { DARABONBA_PTR_SET_VALUE(qaLibraryList_, qaLibraryList) };
     inline CreateDialogRequest& setQaLibraryList(vector<string> && qaLibraryList) { DARABONBA_PTR_SET_RVALUE(qaLibraryList_, qaLibraryList) };
 
@@ -87,28 +87,28 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDialogRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // selfDirected Field Functions 
     bool hasSelfDirected() const { return this->selfDirected_ != nullptr;};
     void deleteSelfDirected() { this->selfDirected_ = nullptr;};
-    inline bool selfDirected() const { DARABONBA_PTR_GET_DEFAULT(selfDirected_, false) };
+    inline bool getSelfDirected() const { DARABONBA_PTR_GET_DEFAULT(selfDirected_, false) };
     inline CreateDialogRequest& setSelfDirected(bool selfDirected) { DARABONBA_PTR_SET_VALUE(selfDirected_, selfDirected) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> channel_ = nullptr;
-    std::shared_ptr<bool> enableLibrary_ = nullptr;
-    Darabonba::Json metaData_ = nullptr;
+    shared_ptr<string> channel_ {};
+    shared_ptr<bool> enableLibrary_ {};
+    Darabonba::Json metaData_ {};
     // This parameter is required.
-    std::shared_ptr<string> playCode_ = nullptr;
-    std::shared_ptr<vector<string>> qaLibraryList_ = nullptr;
+    shared_ptr<string> playCode_ {};
+    shared_ptr<vector<string>> qaLibraryList_ {};
     // This parameter is required.
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> selfDirected_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> selfDirected_ {};
   };
 
   } // namespace Models

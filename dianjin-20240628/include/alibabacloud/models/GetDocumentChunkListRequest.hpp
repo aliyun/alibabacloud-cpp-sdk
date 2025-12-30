@@ -45,13 +45,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chunkIdList_ == nullptr
-        && return this->docId_ == nullptr && return this->libraryId_ == nullptr && return this->order_ == nullptr && return this->orderBy_ == nullptr && return this->page_ == nullptr
-        && return this->pageSize_ == nullptr && return this->searchQuery_ == nullptr; };
+        && this->docId_ == nullptr && this->libraryId_ == nullptr && this->order_ == nullptr && this->orderBy_ == nullptr && this->page_ == nullptr
+        && this->pageSize_ == nullptr && this->searchQuery_ == nullptr; };
     // chunkIdList Field Functions 
     bool hasChunkIdList() const { return this->chunkIdList_ != nullptr;};
     void deleteChunkIdList() { this->chunkIdList_ = nullptr;};
-    inline const vector<string> & chunkIdList() const { DARABONBA_PTR_GET_CONST(chunkIdList_, vector<string>) };
-    inline vector<string> chunkIdList() { DARABONBA_PTR_GET(chunkIdList_, vector<string>) };
+    inline const vector<string> & getChunkIdList() const { DARABONBA_PTR_GET_CONST(chunkIdList_, vector<string>) };
+    inline vector<string> getChunkIdList() { DARABONBA_PTR_GET(chunkIdList_, vector<string>) };
     inline GetDocumentChunkListRequest& setChunkIdList(const vector<string> & chunkIdList) { DARABONBA_PTR_SET_VALUE(chunkIdList_, chunkIdList) };
     inline GetDocumentChunkListRequest& setChunkIdList(vector<string> && chunkIdList) { DARABONBA_PTR_SET_RVALUE(chunkIdList_, chunkIdList) };
 
@@ -59,63 +59,63 @@ namespace Models
     // docId Field Functions 
     bool hasDocId() const { return this->docId_ != nullptr;};
     void deleteDocId() { this->docId_ = nullptr;};
-    inline string docId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
+    inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
     inline GetDocumentChunkListRequest& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
 
 
     // libraryId Field Functions 
     bool hasLibraryId() const { return this->libraryId_ != nullptr;};
     void deleteLibraryId() { this->libraryId_ = nullptr;};
-    inline string libraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
+    inline string getLibraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
     inline GetDocumentChunkListRequest& setLibraryId(string libraryId) { DARABONBA_PTR_SET_VALUE(libraryId_, libraryId) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline GetDocumentChunkListRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline GetDocumentChunkListRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
-    inline int32_t page() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
     inline GetDocumentChunkListRequest& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetDocumentChunkListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // searchQuery Field Functions 
     bool hasSearchQuery() const { return this->searchQuery_ != nullptr;};
     void deleteSearchQuery() { this->searchQuery_ = nullptr;};
-    inline string searchQuery() const { DARABONBA_PTR_GET_DEFAULT(searchQuery_, "") };
+    inline string getSearchQuery() const { DARABONBA_PTR_GET_DEFAULT(searchQuery_, "") };
     inline GetDocumentChunkListRequest& setSearchQuery(string searchQuery) { DARABONBA_PTR_SET_VALUE(searchQuery_, searchQuery) };
 
 
   protected:
-    std::shared_ptr<vector<string>> chunkIdList_ = nullptr;
+    shared_ptr<vector<string>> chunkIdList_ {};
     // This parameter is required.
-    std::shared_ptr<string> docId_ = nullptr;
+    shared_ptr<string> docId_ {};
     // This parameter is required.
-    std::shared_ptr<string> libraryId_ = nullptr;
-    std::shared_ptr<string> order_ = nullptr;
-    std::shared_ptr<string> orderBy_ = nullptr;
-    std::shared_ptr<int32_t> page_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> searchQuery_ = nullptr;
+    shared_ptr<string> libraryId_ {};
+    shared_ptr<string> order_ {};
+    shared_ptr<string> orderBy_ {};
+    shared_ptr<int32_t> page_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> searchQuery_ {};
   };
 
   } // namespace Models

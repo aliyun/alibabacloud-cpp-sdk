@@ -34,15 +34,15 @@ namespace Models
     // taskIds Field Functions 
     bool hasTaskIds() const { return this->taskIds_ != nullptr;};
     void deleteTaskIds() { this->taskIds_ = nullptr;};
-    inline const vector<string> & taskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
-    inline vector<string> taskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
+    inline const vector<string> & getTaskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
+    inline vector<string> getTaskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
     inline RebuildTaskRequest& setTaskIds(const vector<string> & taskIds) { DARABONBA_PTR_SET_VALUE(taskIds_, taskIds) };
     inline RebuildTaskRequest& setTaskIds(vector<string> && taskIds) { DARABONBA_PTR_SET_RVALUE(taskIds_, taskIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> taskIds_ = nullptr;
+    shared_ptr<vector<string>> taskIds_ {};
   };
 
   } // namespace Models

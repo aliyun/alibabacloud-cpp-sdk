@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->docIds_ == nullptr
-        && return this->libraryId_ == nullptr; };
+        && this->libraryId_ == nullptr; };
     // docIds Field Functions 
     bool hasDocIds() const { return this->docIds_ != nullptr;};
     void deleteDocIds() { this->docIds_ = nullptr;};
-    inline const vector<string> & docIds() const { DARABONBA_PTR_GET_CONST(docIds_, vector<string>) };
-    inline vector<string> docIds() { DARABONBA_PTR_GET(docIds_, vector<string>) };
+    inline const vector<string> & getDocIds() const { DARABONBA_PTR_GET_CONST(docIds_, vector<string>) };
+    inline vector<string> getDocIds() { DARABONBA_PTR_GET(docIds_, vector<string>) };
     inline DeleteDocumentRequest& setDocIds(const vector<string> & docIds) { DARABONBA_PTR_SET_VALUE(docIds_, docIds) };
     inline DeleteDocumentRequest& setDocIds(vector<string> && docIds) { DARABONBA_PTR_SET_RVALUE(docIds_, docIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // libraryId Field Functions 
     bool hasLibraryId() const { return this->libraryId_ != nullptr;};
     void deleteLibraryId() { this->libraryId_ = nullptr;};
-    inline string libraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
+    inline string getLibraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
     inline DeleteDocumentRequest& setLibraryId(string libraryId) { DARABONBA_PTR_SET_VALUE(libraryId_, libraryId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> docIds_ = nullptr;
+    shared_ptr<vector<string>> docIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> libraryId_ = nullptr;
+    shared_ptr<string> libraryId_ {};
   };
 
   } // namespace Models

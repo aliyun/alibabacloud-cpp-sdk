@@ -220,6 +220,24 @@ namespace DianJin20240628
       Models::CreateVideoCreationTaskResponse createVideoCreationTask(const string &workspaceId, const Models::CreateVideoCreationTaskRequest &request);
 
       /**
+       * @summary Dashscope异步任务完成事件处理
+       *
+       * @param request DashscopeAsyncTaskFinishEventRequest
+       * @param headers DashscopeAsyncTaskFinishEventHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DashscopeAsyncTaskFinishEventResponse
+       */
+      Models::DashscopeAsyncTaskFinishEventResponse dashscopeAsyncTaskFinishEventWithOptions(const string &workspaceId, const Models::DashscopeAsyncTaskFinishEventRequest &request, const Models::DashscopeAsyncTaskFinishEventHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Dashscope异步任务完成事件处理
+       *
+       * @param request DashscopeAsyncTaskFinishEventRequest
+       * @return DashscopeAsyncTaskFinishEventResponse
+       */
+      Models::DashscopeAsyncTaskFinishEventResponse dashscopeAsyncTaskFinishEvent(const string &workspaceId, const Models::DashscopeAsyncTaskFinishEventRequest &request);
+
+      /**
        * @summary 删除文档
        *
        * @param request DeleteDocumentRequest
@@ -711,7 +729,7 @@ namespace DianJin20240628
        * @param runtime runtime options for this request RuntimeOptions
        * @return RealTimeDialogResponse
        */
-      FutrueGenerator<Models::RealTimeDialogResponse> realTimeDialogWithSSE(const string &workspaceId, const Models::RealTimeDialogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RealTimeDialogResponse> realTimeDialogWithSSE(const string &workspaceId, const Models::RealTimeDialogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 实时对话
@@ -811,7 +829,7 @@ namespace DianJin20240628
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunAgentResponse
        */
-      FutrueGenerator<Models::RunAgentResponse> runAgentWithSSE(const string &workspaceId, const Models::RunAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunAgentResponse> runAgentWithSSE(const string &workspaceId, const Models::RunAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 运行智能体
@@ -839,7 +857,7 @@ namespace DianJin20240628
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunChatResultGenerationResponse
        */
-      FutrueGenerator<Models::RunChatResultGenerationResponse> runChatResultGenerationWithSSE(const string &workspaceId, const Models::RunChatResultGenerationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunChatResultGenerationResponse> runChatResultGenerationWithSSE(const string &workspaceId, const Models::RunChatResultGenerationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取生成式对话结果
@@ -867,7 +885,7 @@ namespace DianJin20240628
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunDialogAnalysisResponse
        */
-      FutrueGenerator<Models::RunDialogAnalysisResponse> runDialogAnalysisWithSSE(const string &workspaceId, const Models::RunDialogAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunDialogAnalysisResponse> runDialogAnalysisWithSSE(const string &workspaceId, const Models::RunDialogAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 流式获取外呼会话分析结果
@@ -895,7 +913,7 @@ namespace DianJin20240628
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunLibraryChatGenerationResponse
        */
-      FutrueGenerator<Models::RunLibraryChatGenerationResponse> runLibraryChatGenerationWithSSE(const string &workspaceId, const Models::RunLibraryChatGenerationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunLibraryChatGenerationResponse> runLibraryChatGenerationWithSSE(const string &workspaceId, const Models::RunLibraryChatGenerationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取生成式对话结果

@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->libraryId_ == nullptr; };
+        && this->fileName_ == nullptr && this->fileUrl_ == nullptr && this->libraryId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline UploadDocumentRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline UploadDocumentRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileUrl Field Functions 
     bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
-    inline string fileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline UploadDocumentRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
     // libraryId Field Functions 
     bool hasLibraryId() const { return this->libraryId_ != nullptr;};
     void deleteLibraryId() { this->libraryId_ = nullptr;};
-    inline string libraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
+    inline string getLibraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
     inline UploadDocumentRequest& setLibraryId(string libraryId) { DARABONBA_PTR_SET_VALUE(libraryId_, libraryId) };
 
 
   protected:
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileUrl_ = nullptr;
+    shared_ptr<string> fileUrl_ {};
     // This parameter is required.
-    std::shared_ptr<string> libraryId_ = nullptr;
+    shared_ptr<string> libraryId_ {};
   };
 
   } // namespace Models

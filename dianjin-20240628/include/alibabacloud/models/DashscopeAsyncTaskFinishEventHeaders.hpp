@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEIMAGEDETECTIONTASKHEADERS_HPP_
-#define ALIBABACLOUD_MODELS_CREATEIMAGEDETECTIONTASKHEADERS_HPP_
+#ifndef ALIBABACLOUD_MODELS_DASHSCOPEASYNCTASKFINISHEVENTHEADERS_HPP_
+#define ALIBABACLOUD_MODELS_DASHSCOPEASYNCTASKFINISHEVENTHEADERS_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
 using namespace std;
@@ -11,23 +11,23 @@ namespace DianJin20240628
 {
 namespace Models
 {
-  class CreateImageDetectionTaskHeaders : public Darabonba::Model {
+  class DashscopeAsyncTaskFinishEventHeaders : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateImageDetectionTaskHeaders& obj) { 
+    friend void to_json(Darabonba::Json& j, const DashscopeAsyncTaskFinishEventHeaders& obj) { 
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(X-Load-Test, xLoadTest_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateImageDetectionTaskHeaders& obj) { 
+    friend void from_json(const Darabonba::Json& j, DashscopeAsyncTaskFinishEventHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(X-Load-Test, xLoadTest_);
     };
-    CreateImageDetectionTaskHeaders() = default ;
-    CreateImageDetectionTaskHeaders(const CreateImageDetectionTaskHeaders &) = default ;
-    CreateImageDetectionTaskHeaders(CreateImageDetectionTaskHeaders &&) = default ;
-    CreateImageDetectionTaskHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateImageDetectionTaskHeaders() = default ;
-    CreateImageDetectionTaskHeaders& operator=(const CreateImageDetectionTaskHeaders &) = default ;
-    CreateImageDetectionTaskHeaders& operator=(CreateImageDetectionTaskHeaders &&) = default ;
+    DashscopeAsyncTaskFinishEventHeaders() = default ;
+    DashscopeAsyncTaskFinishEventHeaders(const DashscopeAsyncTaskFinishEventHeaders &) = default ;
+    DashscopeAsyncTaskFinishEventHeaders(DashscopeAsyncTaskFinishEventHeaders &&) = default ;
+    DashscopeAsyncTaskFinishEventHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DashscopeAsyncTaskFinishEventHeaders() = default ;
+    DashscopeAsyncTaskFinishEventHeaders& operator=(const DashscopeAsyncTaskFinishEventHeaders &) = default ;
+    DashscopeAsyncTaskFinishEventHeaders& operator=(DashscopeAsyncTaskFinishEventHeaders &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,15 +39,15 @@ namespace Models
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
     inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
     inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
-    inline CreateImageDetectionTaskHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
-    inline CreateImageDetectionTaskHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
+    inline DashscopeAsyncTaskFinishEventHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
+    inline DashscopeAsyncTaskFinishEventHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
 
     // xLoadTest Field Functions 
     bool hasXLoadTest() const { return this->xLoadTest_ != nullptr;};
     void deleteXLoadTest() { this->xLoadTest_ = nullptr;};
     inline bool getXLoadTest() const { DARABONBA_PTR_GET_DEFAULT(xLoadTest_, false) };
-    inline CreateImageDetectionTaskHeaders& setXLoadTest(bool xLoadTest) { DARABONBA_PTR_SET_VALUE(xLoadTest_, xLoadTest) };
+    inline DashscopeAsyncTaskFinishEventHeaders& setXLoadTest(bool xLoadTest) { DARABONBA_PTR_SET_VALUE(xLoadTest_, xLoadTest) };
 
 
   protected:

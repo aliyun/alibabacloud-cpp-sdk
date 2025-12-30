@@ -33,13 +33,13 @@ namespace Models
     // documentId Field Functions 
     bool hasDocumentId() const { return this->documentId_ != nullptr;};
     void deleteDocumentId() { this->documentId_ = nullptr;};
-    inline string documentId() const { DARABONBA_PTR_GET_DEFAULT(documentId_, "") };
+    inline string getDocumentId() const { DARABONBA_PTR_GET_DEFAULT(documentId_, "") };
     inline GetDocumentUrlRequest& setDocumentId(string documentId) { DARABONBA_PTR_SET_VALUE(documentId_, documentId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> documentId_ = nullptr;
+    shared_ptr<string> documentId_ {};
   };
 
   } // namespace Models

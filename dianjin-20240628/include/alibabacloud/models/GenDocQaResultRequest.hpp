@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->docId_ == nullptr
-        && return this->libraryId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->libraryId_ == nullptr && this->requestId_ == nullptr; };
     // docId Field Functions 
     bool hasDocId() const { return this->docId_ != nullptr;};
     void deleteDocId() { this->docId_ = nullptr;};
-    inline string docId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
+    inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
     inline GenDocQaResultRequest& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
 
 
     // libraryId Field Functions 
     bool hasLibraryId() const { return this->libraryId_ != nullptr;};
     void deleteLibraryId() { this->libraryId_ = nullptr;};
-    inline string libraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
+    inline string getLibraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
     inline GenDocQaResultRequest& setLibraryId(string libraryId) { DARABONBA_PTR_SET_VALUE(libraryId_, libraryId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenDocQaResultRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> docId_ = nullptr;
+    shared_ptr<string> docId_ {};
     // This parameter is required.
-    std::shared_ptr<string> libraryId_ = nullptr;
+    shared_ptr<string> libraryId_ {};
     // This parameter is required.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

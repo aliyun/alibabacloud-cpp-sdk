@@ -33,13 +33,13 @@ namespace Models
     // libraryId Field Functions 
     bool hasLibraryId() const { return this->libraryId_ != nullptr;};
     void deleteLibraryId() { this->libraryId_ = nullptr;};
-    inline string libraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
+    inline string getLibraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
     inline GetLibraryRequest& setLibraryId(string libraryId) { DARABONBA_PTR_SET_VALUE(libraryId_, libraryId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> libraryId_ = nullptr;
+    shared_ptr<string> libraryId_ {};
   };
 
   } // namespace Models

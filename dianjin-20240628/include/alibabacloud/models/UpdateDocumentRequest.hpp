@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->docId_ == nullptr
-        && return this->libraryId_ == nullptr && return this->meta_ == nullptr && return this->title_ == nullptr; };
+        && this->libraryId_ == nullptr && this->meta_ == nullptr && this->title_ == nullptr; };
     // docId Field Functions 
     bool hasDocId() const { return this->docId_ != nullptr;};
     void deleteDocId() { this->docId_ = nullptr;};
-    inline string docId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
+    inline string getDocId() const { DARABONBA_PTR_GET_DEFAULT(docId_, "") };
     inline UpdateDocumentRequest& setDocId(string docId) { DARABONBA_PTR_SET_VALUE(docId_, docId) };
 
 
     // libraryId Field Functions 
     bool hasLibraryId() const { return this->libraryId_ != nullptr;};
     void deleteLibraryId() { this->libraryId_ = nullptr;};
-    inline string libraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
+    inline string getLibraryId() const { DARABONBA_PTR_GET_DEFAULT(libraryId_, "") };
     inline UpdateDocumentRequest& setLibraryId(string libraryId) { DARABONBA_PTR_SET_VALUE(libraryId_, libraryId) };
 
 
     // meta Field Functions 
     bool hasMeta() const { return this->meta_ != nullptr;};
     void deleteMeta() { this->meta_ = nullptr;};
-    inline     const Darabonba::Json & meta() const { DARABONBA_GET(meta_) };
-    Darabonba::Json & meta() { DARABONBA_GET(meta_) };
+    inline     const Darabonba::Json & getMeta() const { DARABONBA_GET(meta_) };
+    Darabonba::Json & getMeta() { DARABONBA_GET(meta_) };
     inline UpdateDocumentRequest& setMeta(const Darabonba::Json & meta) { DARABONBA_SET_VALUE(meta_, meta) };
-    inline UpdateDocumentRequest& setMeta(Darabonba::Json & meta) { DARABONBA_SET_RVALUE(meta_, meta) };
+    inline UpdateDocumentRequest& setMeta(Darabonba::Json && meta) { DARABONBA_SET_RVALUE(meta_, meta) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline UpdateDocumentRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> docId_ = nullptr;
+    shared_ptr<string> docId_ {};
     // This parameter is required.
-    std::shared_ptr<string> libraryId_ = nullptr;
-    Darabonba::Json meta_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> libraryId_ {};
+    Darabonba::Json meta_ {};
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models
