@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceCredentialProviderName_ == nullptr
-        && return this->workloadAccessToken_ == nullptr; };
+        && this->workloadAccessToken_ == nullptr; };
     // resourceCredentialProviderName Field Functions 
     bool hasResourceCredentialProviderName() const { return this->resourceCredentialProviderName_ != nullptr;};
     void deleteResourceCredentialProviderName() { this->resourceCredentialProviderName_ = nullptr;};
-    inline string resourceCredentialProviderName() const { DARABONBA_PTR_GET_DEFAULT(resourceCredentialProviderName_, "") };
+    inline string getResourceCredentialProviderName() const { DARABONBA_PTR_GET_DEFAULT(resourceCredentialProviderName_, "") };
     inline GetResourceAPIKeyRequest& setResourceCredentialProviderName(string resourceCredentialProviderName) { DARABONBA_PTR_SET_VALUE(resourceCredentialProviderName_, resourceCredentialProviderName) };
 
 
     // workloadAccessToken Field Functions 
     bool hasWorkloadAccessToken() const { return this->workloadAccessToken_ != nullptr;};
     void deleteWorkloadAccessToken() { this->workloadAccessToken_ = nullptr;};
-    inline string workloadAccessToken() const { DARABONBA_PTR_GET_DEFAULT(workloadAccessToken_, "") };
+    inline string getWorkloadAccessToken() const { DARABONBA_PTR_GET_DEFAULT(workloadAccessToken_, "") };
     inline GetResourceAPIKeyRequest& setWorkloadAccessToken(string workloadAccessToken) { DARABONBA_PTR_SET_VALUE(workloadAccessToken_, workloadAccessToken) };
 
 
   protected:
-    std::shared_ptr<string> resourceCredentialProviderName_ = nullptr;
-    std::shared_ptr<string> workloadAccessToken_ = nullptr;
+    shared_ptr<string> resourceCredentialProviderName_ {};
+    shared_ptr<string> workloadAccessToken_ {};
   };
 
   } // namespace Models

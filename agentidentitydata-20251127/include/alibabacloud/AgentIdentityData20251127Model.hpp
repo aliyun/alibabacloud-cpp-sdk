@@ -25,11 +25,5 @@
 #include <alibabacloud/models/GetWorkloadAccessTokenForUserIdRequest.hpp>
 #include <alibabacloud/models/GetWorkloadAccessTokenForUserIdResponseBody.hpp>
 #include <alibabacloud/models/GetWorkloadAccessTokenForUserIdResponse.hpp>
-#include <alibabacloud/models/AssumeRoleForWorkloadIdentityResponseBodyAssumedRoleUser.hpp>
-#include <alibabacloud/models/AssumeRoleForWorkloadIdentityResponseBodyCredentials.hpp>
-#include <alibabacloud/models/AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContextJwtClaims.hpp>
-#include <alibabacloud/models/AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfoUserContext.hpp>
-#include <alibabacloud/models/AssumeRoleForWorkloadIdentityResponseBodyWorkloadContextInfo.hpp>
-#include <alibabacloud/models/CompleteResourceTokenAuthRequestUserIdentifier.hpp>
 
 #endif

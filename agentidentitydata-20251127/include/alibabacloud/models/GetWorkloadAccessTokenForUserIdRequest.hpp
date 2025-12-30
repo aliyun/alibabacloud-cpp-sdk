@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->userId_ == nullptr
-        && return this->workloadIdentityName_ == nullptr; };
+        && this->workloadIdentityName_ == nullptr; };
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GetWorkloadAccessTokenForUserIdRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // workloadIdentityName Field Functions 
     bool hasWorkloadIdentityName() const { return this->workloadIdentityName_ != nullptr;};
     void deleteWorkloadIdentityName() { this->workloadIdentityName_ = nullptr;};
-    inline string workloadIdentityName() const { DARABONBA_PTR_GET_DEFAULT(workloadIdentityName_, "") };
+    inline string getWorkloadIdentityName() const { DARABONBA_PTR_GET_DEFAULT(workloadIdentityName_, "") };
     inline GetWorkloadAccessTokenForUserIdRequest& setWorkloadIdentityName(string workloadIdentityName) { DARABONBA_PTR_SET_VALUE(workloadIdentityName_, workloadIdentityName) };
 
 
   protected:
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> workloadIdentityName_ = nullptr;
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> workloadIdentityName_ {};
   };
 
   } // namespace Models

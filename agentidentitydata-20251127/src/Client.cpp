@@ -46,19 +46,19 @@ AssumeRoleForWorkloadIdentityResponse Client::assumeRoleForWorkloadIdentityWithO
   request.validate();
   json body = {};
   if (!!request.hasDurationSeconds()) {
-    body["DurationSeconds"] = request.durationSeconds();
+    body["DurationSeconds"] = request.getDurationSeconds();
   }
 
   if (!!request.hasPolicy()) {
-    body["Policy"] = request.policy();
+    body["Policy"] = request.getPolicy();
   }
 
   if (!!request.hasRoleSessionName()) {
-    body["RoleSessionName"] = request.roleSessionName();
+    body["RoleSessionName"] = request.getRoleSessionName();
   }
 
   if (!!request.hasWorkloadAccessToken()) {
-    body["WorkloadAccessToken"] = request.workloadAccessToken();
+    body["WorkloadAccessToken"] = request.getWorkloadAccessToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -75,7 +75,7 @@ AssumeRoleForWorkloadIdentityResponse Client::assumeRoleForWorkloadIdentityWithO
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<AssumeRoleForWorkloadIdentityResponse>();
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<AssumeRoleForWorkloadIdentityResponse>();
 }
 
 /**
@@ -101,16 +101,16 @@ CompleteResourceTokenAuthResponse Client::completeResourceTokenAuthWithOptions(c
   CompleteResourceTokenAuthShrinkRequest request = CompleteResourceTokenAuthShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserIdentifier()) {
-    request.setUserIdentifierShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIdentifier(), "UserIdentifier", "json"));
+    request.setUserIdentifierShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIdentifier(), "UserIdentifier", "json"));
   }
 
   json body = {};
   if (!!request.hasSessionURI()) {
-    body["SessionURI"] = request.sessionURI();
+    body["SessionURI"] = request.getSessionURI();
   }
 
   if (!!request.hasUserIdentifierShrink()) {
-    body["UserIdentifier"] = request.userIdentifierShrink();
+    body["UserIdentifier"] = request.getUserIdentifierShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -152,11 +152,11 @@ GetResourceAPIKeyResponse Client::getResourceAPIKeyWithOptions(const GetResource
   request.validate();
   json body = {};
   if (!!request.hasResourceCredentialProviderName()) {
-    body["ResourceCredentialProviderName"] = request.resourceCredentialProviderName();
+    body["ResourceCredentialProviderName"] = request.getResourceCredentialProviderName();
   }
 
   if (!!request.hasWorkloadAccessToken()) {
-    body["WorkloadAccessToken"] = request.workloadAccessToken();
+    body["WorkloadAccessToken"] = request.getWorkloadAccessToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -199,48 +199,48 @@ GetResourceOAuth2TokenResponse Client::getResourceOAuth2TokenWithOptions(const G
   GetResourceOAuth2TokenShrinkRequest request = GetResourceOAuth2TokenShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCustomParameters()) {
-    request.setCustomParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.customParameters(), "CustomParameters", "json"));
+    request.setCustomParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomParameters(), "CustomParameters", "json"));
   }
 
   if (!!tmpReq.hasScopes()) {
-    request.setScopesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.scopes(), "Scopes", "json"));
+    request.setScopesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScopes(), "Scopes", "json"));
   }
 
   json body = {};
   if (!!request.hasCustomParametersShrink()) {
-    body["CustomParameters"] = request.customParametersShrink();
+    body["CustomParameters"] = request.getCustomParametersShrink();
   }
 
   if (!!request.hasCustomState()) {
-    body["CustomState"] = request.customState();
+    body["CustomState"] = request.getCustomState();
   }
 
   if (!!request.hasForceAuthentication()) {
-    body["ForceAuthentication"] = request.forceAuthentication();
+    body["ForceAuthentication"] = request.getForceAuthentication();
   }
 
   if (!!request.hasOAuth2Flow()) {
-    body["OAuth2Flow"] = request.OAuth2Flow();
+    body["OAuth2Flow"] = request.getOAuth2Flow();
   }
 
   if (!!request.hasResourceCredentialProviderName()) {
-    body["ResourceCredentialProviderName"] = request.resourceCredentialProviderName();
+    body["ResourceCredentialProviderName"] = request.getResourceCredentialProviderName();
   }
 
   if (!!request.hasResourceOAuth2ReturnURL()) {
-    body["ResourceOAuth2ReturnURL"] = request.resourceOAuth2ReturnURL();
+    body["ResourceOAuth2ReturnURL"] = request.getResourceOAuth2ReturnURL();
   }
 
   if (!!request.hasScopesShrink()) {
-    body["Scopes"] = request.scopesShrink();
+    body["Scopes"] = request.getScopesShrink();
   }
 
   if (!!request.hasSessionURI()) {
-    body["SessionURI"] = request.sessionURI();
+    body["SessionURI"] = request.getSessionURI();
   }
 
   if (!!request.hasWorkloadAccessToken()) {
-    body["WorkloadAccessToken"] = request.workloadAccessToken();
+    body["WorkloadAccessToken"] = request.getWorkloadAccessToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -282,7 +282,7 @@ GetWorkloadAccessTokenResponse Client::getWorkloadAccessTokenWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasWorkloadIdentityName()) {
-    body["WorkloadIdentityName"] = request.workloadIdentityName();
+    body["WorkloadIdentityName"] = request.getWorkloadIdentityName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -324,11 +324,11 @@ GetWorkloadAccessTokenForJWTResponse Client::getWorkloadAccessTokenForJWTWithOpt
   request.validate();
   json body = {};
   if (!!request.hasUserToken()) {
-    body["UserToken"] = request.userToken();
+    body["UserToken"] = request.getUserToken();
   }
 
   if (!!request.hasWorkloadIdentityName()) {
-    body["WorkloadIdentityName"] = request.workloadIdentityName();
+    body["WorkloadIdentityName"] = request.getWorkloadIdentityName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -370,11 +370,11 @@ GetWorkloadAccessTokenForUserIdResponse Client::getWorkloadAccessTokenForUserIdW
   request.validate();
   json body = {};
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   if (!!request.hasWorkloadIdentityName()) {
-    body["WorkloadIdentityName"] = request.workloadIdentityName();
+    body["WorkloadIdentityName"] = request.getWorkloadIdentityName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

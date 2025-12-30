@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sessionURI_ == nullptr
-        && return this->userIdentifierShrink_ == nullptr; };
+        && this->userIdentifierShrink_ == nullptr; };
     // sessionURI Field Functions 
     bool hasSessionURI() const { return this->sessionURI_ != nullptr;};
     void deleteSessionURI() { this->sessionURI_ = nullptr;};
-    inline string sessionURI() const { DARABONBA_PTR_GET_DEFAULT(sessionURI_, "") };
+    inline string getSessionURI() const { DARABONBA_PTR_GET_DEFAULT(sessionURI_, "") };
     inline CompleteResourceTokenAuthShrinkRequest& setSessionURI(string sessionURI) { DARABONBA_PTR_SET_VALUE(sessionURI_, sessionURI) };
 
 
     // userIdentifierShrink Field Functions 
     bool hasUserIdentifierShrink() const { return this->userIdentifierShrink_ != nullptr;};
     void deleteUserIdentifierShrink() { this->userIdentifierShrink_ = nullptr;};
-    inline string userIdentifierShrink() const { DARABONBA_PTR_GET_DEFAULT(userIdentifierShrink_, "") };
+    inline string getUserIdentifierShrink() const { DARABONBA_PTR_GET_DEFAULT(userIdentifierShrink_, "") };
     inline CompleteResourceTokenAuthShrinkRequest& setUserIdentifierShrink(string userIdentifierShrink) { DARABONBA_PTR_SET_VALUE(userIdentifierShrink_, userIdentifierShrink) };
 
 
   protected:
-    std::shared_ptr<string> sessionURI_ = nullptr;
-    std::shared_ptr<string> userIdentifierShrink_ = nullptr;
+    shared_ptr<string> sessionURI_ {};
+    shared_ptr<string> userIdentifierShrink_ {};
   };
 
   } // namespace Models

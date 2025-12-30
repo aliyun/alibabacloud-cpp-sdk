@@ -33,12 +33,12 @@ namespace Models
     // workloadIdentityName Field Functions 
     bool hasWorkloadIdentityName() const { return this->workloadIdentityName_ != nullptr;};
     void deleteWorkloadIdentityName() { this->workloadIdentityName_ = nullptr;};
-    inline string workloadIdentityName() const { DARABONBA_PTR_GET_DEFAULT(workloadIdentityName_, "") };
+    inline string getWorkloadIdentityName() const { DARABONBA_PTR_GET_DEFAULT(workloadIdentityName_, "") };
     inline GetWorkloadAccessTokenRequest& setWorkloadIdentityName(string workloadIdentityName) { DARABONBA_PTR_SET_VALUE(workloadIdentityName_, workloadIdentityName) };
 
 
   protected:
-    std::shared_ptr<string> workloadIdentityName_ = nullptr;
+    shared_ptr<string> workloadIdentityName_ {};
   };
 
   } // namespace Models

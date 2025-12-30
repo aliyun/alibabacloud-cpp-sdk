@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
-        && return this->authorizationURL_ == nullptr && return this->requestId_ == nullptr && return this->sessionStatus_ == nullptr && return this->sessionURI_ == nullptr; };
+        && this->authorizationURL_ == nullptr && this->requestId_ == nullptr && this->sessionStatus_ == nullptr && this->sessionURI_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
-    inline string accessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
+    inline string getAccessToken() const { DARABONBA_PTR_GET_DEFAULT(accessToken_, "") };
     inline GetResourceOAuth2TokenResponseBody& setAccessToken(string accessToken) { DARABONBA_PTR_SET_VALUE(accessToken_, accessToken) };
 
 
     // authorizationURL Field Functions 
     bool hasAuthorizationURL() const { return this->authorizationURL_ != nullptr;};
     void deleteAuthorizationURL() { this->authorizationURL_ = nullptr;};
-    inline string authorizationURL() const { DARABONBA_PTR_GET_DEFAULT(authorizationURL_, "") };
+    inline string getAuthorizationURL() const { DARABONBA_PTR_GET_DEFAULT(authorizationURL_, "") };
     inline GetResourceOAuth2TokenResponseBody& setAuthorizationURL(string authorizationURL) { DARABONBA_PTR_SET_VALUE(authorizationURL_, authorizationURL) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetResourceOAuth2TokenResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sessionStatus Field Functions 
     bool hasSessionStatus() const { return this->sessionStatus_ != nullptr;};
     void deleteSessionStatus() { this->sessionStatus_ = nullptr;};
-    inline string sessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
+    inline string getSessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
     inline GetResourceOAuth2TokenResponseBody& setSessionStatus(string sessionStatus) { DARABONBA_PTR_SET_VALUE(sessionStatus_, sessionStatus) };
 
 
     // sessionURI Field Functions 
     bool hasSessionURI() const { return this->sessionURI_ != nullptr;};
     void deleteSessionURI() { this->sessionURI_ = nullptr;};
-    inline string sessionURI() const { DARABONBA_PTR_GET_DEFAULT(sessionURI_, "") };
+    inline string getSessionURI() const { DARABONBA_PTR_GET_DEFAULT(sessionURI_, "") };
     inline GetResourceOAuth2TokenResponseBody& setSessionURI(string sessionURI) { DARABONBA_PTR_SET_VALUE(sessionURI_, sessionURI) };
 
 
   protected:
-    std::shared_ptr<string> accessToken_ = nullptr;
-    std::shared_ptr<string> authorizationURL_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> sessionStatus_ = nullptr;
-    std::shared_ptr<string> sessionURI_ = nullptr;
+    shared_ptr<string> accessToken_ {};
+    shared_ptr<string> authorizationURL_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> sessionStatus_ {};
+    shared_ptr<string> sessionURI_ {};
   };
 
   } // namespace Models
