@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainList_ == nullptr
-        && return this->outBizId_ == nullptr && return this->publishRemark_ == nullptr && return this->receiverAccount_ == nullptr; };
+        && this->outBizId_ == nullptr && this->publishRemark_ == nullptr && this->receiverAccount_ == nullptr; };
     // domainList Field Functions 
     bool hasDomainList() const { return this->domainList_ != nullptr;};
     void deleteDomainList() { this->domainList_ = nullptr;};
-    inline const vector<string> & domainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
-    inline vector<string> domainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
+    inline const vector<string> & getDomainList() const { DARABONBA_PTR_GET_CONST(domainList_, vector<string>) };
+    inline vector<string> getDomainList() { DARABONBA_PTR_GET(domainList_, vector<string>) };
     inline PushDomainsRequest& setDomainList(const vector<string> & domainList) { DARABONBA_PTR_SET_VALUE(domainList_, domainList) };
     inline PushDomainsRequest& setDomainList(vector<string> && domainList) { DARABONBA_PTR_SET_RVALUE(domainList_, domainList) };
 
@@ -50,32 +50,32 @@ namespace Models
     // outBizId Field Functions 
     bool hasOutBizId() const { return this->outBizId_ != nullptr;};
     void deleteOutBizId() { this->outBizId_ = nullptr;};
-    inline string outBizId() const { DARABONBA_PTR_GET_DEFAULT(outBizId_, "") };
+    inline string getOutBizId() const { DARABONBA_PTR_GET_DEFAULT(outBizId_, "") };
     inline PushDomainsRequest& setOutBizId(string outBizId) { DARABONBA_PTR_SET_VALUE(outBizId_, outBizId) };
 
 
     // publishRemark Field Functions 
     bool hasPublishRemark() const { return this->publishRemark_ != nullptr;};
     void deletePublishRemark() { this->publishRemark_ = nullptr;};
-    inline string publishRemark() const { DARABONBA_PTR_GET_DEFAULT(publishRemark_, "") };
+    inline string getPublishRemark() const { DARABONBA_PTR_GET_DEFAULT(publishRemark_, "") };
     inline PushDomainsRequest& setPublishRemark(string publishRemark) { DARABONBA_PTR_SET_VALUE(publishRemark_, publishRemark) };
 
 
     // receiverAccount Field Functions 
     bool hasReceiverAccount() const { return this->receiverAccount_ != nullptr;};
     void deleteReceiverAccount() { this->receiverAccount_ = nullptr;};
-    inline string receiverAccount() const { DARABONBA_PTR_GET_DEFAULT(receiverAccount_, "") };
+    inline string getReceiverAccount() const { DARABONBA_PTR_GET_DEFAULT(receiverAccount_, "") };
     inline PushDomainsRequest& setReceiverAccount(string receiverAccount) { DARABONBA_PTR_SET_VALUE(receiverAccount_, receiverAccount) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> domainList_ = nullptr;
+    shared_ptr<vector<string>> domainList_ {};
     // This parameter is required.
-    std::shared_ptr<string> outBizId_ = nullptr;
-    std::shared_ptr<string> publishRemark_ = nullptr;
+    shared_ptr<string> outBizId_ {};
+    shared_ptr<string> publishRemark_ {};
     // This parameter is required.
-    std::shared_ptr<string> receiverAccount_ = nullptr;
+    shared_ptr<string> receiverAccount_ {};
   };
 
   } // namespace Models

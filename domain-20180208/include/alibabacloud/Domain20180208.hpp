@@ -85,6 +85,8 @@ namespace Domain20180208
       Models::BatchRecallPushResponse batchRecallPush(const Models::BatchRecallPushRequest &request);
 
       /**
+       * @summary 出价
+       *
        * @param request BidDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return BidDomainResponse
@@ -92,6 +94,8 @@ namespace Domain20180208
       Models::BidDomainResponse bidDomainWithOptions(const Models::BidDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 出价
+       *
        * @param request BidDomainRequest
        * @return BidDomainResponse
        */

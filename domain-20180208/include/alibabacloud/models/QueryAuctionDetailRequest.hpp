@@ -33,13 +33,13 @@ namespace Models
     // auctionId Field Functions 
     bool hasAuctionId() const { return this->auctionId_ != nullptr;};
     void deleteAuctionId() { this->auctionId_ = nullptr;};
-    inline string auctionId() const { DARABONBA_PTR_GET_DEFAULT(auctionId_, "") };
+    inline string getAuctionId() const { DARABONBA_PTR_GET_DEFAULT(auctionId_, "") };
     inline QueryAuctionDetailRequest& setAuctionId(string auctionId) { DARABONBA_PTR_SET_VALUE(auctionId_, auctionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> auctionId_ = nullptr;
+    shared_ptr<string> auctionId_ {};
   };
 
   } // namespace Models

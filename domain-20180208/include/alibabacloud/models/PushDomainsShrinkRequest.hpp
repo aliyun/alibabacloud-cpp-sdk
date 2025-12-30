@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainListShrink_ == nullptr
-        && return this->outBizId_ == nullptr && return this->publishRemark_ == nullptr && return this->receiverAccount_ == nullptr; };
+        && this->outBizId_ == nullptr && this->publishRemark_ == nullptr && this->receiverAccount_ == nullptr; };
     // domainListShrink Field Functions 
     bool hasDomainListShrink() const { return this->domainListShrink_ != nullptr;};
     void deleteDomainListShrink() { this->domainListShrink_ = nullptr;};
-    inline string domainListShrink() const { DARABONBA_PTR_GET_DEFAULT(domainListShrink_, "") };
+    inline string getDomainListShrink() const { DARABONBA_PTR_GET_DEFAULT(domainListShrink_, "") };
     inline PushDomainsShrinkRequest& setDomainListShrink(string domainListShrink) { DARABONBA_PTR_SET_VALUE(domainListShrink_, domainListShrink) };
 
 
     // outBizId Field Functions 
     bool hasOutBizId() const { return this->outBizId_ != nullptr;};
     void deleteOutBizId() { this->outBizId_ = nullptr;};
-    inline string outBizId() const { DARABONBA_PTR_GET_DEFAULT(outBizId_, "") };
+    inline string getOutBizId() const { DARABONBA_PTR_GET_DEFAULT(outBizId_, "") };
     inline PushDomainsShrinkRequest& setOutBizId(string outBizId) { DARABONBA_PTR_SET_VALUE(outBizId_, outBizId) };
 
 
     // publishRemark Field Functions 
     bool hasPublishRemark() const { return this->publishRemark_ != nullptr;};
     void deletePublishRemark() { this->publishRemark_ = nullptr;};
-    inline string publishRemark() const { DARABONBA_PTR_GET_DEFAULT(publishRemark_, "") };
+    inline string getPublishRemark() const { DARABONBA_PTR_GET_DEFAULT(publishRemark_, "") };
     inline PushDomainsShrinkRequest& setPublishRemark(string publishRemark) { DARABONBA_PTR_SET_VALUE(publishRemark_, publishRemark) };
 
 
     // receiverAccount Field Functions 
     bool hasReceiverAccount() const { return this->receiverAccount_ != nullptr;};
     void deleteReceiverAccount() { this->receiverAccount_ = nullptr;};
-    inline string receiverAccount() const { DARABONBA_PTR_GET_DEFAULT(receiverAccount_, "") };
+    inline string getReceiverAccount() const { DARABONBA_PTR_GET_DEFAULT(receiverAccount_, "") };
     inline PushDomainsShrinkRequest& setReceiverAccount(string receiverAccount) { DARABONBA_PTR_SET_VALUE(receiverAccount_, receiverAccount) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> domainListShrink_ = nullptr;
+    shared_ptr<string> domainListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> outBizId_ = nullptr;
-    std::shared_ptr<string> publishRemark_ = nullptr;
+    shared_ptr<string> outBizId_ {};
+    shared_ptr<string> publishRemark_ {};
     // This parameter is required.
-    std::shared_ptr<string> receiverAccount_ = nullptr;
+    shared_ptr<string> receiverAccount_ {};
   };
 
   } // namespace Models

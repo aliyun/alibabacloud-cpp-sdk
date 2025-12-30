@@ -122,32 +122,5 @@
 #include <alibabacloud/models/WebsiteDeleteDnsRecordRequest.hpp>
 #include <alibabacloud/models/WebsiteDeleteDnsRecordResponseBody.hpp>
 #include <alibabacloud/models/WebsiteDeleteDnsRecordResponse.hpp>
-#include <alibabacloud/models/BatchIntrudeDomainsResponseBodyDataFailureList.hpp>
-#include <alibabacloud/models/BatchIntrudeDomainsResponseBodyDataSuccessList.hpp>
-#include <alibabacloud/models/BatchIntrudeDomainsResponseBodyData.hpp>
-#include <alibabacloud/models/BatchQueryPushStatusResponseBodyModulePushResults.hpp>
-#include <alibabacloud/models/BatchQueryPushStatusResponseBodyModule.hpp>
-#include <alibabacloud/models/BatchRecallPushResponseBodyModuleRecallResults.hpp>
-#include <alibabacloud/models/BatchRecallPushResponseBodyModule.hpp>
-#include <alibabacloud/models/ChangeAuctionRequestAuctionListBidRecords.hpp>
-#include <alibabacloud/models/ChangeAuctionRequestAuctionList.hpp>
-#include <alibabacloud/models/CheckDomainStatusResponseBodyModule.hpp>
-#include <alibabacloud/models/CheckPushReceiverResponseBodyModule.hpp>
-#include <alibabacloud/models/CheckSelectedDomainStatusResponseBodyModule.hpp>
-#include <alibabacloud/models/CreateFixedPriceDemandOrderResponseBodyModule.hpp>
-#include <alibabacloud/models/CreateFixedPriceSelectedOrderResponseBodyModule.hpp>
-#include <alibabacloud/models/PushDomainsResponseBodyModuleFailedResults.hpp>
-#include <alibabacloud/models/PushDomainsResponseBodyModule.hpp>
-#include <alibabacloud/models/QueryAuctionsResponseBodyData.hpp>
-#include <alibabacloud/models/QueryBidRecordsResponseBodyData.hpp>
-#include <alibabacloud/models/QueryBrokerDemandResponseBodyData.hpp>
-#include <alibabacloud/models/QueryBrokerDemandRecordResponseBodyDataBrokerDemandRecord.hpp>
-#include <alibabacloud/models/QueryBrokerDemandRecordResponseBodyData.hpp>
-#include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponseBodyModuleData.hpp>
-#include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponseBodyModule.hpp>
-#include <alibabacloud/models/QueryDomainTransferStatusResponseBodyDomainTransferStatus.hpp>
-#include <alibabacloud/models/QueryExportDomainExpireSnatchsResponseBodyData.hpp>
-#include <alibabacloud/models/QueryPurchasedDomainsResponseBodyData.hpp>
-#include <alibabacloud/models/SelectedDomainListResponseBodyModule.hpp>
 
 #endif

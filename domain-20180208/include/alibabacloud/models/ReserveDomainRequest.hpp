@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channels_ == nullptr
-        && return this->domainName_ == nullptr; };
+        && this->domainName_ == nullptr; };
     // channels Field Functions 
     bool hasChannels() const { return this->channels_ != nullptr;};
     void deleteChannels() { this->channels_ = nullptr;};
-    inline const vector<string> & channels() const { DARABONBA_PTR_GET_CONST(channels_, vector<string>) };
-    inline vector<string> channels() { DARABONBA_PTR_GET(channels_, vector<string>) };
+    inline const vector<string> & getChannels() const { DARABONBA_PTR_GET_CONST(channels_, vector<string>) };
+    inline vector<string> getChannels() { DARABONBA_PTR_GET(channels_, vector<string>) };
     inline ReserveDomainRequest& setChannels(const vector<string> & channels) { DARABONBA_PTR_SET_VALUE(channels_, channels) };
     inline ReserveDomainRequest& setChannels(vector<string> && channels) { DARABONBA_PTR_SET_RVALUE(channels_, channels) };
 
@@ -46,14 +46,14 @@ namespace Models
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline ReserveDomainRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
   protected:
-    std::shared_ptr<vector<string>> channels_ = nullptr;
+    shared_ptr<vector<string>> channels_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
   };
 
   } // namespace Models

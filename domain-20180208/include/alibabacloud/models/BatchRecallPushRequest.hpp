@@ -34,15 +34,15 @@ namespace Models
     // outBizIds Field Functions 
     bool hasOutBizIds() const { return this->outBizIds_ != nullptr;};
     void deleteOutBizIds() { this->outBizIds_ = nullptr;};
-    inline const vector<string> & outBizIds() const { DARABONBA_PTR_GET_CONST(outBizIds_, vector<string>) };
-    inline vector<string> outBizIds() { DARABONBA_PTR_GET(outBizIds_, vector<string>) };
+    inline const vector<string> & getOutBizIds() const { DARABONBA_PTR_GET_CONST(outBizIds_, vector<string>) };
+    inline vector<string> getOutBizIds() { DARABONBA_PTR_GET(outBizIds_, vector<string>) };
     inline BatchRecallPushRequest& setOutBizIds(const vector<string> & outBizIds) { DARABONBA_PTR_SET_VALUE(outBizIds_, outBizIds) };
     inline BatchRecallPushRequest& setOutBizIds(vector<string> && outBizIds) { DARABONBA_PTR_SET_RVALUE(outBizIds_, outBizIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> outBizIds_ = nullptr;
+    shared_ptr<vector<string>> outBizIds_ {};
   };
 
   } // namespace Models

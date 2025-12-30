@@ -33,12 +33,12 @@ namespace Models
     // domainNamesShrink Field Functions 
     bool hasDomainNamesShrink() const { return this->domainNamesShrink_ != nullptr;};
     void deleteDomainNamesShrink() { this->domainNamesShrink_ = nullptr;};
-    inline string domainNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(domainNamesShrink_, "") };
+    inline string getDomainNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(domainNamesShrink_, "") };
     inline BatchIntrudeDomainsShrinkRequest& setDomainNamesShrink(string domainNamesShrink) { DARABONBA_PTR_SET_VALUE(domainNamesShrink_, domainNamesShrink) };
 
 
   protected:
-    std::shared_ptr<string> domainNamesShrink_ = nullptr;
+    shared_ptr<string> domainNamesShrink_ {};
   };
 
   } // namespace Models

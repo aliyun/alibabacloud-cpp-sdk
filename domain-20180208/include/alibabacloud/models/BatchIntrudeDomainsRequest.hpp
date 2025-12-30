@@ -34,14 +34,14 @@ namespace Models
     // domainNames Field Functions 
     bool hasDomainNames() const { return this->domainNames_ != nullptr;};
     void deleteDomainNames() { this->domainNames_ = nullptr;};
-    inline const vector<string> & domainNames() const { DARABONBA_PTR_GET_CONST(domainNames_, vector<string>) };
-    inline vector<string> domainNames() { DARABONBA_PTR_GET(domainNames_, vector<string>) };
+    inline const vector<string> & getDomainNames() const { DARABONBA_PTR_GET_CONST(domainNames_, vector<string>) };
+    inline vector<string> getDomainNames() { DARABONBA_PTR_GET(domainNames_, vector<string>) };
     inline BatchIntrudeDomainsRequest& setDomainNames(const vector<string> & domainNames) { DARABONBA_PTR_SET_VALUE(domainNames_, domainNames) };
     inline BatchIntrudeDomainsRequest& setDomainNames(vector<string> && domainNames) { DARABONBA_PTR_SET_RVALUE(domainNames_, domainNames) };
 
 
   protected:
-    std::shared_ptr<vector<string>> domainNames_ = nullptr;
+    shared_ptr<vector<string>> domainNames_ {};
   };
 
   } // namespace Models

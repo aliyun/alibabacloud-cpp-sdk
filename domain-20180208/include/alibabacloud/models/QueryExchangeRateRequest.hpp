@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fromCurrency_ == nullptr
-        && return this->toCurrency_ == nullptr; };
+        && this->toCurrency_ == nullptr; };
     // fromCurrency Field Functions 
     bool hasFromCurrency() const { return this->fromCurrency_ != nullptr;};
     void deleteFromCurrency() { this->fromCurrency_ = nullptr;};
-    inline string fromCurrency() const { DARABONBA_PTR_GET_DEFAULT(fromCurrency_, "") };
+    inline string getFromCurrency() const { DARABONBA_PTR_GET_DEFAULT(fromCurrency_, "") };
     inline QueryExchangeRateRequest& setFromCurrency(string fromCurrency) { DARABONBA_PTR_SET_VALUE(fromCurrency_, fromCurrency) };
 
 
     // toCurrency Field Functions 
     bool hasToCurrency() const { return this->toCurrency_ != nullptr;};
     void deleteToCurrency() { this->toCurrency_ = nullptr;};
-    inline string toCurrency() const { DARABONBA_PTR_GET_DEFAULT(toCurrency_, "") };
+    inline string getToCurrency() const { DARABONBA_PTR_GET_DEFAULT(toCurrency_, "") };
     inline QueryExchangeRateRequest& setToCurrency(string toCurrency) { DARABONBA_PTR_SET_VALUE(toCurrency_, toCurrency) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fromCurrency_ = nullptr;
+    shared_ptr<string> fromCurrency_ {};
     // This parameter is required.
-    std::shared_ptr<string> toCurrency_ = nullptr;
+    shared_ptr<string> toCurrency_ {};
   };
 
   } // namespace Models

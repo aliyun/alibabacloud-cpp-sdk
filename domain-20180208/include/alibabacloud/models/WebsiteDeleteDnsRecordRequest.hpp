@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->rr_ == nullptr && return this->source_ == nullptr && return this->type_ == nullptr && return this->userId_ == nullptr && return this->value_ == nullptr
-        && return this->websiteNo_ == nullptr; };
+        && this->rr_ == nullptr && this->source_ == nullptr && this->type_ == nullptr && this->userId_ == nullptr && this->value_ == nullptr
+        && this->websiteNo_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline WebsiteDeleteDnsRecordRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // rr Field Functions 
     bool hasRr() const { return this->rr_ != nullptr;};
     void deleteRr() { this->rr_ = nullptr;};
-    inline string rr() const { DARABONBA_PTR_GET_DEFAULT(rr_, "") };
+    inline string getRr() const { DARABONBA_PTR_GET_DEFAULT(rr_, "") };
     inline WebsiteDeleteDnsRecordRequest& setRr(string rr) { DARABONBA_PTR_SET_VALUE(rr_, rr) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline WebsiteDeleteDnsRecordRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline WebsiteDeleteDnsRecordRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline WebsiteDeleteDnsRecordRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline WebsiteDeleteDnsRecordRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
     // websiteNo Field Functions 
     bool hasWebsiteNo() const { return this->websiteNo_ != nullptr;};
     void deleteWebsiteNo() { this->websiteNo_ = nullptr;};
-    inline string websiteNo() const { DARABONBA_PTR_GET_DEFAULT(websiteNo_, "") };
+    inline string getWebsiteNo() const { DARABONBA_PTR_GET_DEFAULT(websiteNo_, "") };
     inline WebsiteDeleteDnsRecordRequest& setWebsiteNo(string websiteNo) { DARABONBA_PTR_SET_VALUE(websiteNo_, websiteNo) };
 
 
   protected:
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> rr_ = nullptr;
-    std::shared_ptr<string> source_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
-    std::shared_ptr<string> websiteNo_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> rr_ {};
+    shared_ptr<string> source_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> value_ {};
+    shared_ptr<string> websiteNo_ {};
   };
 
   } // namespace Models

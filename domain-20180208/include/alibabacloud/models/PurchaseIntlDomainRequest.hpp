@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auctionId_ == nullptr
-        && return this->currency_ == nullptr && return this->price_ == nullptr; };
+        && this->currency_ == nullptr && this->price_ == nullptr; };
     // auctionId Field Functions 
     bool hasAuctionId() const { return this->auctionId_ != nullptr;};
     void deleteAuctionId() { this->auctionId_ = nullptr;};
-    inline string auctionId() const { DARABONBA_PTR_GET_DEFAULT(auctionId_, "") };
+    inline string getAuctionId() const { DARABONBA_PTR_GET_DEFAULT(auctionId_, "") };
     inline PurchaseIntlDomainRequest& setAuctionId(string auctionId) { DARABONBA_PTR_SET_VALUE(auctionId_, auctionId) };
 
 
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};
-    inline string currency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+    inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
     inline PurchaseIntlDomainRequest& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
     // price Field Functions 
     bool hasPrice() const { return this->price_ != nullptr;};
     void deletePrice() { this->price_ = nullptr;};
-    inline double price() const { DARABONBA_PTR_GET_DEFAULT(price_, 0.0) };
+    inline double getPrice() const { DARABONBA_PTR_GET_DEFAULT(price_, 0.0) };
     inline PurchaseIntlDomainRequest& setPrice(double price) { DARABONBA_PTR_SET_VALUE(price_, price) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> auctionId_ = nullptr;
+    shared_ptr<string> auctionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> currency_ = nullptr;
+    shared_ptr<string> currency_ {};
     // This parameter is required.
-    std::shared_ptr<double> price_ = nullptr;
+    shared_ptr<double> price_ {};
   };
 
   } // namespace Models

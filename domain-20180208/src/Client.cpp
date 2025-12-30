@@ -44,11 +44,11 @@ AcceptDemandResponse Client::acceptDemandWithOptions(const AcceptDemandRequest &
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -89,12 +89,12 @@ BatchIntrudeDomainsResponse Client::batchIntrudeDomainsWithOptions(const BatchIn
   BatchIntrudeDomainsShrinkRequest request = BatchIntrudeDomainsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDomainNames()) {
-    request.setDomainNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.domainNames(), "DomainNames", "json"));
+    request.setDomainNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDomainNames(), "DomainNames", "json"));
   }
 
   json query = {};
   if (!!request.hasDomainNamesShrink()) {
-    query["DomainNames"] = request.domainNamesShrink();
+    query["DomainNames"] = request.getDomainNamesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -137,28 +137,28 @@ BatchQueryPushStatusResponse Client::batchQueryPushStatusWithOptions(const Batch
   BatchQueryPushStatusShrinkRequest request = BatchQueryPushStatusShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOutBizIds()) {
-    request.setOutBizIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outBizIds(), "OutBizIds", "json"));
+    request.setOutBizIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutBizIds(), "OutBizIds", "json"));
   }
 
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOutBizIdsShrink()) {
-    query["OutBizIds"] = request.outBizIdsShrink();
+    query["OutBizIds"] = request.getOutBizIdsShrink();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -201,12 +201,12 @@ BatchRecallPushResponse Client::batchRecallPushWithOptions(const BatchRecallPush
   BatchRecallPushShrinkRequest request = BatchRecallPushShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOutBizIds()) {
-    request.setOutBizIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outBizIds(), "OutBizIds", "json"));
+    request.setOutBizIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutBizIds(), "OutBizIds", "json"));
   }
 
   json query = {};
   if (!!request.hasOutBizIdsShrink()) {
-    query["OutBizIds"] = request.outBizIdsShrink();
+    query["OutBizIds"] = request.getOutBizIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -238,6 +238,8 @@ BatchRecallPushResponse Client::batchRecallPush(const BatchRecallPushRequest &re
 }
 
 /**
+ * @summary 出价
+ *
  * @param request BidDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BidDomainResponse
@@ -246,15 +248,15 @@ BidDomainResponse Client::bidDomainWithOptions(const BidDomainRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasAuctionId()) {
-    body["AuctionId"] = request.auctionId();
+    body["AuctionId"] = request.getAuctionId();
   }
 
   if (!!request.hasCurrency()) {
-    body["Currency"] = request.currency();
+    body["Currency"] = request.getCurrency();
   }
 
   if (!!request.hasMaxBid()) {
-    body["MaxBid"] = request.maxBid();
+    body["MaxBid"] = request.getMaxBid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -275,6 +277,8 @@ BidDomainResponse Client::bidDomainWithOptions(const BidDomainRequest &request, 
 }
 
 /**
+ * @summary 出价
+ *
  * @param request BidDomainRequest
  * @return BidDomainResponse
  */
@@ -292,7 +296,7 @@ ChangeAuctionResponse Client::changeAuctionWithOptions(const ChangeAuctionReques
   request.validate();
   json body = {};
   if (!!request.hasAuctionList()) {
-    body["AuctionList"] = request.auctionList();
+    body["AuctionList"] = request.getAuctionList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -370,7 +374,7 @@ CheckPushReceiverResponse Client::checkPushReceiverWithOptions(const CheckPushRe
   request.validate();
   json query = {};
   if (!!request.hasReceiverAccount()) {
-    query["ReceiverAccount"] = request.receiverAccount();
+    query["ReceiverAccount"] = request.getReceiverAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -412,7 +416,7 @@ CheckSelectedDomainStatusResponse Client::checkSelectedDomainStatusWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -454,19 +458,19 @@ CreateFixedPriceDemandOrderResponse Client::createFixedPriceDemandOrderWithOptio
   request.validate();
   json query = {};
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -508,23 +512,23 @@ CreateFixedPriceSelectedOrderResponse Client::createFixedPriceSelectedOrderWithO
   request.validate();
   json query = {};
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasContactId()) {
-    query["ContactId"] = request.contactId();
+    query["ContactId"] = request.getContactId();
   }
 
   if (!!request.hasDomainName()) {
-    query["DomainName"] = request.domainName();
+    query["DomainName"] = request.getDomainName();
   }
 
   if (!!request.hasExpectedPrice()) {
-    query["ExpectedPrice"] = request.expectedPrice();
+    query["ExpectedPrice"] = request.getExpectedPrice();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -564,11 +568,11 @@ FailDemandResponse Client::failDemandWithOptions(const FailDemandRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -606,11 +610,11 @@ FinishDemandResponse Client::finishDemandWithOptions(const FinishDemandRequest &
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -708,15 +712,15 @@ PurchaseIntlDomainResponse Client::purchaseIntlDomainWithOptions(const PurchaseI
   request.validate();
   json body = {};
   if (!!request.hasAuctionId()) {
-    body["AuctionId"] = request.auctionId();
+    body["AuctionId"] = request.getAuctionId();
   }
 
   if (!!request.hasCurrency()) {
-    body["Currency"] = request.currency();
+    body["Currency"] = request.getCurrency();
   }
 
   if (!!request.hasPrice()) {
-    body["Price"] = request.price();
+    body["Price"] = request.getPrice();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -759,24 +763,24 @@ PushDomainsResponse Client::pushDomainsWithOptions(const PushDomainsRequest &tmp
   PushDomainsShrinkRequest request = PushDomainsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDomainList()) {
-    request.setDomainListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.domainList(), "DomainList", "json"));
+    request.setDomainListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDomainList(), "DomainList", "json"));
   }
 
   json query = {};
   if (!!request.hasDomainListShrink()) {
-    query["DomainList"] = request.domainListShrink();
+    query["DomainList"] = request.getDomainListShrink();
   }
 
   if (!!request.hasOutBizId()) {
-    query["OutBizId"] = request.outBizId();
+    query["OutBizId"] = request.getOutBizId();
   }
 
   if (!!request.hasPublishRemark()) {
-    query["PublishRemark"] = request.publishRemark();
+    query["PublishRemark"] = request.getPublishRemark();
   }
 
   if (!!request.hasReceiverAccount()) {
-    query["ReceiverAccount"] = request.receiverAccount();
+    query["ReceiverAccount"] = request.getReceiverAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -816,7 +820,7 @@ QueryAuctionDetailResponse Client::queryAuctionDetailWithOptions(const QueryAuct
   request.validate();
   json body = {};
   if (!!request.hasAuctionId()) {
-    body["AuctionId"] = request.auctionId();
+    body["AuctionId"] = request.getAuctionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -854,23 +858,23 @@ QueryAuctionsResponse Client::queryAuctionsWithOptions(const QueryAuctionsReques
   request.validate();
   json body = {};
   if (!!request.hasAuctionEndTimeOrder()) {
-    body["AuctionEndTimeOrder"] = request.auctionEndTimeOrder();
+    body["AuctionEndTimeOrder"] = request.getAuctionEndTimeOrder();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasStatuses()) {
-    body["Statuses"] = request.statuses();
+    body["Statuses"] = request.getStatuses();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -908,15 +912,15 @@ QueryBidRecordsResponse Client::queryBidRecordsWithOptions(const QueryBidRecords
   request.validate();
   json body = {};
   if (!!request.hasAuctionId()) {
-    body["AuctionId"] = request.auctionId();
+    body["AuctionId"] = request.getAuctionId();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -954,7 +958,7 @@ QueryBookingDomainInfoResponse Client::queryBookingDomainInfoWithOptions(const Q
   request.validate();
   json body = {};
   if (!!request.hasDomainName()) {
-    body["DomainName"] = request.domainName();
+    body["DomainName"] = request.getDomainName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -994,19 +998,19 @@ QueryBrokerDemandResponse Client::queryBrokerDemandWithOptions(const QueryBroker
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1046,15 +1050,15 @@ QueryBrokerDemandRecordResponse Client::queryBrokerDemandRecordWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1095,72 +1099,72 @@ QueryBuyerDomainTradeRecordsResponse Client::queryBuyerDomainTradeRecordsWithOpt
   QueryBuyerDomainTradeRecordsShrinkRequest request = QueryBuyerDomainTradeRecordsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBizIdList()) {
-    request.setBizIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bizIdList(), "BizIdList", "json"));
+    request.setBizIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBizIdList(), "BizIdList", "json"));
   }
 
   if (!!tmpReq.hasDomainNameList()) {
-    request.setDomainNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.domainNameList(), "DomainNameList", "json"));
+    request.setDomainNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDomainNameList(), "DomainNameList", "json"));
   }
 
   if (!!tmpReq.hasStatusList()) {
-    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.statusList(), "StatusList", "json"));
+    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatusList(), "StatusList", "json"));
   }
 
   if (!!tmpReq.hasSuffixList()) {
-    request.setSuffixListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.suffixList(), "SuffixList", "json"));
+    request.setSuffixListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSuffixList(), "SuffixList", "json"));
   }
 
   if (!!tmpReq.hasTradeTypeList()) {
-    request.setTradeTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tradeTypeList(), "TradeTypeList", "json"));
+    request.setTradeTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTradeTypeList(), "TradeTypeList", "json"));
   }
 
   json query = {};
   if (!!request.hasBizIdListShrink()) {
-    query["BizIdList"] = request.bizIdListShrink();
+    query["BizIdList"] = request.getBizIdListShrink();
   }
 
   if (!!request.hasDomainNameListShrink()) {
-    query["DomainNameList"] = request.domainNameListShrink();
+    query["DomainNameList"] = request.getDomainNameListShrink();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    query["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasEndPrice()) {
-    query["EndPrice"] = request.endPrice();
+    query["EndPrice"] = request.getEndPrice();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSorter()) {
-    query["Sorter"] = request.sorter();
+    query["Sorter"] = request.getSorter();
   }
 
   if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
+    query["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasStartPrice()) {
-    query["StartPrice"] = request.startPrice();
+    query["StartPrice"] = request.getStartPrice();
   }
 
   if (!!request.hasStatusListShrink()) {
-    query["StatusList"] = request.statusListShrink();
+    query["StatusList"] = request.getStatusListShrink();
   }
 
   if (!!request.hasSuffixListShrink()) {
-    query["SuffixList"] = request.suffixListShrink();
+    query["SuffixList"] = request.getSuffixListShrink();
   }
 
   if (!!request.hasTradeTypeListShrink()) {
-    query["TradeTypeList"] = request.tradeTypeListShrink();
+    query["TradeTypeList"] = request.getTradeTypeListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1200,7 +1204,7 @@ QueryDomainTransferStatusResponse Client::queryDomainTransferStatusWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasDomainName()) {
-    body["DomainName"] = request.domainName();
+    body["DomainName"] = request.getDomainName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1240,11 +1244,11 @@ QueryExchangeRateResponse Client::queryExchangeRateWithOptions(const QueryExchan
   request.validate();
   json query = {};
   if (!!request.hasFromCurrency()) {
-    query["FromCurrency"] = request.fromCurrency();
+    query["FromCurrency"] = request.getFromCurrency();
   }
 
   if (!!request.hasToCurrency()) {
-    query["ToCurrency"] = request.toCurrency();
+    query["ToCurrency"] = request.getToCurrency();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1286,7 +1290,7 @@ QueryExportAuctionDetailResponse Client::queryExportAuctionDetailWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAuctionId()) {
-    query["AuctionId"] = request.auctionId();
+    query["AuctionId"] = request.getAuctionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1328,19 +1332,19 @@ QueryExportDomainExpireSnatchsResponse Client::queryExportDomainExpireSnatchsWit
   request.validate();
   json query = {};
   if (!!request.hasCurrentId()) {
-    query["CurrentId"] = request.currentId();
+    query["CurrentId"] = request.getCurrentId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1380,39 +1384,39 @@ QueryPurchasedDomainsResponse Client::queryPurchasedDomainsWithOptions(const Que
   request.validate();
   json body = {};
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasDomainName()) {
-    body["DomainName"] = request.domainName();
+    body["DomainName"] = request.getDomainName();
   }
 
   if (!!request.hasEndOperationTime()) {
-    body["EndOperationTime"] = request.endOperationTime();
+    body["EndOperationTime"] = request.getEndOperationTime();
   }
 
   if (!!request.hasOpTimeOrder()) {
-    body["OpTimeOrder"] = request.opTimeOrder();
+    body["OpTimeOrder"] = request.getOpTimeOrder();
   }
 
   if (!!request.hasOperationStatus()) {
-    body["OperationStatus"] = request.operationStatus();
+    body["OperationStatus"] = request.getOperationStatus();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasStartOperationTime()) {
-    body["StartOperationTime"] = request.startOperationTime();
+    body["StartOperationTime"] = request.getStartOperationTime();
   }
 
   if (!!request.hasUpdateTimeOrder()) {
-    body["UpdateTimeOrder"] = request.updateTimeOrder();
+    body["UpdateTimeOrder"] = request.getUpdateTimeOrder();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1450,11 +1454,11 @@ RecordDemandResponse Client::recordDemandWithOptions(const RecordDemandRequest &
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1492,11 +1496,11 @@ RefuseDemandResponse Client::refuseDemandWithOptions(const RefuseDemandRequest &
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1534,23 +1538,23 @@ RequestPayDemandResponse Client::requestPayDemandWithOptions(const RequestPayDem
   request.validate();
   json query = {};
   if (!!request.hasBizId()) {
-    query["BizId"] = request.bizId();
+    query["BizId"] = request.getBizId();
   }
 
   if (!!request.hasDomainName()) {
-    query["DomainName"] = request.domainName();
+    query["DomainName"] = request.getDomainName();
   }
 
   if (!!request.hasMessage()) {
-    query["Message"] = request.message();
+    query["Message"] = request.getMessage();
   }
 
   if (!!request.hasPrice()) {
-    query["Price"] = request.price();
+    query["Price"] = request.getPrice();
   }
 
   if (!!request.hasProduceType()) {
-    query["ProduceType"] = request.produceType();
+    query["ProduceType"] = request.getProduceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1588,11 +1592,11 @@ ReserveDomainResponse Client::reserveDomainWithOptions(const ReserveDomainReques
   request.validate();
   json body = {};
   if (!!request.hasChannels()) {
-    body["Channels"] = request.channels();
+    body["Channels"] = request.getChannels();
   }
 
   if (!!request.hasDomainName()) {
-    body["DomainName"] = request.domainName();
+    body["DomainName"] = request.getDomainName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1630,7 +1634,7 @@ ReserveIntlDomainResponse Client::reserveIntlDomainWithOptions(const ReserveIntl
   request.validate();
   json body = {};
   if (!!request.hasDomainName()) {
-    body["DomainName"] = request.domainName();
+    body["DomainName"] = request.getDomainName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1670,7 +1674,7 @@ SelectedDomainListResponse Client::selectedDomainListWithOptions(const SelectedD
   request.validate();
   json query = {};
   if (!!request.hasListDate()) {
-    query["ListDate"] = request.listDate();
+    query["ListDate"] = request.getListDate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1712,19 +1716,19 @@ SubmitPurchaseInfoResponse Client::submitPurchaseInfoWithOptions(const SubmitPur
   request.validate();
   json body = {};
   if (!!request.hasBizId()) {
-    body["BizId"] = request.bizId();
+    body["BizId"] = request.getBizId();
   }
 
   if (!!request.hasPurchaseCurrency()) {
-    body["PurchaseCurrency"] = request.purchaseCurrency();
+    body["PurchaseCurrency"] = request.getPurchaseCurrency();
   }
 
   if (!!request.hasPurchasePrice()) {
-    body["PurchasePrice"] = request.purchasePrice();
+    body["PurchasePrice"] = request.getPurchasePrice();
   }
 
   if (!!request.hasPurchaseProofs()) {
-    body["PurchaseProofs"] = request.purchaseProofs();
+    body["PurchaseProofs"] = request.getPurchaseProofs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1766,19 +1770,19 @@ UpdatePartnerReservePriceResponse Client::updatePartnerReservePriceWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasBiddingId()) {
-    body["BiddingId"] = request.biddingId();
+    body["BiddingId"] = request.getBiddingId();
   }
 
   if (!!request.hasDomainName()) {
-    body["DomainName"] = request.domainName();
+    body["DomainName"] = request.getDomainName();
   }
 
   if (!!request.hasPartnerType()) {
-    body["PartnerType"] = request.partnerType();
+    body["PartnerType"] = request.getPartnerType();
   }
 
   if (!!request.hasReservePrice()) {
-    body["ReservePrice"] = request.reservePrice();
+    body["ReservePrice"] = request.getReservePrice();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1820,31 +1824,31 @@ WebsiteAddDnsRecordResponse Client::websiteAddDnsRecordWithOptions(const Website
   request.validate();
   json query = {};
   if (!!request.hasDomainName()) {
-    query["DomainName"] = request.domainName();
+    query["DomainName"] = request.getDomainName();
   }
 
   if (!!request.hasRr()) {
-    query["Rr"] = request.rr();
+    query["Rr"] = request.getRr();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   if (!!request.hasValue()) {
-    query["Value"] = request.value();
+    query["Value"] = request.getValue();
   }
 
   if (!!request.hasWebsiteNo()) {
-    query["WebsiteNo"] = request.websiteNo();
+    query["WebsiteNo"] = request.getWebsiteNo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1886,31 +1890,31 @@ WebsiteDeleteDnsRecordResponse Client::websiteDeleteDnsRecordWithOptions(const W
   request.validate();
   json query = {};
   if (!!request.hasDomainName()) {
-    query["DomainName"] = request.domainName();
+    query["DomainName"] = request.getDomainName();
   }
 
   if (!!request.hasRr()) {
-    query["Rr"] = request.rr();
+    query["Rr"] = request.getRr();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   if (!!request.hasValue()) {
-    query["Value"] = request.value();
+    query["Value"] = request.getValue();
   }
 
   if (!!request.hasWebsiteNo()) {
-    query["WebsiteNo"] = request.websiteNo();
+    query["WebsiteNo"] = request.getWebsiteNo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

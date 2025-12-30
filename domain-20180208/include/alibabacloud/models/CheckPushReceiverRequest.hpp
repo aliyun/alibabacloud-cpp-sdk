@@ -33,13 +33,13 @@ namespace Models
     // receiverAccount Field Functions 
     bool hasReceiverAccount() const { return this->receiverAccount_ != nullptr;};
     void deleteReceiverAccount() { this->receiverAccount_ = nullptr;};
-    inline string receiverAccount() const { DARABONBA_PTR_GET_DEFAULT(receiverAccount_, "") };
+    inline string getReceiverAccount() const { DARABONBA_PTR_GET_DEFAULT(receiverAccount_, "") };
     inline CheckPushReceiverRequest& setReceiverAccount(string receiverAccount) { DARABONBA_PTR_SET_VALUE(receiverAccount_, receiverAccount) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> receiverAccount_ = nullptr;
+    shared_ptr<string> receiverAccount_ {};
   };
 
   } // namespace Models

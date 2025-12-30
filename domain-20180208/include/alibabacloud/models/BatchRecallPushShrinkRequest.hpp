@@ -33,13 +33,13 @@ namespace Models
     // outBizIdsShrink Field Functions 
     bool hasOutBizIdsShrink() const { return this->outBizIdsShrink_ != nullptr;};
     void deleteOutBizIdsShrink() { this->outBizIdsShrink_ = nullptr;};
-    inline string outBizIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(outBizIdsShrink_, "") };
+    inline string getOutBizIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(outBizIdsShrink_, "") };
     inline BatchRecallPushShrinkRequest& setOutBizIdsShrink(string outBizIdsShrink) { DARABONBA_PTR_SET_VALUE(outBizIdsShrink_, outBizIdsShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> outBizIdsShrink_ = nullptr;
+    shared_ptr<string> outBizIdsShrink_ {};
   };
 
   } // namespace Models

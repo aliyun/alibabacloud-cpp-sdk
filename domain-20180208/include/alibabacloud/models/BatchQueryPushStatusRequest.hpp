@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->outBizIds_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->nextToken_ == nullptr && this->outBizIds_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline BatchQueryPushStatusRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline BatchQueryPushStatusRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // outBizIds Field Functions 
     bool hasOutBizIds() const { return this->outBizIds_ != nullptr;};
     void deleteOutBizIds() { this->outBizIds_ = nullptr;};
-    inline const vector<string> & outBizIds() const { DARABONBA_PTR_GET_CONST(outBizIds_, vector<string>) };
-    inline vector<string> outBizIds() { DARABONBA_PTR_GET(outBizIds_, vector<string>) };
+    inline const vector<string> & getOutBizIds() const { DARABONBA_PTR_GET_CONST(outBizIds_, vector<string>) };
+    inline vector<string> getOutBizIds() { DARABONBA_PTR_GET(outBizIds_, vector<string>) };
     inline BatchQueryPushStatusRequest& setOutBizIds(const vector<string> & outBizIds) { DARABONBA_PTR_SET_VALUE(outBizIds_, outBizIds) };
     inline BatchQueryPushStatusRequest& setOutBizIds(vector<string> && outBizIds) { DARABONBA_PTR_SET_RVALUE(outBizIds_, outBizIds) };
 
@@ -66,24 +66,24 @@ namespace Models
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int64_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0L) };
+    inline int64_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0L) };
     inline BatchQueryPushStatusRequest& setPageNum(int64_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline BatchQueryPushStatusRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> outBizIds_ = nullptr;
-    std::shared_ptr<int64_t> pageNum_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<vector<string>> outBizIds_ {};
+    shared_ptr<int64_t> pageNum_ {};
+    shared_ptr<int64_t> pageSize_ {};
   };
 
   } // namespace Models
