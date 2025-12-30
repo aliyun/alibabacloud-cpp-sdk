@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->queueShrink_ == nullptr; };
+        && this->queueShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateQueueShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // queueShrink Field Functions 
     bool hasQueueShrink() const { return this->queueShrink_ != nullptr;};
     void deleteQueueShrink() { this->queueShrink_ = nullptr;};
-    inline string queueShrink() const { DARABONBA_PTR_GET_DEFAULT(queueShrink_, "") };
+    inline string getQueueShrink() const { DARABONBA_PTR_GET_DEFAULT(queueShrink_, "") };
     inline CreateQueueShrinkRequest& setQueueShrink(string queueShrink) { DARABONBA_PTR_SET_VALUE(queueShrink_, queueShrink) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The configurations of the queue to be created.
-    std::shared_ptr<string> queueShrink_ = nullptr;
+    shared_ptr<string> queueShrink_ {};
   };
 
   } // namespace Models

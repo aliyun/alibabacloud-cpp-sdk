@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonName_ == nullptr
-        && return this->addonVersion_ == nullptr && return this->clusterId_ == nullptr && return this->resourcesSpec_ == nullptr && return this->servicesSpec_ == nullptr; };
+        && this->addonVersion_ == nullptr && this->clusterId_ == nullptr && this->resourcesSpec_ == nullptr && this->servicesSpec_ == nullptr; };
     // addonName Field Functions 
     bool hasAddonName() const { return this->addonName_ != nullptr;};
     void deleteAddonName() { this->addonName_ = nullptr;};
-    inline string addonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
+    inline string getAddonName() const { DARABONBA_PTR_GET_DEFAULT(addonName_, "") };
     inline InstallAddonRequest& setAddonName(string addonName) { DARABONBA_PTR_SET_VALUE(addonName_, addonName) };
 
 
     // addonVersion Field Functions 
     bool hasAddonVersion() const { return this->addonVersion_ != nullptr;};
     void deleteAddonVersion() { this->addonVersion_ = nullptr;};
-    inline string addonVersion() const { DARABONBA_PTR_GET_DEFAULT(addonVersion_, "") };
+    inline string getAddonVersion() const { DARABONBA_PTR_GET_DEFAULT(addonVersion_, "") };
     inline InstallAddonRequest& setAddonVersion(string addonVersion) { DARABONBA_PTR_SET_VALUE(addonVersion_, addonVersion) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline InstallAddonRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // resourcesSpec Field Functions 
     bool hasResourcesSpec() const { return this->resourcesSpec_ != nullptr;};
     void deleteResourcesSpec() { this->resourcesSpec_ = nullptr;};
-    inline string resourcesSpec() const { DARABONBA_PTR_GET_DEFAULT(resourcesSpec_, "") };
+    inline string getResourcesSpec() const { DARABONBA_PTR_GET_DEFAULT(resourcesSpec_, "") };
     inline InstallAddonRequest& setResourcesSpec(string resourcesSpec) { DARABONBA_PTR_SET_VALUE(resourcesSpec_, resourcesSpec) };
 
 
     // servicesSpec Field Functions 
     bool hasServicesSpec() const { return this->servicesSpec_ != nullptr;};
     void deleteServicesSpec() { this->servicesSpec_ = nullptr;};
-    inline string servicesSpec() const { DARABONBA_PTR_GET_DEFAULT(servicesSpec_, "") };
+    inline string getServicesSpec() const { DARABONBA_PTR_GET_DEFAULT(servicesSpec_, "") };
     inline InstallAddonRequest& setServicesSpec(string servicesSpec) { DARABONBA_PTR_SET_VALUE(servicesSpec_, servicesSpec) };
 
 
@@ -78,23 +78,23 @@ namespace Models
     // The addon name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> addonName_ = nullptr;
+    shared_ptr<string> addonName_ {};
     // The addon version.
     // 
     // This parameter is required.
-    std::shared_ptr<string> addonVersion_ = nullptr;
+    shared_ptr<string> addonVersion_ {};
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The resource configurations of the addon.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourcesSpec_ = nullptr;
+    shared_ptr<string> resourcesSpec_ {};
     // The service configurations of the addon.
     // 
     // This parameter is required.
-    std::shared_ptr<string> servicesSpec_ = nullptr;
+    shared_ptr<string> servicesSpec_ {};
   };
 
   } // namespace Models

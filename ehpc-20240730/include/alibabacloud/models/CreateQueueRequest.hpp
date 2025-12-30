@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->queue_ == nullptr; };
+        && this->queue_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateQueueRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // queue Field Functions 
     bool hasQueue() const { return this->queue_ != nullptr;};
     void deleteQueue() { this->queue_ = nullptr;};
-    inline const QueueTemplate & queue() const { DARABONBA_PTR_GET_CONST(queue_, QueueTemplate) };
-    inline QueueTemplate queue() { DARABONBA_PTR_GET(queue_, QueueTemplate) };
+    inline const QueueTemplate & getQueue() const { DARABONBA_PTR_GET_CONST(queue_, QueueTemplate) };
+    inline QueueTemplate getQueue() { DARABONBA_PTR_GET(queue_, QueueTemplate) };
     inline CreateQueueRequest& setQueue(const QueueTemplate & queue) { DARABONBA_PTR_SET_VALUE(queue_, queue) };
     inline CreateQueueRequest& setQueue(QueueTemplate && queue) { DARABONBA_PTR_SET_RVALUE(queue_, queue) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The configurations of the queue to be created.
-    std::shared_ptr<QueueTemplate> queue_ = nullptr;
+    shared_ptr<QueueTemplate> queue_ {};
   };
 
   } // namespace Models

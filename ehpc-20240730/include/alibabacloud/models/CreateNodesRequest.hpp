@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATENODESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/NodeTemplate.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HPCInterConnect, HPCInterConnect_);
       DARABONBA_PTR_TO_JSON(HostnamePrefix, hostnamePrefix_);
       DARABONBA_PTR_TO_JSON(HostnameSuffix, hostnameSuffix_);
+      DARABONBA_PTR_TO_JSON(Hostnames, hostnames_);
       DARABONBA_PTR_TO_JSON(KeepAlive, keepAlive_);
       DARABONBA_PTR_TO_JSON(QueueName, queueName_);
       DARABONBA_PTR_TO_JSON(RamRole, ramRole_);
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HPCInterConnect, HPCInterConnect_);
       DARABONBA_PTR_FROM_JSON(HostnamePrefix, hostnamePrefix_);
       DARABONBA_PTR_FROM_JSON(HostnameSuffix, hostnameSuffix_);
+      DARABONBA_PTR_FROM_JSON(Hostnames, hostnames_);
       DARABONBA_PTR_FROM_JSON(KeepAlive, keepAlive_);
       DARABONBA_PTR_FROM_JSON(QueueName, queueName_);
       DARABONBA_PTR_FROM_JSON(RamRole, ramRole_);
@@ -53,21 +56,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->computeNode_ == nullptr && return this->count_ == nullptr && return this->deploymentSetId_ == nullptr && return this->HPCInterConnect_ == nullptr && return this->hostnamePrefix_ == nullptr
-        && return this->hostnameSuffix_ == nullptr && return this->keepAlive_ == nullptr && return this->queueName_ == nullptr && return this->ramRole_ == nullptr && return this->reservedNodePoolId_ == nullptr
-        && return this->vSwitchId_ == nullptr; };
+        && this->computeNode_ == nullptr && this->count_ == nullptr && this->deploymentSetId_ == nullptr && this->HPCInterConnect_ == nullptr && this->hostnamePrefix_ == nullptr
+        && this->hostnameSuffix_ == nullptr && this->hostnames_ == nullptr && this->keepAlive_ == nullptr && this->queueName_ == nullptr && this->ramRole_ == nullptr
+        && this->reservedNodePoolId_ == nullptr && this->vSwitchId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateNodesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // computeNode Field Functions 
     bool hasComputeNode() const { return this->computeNode_ != nullptr;};
     void deleteComputeNode() { this->computeNode_ = nullptr;};
-    inline const NodeTemplate & computeNode() const { DARABONBA_PTR_GET_CONST(computeNode_, NodeTemplate) };
-    inline NodeTemplate computeNode() { DARABONBA_PTR_GET(computeNode_, NodeTemplate) };
+    inline const NodeTemplate & getComputeNode() const { DARABONBA_PTR_GET_CONST(computeNode_, NodeTemplate) };
+    inline NodeTemplate getComputeNode() { DARABONBA_PTR_GET(computeNode_, NodeTemplate) };
     inline CreateNodesRequest& setComputeNode(const NodeTemplate & computeNode) { DARABONBA_PTR_SET_VALUE(computeNode_, computeNode) };
     inline CreateNodesRequest& setComputeNode(NodeTemplate && computeNode) { DARABONBA_PTR_SET_RVALUE(computeNode_, computeNode) };
 
@@ -75,70 +78,79 @@ namespace Models
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline CreateNodesRequest& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // deploymentSetId Field Functions 
     bool hasDeploymentSetId() const { return this->deploymentSetId_ != nullptr;};
     void deleteDeploymentSetId() { this->deploymentSetId_ = nullptr;};
-    inline string deploymentSetId() const { DARABONBA_PTR_GET_DEFAULT(deploymentSetId_, "") };
+    inline string getDeploymentSetId() const { DARABONBA_PTR_GET_DEFAULT(deploymentSetId_, "") };
     inline CreateNodesRequest& setDeploymentSetId(string deploymentSetId) { DARABONBA_PTR_SET_VALUE(deploymentSetId_, deploymentSetId) };
 
 
     // HPCInterConnect Field Functions 
     bool hasHPCInterConnect() const { return this->HPCInterConnect_ != nullptr;};
     void deleteHPCInterConnect() { this->HPCInterConnect_ = nullptr;};
-    inline string HPCInterConnect() const { DARABONBA_PTR_GET_DEFAULT(HPCInterConnect_, "") };
+    inline string getHPCInterConnect() const { DARABONBA_PTR_GET_DEFAULT(HPCInterConnect_, "") };
     inline CreateNodesRequest& setHPCInterConnect(string HPCInterConnect) { DARABONBA_PTR_SET_VALUE(HPCInterConnect_, HPCInterConnect) };
 
 
     // hostnamePrefix Field Functions 
     bool hasHostnamePrefix() const { return this->hostnamePrefix_ != nullptr;};
     void deleteHostnamePrefix() { this->hostnamePrefix_ = nullptr;};
-    inline string hostnamePrefix() const { DARABONBA_PTR_GET_DEFAULT(hostnamePrefix_, "") };
+    inline string getHostnamePrefix() const { DARABONBA_PTR_GET_DEFAULT(hostnamePrefix_, "") };
     inline CreateNodesRequest& setHostnamePrefix(string hostnamePrefix) { DARABONBA_PTR_SET_VALUE(hostnamePrefix_, hostnamePrefix) };
 
 
     // hostnameSuffix Field Functions 
     bool hasHostnameSuffix() const { return this->hostnameSuffix_ != nullptr;};
     void deleteHostnameSuffix() { this->hostnameSuffix_ = nullptr;};
-    inline string hostnameSuffix() const { DARABONBA_PTR_GET_DEFAULT(hostnameSuffix_, "") };
+    inline string getHostnameSuffix() const { DARABONBA_PTR_GET_DEFAULT(hostnameSuffix_, "") };
     inline CreateNodesRequest& setHostnameSuffix(string hostnameSuffix) { DARABONBA_PTR_SET_VALUE(hostnameSuffix_, hostnameSuffix) };
+
+
+    // hostnames Field Functions 
+    bool hasHostnames() const { return this->hostnames_ != nullptr;};
+    void deleteHostnames() { this->hostnames_ = nullptr;};
+    inline const vector<string> & getHostnames() const { DARABONBA_PTR_GET_CONST(hostnames_, vector<string>) };
+    inline vector<string> getHostnames() { DARABONBA_PTR_GET(hostnames_, vector<string>) };
+    inline CreateNodesRequest& setHostnames(const vector<string> & hostnames) { DARABONBA_PTR_SET_VALUE(hostnames_, hostnames) };
+    inline CreateNodesRequest& setHostnames(vector<string> && hostnames) { DARABONBA_PTR_SET_RVALUE(hostnames_, hostnames) };
 
 
     // keepAlive Field Functions 
     bool hasKeepAlive() const { return this->keepAlive_ != nullptr;};
     void deleteKeepAlive() { this->keepAlive_ = nullptr;};
-    inline string keepAlive() const { DARABONBA_PTR_GET_DEFAULT(keepAlive_, "") };
+    inline string getKeepAlive() const { DARABONBA_PTR_GET_DEFAULT(keepAlive_, "") };
     inline CreateNodesRequest& setKeepAlive(string keepAlive) { DARABONBA_PTR_SET_VALUE(keepAlive_, keepAlive) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline CreateNodesRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
     // ramRole Field Functions 
     bool hasRamRole() const { return this->ramRole_ != nullptr;};
     void deleteRamRole() { this->ramRole_ = nullptr;};
-    inline string ramRole() const { DARABONBA_PTR_GET_DEFAULT(ramRole_, "") };
+    inline string getRamRole() const { DARABONBA_PTR_GET_DEFAULT(ramRole_, "") };
     inline CreateNodesRequest& setRamRole(string ramRole) { DARABONBA_PTR_SET_VALUE(ramRole_, ramRole) };
 
 
     // reservedNodePoolId Field Functions 
     bool hasReservedNodePoolId() const { return this->reservedNodePoolId_ != nullptr;};
     void deleteReservedNodePoolId() { this->reservedNodePoolId_ = nullptr;};
-    inline string reservedNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(reservedNodePoolId_, "") };
+    inline string getReservedNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(reservedNodePoolId_, "") };
     inline CreateNodesRequest& setReservedNodePoolId(string reservedNodePoolId) { DARABONBA_PTR_SET_VALUE(reservedNodePoolId_, reservedNodePoolId) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateNodesRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
@@ -146,36 +158,37 @@ namespace Models
     // The cluster ID.
     // 
     // You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The hardware configurations of the compute nodes.
-    std::shared_ptr<NodeTemplate> computeNode_ = nullptr;
+    shared_ptr<NodeTemplate> computeNode_ {};
     // The number of compute nodes that you want to add. Valid values: 1 to 99. The MinCount value must be smaller than the Count value.
     // 
     // *   If the number of available Elastic Compute Service (ECS) instances is smaller than the MinCount value, the nodes fail to be added.
     // *   If the number of available ECS instances is larger than the MinCount value but smaller than the Count value, nodes are added based on the MinCount value.
     // *   If the number of available ECS instances is larger than the Count value, nodes are added based on the Count value.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // Deployment set ID. You can obtain the deployment set ID through [DescribeDeploymentSets](https://help.aliyun.com/document_detail/91313.html). Currently, only deployment sets with a low network latency strategy are supported.
-    std::shared_ptr<string> deploymentSetId_ = nullptr;
+    shared_ptr<string> deploymentSetId_ {};
     // The type of the network between compute nodes. Valid values:
     // 
     // *   vpc
     // *   eRDMA
-    std::shared_ptr<string> HPCInterConnect_ = nullptr;
+    shared_ptr<string> HPCInterConnect_ {};
     // The hostname prefix of the added compute nodes.
-    std::shared_ptr<string> hostnamePrefix_ = nullptr;
+    shared_ptr<string> hostnamePrefix_ {};
     // The hostname suffix of the added compute nodes.
-    std::shared_ptr<string> hostnameSuffix_ = nullptr;
+    shared_ptr<string> hostnameSuffix_ {};
+    shared_ptr<vector<string>> hostnames_ {};
     // Specifies whether to enable deletion protection for the added compute nodes.
-    std::shared_ptr<string> keepAlive_ = nullptr;
+    shared_ptr<string> keepAlive_ {};
     // The name of the queue for which you want to create compute nodes.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
     // The Resource Access Management (RAM) role to be assumed by the added nodes.
-    std::shared_ptr<string> ramRole_ = nullptr;
+    shared_ptr<string> ramRole_ {};
     // Preset node pool ID.
-    std::shared_ptr<string> reservedNodePoolId_ = nullptr;
+    shared_ptr<string> reservedNodePoolId_ {};
     // The ID of the vSwitch to be used by the added nodes.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
   };
 
   } // namespace Models

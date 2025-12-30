@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->jobId_ == nullptr && return this->logType_ == nullptr && return this->offset_ == nullptr && return this->size_ == nullptr; };
+        && this->jobId_ == nullptr && this->logType_ == nullptr && this->offset_ == nullptr && this->size_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline GetJobLogRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline GetJobLogRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // logType Field Functions 
     bool hasLogType() const { return this->logType_ != nullptr;};
     void deleteLogType() { this->logType_ = nullptr;};
-    inline string logType() const { DARABONBA_PTR_GET_DEFAULT(logType_, "") };
+    inline string getLogType() const { DARABONBA_PTR_GET_DEFAULT(logType_, "") };
     inline GetJobLogRequest& setLogType(string logType) { DARABONBA_PTR_SET_VALUE(logType_, logType) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline string offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
+    inline string getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
     inline GetJobLogRequest& setOffset(string offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline string size() const { DARABONBA_PTR_GET_DEFAULT(size_, "") };
+    inline string getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, "") };
     inline GetJobLogRequest& setSize(string size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
@@ -78,11 +78,11 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The job ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The log type. Valid values:
     // 
     // *   stdout: standard output logs.
@@ -90,19 +90,19 @@ namespace Models
     // *   all: all logs.
     // 
     // Default value: all.
-    std::shared_ptr<string> logType_ = nullptr;
+    shared_ptr<string> logType_ {};
     // The position where logs start to be read.
     // 
     // Unit: bytes.
     // 
     // Default value: 0.
-    std::shared_ptr<string> offset_ = nullptr;
+    shared_ptr<string> offset_ {};
     // The maximum size of logs that you can read in a single request.
     // 
     // Unit: bytes.
     // 
     // Default value: 10240.
-    std::shared_ptr<string> size_ = nullptr;
+    shared_ptr<string> size_ {};
   };
 
   } // namespace Models

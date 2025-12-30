@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->userShrink_ == nullptr; };
+        && this->userShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DeleteUsersShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // userShrink Field Functions 
     bool hasUserShrink() const { return this->userShrink_ != nullptr;};
     void deleteUserShrink() { this->userShrink_ = nullptr;};
-    inline string userShrink() const { DARABONBA_PTR_GET_DEFAULT(userShrink_, "") };
+    inline string getUserShrink() const { DARABONBA_PTR_GET_DEFAULT(userShrink_, "") };
     inline DeleteUsersShrinkRequest& setUserShrink(string userShrink) { DARABONBA_PTR_SET_VALUE(userShrink_, userShrink) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The users that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userShrink_ = nullptr;
+    shared_ptr<string> userShrink_ {};
   };
 
   } // namespace Models

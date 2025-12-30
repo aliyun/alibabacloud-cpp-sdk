@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->jobName_ == nullptr && return this->jobSpecShrink_ == nullptr; };
+        && this->jobName_ == nullptr && this->jobSpecShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateJobShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // jobName Field Functions 
     bool hasJobName() const { return this->jobName_ != nullptr;};
     void deleteJobName() { this->jobName_ = nullptr;};
-    inline string jobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
+    inline string getJobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
     inline CreateJobShrinkRequest& setJobName(string jobName) { DARABONBA_PTR_SET_VALUE(jobName_, jobName) };
 
 
     // jobSpecShrink Field Functions 
     bool hasJobSpecShrink() const { return this->jobSpecShrink_ != nullptr;};
     void deleteJobSpecShrink() { this->jobSpecShrink_ = nullptr;};
-    inline string jobSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(jobSpecShrink_, "") };
+    inline string getJobSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(jobSpecShrink_, "") };
     inline CreateJobShrinkRequest& setJobSpecShrink(string jobSpecShrink) { DARABONBA_PTR_SET_VALUE(jobSpecShrink_, jobSpecShrink) };
 
 
@@ -62,11 +62,11 @@ namespace Models
     // You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The job name.
-    std::shared_ptr<string> jobName_ = nullptr;
+    shared_ptr<string> jobName_ {};
     // The job configurations.
-    std::shared_ptr<string> jobSpecShrink_ = nullptr;
+    shared_ptr<string> jobSpecShrink_ {};
   };
 
   } // namespace Models

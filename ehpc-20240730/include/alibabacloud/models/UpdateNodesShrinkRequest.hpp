@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->instancesShrink_ == nullptr; };
+        && this->instancesShrink_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateNodesShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // instancesShrink Field Functions 
     bool hasInstancesShrink() const { return this->instancesShrink_ != nullptr;};
     void deleteInstancesShrink() { this->instancesShrink_ = nullptr;};
-    inline string instancesShrink() const { DARABONBA_PTR_GET_DEFAULT(instancesShrink_, "") };
+    inline string getInstancesShrink() const { DARABONBA_PTR_GET_DEFAULT(instancesShrink_, "") };
     inline UpdateNodesShrinkRequest& setInstancesShrink(string instancesShrink) { DARABONBA_PTR_SET_VALUE(instancesShrink_, instancesShrink) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The information about the compute nodes that you want to update.
-    std::shared_ptr<string> instancesShrink_ = nullptr;
+    shared_ptr<string> instancesShrink_ {};
   };
 
   } // namespace Models

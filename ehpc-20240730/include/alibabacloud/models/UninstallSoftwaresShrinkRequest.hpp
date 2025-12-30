@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionalPackagesShrink_ == nullptr
-        && return this->clusterId_ == nullptr; };
+        && this->clusterId_ == nullptr; };
     // additionalPackagesShrink Field Functions 
     bool hasAdditionalPackagesShrink() const { return this->additionalPackagesShrink_ != nullptr;};
     void deleteAdditionalPackagesShrink() { this->additionalPackagesShrink_ = nullptr;};
-    inline string additionalPackagesShrink() const { DARABONBA_PTR_GET_DEFAULT(additionalPackagesShrink_, "") };
+    inline string getAdditionalPackagesShrink() const { DARABONBA_PTR_GET_DEFAULT(additionalPackagesShrink_, "") };
     inline UninstallSoftwaresShrinkRequest& setAdditionalPackagesShrink(string additionalPackagesShrink) { DARABONBA_PTR_SET_VALUE(additionalPackagesShrink_, additionalPackagesShrink) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UninstallSoftwaresShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
   protected:
     // The information about the software systems that you want to uninstall.
-    std::shared_ptr<string> additionalPackagesShrink_ = nullptr;
+    shared_ptr<string> additionalPackagesShrink_ {};
     // The cluster ID.
     // 
     // You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
   };
 
   } // namespace Models

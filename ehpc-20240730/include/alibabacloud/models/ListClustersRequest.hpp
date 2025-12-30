@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterIds_ == nullptr
-        && return this->clusterNames_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->clusterNames_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // clusterIds Field Functions 
     bool hasClusterIds() const { return this->clusterIds_ != nullptr;};
     void deleteClusterIds() { this->clusterIds_ = nullptr;};
-    inline const vector<string> & clusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
-    inline vector<string> clusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
+    inline const vector<string> & getClusterIds() const { DARABONBA_PTR_GET_CONST(clusterIds_, vector<string>) };
+    inline vector<string> getClusterIds() { DARABONBA_PTR_GET(clusterIds_, vector<string>) };
     inline ListClustersRequest& setClusterIds(const vector<string> & clusterIds) { DARABONBA_PTR_SET_VALUE(clusterIds_, clusterIds) };
     inline ListClustersRequest& setClusterIds(vector<string> && clusterIds) { DARABONBA_PTR_SET_RVALUE(clusterIds_, clusterIds) };
 
@@ -50,8 +50,8 @@ namespace Models
     // clusterNames Field Functions 
     bool hasClusterNames() const { return this->clusterNames_ != nullptr;};
     void deleteClusterNames() { this->clusterNames_ = nullptr;};
-    inline const vector<string> & clusterNames() const { DARABONBA_PTR_GET_CONST(clusterNames_, vector<string>) };
-    inline vector<string> clusterNames() { DARABONBA_PTR_GET(clusterNames_, vector<string>) };
+    inline const vector<string> & getClusterNames() const { DARABONBA_PTR_GET_CONST(clusterNames_, vector<string>) };
+    inline vector<string> getClusterNames() { DARABONBA_PTR_GET(clusterNames_, vector<string>) };
     inline ListClustersRequest& setClusterNames(const vector<string> & clusterNames) { DARABONBA_PTR_SET_VALUE(clusterNames_, clusterNames) };
     inline ListClustersRequest& setClusterNames(vector<string> && clusterNames) { DARABONBA_PTR_SET_RVALUE(clusterNames_, clusterNames) };
 
@@ -59,26 +59,26 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListClustersRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListClustersRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The cluster IDs. You can specify up to 20 IDs.
-    std::shared_ptr<vector<string>> clusterIds_ = nullptr;
+    shared_ptr<vector<string>> clusterIds_ {};
     // The cluster names. You can specify up to 20 names.
-    std::shared_ptr<vector<string>> clusterNames_ = nullptr;
+    shared_ptr<vector<string>> clusterNames_ {};
     // The page number of the page to return. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 10 to 100. Default value: 10
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

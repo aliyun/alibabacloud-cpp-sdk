@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->computeNodeShrink_ == nullptr && return this->queueName_ == nullptr; };
+        && this->computeNodeShrink_ == nullptr && this->queueName_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline AttachNodesShrinkRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // computeNodeShrink Field Functions 
     bool hasComputeNodeShrink() const { return this->computeNodeShrink_ != nullptr;};
     void deleteComputeNodeShrink() { this->computeNodeShrink_ = nullptr;};
-    inline string computeNodeShrink() const { DARABONBA_PTR_GET_DEFAULT(computeNodeShrink_, "") };
+    inline string getComputeNodeShrink() const { DARABONBA_PTR_GET_DEFAULT(computeNodeShrink_, "") };
     inline AttachNodesShrinkRequest& setComputeNodeShrink(string computeNodeShrink) { DARABONBA_PTR_SET_VALUE(computeNodeShrink_, computeNodeShrink) };
 
 
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline AttachNodesShrinkRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The list of compute nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> computeNodeShrink_ = nullptr;
+    shared_ptr<string> computeNodeShrink_ {};
     // The name of the queue to which the instance is to be added.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
   };
 
   } // namespace Models

@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->mountDirectory_ == nullptr && return this->mountOptions_ == nullptr && return this->mountTargetDomain_ == nullptr && return this->NASDirectory_ == nullptr && return this->protocolType_ == nullptr; };
+        && this->mountDirectory_ == nullptr && this->mountOptions_ == nullptr && this->mountTargetDomain_ == nullptr && this->NASDirectory_ == nullptr && this->protocolType_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline SharedStorageTemplate& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // mountDirectory Field Functions 
     bool hasMountDirectory() const { return this->mountDirectory_ != nullptr;};
     void deleteMountDirectory() { this->mountDirectory_ = nullptr;};
-    inline string mountDirectory() const { DARABONBA_PTR_GET_DEFAULT(mountDirectory_, "") };
+    inline string getMountDirectory() const { DARABONBA_PTR_GET_DEFAULT(mountDirectory_, "") };
     inline SharedStorageTemplate& setMountDirectory(string mountDirectory) { DARABONBA_PTR_SET_VALUE(mountDirectory_, mountDirectory) };
 
 
     // mountOptions Field Functions 
     bool hasMountOptions() const { return this->mountOptions_ != nullptr;};
     void deleteMountOptions() { this->mountOptions_ = nullptr;};
-    inline string mountOptions() const { DARABONBA_PTR_GET_DEFAULT(mountOptions_, "") };
+    inline string getMountOptions() const { DARABONBA_PTR_GET_DEFAULT(mountOptions_, "") };
     inline SharedStorageTemplate& setMountOptions(string mountOptions) { DARABONBA_PTR_SET_VALUE(mountOptions_, mountOptions) };
 
 
     // mountTargetDomain Field Functions 
     bool hasMountTargetDomain() const { return this->mountTargetDomain_ != nullptr;};
     void deleteMountTargetDomain() { this->mountTargetDomain_ = nullptr;};
-    inline string mountTargetDomain() const { DARABONBA_PTR_GET_DEFAULT(mountTargetDomain_, "") };
+    inline string getMountTargetDomain() const { DARABONBA_PTR_GET_DEFAULT(mountTargetDomain_, "") };
     inline SharedStorageTemplate& setMountTargetDomain(string mountTargetDomain) { DARABONBA_PTR_SET_VALUE(mountTargetDomain_, mountTargetDomain) };
 
 
     // NASDirectory Field Functions 
     bool hasNASDirectory() const { return this->NASDirectory_ != nullptr;};
     void deleteNASDirectory() { this->NASDirectory_ = nullptr;};
-    inline string NASDirectory() const { DARABONBA_PTR_GET_DEFAULT(NASDirectory_, "") };
+    inline string getNASDirectory() const { DARABONBA_PTR_GET_DEFAULT(NASDirectory_, "") };
     inline SharedStorageTemplate& setNASDirectory(string NASDirectory) { DARABONBA_PTR_SET_VALUE(NASDirectory_, NASDirectory) };
 
 
     // protocolType Field Functions 
     bool hasProtocolType() const { return this->protocolType_ != nullptr;};
     void deleteProtocolType() { this->protocolType_ = nullptr;};
-    inline string protocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
+    inline string getProtocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
     inline SharedStorageTemplate& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
   protected:
-    std::shared_ptr<string> fileSystemId_ = nullptr;
-    std::shared_ptr<string> mountDirectory_ = nullptr;
-    std::shared_ptr<string> mountOptions_ = nullptr;
-    std::shared_ptr<string> mountTargetDomain_ = nullptr;
-    std::shared_ptr<string> NASDirectory_ = nullptr;
-    std::shared_ptr<string> protocolType_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
+    shared_ptr<string> mountDirectory_ {};
+    shared_ptr<string> mountOptions_ {};
+    shared_ptr<string> mountTargetDomain_ {};
+    shared_ptr<string> NASDirectory_ {};
+    shared_ptr<string> protocolType_ {};
   };
 
   } // namespace Models
