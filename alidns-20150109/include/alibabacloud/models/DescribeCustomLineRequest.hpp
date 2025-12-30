@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->lineId_ == nullptr; };
+        && this->lineId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeCustomLineRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // lineId Field Functions 
     bool hasLineId() const { return this->lineId_ != nullptr;};
     void deleteLineId() { this->lineId_ = nullptr;};
-    inline int64_t lineId() const { DARABONBA_PTR_GET_DEFAULT(lineId_, 0L) };
+    inline int64_t getLineId() const { DARABONBA_PTR_GET_DEFAULT(lineId_, 0L) };
     inline DescribeCustomLineRequest& setLineId(int64_t lineId) { DARABONBA_PTR_SET_VALUE(lineId_, lineId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The unique ID of the custom line. You can call [DescribeCustomLines](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describecustomlines?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the ID
-    std::shared_ptr<int64_t> lineId_ = nullptr;
+    shared_ptr<int64_t> lineId_ {};
   };
 
   } // namespace Models

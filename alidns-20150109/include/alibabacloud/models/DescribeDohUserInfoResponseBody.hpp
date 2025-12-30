@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainCount_ == nullptr
-        && return this->pdnsId_ == nullptr && return this->requestId_ == nullptr && return this->subDomainCount_ == nullptr; };
+        && this->pdnsId_ == nullptr && this->requestId_ == nullptr && this->subDomainCount_ == nullptr; };
     // domainCount Field Functions 
     bool hasDomainCount() const { return this->domainCount_ != nullptr;};
     void deleteDomainCount() { this->domainCount_ = nullptr;};
-    inline int32_t domainCount() const { DARABONBA_PTR_GET_DEFAULT(domainCount_, 0) };
+    inline int32_t getDomainCount() const { DARABONBA_PTR_GET_DEFAULT(domainCount_, 0) };
     inline DescribeDohUserInfoResponseBody& setDomainCount(int32_t domainCount) { DARABONBA_PTR_SET_VALUE(domainCount_, domainCount) };
 
 
     // pdnsId Field Functions 
     bool hasPdnsId() const { return this->pdnsId_ != nullptr;};
     void deletePdnsId() { this->pdnsId_ = nullptr;};
-    inline int64_t pdnsId() const { DARABONBA_PTR_GET_DEFAULT(pdnsId_, 0L) };
+    inline int64_t getPdnsId() const { DARABONBA_PTR_GET_DEFAULT(pdnsId_, 0L) };
     inline DescribeDohUserInfoResponseBody& setPdnsId(int64_t pdnsId) { DARABONBA_PTR_SET_VALUE(pdnsId_, pdnsId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDohUserInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // subDomainCount Field Functions 
     bool hasSubDomainCount() const { return this->subDomainCount_ != nullptr;};
     void deleteSubDomainCount() { this->subDomainCount_ = nullptr;};
-    inline int32_t subDomainCount() const { DARABONBA_PTR_GET_DEFAULT(subDomainCount_, 0) };
+    inline int32_t getSubDomainCount() const { DARABONBA_PTR_GET_DEFAULT(subDomainCount_, 0) };
     inline DescribeDohUserInfoResponseBody& setSubDomainCount(int32_t subDomainCount) { DARABONBA_PTR_SET_VALUE(subDomainCount_, subDomainCount) };
 
 
   protected:
     // The number of accessed domains.
-    std::shared_ptr<int32_t> domainCount_ = nullptr;
+    shared_ptr<int32_t> domainCount_ {};
     // The ID of the Alibaba Cloud public DNS user.
-    std::shared_ptr<int64_t> pdnsId_ = nullptr;
+    shared_ptr<int64_t> pdnsId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of accessed subdomains.
-    std::shared_ptr<int32_t> subDomainCount_ = nullptr;
+    shared_ptr<int32_t> subDomainCount_ {};
   };
 
   } // namespace Models

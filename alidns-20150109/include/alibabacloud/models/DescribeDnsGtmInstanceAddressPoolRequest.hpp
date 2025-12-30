@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addrPoolId_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // addrPoolId Field Functions 
     bool hasAddrPoolId() const { return this->addrPoolId_ != nullptr;};
     void deleteAddrPoolId() { this->addrPoolId_ = nullptr;};
-    inline string addrPoolId() const { DARABONBA_PTR_GET_DEFAULT(addrPoolId_, "") };
+    inline string getAddrPoolId() const { DARABONBA_PTR_GET_DEFAULT(addrPoolId_, "") };
     inline DescribeDnsGtmInstanceAddressPoolRequest& setAddrPoolId(string addrPoolId) { DARABONBA_PTR_SET_VALUE(addrPoolId_, addrPoolId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDnsGtmInstanceAddressPoolRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The ID of the address pool.
     // 
     // This parameter is required.
-    std::shared_ptr<string> addrPoolId_ = nullptr;
+    shared_ptr<string> addrPoolId_ {};
     // The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

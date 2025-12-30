@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->originalDomain_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // originalDomain Field Functions 
     bool hasOriginalDomain() const { return this->originalDomain_ != nullptr;};
     void deleteOriginalDomain() { this->originalDomain_ = nullptr;};
-    inline string originalDomain() const { DARABONBA_PTR_GET_DEFAULT(originalDomain_, "") };
+    inline string getOriginalDomain() const { DARABONBA_PTR_GET_DEFAULT(originalDomain_, "") };
     inline ChangeDomainOfDnsProductResponseBody& setOriginalDomain(string originalDomain) { DARABONBA_PTR_SET_VALUE(originalDomain_, originalDomain) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ChangeDomainOfDnsProductResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The domain name that is originally bound to the instance. If no value is returned for this parameter, the instance is bound to a domain name for the first time.
-    std::shared_ptr<string> originalDomain_ = nullptr;
+    shared_ptr<string> originalDomain_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

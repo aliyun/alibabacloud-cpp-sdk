@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->domainName_ == nullptr && return this->isp_ == nullptr && return this->lang_ == nullptr; };
+        && this->domainName_ == nullptr && this->isp_ == nullptr && this->lang_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline SubmitIspFlushCacheTaskRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline SubmitIspFlushCacheTaskRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // isp Field Functions 
     bool hasIsp() const { return this->isp_ != nullptr;};
     void deleteIsp() { this->isp_ = nullptr;};
-    inline const vector<string> & isp() const { DARABONBA_PTR_GET_CONST(isp_, vector<string>) };
-    inline vector<string> isp() { DARABONBA_PTR_GET(isp_, vector<string>) };
+    inline const vector<string> & getIsp() const { DARABONBA_PTR_GET_CONST(isp_, vector<string>) };
+    inline vector<string> getIsp() { DARABONBA_PTR_GET(isp_, vector<string>) };
     inline SubmitIspFlushCacheTaskRequest& setIsp(const vector<string> & isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
     inline SubmitIspFlushCacheTaskRequest& setIsp(vector<string> && isp) { DARABONBA_PTR_SET_RVALUE(isp_, isp) };
 
@@ -64,18 +64,18 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SubmitIspFlushCacheTaskRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> isp_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<vector<string>> isp_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

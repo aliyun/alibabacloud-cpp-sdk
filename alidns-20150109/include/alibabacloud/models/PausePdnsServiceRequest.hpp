@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->serviceType_ == nullptr; };
+        && this->serviceType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline PausePdnsServiceRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // serviceType Field Functions 
     bool hasServiceType() const { return this->serviceType_ != nullptr;};
     void deleteServiceType() { this->serviceType_ = nullptr;};
-    inline string serviceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
+    inline string getServiceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
     inline PausePdnsServiceRequest& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> serviceType_ = nullptr;
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> serviceType_ {};
   };
 
   } // namespace Models

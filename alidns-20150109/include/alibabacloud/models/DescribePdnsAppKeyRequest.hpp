@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKeyId_ == nullptr
-        && return this->authCode_ == nullptr && return this->lang_ == nullptr; };
+        && this->authCode_ == nullptr && this->lang_ == nullptr; };
     // appKeyId Field Functions 
     bool hasAppKeyId() const { return this->appKeyId_ != nullptr;};
     void deleteAppKeyId() { this->appKeyId_ = nullptr;};
-    inline string appKeyId() const { DARABONBA_PTR_GET_DEFAULT(appKeyId_, "") };
+    inline string getAppKeyId() const { DARABONBA_PTR_GET_DEFAULT(appKeyId_, "") };
     inline DescribePdnsAppKeyRequest& setAppKeyId(string appKeyId) { DARABONBA_PTR_SET_VALUE(appKeyId_, appKeyId) };
 
 
     // authCode Field Functions 
     bool hasAuthCode() const { return this->authCode_ != nullptr;};
     void deleteAuthCode() { this->authCode_ = nullptr;};
-    inline string authCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
+    inline string getAuthCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
     inline DescribePdnsAppKeyRequest& setAuthCode(string authCode) { DARABONBA_PTR_SET_VALUE(authCode_, authCode) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribePdnsAppKeyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
-    std::shared_ptr<string> appKeyId_ = nullptr;
-    std::shared_ptr<string> authCode_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> appKeyId_ {};
+    shared_ptr<string> authCode_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

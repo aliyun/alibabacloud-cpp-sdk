@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchType_ == nullptr
-        && return this->lang_ == nullptr && return this->taskId_ == nullptr; };
+        && this->lang_ == nullptr && this->taskId_ == nullptr; };
     // batchType Field Functions 
     bool hasBatchType() const { return this->batchType_ != nullptr;};
     void deleteBatchType() { this->batchType_ = nullptr;};
-    inline string batchType() const { DARABONBA_PTR_GET_DEFAULT(batchType_, "") };
+    inline string getBatchType() const { DARABONBA_PTR_GET_DEFAULT(batchType_, "") };
     inline DescribeBatchResultCountRequest& setBatchType(string batchType) { DARABONBA_PTR_SET_VALUE(batchType_, batchType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeBatchResultCountRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline DescribeBatchResultCountRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
@@ -65,16 +65,16 @@ namespace Models
     // *   **RR_DEL**: deletes DNS records in batches.
     // 
     // >  If you do not specify this parameter, filtering is not required.
-    std::shared_ptr<string> batchType_ = nullptr;
+    shared_ptr<string> batchType_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The task ID.
     // 
     // >  If you specify TaskId, the execution result of the specified task is returned. If you do not specify TaskId, the execution result of the last task is returned.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

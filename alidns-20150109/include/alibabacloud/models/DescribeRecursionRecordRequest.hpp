@@ -33,12 +33,12 @@ namespace Models
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline string recordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
+    inline string getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
     inline DescribeRecursionRecordRequest& setRecordId(string recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
   protected:
-    std::shared_ptr<string> recordId_ = nullptr;
+    shared_ptr<string> recordId_ {};
   };
 
   } // namespace Models

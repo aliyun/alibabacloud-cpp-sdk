@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->address_ == nullptr && return this->addressId_ == nullptr && return this->attributeInfo_ == nullptr && return this->clientToken_ == nullptr && return this->healthJudgement_ == nullptr
-        && return this->healthTasksShrink_ == nullptr && return this->name_ == nullptr; };
+        && this->address_ == nullptr && this->addressId_ == nullptr && this->attributeInfo_ == nullptr && this->clientToken_ == nullptr && this->healthJudgement_ == nullptr
+        && this->healthTasksShrink_ == nullptr && this->name_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
-    inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
 
 
     // addressId Field Functions 
     bool hasAddressId() const { return this->addressId_ != nullptr;};
     void deleteAddressId() { this->addressId_ = nullptr;};
-    inline string addressId() const { DARABONBA_PTR_GET_DEFAULT(addressId_, "") };
+    inline string getAddressId() const { DARABONBA_PTR_GET_DEFAULT(addressId_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setAddressId(string addressId) { DARABONBA_PTR_SET_VALUE(addressId_, addressId) };
 
 
     // attributeInfo Field Functions 
     bool hasAttributeInfo() const { return this->attributeInfo_ != nullptr;};
     void deleteAttributeInfo() { this->attributeInfo_ = nullptr;};
-    inline string attributeInfo() const { DARABONBA_PTR_GET_DEFAULT(attributeInfo_, "") };
+    inline string getAttributeInfo() const { DARABONBA_PTR_GET_DEFAULT(attributeInfo_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setAttributeInfo(string attributeInfo) { DARABONBA_PTR_SET_VALUE(attributeInfo_, attributeInfo) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // healthJudgement Field Functions 
     bool hasHealthJudgement() const { return this->healthJudgement_ != nullptr;};
     void deleteHealthJudgement() { this->healthJudgement_ = nullptr;};
-    inline string healthJudgement() const { DARABONBA_PTR_GET_DEFAULT(healthJudgement_, "") };
+    inline string getHealthJudgement() const { DARABONBA_PTR_GET_DEFAULT(healthJudgement_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setHealthJudgement(string healthJudgement) { DARABONBA_PTR_SET_VALUE(healthJudgement_, healthJudgement) };
 
 
     // healthTasksShrink Field Functions 
     bool hasHealthTasksShrink() const { return this->healthTasksShrink_ != nullptr;};
     void deleteHealthTasksShrink() { this->healthTasksShrink_ = nullptr;};
-    inline string healthTasksShrink() const { DARABONBA_PTR_GET_DEFAULT(healthTasksShrink_, "") };
+    inline string getHealthTasksShrink() const { DARABONBA_PTR_GET_DEFAULT(healthTasksShrink_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setHealthTasksShrink(string healthTasksShrink) { DARABONBA_PTR_SET_VALUE(healthTasksShrink_, healthTasksShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateCloudGtmAddressShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -107,17 +107,17 @@ namespace Models
     // 
     // *   zh-CN: Chinese
     // *   en-US (default): English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The IP address or domain name.
-    std::shared_ptr<string> address_ = nullptr;
+    shared_ptr<string> address_ {};
     // The ID of the address. This ID uniquely identifies the address.
     // 
     // This parameter is required.
-    std::shared_ptr<string> addressId_ = nullptr;
+    shared_ptr<string> addressId_ {};
     // Address Attribution information.
-    std::shared_ptr<string> attributeInfo_ = nullptr;
+    shared_ptr<string> attributeInfo_ {};
     // The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The new condition for determining the health state of the address. Valid values:
     // 
     // *   any_ok: The health check results of at least one health check template are normal.
@@ -125,11 +125,11 @@ namespace Models
     // *   p50_ok: The health check results of at least 50% of health check templates are normal.
     // *   p70_ok: The health check results of at least 70% of health check templates are normal.
     // *   all_ok: The health check results of all health check templates are normal.
-    std::shared_ptr<string> healthJudgement_ = nullptr;
+    shared_ptr<string> healthJudgement_ {};
     // The health check tasks.
-    std::shared_ptr<string> healthTasksShrink_ = nullptr;
+    shared_ptr<string> healthTasksShrink_ {};
     // The name of the address.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

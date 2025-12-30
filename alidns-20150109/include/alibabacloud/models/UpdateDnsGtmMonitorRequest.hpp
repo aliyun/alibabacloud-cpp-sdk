@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATEDNSGTMMONITORREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateDnsGtmMonitorRequestIspCityNode.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -45,82 +44,126 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class IspCityNode : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IspCityNode& obj) { 
+        DARABONBA_PTR_TO_JSON(CityCode, cityCode_);
+        DARABONBA_PTR_TO_JSON(IspCode, ispCode_);
+      };
+      friend void from_json(const Darabonba::Json& j, IspCityNode& obj) { 
+        DARABONBA_PTR_FROM_JSON(CityCode, cityCode_);
+        DARABONBA_PTR_FROM_JSON(IspCode, ispCode_);
+      };
+      IspCityNode() = default ;
+      IspCityNode(const IspCityNode &) = default ;
+      IspCityNode(IspCityNode &&) = default ;
+      IspCityNode(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IspCityNode() = default ;
+      IspCityNode& operator=(const IspCityNode &) = default ;
+      IspCityNode& operator=(IspCityNode &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cityCode_ == nullptr
+        && this->ispCode_ == nullptr; };
+      // cityCode Field Functions 
+      bool hasCityCode() const { return this->cityCode_ != nullptr;};
+      void deleteCityCode() { this->cityCode_ = nullptr;};
+      inline string getCityCode() const { DARABONBA_PTR_GET_DEFAULT(cityCode_, "") };
+      inline IspCityNode& setCityCode(string cityCode) { DARABONBA_PTR_SET_VALUE(cityCode_, cityCode) };
+
+
+      // ispCode Field Functions 
+      bool hasIspCode() const { return this->ispCode_ != nullptr;};
+      void deleteIspCode() { this->ispCode_ = nullptr;};
+      inline string getIspCode() const { DARABONBA_PTR_GET_DEFAULT(ispCode_, "") };
+      inline IspCityNode& setIspCode(string ispCode) { DARABONBA_PTR_SET_VALUE(ispCode_, ispCode) };
+
+
+    protected:
+      // The code of the city where the monitored node is deployed.
+      shared_ptr<string> cityCode_ {};
+      // The code of the Internet service provider (ISP) to which the monitored node belongs.
+      shared_ptr<string> ispCode_ {};
+    };
+
     virtual bool empty() const override { return this->evaluationCount_ == nullptr
-        && return this->interval_ == nullptr && return this->ispCityNode_ == nullptr && return this->lang_ == nullptr && return this->monitorConfigId_ == nullptr && return this->monitorExtendInfo_ == nullptr
-        && return this->protocolType_ == nullptr && return this->timeout_ == nullptr; };
+        && this->interval_ == nullptr && this->ispCityNode_ == nullptr && this->lang_ == nullptr && this->monitorConfigId_ == nullptr && this->monitorExtendInfo_ == nullptr
+        && this->protocolType_ == nullptr && this->timeout_ == nullptr; };
     // evaluationCount Field Functions 
     bool hasEvaluationCount() const { return this->evaluationCount_ != nullptr;};
     void deleteEvaluationCount() { this->evaluationCount_ = nullptr;};
-    inline int32_t evaluationCount() const { DARABONBA_PTR_GET_DEFAULT(evaluationCount_, 0) };
+    inline int32_t getEvaluationCount() const { DARABONBA_PTR_GET_DEFAULT(evaluationCount_, 0) };
     inline UpdateDnsGtmMonitorRequest& setEvaluationCount(int32_t evaluationCount) { DARABONBA_PTR_SET_VALUE(evaluationCount_, evaluationCount) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline int32_t interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
+    inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
     inline UpdateDnsGtmMonitorRequest& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // ispCityNode Field Functions 
     bool hasIspCityNode() const { return this->ispCityNode_ != nullptr;};
     void deleteIspCityNode() { this->ispCityNode_ = nullptr;};
-    inline const vector<UpdateDnsGtmMonitorRequestIspCityNode> & ispCityNode() const { DARABONBA_PTR_GET_CONST(ispCityNode_, vector<UpdateDnsGtmMonitorRequestIspCityNode>) };
-    inline vector<UpdateDnsGtmMonitorRequestIspCityNode> ispCityNode() { DARABONBA_PTR_GET(ispCityNode_, vector<UpdateDnsGtmMonitorRequestIspCityNode>) };
-    inline UpdateDnsGtmMonitorRequest& setIspCityNode(const vector<UpdateDnsGtmMonitorRequestIspCityNode> & ispCityNode) { DARABONBA_PTR_SET_VALUE(ispCityNode_, ispCityNode) };
-    inline UpdateDnsGtmMonitorRequest& setIspCityNode(vector<UpdateDnsGtmMonitorRequestIspCityNode> && ispCityNode) { DARABONBA_PTR_SET_RVALUE(ispCityNode_, ispCityNode) };
+    inline const vector<UpdateDnsGtmMonitorRequest::IspCityNode> & getIspCityNode() const { DARABONBA_PTR_GET_CONST(ispCityNode_, vector<UpdateDnsGtmMonitorRequest::IspCityNode>) };
+    inline vector<UpdateDnsGtmMonitorRequest::IspCityNode> getIspCityNode() { DARABONBA_PTR_GET(ispCityNode_, vector<UpdateDnsGtmMonitorRequest::IspCityNode>) };
+    inline UpdateDnsGtmMonitorRequest& setIspCityNode(const vector<UpdateDnsGtmMonitorRequest::IspCityNode> & ispCityNode) { DARABONBA_PTR_SET_VALUE(ispCityNode_, ispCityNode) };
+    inline UpdateDnsGtmMonitorRequest& setIspCityNode(vector<UpdateDnsGtmMonitorRequest::IspCityNode> && ispCityNode) { DARABONBA_PTR_SET_RVALUE(ispCityNode_, ispCityNode) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateDnsGtmMonitorRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // monitorConfigId Field Functions 
     bool hasMonitorConfigId() const { return this->monitorConfigId_ != nullptr;};
     void deleteMonitorConfigId() { this->monitorConfigId_ = nullptr;};
-    inline string monitorConfigId() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigId_, "") };
+    inline string getMonitorConfigId() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigId_, "") };
     inline UpdateDnsGtmMonitorRequest& setMonitorConfigId(string monitorConfigId) { DARABONBA_PTR_SET_VALUE(monitorConfigId_, monitorConfigId) };
 
 
     // monitorExtendInfo Field Functions 
     bool hasMonitorExtendInfo() const { return this->monitorExtendInfo_ != nullptr;};
     void deleteMonitorExtendInfo() { this->monitorExtendInfo_ = nullptr;};
-    inline string monitorExtendInfo() const { DARABONBA_PTR_GET_DEFAULT(monitorExtendInfo_, "") };
+    inline string getMonitorExtendInfo() const { DARABONBA_PTR_GET_DEFAULT(monitorExtendInfo_, "") };
     inline UpdateDnsGtmMonitorRequest& setMonitorExtendInfo(string monitorExtendInfo) { DARABONBA_PTR_SET_VALUE(monitorExtendInfo_, monitorExtendInfo) };
 
 
     // protocolType Field Functions 
     bool hasProtocolType() const { return this->protocolType_ != nullptr;};
     void deleteProtocolType() { this->protocolType_ = nullptr;};
-    inline string protocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
+    inline string getProtocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
     inline UpdateDnsGtmMonitorRequest& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline UpdateDnsGtmMonitorRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
   protected:
     // The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
-    std::shared_ptr<int32_t> evaluationCount_ = nullptr;
+    shared_ptr<int32_t> evaluationCount_ {};
     // The health check interval. Unit: seconds.
-    std::shared_ptr<int32_t> interval_ = nullptr;
+    shared_ptr<int32_t> interval_ {};
     // The monitored nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<UpdateDnsGtmMonitorRequestIspCityNode>> ispCityNode_ = nullptr;
+    shared_ptr<vector<UpdateDnsGtmMonitorRequest::IspCityNode>> ispCityNode_ {};
     // The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the health check configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> monitorConfigId_ = nullptr;
+    shared_ptr<string> monitorConfigId_ {};
     // The extended information. The required parameters vary based on the health check protocol.
     // 
     // *   HTTP or HTTPS
@@ -170,7 +213,7 @@ namespace Models
     //         *   IPV6
     // 
     // This parameter is required.
-    std::shared_ptr<string> monitorExtendInfo_ = nullptr;
+    shared_ptr<string> monitorExtendInfo_ {};
     // The protocol used for the health check. Valid values:
     // 
     // *   HTTP
@@ -179,9 +222,9 @@ namespace Models
     // *   TCP
     // 
     // This parameter is required.
-    std::shared_ptr<string> protocolType_ = nullptr;
+    shared_ptr<string> protocolType_ {};
     // The timeout period. Unit: milliseconds.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

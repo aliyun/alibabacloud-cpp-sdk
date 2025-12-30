@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addrPoolId_ == nullptr
-        && return this->monitorConfigId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->monitorConfigId_ == nullptr && this->requestId_ == nullptr; };
     // addrPoolId Field Functions 
     bool hasAddrPoolId() const { return this->addrPoolId_ != nullptr;};
     void deleteAddrPoolId() { this->addrPoolId_ = nullptr;};
-    inline string addrPoolId() const { DARABONBA_PTR_GET_DEFAULT(addrPoolId_, "") };
+    inline string getAddrPoolId() const { DARABONBA_PTR_GET_DEFAULT(addrPoolId_, "") };
     inline AddDnsGtmAddressPoolResponseBody& setAddrPoolId(string addrPoolId) { DARABONBA_PTR_SET_VALUE(addrPoolId_, addrPoolId) };
 
 
     // monitorConfigId Field Functions 
     bool hasMonitorConfigId() const { return this->monitorConfigId_ != nullptr;};
     void deleteMonitorConfigId() { this->monitorConfigId_ = nullptr;};
-    inline string monitorConfigId() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigId_, "") };
+    inline string getMonitorConfigId() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigId_, "") };
     inline AddDnsGtmAddressPoolResponseBody& setMonitorConfigId(string monitorConfigId) { DARABONBA_PTR_SET_VALUE(monitorConfigId_, monitorConfigId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddDnsGtmAddressPoolResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the address pool.
-    std::shared_ptr<string> addrPoolId_ = nullptr;
+    shared_ptr<string> addrPoolId_ {};
     // The ID of the health check configuration.
-    std::shared_ptr<string> monitorConfigId_ = nullptr;
+    shared_ptr<string> monitorConfigId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

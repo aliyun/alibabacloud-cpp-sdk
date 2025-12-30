@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->faultAddrPool_ == nullptr
-        && return this->lang_ == nullptr && return this->name_ == nullptr && return this->remark_ == nullptr; };
+        && this->lang_ == nullptr && this->name_ == nullptr && this->remark_ == nullptr; };
     // faultAddrPool Field Functions 
     bool hasFaultAddrPool() const { return this->faultAddrPool_ != nullptr;};
     void deleteFaultAddrPool() { this->faultAddrPool_ = nullptr;};
-    inline string faultAddrPool() const { DARABONBA_PTR_GET_DEFAULT(faultAddrPool_, "") };
+    inline string getFaultAddrPool() const { DARABONBA_PTR_GET_DEFAULT(faultAddrPool_, "") };
     inline AddGtmRecoveryPlanRequest& setFaultAddrPool(string faultAddrPool) { DARABONBA_PTR_SET_VALUE(faultAddrPool_, faultAddrPool) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline AddGtmRecoveryPlanRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AddGtmRecoveryPlanRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline AddGtmRecoveryPlanRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The IDs of faulty address pools.
     // 
     // This parameter is required.
-    std::shared_ptr<string> faultAddrPool_ = nullptr;
+    shared_ptr<string> faultAddrPool_ {};
     // The language.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The name of the disaster recovery plan.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The description of the disaster recovery plan.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

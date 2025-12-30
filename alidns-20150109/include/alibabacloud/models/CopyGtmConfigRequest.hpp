@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->copyType_ == nullptr
-        && return this->lang_ == nullptr && return this->sourceId_ == nullptr && return this->targetId_ == nullptr; };
+        && this->lang_ == nullptr && this->sourceId_ == nullptr && this->targetId_ == nullptr; };
     // copyType Field Functions 
     bool hasCopyType() const { return this->copyType_ != nullptr;};
     void deleteCopyType() { this->copyType_ = nullptr;};
-    inline string copyType() const { DARABONBA_PTR_GET_DEFAULT(copyType_, "") };
+    inline string getCopyType() const { DARABONBA_PTR_GET_DEFAULT(copyType_, "") };
     inline CopyGtmConfigRequest& setCopyType(string copyType) { DARABONBA_PTR_SET_VALUE(copyType_, copyType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CopyGtmConfigRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceId Field Functions 
     bool hasSourceId() const { return this->sourceId_ != nullptr;};
     void deleteSourceId() { this->sourceId_ = nullptr;};
-    inline string sourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, "") };
+    inline string getSourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, "") };
     inline CopyGtmConfigRequest& setSourceId(string sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
 
 
     // targetId Field Functions 
     bool hasTargetId() const { return this->targetId_ != nullptr;};
     void deleteTargetId() { this->targetId_ = nullptr;};
-    inline string targetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, "") };
+    inline string getTargetId() const { DARABONBA_PTR_GET_DEFAULT(targetId_, "") };
     inline CopyGtmConfigRequest& setTargetId(string targetId) { DARABONBA_PTR_SET_VALUE(targetId_, targetId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The type of the object that is copied. Only the INSTANCE type is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> copyType_ = nullptr;
+    shared_ptr<string> copyType_ {};
     // The language.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the source object. Only instance IDs are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceId_ = nullptr;
+    shared_ptr<string> sourceId_ {};
     // The ID of the target object. Only instance IDs are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetId_ = nullptr;
+    shared_ptr<string> targetId_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->open_ == nullptr
-        && return this->recordCount_ == nullptr && return this->requestId_ == nullptr; };
+        && this->recordCount_ == nullptr && this->requestId_ == nullptr; };
     // open Field Functions 
     bool hasOpen() const { return this->open_ != nullptr;};
     void deleteOpen() { this->open_ = nullptr;};
-    inline bool open() const { DARABONBA_PTR_GET_DEFAULT(open_, false) };
+    inline bool getOpen() const { DARABONBA_PTR_GET_DEFAULT(open_, false) };
     inline SetDNSSLBStatusResponseBody& setOpen(bool open) { DARABONBA_PTR_SET_VALUE(open_, open) };
 
 
     // recordCount Field Functions 
     bool hasRecordCount() const { return this->recordCount_ != nullptr;};
     void deleteRecordCount() { this->recordCount_ = nullptr;};
-    inline int64_t recordCount() const { DARABONBA_PTR_GET_DEFAULT(recordCount_, 0L) };
+    inline int64_t getRecordCount() const { DARABONBA_PTR_GET_DEFAULT(recordCount_, 0L) };
     inline SetDNSSLBStatusResponseBody& setRecordCount(int64_t recordCount) { DARABONBA_PTR_SET_VALUE(recordCount_, recordCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SetDNSSLBStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether weighted round-robin is enabled for the subdomain name.
-    std::shared_ptr<bool> open_ = nullptr;
+    shared_ptr<bool> open_ {};
     // The number of A records that are matched.
-    std::shared_ptr<int64_t> recordCount_ = nullptr;
+    shared_ptr<int64_t> recordCount_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

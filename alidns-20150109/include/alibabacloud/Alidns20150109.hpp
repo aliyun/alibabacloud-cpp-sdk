@@ -288,6 +288,29 @@ namespace Alidns20150109
       Models::AddRecursionZoneResponse addRecursionZone(const Models::AddRecursionZoneRequest &request);
 
       /**
+       * @summary 用于删除特定域名的serverHold状态信息。
+       *
+       * @description ## 请求说明
+       * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+       *
+       * @param request AddRspDomainServerHoldStatusForGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddRspDomainServerHoldStatusForGatewayResponse
+       */
+      Models::AddRspDomainServerHoldStatusForGatewayResponse addRspDomainServerHoldStatusForGatewayWithOptions(const Models::AddRspDomainServerHoldStatusForGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于删除特定域名的serverHold状态信息。
+       *
+       * @description ## 请求说明
+       * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+       *
+       * @param request AddRspDomainServerHoldStatusForGatewayRequest
+       * @return AddRspDomainServerHoldStatusForGatewayResponse
+       */
+      Models::AddRspDomainServerHoldStatusForGatewayResponse addRspDomainServerHoldStatusForGateway(const Models::AddRspDomainServerHoldStatusForGatewayRequest &request);
+
+      /**
        * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
        *
        * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\

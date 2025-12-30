@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->systemCname_ == nullptr; };
+        && this->systemCname_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeGtmInstanceSystemCnameResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // systemCname Field Functions 
     bool hasSystemCname() const { return this->systemCname_ != nullptr;};
     void deleteSystemCname() { this->systemCname_ = nullptr;};
-    inline string systemCname() const { DARABONBA_PTR_GET_DEFAULT(systemCname_, "") };
+    inline string getSystemCname() const { DARABONBA_PTR_GET_DEFAULT(systemCname_, "") };
     inline DescribeGtmInstanceSystemCnameResponseBody& setSystemCname(string systemCname) { DARABONBA_PTR_SET_VALUE(systemCname_, systemCname) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The CNAME record assigned by the system.
-    std::shared_ptr<string> systemCname_ = nullptr;
+    shared_ptr<string> systemCname_ {};
   };
 
   } // namespace Models

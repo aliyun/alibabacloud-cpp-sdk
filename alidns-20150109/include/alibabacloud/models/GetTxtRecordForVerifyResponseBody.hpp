@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->parentDomainName_ == nullptr && return this->RR_ == nullptr && return this->requestId_ == nullptr && return this->value_ == nullptr; };
+        && this->parentDomainName_ == nullptr && this->RR_ == nullptr && this->requestId_ == nullptr && this->value_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline GetTxtRecordForVerifyResponseBody& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // parentDomainName Field Functions 
     bool hasParentDomainName() const { return this->parentDomainName_ != nullptr;};
     void deleteParentDomainName() { this->parentDomainName_ = nullptr;};
-    inline string parentDomainName() const { DARABONBA_PTR_GET_DEFAULT(parentDomainName_, "") };
+    inline string getParentDomainName() const { DARABONBA_PTR_GET_DEFAULT(parentDomainName_, "") };
     inline GetTxtRecordForVerifyResponseBody& setParentDomainName(string parentDomainName) { DARABONBA_PTR_SET_VALUE(parentDomainName_, parentDomainName) };
 
 
     // RR Field Functions 
     bool hasRR() const { return this->RR_ != nullptr;};
     void deleteRR() { this->RR_ = nullptr;};
-    inline string RR() const { DARABONBA_PTR_GET_DEFAULT(RR_, "") };
+    inline string getRR() const { DARABONBA_PTR_GET_DEFAULT(RR_, "") };
     inline GetTxtRecordForVerifyResponseBody& setRR(string RR) { DARABONBA_PTR_SET_VALUE(RR_, RR) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTxtRecordForVerifyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline GetTxtRecordForVerifyResponseBody& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
@@ -78,17 +78,17 @@ namespace Models
     // The domain name.
     // 
     // >  If you do not specify this parameter, it is not returned.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The top-level domain name.
-    std::shared_ptr<string> parentDomainName_ = nullptr;
+    shared_ptr<string> parentDomainName_ {};
     // The hostname.
-    std::shared_ptr<string> RR_ = nullptr;
+    shared_ptr<string> RR_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The record value.
     // 
     // >  The validity period is three days.
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

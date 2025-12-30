@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->proxyPattern_ == nullptr && return this->zoneName_ == nullptr; };
+        && this->proxyPattern_ == nullptr && this->zoneName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline AddRecursionZoneRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // proxyPattern Field Functions 
     bool hasProxyPattern() const { return this->proxyPattern_ != nullptr;};
     void deleteProxyPattern() { this->proxyPattern_ = nullptr;};
-    inline string proxyPattern() const { DARABONBA_PTR_GET_DEFAULT(proxyPattern_, "") };
+    inline string getProxyPattern() const { DARABONBA_PTR_GET_DEFAULT(proxyPattern_, "") };
     inline AddRecursionZoneRequest& setProxyPattern(string proxyPattern) { DARABONBA_PTR_SET_VALUE(proxyPattern_, proxyPattern) };
 
 
     // zoneName Field Functions 
     bool hasZoneName() const { return this->zoneName_ != nullptr;};
     void deleteZoneName() { this->zoneName_ = nullptr;};
-    inline string zoneName() const { DARABONBA_PTR_GET_DEFAULT(zoneName_, "") };
+    inline string getZoneName() const { DARABONBA_PTR_GET_DEFAULT(zoneName_, "") };
     inline AddRecursionZoneRequest& setZoneName(string zoneName) { DARABONBA_PTR_SET_VALUE(zoneName_, zoneName) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> proxyPattern_ = nullptr;
-    std::shared_ptr<string> zoneName_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> proxyPattern_ {};
+    shared_ptr<string> zoneName_ {};
   };
 
   } // namespace Models

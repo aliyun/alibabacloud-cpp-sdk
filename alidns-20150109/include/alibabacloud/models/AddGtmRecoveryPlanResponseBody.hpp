@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->recoveryPlanId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // recoveryPlanId Field Functions 
     bool hasRecoveryPlanId() const { return this->recoveryPlanId_ != nullptr;};
     void deleteRecoveryPlanId() { this->recoveryPlanId_ = nullptr;};
-    inline string recoveryPlanId() const { DARABONBA_PTR_GET_DEFAULT(recoveryPlanId_, "") };
+    inline string getRecoveryPlanId() const { DARABONBA_PTR_GET_DEFAULT(recoveryPlanId_, "") };
     inline AddGtmRecoveryPlanResponseBody& setRecoveryPlanId(string recoveryPlanId) { DARABONBA_PTR_SET_VALUE(recoveryPlanId_, recoveryPlanId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddGtmRecoveryPlanResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the disaster recovery plan.
-    std::shared_ptr<string> recoveryPlanId_ = nullptr;
+    shared_ptr<string> recoveryPlanId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

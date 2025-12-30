@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressId_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->requestId_ == nullptr && this->success_ == nullptr; };
     // addressId Field Functions 
     bool hasAddressId() const { return this->addressId_ != nullptr;};
     void deleteAddressId() { this->addressId_ = nullptr;};
-    inline string addressId() const { DARABONBA_PTR_GET_DEFAULT(addressId_, "") };
+    inline string getAddressId() const { DARABONBA_PTR_GET_DEFAULT(addressId_, "") };
     inline CreateCloudGtmAddressResponseBody& setAddressId(string addressId) { DARABONBA_PTR_SET_VALUE(addressId_, addressId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCloudGtmAddressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline CreateCloudGtmAddressResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The address ID. This ID uniquely identifies the address.
-    std::shared_ptr<string> addressId_ = nullptr;
+    shared_ptr<string> addressId_ {};
     // Unique request identification code.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the address creation operation is successful:
     // - true: Operation was successful
     // - false: Operation was failed
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->telecomRemainQuota_ == nullptr; };
+        && this->telecomRemainQuota_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeIspFlushCacheRemainQuotaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // telecomRemainQuota Field Functions 
     bool hasTelecomRemainQuota() const { return this->telecomRemainQuota_ != nullptr;};
     void deleteTelecomRemainQuota() { this->telecomRemainQuota_ = nullptr;};
-    inline int32_t telecomRemainQuota() const { DARABONBA_PTR_GET_DEFAULT(telecomRemainQuota_, 0) };
+    inline int32_t getTelecomRemainQuota() const { DARABONBA_PTR_GET_DEFAULT(telecomRemainQuota_, 0) };
     inline DescribeIspFlushCacheRemainQuotaResponseBody& setTelecomRemainQuota(int32_t telecomRemainQuota) { DARABONBA_PTR_SET_VALUE(telecomRemainQuota_, telecomRemainQuota) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> telecomRemainQuota_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> telecomRemainQuota_ {};
   };
 
   } // namespace Models

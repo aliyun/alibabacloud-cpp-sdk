@@ -46,81 +46,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->priority_ == nullptr && return this->recordId_ == nullptr && return this->requestSource_ == nullptr && return this->rr_ == nullptr && return this->ttl_ == nullptr
-        && return this->type_ == nullptr && return this->value_ == nullptr && return this->weight_ == nullptr; };
+        && this->priority_ == nullptr && this->recordId_ == nullptr && this->requestSource_ == nullptr && this->rr_ == nullptr && this->ttl_ == nullptr
+        && this->type_ == nullptr && this->value_ == nullptr && this->weight_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateRecursionRecordRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline UpdateRecursionRecordRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline string recordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
+    inline string getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
     inline UpdateRecursionRecordRequest& setRecordId(string recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
     // requestSource Field Functions 
     bool hasRequestSource() const { return this->requestSource_ != nullptr;};
     void deleteRequestSource() { this->requestSource_ = nullptr;};
-    inline string requestSource() const { DARABONBA_PTR_GET_DEFAULT(requestSource_, "") };
+    inline string getRequestSource() const { DARABONBA_PTR_GET_DEFAULT(requestSource_, "") };
     inline UpdateRecursionRecordRequest& setRequestSource(string requestSource) { DARABONBA_PTR_SET_VALUE(requestSource_, requestSource) };
 
 
     // rr Field Functions 
     bool hasRr() const { return this->rr_ != nullptr;};
     void deleteRr() { this->rr_ = nullptr;};
-    inline string rr() const { DARABONBA_PTR_GET_DEFAULT(rr_, "") };
+    inline string getRr() const { DARABONBA_PTR_GET_DEFAULT(rr_, "") };
     inline UpdateRecursionRecordRequest& setRr(string rr) { DARABONBA_PTR_SET_VALUE(rr_, rr) };
 
 
     // ttl Field Functions 
     bool hasTtl() const { return this->ttl_ != nullptr;};
     void deleteTtl() { this->ttl_ = nullptr;};
-    inline int32_t ttl() const { DARABONBA_PTR_GET_DEFAULT(ttl_, 0) };
+    inline int32_t getTtl() const { DARABONBA_PTR_GET_DEFAULT(ttl_, 0) };
     inline UpdateRecursionRecordRequest& setTtl(int32_t ttl) { DARABONBA_PTR_SET_VALUE(ttl_, ttl) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline UpdateRecursionRecordRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline UpdateRecursionRecordRequest& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
     // weight Field Functions 
     bool hasWeight() const { return this->weight_ != nullptr;};
     void deleteWeight() { this->weight_ = nullptr;};
-    inline int32_t weight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+    inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
     inline UpdateRecursionRecordRequest& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<int32_t> priority_ = nullptr;
-    std::shared_ptr<string> recordId_ = nullptr;
-    std::shared_ptr<string> requestSource_ = nullptr;
-    std::shared_ptr<string> rr_ = nullptr;
-    std::shared_ptr<int32_t> ttl_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
-    std::shared_ptr<int32_t> weight_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<int32_t> priority_ {};
+    shared_ptr<string> recordId_ {};
+    shared_ptr<string> requestSource_ {};
+    shared_ptr<string> rr_ {};
+    shared_ptr<int32_t> ttl_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> value_ {};
+    shared_ptr<int32_t> weight_ {};
   };
 
   } // namespace Models

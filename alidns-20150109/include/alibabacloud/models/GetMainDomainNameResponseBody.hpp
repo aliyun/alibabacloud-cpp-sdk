@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainLevel_ == nullptr
-        && return this->domainName_ == nullptr && return this->RR_ == nullptr && return this->requestId_ == nullptr; };
+        && this->domainName_ == nullptr && this->RR_ == nullptr && this->requestId_ == nullptr; };
     // domainLevel Field Functions 
     bool hasDomainLevel() const { return this->domainLevel_ != nullptr;};
     void deleteDomainLevel() { this->domainLevel_ = nullptr;};
-    inline int64_t domainLevel() const { DARABONBA_PTR_GET_DEFAULT(domainLevel_, 0L) };
+    inline int64_t getDomainLevel() const { DARABONBA_PTR_GET_DEFAULT(domainLevel_, 0L) };
     inline GetMainDomainNameResponseBody& setDomainLevel(int64_t domainLevel) { DARABONBA_PTR_SET_VALUE(domainLevel_, domainLevel) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline GetMainDomainNameResponseBody& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // RR Field Functions 
     bool hasRR() const { return this->RR_ != nullptr;};
     void deleteRR() { this->RR_ = nullptr;};
-    inline string RR() const { DARABONBA_PTR_GET_DEFAULT(RR_, "") };
+    inline string getRR() const { DARABONBA_PTR_GET_DEFAULT(RR_, "") };
     inline GetMainDomainNameResponseBody& setRR(string RR) { DARABONBA_PTR_SET_VALUE(RR_, RR) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetMainDomainNameResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The level of the entered domain name.
-    std::shared_ptr<int64_t> domainLevel_ = nullptr;
+    shared_ptr<int64_t> domainLevel_ {};
     // The domain name.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The hostname.
-    std::shared_ptr<string> RR_ = nullptr;
+    shared_ptr<string> RR_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

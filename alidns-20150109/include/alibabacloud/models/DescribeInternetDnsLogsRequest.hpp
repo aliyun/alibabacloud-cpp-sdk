@@ -48,99 +48,99 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->domainName_ == nullptr && return this->endTimestamp_ == nullptr && return this->lang_ == nullptr && return this->module_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->queryCondition_ == nullptr && return this->recursionProtocolType_ == nullptr && return this->startTimestamp_ == nullptr; };
+        && this->domainName_ == nullptr && this->endTimestamp_ == nullptr && this->lang_ == nullptr && this->module_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->queryCondition_ == nullptr && this->recursionProtocolType_ == nullptr && this->startTimestamp_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline int64_t accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
+    inline int64_t getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
     inline DescribeInternetDnsLogsRequest& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeInternetDnsLogsRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // endTimestamp Field Functions 
     bool hasEndTimestamp() const { return this->endTimestamp_ != nullptr;};
     void deleteEndTimestamp() { this->endTimestamp_ = nullptr;};
-    inline int64_t endTimestamp() const { DARABONBA_PTR_GET_DEFAULT(endTimestamp_, 0L) };
+    inline int64_t getEndTimestamp() const { DARABONBA_PTR_GET_DEFAULT(endTimestamp_, 0L) };
     inline DescribeInternetDnsLogsRequest& setEndTimestamp(int64_t endTimestamp) { DARABONBA_PTR_SET_VALUE(endTimestamp_, endTimestamp) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeInternetDnsLogsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline string module() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
+    inline string getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
     inline DescribeInternetDnsLogsRequest& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeInternetDnsLogsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeInternetDnsLogsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // queryCondition Field Functions 
     bool hasQueryCondition() const { return this->queryCondition_ != nullptr;};
     void deleteQueryCondition() { this->queryCondition_ = nullptr;};
-    inline string queryCondition() const { DARABONBA_PTR_GET_DEFAULT(queryCondition_, "") };
+    inline string getQueryCondition() const { DARABONBA_PTR_GET_DEFAULT(queryCondition_, "") };
     inline DescribeInternetDnsLogsRequest& setQueryCondition(string queryCondition) { DARABONBA_PTR_SET_VALUE(queryCondition_, queryCondition) };
 
 
     // recursionProtocolType Field Functions 
     bool hasRecursionProtocolType() const { return this->recursionProtocolType_ != nullptr;};
     void deleteRecursionProtocolType() { this->recursionProtocolType_ = nullptr;};
-    inline string recursionProtocolType() const { DARABONBA_PTR_GET_DEFAULT(recursionProtocolType_, "") };
+    inline string getRecursionProtocolType() const { DARABONBA_PTR_GET_DEFAULT(recursionProtocolType_, "") };
     inline DescribeInternetDnsLogsRequest& setRecursionProtocolType(string recursionProtocolType) { DARABONBA_PTR_SET_VALUE(recursionProtocolType_, recursionProtocolType) };
 
 
     // startTimestamp Field Functions 
     bool hasStartTimestamp() const { return this->startTimestamp_ != nullptr;};
     void deleteStartTimestamp() { this->startTimestamp_ = nullptr;};
-    inline int64_t startTimestamp() const { DARABONBA_PTR_GET_DEFAULT(startTimestamp_, 0L) };
+    inline int64_t getStartTimestamp() const { DARABONBA_PTR_GET_DEFAULT(startTimestamp_, 0L) };
     inline DescribeInternetDnsLogsRequest& setStartTimestamp(int64_t startTimestamp) { DARABONBA_PTR_SET_VALUE(startTimestamp_, startTimestamp) };
 
 
   protected:
     // The account ID displayed on the Recursive Resolution (Public DNS) page after you activate Alibaba Cloud Public DNS.
-    std::shared_ptr<int64_t> accountId_ = nullptr;
+    shared_ptr<int64_t> accountId_ {};
     // The domain name.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The end time of the query (timestamp, unit: milliseconds). >Warning: If the query time span is too large and the amount of resolution logs for the queried domain is excessive, it may lead to a query timeout or inaccurate query results.
-    std::shared_ptr<int64_t> endTimestamp_ = nullptr;
+    shared_ptr<int64_t> endTimestamp_ {};
     // Return value language, options: 
     // - zh: Chinese 
     // - en: English
     // 
     // Default: en
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // Module type 
     // - AUTHORITY (default): Public Authoritative DNS 
     // - RECURSION: Public Recursive DNS
-    std::shared_ptr<string> module_ = nullptr;
+    shared_ptr<string> module_ {};
     // Page number, default value is 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Page size for query.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Query parameters 
     // - sourceIp: Source IP address 
     // - queryNameFuzzy: Domain name (fuzzy value) 
@@ -148,10 +148,10 @@ namespace Models
     // - value: Resolution result 
     // - status: Status 
     // - serverIp: Resolution server IP
-    std::shared_ptr<string> queryCondition_ = nullptr;
-    std::shared_ptr<string> recursionProtocolType_ = nullptr;
+    shared_ptr<string> queryCondition_ {};
+    shared_ptr<string> recursionProtocolType_ {};
     // The start time of the query (timestamp, unit: milliseconds).
-    std::shared_ptr<int64_t> startTimestamp_ = nullptr;
+    shared_ptr<int64_t> startTimestamp_ {};
   };
 
   } // namespace Models

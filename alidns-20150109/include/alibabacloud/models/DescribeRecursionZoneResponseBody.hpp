@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBERECURSIONZONERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBERECURSIONZONERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeRecursionZoneResponseBodyEffectiveScopes.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -58,133 +58,243 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class EffectiveScopes : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EffectiveScopes& obj) { 
+        DARABONBA_PTR_TO_JSON(EffectiveScope, effectiveScope_);
+      };
+      friend void from_json(const Darabonba::Json& j, EffectiveScopes& obj) { 
+        DARABONBA_PTR_FROM_JSON(EffectiveScope, effectiveScope_);
+      };
+      EffectiveScopes() = default ;
+      EffectiveScopes(const EffectiveScopes &) = default ;
+      EffectiveScopes(EffectiveScopes &&) = default ;
+      EffectiveScopes(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EffectiveScopes() = default ;
+      EffectiveScopes& operator=(const EffectiveScopes &) = default ;
+      EffectiveScopes& operator=(EffectiveScopes &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class EffectiveScope : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const EffectiveScope& obj) { 
+          DARABONBA_PTR_TO_JSON(EffectiveType, effectiveType_);
+          DARABONBA_PTR_TO_JSON(Scopes, scopes_);
+        };
+        friend void from_json(const Darabonba::Json& j, EffectiveScope& obj) { 
+          DARABONBA_PTR_FROM_JSON(EffectiveType, effectiveType_);
+          DARABONBA_PTR_FROM_JSON(Scopes, scopes_);
+        };
+        EffectiveScope() = default ;
+        EffectiveScope(const EffectiveScope &) = default ;
+        EffectiveScope(EffectiveScope &&) = default ;
+        EffectiveScope(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~EffectiveScope() = default ;
+        EffectiveScope& operator=(const EffectiveScope &) = default ;
+        EffectiveScope& operator=(EffectiveScope &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Scopes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Scopes& obj) { 
+            DARABONBA_PTR_TO_JSON(Scope, scope_);
+          };
+          friend void from_json(const Darabonba::Json& j, Scopes& obj) { 
+            DARABONBA_PTR_FROM_JSON(Scope, scope_);
+          };
+          Scopes() = default ;
+          Scopes(const Scopes &) = default ;
+          Scopes(Scopes &&) = default ;
+          Scopes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Scopes() = default ;
+          Scopes& operator=(const Scopes &) = default ;
+          Scopes& operator=(Scopes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->scope_ == nullptr; };
+          // scope Field Functions 
+          bool hasScope() const { return this->scope_ != nullptr;};
+          void deleteScope() { this->scope_ = nullptr;};
+          inline const vector<string> & getScope() const { DARABONBA_PTR_GET_CONST(scope_, vector<string>) };
+          inline vector<string> getScope() { DARABONBA_PTR_GET(scope_, vector<string>) };
+          inline Scopes& setScope(const vector<string> & scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
+          inline Scopes& setScope(vector<string> && scope) { DARABONBA_PTR_SET_RVALUE(scope_, scope) };
+
+
+        protected:
+          shared_ptr<vector<string>> scope_ {};
+        };
+
+        virtual bool empty() const override { return this->effectiveType_ == nullptr
+        && this->scopes_ == nullptr; };
+        // effectiveType Field Functions 
+        bool hasEffectiveType() const { return this->effectiveType_ != nullptr;};
+        void deleteEffectiveType() { this->effectiveType_ = nullptr;};
+        inline string getEffectiveType() const { DARABONBA_PTR_GET_DEFAULT(effectiveType_, "") };
+        inline EffectiveScope& setEffectiveType(string effectiveType) { DARABONBA_PTR_SET_VALUE(effectiveType_, effectiveType) };
+
+
+        // scopes Field Functions 
+        bool hasScopes() const { return this->scopes_ != nullptr;};
+        void deleteScopes() { this->scopes_ = nullptr;};
+        inline const EffectiveScope::Scopes & getScopes() const { DARABONBA_PTR_GET_CONST(scopes_, EffectiveScope::Scopes) };
+        inline EffectiveScope::Scopes getScopes() { DARABONBA_PTR_GET(scopes_, EffectiveScope::Scopes) };
+        inline EffectiveScope& setScopes(const EffectiveScope::Scopes & scopes) { DARABONBA_PTR_SET_VALUE(scopes_, scopes) };
+        inline EffectiveScope& setScopes(EffectiveScope::Scopes && scopes) { DARABONBA_PTR_SET_RVALUE(scopes_, scopes) };
+
+
+      protected:
+        shared_ptr<string> effectiveType_ {};
+        shared_ptr<EffectiveScope::Scopes> scopes_ {};
+      };
+
+      virtual bool empty() const override { return this->effectiveScope_ == nullptr; };
+      // effectiveScope Field Functions 
+      bool hasEffectiveScope() const { return this->effectiveScope_ != nullptr;};
+      void deleteEffectiveScope() { this->effectiveScope_ = nullptr;};
+      inline const vector<EffectiveScopes::EffectiveScope> & getEffectiveScope() const { DARABONBA_PTR_GET_CONST(effectiveScope_, vector<EffectiveScopes::EffectiveScope>) };
+      inline vector<EffectiveScopes::EffectiveScope> getEffectiveScope() { DARABONBA_PTR_GET(effectiveScope_, vector<EffectiveScopes::EffectiveScope>) };
+      inline EffectiveScopes& setEffectiveScope(const vector<EffectiveScopes::EffectiveScope> & effectiveScope) { DARABONBA_PTR_SET_VALUE(effectiveScope_, effectiveScope) };
+      inline EffectiveScopes& setEffectiveScope(vector<EffectiveScopes::EffectiveScope> && effectiveScope) { DARABONBA_PTR_SET_RVALUE(effectiveScope_, effectiveScope) };
+
+
+    protected:
+      shared_ptr<vector<EffectiveScopes::EffectiveScope>> effectiveScope_ {};
+    };
+
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->createTimestamp_ == nullptr && return this->creator_ == nullptr && return this->creatorSubType_ == nullptr && return this->creatorType_ == nullptr && return this->effectiveScopes_ == nullptr
-        && return this->proxyPattern_ == nullptr && return this->recordCount_ == nullptr && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->updateTime_ == nullptr
-        && return this->updateTimestamp_ == nullptr && return this->userId_ == nullptr && return this->zoneId_ == nullptr && return this->zoneName_ == nullptr; };
+        && this->createTimestamp_ == nullptr && this->creator_ == nullptr && this->creatorSubType_ == nullptr && this->creatorType_ == nullptr && this->effectiveScopes_ == nullptr
+        && this->proxyPattern_ == nullptr && this->recordCount_ == nullptr && this->remark_ == nullptr && this->requestId_ == nullptr && this->updateTime_ == nullptr
+        && this->updateTimestamp_ == nullptr && this->userId_ == nullptr && this->zoneId_ == nullptr && this->zoneName_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescribeRecursionZoneResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // createTimestamp Field Functions 
     bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
     void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
-    inline int64_t createTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
+    inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
     inline DescribeRecursionZoneResponseBody& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline string creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline DescribeRecursionZoneResponseBody& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // creatorSubType Field Functions 
     bool hasCreatorSubType() const { return this->creatorSubType_ != nullptr;};
     void deleteCreatorSubType() { this->creatorSubType_ = nullptr;};
-    inline string creatorSubType() const { DARABONBA_PTR_GET_DEFAULT(creatorSubType_, "") };
+    inline string getCreatorSubType() const { DARABONBA_PTR_GET_DEFAULT(creatorSubType_, "") };
     inline DescribeRecursionZoneResponseBody& setCreatorSubType(string creatorSubType) { DARABONBA_PTR_SET_VALUE(creatorSubType_, creatorSubType) };
 
 
     // creatorType Field Functions 
     bool hasCreatorType() const { return this->creatorType_ != nullptr;};
     void deleteCreatorType() { this->creatorType_ = nullptr;};
-    inline string creatorType() const { DARABONBA_PTR_GET_DEFAULT(creatorType_, "") };
+    inline string getCreatorType() const { DARABONBA_PTR_GET_DEFAULT(creatorType_, "") };
     inline DescribeRecursionZoneResponseBody& setCreatorType(string creatorType) { DARABONBA_PTR_SET_VALUE(creatorType_, creatorType) };
 
 
     // effectiveScopes Field Functions 
     bool hasEffectiveScopes() const { return this->effectiveScopes_ != nullptr;};
     void deleteEffectiveScopes() { this->effectiveScopes_ = nullptr;};
-    inline const DescribeRecursionZoneResponseBodyEffectiveScopes & effectiveScopes() const { DARABONBA_PTR_GET_CONST(effectiveScopes_, DescribeRecursionZoneResponseBodyEffectiveScopes) };
-    inline DescribeRecursionZoneResponseBodyEffectiveScopes effectiveScopes() { DARABONBA_PTR_GET(effectiveScopes_, DescribeRecursionZoneResponseBodyEffectiveScopes) };
-    inline DescribeRecursionZoneResponseBody& setEffectiveScopes(const DescribeRecursionZoneResponseBodyEffectiveScopes & effectiveScopes) { DARABONBA_PTR_SET_VALUE(effectiveScopes_, effectiveScopes) };
-    inline DescribeRecursionZoneResponseBody& setEffectiveScopes(DescribeRecursionZoneResponseBodyEffectiveScopes && effectiveScopes) { DARABONBA_PTR_SET_RVALUE(effectiveScopes_, effectiveScopes) };
+    inline const DescribeRecursionZoneResponseBody::EffectiveScopes & getEffectiveScopes() const { DARABONBA_PTR_GET_CONST(effectiveScopes_, DescribeRecursionZoneResponseBody::EffectiveScopes) };
+    inline DescribeRecursionZoneResponseBody::EffectiveScopes getEffectiveScopes() { DARABONBA_PTR_GET(effectiveScopes_, DescribeRecursionZoneResponseBody::EffectiveScopes) };
+    inline DescribeRecursionZoneResponseBody& setEffectiveScopes(const DescribeRecursionZoneResponseBody::EffectiveScopes & effectiveScopes) { DARABONBA_PTR_SET_VALUE(effectiveScopes_, effectiveScopes) };
+    inline DescribeRecursionZoneResponseBody& setEffectiveScopes(DescribeRecursionZoneResponseBody::EffectiveScopes && effectiveScopes) { DARABONBA_PTR_SET_RVALUE(effectiveScopes_, effectiveScopes) };
 
 
     // proxyPattern Field Functions 
     bool hasProxyPattern() const { return this->proxyPattern_ != nullptr;};
     void deleteProxyPattern() { this->proxyPattern_ = nullptr;};
-    inline string proxyPattern() const { DARABONBA_PTR_GET_DEFAULT(proxyPattern_, "") };
+    inline string getProxyPattern() const { DARABONBA_PTR_GET_DEFAULT(proxyPattern_, "") };
     inline DescribeRecursionZoneResponseBody& setProxyPattern(string proxyPattern) { DARABONBA_PTR_SET_VALUE(proxyPattern_, proxyPattern) };
 
 
     // recordCount Field Functions 
     bool hasRecordCount() const { return this->recordCount_ != nullptr;};
     void deleteRecordCount() { this->recordCount_ = nullptr;};
-    inline int32_t recordCount() const { DARABONBA_PTR_GET_DEFAULT(recordCount_, 0) };
+    inline int32_t getRecordCount() const { DARABONBA_PTR_GET_DEFAULT(recordCount_, 0) };
     inline DescribeRecursionZoneResponseBody& setRecordCount(int32_t recordCount) { DARABONBA_PTR_SET_VALUE(recordCount_, recordCount) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribeRecursionZoneResponseBody& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeRecursionZoneResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline DescribeRecursionZoneResponseBody& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
     // updateTimestamp Field Functions 
     bool hasUpdateTimestamp() const { return this->updateTimestamp_ != nullptr;};
     void deleteUpdateTimestamp() { this->updateTimestamp_ = nullptr;};
-    inline int64_t updateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(updateTimestamp_, 0L) };
+    inline int64_t getUpdateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(updateTimestamp_, 0L) };
     inline DescribeRecursionZoneResponseBody& setUpdateTimestamp(int64_t updateTimestamp) { DARABONBA_PTR_SET_VALUE(updateTimestamp_, updateTimestamp) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DescribeRecursionZoneResponseBody& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline DescribeRecursionZoneResponseBody& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
     // zoneName Field Functions 
     bool hasZoneName() const { return this->zoneName_ != nullptr;};
     void deleteZoneName() { this->zoneName_ = nullptr;};
-    inline string zoneName() const { DARABONBA_PTR_GET_DEFAULT(zoneName_, "") };
+    inline string getZoneName() const { DARABONBA_PTR_GET_DEFAULT(zoneName_, "") };
     inline DescribeRecursionZoneResponseBody& setZoneName(string zoneName) { DARABONBA_PTR_SET_VALUE(zoneName_, zoneName) };
 
 
   protected:
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<int64_t> createTimestamp_ = nullptr;
-    std::shared_ptr<string> creator_ = nullptr;
-    std::shared_ptr<string> creatorSubType_ = nullptr;
-    std::shared_ptr<string> creatorType_ = nullptr;
-    std::shared_ptr<DescribeRecursionZoneResponseBodyEffectiveScopes> effectiveScopes_ = nullptr;
-    std::shared_ptr<string> proxyPattern_ = nullptr;
-    std::shared_ptr<int32_t> recordCount_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> updateTime_ = nullptr;
-    std::shared_ptr<int64_t> updateTimestamp_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
-    std::shared_ptr<string> zoneId_ = nullptr;
-    std::shared_ptr<string> zoneName_ = nullptr;
+    shared_ptr<string> createTime_ {};
+    shared_ptr<int64_t> createTimestamp_ {};
+    shared_ptr<string> creator_ {};
+    shared_ptr<string> creatorSubType_ {};
+    shared_ptr<string> creatorType_ {};
+    shared_ptr<DescribeRecursionZoneResponseBody::EffectiveScopes> effectiveScopes_ {};
+    shared_ptr<string> proxyPattern_ {};
+    shared_ptr<int32_t> recordCount_ {};
+    shared_ptr<string> remark_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> updateTime_ {};
+    shared_ptr<int64_t> updateTimestamp_ {};
+    shared_ptr<string> userId_ {};
+    shared_ptr<string> zoneId_ {};
+    shared_ptr<string> zoneName_ {};
   };
 
   } // namespace Models

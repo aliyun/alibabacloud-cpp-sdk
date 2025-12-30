@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lineCode_ == nullptr
-        && return this->lineId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->lineId_ == nullptr && this->requestId_ == nullptr; };
     // lineCode Field Functions 
     bool hasLineCode() const { return this->lineCode_ != nullptr;};
     void deleteLineCode() { this->lineCode_ = nullptr;};
-    inline string lineCode() const { DARABONBA_PTR_GET_DEFAULT(lineCode_, "") };
+    inline string getLineCode() const { DARABONBA_PTR_GET_DEFAULT(lineCode_, "") };
     inline AddCustomLineResponseBody& setLineCode(string lineCode) { DARABONBA_PTR_SET_VALUE(lineCode_, lineCode) };
 
 
     // lineId Field Functions 
     bool hasLineId() const { return this->lineId_ != nullptr;};
     void deleteLineId() { this->lineId_ = nullptr;};
-    inline int64_t lineId() const { DARABONBA_PTR_GET_DEFAULT(lineId_, 0L) };
+    inline int64_t getLineId() const { DARABONBA_PTR_GET_DEFAULT(lineId_, 0L) };
     inline AddCustomLineResponseBody& setLineId(int64_t lineId) { DARABONBA_PTR_SET_VALUE(lineId_, lineId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddCustomLineResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The code of the custom line.
-    std::shared_ptr<string> lineCode_ = nullptr;
+    shared_ptr<string> lineCode_ {};
     // The unique ID of the custom line.
-    std::shared_ptr<int64_t> lineId_ = nullptr;
+    shared_ptr<int64_t> lineId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

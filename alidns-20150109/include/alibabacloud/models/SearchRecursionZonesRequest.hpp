@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_SEARCHRECURSIONZONESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/SearchRecursionZonesRequestEffectiveScopes.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,86 +46,130 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class EffectiveScopes : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EffectiveScopes& obj) { 
+        DARABONBA_PTR_TO_JSON(EffectiveType, effectiveType_);
+        DARABONBA_PTR_TO_JSON(Scope, scope_);
+      };
+      friend void from_json(const Darabonba::Json& j, EffectiveScopes& obj) { 
+        DARABONBA_PTR_FROM_JSON(EffectiveType, effectiveType_);
+        DARABONBA_PTR_FROM_JSON(Scope, scope_);
+      };
+      EffectiveScopes() = default ;
+      EffectiveScopes(const EffectiveScopes &) = default ;
+      EffectiveScopes(EffectiveScopes &&) = default ;
+      EffectiveScopes(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EffectiveScopes() = default ;
+      EffectiveScopes& operator=(const EffectiveScopes &) = default ;
+      EffectiveScopes& operator=(EffectiveScopes &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->effectiveType_ == nullptr
+        && this->scope_ == nullptr; };
+      // effectiveType Field Functions 
+      bool hasEffectiveType() const { return this->effectiveType_ != nullptr;};
+      void deleteEffectiveType() { this->effectiveType_ = nullptr;};
+      inline string getEffectiveType() const { DARABONBA_PTR_GET_DEFAULT(effectiveType_, "") };
+      inline EffectiveScopes& setEffectiveType(string effectiveType) { DARABONBA_PTR_SET_VALUE(effectiveType_, effectiveType) };
+
+
+      // scope Field Functions 
+      bool hasScope() const { return this->scope_ != nullptr;};
+      void deleteScope() { this->scope_ = nullptr;};
+      inline const vector<string> & getScope() const { DARABONBA_PTR_GET_CONST(scope_, vector<string>) };
+      inline vector<string> getScope() { DARABONBA_PTR_GET(scope_, vector<string>) };
+      inline EffectiveScopes& setScope(const vector<string> & scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
+      inline EffectiveScopes& setScope(vector<string> && scope) { DARABONBA_PTR_SET_RVALUE(scope_, scope) };
+
+
+    protected:
+      shared_ptr<string> effectiveType_ {};
+      shared_ptr<vector<string>> scope_ {};
+    };
+
     virtual bool empty() const override { return this->direction_ == nullptr
-        && return this->effectiveScopes_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->orderBy_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->remark_ == nullptr && return this->zoneName_ == nullptr; };
+        && this->effectiveScopes_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->remark_ == nullptr && this->zoneName_ == nullptr; };
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline SearchRecursionZonesRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // effectiveScopes Field Functions 
     bool hasEffectiveScopes() const { return this->effectiveScopes_ != nullptr;};
     void deleteEffectiveScopes() { this->effectiveScopes_ = nullptr;};
-    inline const vector<SearchRecursionZonesRequestEffectiveScopes> & effectiveScopes() const { DARABONBA_PTR_GET_CONST(effectiveScopes_, vector<SearchRecursionZonesRequestEffectiveScopes>) };
-    inline vector<SearchRecursionZonesRequestEffectiveScopes> effectiveScopes() { DARABONBA_PTR_GET(effectiveScopes_, vector<SearchRecursionZonesRequestEffectiveScopes>) };
-    inline SearchRecursionZonesRequest& setEffectiveScopes(const vector<SearchRecursionZonesRequestEffectiveScopes> & effectiveScopes) { DARABONBA_PTR_SET_VALUE(effectiveScopes_, effectiveScopes) };
-    inline SearchRecursionZonesRequest& setEffectiveScopes(vector<SearchRecursionZonesRequestEffectiveScopes> && effectiveScopes) { DARABONBA_PTR_SET_RVALUE(effectiveScopes_, effectiveScopes) };
+    inline const vector<SearchRecursionZonesRequest::EffectiveScopes> & getEffectiveScopes() const { DARABONBA_PTR_GET_CONST(effectiveScopes_, vector<SearchRecursionZonesRequest::EffectiveScopes>) };
+    inline vector<SearchRecursionZonesRequest::EffectiveScopes> getEffectiveScopes() { DARABONBA_PTR_GET(effectiveScopes_, vector<SearchRecursionZonesRequest::EffectiveScopes>) };
+    inline SearchRecursionZonesRequest& setEffectiveScopes(const vector<SearchRecursionZonesRequest::EffectiveScopes> & effectiveScopes) { DARABONBA_PTR_SET_VALUE(effectiveScopes_, effectiveScopes) };
+    inline SearchRecursionZonesRequest& setEffectiveScopes(vector<SearchRecursionZonesRequest::EffectiveScopes> && effectiveScopes) { DARABONBA_PTR_SET_RVALUE(effectiveScopes_, effectiveScopes) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline SearchRecursionZonesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline SearchRecursionZonesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline SearchRecursionZonesRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline SearchRecursionZonesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline SearchRecursionZonesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline SearchRecursionZonesRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // zoneName Field Functions 
     bool hasZoneName() const { return this->zoneName_ != nullptr;};
     void deleteZoneName() { this->zoneName_ = nullptr;};
-    inline string zoneName() const { DARABONBA_PTR_GET_DEFAULT(zoneName_, "") };
+    inline string getZoneName() const { DARABONBA_PTR_GET_DEFAULT(zoneName_, "") };
     inline SearchRecursionZonesRequest& setZoneName(string zoneName) { DARABONBA_PTR_SET_VALUE(zoneName_, zoneName) };
 
 
   protected:
-    std::shared_ptr<string> direction_ = nullptr;
-    std::shared_ptr<vector<SearchRecursionZonesRequestEffectiveScopes>> effectiveScopes_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> direction_ {};
+    shared_ptr<vector<SearchRecursionZonesRequest::EffectiveScopes>> effectiveScopes_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> orderBy_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
-    std::shared_ptr<string> zoneName_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> remark_ {};
+    shared_ptr<string> zoneName_ {};
   };
 
   } // namespace Models

@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceTotalCount_ == nullptr
-        && return this->monitorTaskTotalCount_ == nullptr && return this->monitorTaskTotalQuota_ == nullptr && return this->requestId_ == nullptr; };
+        && this->monitorTaskTotalCount_ == nullptr && this->monitorTaskTotalQuota_ == nullptr && this->requestId_ == nullptr; };
     // instanceTotalCount Field Functions 
     bool hasInstanceTotalCount() const { return this->instanceTotalCount_ != nullptr;};
     void deleteInstanceTotalCount() { this->instanceTotalCount_ = nullptr;};
-    inline int32_t instanceTotalCount() const { DARABONBA_PTR_GET_DEFAULT(instanceTotalCount_, 0) };
+    inline int32_t getInstanceTotalCount() const { DARABONBA_PTR_GET_DEFAULT(instanceTotalCount_, 0) };
     inline DescribeCloudGtmSummaryResponseBody& setInstanceTotalCount(int32_t instanceTotalCount) { DARABONBA_PTR_SET_VALUE(instanceTotalCount_, instanceTotalCount) };
 
 
     // monitorTaskTotalCount Field Functions 
     bool hasMonitorTaskTotalCount() const { return this->monitorTaskTotalCount_ != nullptr;};
     void deleteMonitorTaskTotalCount() { this->monitorTaskTotalCount_ = nullptr;};
-    inline int32_t monitorTaskTotalCount() const { DARABONBA_PTR_GET_DEFAULT(monitorTaskTotalCount_, 0) };
+    inline int32_t getMonitorTaskTotalCount() const { DARABONBA_PTR_GET_DEFAULT(monitorTaskTotalCount_, 0) };
     inline DescribeCloudGtmSummaryResponseBody& setMonitorTaskTotalCount(int32_t monitorTaskTotalCount) { DARABONBA_PTR_SET_VALUE(monitorTaskTotalCount_, monitorTaskTotalCount) };
 
 
     // monitorTaskTotalQuota Field Functions 
     bool hasMonitorTaskTotalQuota() const { return this->monitorTaskTotalQuota_ != nullptr;};
     void deleteMonitorTaskTotalQuota() { this->monitorTaskTotalQuota_ = nullptr;};
-    inline int32_t monitorTaskTotalQuota() const { DARABONBA_PTR_GET_DEFAULT(monitorTaskTotalQuota_, 0) };
+    inline int32_t getMonitorTaskTotalQuota() const { DARABONBA_PTR_GET_DEFAULT(monitorTaskTotalQuota_, 0) };
     inline DescribeCloudGtmSummaryResponseBody& setMonitorTaskTotalQuota(int32_t monitorTaskTotalQuota) { DARABONBA_PTR_SET_VALUE(monitorTaskTotalQuota_, monitorTaskTotalQuota) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCloudGtmSummaryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The total number of instances within the current account.
-    std::shared_ptr<int32_t> instanceTotalCount_ = nullptr;
+    shared_ptr<int32_t> instanceTotalCount_ {};
     // The total number of configured health check tasks.
-    std::shared_ptr<int32_t> monitorTaskTotalCount_ = nullptr;
+    shared_ptr<int32_t> monitorTaskTotalCount_ {};
     // The quota on the number of health check tasks.
-    std::shared_ptr<int32_t> monitorTaskTotalQuota_ = nullptr;
+    shared_ptr<int32_t> monitorTaskTotalQuota_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

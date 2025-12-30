@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->monitorConfigId_ == nullptr; };
+        && this->monitorConfigId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeGtmMonitorConfigRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // monitorConfigId Field Functions 
     bool hasMonitorConfigId() const { return this->monitorConfigId_ != nullptr;};
     void deleteMonitorConfigId() { this->monitorConfigId_ = nullptr;};
-    inline string monitorConfigId() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigId_, "") };
+    inline string getMonitorConfigId() const { DARABONBA_PTR_GET_DEFAULT(monitorConfigId_, "") };
     inline DescribeGtmMonitorConfigRequest& setMonitorConfigId(string monitorConfigId) { DARABONBA_PTR_SET_VALUE(monitorConfigId_, monitorConfigId) };
 
 
   protected:
     // The language of the values of specific response parameters.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the health check configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> monitorConfigId_ = nullptr;
+    shared_ptr<string> monitorConfigId_ {};
   };
 
   } // namespace Models

@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cnameMode_ == nullptr
-        && return this->cnameRr_ == nullptr && return this->cnameType_ == nullptr && return this->cnameZone_ == nullptr && return this->instanceId_ == nullptr && return this->lang_ == nullptr; };
+        && this->cnameRr_ == nullptr && this->cnameType_ == nullptr && this->cnameZone_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr; };
     // cnameMode Field Functions 
     bool hasCnameMode() const { return this->cnameMode_ != nullptr;};
     void deleteCnameMode() { this->cnameMode_ = nullptr;};
-    inline string cnameMode() const { DARABONBA_PTR_GET_DEFAULT(cnameMode_, "") };
+    inline string getCnameMode() const { DARABONBA_PTR_GET_DEFAULT(cnameMode_, "") };
     inline ValidateDnsGtmCnameRrCanUseRequest& setCnameMode(string cnameMode) { DARABONBA_PTR_SET_VALUE(cnameMode_, cnameMode) };
 
 
     // cnameRr Field Functions 
     bool hasCnameRr() const { return this->cnameRr_ != nullptr;};
     void deleteCnameRr() { this->cnameRr_ = nullptr;};
-    inline string cnameRr() const { DARABONBA_PTR_GET_DEFAULT(cnameRr_, "") };
+    inline string getCnameRr() const { DARABONBA_PTR_GET_DEFAULT(cnameRr_, "") };
     inline ValidateDnsGtmCnameRrCanUseRequest& setCnameRr(string cnameRr) { DARABONBA_PTR_SET_VALUE(cnameRr_, cnameRr) };
 
 
     // cnameType Field Functions 
     bool hasCnameType() const { return this->cnameType_ != nullptr;};
     void deleteCnameType() { this->cnameType_ = nullptr;};
-    inline string cnameType() const { DARABONBA_PTR_GET_DEFAULT(cnameType_, "") };
+    inline string getCnameType() const { DARABONBA_PTR_GET_DEFAULT(cnameType_, "") };
     inline ValidateDnsGtmCnameRrCanUseRequest& setCnameType(string cnameType) { DARABONBA_PTR_SET_VALUE(cnameType_, cnameType) };
 
 
     // cnameZone Field Functions 
     bool hasCnameZone() const { return this->cnameZone_ != nullptr;};
     void deleteCnameZone() { this->cnameZone_ = nullptr;};
-    inline string cnameZone() const { DARABONBA_PTR_GET_DEFAULT(cnameZone_, "") };
+    inline string getCnameZone() const { DARABONBA_PTR_GET_DEFAULT(cnameZone_, "") };
     inline ValidateDnsGtmCnameRrCanUseRequest& setCnameZone(string cnameZone) { DARABONBA_PTR_SET_VALUE(cnameZone_, cnameZone) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ValidateDnsGtmCnameRrCanUseRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ValidateDnsGtmCnameRrCanUseRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cnameMode_ = nullptr;
+    shared_ptr<string> cnameMode_ {};
     // This parameter is required.
-    std::shared_ptr<string> cnameRr_ = nullptr;
+    shared_ptr<string> cnameRr_ {};
     // This parameter is required.
-    std::shared_ptr<string> cnameType_ = nullptr;
+    shared_ptr<string> cnameType_ {};
     // This parameter is required.
-    std::shared_ptr<string> cnameZone_ = nullptr;
+    shared_ptr<string> cnameZone_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

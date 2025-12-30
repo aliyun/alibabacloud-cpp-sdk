@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->domainType_ == nullptr && return this->endDate_ == nullptr && return this->lang_ == nullptr && return this->rr_ == nullptr && return this->startDate_ == nullptr; };
+        && this->domainType_ == nullptr && this->endDate_ == nullptr && this->lang_ == nullptr && this->rr_ == nullptr && this->startDate_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeRecordStatisticsRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // domainType Field Functions 
     bool hasDomainType() const { return this->domainType_ != nullptr;};
     void deleteDomainType() { this->domainType_ = nullptr;};
-    inline string domainType() const { DARABONBA_PTR_GET_DEFAULT(domainType_, "") };
+    inline string getDomainType() const { DARABONBA_PTR_GET_DEFAULT(domainType_, "") };
     inline DescribeRecordStatisticsRequest& setDomainType(string domainType) { DARABONBA_PTR_SET_VALUE(domainType_, domainType) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline DescribeRecordStatisticsRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeRecordStatisticsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // rr Field Functions 
     bool hasRr() const { return this->rr_ != nullptr;};
     void deleteRr() { this->rr_ = nullptr;};
-    inline string rr() const { DARABONBA_PTR_GET_DEFAULT(rr_, "") };
+    inline string getRr() const { DARABONBA_PTR_GET_DEFAULT(rr_, "") };
     inline DescribeRecordStatisticsRequest& setRr(string rr) { DARABONBA_PTR_SET_VALUE(rr_, rr) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline DescribeRecordStatisticsRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
@@ -87,22 +87,22 @@ namespace Models
     // The primary domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The type of the domain name. The parameter value is not case-sensitive. Valid values:
     // 
     // *   PUBLIC (default): hosted public domain name
     // *   CACHE: cache-accelerated domain name
-    std::shared_ptr<string> domainType_ = nullptr;
+    shared_ptr<string> domainType_ {};
     // The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
     // 
     // The default value is the day when you query the data.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // The language.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The hostname. If you want to resolve www.dns-exmaple.top, set Rr to www.
     // 
     // This parameter is required.
-    std::shared_ptr<string> rr_ = nullptr;
+    shared_ptr<string> rr_ {};
     // The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
     // 
     // You can only query the DNS records within the last 90 days.``
@@ -112,7 +112,7 @@ namespace Models
     // If the time range is greater than seven days, data is returned on a daily basis.````
     // 
     // This parameter is required.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
   };
 
   } // namespace Models

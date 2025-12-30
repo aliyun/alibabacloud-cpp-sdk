@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessLines_ == nullptr
-        && return this->defaultAddrPoolId_ == nullptr && return this->failoverAddrPoolId_ == nullptr && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->strategyName_ == nullptr; };
+        && this->defaultAddrPoolId_ == nullptr && this->failoverAddrPoolId_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr && this->strategyName_ == nullptr; };
     // accessLines Field Functions 
     bool hasAccessLines() const { return this->accessLines_ != nullptr;};
     void deleteAccessLines() { this->accessLines_ = nullptr;};
-    inline string accessLines() const { DARABONBA_PTR_GET_DEFAULT(accessLines_, "") };
+    inline string getAccessLines() const { DARABONBA_PTR_GET_DEFAULT(accessLines_, "") };
     inline AddGtmAccessStrategyRequest& setAccessLines(string accessLines) { DARABONBA_PTR_SET_VALUE(accessLines_, accessLines) };
 
 
     // defaultAddrPoolId Field Functions 
     bool hasDefaultAddrPoolId() const { return this->defaultAddrPoolId_ != nullptr;};
     void deleteDefaultAddrPoolId() { this->defaultAddrPoolId_ = nullptr;};
-    inline string defaultAddrPoolId() const { DARABONBA_PTR_GET_DEFAULT(defaultAddrPoolId_, "") };
+    inline string getDefaultAddrPoolId() const { DARABONBA_PTR_GET_DEFAULT(defaultAddrPoolId_, "") };
     inline AddGtmAccessStrategyRequest& setDefaultAddrPoolId(string defaultAddrPoolId) { DARABONBA_PTR_SET_VALUE(defaultAddrPoolId_, defaultAddrPoolId) };
 
 
     // failoverAddrPoolId Field Functions 
     bool hasFailoverAddrPoolId() const { return this->failoverAddrPoolId_ != nullptr;};
     void deleteFailoverAddrPoolId() { this->failoverAddrPoolId_ = nullptr;};
-    inline string failoverAddrPoolId() const { DARABONBA_PTR_GET_DEFAULT(failoverAddrPoolId_, "") };
+    inline string getFailoverAddrPoolId() const { DARABONBA_PTR_GET_DEFAULT(failoverAddrPoolId_, "") };
     inline AddGtmAccessStrategyRequest& setFailoverAddrPoolId(string failoverAddrPoolId) { DARABONBA_PTR_SET_VALUE(failoverAddrPoolId_, failoverAddrPoolId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AddGtmAccessStrategyRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline AddGtmAccessStrategyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // strategyName Field Functions 
     bool hasStrategyName() const { return this->strategyName_ != nullptr;};
     void deleteStrategyName() { this->strategyName_ = nullptr;};
-    inline string strategyName() const { DARABONBA_PTR_GET_DEFAULT(strategyName_, "") };
+    inline string getStrategyName() const { DARABONBA_PTR_GET_DEFAULT(strategyName_, "") };
     inline AddGtmAccessStrategyRequest& setStrategyName(string strategyName) { DARABONBA_PTR_SET_VALUE(strategyName_, strategyName) };
 
 
@@ -87,27 +87,27 @@ namespace Models
     // The line codes of access regions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessLines_ = nullptr;
+    shared_ptr<string> accessLines_ {};
     // The ID of the default address pool.
     // 
     // This parameter is required.
-    std::shared_ptr<string> defaultAddrPoolId_ = nullptr;
+    shared_ptr<string> defaultAddrPoolId_ {};
     // The ID of the failover address pool.
     // 
     // If the failover address pool is not set, pass the **Empty** value.
     // 
     // This parameter is required.
-    std::shared_ptr<string> failoverAddrPoolId_ = nullptr;
+    shared_ptr<string> failoverAddrPoolId_ {};
     // The ID of the GTM instance for which you want to create an access policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The language used by the user.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The name of the access policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> strategyName_ = nullptr;
+    shared_ptr<string> strategyName_ {};
   };
 
   } // namespace Models

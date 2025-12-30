@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->availableAlertGroup_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // availableAlertGroup Field Functions 
     bool hasAvailableAlertGroup() const { return this->availableAlertGroup_ != nullptr;};
     void deleteAvailableAlertGroup() { this->availableAlertGroup_ = nullptr;};
-    inline string availableAlertGroup() const { DARABONBA_PTR_GET_DEFAULT(availableAlertGroup_, "") };
+    inline string getAvailableAlertGroup() const { DARABONBA_PTR_GET_DEFAULT(availableAlertGroup_, "") };
     inline DescribeGtmAvailableAlertGroupResponseBody& setAvailableAlertGroup(string availableAlertGroup) { DARABONBA_PTR_SET_VALUE(availableAlertGroup_, availableAlertGroup) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeGtmAvailableAlertGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The available alert groups of the GTM instance.
-    std::shared_ptr<string> availableAlertGroup_ = nullptr;
+    shared_ptr<string> availableAlertGroup_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

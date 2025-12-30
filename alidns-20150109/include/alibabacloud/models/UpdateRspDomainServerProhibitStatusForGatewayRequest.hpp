@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATERSPDOMAINSERVERPROHIBITSTATUSFORGATEWAYREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList.hpp>
-#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,47 +36,131 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DeleteStatusList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DeleteStatusList& obj) { 
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(StatusMsg, statusMsg_);
+      };
+      friend void from_json(const Darabonba::Json& j, DeleteStatusList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(StatusMsg, statusMsg_);
+      };
+      DeleteStatusList() = default ;
+      DeleteStatusList(const DeleteStatusList &) = default ;
+      DeleteStatusList(DeleteStatusList &&) = default ;
+      DeleteStatusList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DeleteStatusList() = default ;
+      DeleteStatusList& operator=(const DeleteStatusList &) = default ;
+      DeleteStatusList& operator=(DeleteStatusList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->status_ == nullptr
+        && this->statusMsg_ == nullptr; };
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline DeleteStatusList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // statusMsg Field Functions 
+      bool hasStatusMsg() const { return this->statusMsg_ != nullptr;};
+      void deleteStatusMsg() { this->statusMsg_ = nullptr;};
+      inline string getStatusMsg() const { DARABONBA_PTR_GET_DEFAULT(statusMsg_, "") };
+      inline DeleteStatusList& setStatusMsg(string statusMsg) { DARABONBA_PTR_SET_VALUE(statusMsg_, statusMsg) };
+
+
+    protected:
+      shared_ptr<string> status_ {};
+      shared_ptr<string> statusMsg_ {};
+    };
+
+    class AddStatusList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AddStatusList& obj) { 
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(StatusMsg, statusMsg_);
+      };
+      friend void from_json(const Darabonba::Json& j, AddStatusList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(StatusMsg, statusMsg_);
+      };
+      AddStatusList() = default ;
+      AddStatusList(const AddStatusList &) = default ;
+      AddStatusList(AddStatusList &&) = default ;
+      AddStatusList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AddStatusList() = default ;
+      AddStatusList& operator=(const AddStatusList &) = default ;
+      AddStatusList& operator=(AddStatusList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->status_ == nullptr
+        && this->statusMsg_ == nullptr; };
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline AddStatusList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // statusMsg Field Functions 
+      bool hasStatusMsg() const { return this->statusMsg_ != nullptr;};
+      void deleteStatusMsg() { this->statusMsg_ = nullptr;};
+      inline string getStatusMsg() const { DARABONBA_PTR_GET_DEFAULT(statusMsg_, "") };
+      inline AddStatusList& setStatusMsg(string statusMsg) { DARABONBA_PTR_SET_VALUE(statusMsg_, statusMsg) };
+
+
+    protected:
+      shared_ptr<string> status_ {};
+      shared_ptr<string> statusMsg_ {};
+    };
+
     virtual bool empty() const override { return this->addStatusList_ == nullptr
-        && return this->clientToken_ == nullptr && return this->deleteStatusList_ == nullptr && return this->domainName_ == nullptr; };
+        && this->clientToken_ == nullptr && this->deleteStatusList_ == nullptr && this->domainName_ == nullptr; };
     // addStatusList Field Functions 
     bool hasAddStatusList() const { return this->addStatusList_ != nullptr;};
     void deleteAddStatusList() { this->addStatusList_ = nullptr;};
-    inline const vector<UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList> & addStatusList() const { DARABONBA_PTR_GET_CONST(addStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList>) };
-    inline vector<UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList> addStatusList() { DARABONBA_PTR_GET(addStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList>) };
-    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setAddStatusList(const vector<UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList> & addStatusList) { DARABONBA_PTR_SET_VALUE(addStatusList_, addStatusList) };
-    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setAddStatusList(vector<UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList> && addStatusList) { DARABONBA_PTR_SET_RVALUE(addStatusList_, addStatusList) };
+    inline const vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList> & getAddStatusList() const { DARABONBA_PTR_GET_CONST(addStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList>) };
+    inline vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList> getAddStatusList() { DARABONBA_PTR_GET(addStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList>) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setAddStatusList(const vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList> & addStatusList) { DARABONBA_PTR_SET_VALUE(addStatusList_, addStatusList) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setAddStatusList(vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList> && addStatusList) { DARABONBA_PTR_SET_RVALUE(addStatusList_, addStatusList) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // deleteStatusList Field Functions 
     bool hasDeleteStatusList() const { return this->deleteStatusList_ != nullptr;};
     void deleteDeleteStatusList() { this->deleteStatusList_ = nullptr;};
-    inline const vector<UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList> & deleteStatusList() const { DARABONBA_PTR_GET_CONST(deleteStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList>) };
-    inline vector<UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList> deleteStatusList() { DARABONBA_PTR_GET(deleteStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList>) };
-    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setDeleteStatusList(const vector<UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList> & deleteStatusList) { DARABONBA_PTR_SET_VALUE(deleteStatusList_, deleteStatusList) };
-    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setDeleteStatusList(vector<UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList> && deleteStatusList) { DARABONBA_PTR_SET_RVALUE(deleteStatusList_, deleteStatusList) };
+    inline const vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList> & getDeleteStatusList() const { DARABONBA_PTR_GET_CONST(deleteStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList>) };
+    inline vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList> getDeleteStatusList() { DARABONBA_PTR_GET(deleteStatusList_, vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList>) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setDeleteStatusList(const vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList> & deleteStatusList) { DARABONBA_PTR_SET_VALUE(deleteStatusList_, deleteStatusList) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setDeleteStatusList(vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList> && deleteStatusList) { DARABONBA_PTR_SET_RVALUE(deleteStatusList_, deleteStatusList) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline UpdateRspDomainServerProhibitStatusForGatewayRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
   protected:
-    std::shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList>> addStatusList_ = nullptr;
+    shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList>> addStatusList_ {};
     // This parameter is required.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList>> deleteStatusList_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList>> deleteStatusList_ {};
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
   };
 
   } // namespace Models

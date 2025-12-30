@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->recordId_ == nullptr && return this->status_ == nullptr && return this->userClientIp_ == nullptr; };
+        && this->recordId_ == nullptr && this->status_ == nullptr && this->userClientIp_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SetDomainRecordStatusRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline string recordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
+    inline string getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
     inline SetDomainRecordStatusRequest& setRecordId(string recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline SetDomainRecordStatusRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // userClientIp Field Functions 
     bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
     void deleteUserClientIp() { this->userClientIp_ = nullptr;};
-    inline string userClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
     inline SetDomainRecordStatusRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
 
 
@@ -70,20 +70,20 @@ namespace Models
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the DNS record. You can call the [DescribeDomainRecords](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomainrecords?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> recordId_ = nullptr;
+    shared_ptr<string> recordId_ {};
     // The state of the DNS record. Valid values:
     // 
     // *   **Enable**: enables the DNS record.
     // *   **Disable**: disables the DNS record.
     // 
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The IP address of the client.
-    std::shared_ptr<string> userClientIp_ = nullptr;
+    shared_ptr<string> userClientIp_ {};
   };
 
   } // namespace Models
