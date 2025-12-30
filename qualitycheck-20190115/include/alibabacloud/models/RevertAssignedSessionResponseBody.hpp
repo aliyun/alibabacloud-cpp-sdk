@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_REVERTASSIGNEDSESSIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_REVERTASSIGNEDSESSIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/RevertAssignedSessionResponseBodyMessages.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,59 +40,92 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Messages : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Messages& obj) { 
+        DARABONBA_PTR_TO_JSON(Message, message_);
+      };
+      friend void from_json(const Darabonba::Json& j, Messages& obj) { 
+        DARABONBA_PTR_FROM_JSON(Message, message_);
+      };
+      Messages() = default ;
+      Messages(const Messages &) = default ;
+      Messages(Messages &&) = default ;
+      Messages(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Messages() = default ;
+      Messages& operator=(const Messages &) = default ;
+      Messages& operator=(Messages &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->message_ == nullptr; };
+      // message Field Functions 
+      bool hasMessage() const { return this->message_ != nullptr;};
+      void deleteMessage() { this->message_ = nullptr;};
+      inline const vector<string> & getMessage() const { DARABONBA_PTR_GET_CONST(message_, vector<string>) };
+      inline vector<string> getMessage() { DARABONBA_PTR_GET(message_, vector<string>) };
+      inline Messages& setMessage(const vector<string> & message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+      inline Messages& setMessage(vector<string> && message) { DARABONBA_PTR_SET_RVALUE(message_, message) };
+
+
+    protected:
+      shared_ptr<vector<string>> message_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->messages_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->messages_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline RevertAssignedSessionResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline RevertAssignedSessionResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline RevertAssignedSessionResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // messages Field Functions 
     bool hasMessages() const { return this->messages_ != nullptr;};
     void deleteMessages() { this->messages_ = nullptr;};
-    inline const RevertAssignedSessionResponseBodyMessages & messages() const { DARABONBA_PTR_GET_CONST(messages_, RevertAssignedSessionResponseBodyMessages) };
-    inline RevertAssignedSessionResponseBodyMessages messages() { DARABONBA_PTR_GET(messages_, RevertAssignedSessionResponseBodyMessages) };
-    inline RevertAssignedSessionResponseBody& setMessages(const RevertAssignedSessionResponseBodyMessages & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
-    inline RevertAssignedSessionResponseBody& setMessages(RevertAssignedSessionResponseBodyMessages && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
+    inline const RevertAssignedSessionResponseBody::Messages & getMessages() const { DARABONBA_PTR_GET_CONST(messages_, RevertAssignedSessionResponseBody::Messages) };
+    inline RevertAssignedSessionResponseBody::Messages getMessages() { DARABONBA_PTR_GET(messages_, RevertAssignedSessionResponseBody::Messages) };
+    inline RevertAssignedSessionResponseBody& setMessages(const RevertAssignedSessionResponseBody::Messages & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
+    inline RevertAssignedSessionResponseBody& setMessages(RevertAssignedSessionResponseBody::Messages && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline RevertAssignedSessionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline RevertAssignedSessionResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<RevertAssignedSessionResponseBodyMessages> messages_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<RevertAssignedSessionResponseBody::Messages> messages_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

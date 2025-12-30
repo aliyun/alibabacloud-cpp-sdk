@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_ADDRULEV4RESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_ADDRULEV4RESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AddRuleV4ResponseBodyMessages.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -42,68 +42,101 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Messages : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Messages& obj) { 
+        DARABONBA_PTR_TO_JSON(Message, message_);
+      };
+      friend void from_json(const Darabonba::Json& j, Messages& obj) { 
+        DARABONBA_PTR_FROM_JSON(Message, message_);
+      };
+      Messages() = default ;
+      Messages(const Messages &) = default ;
+      Messages(Messages &&) = default ;
+      Messages(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Messages() = default ;
+      Messages& operator=(const Messages &) = default ;
+      Messages& operator=(Messages &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->message_ == nullptr; };
+      // message Field Functions 
+      bool hasMessage() const { return this->message_ != nullptr;};
+      void deleteMessage() { this->message_ = nullptr;};
+      inline const vector<string> & getMessage() const { DARABONBA_PTR_GET_CONST(message_, vector<string>) };
+      inline vector<string> getMessage() { DARABONBA_PTR_GET(message_, vector<string>) };
+      inline Messages& setMessage(const vector<string> & message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+      inline Messages& setMessage(vector<string> && message) { DARABONBA_PTR_SET_RVALUE(message_, message) };
+
+
+    protected:
+      shared_ptr<vector<string>> message_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->messages_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->messages_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline AddRuleV4ResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline int64_t data() const { DARABONBA_PTR_GET_DEFAULT(data_, 0L) };
+    inline int64_t getData() const { DARABONBA_PTR_GET_DEFAULT(data_, 0L) };
     inline AddRuleV4ResponseBody& setData(int64_t data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline AddRuleV4ResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline AddRuleV4ResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // messages Field Functions 
     bool hasMessages() const { return this->messages_ != nullptr;};
     void deleteMessages() { this->messages_ = nullptr;};
-    inline const AddRuleV4ResponseBodyMessages & messages() const { DARABONBA_PTR_GET_CONST(messages_, AddRuleV4ResponseBodyMessages) };
-    inline AddRuleV4ResponseBodyMessages messages() { DARABONBA_PTR_GET(messages_, AddRuleV4ResponseBodyMessages) };
-    inline AddRuleV4ResponseBody& setMessages(const AddRuleV4ResponseBodyMessages & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
-    inline AddRuleV4ResponseBody& setMessages(AddRuleV4ResponseBodyMessages && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
+    inline const AddRuleV4ResponseBody::Messages & getMessages() const { DARABONBA_PTR_GET_CONST(messages_, AddRuleV4ResponseBody::Messages) };
+    inline AddRuleV4ResponseBody::Messages getMessages() { DARABONBA_PTR_GET(messages_, AddRuleV4ResponseBody::Messages) };
+    inline AddRuleV4ResponseBody& setMessages(const AddRuleV4ResponseBody::Messages & messages) { DARABONBA_PTR_SET_VALUE(messages_, messages) };
+    inline AddRuleV4ResponseBody& setMessages(AddRuleV4ResponseBody::Messages && messages) { DARABONBA_PTR_SET_RVALUE(messages_, messages) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddRuleV4ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline AddRuleV4ResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int64_t> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<AddRuleV4ResponseBodyMessages> messages_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<int64_t> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<AddRuleV4ResponseBody::Messages> messages_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

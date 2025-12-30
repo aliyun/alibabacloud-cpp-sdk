@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isSchemeData_ == nullptr
-        && return this->testJson_ == nullptr; };
+        && this->testJson_ == nullptr; };
     // isSchemeData Field Functions 
     bool hasIsSchemeData() const { return this->isSchemeData_ != nullptr;};
     void deleteIsSchemeData() { this->isSchemeData_ = nullptr;};
-    inline int32_t isSchemeData() const { DARABONBA_PTR_GET_DEFAULT(isSchemeData_, 0) };
+    inline int32_t getIsSchemeData() const { DARABONBA_PTR_GET_DEFAULT(isSchemeData_, 0) };
     inline TestRuleV4Request& setIsSchemeData(int32_t isSchemeData) { DARABONBA_PTR_SET_VALUE(isSchemeData_, isSchemeData) };
 
 
     // testJson Field Functions 
     bool hasTestJson() const { return this->testJson_ != nullptr;};
     void deleteTestJson() { this->testJson_ = nullptr;};
-    inline string testJson() const { DARABONBA_PTR_GET_DEFAULT(testJson_, "") };
+    inline string getTestJson() const { DARABONBA_PTR_GET_DEFAULT(testJson_, "") };
     inline TestRuleV4Request& setTestJson(string testJson) { DARABONBA_PTR_SET_VALUE(testJson_, testJson) };
 
 
   protected:
-    std::shared_ptr<int32_t> isSchemeData_ = nullptr;
+    shared_ptr<int32_t> isSchemeData_ {};
     // This parameter is required.
-    std::shared_ptr<string> testJson_ = nullptr;
+    shared_ptr<string> testJson_ {};
   };
 
   } // namespace Models

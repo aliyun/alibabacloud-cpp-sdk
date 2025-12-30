@@ -81,100 +81,100 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baseMeAgentId_ == nullptr
-        && return this->businessName_ == nullptr && return this->businessRange_ == nullptr && return this->categoryName_ == nullptr && return this->countTotal_ == nullptr && return this->createEmpid_ == nullptr
-        && return this->createUserId_ == nullptr && return this->currentPage_ == nullptr && return this->endTime_ == nullptr && return this->lastUpdateEmpid_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->requireInfos_ == nullptr && return this->rid_ == nullptr && return this->ruleIdOrRuleName_ == nullptr && return this->ruleScoreSingleType_ == nullptr
-        && return this->ruleType_ == nullptr && return this->schemeId_ == nullptr && return this->sourceType_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
-        && return this->type_ == nullptr && return this->typeName_ == nullptr && return this->updateEndTime_ == nullptr && return this->updateStartTime_ == nullptr && return this->updateUserId_ == nullptr; };
+        && this->businessName_ == nullptr && this->businessRange_ == nullptr && this->categoryName_ == nullptr && this->countTotal_ == nullptr && this->createEmpid_ == nullptr
+        && this->createUserId_ == nullptr && this->currentPage_ == nullptr && this->endTime_ == nullptr && this->lastUpdateEmpid_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->requireInfos_ == nullptr && this->rid_ == nullptr && this->ruleIdOrRuleName_ == nullptr && this->ruleScoreSingleType_ == nullptr
+        && this->ruleType_ == nullptr && this->schemeId_ == nullptr && this->sourceType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
+        && this->type_ == nullptr && this->typeName_ == nullptr && this->updateEndTime_ == nullptr && this->updateStartTime_ == nullptr && this->updateUserId_ == nullptr; };
     // baseMeAgentId Field Functions 
     bool hasBaseMeAgentId() const { return this->baseMeAgentId_ != nullptr;};
     void deleteBaseMeAgentId() { this->baseMeAgentId_ = nullptr;};
-    inline int64_t baseMeAgentId() const { DARABONBA_PTR_GET_DEFAULT(baseMeAgentId_, 0L) };
+    inline int64_t getBaseMeAgentId() const { DARABONBA_PTR_GET_DEFAULT(baseMeAgentId_, 0L) };
     inline GetRulesCountListRequest& setBaseMeAgentId(int64_t baseMeAgentId) { DARABONBA_PTR_SET_VALUE(baseMeAgentId_, baseMeAgentId) };
 
 
     // businessName Field Functions 
     bool hasBusinessName() const { return this->businessName_ != nullptr;};
     void deleteBusinessName() { this->businessName_ = nullptr;};
-    inline string businessName() const { DARABONBA_PTR_GET_DEFAULT(businessName_, "") };
+    inline string getBusinessName() const { DARABONBA_PTR_GET_DEFAULT(businessName_, "") };
     inline GetRulesCountListRequest& setBusinessName(string businessName) { DARABONBA_PTR_SET_VALUE(businessName_, businessName) };
 
 
     // businessRange Field Functions 
     bool hasBusinessRange() const { return this->businessRange_ != nullptr;};
     void deleteBusinessRange() { this->businessRange_ = nullptr;};
-    inline int32_t businessRange() const { DARABONBA_PTR_GET_DEFAULT(businessRange_, 0) };
+    inline int32_t getBusinessRange() const { DARABONBA_PTR_GET_DEFAULT(businessRange_, 0) };
     inline GetRulesCountListRequest& setBusinessRange(int32_t businessRange) { DARABONBA_PTR_SET_VALUE(businessRange_, businessRange) };
 
 
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
-    inline string categoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
+    inline string getCategoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
     inline GetRulesCountListRequest& setCategoryName(string categoryName) { DARABONBA_PTR_SET_VALUE(categoryName_, categoryName) };
 
 
     // countTotal Field Functions 
     bool hasCountTotal() const { return this->countTotal_ != nullptr;};
     void deleteCountTotal() { this->countTotal_ = nullptr;};
-    inline bool countTotal() const { DARABONBA_PTR_GET_DEFAULT(countTotal_, false) };
+    inline bool getCountTotal() const { DARABONBA_PTR_GET_DEFAULT(countTotal_, false) };
     inline GetRulesCountListRequest& setCountTotal(bool countTotal) { DARABONBA_PTR_SET_VALUE(countTotal_, countTotal) };
 
 
     // createEmpid Field Functions 
     bool hasCreateEmpid() const { return this->createEmpid_ != nullptr;};
     void deleteCreateEmpid() { this->createEmpid_ = nullptr;};
-    inline string createEmpid() const { DARABONBA_PTR_GET_DEFAULT(createEmpid_, "") };
+    inline string getCreateEmpid() const { DARABONBA_PTR_GET_DEFAULT(createEmpid_, "") };
     inline GetRulesCountListRequest& setCreateEmpid(string createEmpid) { DARABONBA_PTR_SET_VALUE(createEmpid_, createEmpid) };
 
 
     // createUserId Field Functions 
     bool hasCreateUserId() const { return this->createUserId_ != nullptr;};
     void deleteCreateUserId() { this->createUserId_ = nullptr;};
-    inline int64_t createUserId() const { DARABONBA_PTR_GET_DEFAULT(createUserId_, 0L) };
+    inline int64_t getCreateUserId() const { DARABONBA_PTR_GET_DEFAULT(createUserId_, 0L) };
     inline GetRulesCountListRequest& setCreateUserId(int64_t createUserId) { DARABONBA_PTR_SET_VALUE(createUserId_, createUserId) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetRulesCountListRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetRulesCountListRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // lastUpdateEmpid Field Functions 
     bool hasLastUpdateEmpid() const { return this->lastUpdateEmpid_ != nullptr;};
     void deleteLastUpdateEmpid() { this->lastUpdateEmpid_ = nullptr;};
-    inline string lastUpdateEmpid() const { DARABONBA_PTR_GET_DEFAULT(lastUpdateEmpid_, "") };
+    inline string getLastUpdateEmpid() const { DARABONBA_PTR_GET_DEFAULT(lastUpdateEmpid_, "") };
     inline GetRulesCountListRequest& setLastUpdateEmpid(string lastUpdateEmpid) { DARABONBA_PTR_SET_VALUE(lastUpdateEmpid_, lastUpdateEmpid) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline GetRulesCountListRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetRulesCountListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requireInfos Field Functions 
     bool hasRequireInfos() const { return this->requireInfos_ != nullptr;};
     void deleteRequireInfos() { this->requireInfos_ = nullptr;};
-    inline const vector<string> & requireInfos() const { DARABONBA_PTR_GET_CONST(requireInfos_, vector<string>) };
-    inline vector<string> requireInfos() { DARABONBA_PTR_GET(requireInfos_, vector<string>) };
+    inline const vector<string> & getRequireInfos() const { DARABONBA_PTR_GET_CONST(requireInfos_, vector<string>) };
+    inline vector<string> getRequireInfos() { DARABONBA_PTR_GET(requireInfos_, vector<string>) };
     inline GetRulesCountListRequest& setRequireInfos(const vector<string> & requireInfos) { DARABONBA_PTR_SET_VALUE(requireInfos_, requireInfos) };
     inline GetRulesCountListRequest& setRequireInfos(vector<string> && requireInfos) { DARABONBA_PTR_SET_RVALUE(requireInfos_, requireInfos) };
 
@@ -182,122 +182,122 @@ namespace Models
     // rid Field Functions 
     bool hasRid() const { return this->rid_ != nullptr;};
     void deleteRid() { this->rid_ = nullptr;};
-    inline int64_t rid() const { DARABONBA_PTR_GET_DEFAULT(rid_, 0L) };
+    inline int64_t getRid() const { DARABONBA_PTR_GET_DEFAULT(rid_, 0L) };
     inline GetRulesCountListRequest& setRid(int64_t rid) { DARABONBA_PTR_SET_VALUE(rid_, rid) };
 
 
     // ruleIdOrRuleName Field Functions 
     bool hasRuleIdOrRuleName() const { return this->ruleIdOrRuleName_ != nullptr;};
     void deleteRuleIdOrRuleName() { this->ruleIdOrRuleName_ = nullptr;};
-    inline string ruleIdOrRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleIdOrRuleName_, "") };
+    inline string getRuleIdOrRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleIdOrRuleName_, "") };
     inline GetRulesCountListRequest& setRuleIdOrRuleName(string ruleIdOrRuleName) { DARABONBA_PTR_SET_VALUE(ruleIdOrRuleName_, ruleIdOrRuleName) };
 
 
     // ruleScoreSingleType Field Functions 
     bool hasRuleScoreSingleType() const { return this->ruleScoreSingleType_ != nullptr;};
     void deleteRuleScoreSingleType() { this->ruleScoreSingleType_ = nullptr;};
-    inline int32_t ruleScoreSingleType() const { DARABONBA_PTR_GET_DEFAULT(ruleScoreSingleType_, 0) };
+    inline int32_t getRuleScoreSingleType() const { DARABONBA_PTR_GET_DEFAULT(ruleScoreSingleType_, 0) };
     inline GetRulesCountListRequest& setRuleScoreSingleType(int32_t ruleScoreSingleType) { DARABONBA_PTR_SET_VALUE(ruleScoreSingleType_, ruleScoreSingleType) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline int32_t ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
+    inline int32_t getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
     inline GetRulesCountListRequest& setRuleType(int32_t ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
     // schemeId Field Functions 
     bool hasSchemeId() const { return this->schemeId_ != nullptr;};
     void deleteSchemeId() { this->schemeId_ = nullptr;};
-    inline int64_t schemeId() const { DARABONBA_PTR_GET_DEFAULT(schemeId_, 0L) };
+    inline int64_t getSchemeId() const { DARABONBA_PTR_GET_DEFAULT(schemeId_, 0L) };
     inline GetRulesCountListRequest& setSchemeId(int64_t schemeId) { DARABONBA_PTR_SET_VALUE(schemeId_, schemeId) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline int32_t sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, 0) };
+    inline int32_t getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, 0) };
     inline GetRulesCountListRequest& setSourceType(int32_t sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetRulesCountListRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline GetRulesCountListRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline GetRulesCountListRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline string getTypeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
     inline GetRulesCountListRequest& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
     // updateEndTime Field Functions 
     bool hasUpdateEndTime() const { return this->updateEndTime_ != nullptr;};
     void deleteUpdateEndTime() { this->updateEndTime_ = nullptr;};
-    inline string updateEndTime() const { DARABONBA_PTR_GET_DEFAULT(updateEndTime_, "") };
+    inline string getUpdateEndTime() const { DARABONBA_PTR_GET_DEFAULT(updateEndTime_, "") };
     inline GetRulesCountListRequest& setUpdateEndTime(string updateEndTime) { DARABONBA_PTR_SET_VALUE(updateEndTime_, updateEndTime) };
 
 
     // updateStartTime Field Functions 
     bool hasUpdateStartTime() const { return this->updateStartTime_ != nullptr;};
     void deleteUpdateStartTime() { this->updateStartTime_ = nullptr;};
-    inline string updateStartTime() const { DARABONBA_PTR_GET_DEFAULT(updateStartTime_, "") };
+    inline string getUpdateStartTime() const { DARABONBA_PTR_GET_DEFAULT(updateStartTime_, "") };
     inline GetRulesCountListRequest& setUpdateStartTime(string updateStartTime) { DARABONBA_PTR_SET_VALUE(updateStartTime_, updateStartTime) };
 
 
     // updateUserId Field Functions 
     bool hasUpdateUserId() const { return this->updateUserId_ != nullptr;};
     void deleteUpdateUserId() { this->updateUserId_ = nullptr;};
-    inline int64_t updateUserId() const { DARABONBA_PTR_GET_DEFAULT(updateUserId_, 0L) };
+    inline int64_t getUpdateUserId() const { DARABONBA_PTR_GET_DEFAULT(updateUserId_, 0L) };
     inline GetRulesCountListRequest& setUpdateUserId(int64_t updateUserId) { DARABONBA_PTR_SET_VALUE(updateUserId_, updateUserId) };
 
 
   protected:
     // baseMeAgentId
-    std::shared_ptr<int64_t> baseMeAgentId_ = nullptr;
-    std::shared_ptr<string> businessName_ = nullptr;
-    std::shared_ptr<int32_t> businessRange_ = nullptr;
-    std::shared_ptr<string> categoryName_ = nullptr;
-    std::shared_ptr<bool> countTotal_ = nullptr;
-    std::shared_ptr<string> createEmpid_ = nullptr;
-    std::shared_ptr<int64_t> createUserId_ = nullptr;
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> lastUpdateEmpid_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<vector<string>> requireInfos_ = nullptr;
-    std::shared_ptr<int64_t> rid_ = nullptr;
-    std::shared_ptr<string> ruleIdOrRuleName_ = nullptr;
-    std::shared_ptr<int32_t> ruleScoreSingleType_ = nullptr;
-    std::shared_ptr<int32_t> ruleType_ = nullptr;
-    std::shared_ptr<int64_t> schemeId_ = nullptr;
-    std::shared_ptr<int32_t> sourceType_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<int32_t> status_ = nullptr;
-    std::shared_ptr<int32_t> type_ = nullptr;
-    std::shared_ptr<string> typeName_ = nullptr;
-    std::shared_ptr<string> updateEndTime_ = nullptr;
-    std::shared_ptr<string> updateStartTime_ = nullptr;
-    std::shared_ptr<int64_t> updateUserId_ = nullptr;
+    shared_ptr<int64_t> baseMeAgentId_ {};
+    shared_ptr<string> businessName_ {};
+    shared_ptr<int32_t> businessRange_ {};
+    shared_ptr<string> categoryName_ {};
+    shared_ptr<bool> countTotal_ {};
+    shared_ptr<string> createEmpid_ {};
+    shared_ptr<int64_t> createUserId_ {};
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> lastUpdateEmpid_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<vector<string>> requireInfos_ {};
+    shared_ptr<int64_t> rid_ {};
+    shared_ptr<string> ruleIdOrRuleName_ {};
+    shared_ptr<int32_t> ruleScoreSingleType_ {};
+    shared_ptr<int32_t> ruleType_ {};
+    shared_ptr<int64_t> schemeId_ {};
+    shared_ptr<int32_t> sourceType_ {};
+    shared_ptr<string> startTime_ {};
+    shared_ptr<int32_t> status_ {};
+    shared_ptr<int32_t> type_ {};
+    shared_ptr<string> typeName_ {};
+    shared_ptr<string> updateEndTime_ {};
+    shared_ptr<string> updateStartTime_ {};
+    shared_ptr<int64_t> updateUserId_ {};
   };
 
   } // namespace Models

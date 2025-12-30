@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baseMeAgentId_ == nullptr
-        && return this->jsonStr_ == nullptr; };
+        && this->jsonStr_ == nullptr; };
     // baseMeAgentId Field Functions 
     bool hasBaseMeAgentId() const { return this->baseMeAgentId_ != nullptr;};
     void deleteBaseMeAgentId() { this->baseMeAgentId_ = nullptr;};
-    inline int64_t baseMeAgentId() const { DARABONBA_PTR_GET_DEFAULT(baseMeAgentId_, 0L) };
+    inline int64_t getBaseMeAgentId() const { DARABONBA_PTR_GET_DEFAULT(baseMeAgentId_, 0L) };
     inline DeleteTaskAssignRuleRequest& setBaseMeAgentId(int64_t baseMeAgentId) { DARABONBA_PTR_SET_VALUE(baseMeAgentId_, baseMeAgentId) };
 
 
     // jsonStr Field Functions 
     bool hasJsonStr() const { return this->jsonStr_ != nullptr;};
     void deleteJsonStr() { this->jsonStr_ = nullptr;};
-    inline string jsonStr() const { DARABONBA_PTR_GET_DEFAULT(jsonStr_, "") };
+    inline string getJsonStr() const { DARABONBA_PTR_GET_DEFAULT(jsonStr_, "") };
     inline DeleteTaskAssignRuleRequest& setJsonStr(string jsonStr) { DARABONBA_PTR_SET_VALUE(jsonStr_, jsonStr) };
 
 
   protected:
     // baseMeAgentId
-    std::shared_ptr<int64_t> baseMeAgentId_ = nullptr;
+    shared_ptr<int64_t> baseMeAgentId_ {};
     // This parameter is required.
-    std::shared_ptr<string> jsonStr_ = nullptr;
+    shared_ptr<string> jsonStr_ {};
   };
 
   } // namespace Models

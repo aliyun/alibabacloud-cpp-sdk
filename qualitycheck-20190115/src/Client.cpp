@@ -44,11 +44,11 @@ AddBusinessCategoryResponse Client::addBusinessCategoryWithOptions(const AddBusi
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -86,11 +86,11 @@ AddRuleCategoryResponse Client::addRuleCategoryWithOptions(const AddRuleCategory
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -130,16 +130,16 @@ AddRuleV4Response Client::addRuleV4WithOptions(const AddRuleV4Request &request, 
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasIsCopy()) {
-    body["IsCopy"] = request.isCopy();
+    body["IsCopy"] = request.getIsCopy();
   }
 
   if (!!request.hasJsonStrForRule()) {
-    body["JsonStrForRule"] = request.jsonStrForRule();
+    body["JsonStrForRule"] = request.getJsonStrForRule();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -182,11 +182,11 @@ ApplyWsTokenResponse Client::applyWsTokenWithOptions(const ApplyWsTokenRequest &
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -226,11 +226,11 @@ AssignReviewerResponse Client::assignReviewerWithOptions(const AssignReviewerReq
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -272,11 +272,11 @@ AssignReviewerBySessionGroupResponse Client::assignReviewerBySessionGroupWithOpt
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -320,11 +320,11 @@ BatchSubmitReviewInfoResponse Client::batchSubmitReviewInfoWithOptions(const Bat
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -366,11 +366,11 @@ CreateAsrVocabResponse Client::createAsrVocabWithOptions(const CreateAsrVocabReq
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -412,11 +412,11 @@ CreateCheckTypeToSchemeResponse Client::createCheckTypeToSchemeWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -458,24 +458,24 @@ CreateMiningTaskResponse Client::createMiningTaskWithOptions(const CreateMiningT
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasCallbackUrl()) {
-    body["CallbackUrl"] = request.callbackUrl();
+    body["CallbackUrl"] = request.getCallbackUrl();
   }
 
   if (!!request.hasFilePath()) {
-    body["FilePath"] = request.filePath();
+    body["FilePath"] = request.getFilePath();
   }
 
   if (!!request.hasParam()) {
-    body["Param"] = request.param();
+    body["Param"] = request.getParam();
   }
 
   if (!!request.hasTaskType()) {
-    body["TaskType"] = request.taskType();
+    body["TaskType"] = request.getTaskType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -518,11 +518,11 @@ CreateQualityCheckSchemeResponse Client::createQualityCheckSchemeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -564,11 +564,11 @@ CreateSchemeTaskConfigResponse Client::createSchemeTaskConfigWithOptions(const C
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -610,11 +610,11 @@ CreateSkillGroupConfigResponse Client::createSkillGroupConfigWithOptions(const C
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -654,11 +654,11 @@ CreateTaskAssignRuleResponse Client::createTaskAssignRuleWithOptions(const Creat
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -698,11 +698,11 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasBaseMeAgentId()) {
-    body["BaseMeAgentId"] = request.baseMeAgentId();
+    body["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    body["JsonStr"] = request.jsonStr();
+    body["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -742,11 +742,11 @@ CreateWarningConfigResponse Client::createWarningConfigWithOptions(const CreateW
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -786,11 +786,11 @@ CreateWarningStrategyConfigResponse Client::createWarningStrategyConfigWithOptio
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -830,11 +830,11 @@ DelRuleCategoryResponse Client::delRuleCategoryWithOptions(const DelRuleCategory
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -872,11 +872,11 @@ DeleteAsrVocabResponse Client::deleteAsrVocabWithOptions(const DeleteAsrVocabReq
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -914,11 +914,11 @@ DeleteBusinessCategoryResponse Client::deleteBusinessCategoryWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -958,11 +958,11 @@ DeleteCheckTypeToSchemeResponse Client::deleteCheckTypeToSchemeWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1002,11 +1002,11 @@ DeleteCustomizationConfigResponse Client::deleteCustomizationConfigWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1046,11 +1046,11 @@ DeleteDataSetResponse Client::deleteDataSetWithOptions(const DeleteDataSetReques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1090,11 +1090,11 @@ DeletePrecisionTaskResponse Client::deletePrecisionTaskWithOptions(const DeleteP
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1134,11 +1134,11 @@ DeleteQualityCheckSchemeResponse Client::deleteQualityCheckSchemeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1182,20 +1182,20 @@ DeleteRuleResponse Client::deleteRuleWithOptions(const DeleteRuleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasForceDelete()) {
-    body["ForceDelete"] = request.forceDelete();
+    body["ForceDelete"] = request.getForceDelete();
   }
 
   if (!!request.hasIsSchemeData()) {
-    body["IsSchemeData"] = request.isSchemeData();
+    body["IsSchemeData"] = request.getIsSchemeData();
   }
 
   if (!!request.hasRuleId()) {
-    body["RuleId"] = request.ruleId();
+    body["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1240,16 +1240,16 @@ DeleteRuleV4Response Client::deleteRuleV4WithOptions(const DeleteRuleV4Request &
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasForceDelete()) {
-    body["ForceDelete"] = request.forceDelete();
+    body["ForceDelete"] = request.getForceDelete();
   }
 
   if (!!request.hasRuleId()) {
-    body["RuleId"] = request.ruleId();
+    body["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1292,11 +1292,11 @@ DeleteSchemeTaskConfigResponse Client::deleteSchemeTaskConfigWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1338,11 +1338,11 @@ DeleteSkillGroupConfigResponse Client::deleteSkillGroupConfigWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1382,11 +1382,11 @@ DeleteTaskAssignRuleResponse Client::deleteTaskAssignRuleWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1424,11 +1424,11 @@ DeleteWarningConfigResponse Client::deleteWarningConfigWithOptions(const DeleteW
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1468,11 +1468,11 @@ DeleteWarningStrategyConfigResponse Client::deleteWarningStrategyConfigWithOptio
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1512,11 +1512,11 @@ GetAsrVocabResponse Client::getAsrVocabWithOptions(const GetAsrVocabRequest &req
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1554,11 +1554,11 @@ GetBusinessCategoryListResponse Client::getBusinessCategoryListWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1598,11 +1598,11 @@ GetCustomizationConfigListResponse Client::getCustomizationConfigListWithOptions
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1644,11 +1644,11 @@ GetMiningTaskResultResponse Client::getMiningTaskResultWithOptions(const GetMini
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1688,11 +1688,11 @@ GetNextResultToVerifyResponse Client::getNextResultToVerifyWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1730,11 +1730,11 @@ GetPrecisionTaskResponse Client::getPrecisionTaskWithOptions(const GetPrecisionT
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1774,11 +1774,11 @@ GetQualityCheckSchemeResponse Client::getQualityCheckSchemeWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1818,11 +1818,11 @@ GetResultResponse Client::getResultWithOptions(const GetResultRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1862,11 +1862,11 @@ GetResultToReviewResponse Client::getResultToReviewWithOptions(const GetResultTo
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1908,11 +1908,11 @@ GetRuleResponse Client::getRuleWithOptions(const GetRuleRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1956,12 +1956,12 @@ GetRuleByIdResponse Client::getRuleByIdWithOptions(const GetRuleByIdRequest &req
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasRuleId()) {
-    body["RuleId"] = request.ruleId();
+    body["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2004,11 +2004,11 @@ GetRuleCategoryResponse Client::getRuleCategoryWithOptions(const GetRuleCategory
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2048,11 +2048,11 @@ GetRuleDetailResponse Client::getRuleDetailWithOptions(const GetRuleDetailReques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2094,7 +2094,7 @@ GetRuleV4Response Client::getRuleV4WithOptions(const GetRuleV4Request &request, 
   request.validate();
   json body = {};
   if (!!request.hasRuleId()) {
-    body["RuleId"] = request.ruleId();
+    body["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2136,108 +2136,108 @@ GetRulesCountListResponse Client::getRulesCountListWithOptions(const GetRulesCou
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasBusinessName()) {
-    body["BusinessName"] = request.businessName();
+    body["BusinessName"] = request.getBusinessName();
   }
 
   if (!!request.hasBusinessRange()) {
-    body["BusinessRange"] = request.businessRange();
+    body["BusinessRange"] = request.getBusinessRange();
   }
 
   if (!!request.hasCategoryName()) {
-    body["CategoryName"] = request.categoryName();
+    body["CategoryName"] = request.getCategoryName();
   }
 
   if (!!request.hasCountTotal()) {
-    body["CountTotal"] = request.countTotal();
+    body["CountTotal"] = request.getCountTotal();
   }
 
   if (!!request.hasCreateEmpid()) {
-    body["CreateEmpid"] = request.createEmpid();
+    body["CreateEmpid"] = request.getCreateEmpid();
   }
 
   if (!!request.hasCreateUserId()) {
-    body["CreateUserId"] = request.createUserId();
+    body["CreateUserId"] = request.getCreateUserId();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasLastUpdateEmpid()) {
-    body["LastUpdateEmpid"] = request.lastUpdateEmpid();
+    body["LastUpdateEmpid"] = request.getLastUpdateEmpid();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRequireInfos()) {
-    body["RequireInfos"] = request.requireInfos();
+    body["RequireInfos"] = request.getRequireInfos();
   }
 
   if (!!request.hasRid()) {
-    body["Rid"] = request.rid();
+    body["Rid"] = request.getRid();
   }
 
   if (!!request.hasRuleIdOrRuleName()) {
-    body["RuleIdOrRuleName"] = request.ruleIdOrRuleName();
+    body["RuleIdOrRuleName"] = request.getRuleIdOrRuleName();
   }
 
   if (!!request.hasRuleScoreSingleType()) {
-    body["RuleScoreSingleType"] = request.ruleScoreSingleType();
+    body["RuleScoreSingleType"] = request.getRuleScoreSingleType();
   }
 
   if (!!request.hasRuleType()) {
-    body["RuleType"] = request.ruleType();
+    body["RuleType"] = request.getRuleType();
   }
 
   if (!!request.hasSchemeId()) {
-    body["SchemeId"] = request.schemeId();
+    body["SchemeId"] = request.getSchemeId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasTypeName()) {
-    body["TypeName"] = request.typeName();
+    body["TypeName"] = request.getTypeName();
   }
 
   if (!!request.hasUpdateEndTime()) {
-    body["UpdateEndTime"] = request.updateEndTime();
+    body["UpdateEndTime"] = request.getUpdateEndTime();
   }
 
   if (!!request.hasUpdateStartTime()) {
-    body["UpdateStartTime"] = request.updateStartTime();
+    body["UpdateStartTime"] = request.getUpdateStartTime();
   }
 
   if (!!request.hasUpdateUserId()) {
-    body["UpdateUserId"] = request.updateUserId();
+    body["UpdateUserId"] = request.getUpdateUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2280,11 +2280,11 @@ GetSchemeTaskConfigResponse Client::getSchemeTaskConfigWithOptions(const GetSche
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2326,11 +2326,11 @@ GetScoreInfoResponse Client::getScoreInfoWithOptions(const GetScoreInfoRequest &
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2372,11 +2372,11 @@ GetSkillGroupConfigResponse Client::getSkillGroupConfigWithOptions(const GetSkil
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2418,11 +2418,11 @@ GetSyncResultResponse Client::getSyncResultWithOptions(const GetSyncResultReques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2464,11 +2464,11 @@ GetWarningStrategyConfigResponse Client::getWarningStrategyConfigWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2508,11 +2508,11 @@ HandleComplaintResponse Client::handleComplaintWithOptions(const HandleComplaint
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2552,11 +2552,11 @@ InvalidRuleResponse Client::invalidRuleWithOptions(const InvalidRuleRequest &req
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2598,11 +2598,11 @@ ListAsrVocabResponse Client::listAsrVocabWithOptions(const ListAsrVocabRequest &
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2646,11 +2646,11 @@ ListDataSetResponse Client::listDataSetWithOptions(const ListDataSetRequest &req
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2692,11 +2692,11 @@ ListPrecisionTaskResponse Client::listPrecisionTaskWithOptions(const ListPrecisi
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2736,11 +2736,11 @@ ListQualityCheckSchemeResponse Client::listQualityCheckSchemeWithOptions(const L
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2782,11 +2782,11 @@ ListRulesResponse Client::listRulesWithOptions(const ListRulesRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2828,108 +2828,108 @@ ListRulesV4Response Client::listRulesV4WithOptions(const ListRulesV4Request &req
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasBusinessName()) {
-    body["BusinessName"] = request.businessName();
+    body["BusinessName"] = request.getBusinessName();
   }
 
   if (!!request.hasBusinessRange()) {
-    body["BusinessRange"] = request.businessRange();
+    body["BusinessRange"] = request.getBusinessRange();
   }
 
   if (!!request.hasCategoryName()) {
-    body["CategoryName"] = request.categoryName();
+    body["CategoryName"] = request.getCategoryName();
   }
 
   if (!!request.hasCountTotal()) {
-    body["CountTotal"] = request.countTotal();
+    body["CountTotal"] = request.getCountTotal();
   }
 
   if (!!request.hasCreateEmpid()) {
-    body["CreateEmpid"] = request.createEmpid();
+    body["CreateEmpid"] = request.getCreateEmpid();
   }
 
   if (!!request.hasCreateUserId()) {
-    body["CreateUserId"] = request.createUserId();
+    body["CreateUserId"] = request.getCreateUserId();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasLastUpdateEmpid()) {
-    body["LastUpdateEmpid"] = request.lastUpdateEmpid();
+    body["LastUpdateEmpid"] = request.getLastUpdateEmpid();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRequireInfos()) {
-    body["RequireInfos"] = request.requireInfos();
+    body["RequireInfos"] = request.getRequireInfos();
   }
 
   if (!!request.hasRid()) {
-    body["Rid"] = request.rid();
+    body["Rid"] = request.getRid();
   }
 
   if (!!request.hasRuleIdOrRuleName()) {
-    body["RuleIdOrRuleName"] = request.ruleIdOrRuleName();
+    body["RuleIdOrRuleName"] = request.getRuleIdOrRuleName();
   }
 
   if (!!request.hasRuleScoreSingleType()) {
-    body["RuleScoreSingleType"] = request.ruleScoreSingleType();
+    body["RuleScoreSingleType"] = request.getRuleScoreSingleType();
   }
 
   if (!!request.hasRuleType()) {
-    body["RuleType"] = request.ruleType();
+    body["RuleType"] = request.getRuleType();
   }
 
   if (!!request.hasSchemeId()) {
-    body["SchemeId"] = request.schemeId();
+    body["SchemeId"] = request.getSchemeId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasTypeName()) {
-    body["TypeName"] = request.typeName();
+    body["TypeName"] = request.getTypeName();
   }
 
   if (!!request.hasUpdateEndTime()) {
-    body["UpdateEndTime"] = request.updateEndTime();
+    body["UpdateEndTime"] = request.getUpdateEndTime();
   }
 
   if (!!request.hasUpdateStartTime()) {
-    body["UpdateStartTime"] = request.updateStartTime();
+    body["UpdateStartTime"] = request.getUpdateStartTime();
   }
 
   if (!!request.hasUpdateUserId()) {
-    body["UpdateUserId"] = request.updateUserId();
+    body["UpdateUserId"] = request.getUpdateUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2972,11 +2972,11 @@ ListSchemeTaskConfigResponse Client::listSchemeTaskConfigWithOptions(const ListS
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3020,11 +3020,11 @@ ListSessionGroupResponse Client::listSessionGroupWithOptions(const ListSessionGr
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3068,11 +3068,11 @@ ListSkillGroupConfigResponse Client::listSkillGroupConfigWithOptions(const ListS
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3112,11 +3112,11 @@ ListTaskAssignRulesResponse Client::listTaskAssignRulesWithOptions(const ListTas
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3154,11 +3154,11 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3196,11 +3196,11 @@ ListWarningConfigResponse Client::listWarningConfigWithOptions(const ListWarning
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3240,11 +3240,11 @@ ListWarningStrategyConfigResponse Client::listWarningStrategyConfigWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3286,11 +3286,11 @@ RevertAssignedSessionResponse Client::revertAssignedSessionWithOptions(const Rev
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3334,11 +3334,11 @@ RevertAssignedSessionGroupResponse Client::revertAssignedSessionGroupWithOptions
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3382,11 +3382,11 @@ SaveConfigDataSetResponse Client::saveConfigDataSetWithOptions(const SaveConfigD
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3426,11 +3426,11 @@ SubmitComplaintResponse Client::submitComplaintWithOptions(const SubmitComplaint
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3468,11 +3468,11 @@ SubmitPrecisionTaskResponse Client::submitPrecisionTaskWithOptions(const SubmitP
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3510,11 +3510,11 @@ SubmitQualityCheckTaskResponse Client::submitQualityCheckTaskWithOptions(const S
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3552,11 +3552,11 @@ SubmitReviewInfoResponse Client::submitReviewInfoWithOptions(const SubmitReviewI
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3596,11 +3596,11 @@ SubmitReviewInfoV4Response Client::submitReviewInfoV4WithOptions(const SubmitRev
   request.validate();
   json body = {};
   if (!!request.hasBaseMeAgentId()) {
-    body["BaseMeAgentId"] = request.baseMeAgentId();
+    body["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    body["JsonStr"] = request.jsonStr();
+    body["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3640,11 +3640,11 @@ SyncQualityCheckResponse Client::syncQualityCheckWithOptions(const SyncQualityCh
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3684,11 +3684,11 @@ TestRuleV4Response Client::testRuleV4WithOptions(const TestRuleV4Request &reques
   request.validate();
   json body = {};
   if (!!request.hasIsSchemeData()) {
-    body["IsSchemeData"] = request.isSchemeData();
+    body["IsSchemeData"] = request.getIsSchemeData();
   }
 
   if (!!request.hasTestJson()) {
-    body["TestJson"] = request.testJson();
+    body["TestJson"] = request.getTestJson();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3728,11 +3728,11 @@ UpdateAsrVocabResponse Client::updateAsrVocabWithOptions(const UpdateAsrVocabReq
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3772,11 +3772,11 @@ UpdateCheckTypeToSchemeResponse Client::updateCheckTypeToSchemeWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3818,11 +3818,11 @@ UpdateQualityCheckDataResponse Client::updateQualityCheckDataWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3864,11 +3864,11 @@ UpdateQualityCheckSchemeResponse Client::updateQualityCheckSchemeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3910,11 +3910,11 @@ UpdateRuleResponse Client::updateRuleWithOptions(const UpdateRuleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3958,24 +3958,24 @@ UpdateRuleByIdResponse Client::updateRuleByIdWithOptions(const UpdateRuleByIdReq
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasIsCopy()) {
-    body["IsCopy"] = request.isCopy();
+    body["IsCopy"] = request.getIsCopy();
   }
 
   if (!!request.hasJsonStrForRule()) {
-    body["JsonStrForRule"] = request.jsonStrForRule();
+    body["JsonStrForRule"] = request.getJsonStrForRule();
   }
 
   if (!!request.hasReturnRelatedSchemes()) {
-    body["ReturnRelatedSchemes"] = request.returnRelatedSchemes();
+    body["ReturnRelatedSchemes"] = request.getReturnRelatedSchemes();
   }
 
   if (!!request.hasRuleId()) {
-    body["RuleId"] = request.ruleId();
+    body["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4020,11 +4020,11 @@ UpdateRuleToSchemeResponse Client::updateRuleToSchemeWithOptions(const UpdateRul
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4066,16 +4066,16 @@ UpdateRuleV4Response Client::updateRuleV4WithOptions(const UpdateRuleV4Request &
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   json body = {};
   if (!!request.hasJsonStrForRule()) {
-    body["JsonStrForRule"] = request.jsonStrForRule();
+    body["JsonStrForRule"] = request.getJsonStrForRule();
   }
 
   if (!!request.hasRuleId()) {
-    body["RuleId"] = request.ruleId();
+    body["RuleId"] = request.getRuleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4118,11 +4118,11 @@ UpdateSchemeTaskConfigResponse Client::updateSchemeTaskConfigWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["jsonStr"] = request.jsonStr();
+    query["jsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4164,11 +4164,11 @@ UpdateSkillGroupConfigResponse Client::updateSkillGroupConfigWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4208,11 +4208,11 @@ UpdateSyncQualityCheckDataResponse Client::updateSyncQualityCheckDataWithOptions
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4250,11 +4250,11 @@ UpdateTaskAssignRuleResponse Client::updateTaskAssignRuleWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4292,11 +4292,11 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4334,11 +4334,11 @@ UpdateWarningConfigResponse Client::updateWarningConfigWithOptions(const UpdateW
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4378,11 +4378,11 @@ UpdateWarningStrategyConfigResponse Client::updateWarningStrategyConfigWithOptio
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4422,11 +4422,11 @@ UploadAudioDataResponse Client::uploadAudioDataWithOptions(const UploadAudioData
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4468,11 +4468,11 @@ UploadDataResponse Client::uploadDataWithOptions(const UploadDataRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4516,11 +4516,11 @@ UploadDataSyncResponse Client::uploadDataSyncWithOptions(const UploadDataSyncReq
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4562,11 +4562,11 @@ UploadDataSyncForLLMResponse Client::uploadDataSyncForLLMWithOptions(const Uploa
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4608,11 +4608,11 @@ UploadDataV4Response Client::uploadDataV4WithOptions(const UploadDataV4Request &
   request.validate();
   json body = {};
   if (!!request.hasBaseMeAgentId()) {
-    body["BaseMeAgentId"] = request.baseMeAgentId();
+    body["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    body["JsonStr"] = request.jsonStr();
+    body["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4652,11 +4652,11 @@ UploadRuleResponse Client::uploadRuleWithOptions(const UploadRuleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4694,11 +4694,11 @@ VerifyFileResponse Client::verifyFileWithOptions(const VerifyFileRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4736,11 +4736,11 @@ VerifySentenceResponse Client::verifySentenceWithOptions(const VerifySentenceReq
   request.validate();
   json query = {};
   if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.baseMeAgentId();
+    query["BaseMeAgentId"] = request.getBaseMeAgentId();
   }
 
   if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.jsonStr();
+    query["JsonStr"] = request.getJsonStr();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
