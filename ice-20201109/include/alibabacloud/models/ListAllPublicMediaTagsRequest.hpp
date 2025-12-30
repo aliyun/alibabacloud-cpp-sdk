@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessType_ == nullptr
-        && return this->entityId_ == nullptr; };
+        && this->entityId_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
-    inline string businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
+    inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
     inline ListAllPublicMediaTagsRequest& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
 
 
     // entityId Field Functions 
     bool hasEntityId() const { return this->entityId_ != nullptr;};
     void deleteEntityId() { this->entityId_ = nullptr;};
-    inline string entityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
+    inline string getEntityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
     inline ListAllPublicMediaTagsRequest& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
 
 
   protected:
     // The business type of the media asset.
-    std::shared_ptr<string> businessType_ = nullptr;
+    shared_ptr<string> businessType_ {};
     // The entity ID, which is used to distinguish between media assets of different types in the public domain.
     // 
     // Set this parameter to Copyright_Music, which indicates music in the public domain.
-    std::shared_ptr<string> entityId_ = nullptr;
+    shared_ptr<string> entityId_ {};
   };
 
   } // namespace Models

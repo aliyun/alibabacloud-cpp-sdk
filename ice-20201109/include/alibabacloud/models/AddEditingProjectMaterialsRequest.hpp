@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->materialMaps_ == nullptr
-        && return this->projectId_ == nullptr; };
+        && this->projectId_ == nullptr; };
     // materialMaps Field Functions 
     bool hasMaterialMaps() const { return this->materialMaps_ != nullptr;};
     void deleteMaterialMaps() { this->materialMaps_ = nullptr;};
-    inline string materialMaps() const { DARABONBA_PTR_GET_DEFAULT(materialMaps_, "") };
+    inline string getMaterialMaps() const { DARABONBA_PTR_GET_DEFAULT(materialMaps_, "") };
     inline AddEditingProjectMaterialsRequest& setMaterialMaps(string materialMaps) { DARABONBA_PTR_SET_VALUE(materialMaps_, materialMaps) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline AddEditingProjectMaterialsRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -57,11 +57,11 @@ namespace Models
     // *   editingProject
     // 
     // This parameter is required.
-    std::shared_ptr<string> materialMaps_ = nullptr;
+    shared_ptr<string> materialMaps_ {};
     // The ID of the online editing project.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
   };
 
   } // namespace Models

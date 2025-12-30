@@ -33,7 +33,7 @@ namespace Models
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline QueryCopyrightExtractJobRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The job ID. You can obtain the value of this parameter from the response of the SubmitCopyrightExtractJob operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
   };
 
   } // namespace Models

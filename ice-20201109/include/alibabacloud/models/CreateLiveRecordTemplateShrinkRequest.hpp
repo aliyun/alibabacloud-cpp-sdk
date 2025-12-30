@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->recordFormatShrink_ == nullptr; };
+        && this->recordFormatShrink_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateLiveRecordTemplateShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // recordFormatShrink Field Functions 
     bool hasRecordFormatShrink() const { return this->recordFormatShrink_ != nullptr;};
     void deleteRecordFormatShrink() { this->recordFormatShrink_ = nullptr;};
-    inline string recordFormatShrink() const { DARABONBA_PTR_GET_DEFAULT(recordFormatShrink_, "") };
+    inline string getRecordFormatShrink() const { DARABONBA_PTR_GET_DEFAULT(recordFormatShrink_, "") };
     inline CreateLiveRecordTemplateShrinkRequest& setRecordFormatShrink(string recordFormatShrink) { DARABONBA_PTR_SET_VALUE(recordFormatShrink_, recordFormatShrink) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The list of recording formats.
     // 
     // This parameter is required.
-    std::shared_ptr<string> recordFormatShrink_ = nullptr;
+    shared_ptr<string> recordFormatShrink_ {};
   };
 
   } // namespace Models

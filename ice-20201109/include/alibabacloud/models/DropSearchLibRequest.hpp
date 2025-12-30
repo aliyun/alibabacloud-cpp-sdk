@@ -33,7 +33,7 @@ namespace Models
     // searchLibName Field Functions 
     bool hasSearchLibName() const { return this->searchLibName_ != nullptr;};
     void deleteSearchLibName() { this->searchLibName_ = nullptr;};
-    inline string searchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
+    inline string getSearchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
     inline DropSearchLibRequest& setSearchLibName(string searchLibName) { DARABONBA_PTR_SET_VALUE(searchLibName_, searchLibName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the search library.
     // 
     // This parameter is required.
-    std::shared_ptr<string> searchLibName_ = nullptr;
+    shared_ptr<string> searchLibName_ {};
   };
 
   } // namespace Models

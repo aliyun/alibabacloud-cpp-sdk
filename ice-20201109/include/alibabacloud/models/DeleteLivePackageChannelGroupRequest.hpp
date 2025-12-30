@@ -33,7 +33,7 @@ namespace Models
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline DeleteLivePackageChannelGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The channel group name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
   };
 
   } // namespace Models

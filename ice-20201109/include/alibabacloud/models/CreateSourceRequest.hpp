@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->httpPackageConfigurations_ == nullptr
-        && return this->sourceLocationName_ == nullptr && return this->sourceName_ == nullptr && return this->sourceType_ == nullptr; };
+        && this->sourceLocationName_ == nullptr && this->sourceName_ == nullptr && this->sourceType_ == nullptr; };
     // httpPackageConfigurations Field Functions 
     bool hasHttpPackageConfigurations() const { return this->httpPackageConfigurations_ != nullptr;};
     void deleteHttpPackageConfigurations() { this->httpPackageConfigurations_ = nullptr;};
-    inline string httpPackageConfigurations() const { DARABONBA_PTR_GET_DEFAULT(httpPackageConfigurations_, "") };
+    inline string getHttpPackageConfigurations() const { DARABONBA_PTR_GET_DEFAULT(httpPackageConfigurations_, "") };
     inline CreateSourceRequest& setHttpPackageConfigurations(string httpPackageConfigurations) { DARABONBA_PTR_SET_VALUE(httpPackageConfigurations_, httpPackageConfigurations) };
 
 
     // sourceLocationName Field Functions 
     bool hasSourceLocationName() const { return this->sourceLocationName_ != nullptr;};
     void deleteSourceLocationName() { this->sourceLocationName_ = nullptr;};
-    inline string sourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
+    inline string getSourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
     inline CreateSourceRequest& setSourceLocationName(string sourceLocationName) { DARABONBA_PTR_SET_VALUE(sourceLocationName_, sourceLocationName) };
 
 
     // sourceName Field Functions 
     bool hasSourceName() const { return this->sourceName_ != nullptr;};
     void deleteSourceName() { this->sourceName_ = nullptr;};
-    inline string sourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
+    inline string getSourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
     inline CreateSourceRequest& setSourceName(string sourceName) { DARABONBA_PTR_SET_VALUE(sourceName_, sourceName) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline CreateSourceRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The source configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> httpPackageConfigurations_ = nullptr;
+    shared_ptr<string> httpPackageConfigurations_ {};
     // The name of the source location.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceLocationName_ = nullptr;
+    shared_ptr<string> sourceLocationName_ {};
     // The name of the source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceName_ = nullptr;
+    shared_ptr<string> sourceName_ {};
     // The source type. Valid values: vodSource and liveSource.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

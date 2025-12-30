@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->manifestName_ == nullptr
-        && return this->outputFileBase_ == nullptr && return this->type_ == nullptr; };
+        && this->outputFileBase_ == nullptr && this->type_ == nullptr; };
     // manifestName Field Functions 
     bool hasManifestName() const { return this->manifestName_ != nullptr;};
     void deleteManifestName() { this->manifestName_ = nullptr;};
-    inline string manifestName() const { DARABONBA_PTR_GET_DEFAULT(manifestName_, "") };
+    inline string getManifestName() const { DARABONBA_PTR_GET_DEFAULT(manifestName_, "") };
     inline MediaConvertOutputGroupConfig& setManifestName(string manifestName) { DARABONBA_PTR_SET_VALUE(manifestName_, manifestName) };
 
 
     // outputFileBase Field Functions 
     bool hasOutputFileBase() const { return this->outputFileBase_ != nullptr;};
     void deleteOutputFileBase() { this->outputFileBase_ = nullptr;};
-    inline const MediaObject & outputFileBase() const { DARABONBA_PTR_GET_CONST(outputFileBase_, MediaObject) };
-    inline MediaObject outputFileBase() { DARABONBA_PTR_GET(outputFileBase_, MediaObject) };
+    inline const MediaObject & getOutputFileBase() const { DARABONBA_PTR_GET_CONST(outputFileBase_, MediaObject) };
+    inline MediaObject getOutputFileBase() { DARABONBA_PTR_GET(outputFileBase_, MediaObject) };
     inline MediaConvertOutputGroupConfig& setOutputFileBase(const MediaObject & outputFileBase) { DARABONBA_PTR_SET_VALUE(outputFileBase_, outputFileBase) };
     inline MediaConvertOutputGroupConfig& setOutputFileBase(MediaObject && outputFileBase) { DARABONBA_PTR_SET_RVALUE(outputFileBase_, outputFileBase) };
 
@@ -55,14 +55,14 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline MediaConvertOutputGroupConfig& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> manifestName_ = nullptr;
-    std::shared_ptr<MediaObject> outputFileBase_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> manifestName_ {};
+    shared_ptr<MediaObject> outputFileBase_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

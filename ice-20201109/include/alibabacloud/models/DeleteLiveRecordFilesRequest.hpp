@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->recordIds_ == nullptr
-        && return this->removeFile_ == nullptr; };
+        && this->removeFile_ == nullptr; };
     // recordIds Field Functions 
     bool hasRecordIds() const { return this->recordIds_ != nullptr;};
     void deleteRecordIds() { this->recordIds_ = nullptr;};
-    inline const vector<string> & recordIds() const { DARABONBA_PTR_GET_CONST(recordIds_, vector<string>) };
-    inline vector<string> recordIds() { DARABONBA_PTR_GET(recordIds_, vector<string>) };
+    inline const vector<string> & getRecordIds() const { DARABONBA_PTR_GET_CONST(recordIds_, vector<string>) };
+    inline vector<string> getRecordIds() { DARABONBA_PTR_GET(recordIds_, vector<string>) };
     inline DeleteLiveRecordFilesRequest& setRecordIds(const vector<string> & recordIds) { DARABONBA_PTR_SET_VALUE(recordIds_, recordIds) };
     inline DeleteLiveRecordFilesRequest& setRecordIds(vector<string> && recordIds) { DARABONBA_PTR_SET_RVALUE(recordIds_, recordIds) };
 
@@ -46,7 +46,7 @@ namespace Models
     // removeFile Field Functions 
     bool hasRemoveFile() const { return this->removeFile_ != nullptr;};
     void deleteRemoveFile() { this->removeFile_ = nullptr;};
-    inline bool removeFile() const { DARABONBA_PTR_GET_DEFAULT(removeFile_, false) };
+    inline bool getRemoveFile() const { DARABONBA_PTR_GET_DEFAULT(removeFile_, false) };
     inline DeleteLiveRecordFilesRequest& setRemoveFile(bool removeFile) { DARABONBA_PTR_SET_VALUE(removeFile_, removeFile) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // The collection of IDs of recording files.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> recordIds_ = nullptr;
+    shared_ptr<vector<string>> recordIds_ {};
     // Specifies whether to delete the original files in OSS.
-    std::shared_ptr<bool> removeFile_ = nullptr;
+    shared_ptr<bool> removeFile_ {};
   };
 
   } // namespace Models

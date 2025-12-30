@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->packagingGroup_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // packagingGroup Field Functions 
     bool hasPackagingGroup() const { return this->packagingGroup_ != nullptr;};
     void deletePackagingGroup() { this->packagingGroup_ = nullptr;};
-    inline const VodPackagingGroup & packagingGroup() const { DARABONBA_PTR_GET_CONST(packagingGroup_, VodPackagingGroup) };
-    inline VodPackagingGroup packagingGroup() { DARABONBA_PTR_GET(packagingGroup_, VodPackagingGroup) };
+    inline const VodPackagingGroup & getPackagingGroup() const { DARABONBA_PTR_GET_CONST(packagingGroup_, VodPackagingGroup) };
+    inline VodPackagingGroup getPackagingGroup() { DARABONBA_PTR_GET(packagingGroup_, VodPackagingGroup) };
     inline GetVodPackagingGroupResponseBody& setPackagingGroup(const VodPackagingGroup & packagingGroup) { DARABONBA_PTR_SET_VALUE(packagingGroup_, packagingGroup) };
     inline GetVodPackagingGroupResponseBody& setPackagingGroup(VodPackagingGroup && packagingGroup) { DARABONBA_PTR_SET_RVALUE(packagingGroup_, packagingGroup) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetVodPackagingGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the packaging group.
-    std::shared_ptr<VodPackagingGroup> packagingGroup_ = nullptr;
+    shared_ptr<VodPackagingGroup> packagingGroup_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

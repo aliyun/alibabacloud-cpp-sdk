@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->subtype_ == nullptr
-        && return this->templateId_ == nullptr && return this->type_ == nullptr; };
+        && this->templateId_ == nullptr && this->type_ == nullptr; };
     // subtype Field Functions 
     bool hasSubtype() const { return this->subtype_ != nullptr;};
     void deleteSubtype() { this->subtype_ = nullptr;};
-    inline int32_t subtype() const { DARABONBA_PTR_GET_DEFAULT(subtype_, 0) };
+    inline int32_t getSubtype() const { DARABONBA_PTR_GET_DEFAULT(subtype_, 0) };
     inline GetCustomTemplateRequest& setSubtype(int32_t subtype) { DARABONBA_PTR_SET_VALUE(subtype_, subtype) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline GetCustomTemplateRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline GetCustomTemplateRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The template subtype.
-    std::shared_ptr<int32_t> subtype_ = nullptr;
+    shared_ptr<int32_t> subtype_ {};
     // The template ID.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The ID of the template type that is used to query the default template. This parameter is required if TemplateId is not specified.
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<int32_t> type_ {};
   };
 
   } // namespace Models

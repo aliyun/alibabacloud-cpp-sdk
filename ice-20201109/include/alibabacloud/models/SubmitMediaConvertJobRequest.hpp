@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->config_ == nullptr && return this->pipelineId_ == nullptr && return this->userData_ == nullptr; };
+        && this->config_ == nullptr && this->pipelineId_ == nullptr && this->userData_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline SubmitMediaConvertJobRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline SubmitMediaConvertJobRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // pipelineId Field Functions 
     bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
     void deletePipelineId() { this->pipelineId_ = nullptr;};
-    inline string pipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
+    inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
     inline SubmitMediaConvertJobRequest& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitMediaConvertJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
     // The idempotency key that is used to ensure repeated requests have the same effect as a single request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The configurations of the transcoding task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The ID of the queue.
-    std::shared_ptr<string> pipelineId_ = nullptr;
+    shared_ptr<string> pipelineId_ {};
     // The user data.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

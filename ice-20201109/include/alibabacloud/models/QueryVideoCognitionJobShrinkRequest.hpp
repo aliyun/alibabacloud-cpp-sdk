@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->includeResultsShrink_ == nullptr
-        && return this->jobId_ == nullptr && return this->params_ == nullptr; };
+        && this->jobId_ == nullptr && this->params_ == nullptr; };
     // includeResultsShrink Field Functions 
     bool hasIncludeResultsShrink() const { return this->includeResultsShrink_ != nullptr;};
     void deleteIncludeResultsShrink() { this->includeResultsShrink_ = nullptr;};
-    inline string includeResultsShrink() const { DARABONBA_PTR_GET_DEFAULT(includeResultsShrink_, "") };
+    inline string getIncludeResultsShrink() const { DARABONBA_PTR_GET_DEFAULT(includeResultsShrink_, "") };
     inline QueryVideoCognitionJobShrinkRequest& setIncludeResultsShrink(string includeResultsShrink) { DARABONBA_PTR_SET_VALUE(includeResultsShrink_, includeResultsShrink) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline QueryVideoCognitionJobShrinkRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline QueryVideoCognitionJobShrinkRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
   protected:
     // Specifies whether to include the full algorithm results in the response.
-    std::shared_ptr<string> includeResultsShrink_ = nullptr;
+    shared_ptr<string> includeResultsShrink_ {};
     // The ID of the task to query. It is returned when you call the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // Additional request parameters, provided as a JSON string.
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> params_ {};
   };
 
   } // namespace Models

@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->AIAgentId_ == nullptr
-        && return this->audioOssPath_ == nullptr && return this->callbackUrl_ == nullptr && return this->enableAudioRecording_ == nullptr && return this->enableNotify_ == nullptr && return this->eventTypes_ == nullptr
-        && return this->token_ == nullptr; };
+        && this->audioOssPath_ == nullptr && this->callbackUrl_ == nullptr && this->enableAudioRecording_ == nullptr && this->enableNotify_ == nullptr && this->eventTypes_ == nullptr
+        && this->token_ == nullptr; };
     // AIAgentId Field Functions 
     bool hasAIAgentId() const { return this->AIAgentId_ != nullptr;};
     void deleteAIAgentId() { this->AIAgentId_ = nullptr;};
-    inline string AIAgentId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentId_, "") };
+    inline string getAIAgentId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentId_, "") };
     inline SetNotifyConfigRequest& setAIAgentId(string AIAgentId) { DARABONBA_PTR_SET_VALUE(AIAgentId_, AIAgentId) };
 
 
     // audioOssPath Field Functions 
     bool hasAudioOssPath() const { return this->audioOssPath_ != nullptr;};
     void deleteAudioOssPath() { this->audioOssPath_ = nullptr;};
-    inline string audioOssPath() const { DARABONBA_PTR_GET_DEFAULT(audioOssPath_, "") };
+    inline string getAudioOssPath() const { DARABONBA_PTR_GET_DEFAULT(audioOssPath_, "") };
     inline SetNotifyConfigRequest& setAudioOssPath(string audioOssPath) { DARABONBA_PTR_SET_VALUE(audioOssPath_, audioOssPath) };
 
 
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
-    inline string callbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
+    inline string getCallbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
     inline SetNotifyConfigRequest& setCallbackUrl(string callbackUrl) { DARABONBA_PTR_SET_VALUE(callbackUrl_, callbackUrl) };
 
 
     // enableAudioRecording Field Functions 
     bool hasEnableAudioRecording() const { return this->enableAudioRecording_ != nullptr;};
     void deleteEnableAudioRecording() { this->enableAudioRecording_ = nullptr;};
-    inline bool enableAudioRecording() const { DARABONBA_PTR_GET_DEFAULT(enableAudioRecording_, false) };
+    inline bool getEnableAudioRecording() const { DARABONBA_PTR_GET_DEFAULT(enableAudioRecording_, false) };
     inline SetNotifyConfigRequest& setEnableAudioRecording(bool enableAudioRecording) { DARABONBA_PTR_SET_VALUE(enableAudioRecording_, enableAudioRecording) };
 
 
     // enableNotify Field Functions 
     bool hasEnableNotify() const { return this->enableNotify_ != nullptr;};
     void deleteEnableNotify() { this->enableNotify_ = nullptr;};
-    inline bool enableNotify() const { DARABONBA_PTR_GET_DEFAULT(enableNotify_, false) };
+    inline bool getEnableNotify() const { DARABONBA_PTR_GET_DEFAULT(enableNotify_, false) };
     inline SetNotifyConfigRequest& setEnableNotify(bool enableNotify) { DARABONBA_PTR_SET_VALUE(enableNotify_, enableNotify) };
 
 
     // eventTypes Field Functions 
     bool hasEventTypes() const { return this->eventTypes_ != nullptr;};
     void deleteEventTypes() { this->eventTypes_ = nullptr;};
-    inline string eventTypes() const { DARABONBA_PTR_GET_DEFAULT(eventTypes_, "") };
+    inline string getEventTypes() const { DARABONBA_PTR_GET_DEFAULT(eventTypes_, "") };
     inline SetNotifyConfigRequest& setEventTypes(string eventTypes) { DARABONBA_PTR_SET_VALUE(eventTypes_, eventTypes) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline SetNotifyConfigRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
@@ -97,23 +97,23 @@ namespace Models
     // The ID of the AI agent.
     // 
     // This parameter is required.
-    std::shared_ptr<string> AIAgentId_ = nullptr;
-    std::shared_ptr<string> audioOssPath_ = nullptr;
+    shared_ptr<string> AIAgentId_ {};
+    shared_ptr<string> audioOssPath_ {};
     // The URL for receiving callback notifications. By default, this parameter is left empty.
-    std::shared_ptr<string> callbackUrl_ = nullptr;
-    std::shared_ptr<bool> enableAudioRecording_ = nullptr;
+    shared_ptr<string> callbackUrl_ {};
+    shared_ptr<bool> enableAudioRecording_ {};
     // Specifies whether to enable event notifications.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enableNotify_ = nullptr;
+    shared_ptr<bool> enableNotify_ {};
     // The event types. If you do not specify this parameter, all event types are selected.
     // 
     // *   agent_start
     // *   agent_stop
     // *   error
-    std::shared_ptr<string> eventTypes_ = nullptr;
+    shared_ptr<string> eventTypes_ {};
     // The authentication token for callback. The token is carried in the Authorization header of a callback request. By default, this parameter is left empty.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

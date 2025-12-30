@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->softDelete_ == nullptr
-        && return this->sourceLocationName_ == nullptr; };
+        && this->sourceLocationName_ == nullptr; };
     // softDelete Field Functions 
     bool hasSoftDelete() const { return this->softDelete_ != nullptr;};
     void deleteSoftDelete() { this->softDelete_ = nullptr;};
-    inline bool softDelete() const { DARABONBA_PTR_GET_DEFAULT(softDelete_, false) };
+    inline bool getSoftDelete() const { DARABONBA_PTR_GET_DEFAULT(softDelete_, false) };
     inline DeleteSourceLocationRequest& setSoftDelete(bool softDelete) { DARABONBA_PTR_SET_VALUE(softDelete_, softDelete) };
 
 
     // sourceLocationName Field Functions 
     bool hasSourceLocationName() const { return this->sourceLocationName_ != nullptr;};
     void deleteSourceLocationName() { this->sourceLocationName_ = nullptr;};
-    inline string sourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
+    inline string getSourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
     inline DeleteSourceLocationRequest& setSourceLocationName(string sourceLocationName) { DARABONBA_PTR_SET_VALUE(sourceLocationName_, sourceLocationName) };
 
 
   protected:
     // Specifies whether to use delete markers.
-    std::shared_ptr<bool> softDelete_ = nullptr;
+    shared_ptr<bool> softDelete_ {};
     // The name of the source location.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceLocationName_ = nullptr;
+    shared_ptr<string> sourceLocationName_ {};
   };
 
   } // namespace Models

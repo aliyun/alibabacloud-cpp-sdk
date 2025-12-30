@@ -33,7 +33,7 @@ namespace Models
     // ciphertextBlob Field Functions 
     bool hasCiphertextBlob() const { return this->ciphertextBlob_ != nullptr;};
     void deleteCiphertextBlob() { this->ciphertextBlob_ = nullptr;};
-    inline string ciphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
+    inline string getCiphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
     inline DecryptKMSDataKeyRequest& setCiphertextBlob(string ciphertextBlob) { DARABONBA_PTR_SET_VALUE(ciphertextBlob_, ciphertextBlob) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ciphertext that you want to decrypt.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ciphertextBlob_ = nullptr;
+    shared_ptr<string> ciphertextBlob_ {};
   };
 
   } // namespace Models

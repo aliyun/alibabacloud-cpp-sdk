@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEMETERIMSMPSAIUSAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeMeterImsMpsAiUsageResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,84 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Duration, duration_);
+        DARABONBA_PTR_TO_JSON(Time, time_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Duration, duration_);
+        DARABONBA_PTR_FROM_JSON(Time, time_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->duration_ == nullptr
+        && this->time_ == nullptr && this->type_ == nullptr; };
+      // duration Field Functions 
+      bool hasDuration() const { return this->duration_ != nullptr;};
+      void deleteDuration() { this->duration_ = nullptr;};
+      inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
+      inline Data& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+      // time Field Functions 
+      bool hasTime() const { return this->time_ != nullptr;};
+      void deleteTime() { this->time_ = nullptr;};
+      inline int64_t getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, 0L) };
+      inline Data& setTime(int64_t time) { DARABONBA_PTR_SET_VALUE(time_, time) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Data& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // The usage duration, in minutes.
+      shared_ptr<int64_t> duration_ {};
+      // The beginning time of usage. The value is a 10-digit timestamp.
+      shared_ptr<int64_t> time_ {};
+      // The AI type. Valid values:
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<DescribeMeterImsMpsAiUsageResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeMeterImsMpsAiUsageResponseBodyData>) };
-    inline vector<DescribeMeterImsMpsAiUsageResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<DescribeMeterImsMpsAiUsageResponseBodyData>) };
-    inline DescribeMeterImsMpsAiUsageResponseBody& setData(const vector<DescribeMeterImsMpsAiUsageResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DescribeMeterImsMpsAiUsageResponseBody& setData(vector<DescribeMeterImsMpsAiUsageResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<DescribeMeterImsMpsAiUsageResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeMeterImsMpsAiUsageResponseBody::Data>) };
+    inline vector<DescribeMeterImsMpsAiUsageResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<DescribeMeterImsMpsAiUsageResponseBody::Data>) };
+    inline DescribeMeterImsMpsAiUsageResponseBody& setData(const vector<DescribeMeterImsMpsAiUsageResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeMeterImsMpsAiUsageResponseBody& setData(vector<DescribeMeterImsMpsAiUsageResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeMeterImsMpsAiUsageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The usage statistics of IMS on AI processing of MPS.
-    std::shared_ptr<vector<DescribeMeterImsMpsAiUsageResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<DescribeMeterImsMpsAiUsageResponseBody::Data>> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

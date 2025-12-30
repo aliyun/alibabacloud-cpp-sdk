@@ -42,78 +42,78 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authKey_ == nullptr
-        && return this->authSwitch_ == nullptr && return this->callbackQueueName_ == nullptr && return this->callbackType_ == nullptr && return this->callbackURL_ == nullptr && return this->eventTypeList_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->authSwitch_ == nullptr && this->callbackQueueName_ == nullptr && this->callbackType_ == nullptr && this->callbackURL_ == nullptr && this->eventTypeList_ == nullptr
+        && this->requestId_ == nullptr; };
     // authKey Field Functions 
     bool hasAuthKey() const { return this->authKey_ != nullptr;};
     void deleteAuthKey() { this->authKey_ = nullptr;};
-    inline string authKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
+    inline string getAuthKey() const { DARABONBA_PTR_GET_DEFAULT(authKey_, "") };
     inline GetEventCallbackResponseBody& setAuthKey(string authKey) { DARABONBA_PTR_SET_VALUE(authKey_, authKey) };
 
 
     // authSwitch Field Functions 
     bool hasAuthSwitch() const { return this->authSwitch_ != nullptr;};
     void deleteAuthSwitch() { this->authSwitch_ = nullptr;};
-    inline string authSwitch() const { DARABONBA_PTR_GET_DEFAULT(authSwitch_, "") };
+    inline string getAuthSwitch() const { DARABONBA_PTR_GET_DEFAULT(authSwitch_, "") };
     inline GetEventCallbackResponseBody& setAuthSwitch(string authSwitch) { DARABONBA_PTR_SET_VALUE(authSwitch_, authSwitch) };
 
 
     // callbackQueueName Field Functions 
     bool hasCallbackQueueName() const { return this->callbackQueueName_ != nullptr;};
     void deleteCallbackQueueName() { this->callbackQueueName_ = nullptr;};
-    inline string callbackQueueName() const { DARABONBA_PTR_GET_DEFAULT(callbackQueueName_, "") };
+    inline string getCallbackQueueName() const { DARABONBA_PTR_GET_DEFAULT(callbackQueueName_, "") };
     inline GetEventCallbackResponseBody& setCallbackQueueName(string callbackQueueName) { DARABONBA_PTR_SET_VALUE(callbackQueueName_, callbackQueueName) };
 
 
     // callbackType Field Functions 
     bool hasCallbackType() const { return this->callbackType_ != nullptr;};
     void deleteCallbackType() { this->callbackType_ = nullptr;};
-    inline string callbackType() const { DARABONBA_PTR_GET_DEFAULT(callbackType_, "") };
+    inline string getCallbackType() const { DARABONBA_PTR_GET_DEFAULT(callbackType_, "") };
     inline GetEventCallbackResponseBody& setCallbackType(string callbackType) { DARABONBA_PTR_SET_VALUE(callbackType_, callbackType) };
 
 
     // callbackURL Field Functions 
     bool hasCallbackURL() const { return this->callbackURL_ != nullptr;};
     void deleteCallbackURL() { this->callbackURL_ = nullptr;};
-    inline string callbackURL() const { DARABONBA_PTR_GET_DEFAULT(callbackURL_, "") };
+    inline string getCallbackURL() const { DARABONBA_PTR_GET_DEFAULT(callbackURL_, "") };
     inline GetEventCallbackResponseBody& setCallbackURL(string callbackURL) { DARABONBA_PTR_SET_VALUE(callbackURL_, callbackURL) };
 
 
     // eventTypeList Field Functions 
     bool hasEventTypeList() const { return this->eventTypeList_ != nullptr;};
     void deleteEventTypeList() { this->eventTypeList_ = nullptr;};
-    inline string eventTypeList() const { DARABONBA_PTR_GET_DEFAULT(eventTypeList_, "") };
+    inline string getEventTypeList() const { DARABONBA_PTR_GET_DEFAULT(eventTypeList_, "") };
     inline GetEventCallbackResponseBody& setEventTypeList(string eventTypeList) { DARABONBA_PTR_SET_VALUE(eventTypeList_, eventTypeList) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetEventCallbackResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The authentication key. This parameter is returned only for HTTP callbacks.
-    std::shared_ptr<string> authKey_ = nullptr;
+    shared_ptr<string> authKey_ {};
     // Specifies whether callback authentication is enabled. This parameter is returned only for **HTTP** callbacks. Valid values:
     // 
     // *   **on**
     // *   **off**
-    std::shared_ptr<string> authSwitch_ = nullptr;
+    shared_ptr<string> authSwitch_ {};
     // The name of the Simple Message Queue (SMQ) queue to which callback messages are sent.
-    std::shared_ptr<string> callbackQueueName_ = nullptr;
+    shared_ptr<string> callbackQueueName_ {};
     // The callback method. Valid values:
     // 
     // *   **HTTP**
     // *   **MNS**
-    std::shared_ptr<string> callbackType_ = nullptr;
+    shared_ptr<string> callbackType_ {};
     // The callback URL to which event notifications are sent.
-    std::shared_ptr<string> callbackURL_ = nullptr;
+    shared_ptr<string> callbackURL_ {};
     // The type of the callback event. Multiple values are separated with commas (,). For more information about callback event types, see [Event notification content](https://help.aliyun.com/document_detail/610204.html).
-    std::shared_ptr<string> eventTypeList_ = nullptr;
+    shared_ptr<string> eventTypeList_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // cateId Field Functions 
     bool hasCateId() const { return this->cateId_ != nullptr;};
     void deleteCateId() { this->cateId_ = nullptr;};
-    inline int64_t cateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
+    inline int64_t getCateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
     inline DeleteCategoryRequest& setCateId(int64_t cateId) { DARABONBA_PTR_SET_VALUE(cateId_, cateId) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   View the value of CateId returned by the GetCategories operation that you called to query a category.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> cateId_ = nullptr;
+    shared_ptr<int64_t> cateId_ {};
   };
 
   } // namespace Models

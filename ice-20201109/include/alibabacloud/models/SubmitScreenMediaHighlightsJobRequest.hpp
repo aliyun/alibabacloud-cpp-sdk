@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->editingConfig_ == nullptr
-        && return this->inputConfig_ == nullptr && return this->outputConfig_ == nullptr && return this->userData_ == nullptr; };
+        && this->inputConfig_ == nullptr && this->outputConfig_ == nullptr && this->userData_ == nullptr; };
     // editingConfig Field Functions 
     bool hasEditingConfig() const { return this->editingConfig_ != nullptr;};
     void deleteEditingConfig() { this->editingConfig_ = nullptr;};
-    inline string editingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
+    inline string getEditingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
     inline SubmitScreenMediaHighlightsJobRequest& setEditingConfig(string editingConfig) { DARABONBA_PTR_SET_VALUE(editingConfig_, editingConfig) };
 
 
     // inputConfig Field Functions 
     bool hasInputConfig() const { return this->inputConfig_ != nullptr;};
     void deleteInputConfig() { this->inputConfig_ = nullptr;};
-    inline string inputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
+    inline string getInputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
     inline SubmitScreenMediaHighlightsJobRequest& setInputConfig(string inputConfig) { DARABONBA_PTR_SET_VALUE(inputConfig_, inputConfig) };
 
 
     // outputConfig Field Functions 
     bool hasOutputConfig() const { return this->outputConfig_ != nullptr;};
     void deleteOutputConfig() { this->outputConfig_ = nullptr;};
-    inline string outputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
+    inline string getOutputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
     inline SubmitScreenMediaHighlightsJobRequest& setOutputConfig(string outputConfig) { DARABONBA_PTR_SET_VALUE(outputConfig_, outputConfig) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitScreenMediaHighlightsJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
     // The editing configuration. For detailed parameters, see [EditingConfig](~~2863940#9b05519d46e0x~~).
-    std::shared_ptr<string> editingConfig_ = nullptr;
+    shared_ptr<string> editingConfig_ {};
     // The input configuration. For detailed parameters, see [InputConfig](~~2863940#dda38bf6ec2pk~~).
-    std::shared_ptr<string> inputConfig_ = nullptr;
+    shared_ptr<string> inputConfig_ {};
     // The output configuration. For detailed parameters, see [OutputConfig](~~2863940#4111a373d0xbz~~).
-    std::shared_ptr<string> outputConfig_ = nullptr;
+    shared_ptr<string> outputConfig_ {};
     // The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

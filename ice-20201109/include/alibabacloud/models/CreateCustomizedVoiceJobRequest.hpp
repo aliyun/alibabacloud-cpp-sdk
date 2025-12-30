@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gender_ == nullptr
-        && return this->scenario_ == nullptr && return this->voiceDesc_ == nullptr && return this->voiceId_ == nullptr && return this->voiceName_ == nullptr; };
+        && this->scenario_ == nullptr && this->voiceDesc_ == nullptr && this->voiceId_ == nullptr && this->voiceName_ == nullptr; };
     // gender Field Functions 
     bool hasGender() const { return this->gender_ != nullptr;};
     void deleteGender() { this->gender_ = nullptr;};
-    inline string gender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
+    inline string getGender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
     inline CreateCustomizedVoiceJobRequest& setGender(string gender) { DARABONBA_PTR_SET_VALUE(gender_, gender) };
 
 
     // scenario Field Functions 
     bool hasScenario() const { return this->scenario_ != nullptr;};
     void deleteScenario() { this->scenario_ = nullptr;};
-    inline string scenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
+    inline string getScenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
     inline CreateCustomizedVoiceJobRequest& setScenario(string scenario) { DARABONBA_PTR_SET_VALUE(scenario_, scenario) };
 
 
     // voiceDesc Field Functions 
     bool hasVoiceDesc() const { return this->voiceDesc_ != nullptr;};
     void deleteVoiceDesc() { this->voiceDesc_ = nullptr;};
-    inline string voiceDesc() const { DARABONBA_PTR_GET_DEFAULT(voiceDesc_, "") };
+    inline string getVoiceDesc() const { DARABONBA_PTR_GET_DEFAULT(voiceDesc_, "") };
     inline CreateCustomizedVoiceJobRequest& setVoiceDesc(string voiceDesc) { DARABONBA_PTR_SET_VALUE(voiceDesc_, voiceDesc) };
 
 
     // voiceId Field Functions 
     bool hasVoiceId() const { return this->voiceId_ != nullptr;};
     void deleteVoiceId() { this->voiceId_ = nullptr;};
-    inline string voiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
+    inline string getVoiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
     inline CreateCustomizedVoiceJobRequest& setVoiceId(string voiceId) { DARABONBA_PTR_SET_VALUE(voiceId_, voiceId) };
 
 
     // voiceName Field Functions 
     bool hasVoiceName() const { return this->voiceName_ != nullptr;};
     void deleteVoiceName() { this->voiceName_ = nullptr;};
-    inline string voiceName() const { DARABONBA_PTR_GET_DEFAULT(voiceName_, "") };
+    inline string getVoiceName() const { DARABONBA_PTR_GET_DEFAULT(voiceName_, "") };
     inline CreateCustomizedVoiceJobRequest& setVoiceName(string voiceName) { DARABONBA_PTR_SET_VALUE(voiceName_, voiceName) };
 
 
@@ -81,7 +81,7 @@ namespace Models
     // *   male
     // 
     // This parameter is required.
-    std::shared_ptr<string> gender_ = nullptr;
+    shared_ptr<string> gender_ {};
     // The scenario. Valid values:
     // 
     // *   story
@@ -89,11 +89,11 @@ namespace Models
     // *   navigation
     // 
     // This parameter is required.
-    std::shared_ptr<string> scenario_ = nullptr;
+    shared_ptr<string> scenario_ {};
     // The voice description.
     // 
     // *   The description can be up to 256 characters in length.
-    std::shared_ptr<string> voiceDesc_ = nullptr;
+    shared_ptr<string> voiceDesc_ {};
     // The voice ID. It can be the English name or Chinese Pinyin of the voice.
     // 
     // *   The value must be a unique ID that is not used by other custom voices.
@@ -101,11 +101,11 @@ namespace Models
     // *   Only letters and digits are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> voiceId_ = nullptr;
+    shared_ptr<string> voiceId_ {};
     // The voice name.
     // 
     // *   The name can be up to 32 characters in length.
-    std::shared_ptr<string> voiceName_ = nullptr;
+    shared_ptr<string> voiceName_ {};
   };
 
   } // namespace Models

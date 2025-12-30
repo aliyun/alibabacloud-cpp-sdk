@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->materialIds_ == nullptr
-        && return this->materialType_ == nullptr && return this->projectId_ == nullptr; };
+        && this->materialType_ == nullptr && this->projectId_ == nullptr; };
     // materialIds Field Functions 
     bool hasMaterialIds() const { return this->materialIds_ != nullptr;};
     void deleteMaterialIds() { this->materialIds_ = nullptr;};
-    inline string materialIds() const { DARABONBA_PTR_GET_DEFAULT(materialIds_, "") };
+    inline string getMaterialIds() const { DARABONBA_PTR_GET_DEFAULT(materialIds_, "") };
     inline DeleteEditingProjectMaterialsRequest& setMaterialIds(string materialIds) { DARABONBA_PTR_SET_VALUE(materialIds_, materialIds) };
 
 
     // materialType Field Functions 
     bool hasMaterialType() const { return this->materialType_ != nullptr;};
     void deleteMaterialType() { this->materialType_ = nullptr;};
-    inline string materialType() const { DARABONBA_PTR_GET_DEFAULT(materialType_, "") };
+    inline string getMaterialType() const { DARABONBA_PTR_GET_DEFAULT(materialType_, "") };
     inline DeleteEditingProjectMaterialsRequest& setMaterialType(string materialType) { DARABONBA_PTR_SET_VALUE(materialType_, materialType) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline DeleteEditingProjectMaterialsRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The material ID. Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> materialIds_ = nullptr;
+    shared_ptr<string> materialIds_ {};
     // The material type. Valid values:
     // 
     // \\- video
@@ -74,11 +74,11 @@ namespace Models
     // \\- text
     // 
     // This parameter is required.
-    std::shared_ptr<string> materialType_ = nullptr;
+    shared_ptr<string> materialType_ {};
     // The ID of the online editing project.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
   };
 
   } // namespace Models

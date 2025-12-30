@@ -42,71 +42,71 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->duration_ == nullptr && return this->editingConfig_ == nullptr && return this->inputFile_ == nullptr && return this->startTime_ == nullptr && return this->title_ == nullptr
-        && return this->userData_ == nullptr; };
+        && this->duration_ == nullptr && this->editingConfig_ == nullptr && this->inputFile_ == nullptr && this->startTime_ == nullptr && this->title_ == nullptr
+        && this->userData_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SubmitASRJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline string duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
+    inline string getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
     inline SubmitASRJobRequest& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // editingConfig Field Functions 
     bool hasEditingConfig() const { return this->editingConfig_ != nullptr;};
     void deleteEditingConfig() { this->editingConfig_ = nullptr;};
-    inline string editingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
+    inline string getEditingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
     inline SubmitASRJobRequest& setEditingConfig(string editingConfig) { DARABONBA_PTR_SET_VALUE(editingConfig_, editingConfig) };
 
 
     // inputFile Field Functions 
     bool hasInputFile() const { return this->inputFile_ != nullptr;};
     void deleteInputFile() { this->inputFile_ = nullptr;};
-    inline string inputFile() const { DARABONBA_PTR_GET_DEFAULT(inputFile_, "") };
+    inline string getInputFile() const { DARABONBA_PTR_GET_DEFAULT(inputFile_, "") };
     inline SubmitASRJobRequest& setInputFile(string inputFile) { DARABONBA_PTR_SET_VALUE(inputFile_, inputFile) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline SubmitASRJobRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline SubmitASRJobRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitASRJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
     // The job description, which can up to 128 bytes in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The speech duration.
-    std::shared_ptr<string> duration_ = nullptr;
-    std::shared_ptr<string> editingConfig_ = nullptr;
+    shared_ptr<string> duration_ {};
+    shared_ptr<string> editingConfig_ {};
     // The input file. You can specify an Object Storage Service (OSS) URL or the ID of a media asset in the media asset library.
-    std::shared_ptr<string> inputFile_ = nullptr;
+    shared_ptr<string> inputFile_ {};
     // The start time of the speech to recognize.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The job title, which can be up to 128 bytes in length.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
     // The user-defined data in the JSON format. You can specify your business information, such as the business environment and job information.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

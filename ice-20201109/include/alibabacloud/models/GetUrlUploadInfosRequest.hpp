@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobIds_ == nullptr
-        && return this->uploadURLs_ == nullptr; };
+        && this->uploadURLs_ == nullptr; };
     // jobIds Field Functions 
     bool hasJobIds() const { return this->jobIds_ != nullptr;};
     void deleteJobIds() { this->jobIds_ = nullptr;};
-    inline string jobIds() const { DARABONBA_PTR_GET_DEFAULT(jobIds_, "") };
+    inline string getJobIds() const { DARABONBA_PTR_GET_DEFAULT(jobIds_, "") };
     inline GetUrlUploadInfosRequest& setJobIds(string jobIds) { DARABONBA_PTR_SET_VALUE(jobIds_, jobIds) };
 
 
     // uploadURLs Field Functions 
     bool hasUploadURLs() const { return this->uploadURLs_ != nullptr;};
     void deleteUploadURLs() { this->uploadURLs_ = nullptr;};
-    inline string uploadURLs() const { DARABONBA_PTR_GET_DEFAULT(uploadURLs_, "") };
+    inline string getUploadURLs() const { DARABONBA_PTR_GET_DEFAULT(uploadURLs_, "") };
     inline GetUrlUploadInfosRequest& setUploadURLs(string uploadURLs) { DARABONBA_PTR_SET_VALUE(uploadURLs_, uploadURLs) };
 
 
@@ -54,7 +54,7 @@ namespace Models
     // *   Separate the job IDs with commas (,).
     // 
     // >  You must specify either JobIds or UploadURLs. If you specify both parameters, only the value of JobIds takes effect.
-    std::shared_ptr<string> jobIds_ = nullptr;
+    shared_ptr<string> jobIds_ {};
     // The upload URLs of the source files. You can specify a maximum of 10 URLs. Separate the URLs with commas (,).
     // 
     // > 
@@ -64,7 +64,7 @@ namespace Models
     // *   If a media file is uploaded multiple times, we recommend that you specify the URL of the media file only once in this parameter.
     // 
     // *   You must specify either JobIds or UploadURLs. If you specify both parameters, only the value of JobIds takes effect.
-    std::shared_ptr<string> uploadURLs_ = nullptr;
+    shared_ptr<string> uploadURLs_ {};
   };
 
   } // namespace Models

@@ -36,49 +36,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobId_ == nullptr
-        && return this->mediaId_ == nullptr && return this->requestId_ == nullptr && return this->state_ == nullptr; };
+        && this->mediaId_ == nullptr && this->requestId_ == nullptr && this->state_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline SubmitAudioProduceJobResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline SubmitAudioProduceJobResponseBody& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SubmitAudioProduceJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline SubmitAudioProduceJobResponseBody& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
   protected:
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The ID of the media asset.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The job state. Valid values:
     // 
     // *   Created
     // *   Executing
     // *   Finished
     // *   Failed
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
   };
 
   } // namespace Models

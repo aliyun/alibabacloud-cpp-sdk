@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auto_ == nullptr
-        && return this->saveType_ == nullptr && return this->templateId_ == nullptr; };
+        && this->saveType_ == nullptr && this->templateId_ == nullptr; };
     // auto Field Functions 
     bool hasAuto() const { return this->auto_ != nullptr;};
     void deleteAuto() { this->auto_ = nullptr;};
-    inline bool _auto() const { DARABONBA_PTR_GET_DEFAULT(auto_, false) };
+    inline bool getAuto() const { DARABONBA_PTR_GET_DEFAULT(auto_, false) };
     inline SetContentAnalyzeConfigRequest& setAuto(bool _auto) { DARABONBA_PTR_SET_VALUE(auto_, _auto) };
 
 
     // saveType Field Functions 
     bool hasSaveType() const { return this->saveType_ != nullptr;};
     void deleteSaveType() { this->saveType_ = nullptr;};
-    inline string saveType() const { DARABONBA_PTR_GET_DEFAULT(saveType_, "") };
+    inline string getSaveType() const { DARABONBA_PTR_GET_DEFAULT(saveType_, "") };
     inline SetContentAnalyzeConfigRequest& setSaveType(string saveType) { DARABONBA_PTR_SET_VALUE(saveType_, saveType) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline SetContentAnalyzeConfigRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
-    std::shared_ptr<bool> auto_ = nullptr;
-    std::shared_ptr<string> saveType_ = nullptr;
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<bool> auto_ {};
+    shared_ptr<string> saveType_ {};
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // voiceprintId Field Functions 
     bool hasVoiceprintId() const { return this->voiceprintId_ != nullptr;};
     void deleteVoiceprintId() { this->voiceprintId_ = nullptr;};
-    inline string voiceprintId() const { DARABONBA_PTR_GET_DEFAULT(voiceprintId_, "") };
+    inline string getVoiceprintId() const { DARABONBA_PTR_GET_DEFAULT(voiceprintId_, "") };
     inline ClearAIAgentVoiceprintRequest& setVoiceprintId(string voiceprintId) { DARABONBA_PTR_SET_VALUE(voiceprintId_, voiceprintId) };
 
 
   protected:
     // The unique identifier for the voiceprint.
-    std::shared_ptr<string> voiceprintId_ = nullptr;
+    shared_ptr<string> voiceprintId_ {};
   };
 
   } // namespace Models

@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->whitelistRules_ == nullptr; };
+        && this->whitelistRules_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateMediaLiveInputSecurityGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // whitelistRules Field Functions 
     bool hasWhitelistRules() const { return this->whitelistRules_ != nullptr;};
     void deleteWhitelistRules() { this->whitelistRules_ = nullptr;};
-    inline const vector<string> & whitelistRules() const { DARABONBA_PTR_GET_CONST(whitelistRules_, vector<string>) };
-    inline vector<string> whitelistRules() { DARABONBA_PTR_GET(whitelistRules_, vector<string>) };
+    inline const vector<string> & getWhitelistRules() const { DARABONBA_PTR_GET_CONST(whitelistRules_, vector<string>) };
+    inline vector<string> getWhitelistRules() { DARABONBA_PTR_GET(whitelistRules_, vector<string>) };
     inline CreateMediaLiveInputSecurityGroupRequest& setWhitelistRules(const vector<string> & whitelistRules) { DARABONBA_PTR_SET_VALUE(whitelistRules_, whitelistRules) };
     inline CreateMediaLiveInputSecurityGroupRequest& setWhitelistRules(vector<string> && whitelistRules) { DARABONBA_PTR_SET_RVALUE(whitelistRules_, whitelistRules) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 64 characters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The security group rules.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> whitelistRules_ = nullptr;
+    shared_ptr<vector<string>> whitelistRules_ {};
   };
 
   } // namespace Models

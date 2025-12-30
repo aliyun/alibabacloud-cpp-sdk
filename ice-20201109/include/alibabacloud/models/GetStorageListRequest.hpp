@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->status_ == nullptr && return this->storageType_ == nullptr; };
+        && this->status_ == nullptr && this->storageType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetStorageListRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetStorageListRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline GetStorageListRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
   protected:
     // The application ID.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The OSS storage status.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The storage type.
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> storageType_ {};
   };
 
   } // namespace Models

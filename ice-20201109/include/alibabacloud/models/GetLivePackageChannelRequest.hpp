@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelName_ == nullptr
-        && return this->groupName_ == nullptr; };
+        && this->groupName_ == nullptr; };
     // channelName Field Functions 
     bool hasChannelName() const { return this->channelName_ != nullptr;};
     void deleteChannelName() { this->channelName_ = nullptr;};
-    inline string channelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
+    inline string getChannelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
     inline GetLivePackageChannelRequest& setChannelName(string channelName) { DARABONBA_PTR_SET_VALUE(channelName_, channelName) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline GetLivePackageChannelRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The channel name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelName_ = nullptr;
+    shared_ptr<string> channelName_ {};
     // The channel group name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
   };
 
   } // namespace Models

@@ -38,26 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && return this->text_ == nullptr && return this->transpositionResultList_ == nullptr && return this->weight_ == nullptr; };
+        && this->text_ == nullptr && this->transpositionResultList_ == nullptr && this->weight_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline Hotword& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline Hotword& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
     // transpositionResultList Field Functions 
     bool hasTranspositionResultList() const { return this->transpositionResultList_ != nullptr;};
     void deleteTranspositionResultList() { this->transpositionResultList_ = nullptr;};
-    inline const vector<TranspositionResult> & transpositionResultList() const { DARABONBA_PTR_GET_CONST(transpositionResultList_, vector<TranspositionResult>) };
-    inline vector<TranspositionResult> transpositionResultList() { DARABONBA_PTR_GET(transpositionResultList_, vector<TranspositionResult>) };
+    inline const vector<TranspositionResult> & getTranspositionResultList() const { DARABONBA_PTR_GET_CONST(transpositionResultList_, vector<TranspositionResult>) };
+    inline vector<TranspositionResult> getTranspositionResultList() { DARABONBA_PTR_GET(transpositionResultList_, vector<TranspositionResult>) };
     inline Hotword& setTranspositionResultList(const vector<TranspositionResult> & transpositionResultList) { DARABONBA_PTR_SET_VALUE(transpositionResultList_, transpositionResultList) };
     inline Hotword& setTranspositionResultList(vector<TranspositionResult> && transpositionResultList) { DARABONBA_PTR_SET_RVALUE(transpositionResultList_, transpositionResultList) };
 
@@ -65,15 +65,15 @@ namespace Models
     // weight Field Functions 
     bool hasWeight() const { return this->weight_ != nullptr;};
     void deleteWeight() { this->weight_ = nullptr;};
-    inline int32_t weight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+    inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
     inline Hotword& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
   protected:
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<string> text_ = nullptr;
-    std::shared_ptr<vector<TranspositionResult>> transpositionResultList_ = nullptr;
-    std::shared_ptr<int32_t> weight_ = nullptr;
+    shared_ptr<string> language_ {};
+    shared_ptr<string> text_ {};
+    shared_ptr<vector<TranspositionResult>> transpositionResultList_ {};
+    shared_ptr<int32_t> weight_ {};
   };
 
   } // namespace Models

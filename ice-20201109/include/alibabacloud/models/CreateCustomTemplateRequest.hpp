@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->subtype_ == nullptr && return this->templateConfig_ == nullptr && return this->type_ == nullptr; };
+        && this->subtype_ == nullptr && this->templateConfig_ == nullptr && this->type_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateCustomTemplateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // subtype Field Functions 
     bool hasSubtype() const { return this->subtype_ != nullptr;};
     void deleteSubtype() { this->subtype_ = nullptr;};
-    inline int32_t subtype() const { DARABONBA_PTR_GET_DEFAULT(subtype_, 0) };
+    inline int32_t getSubtype() const { DARABONBA_PTR_GET_DEFAULT(subtype_, 0) };
     inline CreateCustomTemplateRequest& setSubtype(int32_t subtype) { DARABONBA_PTR_SET_VALUE(subtype_, subtype) };
 
 
     // templateConfig Field Functions 
     bool hasTemplateConfig() const { return this->templateConfig_ != nullptr;};
     void deleteTemplateConfig() { this->templateConfig_ = nullptr;};
-    inline string templateConfig() const { DARABONBA_PTR_GET_DEFAULT(templateConfig_, "") };
+    inline string getTemplateConfig() const { DARABONBA_PTR_GET_DEFAULT(templateConfig_, "") };
     inline CreateCustomTemplateRequest& setTemplateConfig(string templateConfig) { DARABONBA_PTR_SET_VALUE(templateConfig_, templateConfig) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline CreateCustomTemplateRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The template name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The template subtype.
     // 
     // Valid values for transcoding templates:
@@ -96,11 +96,11 @@ namespace Models
     // 
     // *   1 (VideoDelogo): logo erasure template.
     // *   2 (VideoDetext): subtitle erasure template.
-    std::shared_ptr<int32_t> subtype_ = nullptr;
+    shared_ptr<int32_t> subtype_ {};
     // The template configurations. For more information, see [Template parameters](https://help.aliyun.com/document_detail/448291.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateConfig_ = nullptr;
+    shared_ptr<string> templateConfig_ {};
     // The template type. Valid values:
     // 
     // *   1: transcoding template.
@@ -116,7 +116,7 @@ namespace Models
     // *   11: AI-assisted smart tagging template.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<int32_t> type_ {};
   };
 
   } // namespace Models

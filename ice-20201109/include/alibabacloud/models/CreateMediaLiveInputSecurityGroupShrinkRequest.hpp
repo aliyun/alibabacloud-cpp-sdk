@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->whitelistRulesShrink_ == nullptr; };
+        && this->whitelistRulesShrink_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateMediaLiveInputSecurityGroupShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // whitelistRulesShrink Field Functions 
     bool hasWhitelistRulesShrink() const { return this->whitelistRulesShrink_ != nullptr;};
     void deleteWhitelistRulesShrink() { this->whitelistRulesShrink_ = nullptr;};
-    inline string whitelistRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(whitelistRulesShrink_, "") };
+    inline string getWhitelistRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(whitelistRulesShrink_, "") };
     inline CreateMediaLiveInputSecurityGroupShrinkRequest& setWhitelistRulesShrink(string whitelistRulesShrink) { DARABONBA_PTR_SET_VALUE(whitelistRulesShrink_, whitelistRulesShrink) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 64 characters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The security group rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> whitelistRulesShrink_ = nullptr;
+    shared_ptr<string> whitelistRulesShrink_ {};
   };
 
   } // namespace Models

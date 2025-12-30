@@ -33,7 +33,7 @@ namespace Models
     // sourceLocationName Field Functions 
     bool hasSourceLocationName() const { return this->sourceLocationName_ != nullptr;};
     void deleteSourceLocationName() { this->sourceLocationName_ = nullptr;};
-    inline string sourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
+    inline string getSourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
     inline GetSourceLocationRequest& setSourceLocationName(string sourceLocationName) { DARABONBA_PTR_SET_VALUE(sourceLocationName_, sourceLocationName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the source location.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceLocationName_ = nullptr;
+    shared_ptr<string> sourceLocationName_ {};
   };
 
   } // namespace Models

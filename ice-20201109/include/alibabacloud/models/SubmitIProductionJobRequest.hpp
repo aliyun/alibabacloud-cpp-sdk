@@ -2,9 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_SUBMITIPRODUCTIONJOBREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_SUBMITIPRODUCTIONJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/SubmitIProductionJobRequestInput.hpp>
-#include <alibabacloud/models/SubmitIProductionJobRequestOutput.hpp>
-#include <alibabacloud/models/SubmitIProductionJobRequestScheduleConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -48,75 +45,247 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ScheduleConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ScheduleConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(PipelineId, pipelineId_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
+      };
+      friend void from_json(const Darabonba::Json& j, ScheduleConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(PipelineId, pipelineId_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
+      };
+      ScheduleConfig() = default ;
+      ScheduleConfig(const ScheduleConfig &) = default ;
+      ScheduleConfig(ScheduleConfig &&) = default ;
+      ScheduleConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ScheduleConfig() = default ;
+      ScheduleConfig& operator=(const ScheduleConfig &) = default ;
+      ScheduleConfig& operator=(ScheduleConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->pipelineId_ == nullptr
+        && this->priority_ == nullptr; };
+      // pipelineId Field Functions 
+      bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
+      void deletePipelineId() { this->pipelineId_ = nullptr;};
+      inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
+      inline ScheduleConfig& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline ScheduleConfig& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+    protected:
+      // The ID of the ApsaraVideo Media Processing (MPS) queue.
+      shared_ptr<string> pipelineId_ {};
+      // The priority of the job. Valid values: 1 to 10. A smaller value indicates a higher priority.
+      shared_ptr<int32_t> priority_ {};
+    };
+
+    class Output : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Output& obj) { 
+        DARABONBA_PTR_TO_JSON(Biz, biz_);
+        DARABONBA_PTR_TO_JSON(Media, media_);
+        DARABONBA_PTR_TO_JSON(OutputUrl, outputUrl_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Output& obj) { 
+        DARABONBA_PTR_FROM_JSON(Biz, biz_);
+        DARABONBA_PTR_FROM_JSON(Media, media_);
+        DARABONBA_PTR_FROM_JSON(OutputUrl, outputUrl_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      Output() = default ;
+      Output(const Output &) = default ;
+      Output(Output &&) = default ;
+      Output(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Output() = default ;
+      Output& operator=(const Output &) = default ;
+      Output& operator=(Output &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->biz_ == nullptr
+        && this->media_ == nullptr && this->outputUrl_ == nullptr && this->type_ == nullptr; };
+      // biz Field Functions 
+      bool hasBiz() const { return this->biz_ != nullptr;};
+      void deleteBiz() { this->biz_ = nullptr;};
+      inline string getBiz() const { DARABONBA_PTR_GET_DEFAULT(biz_, "") };
+      inline Output& setBiz(string biz) { DARABONBA_PTR_SET_VALUE(biz_, biz) };
+
+
+      // media Field Functions 
+      bool hasMedia() const { return this->media_ != nullptr;};
+      void deleteMedia() { this->media_ = nullptr;};
+      inline string getMedia() const { DARABONBA_PTR_GET_DEFAULT(media_, "") };
+      inline Output& setMedia(string media) { DARABONBA_PTR_SET_VALUE(media_, media) };
+
+
+      // outputUrl Field Functions 
+      bool hasOutputUrl() const { return this->outputUrl_ != nullptr;};
+      void deleteOutputUrl() { this->outputUrl_ = nullptr;};
+      inline string getOutputUrl() const { DARABONBA_PTR_GET_DEFAULT(outputUrl_, "") };
+      inline Output& setOutputUrl(string outputUrl) { DARABONBA_PTR_SET_VALUE(outputUrl_, outputUrl) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Output& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      shared_ptr<string> biz_ {};
+      // The output file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
+      // 
+      // 1.  oss://bucket/object
+      // 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+      // 
+      // This parameter is required.
+      shared_ptr<string> media_ {};
+      shared_ptr<string> outputUrl_ {};
+      // The media type. Valid values:
+      // 
+      // *   OSS: OSS object
+      // *   Media: media asset
+      // 
+      // This parameter is required.
+      shared_ptr<string> type_ {};
+    };
+
+    class Input : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Input& obj) { 
+        DARABONBA_PTR_TO_JSON(Media, media_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Input& obj) { 
+        DARABONBA_PTR_FROM_JSON(Media, media_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      Input() = default ;
+      Input(const Input &) = default ;
+      Input(Input &&) = default ;
+      Input(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Input() = default ;
+      Input& operator=(const Input &) = default ;
+      Input& operator=(Input &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->media_ == nullptr
+        && this->type_ == nullptr; };
+      // media Field Functions 
+      bool hasMedia() const { return this->media_ != nullptr;};
+      void deleteMedia() { this->media_ = nullptr;};
+      inline string getMedia() const { DARABONBA_PTR_GET_DEFAULT(media_, "") };
+      inline Input& setMedia(string media) { DARABONBA_PTR_SET_VALUE(media_, media) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Input& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
+      // 
+      // 1.  oss://bucket/object
+      // 2.  http(s)://bucket.oss-[regionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+      // 
+      // This parameter is required.
+      shared_ptr<string> media_ {};
+      // The media type. Valid values:
+      // 
+      // *   OSS: OSS object
+      // *   Media: media asset
+      // 
+      // This parameter is required.
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->functionName_ == nullptr
-        && return this->input_ == nullptr && return this->jobParams_ == nullptr && return this->modelId_ == nullptr && return this->name_ == nullptr && return this->output_ == nullptr
-        && return this->scheduleConfig_ == nullptr && return this->templateId_ == nullptr && return this->userData_ == nullptr; };
+        && this->input_ == nullptr && this->jobParams_ == nullptr && this->modelId_ == nullptr && this->name_ == nullptr && this->output_ == nullptr
+        && this->scheduleConfig_ == nullptr && this->templateId_ == nullptr && this->userData_ == nullptr; };
     // functionName Field Functions 
     bool hasFunctionName() const { return this->functionName_ != nullptr;};
     void deleteFunctionName() { this->functionName_ = nullptr;};
-    inline string functionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+    inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
     inline SubmitIProductionJobRequest& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
 
 
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
-    inline const SubmitIProductionJobRequestInput & input() const { DARABONBA_PTR_GET_CONST(input_, SubmitIProductionJobRequestInput) };
-    inline SubmitIProductionJobRequestInput input() { DARABONBA_PTR_GET(input_, SubmitIProductionJobRequestInput) };
-    inline SubmitIProductionJobRequest& setInput(const SubmitIProductionJobRequestInput & input) { DARABONBA_PTR_SET_VALUE(input_, input) };
-    inline SubmitIProductionJobRequest& setInput(SubmitIProductionJobRequestInput && input) { DARABONBA_PTR_SET_RVALUE(input_, input) };
+    inline const SubmitIProductionJobRequest::Input & getInput() const { DARABONBA_PTR_GET_CONST(input_, SubmitIProductionJobRequest::Input) };
+    inline SubmitIProductionJobRequest::Input getInput() { DARABONBA_PTR_GET(input_, SubmitIProductionJobRequest::Input) };
+    inline SubmitIProductionJobRequest& setInput(const SubmitIProductionJobRequest::Input & input) { DARABONBA_PTR_SET_VALUE(input_, input) };
+    inline SubmitIProductionJobRequest& setInput(SubmitIProductionJobRequest::Input && input) { DARABONBA_PTR_SET_RVALUE(input_, input) };
 
 
     // jobParams Field Functions 
     bool hasJobParams() const { return this->jobParams_ != nullptr;};
     void deleteJobParams() { this->jobParams_ = nullptr;};
-    inline string jobParams() const { DARABONBA_PTR_GET_DEFAULT(jobParams_, "") };
+    inline string getJobParams() const { DARABONBA_PTR_GET_DEFAULT(jobParams_, "") };
     inline SubmitIProductionJobRequest& setJobParams(string jobParams) { DARABONBA_PTR_SET_VALUE(jobParams_, jobParams) };
 
 
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline SubmitIProductionJobRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline SubmitIProductionJobRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // output Field Functions 
     bool hasOutput() const { return this->output_ != nullptr;};
     void deleteOutput() { this->output_ = nullptr;};
-    inline const SubmitIProductionJobRequestOutput & output() const { DARABONBA_PTR_GET_CONST(output_, SubmitIProductionJobRequestOutput) };
-    inline SubmitIProductionJobRequestOutput output() { DARABONBA_PTR_GET(output_, SubmitIProductionJobRequestOutput) };
-    inline SubmitIProductionJobRequest& setOutput(const SubmitIProductionJobRequestOutput & output) { DARABONBA_PTR_SET_VALUE(output_, output) };
-    inline SubmitIProductionJobRequest& setOutput(SubmitIProductionJobRequestOutput && output) { DARABONBA_PTR_SET_RVALUE(output_, output) };
+    inline const SubmitIProductionJobRequest::Output & getOutput() const { DARABONBA_PTR_GET_CONST(output_, SubmitIProductionJobRequest::Output) };
+    inline SubmitIProductionJobRequest::Output getOutput() { DARABONBA_PTR_GET(output_, SubmitIProductionJobRequest::Output) };
+    inline SubmitIProductionJobRequest& setOutput(const SubmitIProductionJobRequest::Output & output) { DARABONBA_PTR_SET_VALUE(output_, output) };
+    inline SubmitIProductionJobRequest& setOutput(SubmitIProductionJobRequest::Output && output) { DARABONBA_PTR_SET_RVALUE(output_, output) };
 
 
     // scheduleConfig Field Functions 
     bool hasScheduleConfig() const { return this->scheduleConfig_ != nullptr;};
     void deleteScheduleConfig() { this->scheduleConfig_ = nullptr;};
-    inline const SubmitIProductionJobRequestScheduleConfig & scheduleConfig() const { DARABONBA_PTR_GET_CONST(scheduleConfig_, SubmitIProductionJobRequestScheduleConfig) };
-    inline SubmitIProductionJobRequestScheduleConfig scheduleConfig() { DARABONBA_PTR_GET(scheduleConfig_, SubmitIProductionJobRequestScheduleConfig) };
-    inline SubmitIProductionJobRequest& setScheduleConfig(const SubmitIProductionJobRequestScheduleConfig & scheduleConfig) { DARABONBA_PTR_SET_VALUE(scheduleConfig_, scheduleConfig) };
-    inline SubmitIProductionJobRequest& setScheduleConfig(SubmitIProductionJobRequestScheduleConfig && scheduleConfig) { DARABONBA_PTR_SET_RVALUE(scheduleConfig_, scheduleConfig) };
+    inline const SubmitIProductionJobRequest::ScheduleConfig & getScheduleConfig() const { DARABONBA_PTR_GET_CONST(scheduleConfig_, SubmitIProductionJobRequest::ScheduleConfig) };
+    inline SubmitIProductionJobRequest::ScheduleConfig getScheduleConfig() { DARABONBA_PTR_GET(scheduleConfig_, SubmitIProductionJobRequest::ScheduleConfig) };
+    inline SubmitIProductionJobRequest& setScheduleConfig(const SubmitIProductionJobRequest::ScheduleConfig & scheduleConfig) { DARABONBA_PTR_SET_VALUE(scheduleConfig_, scheduleConfig) };
+    inline SubmitIProductionJobRequest& setScheduleConfig(SubmitIProductionJobRequest::ScheduleConfig && scheduleConfig) { DARABONBA_PTR_SET_RVALUE(scheduleConfig_, scheduleConfig) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline SubmitIProductionJobRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitIProductionJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -138,26 +307,26 @@ namespace Models
     // *   **AudioMixing**: This algorithm mixes audio streams.
     // 
     // This parameter is required.
-    std::shared_ptr<string> functionName_ = nullptr;
+    shared_ptr<string> functionName_ {};
     // The input file. The file can be an Object Storage Service (OSS) object or a media asset.
     // 
     // This parameter is required.
-    std::shared_ptr<SubmitIProductionJobRequestInput> input_ = nullptr;
+    shared_ptr<SubmitIProductionJobRequest::Input> input_ {};
     // The algorithm-specific parameters. The parameters are specified as JSON objects and vary based on the algorithm. For more information, see the "Parameters of JobParams" section of this topic.
-    std::shared_ptr<string> jobParams_ = nullptr;
-    std::shared_ptr<string> modelId_ = nullptr;
+    shared_ptr<string> jobParams_ {};
+    shared_ptr<string> modelId_ {};
     // The name of the intelligent production job. The name can be up to 100 characters in length.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The output file. The file can be an OSS object or a media asset.
     // 
     // This parameter is required.
-    std::shared_ptr<SubmitIProductionJobRequestOutput> output_ = nullptr;
+    shared_ptr<SubmitIProductionJobRequest::Output> output_ {};
     // The scheduling configuration.
-    std::shared_ptr<SubmitIProductionJobRequestScheduleConfig> scheduleConfig_ = nullptr;
+    shared_ptr<SubmitIProductionJobRequest::ScheduleConfig> scheduleConfig_ {};
     // The template ID.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The user-defined data that is returned in the response. The value can be up to 1,024 bytes in length.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

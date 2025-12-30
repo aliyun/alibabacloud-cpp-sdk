@@ -44,27 +44,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->httpStatusCode_ == nullptr && return this->licenseInfoList_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr
-        && return this->totalCount_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->licenseInfoList_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr
+        && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetAiRtcLicenseInfoListResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetAiRtcLicenseInfoListResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // licenseInfoList Field Functions 
     bool hasLicenseInfoList() const { return this->licenseInfoList_ != nullptr;};
     void deleteLicenseInfoList() { this->licenseInfoList_ = nullptr;};
-    inline const vector<AiRtcLicenseInfoDTO> & licenseInfoList() const { DARABONBA_PTR_GET_CONST(licenseInfoList_, vector<AiRtcLicenseInfoDTO>) };
-    inline vector<AiRtcLicenseInfoDTO> licenseInfoList() { DARABONBA_PTR_GET(licenseInfoList_, vector<AiRtcLicenseInfoDTO>) };
+    inline const vector<AiRtcLicenseInfoDTO> & getLicenseInfoList() const { DARABONBA_PTR_GET_CONST(licenseInfoList_, vector<AiRtcLicenseInfoDTO>) };
+    inline vector<AiRtcLicenseInfoDTO> getLicenseInfoList() { DARABONBA_PTR_GET(licenseInfoList_, vector<AiRtcLicenseInfoDTO>) };
     inline GetAiRtcLicenseInfoListResponseBody& setLicenseInfoList(const vector<AiRtcLicenseInfoDTO> & licenseInfoList) { DARABONBA_PTR_SET_VALUE(licenseInfoList_, licenseInfoList) };
     inline GetAiRtcLicenseInfoListResponseBody& setLicenseInfoList(vector<AiRtcLicenseInfoDTO> && licenseInfoList) { DARABONBA_PTR_SET_RVALUE(licenseInfoList_, licenseInfoList) };
 
@@ -72,46 +72,46 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetAiRtcLicenseInfoListResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAiRtcLicenseInfoListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetAiRtcLicenseInfoListResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline GetAiRtcLicenseInfoListResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The error code returned.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // An array of AiRtcLicenseInfoDTO objects, each representing a license batch.
-    std::shared_ptr<vector<AiRtcLicenseInfoDTO>> licenseInfoList_ = nullptr;
+    shared_ptr<vector<AiRtcLicenseInfoDTO>> licenseInfoList_ {};
     // The error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // The total number of entries returned.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

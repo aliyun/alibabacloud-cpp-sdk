@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inputShrink_ == nullptr
-        && return this->voiceprintId_ == nullptr; };
+        && this->voiceprintId_ == nullptr; };
     // inputShrink Field Functions 
     bool hasInputShrink() const { return this->inputShrink_ != nullptr;};
     void deleteInputShrink() { this->inputShrink_ = nullptr;};
-    inline string inputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
+    inline string getInputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
     inline SetAIAgentVoiceprintShrinkRequest& setInputShrink(string inputShrink) { DARABONBA_PTR_SET_VALUE(inputShrink_, inputShrink) };
 
 
     // voiceprintId Field Functions 
     bool hasVoiceprintId() const { return this->voiceprintId_ != nullptr;};
     void deleteVoiceprintId() { this->voiceprintId_ = nullptr;};
-    inline string voiceprintId() const { DARABONBA_PTR_GET_DEFAULT(voiceprintId_, "") };
+    inline string getVoiceprintId() const { DARABONBA_PTR_GET_DEFAULT(voiceprintId_, "") };
     inline SetAIAgentVoiceprintShrinkRequest& setVoiceprintId(string voiceprintId) { DARABONBA_PTR_SET_VALUE(voiceprintId_, voiceprintId) };
 
 
   protected:
     // The input file.
-    std::shared_ptr<string> inputShrink_ = nullptr;
+    shared_ptr<string> inputShrink_ {};
     // A unique identifier for the voiceprint. Generate this ID based on your own business rules. Requirement: 1 to 127 characters in length.
-    std::shared_ptr<string> voiceprintId_ = nullptr;
+    shared_ptr<string> voiceprintId_ {};
   };
 
   } // namespace Models

@@ -34,38 +34,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authTimeout_ == nullptr
-        && return this->inputURL_ == nullptr && return this->mediaId_ == nullptr; };
+        && this->inputURL_ == nullptr && this->mediaId_ == nullptr; };
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
-    inline int64_t authTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
+    inline int64_t getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
     inline GetPlayInfoRequest& setAuthTimeout(int64_t authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
 
 
     // inputURL Field Functions 
     bool hasInputURL() const { return this->inputURL_ != nullptr;};
     void deleteInputURL() { this->inputURL_ = nullptr;};
-    inline string inputURL() const { DARABONBA_PTR_GET_DEFAULT(inputURL_, "") };
+    inline string getInputURL() const { DARABONBA_PTR_GET_DEFAULT(inputURL_, "") };
     inline GetPlayInfoRequest& setInputURL(string inputURL) { DARABONBA_PTR_SET_VALUE(inputURL_, inputURL) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline GetPlayInfoRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
   protected:
-    std::shared_ptr<int64_t> authTimeout_ = nullptr;
+    shared_ptr<int64_t> authTimeout_ {};
     // The input URL that you specified for the media asset when you registered the media asset. For more information, see [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html).
     // 
     // >  You must specify at least one of the MediaId and InputURL parameters.
-    std::shared_ptr<string> inputURL_ = nullptr;
+    shared_ptr<string> inputURL_ {};
     // The ID of the media asset.
     // 
     // >  You must specify at least one of the MediaId and InputURL parameters.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
   };
 
   } // namespace Models

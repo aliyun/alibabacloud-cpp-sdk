@@ -33,13 +33,13 @@ namespace Models
     // parentJobId Field Functions 
     bool hasParentJobId() const { return this->parentJobId_ != nullptr;};
     void deleteParentJobId() { this->parentJobId_ = nullptr;};
-    inline string parentJobId() const { DARABONBA_PTR_GET_DEFAULT(parentJobId_, "") };
+    inline string getParentJobId() const { DARABONBA_PTR_GET_DEFAULT(parentJobId_, "") };
     inline GetTranscodeJobRequest& setParentJobId(string parentJobId) { DARABONBA_PTR_SET_VALUE(parentJobId_, parentJobId) };
 
 
   protected:
     // The job ID.
-    std::shared_ptr<string> parentJobId_ = nullptr;
+    shared_ptr<string> parentJobId_ {};
   };
 
   } // namespace Models

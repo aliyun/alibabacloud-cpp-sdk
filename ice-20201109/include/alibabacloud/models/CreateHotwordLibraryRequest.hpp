@@ -38,19 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->hotwords_ == nullptr && return this->name_ == nullptr && return this->usageScenario_ == nullptr; };
+        && this->hotwords_ == nullptr && this->name_ == nullptr && this->usageScenario_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateHotwordLibraryRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // hotwords Field Functions 
     bool hasHotwords() const { return this->hotwords_ != nullptr;};
     void deleteHotwords() { this->hotwords_ = nullptr;};
-    inline const vector<Hotword> & hotwords() const { DARABONBA_PTR_GET_CONST(hotwords_, vector<Hotword>) };
-    inline vector<Hotword> hotwords() { DARABONBA_PTR_GET(hotwords_, vector<Hotword>) };
+    inline const vector<Hotword> & getHotwords() const { DARABONBA_PTR_GET_CONST(hotwords_, vector<Hotword>) };
+    inline vector<Hotword> getHotwords() { DARABONBA_PTR_GET(hotwords_, vector<Hotword>) };
     inline CreateHotwordLibraryRequest& setHotwords(const vector<Hotword> & hotwords) { DARABONBA_PTR_SET_VALUE(hotwords_, hotwords) };
     inline CreateHotwordLibraryRequest& setHotwords(vector<Hotword> && hotwords) { DARABONBA_PTR_SET_RVALUE(hotwords_, hotwords) };
 
@@ -58,28 +58,28 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateHotwordLibraryRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // usageScenario Field Functions 
     bool hasUsageScenario() const { return this->usageScenario_ != nullptr;};
     void deleteUsageScenario() { this->usageScenario_ = nullptr;};
-    inline string usageScenario() const { DARABONBA_PTR_GET_DEFAULT(usageScenario_, "") };
+    inline string getUsageScenario() const { DARABONBA_PTR_GET_DEFAULT(usageScenario_, "") };
     inline CreateHotwordLibraryRequest& setUsageScenario(string usageScenario) { DARABONBA_PTR_SET_VALUE(usageScenario_, usageScenario) };
 
 
   protected:
     // The description of the hotword library. It can be up to 200 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The hotword list. You can add up to 300 hotword entries to a single library.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<Hotword>> hotwords_ = nullptr;
+    shared_ptr<vector<Hotword>> hotwords_ {};
     // The name of the hotword library. It can be up to 100 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The usage scenario of the hotword library. Valid values:
     // 
     // · ASR: Automatic Speech Recognition
@@ -91,7 +91,7 @@ namespace Models
     // This field cannot be modified after the hotword library is created.
     // 
     // This parameter is required.
-    std::shared_ptr<string> usageScenario_ = nullptr;
+    shared_ptr<string> usageScenario_ {};
   };
 
   } // namespace Models

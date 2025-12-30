@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->analysisParams_ == nullptr
-        && return this->input_ == nullptr && return this->userData_ == nullptr; };
+        && this->input_ == nullptr && this->userData_ == nullptr; };
     // analysisParams Field Functions 
     bool hasAnalysisParams() const { return this->analysisParams_ != nullptr;};
     void deleteAnalysisParams() { this->analysisParams_ = nullptr;};
-    inline string analysisParams() const { DARABONBA_PTR_GET_DEFAULT(analysisParams_, "") };
+    inline string getAnalysisParams() const { DARABONBA_PTR_GET_DEFAULT(analysisParams_, "") };
     inline SubmitMediaAiAnalysisJobRequest& setAnalysisParams(string analysisParams) { DARABONBA_PTR_SET_VALUE(analysisParams_, analysisParams) };
 
 
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
-    inline string input() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+    inline string getInput() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
     inline SubmitMediaAiAnalysisJobRequest& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitMediaAiAnalysisJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
     // The analysis parameters.
-    std::shared_ptr<string> analysisParams_ = nullptr;
+    shared_ptr<string> analysisParams_ {};
     // The media asset that you want to analyze. You can specify an Object Storage Service (OSS) URL, a media asset ID, or an external URL.
-    std::shared_ptr<string> input_ = nullptr;
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> input_ {};
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

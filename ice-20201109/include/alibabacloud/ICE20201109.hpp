@@ -268,6 +268,23 @@ namespace ICE20201109
       Models::AlterSearchIndexResponse alterSearchIndex(const Models::AlterSearchIndexRequest &request);
 
       /**
+       * @summary 修改库
+       *
+       * @param request AlterSearchLibRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AlterSearchLibResponse
+       */
+      Models::AlterSearchLibResponse alterSearchLibWithOptions(const Models::AlterSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改库
+       *
+       * @param request AlterSearchLibRequest
+       * @return AlterSearchLibResponse
+       */
+      Models::AlterSearchLibResponse alterSearchLib(const Models::AlterSearchLibRequest &request);
+
+      /**
        * @summary Ingests multiple assets for VOD packaging.
        *
        * @param tmpReq BatchCreateVodPackagingAssetRequest

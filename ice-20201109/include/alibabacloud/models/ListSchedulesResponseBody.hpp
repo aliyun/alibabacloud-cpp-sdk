@@ -40,26 +40,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNo_ == nullptr
-        && return this->pageSize_ == nullptr && return this->programs_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->pageSize_ == nullptr && this->programs_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline ListSchedulesResponseBody& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListSchedulesResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // programs Field Functions 
     bool hasPrograms() const { return this->programs_ != nullptr;};
     void deletePrograms() { this->programs_ = nullptr;};
-    inline const vector<ChannelAssemblyScheduleData> & programs() const { DARABONBA_PTR_GET_CONST(programs_, vector<ChannelAssemblyScheduleData>) };
-    inline vector<ChannelAssemblyScheduleData> programs() { DARABONBA_PTR_GET(programs_, vector<ChannelAssemblyScheduleData>) };
+    inline const vector<ChannelAssemblyScheduleData> & getPrograms() const { DARABONBA_PTR_GET_CONST(programs_, vector<ChannelAssemblyScheduleData>) };
+    inline vector<ChannelAssemblyScheduleData> getPrograms() { DARABONBA_PTR_GET(programs_, vector<ChannelAssemblyScheduleData>) };
     inline ListSchedulesResponseBody& setPrograms(const vector<ChannelAssemblyScheduleData> & programs) { DARABONBA_PTR_SET_VALUE(programs_, programs) };
     inline ListSchedulesResponseBody& setPrograms(vector<ChannelAssemblyScheduleData> && programs) { DARABONBA_PTR_SET_RVALUE(programs_, programs) };
 
@@ -67,28 +67,28 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListSchedulesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListSchedulesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The page number. Default value: 1.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 20. Valid values: 1 to 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The program schedule.
-    std::shared_ptr<vector<ChannelAssemblyScheduleData>> programs_ = nullptr;
+    shared_ptr<vector<ChannelAssemblyScheduleData>> programs_ {};
     // **Request ID**
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

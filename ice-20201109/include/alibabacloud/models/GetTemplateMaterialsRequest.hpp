@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileList_ == nullptr
-        && return this->templateId_ == nullptr; };
+        && this->templateId_ == nullptr; };
     // fileList Field Functions 
     bool hasFileList() const { return this->fileList_ != nullptr;};
     void deleteFileList() { this->fileList_ = nullptr;};
-    inline string fileList() const { DARABONBA_PTR_GET_DEFAULT(fileList_, "") };
+    inline string getFileList() const { DARABONBA_PTR_GET_DEFAULT(fileList_, "") };
     inline GetTemplateMaterialsRequest& setFileList(string fileList) { DARABONBA_PTR_SET_VALUE(fileList_, fileList) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline GetTemplateMaterialsRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
     // The materials that you want to query.
-    std::shared_ptr<string> fileList_ = nullptr;
+    shared_ptr<string> fileList_ {};
     // The template ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

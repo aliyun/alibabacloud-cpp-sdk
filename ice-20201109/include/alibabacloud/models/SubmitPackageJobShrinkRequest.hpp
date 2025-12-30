@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inputsShrink_ == nullptr
-        && return this->name_ == nullptr && return this->outputShrink_ == nullptr && return this->scheduleConfigShrink_ == nullptr && return this->userData_ == nullptr; };
+        && this->name_ == nullptr && this->outputShrink_ == nullptr && this->scheduleConfigShrink_ == nullptr && this->userData_ == nullptr; };
     // inputsShrink Field Functions 
     bool hasInputsShrink() const { return this->inputsShrink_ != nullptr;};
     void deleteInputsShrink() { this->inputsShrink_ = nullptr;};
-    inline string inputsShrink() const { DARABONBA_PTR_GET_DEFAULT(inputsShrink_, "") };
+    inline string getInputsShrink() const { DARABONBA_PTR_GET_DEFAULT(inputsShrink_, "") };
     inline SubmitPackageJobShrinkRequest& setInputsShrink(string inputsShrink) { DARABONBA_PTR_SET_VALUE(inputsShrink_, inputsShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline SubmitPackageJobShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // outputShrink Field Functions 
     bool hasOutputShrink() const { return this->outputShrink_ != nullptr;};
     void deleteOutputShrink() { this->outputShrink_ = nullptr;};
-    inline string outputShrink() const { DARABONBA_PTR_GET_DEFAULT(outputShrink_, "") };
+    inline string getOutputShrink() const { DARABONBA_PTR_GET_DEFAULT(outputShrink_, "") };
     inline SubmitPackageJobShrinkRequest& setOutputShrink(string outputShrink) { DARABONBA_PTR_SET_VALUE(outputShrink_, outputShrink) };
 
 
     // scheduleConfigShrink Field Functions 
     bool hasScheduleConfigShrink() const { return this->scheduleConfigShrink_ != nullptr;};
     void deleteScheduleConfigShrink() { this->scheduleConfigShrink_ = nullptr;};
-    inline string scheduleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(scheduleConfigShrink_, "") };
+    inline string getScheduleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(scheduleConfigShrink_, "") };
     inline SubmitPackageJobShrinkRequest& setScheduleConfigShrink(string scheduleConfigShrink) { DARABONBA_PTR_SET_VALUE(scheduleConfigShrink_, scheduleConfigShrink) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitPackageJobShrinkRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -78,17 +78,17 @@ namespace Models
     // The input of the job.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputsShrink_ = nullptr;
+    shared_ptr<string> inputsShrink_ {};
     // The name of the job.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The output of the job.
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputShrink_ = nullptr;
+    shared_ptr<string> outputShrink_ {};
     // The scheduling settings.
-    std::shared_ptr<string> scheduleConfigShrink_ = nullptr;
+    shared_ptr<string> scheduleConfigShrink_ {};
     // The user-defined data.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

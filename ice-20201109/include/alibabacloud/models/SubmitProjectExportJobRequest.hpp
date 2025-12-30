@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportType_ == nullptr
-        && return this->outputMediaConfig_ == nullptr && return this->projectId_ == nullptr && return this->timeline_ == nullptr && return this->userData_ == nullptr; };
+        && this->outputMediaConfig_ == nullptr && this->projectId_ == nullptr && this->timeline_ == nullptr && this->userData_ == nullptr; };
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
-    inline string exportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
     inline SubmitProjectExportJobRequest& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
 
 
     // outputMediaConfig Field Functions 
     bool hasOutputMediaConfig() const { return this->outputMediaConfig_ != nullptr;};
     void deleteOutputMediaConfig() { this->outputMediaConfig_ = nullptr;};
-    inline string outputMediaConfig() const { DARABONBA_PTR_GET_DEFAULT(outputMediaConfig_, "") };
+    inline string getOutputMediaConfig() const { DARABONBA_PTR_GET_DEFAULT(outputMediaConfig_, "") };
     inline SubmitProjectExportJobRequest& setOutputMediaConfig(string outputMediaConfig) { DARABONBA_PTR_SET_VALUE(outputMediaConfig_, outputMediaConfig) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline SubmitProjectExportJobRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // timeline Field Functions 
     bool hasTimeline() const { return this->timeline_ != nullptr;};
     void deleteTimeline() { this->timeline_ = nullptr;};
-    inline string timeline() const { DARABONBA_PTR_GET_DEFAULT(timeline_, "") };
+    inline string getTimeline() const { DARABONBA_PTR_GET_DEFAULT(timeline_, "") };
     inline SubmitProjectExportJobRequest& setTimeline(string timeline) { DARABONBA_PTR_SET_VALUE(timeline_, timeline) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitProjectExportJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -79,7 +79,7 @@ namespace Models
     // 
     // *   **BaseTimeline**: exports the timeline.
     // *   **AdobePremierePro**: exports an Adobe Premiere Pro project.
-    std::shared_ptr<string> exportType_ = nullptr;
+    shared_ptr<string> exportType_ {};
     // The output path for the exported project and generated intermediate files, in JSON format. The export destination only supports OSS. Path fields:
     // 
     // *   **Bucket**: Required. The OSS bucket name.
@@ -88,15 +88,15 @@ namespace Models
     // *   **Height**: Optional. The height of the output. The value must be a positive integer. If not provided, the system automatically calculates the value based on the input project or timeline.
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputMediaConfig_ = nullptr;
+    shared_ptr<string> outputMediaConfig_ {};
     // The ID of the online editing project.
     // >Notice: Either ProjectId or Timeline must be provided.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
     // The timeline of the online editing job. For data structure, see [Timeline](https://help.aliyun.com/document_detail/198823.html).
     // >Notice: Either ProjectId or Timeline must be provided.
-    std::shared_ptr<string> timeline_ = nullptr;
+    shared_ptr<string> timeline_ {};
     // The user-defined data in the JSON format.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

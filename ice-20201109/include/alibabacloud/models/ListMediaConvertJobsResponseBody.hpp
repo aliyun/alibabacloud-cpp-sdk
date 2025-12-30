@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobs_ == nullptr
-        && return this->nextPageToken_ == nullptr && return this->requestId_ == nullptr; };
+        && this->nextPageToken_ == nullptr && this->requestId_ == nullptr; };
     // jobs Field Functions 
     bool hasJobs() const { return this->jobs_ != nullptr;};
     void deleteJobs() { this->jobs_ = nullptr;};
-    inline const vector<MediaConvertJobWithoutDetail> & jobs() const { DARABONBA_PTR_GET_CONST(jobs_, vector<MediaConvertJobWithoutDetail>) };
-    inline vector<MediaConvertJobWithoutDetail> jobs() { DARABONBA_PTR_GET(jobs_, vector<MediaConvertJobWithoutDetail>) };
+    inline const vector<MediaConvertJobWithoutDetail> & getJobs() const { DARABONBA_PTR_GET_CONST(jobs_, vector<MediaConvertJobWithoutDetail>) };
+    inline vector<MediaConvertJobWithoutDetail> getJobs() { DARABONBA_PTR_GET(jobs_, vector<MediaConvertJobWithoutDetail>) };
     inline ListMediaConvertJobsResponseBody& setJobs(const vector<MediaConvertJobWithoutDetail> & jobs) { DARABONBA_PTR_SET_VALUE(jobs_, jobs) };
     inline ListMediaConvertJobsResponseBody& setJobs(vector<MediaConvertJobWithoutDetail> && jobs) { DARABONBA_PTR_SET_RVALUE(jobs_, jobs) };
 
@@ -49,26 +49,26 @@ namespace Models
     // nextPageToken Field Functions 
     bool hasNextPageToken() const { return this->nextPageToken_ != nullptr;};
     void deleteNextPageToken() { this->nextPageToken_ = nullptr;};
-    inline string nextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
+    inline string getNextPageToken() const { DARABONBA_PTR_GET_DEFAULT(nextPageToken_, "") };
     inline ListMediaConvertJobsResponseBody& setNextPageToken(string nextPageToken) { DARABONBA_PTR_SET_VALUE(nextPageToken_, nextPageToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListMediaConvertJobsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The tasks.
-    std::shared_ptr<vector<MediaConvertJobWithoutDetail>> jobs_ = nullptr;
+    shared_ptr<vector<MediaConvertJobWithoutDetail>> jobs_ {};
     // Indicates the read position returned by the current call. An empty value means all data has been read.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nextPageToken_ = nullptr;
+    shared_ptr<string> nextPageToken_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

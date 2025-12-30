@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetsShrink_ == nullptr
-        && return this->groupName_ == nullptr; };
+        && this->groupName_ == nullptr; };
     // assetsShrink Field Functions 
     bool hasAssetsShrink() const { return this->assetsShrink_ != nullptr;};
     void deleteAssetsShrink() { this->assetsShrink_ = nullptr;};
-    inline string assetsShrink() const { DARABONBA_PTR_GET_DEFAULT(assetsShrink_, "") };
+    inline string getAssetsShrink() const { DARABONBA_PTR_GET_DEFAULT(assetsShrink_, "") };
     inline BatchCreateVodPackagingAssetShrinkRequest& setAssetsShrink(string assetsShrink) { DARABONBA_PTR_SET_VALUE(assetsShrink_, assetsShrink) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline BatchCreateVodPackagingAssetShrinkRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
   protected:
     // The assets that you want to ingest.
-    std::shared_ptr<string> assetsShrink_ = nullptr;
+    shared_ptr<string> assetsShrink_ {};
     // The name of the packaging group.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
   };
 
   } // namespace Models

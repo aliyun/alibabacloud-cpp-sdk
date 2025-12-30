@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->audios_ == nullptr
-        && return this->authentication_ == nullptr && return this->demoAudioMediaURL_ == nullptr && return this->gender_ == nullptr && return this->voiceName_ == nullptr; };
+        && this->authentication_ == nullptr && this->demoAudioMediaURL_ == nullptr && this->gender_ == nullptr && this->voiceName_ == nullptr; };
     // audios Field Functions 
     bool hasAudios() const { return this->audios_ != nullptr;};
     void deleteAudios() { this->audios_ = nullptr;};
-    inline string audios() const { DARABONBA_PTR_GET_DEFAULT(audios_, "") };
+    inline string getAudios() const { DARABONBA_PTR_GET_DEFAULT(audios_, "") };
     inline SubmitStandardCustomizedVoiceJobRequest& setAudios(string audios) { DARABONBA_PTR_SET_VALUE(audios_, audios) };
 
 
     // authentication Field Functions 
     bool hasAuthentication() const { return this->authentication_ != nullptr;};
     void deleteAuthentication() { this->authentication_ = nullptr;};
-    inline string authentication() const { DARABONBA_PTR_GET_DEFAULT(authentication_, "") };
+    inline string getAuthentication() const { DARABONBA_PTR_GET_DEFAULT(authentication_, "") };
     inline SubmitStandardCustomizedVoiceJobRequest& setAuthentication(string authentication) { DARABONBA_PTR_SET_VALUE(authentication_, authentication) };
 
 
     // demoAudioMediaURL Field Functions 
     bool hasDemoAudioMediaURL() const { return this->demoAudioMediaURL_ != nullptr;};
     void deleteDemoAudioMediaURL() { this->demoAudioMediaURL_ = nullptr;};
-    inline string demoAudioMediaURL() const { DARABONBA_PTR_GET_DEFAULT(demoAudioMediaURL_, "") };
+    inline string getDemoAudioMediaURL() const { DARABONBA_PTR_GET_DEFAULT(demoAudioMediaURL_, "") };
     inline SubmitStandardCustomizedVoiceJobRequest& setDemoAudioMediaURL(string demoAudioMediaURL) { DARABONBA_PTR_SET_VALUE(demoAudioMediaURL_, demoAudioMediaURL) };
 
 
     // gender Field Functions 
     bool hasGender() const { return this->gender_ != nullptr;};
     void deleteGender() { this->gender_ = nullptr;};
-    inline string gender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
+    inline string getGender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
     inline SubmitStandardCustomizedVoiceJobRequest& setGender(string gender) { DARABONBA_PTR_SET_VALUE(gender_, gender) };
 
 
     // voiceName Field Functions 
     bool hasVoiceName() const { return this->voiceName_ != nullptr;};
     void deleteVoiceName() { this->voiceName_ = nullptr;};
-    inline string voiceName() const { DARABONBA_PTR_GET_DEFAULT(voiceName_, "") };
+    inline string getVoiceName() const { DARABONBA_PTR_GET_DEFAULT(voiceName_, "") };
     inline SubmitStandardCustomizedVoiceJobRequest& setVoiceName(string voiceName) { DARABONBA_PTR_SET_VALUE(voiceName_, voiceName) };
 
 
@@ -79,7 +79,7 @@ namespace Models
     // *   Separate multiple media IDs with commas (,).
     // 
     // > : The total duration of all materials must be within 15 to 30 minutes. The duration of each material must be greater than 1 minute.
-    std::shared_ptr<string> audios_ = nullptr;
+    shared_ptr<string> audios_ {};
     // *   The media asset ID of the authentication audio.
     // 
     // *   Upload an audio file for identity authentication. If the voiceprint extracted from the uploaded file differs from that of the training file, the job fails.
@@ -87,7 +87,7 @@ namespace Models
     //     **
     // 
     //     **Note**: Clearly read and record the following text: I confirm to customize human voice cloning and provide audio files that contain my voice for training. I promise that I am responsible for the customized content and that the content complies with laws and regulations.
-    std::shared_ptr<string> authentication_ = nullptr;
+    shared_ptr<string> authentication_ {};
     // The URL of the sample audio file.
     // 
     // *   If this parameter is specified, a sample audio file is generated at the specified Object Storage Service (OSS) URL after the training is complete.
@@ -97,16 +97,16 @@ namespace Models
     //     **
     // 
     //     **Note**: The URL must be a valid public OSS URL within your Alibaba Cloud account.
-    std::shared_ptr<string> demoAudioMediaURL_ = nullptr;
+    shared_ptr<string> demoAudioMediaURL_ {};
     // The gender. Valid values:
     // 
     // *   female
     // *   male
-    std::shared_ptr<string> gender_ = nullptr;
+    shared_ptr<string> gender_ {};
     // The voice name.
     // 
     // *   The name can be up to 32 characters in length.
-    std::shared_ptr<string> voiceName_ = nullptr;
+    shared_ptr<string> voiceName_ {};
   };
 
   } // namespace Models

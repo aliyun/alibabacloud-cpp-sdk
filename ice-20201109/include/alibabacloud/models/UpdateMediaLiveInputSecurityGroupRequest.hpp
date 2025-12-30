@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->securityGroupId_ == nullptr && return this->whitelistRules_ == nullptr; };
+        && this->securityGroupId_ == nullptr && this->whitelistRules_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateMediaLiveInputSecurityGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline UpdateMediaLiveInputSecurityGroupRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
     // whitelistRules Field Functions 
     bool hasWhitelistRules() const { return this->whitelistRules_ != nullptr;};
     void deleteWhitelistRules() { this->whitelistRules_ = nullptr;};
-    inline const vector<string> & whitelistRules() const { DARABONBA_PTR_GET_CONST(whitelistRules_, vector<string>) };
-    inline vector<string> whitelistRules() { DARABONBA_PTR_GET(whitelistRules_, vector<string>) };
+    inline const vector<string> & getWhitelistRules() const { DARABONBA_PTR_GET_CONST(whitelistRules_, vector<string>) };
+    inline vector<string> getWhitelistRules() { DARABONBA_PTR_GET(whitelistRules_, vector<string>) };
     inline UpdateMediaLiveInputSecurityGroupRequest& setWhitelistRules(const vector<string> & whitelistRules) { DARABONBA_PTR_SET_VALUE(whitelistRules_, whitelistRules) };
     inline UpdateMediaLiveInputSecurityGroupRequest& setWhitelistRules(vector<string> && whitelistRules) { DARABONBA_PTR_SET_RVALUE(whitelistRules_, whitelistRules) };
 
@@ -63,15 +63,15 @@ namespace Models
     // The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the security group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> securityGroupId_ = nullptr;
+    shared_ptr<string> securityGroupId_ {};
     // The security group rules.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> whitelistRules_ = nullptr;
+    shared_ptr<vector<string>> whitelistRules_ {};
   };
 
   } // namespace Models

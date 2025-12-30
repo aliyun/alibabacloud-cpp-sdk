@@ -44,85 +44,85 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adBreaks_ == nullptr
-        && return this->channelName_ == nullptr && return this->clipRange_ == nullptr && return this->programName_ == nullptr && return this->sourceLocationName_ == nullptr && return this->sourceName_ == nullptr
-        && return this->sourceType_ == nullptr && return this->transition_ == nullptr; };
+        && this->channelName_ == nullptr && this->clipRange_ == nullptr && this->programName_ == nullptr && this->sourceLocationName_ == nullptr && this->sourceName_ == nullptr
+        && this->sourceType_ == nullptr && this->transition_ == nullptr; };
     // adBreaks Field Functions 
     bool hasAdBreaks() const { return this->adBreaks_ != nullptr;};
     void deleteAdBreaks() { this->adBreaks_ = nullptr;};
-    inline string adBreaks() const { DARABONBA_PTR_GET_DEFAULT(adBreaks_, "") };
+    inline string getAdBreaks() const { DARABONBA_PTR_GET_DEFAULT(adBreaks_, "") };
     inline UpdateProgramRequest& setAdBreaks(string adBreaks) { DARABONBA_PTR_SET_VALUE(adBreaks_, adBreaks) };
 
 
     // channelName Field Functions 
     bool hasChannelName() const { return this->channelName_ != nullptr;};
     void deleteChannelName() { this->channelName_ = nullptr;};
-    inline string channelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
+    inline string getChannelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
     inline UpdateProgramRequest& setChannelName(string channelName) { DARABONBA_PTR_SET_VALUE(channelName_, channelName) };
 
 
     // clipRange Field Functions 
     bool hasClipRange() const { return this->clipRange_ != nullptr;};
     void deleteClipRange() { this->clipRange_ = nullptr;};
-    inline string clipRange() const { DARABONBA_PTR_GET_DEFAULT(clipRange_, "") };
+    inline string getClipRange() const { DARABONBA_PTR_GET_DEFAULT(clipRange_, "") };
     inline UpdateProgramRequest& setClipRange(string clipRange) { DARABONBA_PTR_SET_VALUE(clipRange_, clipRange) };
 
 
     // programName Field Functions 
     bool hasProgramName() const { return this->programName_ != nullptr;};
     void deleteProgramName() { this->programName_ = nullptr;};
-    inline string programName() const { DARABONBA_PTR_GET_DEFAULT(programName_, "") };
+    inline string getProgramName() const { DARABONBA_PTR_GET_DEFAULT(programName_, "") };
     inline UpdateProgramRequest& setProgramName(string programName) { DARABONBA_PTR_SET_VALUE(programName_, programName) };
 
 
     // sourceLocationName Field Functions 
     bool hasSourceLocationName() const { return this->sourceLocationName_ != nullptr;};
     void deleteSourceLocationName() { this->sourceLocationName_ = nullptr;};
-    inline string sourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
+    inline string getSourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
     inline UpdateProgramRequest& setSourceLocationName(string sourceLocationName) { DARABONBA_PTR_SET_VALUE(sourceLocationName_, sourceLocationName) };
 
 
     // sourceName Field Functions 
     bool hasSourceName() const { return this->sourceName_ != nullptr;};
     void deleteSourceName() { this->sourceName_ = nullptr;};
-    inline string sourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
+    inline string getSourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
     inline UpdateProgramRequest& setSourceName(string sourceName) { DARABONBA_PTR_SET_VALUE(sourceName_, sourceName) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline UpdateProgramRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // transition Field Functions 
     bool hasTransition() const { return this->transition_ != nullptr;};
     void deleteTransition() { this->transition_ = nullptr;};
-    inline string transition() const { DARABONBA_PTR_GET_DEFAULT(transition_, "") };
+    inline string getTransition() const { DARABONBA_PTR_GET_DEFAULT(transition_, "") };
     inline UpdateProgramRequest& setTransition(string transition) { DARABONBA_PTR_SET_VALUE(transition_, transition) };
 
 
   protected:
     // The information about ad breaks.
-    std::shared_ptr<string> adBreaks_ = nullptr;
+    shared_ptr<string> adBreaks_ {};
     // The name of the channel.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelName_ = nullptr;
+    shared_ptr<string> channelName_ {};
     // Extracts a clip from the source.
-    std::shared_ptr<string> clipRange_ = nullptr;
+    shared_ptr<string> clipRange_ {};
     // The name of the program.
     // 
     // This parameter is required.
-    std::shared_ptr<string> programName_ = nullptr;
+    shared_ptr<string> programName_ {};
     // The name of the source location.
-    std::shared_ptr<string> sourceLocationName_ = nullptr;
+    shared_ptr<string> sourceLocationName_ {};
     // The name of the source.
-    std::shared_ptr<string> sourceName_ = nullptr;
+    shared_ptr<string> sourceName_ {};
     // The source type of the program. Valid values: vodSource and liveSource.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // The program transition method.
-    std::shared_ptr<string> transition_ = nullptr;
+    shared_ptr<string> transition_ {};
   };
 
   } // namespace Models

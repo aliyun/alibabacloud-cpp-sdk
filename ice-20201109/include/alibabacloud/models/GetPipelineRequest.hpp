@@ -33,7 +33,7 @@ namespace Models
     // pipelineId Field Functions 
     bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
     void deletePipelineId() { this->pipelineId_ = nullptr;};
-    inline string pipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
+    inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
     inline GetPipelineRequest& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the MPS queue.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pipelineId_ = nullptr;
+    shared_ptr<string> pipelineId_ {};
   };
 
   } // namespace Models

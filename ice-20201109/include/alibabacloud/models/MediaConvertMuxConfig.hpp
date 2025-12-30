@@ -34,14 +34,14 @@ namespace Models
     // segment Field Functions 
     bool hasSegment() const { return this->segment_ != nullptr;};
     void deleteSegment() { this->segment_ = nullptr;};
-    inline const MediaConvertSegment & segment() const { DARABONBA_PTR_GET_CONST(segment_, MediaConvertSegment) };
-    inline MediaConvertSegment segment() { DARABONBA_PTR_GET(segment_, MediaConvertSegment) };
+    inline const MediaConvertSegment & getSegment() const { DARABONBA_PTR_GET_CONST(segment_, MediaConvertSegment) };
+    inline MediaConvertSegment getSegment() { DARABONBA_PTR_GET(segment_, MediaConvertSegment) };
     inline MediaConvertMuxConfig& setSegment(const MediaConvertSegment & segment) { DARABONBA_PTR_SET_VALUE(segment_, segment) };
     inline MediaConvertMuxConfig& setSegment(MediaConvertSegment && segment) { DARABONBA_PTR_SET_RVALUE(segment_, segment) };
 
 
   protected:
-    std::shared_ptr<MediaConvertSegment> segment_ = nullptr;
+    shared_ptr<MediaConvertSegment> segment_ {};
   };
 
   } // namespace Models

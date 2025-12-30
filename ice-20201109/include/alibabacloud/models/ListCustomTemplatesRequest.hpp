@@ -42,69 +42,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->orderBy_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->subtype_ == nullptr && return this->templateId_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->orderBy_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->subtype_ == nullptr && this->templateId_ == nullptr
+        && this->type_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListCustomTemplatesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListCustomTemplatesRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListCustomTemplatesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListCustomTemplatesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // subtype Field Functions 
     bool hasSubtype() const { return this->subtype_ != nullptr;};
     void deleteSubtype() { this->subtype_ = nullptr;};
-    inline string subtype() const { DARABONBA_PTR_GET_DEFAULT(subtype_, "") };
+    inline string getSubtype() const { DARABONBA_PTR_GET_DEFAULT(subtype_, "") };
     inline ListCustomTemplatesRequest& setSubtype(string subtype) { DARABONBA_PTR_SET_VALUE(subtype_, subtype) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline ListCustomTemplatesRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListCustomTemplatesRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The template name.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The order in which the entries are sorted. Valid values:
     // 
     // *   CreateTimeDesc: sorted by creation time in descending order.
     // *   CreateTimeAsc: sorted by creation time in ascending order.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The subtype ID of the template.
     // 
     // *   Valid values for transcoding templates:
@@ -131,9 +131,9 @@ namespace Models
     // 
     //     *   1 (VideoDelogo): logo erasure template.
     //     *   2 (VideoDetext): subtitle erasure template.
-    std::shared_ptr<string> subtype_ = nullptr;
+    shared_ptr<string> subtype_ {};
     // The template ID.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The template type. Valid values:
     // 
     // *   1: transcoding template.
@@ -147,7 +147,7 @@ namespace Models
     // *   9: AI-assisted intelligent erasure template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->editingConfig_ == nullptr
-        && return this->inputConfig_ == nullptr && return this->jobType_ == nullptr && return this->outputConfig_ == nullptr && return this->userData_ == nullptr; };
+        && this->inputConfig_ == nullptr && this->jobType_ == nullptr && this->outputConfig_ == nullptr && this->userData_ == nullptr; };
     // editingConfig Field Functions 
     bool hasEditingConfig() const { return this->editingConfig_ != nullptr;};
     void deleteEditingConfig() { this->editingConfig_ = nullptr;};
-    inline string editingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
+    inline string getEditingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
     inline SubmitSceneMediaSelectionJobRequest& setEditingConfig(string editingConfig) { DARABONBA_PTR_SET_VALUE(editingConfig_, editingConfig) };
 
 
     // inputConfig Field Functions 
     bool hasInputConfig() const { return this->inputConfig_ != nullptr;};
     void deleteInputConfig() { this->inputConfig_ = nullptr;};
-    inline string inputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
+    inline string getInputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
     inline SubmitSceneMediaSelectionJobRequest& setInputConfig(string inputConfig) { DARABONBA_PTR_SET_VALUE(inputConfig_, inputConfig) };
 
 
     // jobType Field Functions 
     bool hasJobType() const { return this->jobType_ != nullptr;};
     void deleteJobType() { this->jobType_ = nullptr;};
-    inline string jobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline SubmitSceneMediaSelectionJobRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
 
 
     // outputConfig Field Functions 
     bool hasOutputConfig() const { return this->outputConfig_ != nullptr;};
     void deleteOutputConfig() { this->outputConfig_ = nullptr;};
-    inline string outputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
+    inline string getOutputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
     inline SubmitSceneMediaSelectionJobRequest& setOutputConfig(string outputConfig) { DARABONBA_PTR_SET_VALUE(outputConfig_, outputConfig) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitSceneMediaSelectionJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -79,14 +79,14 @@ namespace Models
     // 
     // *   When JobType is set to Smart_Mix_Media_Select, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
     // *   When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
-    std::shared_ptr<string> editingConfig_ = nullptr;
+    shared_ptr<string> editingConfig_ {};
     // The input configuration. Its structure and required fields depend on the value of JobType.
     // 
     // *   When JobType is set to Smart_Mix_Media_Select, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
     // *   When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputConfig_ = nullptr;
+    shared_ptr<string> inputConfig_ {};
     // The job type. Valid values:
     // 
     // *   Smart_Mix_Media_Select
@@ -98,16 +98,16 @@ namespace Models
     // *   Screen_Media_Highlights_Media_Select: Automatically identifies and selects clips that are exciting or represent key story points from longer video materials.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobType_ = nullptr;
+    shared_ptr<string> jobType_ {};
     // The output configuration. Its structure and required fields depend on the value of JobType.
     // 
     // *   When JobType is set to Smart_Mix_Media_Select, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
     // *   When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputConfig_ = nullptr;
+    shared_ptr<string> outputConfig_ {};
     // The user-defined data, including the business and callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

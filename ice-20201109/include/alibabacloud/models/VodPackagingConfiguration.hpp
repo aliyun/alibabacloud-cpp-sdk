@@ -41,40 +41,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configurationName_ == nullptr
-        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->groupName_ == nullptr && return this->packageConfig_ == nullptr && return this->protocol_ == nullptr; };
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->groupName_ == nullptr && this->packageConfig_ == nullptr && this->protocol_ == nullptr; };
     // configurationName Field Functions 
     bool hasConfigurationName() const { return this->configurationName_ != nullptr;};
     void deleteConfigurationName() { this->configurationName_ = nullptr;};
-    inline string configurationName() const { DARABONBA_PTR_GET_DEFAULT(configurationName_, "") };
+    inline string getConfigurationName() const { DARABONBA_PTR_GET_DEFAULT(configurationName_, "") };
     inline VodPackagingConfiguration& setConfigurationName(string configurationName) { DARABONBA_PTR_SET_VALUE(configurationName_, configurationName) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline VodPackagingConfiguration& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline VodPackagingConfiguration& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline VodPackagingConfiguration& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // packageConfig Field Functions 
     bool hasPackageConfig() const { return this->packageConfig_ != nullptr;};
     void deletePackageConfig() { this->packageConfig_ = nullptr;};
-    inline const VodPackagingConfig & packageConfig() const { DARABONBA_PTR_GET_CONST(packageConfig_, VodPackagingConfig) };
-    inline VodPackagingConfig packageConfig() { DARABONBA_PTR_GET(packageConfig_, VodPackagingConfig) };
+    inline const VodPackagingConfig & getPackageConfig() const { DARABONBA_PTR_GET_CONST(packageConfig_, VodPackagingConfig) };
+    inline VodPackagingConfig getPackageConfig() { DARABONBA_PTR_GET(packageConfig_, VodPackagingConfig) };
     inline VodPackagingConfiguration& setPackageConfig(const VodPackagingConfig & packageConfig) { DARABONBA_PTR_SET_VALUE(packageConfig_, packageConfig) };
     inline VodPackagingConfiguration& setPackageConfig(VodPackagingConfig && packageConfig) { DARABONBA_PTR_SET_RVALUE(packageConfig_, packageConfig) };
 
@@ -82,17 +82,17 @@ namespace Models
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline VodPackagingConfiguration& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
   protected:
-    std::shared_ptr<string> configurationName_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> groupName_ = nullptr;
-    std::shared_ptr<VodPackagingConfig> packageConfig_ = nullptr;
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> configurationName_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> groupName_ {};
+    shared_ptr<VodPackagingConfig> packageConfig_ {};
+    shared_ptr<string> protocol_ {};
   };
 
   } // namespace Models

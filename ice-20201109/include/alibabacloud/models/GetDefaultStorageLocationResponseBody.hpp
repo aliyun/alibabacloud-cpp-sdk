@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucket_ == nullptr
-        && return this->path_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->storageType_ == nullptr; };
+        && this->path_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr; };
     // bucket Field Functions 
     bool hasBucket() const { return this->bucket_ != nullptr;};
     void deleteBucket() { this->bucket_ = nullptr;};
-    inline string bucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
+    inline string getBucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
     inline GetDefaultStorageLocationResponseBody& setBucket(string bucket) { DARABONBA_PTR_SET_VALUE(bucket_, bucket) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline GetDefaultStorageLocationResponseBody& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDefaultStorageLocationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetDefaultStorageLocationResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline GetDefaultStorageLocationResponseBody& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
   protected:
-    std::shared_ptr<string> bucket_ = nullptr;
-    std::shared_ptr<string> path_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> bucket_ {};
+    shared_ptr<string> path_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> storageType_ {};
   };
 
   } // namespace Models

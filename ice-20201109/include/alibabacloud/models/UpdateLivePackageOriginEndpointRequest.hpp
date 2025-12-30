@@ -51,62 +51,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationCode_ == nullptr
-        && return this->channelName_ == nullptr && return this->description_ == nullptr && return this->endpointName_ == nullptr && return this->groupName_ == nullptr && return this->ipBlacklist_ == nullptr
-        && return this->ipWhitelist_ == nullptr && return this->livePackagingConfig_ == nullptr && return this->manifestName_ == nullptr && return this->protocol_ == nullptr && return this->timeshiftVision_ == nullptr; };
+        && this->channelName_ == nullptr && this->description_ == nullptr && this->endpointName_ == nullptr && this->groupName_ == nullptr && this->ipBlacklist_ == nullptr
+        && this->ipWhitelist_ == nullptr && this->livePackagingConfig_ == nullptr && this->manifestName_ == nullptr && this->protocol_ == nullptr && this->timeshiftVision_ == nullptr; };
     // authorizationCode Field Functions 
     bool hasAuthorizationCode() const { return this->authorizationCode_ != nullptr;};
     void deleteAuthorizationCode() { this->authorizationCode_ = nullptr;};
-    inline string authorizationCode() const { DARABONBA_PTR_GET_DEFAULT(authorizationCode_, "") };
+    inline string getAuthorizationCode() const { DARABONBA_PTR_GET_DEFAULT(authorizationCode_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setAuthorizationCode(string authorizationCode) { DARABONBA_PTR_SET_VALUE(authorizationCode_, authorizationCode) };
 
 
     // channelName Field Functions 
     bool hasChannelName() const { return this->channelName_ != nullptr;};
     void deleteChannelName() { this->channelName_ = nullptr;};
-    inline string channelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
+    inline string getChannelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setChannelName(string channelName) { DARABONBA_PTR_SET_VALUE(channelName_, channelName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // endpointName Field Functions 
     bool hasEndpointName() const { return this->endpointName_ != nullptr;};
     void deleteEndpointName() { this->endpointName_ = nullptr;};
-    inline string endpointName() const { DARABONBA_PTR_GET_DEFAULT(endpointName_, "") };
+    inline string getEndpointName() const { DARABONBA_PTR_GET_DEFAULT(endpointName_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setEndpointName(string endpointName) { DARABONBA_PTR_SET_VALUE(endpointName_, endpointName) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // ipBlacklist Field Functions 
     bool hasIpBlacklist() const { return this->ipBlacklist_ != nullptr;};
     void deleteIpBlacklist() { this->ipBlacklist_ = nullptr;};
-    inline string ipBlacklist() const { DARABONBA_PTR_GET_DEFAULT(ipBlacklist_, "") };
+    inline string getIpBlacklist() const { DARABONBA_PTR_GET_DEFAULT(ipBlacklist_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setIpBlacklist(string ipBlacklist) { DARABONBA_PTR_SET_VALUE(ipBlacklist_, ipBlacklist) };
 
 
     // ipWhitelist Field Functions 
     bool hasIpWhitelist() const { return this->ipWhitelist_ != nullptr;};
     void deleteIpWhitelist() { this->ipWhitelist_ = nullptr;};
-    inline string ipWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
+    inline string getIpWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setIpWhitelist(string ipWhitelist) { DARABONBA_PTR_SET_VALUE(ipWhitelist_, ipWhitelist) };
 
 
     // livePackagingConfig Field Functions 
     bool hasLivePackagingConfig() const { return this->livePackagingConfig_ != nullptr;};
     void deleteLivePackagingConfig() { this->livePackagingConfig_ = nullptr;};
-    inline const LivePackagingConfig & livePackagingConfig() const { DARABONBA_PTR_GET_CONST(livePackagingConfig_, LivePackagingConfig) };
-    inline LivePackagingConfig livePackagingConfig() { DARABONBA_PTR_GET(livePackagingConfig_, LivePackagingConfig) };
+    inline const LivePackagingConfig & getLivePackagingConfig() const { DARABONBA_PTR_GET_CONST(livePackagingConfig_, LivePackagingConfig) };
+    inline LivePackagingConfig getLivePackagingConfig() { DARABONBA_PTR_GET(livePackagingConfig_, LivePackagingConfig) };
     inline UpdateLivePackageOriginEndpointRequest& setLivePackagingConfig(const LivePackagingConfig & livePackagingConfig) { DARABONBA_PTR_SET_VALUE(livePackagingConfig_, livePackagingConfig) };
     inline UpdateLivePackageOriginEndpointRequest& setLivePackagingConfig(LivePackagingConfig && livePackagingConfig) { DARABONBA_PTR_SET_RVALUE(livePackagingConfig_, livePackagingConfig) };
 
@@ -114,54 +114,54 @@ namespace Models
     // manifestName Field Functions 
     bool hasManifestName() const { return this->manifestName_ != nullptr;};
     void deleteManifestName() { this->manifestName_ = nullptr;};
-    inline string manifestName() const { DARABONBA_PTR_GET_DEFAULT(manifestName_, "") };
+    inline string getManifestName() const { DARABONBA_PTR_GET_DEFAULT(manifestName_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setManifestName(string manifestName) { DARABONBA_PTR_SET_VALUE(manifestName_, manifestName) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline UpdateLivePackageOriginEndpointRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // timeshiftVision Field Functions 
     bool hasTimeshiftVision() const { return this->timeshiftVision_ != nullptr;};
     void deleteTimeshiftVision() { this->timeshiftVision_ = nullptr;};
-    inline int32_t timeshiftVision() const { DARABONBA_PTR_GET_DEFAULT(timeshiftVision_, 0) };
+    inline int32_t getTimeshiftVision() const { DARABONBA_PTR_GET_DEFAULT(timeshiftVision_, 0) };
     inline UpdateLivePackageOriginEndpointRequest& setTimeshiftVision(int32_t timeshiftVision) { DARABONBA_PTR_SET_VALUE(timeshiftVision_, timeshiftVision) };
 
 
   protected:
     // The authorization code. It can be up to 200 characters in length. You must configure AuthorizationCode, IpWhitelist, or both. Format: [A-Za-z0-9-_.]+
-    std::shared_ptr<string> authorizationCode_ = nullptr;
+    shared_ptr<string> authorizationCode_ {};
     // The channel name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelName_ = nullptr;
+    shared_ptr<string> channelName_ {};
     // The endpoint description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The origin endpoint name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
     // 
     // This parameter is required.
-    std::shared_ptr<string> endpointName_ = nullptr;
+    shared_ptr<string> endpointName_ {};
     // The channel group name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The IP address blacklist. It supports subnet masks. Separate multiple IP addresses with commas (,).
-    std::shared_ptr<string> ipBlacklist_ = nullptr;
+    shared_ptr<string> ipBlacklist_ {};
     // The IP address whitelist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,). You must configure AuthorizationCode, IpWhitelist, or both.
-    std::shared_ptr<string> ipWhitelist_ = nullptr;
-    std::shared_ptr<LivePackagingConfig> livePackagingConfig_ = nullptr;
+    shared_ptr<string> ipWhitelist_ {};
+    shared_ptr<LivePackagingConfig> livePackagingConfig_ {};
     // The playlist name. Default value: manifest.
-    std::shared_ptr<string> manifestName_ = nullptr;
+    shared_ptr<string> manifestName_ {};
     // The protocol. Only HLS is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> protocol_ {};
     // The number of days that time-shifted content is available. Maximum value: 30.
-    std::shared_ptr<int32_t> timeshiftVision_ = nullptr;
+    shared_ptr<int32_t> timeshiftVision_ {};
   };
 
   } // namespace Models

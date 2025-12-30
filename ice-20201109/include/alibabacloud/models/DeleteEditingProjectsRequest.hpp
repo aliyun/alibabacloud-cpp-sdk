@@ -33,13 +33,13 @@ namespace Models
     // projectIds Field Functions 
     bool hasProjectIds() const { return this->projectIds_ != nullptr;};
     void deleteProjectIds() { this->projectIds_ = nullptr;};
-    inline string projectIds() const { DARABONBA_PTR_GET_DEFAULT(projectIds_, "") };
+    inline string getProjectIds() const { DARABONBA_PTR_GET_DEFAULT(projectIds_, "") };
     inline DeleteEditingProjectsRequest& setProjectIds(string projectIds) { DARABONBA_PTR_SET_VALUE(projectIds_, projectIds) };
 
 
   protected:
     // The ID of the online editing project. You can specify multiple IDs separated with commas (,).
-    std::shared_ptr<string> projectIds_ = nullptr;
+    shared_ptr<string> projectIds_ {};
   };
 
   } // namespace Models

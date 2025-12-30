@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentConfig_ == nullptr
-        && return this->instanceId_ == nullptr && return this->templateConfig_ == nullptr && return this->userData_ == nullptr; };
+        && this->instanceId_ == nullptr && this->templateConfig_ == nullptr && this->userData_ == nullptr; };
     // agentConfig Field Functions 
     bool hasAgentConfig() const { return this->agentConfig_ != nullptr;};
     void deleteAgentConfig() { this->agentConfig_ = nullptr;};
-    inline const AIAgentConfig & agentConfig() const { DARABONBA_PTR_GET_CONST(agentConfig_, AIAgentConfig) };
-    inline AIAgentConfig agentConfig() { DARABONBA_PTR_GET(agentConfig_, AIAgentConfig) };
+    inline const AIAgentConfig & getAgentConfig() const { DARABONBA_PTR_GET_CONST(agentConfig_, AIAgentConfig) };
+    inline AIAgentConfig getAgentConfig() { DARABONBA_PTR_GET(agentConfig_, AIAgentConfig) };
     inline UpdateAIAgentInstanceRequest& setAgentConfig(const AIAgentConfig & agentConfig) { DARABONBA_PTR_SET_VALUE(agentConfig_, agentConfig) };
     inline UpdateAIAgentInstanceRequest& setAgentConfig(AIAgentConfig && agentConfig) { DARABONBA_PTR_SET_RVALUE(agentConfig_, agentConfig) };
 
@@ -51,15 +51,15 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateAIAgentInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // templateConfig Field Functions 
     bool hasTemplateConfig() const { return this->templateConfig_ != nullptr;};
     void deleteTemplateConfig() { this->templateConfig_ = nullptr;};
-    inline const AIAgentTemplateConfig & templateConfig() const { DARABONBA_PTR_GET_CONST(templateConfig_, AIAgentTemplateConfig) };
-    inline AIAgentTemplateConfig templateConfig() { DARABONBA_PTR_GET(templateConfig_, AIAgentTemplateConfig) };
+    inline const AIAgentTemplateConfig & getTemplateConfig() const { DARABONBA_PTR_GET_CONST(templateConfig_, AIAgentTemplateConfig) };
+    inline AIAgentTemplateConfig getTemplateConfig() { DARABONBA_PTR_GET(templateConfig_, AIAgentTemplateConfig) };
     inline UpdateAIAgentInstanceRequest& setTemplateConfig(const AIAgentTemplateConfig & templateConfig) { DARABONBA_PTR_SET_VALUE(templateConfig_, templateConfig) };
     inline UpdateAIAgentInstanceRequest& setTemplateConfig(AIAgentTemplateConfig && templateConfig) { DARABONBA_PTR_SET_RVALUE(templateConfig_, templateConfig) };
 
@@ -67,19 +67,19 @@ namespace Models
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline UpdateAIAgentInstanceRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
-    std::shared_ptr<AIAgentConfig> agentConfig_ = nullptr;
+    shared_ptr<AIAgentConfig> agentConfig_ {};
     // The ID of the AI agent that you want to update.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The template configurations of the AI agent. The configurations are merged with the template configurations that are used to start the AI agent. For more information, see the definition of TemplateConfig.
-    std::shared_ptr<AIAgentTemplateConfig> templateConfig_ = nullptr;
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<AIAgentTemplateConfig> templateConfig_ {};
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

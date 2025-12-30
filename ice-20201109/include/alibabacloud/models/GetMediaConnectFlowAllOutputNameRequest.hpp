@@ -33,7 +33,7 @@ namespace Models
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};
-    inline string flowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+    inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
     inline GetMediaConnectFlowAllOutputNameRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the MediaConnect flow.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowId_ = nullptr;
+    shared_ptr<string> flowId_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // templateIds Field Functions 
     bool hasTemplateIds() const { return this->templateIds_ != nullptr;};
     void deleteTemplateIds() { this->templateIds_ = nullptr;};
-    inline string templateIds() const { DARABONBA_PTR_GET_DEFAULT(templateIds_, "") };
+    inline string getTemplateIds() const { DARABONBA_PTR_GET_DEFAULT(templateIds_, "") };
     inline DeleteTemplateRequest& setTemplateIds(string templateIds) { DARABONBA_PTR_SET_VALUE(templateIds_, templateIds) };
 
 
   protected:
     // The IDs of the templates that you want to delete. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> templateIds_ = nullptr;
+    shared_ptr<string> templateIds_ {};
   };
 
   } // namespace Models

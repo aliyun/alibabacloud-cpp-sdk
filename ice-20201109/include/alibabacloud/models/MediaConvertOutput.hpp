@@ -41,26 +41,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->features_ == nullptr
-        && return this->name_ == nullptr && return this->outputFile_ == nullptr && return this->overrideParams_ == nullptr && return this->priority_ == nullptr && return this->templateId_ == nullptr; };
+        && this->name_ == nullptr && this->outputFile_ == nullptr && this->overrideParams_ == nullptr && this->priority_ == nullptr && this->templateId_ == nullptr; };
     // features Field Functions 
     bool hasFeatures() const { return this->features_ != nullptr;};
     void deleteFeatures() { this->features_ = nullptr;};
-    inline string features() const { DARABONBA_PTR_GET_DEFAULT(features_, "") };
+    inline string getFeatures() const { DARABONBA_PTR_GET_DEFAULT(features_, "") };
     inline MediaConvertOutput& setFeatures(string features) { DARABONBA_PTR_SET_VALUE(features_, features) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline MediaConvertOutput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // outputFile Field Functions 
     bool hasOutputFile() const { return this->outputFile_ != nullptr;};
     void deleteOutputFile() { this->outputFile_ = nullptr;};
-    inline const MediaObject & outputFile() const { DARABONBA_PTR_GET_CONST(outputFile_, MediaObject) };
-    inline MediaObject outputFile() { DARABONBA_PTR_GET(outputFile_, MediaObject) };
+    inline const MediaObject & getOutputFile() const { DARABONBA_PTR_GET_CONST(outputFile_, MediaObject) };
+    inline MediaObject getOutputFile() { DARABONBA_PTR_GET(outputFile_, MediaObject) };
     inline MediaConvertOutput& setOutputFile(const MediaObject & outputFile) { DARABONBA_PTR_SET_VALUE(outputFile_, outputFile) };
     inline MediaConvertOutput& setOutputFile(MediaObject && outputFile) { DARABONBA_PTR_SET_RVALUE(outputFile_, outputFile) };
 
@@ -68,31 +68,31 @@ namespace Models
     // overrideParams Field Functions 
     bool hasOverrideParams() const { return this->overrideParams_ != nullptr;};
     void deleteOverrideParams() { this->overrideParams_ = nullptr;};
-    inline string overrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
+    inline string getOverrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
     inline MediaConvertOutput& setOverrideParams(string overrideParams) { DARABONBA_PTR_SET_VALUE(overrideParams_, overrideParams) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline MediaConvertOutput& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline MediaConvertOutput& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
-    std::shared_ptr<string> features_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<MediaObject> outputFile_ = nullptr;
-    std::shared_ptr<string> overrideParams_ = nullptr;
-    std::shared_ptr<int32_t> priority_ = nullptr;
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> features_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<MediaObject> outputFile_ {};
+    shared_ptr<string> overrideParams_ {};
+    shared_ptr<int32_t> priority_ {};
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

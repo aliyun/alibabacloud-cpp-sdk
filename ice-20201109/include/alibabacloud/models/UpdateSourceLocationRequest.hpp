@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baseUrl_ == nullptr
-        && return this->enableSegmentDelivery_ == nullptr && return this->segmentDeliveryUrl_ == nullptr && return this->sourceLocationName_ == nullptr; };
+        && this->enableSegmentDelivery_ == nullptr && this->segmentDeliveryUrl_ == nullptr && this->sourceLocationName_ == nullptr; };
     // baseUrl Field Functions 
     bool hasBaseUrl() const { return this->baseUrl_ != nullptr;};
     void deleteBaseUrl() { this->baseUrl_ = nullptr;};
-    inline string baseUrl() const { DARABONBA_PTR_GET_DEFAULT(baseUrl_, "") };
+    inline string getBaseUrl() const { DARABONBA_PTR_GET_DEFAULT(baseUrl_, "") };
     inline UpdateSourceLocationRequest& setBaseUrl(string baseUrl) { DARABONBA_PTR_SET_VALUE(baseUrl_, baseUrl) };
 
 
     // enableSegmentDelivery Field Functions 
     bool hasEnableSegmentDelivery() const { return this->enableSegmentDelivery_ != nullptr;};
     void deleteEnableSegmentDelivery() { this->enableSegmentDelivery_ = nullptr;};
-    inline bool enableSegmentDelivery() const { DARABONBA_PTR_GET_DEFAULT(enableSegmentDelivery_, false) };
+    inline bool getEnableSegmentDelivery() const { DARABONBA_PTR_GET_DEFAULT(enableSegmentDelivery_, false) };
     inline UpdateSourceLocationRequest& setEnableSegmentDelivery(bool enableSegmentDelivery) { DARABONBA_PTR_SET_VALUE(enableSegmentDelivery_, enableSegmentDelivery) };
 
 
     // segmentDeliveryUrl Field Functions 
     bool hasSegmentDeliveryUrl() const { return this->segmentDeliveryUrl_ != nullptr;};
     void deleteSegmentDeliveryUrl() { this->segmentDeliveryUrl_ = nullptr;};
-    inline string segmentDeliveryUrl() const { DARABONBA_PTR_GET_DEFAULT(segmentDeliveryUrl_, "") };
+    inline string getSegmentDeliveryUrl() const { DARABONBA_PTR_GET_DEFAULT(segmentDeliveryUrl_, "") };
     inline UpdateSourceLocationRequest& setSegmentDeliveryUrl(string segmentDeliveryUrl) { DARABONBA_PTR_SET_VALUE(segmentDeliveryUrl_, segmentDeliveryUrl) };
 
 
     // sourceLocationName Field Functions 
     bool hasSourceLocationName() const { return this->sourceLocationName_ != nullptr;};
     void deleteSourceLocationName() { this->sourceLocationName_ = nullptr;};
-    inline string sourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
+    inline string getSourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
     inline UpdateSourceLocationRequest& setSourceLocationName(string sourceLocationName) { DARABONBA_PTR_SET_VALUE(sourceLocationName_, sourceLocationName) };
 
 
   protected:
     // The protocol and hostname of the source location.
-    std::shared_ptr<string> baseUrl_ = nullptr;
+    shared_ptr<string> baseUrl_ {};
     // Specifies whether to use an independent domain name to access the segments.
-    std::shared_ptr<bool> enableSegmentDelivery_ = nullptr;
+    shared_ptr<bool> enableSegmentDelivery_ {};
     // The domain name used to access the segments.
-    std::shared_ptr<string> segmentDeliveryUrl_ = nullptr;
+    shared_ptr<string> segmentDeliveryUrl_ {};
     // The name of the source location.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceLocationName_ = nullptr;
+    shared_ptr<string> sourceLocationName_ {};
   };
 
   } // namespace Models

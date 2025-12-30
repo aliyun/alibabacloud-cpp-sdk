@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelId_ == nullptr
-        && return this->humanAgentUserId_ == nullptr && return this->requestId_ == nullptr && return this->token_ == nullptr; };
+        && this->humanAgentUserId_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr; };
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline TakeoverAIAgentCallResponseBody& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // humanAgentUserId Field Functions 
     bool hasHumanAgentUserId() const { return this->humanAgentUserId_ != nullptr;};
     void deleteHumanAgentUserId() { this->humanAgentUserId_ = nullptr;};
-    inline string humanAgentUserId() const { DARABONBA_PTR_GET_DEFAULT(humanAgentUserId_, "") };
+    inline string getHumanAgentUserId() const { DARABONBA_PTR_GET_DEFAULT(humanAgentUserId_, "") };
     inline TakeoverAIAgentCallResponseBody& setHumanAgentUserId(string humanAgentUserId) { DARABONBA_PTR_SET_VALUE(humanAgentUserId_, humanAgentUserId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline TakeoverAIAgentCallResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline TakeoverAIAgentCallResponseBody& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
   protected:
     // The ID of the ARTC channel.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
     // The ID of the human agent.
-    std::shared_ptr<string> humanAgentUserId_ = nullptr;
+    shared_ptr<string> humanAgentUserId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ARTC token.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

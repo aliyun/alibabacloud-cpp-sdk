@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupConfig_ == nullptr
-        && return this->name_ == nullptr && return this->outputs_ == nullptr; };
+        && this->name_ == nullptr && this->outputs_ == nullptr; };
     // groupConfig Field Functions 
     bool hasGroupConfig() const { return this->groupConfig_ != nullptr;};
     void deleteGroupConfig() { this->groupConfig_ = nullptr;};
-    inline const MediaConvertOutputGroupConfig & groupConfig() const { DARABONBA_PTR_GET_CONST(groupConfig_, MediaConvertOutputGroupConfig) };
-    inline MediaConvertOutputGroupConfig groupConfig() { DARABONBA_PTR_GET(groupConfig_, MediaConvertOutputGroupConfig) };
+    inline const MediaConvertOutputGroupConfig & getGroupConfig() const { DARABONBA_PTR_GET_CONST(groupConfig_, MediaConvertOutputGroupConfig) };
+    inline MediaConvertOutputGroupConfig getGroupConfig() { DARABONBA_PTR_GET(groupConfig_, MediaConvertOutputGroupConfig) };
     inline MediaConvertOutputGroup& setGroupConfig(const MediaConvertOutputGroupConfig & groupConfig) { DARABONBA_PTR_SET_VALUE(groupConfig_, groupConfig) };
     inline MediaConvertOutputGroup& setGroupConfig(MediaConvertOutputGroupConfig && groupConfig) { DARABONBA_PTR_SET_RVALUE(groupConfig_, groupConfig) };
 
@@ -50,23 +50,23 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline MediaConvertOutputGroup& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // outputs Field Functions 
     bool hasOutputs() const { return this->outputs_ != nullptr;};
     void deleteOutputs() { this->outputs_ = nullptr;};
-    inline const vector<MediaConvertOutputGroupOutput> & outputs() const { DARABONBA_PTR_GET_CONST(outputs_, vector<MediaConvertOutputGroupOutput>) };
-    inline vector<MediaConvertOutputGroupOutput> outputs() { DARABONBA_PTR_GET(outputs_, vector<MediaConvertOutputGroupOutput>) };
+    inline const vector<MediaConvertOutputGroupOutput> & getOutputs() const { DARABONBA_PTR_GET_CONST(outputs_, vector<MediaConvertOutputGroupOutput>) };
+    inline vector<MediaConvertOutputGroupOutput> getOutputs() { DARABONBA_PTR_GET(outputs_, vector<MediaConvertOutputGroupOutput>) };
     inline MediaConvertOutputGroup& setOutputs(const vector<MediaConvertOutputGroupOutput> & outputs) { DARABONBA_PTR_SET_VALUE(outputs_, outputs) };
     inline MediaConvertOutputGroup& setOutputs(vector<MediaConvertOutputGroupOutput> && outputs) { DARABONBA_PTR_SET_RVALUE(outputs_, outputs) };
 
 
   protected:
-    std::shared_ptr<MediaConvertOutputGroupConfig> groupConfig_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<vector<MediaConvertOutputGroupOutput>> outputs_ = nullptr;
+    shared_ptr<MediaConvertOutputGroupConfig> groupConfig_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<vector<MediaConvertOutputGroupOutput>> outputs_ {};
   };
 
   } // namespace Models

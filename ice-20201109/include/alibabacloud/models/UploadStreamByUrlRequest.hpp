@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->definition_ == nullptr
-        && return this->fileExtension_ == nullptr && return this->HDRType_ == nullptr && return this->mediaId_ == nullptr && return this->streamURL_ == nullptr && return this->userData_ == nullptr; };
+        && this->fileExtension_ == nullptr && this->HDRType_ == nullptr && this->mediaId_ == nullptr && this->streamURL_ == nullptr && this->userData_ == nullptr; };
     // definition Field Functions 
     bool hasDefinition() const { return this->definition_ != nullptr;};
     void deleteDefinition() { this->definition_ = nullptr;};
-    inline string definition() const { DARABONBA_PTR_GET_DEFAULT(definition_, "") };
+    inline string getDefinition() const { DARABONBA_PTR_GET_DEFAULT(definition_, "") };
     inline UploadStreamByURLRequest& setDefinition(string definition) { DARABONBA_PTR_SET_VALUE(definition_, definition) };
 
 
     // fileExtension Field Functions 
     bool hasFileExtension() const { return this->fileExtension_ != nullptr;};
     void deleteFileExtension() { this->fileExtension_ = nullptr;};
-    inline string fileExtension() const { DARABONBA_PTR_GET_DEFAULT(fileExtension_, "") };
+    inline string getFileExtension() const { DARABONBA_PTR_GET_DEFAULT(fileExtension_, "") };
     inline UploadStreamByURLRequest& setFileExtension(string fileExtension) { DARABONBA_PTR_SET_VALUE(fileExtension_, fileExtension) };
 
 
     // HDRType Field Functions 
     bool hasHDRType() const { return this->HDRType_ != nullptr;};
     void deleteHDRType() { this->HDRType_ = nullptr;};
-    inline string HDRType() const { DARABONBA_PTR_GET_DEFAULT(HDRType_, "") };
+    inline string getHDRType() const { DARABONBA_PTR_GET_DEFAULT(HDRType_, "") };
     inline UploadStreamByURLRequest& setHDRType(string HDRType) { DARABONBA_PTR_SET_VALUE(HDRType_, HDRType) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline UploadStreamByURLRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // streamURL Field Functions 
     bool hasStreamURL() const { return this->streamURL_ != nullptr;};
     void deleteStreamURL() { this->streamURL_ = nullptr;};
-    inline string streamURL() const { DARABONBA_PTR_GET_DEFAULT(streamURL_, "") };
+    inline string getStreamURL() const { DARABONBA_PTR_GET_DEFAULT(streamURL_, "") };
     inline UploadStreamByURLRequest& setStreamURL(string streamURL) { DARABONBA_PTR_SET_VALUE(streamURL_, streamURL) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline UploadStreamByURLRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -95,9 +95,9 @@ namespace Models
     // *   4K: 4K resolution.
     // *   SQ: standard sound quality.
     // *   HQ: high sound quality.
-    std::shared_ptr<string> definition_ = nullptr;
+    shared_ptr<string> definition_ {};
     // The file name extension of the media stream.
-    std::shared_ptr<string> fileExtension_ = nullptr;
+    shared_ptr<string> fileExtension_ {};
     // The high dynamic range (HDR) format of the transcoded stream. Valid values:
     // 
     // *   HDR
@@ -112,15 +112,15 @@ namespace Models
     // *   The value is not case-sensitive,
     // 
     // *   You can leave this parameter empty for non-HDR streams.
-    std::shared_ptr<string> HDRType_ = nullptr;
+    shared_ptr<string> HDRType_ {};
     // The ID of the media asset.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The URL of the transcoded stream file.
     // 
     // If the URL of the transcoded stream requires authentication, you must specify the authentication parameters in the stream URL and make sure that the URL can be accessed over the Internet.
-    std::shared_ptr<string> streamURL_ = nullptr;
+    shared_ptr<string> streamURL_ {};
     // The user data.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

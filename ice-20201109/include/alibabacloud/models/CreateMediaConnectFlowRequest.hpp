@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->flowName_ == nullptr
-        && return this->flowRegion_ == nullptr; };
+        && this->flowRegion_ == nullptr; };
     // flowName Field Functions 
     bool hasFlowName() const { return this->flowName_ != nullptr;};
     void deleteFlowName() { this->flowName_ = nullptr;};
-    inline string flowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
+    inline string getFlowName() const { DARABONBA_PTR_GET_DEFAULT(flowName_, "") };
     inline CreateMediaConnectFlowRequest& setFlowName(string flowName) { DARABONBA_PTR_SET_VALUE(flowName_, flowName) };
 
 
     // flowRegion Field Functions 
     bool hasFlowRegion() const { return this->flowRegion_ != nullptr;};
     void deleteFlowRegion() { this->flowRegion_ = nullptr;};
-    inline string flowRegion() const { DARABONBA_PTR_GET_DEFAULT(flowRegion_, "") };
+    inline string getFlowRegion() const { DARABONBA_PTR_GET_DEFAULT(flowRegion_, "") };
     inline CreateMediaConnectFlowRequest& setFlowRegion(string flowRegion) { DARABONBA_PTR_SET_VALUE(flowRegion_, flowRegion) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The flow name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowName_ = nullptr;
+    shared_ptr<string> flowName_ {};
     // The region in which the flow resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowRegion_ = nullptr;
+    shared_ptr<string> flowRegion_ {};
   };
 
   } // namespace Models

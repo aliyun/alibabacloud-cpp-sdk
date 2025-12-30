@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->priority_ == nullptr && return this->speed_ == nullptr; };
+        && this->priority_ == nullptr && this->speed_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreatePipelineRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline CreatePipelineRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // speed Field Functions 
     bool hasSpeed() const { return this->speed_ != nullptr;};
     void deleteSpeed() { this->speed_ = nullptr;};
-    inline string speed() const { DARABONBA_PTR_GET_DEFAULT(speed_, "") };
+    inline string getSpeed() const { DARABONBA_PTR_GET_DEFAULT(speed_, "") };
     inline CreatePipelineRequest& setSpeed(string speed) { DARABONBA_PTR_SET_VALUE(speed_, speed) };
 
 
@@ -60,9 +60,9 @@ namespace Models
     // The name of the MPS queue.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The priority. Default value: 6. Valid values: 1 to 10. A greater value specifies a higher priority.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // The type of the MPS queue. Valid values:
     // 
     // 1.  Standard: standard MPS queue.
@@ -70,7 +70,7 @@ namespace Models
     // 3.  NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
     // 
     // This parameter is required.
-    std::shared_ptr<string> speed_ = nullptr;
+    shared_ptr<string> speed_ {};
   };
 
   } // namespace Models

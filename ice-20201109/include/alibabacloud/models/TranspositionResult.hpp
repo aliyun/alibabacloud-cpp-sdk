@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->targetLanguage_ == nullptr
-        && return this->translatedText_ == nullptr; };
+        && this->translatedText_ == nullptr; };
     // targetLanguage Field Functions 
     bool hasTargetLanguage() const { return this->targetLanguage_ != nullptr;};
     void deleteTargetLanguage() { this->targetLanguage_ = nullptr;};
-    inline string targetLanguage() const { DARABONBA_PTR_GET_DEFAULT(targetLanguage_, "") };
+    inline string getTargetLanguage() const { DARABONBA_PTR_GET_DEFAULT(targetLanguage_, "") };
     inline TranspositionResult& setTargetLanguage(string targetLanguage) { DARABONBA_PTR_SET_VALUE(targetLanguage_, targetLanguage) };
 
 
     // translatedText Field Functions 
     bool hasTranslatedText() const { return this->translatedText_ != nullptr;};
     void deleteTranslatedText() { this->translatedText_ = nullptr;};
-    inline string translatedText() const { DARABONBA_PTR_GET_DEFAULT(translatedText_, "") };
+    inline string getTranslatedText() const { DARABONBA_PTR_GET_DEFAULT(translatedText_, "") };
     inline TranspositionResult& setTranslatedText(string translatedText) { DARABONBA_PTR_SET_VALUE(translatedText_, translatedText) };
 
 
   protected:
-    std::shared_ptr<string> targetLanguage_ = nullptr;
-    std::shared_ptr<string> translatedText_ = nullptr;
+    shared_ptr<string> targetLanguage_ {};
+    shared_ptr<string> translatedText_ {};
   };
 
   } // namespace Models

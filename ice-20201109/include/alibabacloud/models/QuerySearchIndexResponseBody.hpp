@@ -42,82 +42,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->indexStatus_ == nullptr && return this->indexType_ == nullptr && return this->mediaTotal_ == nullptr && return this->requestId_ == nullptr && return this->searchLibName_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->indexStatus_ == nullptr && this->indexType_ == nullptr && this->mediaTotal_ == nullptr && this->requestId_ == nullptr && this->searchLibName_ == nullptr
+        && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline QuerySearchIndexResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // indexStatus Field Functions 
     bool hasIndexStatus() const { return this->indexStatus_ != nullptr;};
     void deleteIndexStatus() { this->indexStatus_ = nullptr;};
-    inline string indexStatus() const { DARABONBA_PTR_GET_DEFAULT(indexStatus_, "") };
+    inline string getIndexStatus() const { DARABONBA_PTR_GET_DEFAULT(indexStatus_, "") };
     inline QuerySearchIndexResponseBody& setIndexStatus(string indexStatus) { DARABONBA_PTR_SET_VALUE(indexStatus_, indexStatus) };
 
 
     // indexType Field Functions 
     bool hasIndexType() const { return this->indexType_ != nullptr;};
     void deleteIndexType() { this->indexType_ = nullptr;};
-    inline string indexType() const { DARABONBA_PTR_GET_DEFAULT(indexType_, "") };
+    inline string getIndexType() const { DARABONBA_PTR_GET_DEFAULT(indexType_, "") };
     inline QuerySearchIndexResponseBody& setIndexType(string indexType) { DARABONBA_PTR_SET_VALUE(indexType_, indexType) };
 
 
     // mediaTotal Field Functions 
     bool hasMediaTotal() const { return this->mediaTotal_ != nullptr;};
     void deleteMediaTotal() { this->mediaTotal_ = nullptr;};
-    inline string mediaTotal() const { DARABONBA_PTR_GET_DEFAULT(mediaTotal_, "") };
+    inline string getMediaTotal() const { DARABONBA_PTR_GET_DEFAULT(mediaTotal_, "") };
     inline QuerySearchIndexResponseBody& setMediaTotal(string mediaTotal) { DARABONBA_PTR_SET_VALUE(mediaTotal_, mediaTotal) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QuerySearchIndexResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // searchLibName Field Functions 
     bool hasSearchLibName() const { return this->searchLibName_ != nullptr;};
     void deleteSearchLibName() { this->searchLibName_ = nullptr;};
-    inline string searchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
+    inline string getSearchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
     inline QuerySearchIndexResponseBody& setSearchLibName(string searchLibName) { DARABONBA_PTR_SET_VALUE(searchLibName_, searchLibName) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline QuerySearchIndexResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The status code returned.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The state of the index. Valid values:
     // 
     // *   active: the index is enabled.
     // *   Deactive: the index is not enabled.
-    std::shared_ptr<string> indexStatus_ = nullptr;
+    shared_ptr<string> indexStatus_ {};
     // The category of the index. Valid values:
     // 
     // *   mm: large visual model.
     // *   face: face recognition.
     // *   aiLabel: smart tagging.
-    std::shared_ptr<string> indexType_ = nullptr;
+    shared_ptr<string> indexType_ {};
     // The total number of media assets.
-    std::shared_ptr<string> mediaTotal_ = nullptr;
+    shared_ptr<string> mediaTotal_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The name of the search library.
-    std::shared_ptr<string> searchLibName_ = nullptr;
+    shared_ptr<string> searchLibName_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models

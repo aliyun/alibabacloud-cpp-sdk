@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->duration_ == nullptr
-        && return this->forceSegTime_ == nullptr; };
+        && this->forceSegTime_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline MediaConvertSegment& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // forceSegTime Field Functions 
     bool hasForceSegTime() const { return this->forceSegTime_ != nullptr;};
     void deleteForceSegTime() { this->forceSegTime_ = nullptr;};
-    inline string forceSegTime() const { DARABONBA_PTR_GET_DEFAULT(forceSegTime_, "") };
+    inline string getForceSegTime() const { DARABONBA_PTR_GET_DEFAULT(forceSegTime_, "") };
     inline MediaConvertSegment& setForceSegTime(string forceSegTime) { DARABONBA_PTR_SET_VALUE(forceSegTime_, forceSegTime) };
 
 
   protected:
-    std::shared_ptr<int32_t> duration_ = nullptr;
-    std::shared_ptr<string> forceSegTime_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
+    shared_ptr<string> forceSegTime_ {};
   };
 
   } // namespace Models

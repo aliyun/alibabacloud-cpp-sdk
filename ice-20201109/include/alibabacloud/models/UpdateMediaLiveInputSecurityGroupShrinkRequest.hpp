@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->securityGroupId_ == nullptr && return this->whitelistRulesShrink_ == nullptr; };
+        && this->securityGroupId_ == nullptr && this->whitelistRulesShrink_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateMediaLiveInputSecurityGroupShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline UpdateMediaLiveInputSecurityGroupShrinkRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
     // whitelistRulesShrink Field Functions 
     bool hasWhitelistRulesShrink() const { return this->whitelistRulesShrink_ != nullptr;};
     void deleteWhitelistRulesShrink() { this->whitelistRulesShrink_ = nullptr;};
-    inline string whitelistRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(whitelistRulesShrink_, "") };
+    inline string getWhitelistRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(whitelistRulesShrink_, "") };
     inline UpdateMediaLiveInputSecurityGroupShrinkRequest& setWhitelistRulesShrink(string whitelistRulesShrink) { DARABONBA_PTR_SET_VALUE(whitelistRulesShrink_, whitelistRulesShrink) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the security group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> securityGroupId_ = nullptr;
+    shared_ptr<string> securityGroupId_ {};
     // The security group rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> whitelistRulesShrink_ = nullptr;
+    shared_ptr<string> whitelistRulesShrink_ {};
   };
 
   } // namespace Models

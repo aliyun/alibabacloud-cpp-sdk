@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTimestampListShrink_ == nullptr
-        && return this->deleteOriginalFile_ == nullptr && return this->jobId_ == nullptr; };
+        && this->deleteOriginalFile_ == nullptr && this->jobId_ == nullptr; };
     // createTimestampListShrink Field Functions 
     bool hasCreateTimestampListShrink() const { return this->createTimestampListShrink_ != nullptr;};
     void deleteCreateTimestampListShrink() { this->createTimestampListShrink_ = nullptr;};
-    inline string createTimestampListShrink() const { DARABONBA_PTR_GET_DEFAULT(createTimestampListShrink_, "") };
+    inline string getCreateTimestampListShrink() const { DARABONBA_PTR_GET_DEFAULT(createTimestampListShrink_, "") };
     inline DeleteLiveSnapshotFilesShrinkRequest& setCreateTimestampListShrink(string createTimestampListShrink) { DARABONBA_PTR_SET_VALUE(createTimestampListShrink_, createTimestampListShrink) };
 
 
     // deleteOriginalFile Field Functions 
     bool hasDeleteOriginalFile() const { return this->deleteOriginalFile_ != nullptr;};
     void deleteDeleteOriginalFile() { this->deleteOriginalFile_ = nullptr;};
-    inline bool deleteOriginalFile() const { DARABONBA_PTR_GET_DEFAULT(deleteOriginalFile_, false) };
+    inline bool getDeleteOriginalFile() const { DARABONBA_PTR_GET_DEFAULT(deleteOriginalFile_, false) };
     inline DeleteLiveSnapshotFilesShrinkRequest& setDeleteOriginalFile(bool deleteOriginalFile) { DARABONBA_PTR_SET_VALUE(deleteOriginalFile_, deleteOriginalFile) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline DeleteLiveSnapshotFilesShrinkRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The list of timestamps when the jobs were created. The values are UNIX timestamps representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A maximum of 200 jobs can be deleted at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> createTimestampListShrink_ = nullptr;
+    shared_ptr<string> createTimestampListShrink_ {};
     // Specifies whether to delete the original files at the same time. Default value: false.
-    std::shared_ptr<bool> deleteOriginalFile_ = nullptr;
+    shared_ptr<bool> deleteOriginalFile_ {};
     // The ID of the snapshot job.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
   };
 
   } // namespace Models

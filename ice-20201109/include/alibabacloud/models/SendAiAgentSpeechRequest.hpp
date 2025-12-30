@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableInterrupt_ == nullptr
-        && return this->instanceId_ == nullptr && return this->text_ == nullptr && return this->type_ == nullptr; };
+        && this->instanceId_ == nullptr && this->text_ == nullptr && this->type_ == nullptr; };
     // enableInterrupt Field Functions 
     bool hasEnableInterrupt() const { return this->enableInterrupt_ != nullptr;};
     void deleteEnableInterrupt() { this->enableInterrupt_ = nullptr;};
-    inline bool enableInterrupt() const { DARABONBA_PTR_GET_DEFAULT(enableInterrupt_, false) };
+    inline bool getEnableInterrupt() const { DARABONBA_PTR_GET_DEFAULT(enableInterrupt_, false) };
     inline SendAIAgentSpeechRequest& setEnableInterrupt(bool enableInterrupt) { DARABONBA_PTR_SET_VALUE(enableInterrupt_, enableInterrupt) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SendAIAgentSpeechRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline SendAIAgentSpeechRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline SendAIAgentSpeechRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // Specifies whether the broadcast can interrupt the ongoing speech. Default value: true
-    std::shared_ptr<bool> enableInterrupt_ = nullptr;
+    shared_ptr<bool> enableInterrupt_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> text_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> text_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DELETELIVESNAPSHOTFILESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,78 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DeleteFileResultList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DeleteFileResultList& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTimestamp, createTimestamp_);
+        DARABONBA_PTR_TO_JSON(Result, result_);
+      };
+      friend void from_json(const Darabonba::Json& j, DeleteFileResultList& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTimestamp, createTimestamp_);
+        DARABONBA_PTR_FROM_JSON(Result, result_);
+      };
+      DeleteFileResultList() = default ;
+      DeleteFileResultList(const DeleteFileResultList &) = default ;
+      DeleteFileResultList(DeleteFileResultList &&) = default ;
+      DeleteFileResultList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DeleteFileResultList() = default ;
+      DeleteFileResultList& operator=(const DeleteFileResultList &) = default ;
+      DeleteFileResultList& operator=(DeleteFileResultList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createTimestamp_ == nullptr
+        && this->result_ == nullptr; };
+      // createTimestamp Field Functions 
+      bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
+      void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
+      inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
+      inline DeleteFileResultList& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
+
+
+      // result Field Functions 
+      bool hasResult() const { return this->result_ != nullptr;};
+      void deleteResult() { this->result_ = nullptr;};
+      inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+      inline DeleteFileResultList& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+
+
+    protected:
+      // The time when the file was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      shared_ptr<int64_t> createTimestamp_ {};
+      // The result of deletion. A value of OK indicates that the file is deleted. Other values indicate that the file failed to be deleted.
+      // 
+      // Valid values:
+      // 
+      // *   OK: The file was deleted.
+      // *   NotFound: The file was not found.
+      shared_ptr<string> result_ {};
+    };
+
     virtual bool empty() const override { return this->deleteFileResultList_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // deleteFileResultList Field Functions 
     bool hasDeleteFileResultList() const { return this->deleteFileResultList_ != nullptr;};
     void deleteDeleteFileResultList() { this->deleteFileResultList_ = nullptr;};
-    inline const vector<DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList> & deleteFileResultList() const { DARABONBA_PTR_GET_CONST(deleteFileResultList_, vector<DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList>) };
-    inline vector<DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList> deleteFileResultList() { DARABONBA_PTR_GET(deleteFileResultList_, vector<DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList>) };
-    inline DeleteLiveSnapshotFilesResponseBody& setDeleteFileResultList(const vector<DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList> & deleteFileResultList) { DARABONBA_PTR_SET_VALUE(deleteFileResultList_, deleteFileResultList) };
-    inline DeleteLiveSnapshotFilesResponseBody& setDeleteFileResultList(vector<DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList> && deleteFileResultList) { DARABONBA_PTR_SET_RVALUE(deleteFileResultList_, deleteFileResultList) };
+    inline const vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList> & getDeleteFileResultList() const { DARABONBA_PTR_GET_CONST(deleteFileResultList_, vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList>) };
+    inline vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList> getDeleteFileResultList() { DARABONBA_PTR_GET(deleteFileResultList_, vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList>) };
+    inline DeleteLiveSnapshotFilesResponseBody& setDeleteFileResultList(const vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList> & deleteFileResultList) { DARABONBA_PTR_SET_VALUE(deleteFileResultList_, deleteFileResultList) };
+    inline DeleteLiveSnapshotFilesResponseBody& setDeleteFileResultList(vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList> && deleteFileResultList) { DARABONBA_PTR_SET_RVALUE(deleteFileResultList_, deleteFileResultList) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteLiveSnapshotFilesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The list of deleted files.
-    std::shared_ptr<vector<DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList>> deleteFileResultList_ = nullptr;
+    shared_ptr<vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList>> deleteFileResultList_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

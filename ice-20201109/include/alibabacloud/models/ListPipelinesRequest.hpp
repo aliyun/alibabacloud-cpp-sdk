@@ -33,7 +33,7 @@ namespace Models
     // speed Field Functions 
     bool hasSpeed() const { return this->speed_ != nullptr;};
     void deleteSpeed() { this->speed_ = nullptr;};
-    inline string speed() const { DARABONBA_PTR_GET_DEFAULT(speed_, "") };
+    inline string getSpeed() const { DARABONBA_PTR_GET_DEFAULT(speed_, "") };
     inline ListPipelinesRequest& setSpeed(string speed) { DARABONBA_PTR_SET_VALUE(speed_, speed) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   Boost: MPS queue with transcoding speed boosted.
     // *   Standard: standard MPS queue.
     // *   NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
-    std::shared_ptr<string> speed_ = nullptr;
+    shared_ptr<string> speed_ {};
   };
 
   } // namespace Models

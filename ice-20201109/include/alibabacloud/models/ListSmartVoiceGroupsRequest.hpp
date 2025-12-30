@@ -33,12 +33,12 @@ namespace Models
     // voiceType Field Functions 
     bool hasVoiceType() const { return this->voiceType_ != nullptr;};
     void deleteVoiceType() { this->voiceType_ = nullptr;};
-    inline string voiceType() const { DARABONBA_PTR_GET_DEFAULT(voiceType_, "") };
+    inline string getVoiceType() const { DARABONBA_PTR_GET_DEFAULT(voiceType_, "") };
     inline ListSmartVoiceGroupsRequest& setVoiceType(string voiceType) { DARABONBA_PTR_SET_VALUE(voiceType_, voiceType) };
 
 
   protected:
-    std::shared_ptr<string> voiceType_ = nullptr;
+    shared_ptr<string> voiceType_ {};
   };
 
   } // namespace Models

@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->biz_ == nullptr && return this->createTime_ == nullptr && return this->entityId_ == nullptr && return this->entityMediaId_ == nullptr && return this->modifiedTime_ == nullptr
-        && return this->status_ == nullptr && return this->userData_ == nullptr; };
+        && this->biz_ == nullptr && this->createTime_ == nullptr && this->entityId_ == nullptr && this->entityMediaId_ == nullptr && this->modifiedTime_ == nullptr
+        && this->status_ == nullptr && this->userData_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline EntityMediaBasicInfo& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
-    inline string biz() const { DARABONBA_PTR_GET_DEFAULT(biz_, "") };
+    inline string getBiz() const { DARABONBA_PTR_GET_DEFAULT(biz_, "") };
     inline EntityMediaBasicInfo& setBiz(string biz) { DARABONBA_PTR_SET_VALUE(biz_, biz) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline EntityMediaBasicInfo& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // entityId Field Functions 
     bool hasEntityId() const { return this->entityId_ != nullptr;};
     void deleteEntityId() { this->entityId_ = nullptr;};
-    inline string entityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
+    inline string getEntityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
     inline EntityMediaBasicInfo& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
 
 
     // entityMediaId Field Functions 
     bool hasEntityMediaId() const { return this->entityMediaId_ != nullptr;};
     void deleteEntityMediaId() { this->entityMediaId_ = nullptr;};
-    inline string entityMediaId() const { DARABONBA_PTR_GET_DEFAULT(entityMediaId_, "") };
+    inline string getEntityMediaId() const { DARABONBA_PTR_GET_DEFAULT(entityMediaId_, "") };
     inline EntityMediaBasicInfo& setEntityMediaId(string entityMediaId) { DARABONBA_PTR_SET_VALUE(entityMediaId_, entityMediaId) };
 
 
     // modifiedTime Field Functions 
     bool hasModifiedTime() const { return this->modifiedTime_ != nullptr;};
     void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
-    inline string modifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, "") };
+    inline string getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, "") };
     inline EntityMediaBasicInfo& setModifiedTime(string modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline EntityMediaBasicInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline EntityMediaBasicInfo& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> biz_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> entityId_ = nullptr;
-    std::shared_ptr<string> entityMediaId_ = nullptr;
-    std::shared_ptr<string> modifiedTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> biz_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> entityId_ {};
+    shared_ptr<string> entityMediaId_ {};
+    shared_ptr<string> modifiedTime_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

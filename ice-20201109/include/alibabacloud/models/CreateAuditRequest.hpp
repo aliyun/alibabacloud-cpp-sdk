@@ -33,7 +33,7 @@ namespace Models
     // auditContent Field Functions 
     bool hasAuditContent() const { return this->auditContent_ != nullptr;};
     void deleteAuditContent() { this->auditContent_ = nullptr;};
-    inline string auditContent() const { DARABONBA_PTR_GET_DEFAULT(auditContent_, "") };
+    inline string getAuditContent() const { DARABONBA_PTR_GET_DEFAULT(auditContent_, "") };
     inline CreateAuditRequest& setAuditContent(string auditContent) { DARABONBA_PTR_SET_VALUE(auditContent_, auditContent) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The review results. You can specify the results for a maximum of 20 videos at a time. The value must be converted to a string. For more information about the parameters in AuditContent, see the "AuditContent" section of this topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> auditContent_ = nullptr;
+    shared_ptr<string> auditContent_ {};
   };
 
   } // namespace Models

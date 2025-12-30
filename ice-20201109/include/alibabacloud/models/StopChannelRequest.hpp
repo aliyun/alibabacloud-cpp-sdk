@@ -33,7 +33,7 @@ namespace Models
     // channelName Field Functions 
     bool hasChannelName() const { return this->channelName_ != nullptr;};
     void deleteChannelName() { this->channelName_ = nullptr;};
-    inline string channelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
+    inline string getChannelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
     inline StopChannelRequest& setChannelName(string channelName) { DARABONBA_PTR_SET_VALUE(channelName_, channelName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the channel.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelName_ = nullptr;
+    shared_ptr<string> channelName_ {};
   };
 
   } // namespace Models

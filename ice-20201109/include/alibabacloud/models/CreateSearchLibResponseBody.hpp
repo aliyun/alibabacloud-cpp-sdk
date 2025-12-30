@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->requestId_ == nullptr && return this->searchLibName_ == nullptr && return this->success_ == nullptr; };
+        && this->requestId_ == nullptr && this->searchLibName_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline CreateSearchLibResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateSearchLibResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // searchLibName Field Functions 
     bool hasSearchLibName() const { return this->searchLibName_ != nullptr;};
     void deleteSearchLibName() { this->searchLibName_ = nullptr;};
-    inline string searchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
+    inline string getSearchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
     inline CreateSearchLibResponseBody& setSearchLibName(string searchLibName) { DARABONBA_PTR_SET_VALUE(searchLibName_, searchLibName) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline CreateSearchLibResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The status code returned.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The name of the search library.
-    std::shared_ptr<string> searchLibName_ = nullptr;
+    shared_ptr<string> searchLibName_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models

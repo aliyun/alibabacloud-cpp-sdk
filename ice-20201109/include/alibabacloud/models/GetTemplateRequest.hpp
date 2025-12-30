@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->relatedMediaidFlag_ == nullptr
-        && return this->templateId_ == nullptr; };
+        && this->templateId_ == nullptr; };
     // relatedMediaidFlag Field Functions 
     bool hasRelatedMediaidFlag() const { return this->relatedMediaidFlag_ != nullptr;};
     void deleteRelatedMediaidFlag() { this->relatedMediaidFlag_ = nullptr;};
-    inline string relatedMediaidFlag() const { DARABONBA_PTR_GET_DEFAULT(relatedMediaidFlag_, "") };
+    inline string getRelatedMediaidFlag() const { DARABONBA_PTR_GET_DEFAULT(relatedMediaidFlag_, "") };
     inline GetTemplateRequest& setRelatedMediaidFlag(string relatedMediaidFlag) { DARABONBA_PTR_SET_VALUE(relatedMediaidFlag_, relatedMediaidFlag) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline GetTemplateRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
     // Specifies whether to return the information about the associated materials. Default value: 0. Valid values: 0 and 1. A value of 1 specifies that the information about the associated materials is returned. This parameter is valid only for regular templates.
-    std::shared_ptr<string> relatedMediaidFlag_ = nullptr;
+    shared_ptr<string> relatedMediaidFlag_ {};
     // The template ID.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

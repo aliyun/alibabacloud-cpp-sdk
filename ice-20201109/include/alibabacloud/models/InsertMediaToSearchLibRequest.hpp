@@ -42,59 +42,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imagesInput_ == nullptr
-        && return this->input_ == nullptr && return this->mediaId_ == nullptr && return this->mediaType_ == nullptr && return this->msgBody_ == nullptr && return this->namespace_ == nullptr
-        && return this->searchLibName_ == nullptr; };
+        && this->input_ == nullptr && this->mediaId_ == nullptr && this->mediaType_ == nullptr && this->msgBody_ == nullptr && this->namespace_ == nullptr
+        && this->searchLibName_ == nullptr; };
     // imagesInput Field Functions 
     bool hasImagesInput() const { return this->imagesInput_ != nullptr;};
     void deleteImagesInput() { this->imagesInput_ = nullptr;};
-    inline string imagesInput() const { DARABONBA_PTR_GET_DEFAULT(imagesInput_, "") };
+    inline string getImagesInput() const { DARABONBA_PTR_GET_DEFAULT(imagesInput_, "") };
     inline InsertMediaToSearchLibRequest& setImagesInput(string imagesInput) { DARABONBA_PTR_SET_VALUE(imagesInput_, imagesInput) };
 
 
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
-    inline string input() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+    inline string getInput() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
     inline InsertMediaToSearchLibRequest& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline InsertMediaToSearchLibRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline string mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
+    inline string getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
     inline InsertMediaToSearchLibRequest& setMediaType(string mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
     // msgBody Field Functions 
     bool hasMsgBody() const { return this->msgBody_ != nullptr;};
     void deleteMsgBody() { this->msgBody_ = nullptr;};
-    inline string msgBody() const { DARABONBA_PTR_GET_DEFAULT(msgBody_, "") };
+    inline string getMsgBody() const { DARABONBA_PTR_GET_DEFAULT(msgBody_, "") };
     inline InsertMediaToSearchLibRequest& setMsgBody(string msgBody) { DARABONBA_PTR_SET_VALUE(msgBody_, msgBody) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline InsertMediaToSearchLibRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // searchLibName Field Functions 
     bool hasSearchLibName() const { return this->searchLibName_ != nullptr;};
     void deleteSearchLibName() { this->searchLibName_ = nullptr;};
-    inline string searchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
+    inline string getSearchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
     inline InsertMediaToSearchLibRequest& setSearchLibName(string searchLibName) { DARABONBA_PTR_SET_VALUE(searchLibName_, searchLibName) };
 
 
   protected:
-    std::shared_ptr<string> imagesInput_ = nullptr;
+    shared_ptr<string> imagesInput_ {};
     // The URL of the video, audio, or image file that you want to import to the search library.
     // 
     // Note: Make sure that you specify a correct file name and the bucket in which the file resides is in the same region where this operation is called. Otherwise, the file cannot be found or the operation may fail.
@@ -104,20 +104,20 @@ namespace Models
     // Specify an HTTP URL in the following format: public endpoint. For example, you can specify http://example-test-\\*\\*\\*\\*.mp4.
     // 
     // This parameter is required.
-    std::shared_ptr<string> input_ = nullptr;
+    shared_ptr<string> input_ {};
     // The ID of the media asset. Each media ID is unique. If you leave this parameter empty, a media ID is automatically generated for this parameter.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The type of the media asset. Valid values:
     // 
     // *   video (default)
     // *   image
     // *   audio
-    std::shared_ptr<string> mediaType_ = nullptr;
+    shared_ptr<string> mediaType_ {};
     // The message body.
-    std::shared_ptr<string> msgBody_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> msgBody_ {};
+    shared_ptr<string> namespace_ {};
     // The name of the search library. Default value: ims-default-search-lib.
-    std::shared_ptr<string> searchLibName_ = nullptr;
+    shared_ptr<string> searchLibName_ {};
   };
 
   } // namespace Models

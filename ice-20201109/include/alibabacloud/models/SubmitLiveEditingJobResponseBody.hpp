@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobId_ == nullptr
-        && return this->mediaId_ == nullptr && return this->mediaURL_ == nullptr && return this->projectId_ == nullptr && return this->requestId_ == nullptr && return this->vodMediaId_ == nullptr; };
+        && this->mediaId_ == nullptr && this->mediaURL_ == nullptr && this->projectId_ == nullptr && this->requestId_ == nullptr && this->vodMediaId_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline SubmitLiveEditingJobResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline SubmitLiveEditingJobResponseBody& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // mediaURL Field Functions 
     bool hasMediaURL() const { return this->mediaURL_ != nullptr;};
     void deleteMediaURL() { this->mediaURL_ = nullptr;};
-    inline string mediaURL() const { DARABONBA_PTR_GET_DEFAULT(mediaURL_, "") };
+    inline string getMediaURL() const { DARABONBA_PTR_GET_DEFAULT(mediaURL_, "") };
     inline SubmitLiveEditingJobResponseBody& setMediaURL(string mediaURL) { DARABONBA_PTR_SET_VALUE(mediaURL_, mediaURL) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline SubmitLiveEditingJobResponseBody& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SubmitLiveEditingJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vodMediaId Field Functions 
     bool hasVodMediaId() const { return this->vodMediaId_ != nullptr;};
     void deleteVodMediaId() { this->vodMediaId_ = nullptr;};
-    inline string vodMediaId() const { DARABONBA_PTR_GET_DEFAULT(vodMediaId_, "") };
+    inline string getVodMediaId() const { DARABONBA_PTR_GET_DEFAULT(vodMediaId_, "") };
     inline SubmitLiveEditingJobResponseBody& setVodMediaId(string vodMediaId) { DARABONBA_PTR_SET_VALUE(vodMediaId_, vodMediaId) };
 
 
   protected:
     // The ID of the live editing job.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The media asset ID of the output file.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The URL of the output file.
-    std::shared_ptr<string> mediaURL_ = nullptr;
+    shared_ptr<string> mediaURL_ {};
     // The ID of the live editing project.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
-    std::shared_ptr<string> vodMediaId_ = nullptr;
+    shared_ptr<string> vodMediaId_ {};
   };
 
   } // namespace Models

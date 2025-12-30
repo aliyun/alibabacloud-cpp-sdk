@@ -33,13 +33,13 @@ namespace Models
     // assetName Field Functions 
     bool hasAssetName() const { return this->assetName_ != nullptr;};
     void deleteAssetName() { this->assetName_ = nullptr;};
-    inline string assetName() const { DARABONBA_PTR_GET_DEFAULT(assetName_, "") };
+    inline string getAssetName() const { DARABONBA_PTR_GET_DEFAULT(assetName_, "") };
     inline DeleteVodPackagingAssetRequest& setAssetName(string assetName) { DARABONBA_PTR_SET_VALUE(assetName_, assetName) };
 
 
   protected:
     // The name of the VOD packaging asset.
-    std::shared_ptr<string> assetName_ = nullptr;
+    shared_ptr<string> assetName_ {};
   };
 
   } // namespace Models

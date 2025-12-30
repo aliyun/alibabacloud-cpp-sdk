@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->indexFile_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // indexFile Field Functions 
     bool hasIndexFile() const { return this->indexFile_ != nullptr;};
     void deleteIndexFile() { this->indexFile_ = nullptr;};
-    inline string indexFile() const { DARABONBA_PTR_GET_DEFAULT(indexFile_, "") };
+    inline string getIndexFile() const { DARABONBA_PTR_GET_DEFAULT(indexFile_, "") };
     inline GetLiveEditingIndexFileResponseBody& setIndexFile(string indexFile) { DARABONBA_PTR_SET_VALUE(indexFile_, indexFile) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetLiveEditingIndexFileResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The URL of the index file.
-    std::shared_ptr<string> indexFile_ = nullptr;
+    shared_ptr<string> indexFile_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

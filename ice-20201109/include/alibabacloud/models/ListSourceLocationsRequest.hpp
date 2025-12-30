@@ -40,63 +40,63 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterState_ == nullptr
-        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr && return this->sortByModifiedTime_ == nullptr && return this->sourceLocationName_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr && this->sortByModifiedTime_ == nullptr && this->sourceLocationName_ == nullptr; };
     // filterState Field Functions 
     bool hasFilterState() const { return this->filterState_ != nullptr;};
     void deleteFilterState() { this->filterState_ = nullptr;};
-    inline bool filterState() const { DARABONBA_PTR_GET_DEFAULT(filterState_, false) };
+    inline bool getFilterState() const { DARABONBA_PTR_GET_DEFAULT(filterState_, false) };
     inline ListSourceLocationsRequest& setFilterState(bool filterState) { DARABONBA_PTR_SET_VALUE(filterState_, filterState) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline ListSourceLocationsRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListSourceLocationsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListSourceLocationsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // sortByModifiedTime Field Functions 
     bool hasSortByModifiedTime() const { return this->sortByModifiedTime_ != nullptr;};
     void deleteSortByModifiedTime() { this->sortByModifiedTime_ = nullptr;};
-    inline string sortByModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(sortByModifiedTime_, "") };
+    inline string getSortByModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(sortByModifiedTime_, "") };
     inline ListSourceLocationsRequest& setSortByModifiedTime(string sortByModifiedTime) { DARABONBA_PTR_SET_VALUE(sortByModifiedTime_, sortByModifiedTime) };
 
 
     // sourceLocationName Field Functions 
     bool hasSourceLocationName() const { return this->sourceLocationName_ != nullptr;};
     void deleteSourceLocationName() { this->sourceLocationName_ = nullptr;};
-    inline string sourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
+    inline string getSourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
     inline ListSourceLocationsRequest& setSourceLocationName(string sourceLocationName) { DARABONBA_PTR_SET_VALUE(sourceLocationName_, sourceLocationName) };
 
 
   protected:
     // Specifies whether to ignore source locations marked as deleted. A value of true means ignoring source locations marked as deleted.
-    std::shared_ptr<bool> filterState_ = nullptr;
+    shared_ptr<bool> filterState_ {};
     // *   The page number.
     // *   Default value: 1.
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
+    shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 20. Valid values: 1 to 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The sorting order. By default, the query results are sorted by creation time in descending order.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The sorting order of the source locations based on the time when they were last modified.
-    std::shared_ptr<string> sortByModifiedTime_ = nullptr;
+    shared_ptr<string> sortByModifiedTime_ {};
     // The name of the source location.
-    std::shared_ptr<string> sourceLocationName_ = nullptr;
+    shared_ptr<string> sourceLocationName_ {};
   };
 
   } // namespace Models

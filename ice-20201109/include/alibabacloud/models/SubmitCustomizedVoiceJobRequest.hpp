@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->demoAudioMediaURL_ == nullptr
-        && return this->voiceId_ == nullptr; };
+        && this->voiceId_ == nullptr; };
     // demoAudioMediaURL Field Functions 
     bool hasDemoAudioMediaURL() const { return this->demoAudioMediaURL_ != nullptr;};
     void deleteDemoAudioMediaURL() { this->demoAudioMediaURL_ = nullptr;};
-    inline string demoAudioMediaURL() const { DARABONBA_PTR_GET_DEFAULT(demoAudioMediaURL_, "") };
+    inline string getDemoAudioMediaURL() const { DARABONBA_PTR_GET_DEFAULT(demoAudioMediaURL_, "") };
     inline SubmitCustomizedVoiceJobRequest& setDemoAudioMediaURL(string demoAudioMediaURL) { DARABONBA_PTR_SET_VALUE(demoAudioMediaURL_, demoAudioMediaURL) };
 
 
     // voiceId Field Functions 
     bool hasVoiceId() const { return this->voiceId_ != nullptr;};
     void deleteVoiceId() { this->voiceId_ = nullptr;};
-    inline string voiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
+    inline string getVoiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
     inline SubmitCustomizedVoiceJobRequest& setVoiceId(string voiceId) { DARABONBA_PTR_SET_VALUE(voiceId_, voiceId) };
 
 
@@ -57,11 +57,11 @@ namespace Models
     //     **
     // 
     //     **Note**: The URL must be a valid public OSS URL within your Alibaba Cloud account.
-    std::shared_ptr<string> demoAudioMediaURL_ = nullptr;
+    shared_ptr<string> demoAudioMediaURL_ {};
     // The voice ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> voiceId_ = nullptr;
+    shared_ptr<string> voiceId_ {};
   };
 
   } // namespace Models

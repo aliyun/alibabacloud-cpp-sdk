@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->flowId_ == nullptr
-        && return this->outputName_ == nullptr; };
+        && this->outputName_ == nullptr; };
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};
-    inline string flowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+    inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
     inline ForbidMediaConnectFlowOutputRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
 
 
     // outputName Field Functions 
     bool hasOutputName() const { return this->outputName_ != nullptr;};
     void deleteOutputName() { this->outputName_ = nullptr;};
-    inline string outputName() const { DARABONBA_PTR_GET_DEFAULT(outputName_, "") };
+    inline string getOutputName() const { DARABONBA_PTR_GET_DEFAULT(outputName_, "") };
     inline ForbidMediaConnectFlowOutputRequest& setOutputName(string outputName) { DARABONBA_PTR_SET_VALUE(outputName_, outputName) };
 
 
   protected:
     // The ID of the MediaConnect flow.
-    std::shared_ptr<string> flowId_ = nullptr;
+    shared_ptr<string> flowId_ {};
     // The name of the output.
-    std::shared_ptr<string> outputName_ = nullptr;
+    shared_ptr<string> outputName_ {};
   };
 
   } // namespace Models

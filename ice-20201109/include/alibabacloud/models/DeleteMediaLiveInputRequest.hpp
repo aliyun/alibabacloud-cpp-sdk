@@ -33,7 +33,7 @@ namespace Models
     // inputId Field Functions 
     bool hasInputId() const { return this->inputId_ != nullptr;};
     void deleteInputId() { this->inputId_ = nullptr;};
-    inline string inputId() const { DARABONBA_PTR_GET_DEFAULT(inputId_, "") };
+    inline string getInputId() const { DARABONBA_PTR_GET_DEFAULT(inputId_, "") };
     inline DeleteMediaLiveInputRequest& setInputId(string inputId) { DARABONBA_PTR_SET_VALUE(inputId_, inputId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the input.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputId_ = nullptr;
+    shared_ptr<string> inputId_ {};
   };
 
   } // namespace Models

@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->AIAgentId_ == nullptr
-        && return this->agentConfigShrink_ == nullptr && return this->chatSyncConfigShrink_ == nullptr && return this->runtimeConfigShrink_ == nullptr && return this->sessionId_ == nullptr && return this->templateConfigShrink_ == nullptr
-        && return this->userData_ == nullptr; };
+        && this->agentConfigShrink_ == nullptr && this->chatSyncConfigShrink_ == nullptr && this->runtimeConfigShrink_ == nullptr && this->sessionId_ == nullptr && this->templateConfigShrink_ == nullptr
+        && this->userData_ == nullptr; };
     // AIAgentId Field Functions 
     bool hasAIAgentId() const { return this->AIAgentId_ != nullptr;};
     void deleteAIAgentId() { this->AIAgentId_ = nullptr;};
-    inline string AIAgentId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentId_, "") };
+    inline string getAIAgentId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentId_, "") };
     inline StartAIAgentInstanceShrinkRequest& setAIAgentId(string AIAgentId) { DARABONBA_PTR_SET_VALUE(AIAgentId_, AIAgentId) };
 
 
     // agentConfigShrink Field Functions 
     bool hasAgentConfigShrink() const { return this->agentConfigShrink_ != nullptr;};
     void deleteAgentConfigShrink() { this->agentConfigShrink_ = nullptr;};
-    inline string agentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(agentConfigShrink_, "") };
+    inline string getAgentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(agentConfigShrink_, "") };
     inline StartAIAgentInstanceShrinkRequest& setAgentConfigShrink(string agentConfigShrink) { DARABONBA_PTR_SET_VALUE(agentConfigShrink_, agentConfigShrink) };
 
 
     // chatSyncConfigShrink Field Functions 
     bool hasChatSyncConfigShrink() const { return this->chatSyncConfigShrink_ != nullptr;};
     void deleteChatSyncConfigShrink() { this->chatSyncConfigShrink_ = nullptr;};
-    inline string chatSyncConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(chatSyncConfigShrink_, "") };
+    inline string getChatSyncConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(chatSyncConfigShrink_, "") };
     inline StartAIAgentInstanceShrinkRequest& setChatSyncConfigShrink(string chatSyncConfigShrink) { DARABONBA_PTR_SET_VALUE(chatSyncConfigShrink_, chatSyncConfigShrink) };
 
 
     // runtimeConfigShrink Field Functions 
     bool hasRuntimeConfigShrink() const { return this->runtimeConfigShrink_ != nullptr;};
     void deleteRuntimeConfigShrink() { this->runtimeConfigShrink_ = nullptr;};
-    inline string runtimeConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(runtimeConfigShrink_, "") };
+    inline string getRuntimeConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(runtimeConfigShrink_, "") };
     inline StartAIAgentInstanceShrinkRequest& setRuntimeConfigShrink(string runtimeConfigShrink) { DARABONBA_PTR_SET_VALUE(runtimeConfigShrink_, runtimeConfigShrink) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline StartAIAgentInstanceShrinkRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // templateConfigShrink Field Functions 
     bool hasTemplateConfigShrink() const { return this->templateConfigShrink_ != nullptr;};
     void deleteTemplateConfigShrink() { this->templateConfigShrink_ = nullptr;};
-    inline string templateConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(templateConfigShrink_, "") };
+    inline string getTemplateConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(templateConfigShrink_, "") };
     inline StartAIAgentInstanceShrinkRequest& setTemplateConfigShrink(string templateConfigShrink) { DARABONBA_PTR_SET_VALUE(templateConfigShrink_, templateConfigShrink) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline StartAIAgentInstanceShrinkRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -97,15 +97,15 @@ namespace Models
     // The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> AIAgentId_ = nullptr;
-    std::shared_ptr<string> agentConfigShrink_ = nullptr;
+    shared_ptr<string> AIAgentId_ {};
+    shared_ptr<string> agentConfigShrink_ {};
     // 同步聊天记录配置。
-    std::shared_ptr<string> chatSyncConfigShrink_ = nullptr;
+    shared_ptr<string> chatSyncConfigShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> runtimeConfigShrink_ = nullptr;
-    std::shared_ptr<string> sessionId_ = nullptr;
-    std::shared_ptr<string> templateConfigShrink_ = nullptr;
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> runtimeConfigShrink_ {};
+    shared_ptr<string> sessionId_ {};
+    shared_ptr<string> templateConfigShrink_ {};
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

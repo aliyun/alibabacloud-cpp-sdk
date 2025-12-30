@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createSource_ == nullptr
-        && return this->keyword_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->sortType_ == nullptr && return this->status_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->keyword_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->sortType_ == nullptr && this->status_ == nullptr
+        && this->type_ == nullptr; };
     // createSource Field Functions 
     bool hasCreateSource() const { return this->createSource_ != nullptr;};
     void deleteCreateSource() { this->createSource_ = nullptr;};
-    inline string createSource() const { DARABONBA_PTR_GET_DEFAULT(createSource_, "") };
+    inline string getCreateSource() const { DARABONBA_PTR_GET_DEFAULT(createSource_, "") };
     inline ListTemplatesRequest& setCreateSource(string createSource) { DARABONBA_PTR_SET_VALUE(createSource_, createSource) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListTemplatesRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int64_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0L) };
+    inline int64_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0L) };
     inline ListTemplatesRequest& setPageNo(int64_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListTemplatesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sortType Field Functions 
     bool hasSortType() const { return this->sortType_ != nullptr;};
     void deleteSortType() { this->sortType_ = nullptr;};
-    inline string sortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
     inline ListTemplatesRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListTemplatesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListTemplatesRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -101,20 +101,20 @@ namespace Models
     // *   AliyunConsole
     // *   WebSDK
     // *   OpenAPI
-    std::shared_ptr<string> createSource_ = nullptr;
+    shared_ptr<string> createSource_ {};
     // The search keyword. You can use the template ID or title as the keyword to search for templates.
-    std::shared_ptr<string> keyword_ = nullptr;
+    shared_ptr<string> keyword_ {};
     // The page number. Default value: 1.
-    std::shared_ptr<int64_t> pageNo_ = nullptr;
+    shared_ptr<int64_t> pageNo_ {};
     // The number of entries per page. Default value: 20. Valid values: 1 to 100.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The sorting parameter. By default, the query results are sorted by creation time in descending order.
     // 
     // Valid values:
     // 
     // *   CreationTime:Asc: sorted by creation time in ascending order.
     // *   CreationTime:Desc: sorted by creation time in descending order.
-    std::shared_ptr<string> sortType_ = nullptr;
+    shared_ptr<string> sortType_ {};
     // The template state.
     // 
     // Valid values:
@@ -125,14 +125,14 @@ namespace Models
     // *   Uploading: The video is being uploaded.
     // *   Created: The template is created but not ready for use.
     // *   Processing: The advanced template is being processed.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The template type.
     // 
     // Valid values:
     // 
     // *   Timeline
     // *   VETemplate
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

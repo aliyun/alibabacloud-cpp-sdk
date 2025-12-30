@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->sourceLocation_ == nullptr; };
+        && this->sourceLocation_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateSourceLocationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sourceLocation Field Functions 
     bool hasSourceLocation() const { return this->sourceLocation_ != nullptr;};
     void deleteSourceLocation() { this->sourceLocation_ = nullptr;};
-    inline const ChannelAssemblySourceLocation & sourceLocation() const { DARABONBA_PTR_GET_CONST(sourceLocation_, ChannelAssemblySourceLocation) };
-    inline ChannelAssemblySourceLocation sourceLocation() { DARABONBA_PTR_GET(sourceLocation_, ChannelAssemblySourceLocation) };
+    inline const ChannelAssemblySourceLocation & getSourceLocation() const { DARABONBA_PTR_GET_CONST(sourceLocation_, ChannelAssemblySourceLocation) };
+    inline ChannelAssemblySourceLocation getSourceLocation() { DARABONBA_PTR_GET(sourceLocation_, ChannelAssemblySourceLocation) };
     inline CreateSourceLocationResponseBody& setSourceLocation(const ChannelAssemblySourceLocation & sourceLocation) { DARABONBA_PTR_SET_VALUE(sourceLocation_, sourceLocation) };
     inline CreateSourceLocationResponseBody& setSourceLocation(ChannelAssemblySourceLocation && sourceLocation) { DARABONBA_PTR_SET_RVALUE(sourceLocation_, sourceLocation) };
 
 
   protected:
     // **Request ID**
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The source location information.
-    std::shared_ptr<ChannelAssemblySourceLocation> sourceLocation_ = nullptr;
+    shared_ptr<ChannelAssemblySourceLocation> sourceLocation_ {};
   };
 
   } // namespace Models

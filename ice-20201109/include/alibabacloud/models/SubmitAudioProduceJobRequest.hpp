@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->editingConfig_ == nullptr && return this->inputConfig_ == nullptr && return this->outputConfig_ == nullptr && return this->overwrite_ == nullptr && return this->title_ == nullptr
-        && return this->userData_ == nullptr; };
+        && this->editingConfig_ == nullptr && this->inputConfig_ == nullptr && this->outputConfig_ == nullptr && this->overwrite_ == nullptr && this->title_ == nullptr
+        && this->userData_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SubmitAudioProduceJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // editingConfig Field Functions 
     bool hasEditingConfig() const { return this->editingConfig_ != nullptr;};
     void deleteEditingConfig() { this->editingConfig_ = nullptr;};
-    inline string editingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
+    inline string getEditingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
     inline SubmitAudioProduceJobRequest& setEditingConfig(string editingConfig) { DARABONBA_PTR_SET_VALUE(editingConfig_, editingConfig) };
 
 
     // inputConfig Field Functions 
     bool hasInputConfig() const { return this->inputConfig_ != nullptr;};
     void deleteInputConfig() { this->inputConfig_ = nullptr;};
-    inline string inputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
+    inline string getInputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
     inline SubmitAudioProduceJobRequest& setInputConfig(string inputConfig) { DARABONBA_PTR_SET_VALUE(inputConfig_, inputConfig) };
 
 
     // outputConfig Field Functions 
     bool hasOutputConfig() const { return this->outputConfig_ != nullptr;};
     void deleteOutputConfig() { this->outputConfig_ = nullptr;};
-    inline string outputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
+    inline string getOutputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
     inline SubmitAudioProduceJobRequest& setOutputConfig(string outputConfig) { DARABONBA_PTR_SET_VALUE(outputConfig_, outputConfig) };
 
 
     // overwrite Field Functions 
     bool hasOverwrite() const { return this->overwrite_ != nullptr;};
     void deleteOverwrite() { this->overwrite_ = nullptr;};
-    inline bool overwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, false) };
+    inline bool getOverwrite() const { DARABONBA_PTR_GET_DEFAULT(overwrite_, false) };
     inline SubmitAudioProduceJobRequest& setOverwrite(bool overwrite) { DARABONBA_PTR_SET_VALUE(overwrite_, overwrite) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline SubmitAudioProduceJobRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitAudioProduceJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -98,7 +98,7 @@ namespace Models
     // 
     // *   The job description can be up to 1,024 bytes in length.
     // *   The value must be encoded in UTF-8.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The audio editing configurations.
     // 
     // *   voice: the [voice type](https://help.aliyun.com/document_detail/449563.html).
@@ -111,24 +111,24 @@ namespace Models
     // >  If you specify both voice and customizedVoice, customizedVoice takes precedence over voice.
     // 
     // This parameter is required.
-    std::shared_ptr<string> editingConfig_ = nullptr;
+    shared_ptr<string> editingConfig_ {};
     // The text content. A maximum of 2,000 characters are supported. The [Speech Synthesis Markup Language (SSML)](https://help.aliyun.com/document_detail/2672807.html) is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputConfig_ = nullptr;
+    shared_ptr<string> inputConfig_ {};
     // The output audio configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputConfig_ = nullptr;
+    shared_ptr<string> outputConfig_ {};
     // Specifies whether to overwrite the existing Object Storage Service (OSS) object.
-    std::shared_ptr<bool> overwrite_ = nullptr;
+    shared_ptr<bool> overwrite_ {};
     // The job title. If you do not specify this parameter, the system generates a title based on the current date.
     // 
     // *   The job title can be up to 128 bytes in length.
     // *   The value must be encoded in UTF-8.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
     // The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

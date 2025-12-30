@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->AIAgentUserId_ == nullptr
-        && return this->channelId_ == nullptr && return this->instanceId_ == nullptr && return this->requestId_ == nullptr && return this->token_ == nullptr && return this->userId_ == nullptr; };
+        && this->channelId_ == nullptr && this->instanceId_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr && this->userId_ == nullptr; };
     // AIAgentUserId Field Functions 
     bool hasAIAgentUserId() const { return this->AIAgentUserId_ != nullptr;};
     void deleteAIAgentUserId() { this->AIAgentUserId_ = nullptr;};
-    inline string AIAgentUserId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentUserId_, "") };
+    inline string getAIAgentUserId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentUserId_, "") };
     inline GenerateAIAgentCallResponseBody& setAIAgentUserId(string AIAgentUserId) { DARABONBA_PTR_SET_VALUE(AIAgentUserId_, AIAgentUserId) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline GenerateAIAgentCallResponseBody& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GenerateAIAgentCallResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateAIAgentCallResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GenerateAIAgentCallResponseBody& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GenerateAIAgentCallResponseBody& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // The username of the AI agent in the Alibaba Real-Time Communication (ARTC) channel.
-    std::shared_ptr<string> AIAgentUserId_ = nullptr;
+    shared_ptr<string> AIAgentUserId_ {};
     // The ARTC channel ID.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
     // The ID of the AI agent.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ARTC token of the client.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
     // The username in the ARTC channel.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // voiceId Field Functions 
     bool hasVoiceId() const { return this->voiceId_ != nullptr;};
     void deleteVoiceId() { this->voiceId_ = nullptr;};
-    inline string voiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
+    inline string getVoiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
     inline GetCustomizedVoiceRequest& setVoiceId(string voiceId) { DARABONBA_PTR_SET_VALUE(voiceId_, voiceId) };
 
 
   protected:
     // The voice ID.
-    std::shared_ptr<string> voiceId_ = nullptr;
+    shared_ptr<string> voiceId_ {};
   };
 
   } // namespace Models

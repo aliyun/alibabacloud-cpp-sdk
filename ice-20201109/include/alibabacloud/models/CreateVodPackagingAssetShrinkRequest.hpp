@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetName_ == nullptr
-        && return this->contentId_ == nullptr && return this->description_ == nullptr && return this->groupName_ == nullptr && return this->inputShrink_ == nullptr; };
+        && this->contentId_ == nullptr && this->description_ == nullptr && this->groupName_ == nullptr && this->inputShrink_ == nullptr; };
     // assetName Field Functions 
     bool hasAssetName() const { return this->assetName_ != nullptr;};
     void deleteAssetName() { this->assetName_ = nullptr;};
-    inline string assetName() const { DARABONBA_PTR_GET_DEFAULT(assetName_, "") };
+    inline string getAssetName() const { DARABONBA_PTR_GET_DEFAULT(assetName_, "") };
     inline CreateVodPackagingAssetShrinkRequest& setAssetName(string assetName) { DARABONBA_PTR_SET_VALUE(assetName_, assetName) };
 
 
     // contentId Field Functions 
     bool hasContentId() const { return this->contentId_ != nullptr;};
     void deleteContentId() { this->contentId_ = nullptr;};
-    inline string contentId() const { DARABONBA_PTR_GET_DEFAULT(contentId_, "") };
+    inline string getContentId() const { DARABONBA_PTR_GET_DEFAULT(contentId_, "") };
     inline CreateVodPackagingAssetShrinkRequest& setContentId(string contentId) { DARABONBA_PTR_SET_VALUE(contentId_, contentId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateVodPackagingAssetShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateVodPackagingAssetShrinkRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // inputShrink Field Functions 
     bool hasInputShrink() const { return this->inputShrink_ != nullptr;};
     void deleteInputShrink() { this->inputShrink_ = nullptr;};
-    inline string inputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
+    inline string getInputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
     inline CreateVodPackagingAssetShrinkRequest& setInputShrink(string inputShrink) { DARABONBA_PTR_SET_VALUE(inputShrink_, inputShrink) };
 
 
   protected:
     // The name of the asset. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
-    std::shared_ptr<string> assetName_ = nullptr;
+    shared_ptr<string> assetName_ {};
     // The content ID in the digital rights management (DRM) system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported.
-    std::shared_ptr<string> contentId_ = nullptr;
+    shared_ptr<string> contentId_ {};
     // The asset description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the packaging group.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The asset input configurations.
-    std::shared_ptr<string> inputShrink_ = nullptr;
+    shared_ptr<string> inputShrink_ {};
   };
 
   } // namespace Models

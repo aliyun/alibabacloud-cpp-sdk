@@ -44,82 +44,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cidrs_ == nullptr
-        && return this->flowId_ == nullptr && return this->inputFromUrl_ == nullptr && return this->inputName_ == nullptr && return this->maxBitrate_ == nullptr && return this->srtLatency_ == nullptr
-        && return this->srtPassphrase_ == nullptr && return this->srtPbkeyLen_ == nullptr; };
+        && this->flowId_ == nullptr && this->inputFromUrl_ == nullptr && this->inputName_ == nullptr && this->maxBitrate_ == nullptr && this->srtLatency_ == nullptr
+        && this->srtPassphrase_ == nullptr && this->srtPbkeyLen_ == nullptr; };
     // cidrs Field Functions 
     bool hasCidrs() const { return this->cidrs_ != nullptr;};
     void deleteCidrs() { this->cidrs_ = nullptr;};
-    inline string cidrs() const { DARABONBA_PTR_GET_DEFAULT(cidrs_, "") };
+    inline string getCidrs() const { DARABONBA_PTR_GET_DEFAULT(cidrs_, "") };
     inline UpdateMediaConnectFlowInputRequest& setCidrs(string cidrs) { DARABONBA_PTR_SET_VALUE(cidrs_, cidrs) };
 
 
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};
-    inline string flowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
+    inline string getFlowId() const { DARABONBA_PTR_GET_DEFAULT(flowId_, "") };
     inline UpdateMediaConnectFlowInputRequest& setFlowId(string flowId) { DARABONBA_PTR_SET_VALUE(flowId_, flowId) };
 
 
     // inputFromUrl Field Functions 
     bool hasInputFromUrl() const { return this->inputFromUrl_ != nullptr;};
     void deleteInputFromUrl() { this->inputFromUrl_ = nullptr;};
-    inline string inputFromUrl() const { DARABONBA_PTR_GET_DEFAULT(inputFromUrl_, "") };
+    inline string getInputFromUrl() const { DARABONBA_PTR_GET_DEFAULT(inputFromUrl_, "") };
     inline UpdateMediaConnectFlowInputRequest& setInputFromUrl(string inputFromUrl) { DARABONBA_PTR_SET_VALUE(inputFromUrl_, inputFromUrl) };
 
 
     // inputName Field Functions 
     bool hasInputName() const { return this->inputName_ != nullptr;};
     void deleteInputName() { this->inputName_ = nullptr;};
-    inline string inputName() const { DARABONBA_PTR_GET_DEFAULT(inputName_, "") };
+    inline string getInputName() const { DARABONBA_PTR_GET_DEFAULT(inputName_, "") };
     inline UpdateMediaConnectFlowInputRequest& setInputName(string inputName) { DARABONBA_PTR_SET_VALUE(inputName_, inputName) };
 
 
     // maxBitrate Field Functions 
     bool hasMaxBitrate() const { return this->maxBitrate_ != nullptr;};
     void deleteMaxBitrate() { this->maxBitrate_ = nullptr;};
-    inline int32_t maxBitrate() const { DARABONBA_PTR_GET_DEFAULT(maxBitrate_, 0) };
+    inline int32_t getMaxBitrate() const { DARABONBA_PTR_GET_DEFAULT(maxBitrate_, 0) };
     inline UpdateMediaConnectFlowInputRequest& setMaxBitrate(int32_t maxBitrate) { DARABONBA_PTR_SET_VALUE(maxBitrate_, maxBitrate) };
 
 
     // srtLatency Field Functions 
     bool hasSrtLatency() const { return this->srtLatency_ != nullptr;};
     void deleteSrtLatency() { this->srtLatency_ = nullptr;};
-    inline int32_t srtLatency() const { DARABONBA_PTR_GET_DEFAULT(srtLatency_, 0) };
+    inline int32_t getSrtLatency() const { DARABONBA_PTR_GET_DEFAULT(srtLatency_, 0) };
     inline UpdateMediaConnectFlowInputRequest& setSrtLatency(int32_t srtLatency) { DARABONBA_PTR_SET_VALUE(srtLatency_, srtLatency) };
 
 
     // srtPassphrase Field Functions 
     bool hasSrtPassphrase() const { return this->srtPassphrase_ != nullptr;};
     void deleteSrtPassphrase() { this->srtPassphrase_ = nullptr;};
-    inline string srtPassphrase() const { DARABONBA_PTR_GET_DEFAULT(srtPassphrase_, "") };
+    inline string getSrtPassphrase() const { DARABONBA_PTR_GET_DEFAULT(srtPassphrase_, "") };
     inline UpdateMediaConnectFlowInputRequest& setSrtPassphrase(string srtPassphrase) { DARABONBA_PTR_SET_VALUE(srtPassphrase_, srtPassphrase) };
 
 
     // srtPbkeyLen Field Functions 
     bool hasSrtPbkeyLen() const { return this->srtPbkeyLen_ != nullptr;};
     void deleteSrtPbkeyLen() { this->srtPbkeyLen_ = nullptr;};
-    inline int32_t srtPbkeyLen() const { DARABONBA_PTR_GET_DEFAULT(srtPbkeyLen_, 0) };
+    inline int32_t getSrtPbkeyLen() const { DARABONBA_PTR_GET_DEFAULT(srtPbkeyLen_, 0) };
     inline UpdateMediaConnectFlowInputRequest& setSrtPbkeyLen(int32_t srtPbkeyLen) { DARABONBA_PTR_SET_VALUE(srtPbkeyLen_, srtPbkeyLen) };
 
 
   protected:
     // The IP address whitelist.
-    std::shared_ptr<string> cidrs_ = nullptr;
+    shared_ptr<string> cidrs_ {};
     // The flow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> flowId_ = nullptr;
+    shared_ptr<string> flowId_ {};
     // The source URL. You can modify this parameter only when the source type is RTMP-PULL or SRT-Listener.
-    std::shared_ptr<string> inputFromUrl_ = nullptr;
-    std::shared_ptr<string> inputName_ = nullptr;
+    shared_ptr<string> inputFromUrl_ {};
+    shared_ptr<string> inputName_ {};
     // The maximum bitrate. Unit: bit/s.
-    std::shared_ptr<int32_t> maxBitrate_ = nullptr;
+    shared_ptr<int32_t> maxBitrate_ {};
     // The latency for the SRT stream. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
-    std::shared_ptr<int32_t> srtLatency_ = nullptr;
+    shared_ptr<int32_t> srtLatency_ {};
     // The SRT key. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
-    std::shared_ptr<string> srtPassphrase_ = nullptr;
+    shared_ptr<string> srtPassphrase_ {};
     // The encryption key length. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
-    std::shared_ptr<int32_t> srtPbkeyLen_ = nullptr;
+    shared_ptr<int32_t> srtPbkeyLen_ {};
   };
 
   } // namespace Models

@@ -36,51 +36,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->pipelineId_ == nullptr && return this->priority_ == nullptr && return this->status_ == nullptr; };
+        && this->pipelineId_ == nullptr && this->priority_ == nullptr && this->status_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdatePipelineRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pipelineId Field Functions 
     bool hasPipelineId() const { return this->pipelineId_ != nullptr;};
     void deletePipelineId() { this->pipelineId_ = nullptr;};
-    inline string pipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
+    inline string getPipelineId() const { DARABONBA_PTR_GET_DEFAULT(pipelineId_, "") };
     inline UpdatePipelineRequest& setPipelineId(string pipelineId) { DARABONBA_PTR_SET_VALUE(pipelineId_, pipelineId) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline UpdatePipelineRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdatePipelineRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The name of the MPS queue.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the MPS queue.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pipelineId_ = nullptr;
+    shared_ptr<string> pipelineId_ {};
     // The priority of the MPS queue. Valid values: 1 to 10.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // The state of the MPS queue.
     // 
     // Valid values:
     // 
     // *   Active
     // *   Paused
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

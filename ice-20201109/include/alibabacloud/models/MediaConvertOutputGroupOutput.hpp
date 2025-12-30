@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->features_ == nullptr
-        && return this->name_ == nullptr && return this->outputFileName_ == nullptr && return this->overrideParams_ == nullptr && return this->priority_ == nullptr && return this->templateId_ == nullptr; };
+        && this->name_ == nullptr && this->outputFileName_ == nullptr && this->overrideParams_ == nullptr && this->priority_ == nullptr && this->templateId_ == nullptr; };
     // features Field Functions 
     bool hasFeatures() const { return this->features_ != nullptr;};
     void deleteFeatures() { this->features_ = nullptr;};
-    inline string features() const { DARABONBA_PTR_GET_DEFAULT(features_, "") };
+    inline string getFeatures() const { DARABONBA_PTR_GET_DEFAULT(features_, "") };
     inline MediaConvertOutputGroupOutput& setFeatures(string features) { DARABONBA_PTR_SET_VALUE(features_, features) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline MediaConvertOutputGroupOutput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // outputFileName Field Functions 
     bool hasOutputFileName() const { return this->outputFileName_ != nullptr;};
     void deleteOutputFileName() { this->outputFileName_ = nullptr;};
-    inline string outputFileName() const { DARABONBA_PTR_GET_DEFAULT(outputFileName_, "") };
+    inline string getOutputFileName() const { DARABONBA_PTR_GET_DEFAULT(outputFileName_, "") };
     inline MediaConvertOutputGroupOutput& setOutputFileName(string outputFileName) { DARABONBA_PTR_SET_VALUE(outputFileName_, outputFileName) };
 
 
     // overrideParams Field Functions 
     bool hasOverrideParams() const { return this->overrideParams_ != nullptr;};
     void deleteOverrideParams() { this->overrideParams_ = nullptr;};
-    inline string overrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
+    inline string getOverrideParams() const { DARABONBA_PTR_GET_DEFAULT(overrideParams_, "") };
     inline MediaConvertOutputGroupOutput& setOverrideParams(string overrideParams) { DARABONBA_PTR_SET_VALUE(overrideParams_, overrideParams) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline MediaConvertOutputGroupOutput& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline MediaConvertOutputGroupOutput& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
-    std::shared_ptr<string> features_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> outputFileName_ = nullptr;
-    std::shared_ptr<string> overrideParams_ = nullptr;
-    std::shared_ptr<int32_t> priority_ = nullptr;
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> features_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> outputFileName_ {};
+    shared_ptr<string> overrideParams_ {};
+    shared_ptr<int32_t> priority_ {};
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

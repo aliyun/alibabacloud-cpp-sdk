@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelName_ == nullptr
-        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->programName_ == nullptr && return this->sortBy_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->programName_ == nullptr && this->sortBy_ == nullptr; };
     // channelName Field Functions 
     bool hasChannelName() const { return this->channelName_ != nullptr;};
     void deleteChannelName() { this->channelName_ = nullptr;};
-    inline string channelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
+    inline string getChannelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
     inline ListProgramsRequest& setChannelName(string channelName) { DARABONBA_PTR_SET_VALUE(channelName_, channelName) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline string pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
+    inline string getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
     inline ListProgramsRequest& setPageNo(string pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline ListProgramsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // programName Field Functions 
     bool hasProgramName() const { return this->programName_ != nullptr;};
     void deleteProgramName() { this->programName_ = nullptr;};
-    inline string programName() const { DARABONBA_PTR_GET_DEFAULT(programName_, "") };
+    inline string getProgramName() const { DARABONBA_PTR_GET_DEFAULT(programName_, "") };
     inline ListProgramsRequest& setProgramName(string programName) { DARABONBA_PTR_SET_VALUE(programName_, programName) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListProgramsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
@@ -78,18 +78,18 @@ namespace Models
     // The name of the channel.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelName_ = nullptr;
+    shared_ptr<string> channelName_ {};
     // The page number. Default value: 1.
-    std::shared_ptr<string> pageNo_ = nullptr;
+    shared_ptr<string> pageNo_ {};
     // The number of entries per page. Default value: 20. Valid values: 1 to 100.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The name of the program.
-    std::shared_ptr<string> programName_ = nullptr;
+    shared_ptr<string> programName_ {};
     // The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
     // 
     // *   asc: ascending order.
     // *   desc: descending order.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // scenario Field Functions 
     bool hasScenario() const { return this->scenario_ != nullptr;};
     void deleteScenario() { this->scenario_ = nullptr;};
-    inline string scenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
+    inline string getScenario() const { DARABONBA_PTR_GET_DEFAULT(scenario_, "") };
     inline GetDemonstrationForCustomizedVoiceJobRequest& setScenario(string scenario) { DARABONBA_PTR_SET_VALUE(scenario_, scenario) };
 
 
@@ -47,7 +47,7 @@ namespace Models
     // *   **navigation**
     // 
     // This parameter is required.
-    std::shared_ptr<string> scenario_ = nullptr;
+    shared_ptr<string> scenario_ {};
   };
 
   } // namespace Models

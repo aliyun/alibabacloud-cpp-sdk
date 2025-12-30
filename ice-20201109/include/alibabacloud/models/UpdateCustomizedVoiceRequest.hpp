@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->demoAudioMediaId_ == nullptr
-        && return this->voiceId_ == nullptr; };
+        && this->voiceId_ == nullptr; };
     // demoAudioMediaId Field Functions 
     bool hasDemoAudioMediaId() const { return this->demoAudioMediaId_ != nullptr;};
     void deleteDemoAudioMediaId() { this->demoAudioMediaId_ = nullptr;};
-    inline string demoAudioMediaId() const { DARABONBA_PTR_GET_DEFAULT(demoAudioMediaId_, "") };
+    inline string getDemoAudioMediaId() const { DARABONBA_PTR_GET_DEFAULT(demoAudioMediaId_, "") };
     inline UpdateCustomizedVoiceRequest& setDemoAudioMediaId(string demoAudioMediaId) { DARABONBA_PTR_SET_VALUE(demoAudioMediaId_, demoAudioMediaId) };
 
 
     // voiceId Field Functions 
     bool hasVoiceId() const { return this->voiceId_ != nullptr;};
     void deleteVoiceId() { this->voiceId_ = nullptr;};
-    inline string voiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
+    inline string getVoiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
     inline UpdateCustomizedVoiceRequest& setVoiceId(string voiceId) { DARABONBA_PTR_SET_VALUE(voiceId_, voiceId) };
 
 
   protected:
     // The media asset ID of the sample audio file.
-    std::shared_ptr<string> demoAudioMediaId_ = nullptr;
+    shared_ptr<string> demoAudioMediaId_ {};
     // The voice ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> voiceId_ = nullptr;
+    shared_ptr<string> voiceId_ {};
   };
 
   } // namespace Models

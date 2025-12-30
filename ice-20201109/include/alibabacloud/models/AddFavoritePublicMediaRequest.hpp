@@ -33,12 +33,12 @@ namespace Models
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
-    inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
+    inline string getMediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline AddFavoritePublicMediaRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
 
 
   protected:
-    std::shared_ptr<string> mediaIds_ = nullptr;
+    shared_ptr<string> mediaIds_ {};
   };
 
   } // namespace Models

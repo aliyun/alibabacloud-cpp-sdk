@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->audioRecordId_ == nullptr
-        && return this->recordUrl_ == nullptr && return this->voiceId_ == nullptr; };
+        && this->recordUrl_ == nullptr && this->voiceId_ == nullptr; };
     // audioRecordId Field Functions 
     bool hasAudioRecordId() const { return this->audioRecordId_ != nullptr;};
     void deleteAudioRecordId() { this->audioRecordId_ = nullptr;};
-    inline int32_t audioRecordId() const { DARABONBA_PTR_GET_DEFAULT(audioRecordId_, 0) };
+    inline int32_t getAudioRecordId() const { DARABONBA_PTR_GET_DEFAULT(audioRecordId_, 0) };
     inline DetectAudioForCustomizedVoiceJobRequest& setAudioRecordId(int32_t audioRecordId) { DARABONBA_PTR_SET_VALUE(audioRecordId_, audioRecordId) };
 
 
     // recordUrl Field Functions 
     bool hasRecordUrl() const { return this->recordUrl_ != nullptr;};
     void deleteRecordUrl() { this->recordUrl_ = nullptr;};
-    inline string recordUrl() const { DARABONBA_PTR_GET_DEFAULT(recordUrl_, "") };
+    inline string getRecordUrl() const { DARABONBA_PTR_GET_DEFAULT(recordUrl_, "") };
     inline DetectAudioForCustomizedVoiceJobRequest& setRecordUrl(string recordUrl) { DARABONBA_PTR_SET_VALUE(recordUrl_, recordUrl) };
 
 
     // voiceId Field Functions 
     bool hasVoiceId() const { return this->voiceId_ != nullptr;};
     void deleteVoiceId() { this->voiceId_ = nullptr;};
-    inline string voiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
+    inline string getVoiceId() const { DARABONBA_PTR_GET_DEFAULT(voiceId_, "") };
     inline DetectAudioForCustomizedVoiceJobRequest& setVoiceId(string voiceId) { DARABONBA_PTR_SET_VALUE(voiceId_, voiceId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The sequence number of the recording file.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> audioRecordId_ = nullptr;
+    shared_ptr<int32_t> audioRecordId_ {};
     // The URL of the recording file.
     // 
     // > : The URL must be an Object Storage Service (OSS) URL within your Alibaba Cloud account. The OSS bucket must be in the same region in which IMS is activated.
@@ -68,11 +68,11 @@ namespace Models
     // > : The audio file must be in the WAV or PCM format and must be a 16-bit mono audio file at 48000 Hz.
     // 
     // This parameter is required.
-    std::shared_ptr<string> recordUrl_ = nullptr;
+    shared_ptr<string> recordUrl_ {};
     // The voice ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> voiceId_ = nullptr;
+    shared_ptr<string> voiceId_ {};
   };
 
   } // namespace Models

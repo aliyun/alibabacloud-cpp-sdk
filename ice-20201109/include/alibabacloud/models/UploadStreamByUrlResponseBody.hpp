@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileURL_ == nullptr
-        && return this->jobId_ == nullptr && return this->mediaId_ == nullptr && return this->requestId_ == nullptr && return this->sourceURL_ == nullptr; };
+        && this->jobId_ == nullptr && this->mediaId_ == nullptr && this->requestId_ == nullptr && this->sourceURL_ == nullptr; };
     // fileURL Field Functions 
     bool hasFileURL() const { return this->fileURL_ != nullptr;};
     void deleteFileURL() { this->fileURL_ = nullptr;};
-    inline string fileURL() const { DARABONBA_PTR_GET_DEFAULT(fileURL_, "") };
+    inline string getFileURL() const { DARABONBA_PTR_GET_DEFAULT(fileURL_, "") };
     inline UploadStreamByURLResponseBody& setFileURL(string fileURL) { DARABONBA_PTR_SET_VALUE(fileURL_, fileURL) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline UploadStreamByURLResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline UploadStreamByURLResponseBody& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UploadStreamByURLResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sourceURL Field Functions 
     bool hasSourceURL() const { return this->sourceURL_ != nullptr;};
     void deleteSourceURL() { this->sourceURL_ = nullptr;};
-    inline string sourceURL() const { DARABONBA_PTR_GET_DEFAULT(sourceURL_, "") };
+    inline string getSourceURL() const { DARABONBA_PTR_GET_DEFAULT(sourceURL_, "") };
     inline UploadStreamByURLResponseBody& setSourceURL(string sourceURL) { DARABONBA_PTR_SET_VALUE(sourceURL_, sourceURL) };
 
 
   protected:
     // The OSS URL of the file.
-    std::shared_ptr<string> fileURL_ = nullptr;
+    shared_ptr<string> fileURL_ {};
     // The ID of the upload job.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The ID of the media asset.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The URL of the source file that is uploaded in the upload job.
-    std::shared_ptr<string> sourceURL_ = nullptr;
+    shared_ptr<string> sourceURL_ {};
   };
 
   } // namespace Models

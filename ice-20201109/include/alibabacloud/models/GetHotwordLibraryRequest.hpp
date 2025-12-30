@@ -33,7 +33,7 @@ namespace Models
     // hotwordLibraryId Field Functions 
     bool hasHotwordLibraryId() const { return this->hotwordLibraryId_ != nullptr;};
     void deleteHotwordLibraryId() { this->hotwordLibraryId_ = nullptr;};
-    inline string hotwordLibraryId() const { DARABONBA_PTR_GET_DEFAULT(hotwordLibraryId_, "") };
+    inline string getHotwordLibraryId() const { DARABONBA_PTR_GET_DEFAULT(hotwordLibraryId_, "") };
     inline GetHotwordLibraryRequest& setHotwordLibraryId(string hotwordLibraryId) { DARABONBA_PTR_SET_VALUE(hotwordLibraryId_, hotwordLibraryId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the hotword library.
     // 
     // This parameter is required.
-    std::shared_ptr<string> hotwordLibraryId_ = nullptr;
+    shared_ptr<string> hotwordLibraryId_ {};
   };
 
   } // namespace Models

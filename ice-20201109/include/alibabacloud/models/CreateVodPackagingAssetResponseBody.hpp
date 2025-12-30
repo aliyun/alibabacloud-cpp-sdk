@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->asset_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // asset Field Functions 
     bool hasAsset() const { return this->asset_ != nullptr;};
     void deleteAsset() { this->asset_ = nullptr;};
-    inline const VodPackagingAsset & asset() const { DARABONBA_PTR_GET_CONST(asset_, VodPackagingAsset) };
-    inline VodPackagingAsset asset() { DARABONBA_PTR_GET(asset_, VodPackagingAsset) };
+    inline const VodPackagingAsset & getAsset() const { DARABONBA_PTR_GET_CONST(asset_, VodPackagingAsset) };
+    inline VodPackagingAsset getAsset() { DARABONBA_PTR_GET(asset_, VodPackagingAsset) };
     inline CreateVodPackagingAssetResponseBody& setAsset(const VodPackagingAsset & asset) { DARABONBA_PTR_SET_VALUE(asset_, asset) };
     inline CreateVodPackagingAssetResponseBody& setAsset(VodPackagingAsset && asset) { DARABONBA_PTR_SET_RVALUE(asset_, asset) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateVodPackagingAssetResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the asset.
-    std::shared_ptr<VodPackagingAsset> asset_ = nullptr;
+    shared_ptr<VodPackagingAsset> asset_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

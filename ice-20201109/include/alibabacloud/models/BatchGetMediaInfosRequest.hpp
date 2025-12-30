@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionType_ == nullptr
-        && return this->authTimeout_ == nullptr && return this->mediaIds_ == nullptr; };
+        && this->authTimeout_ == nullptr && this->mediaIds_ == nullptr; };
     // additionType Field Functions 
     bool hasAdditionType() const { return this->additionType_ != nullptr;};
     void deleteAdditionType() { this->additionType_ = nullptr;};
-    inline string additionType() const { DARABONBA_PTR_GET_DEFAULT(additionType_, "") };
+    inline string getAdditionType() const { DARABONBA_PTR_GET_DEFAULT(additionType_, "") };
     inline BatchGetMediaInfosRequest& setAdditionType(string additionType) { DARABONBA_PTR_SET_VALUE(additionType_, additionType) };
 
 
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
-    inline int64_t authTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
+    inline int64_t getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
     inline BatchGetMediaInfosRequest& setAuthTimeout(int64_t authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
 
 
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
-    inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
+    inline string getMediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline BatchGetMediaInfosRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
 
 
@@ -62,10 +62,10 @@ namespace Models
     // \\- FileInfo
     // 
     // \\- DynamicMetaData
-    std::shared_ptr<string> additionType_ = nullptr;
-    std::shared_ptr<int64_t> authTimeout_ = nullptr;
+    shared_ptr<string> additionType_ {};
+    shared_ptr<int64_t> authTimeout_ {};
     // The IDs of the media assets that you want to query. Separate the IDs with commas (,).
-    std::shared_ptr<string> mediaIds_ = nullptr;
+    shared_ptr<string> mediaIds_ {};
   };
 
   } // namespace Models

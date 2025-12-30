@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->editingConfig_ == nullptr && return this->inputConfig_ == nullptr && return this->outputConfig_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr; };
+        && this->editingConfig_ == nullptr && this->inputConfig_ == nullptr && this->outputConfig_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SubmitAvatarVideoJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // editingConfig Field Functions 
     bool hasEditingConfig() const { return this->editingConfig_ != nullptr;};
     void deleteEditingConfig() { this->editingConfig_ = nullptr;};
-    inline string editingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
+    inline string getEditingConfig() const { DARABONBA_PTR_GET_DEFAULT(editingConfig_, "") };
     inline SubmitAvatarVideoJobRequest& setEditingConfig(string editingConfig) { DARABONBA_PTR_SET_VALUE(editingConfig_, editingConfig) };
 
 
     // inputConfig Field Functions 
     bool hasInputConfig() const { return this->inputConfig_ != nullptr;};
     void deleteInputConfig() { this->inputConfig_ = nullptr;};
-    inline string inputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
+    inline string getInputConfig() const { DARABONBA_PTR_GET_DEFAULT(inputConfig_, "") };
     inline SubmitAvatarVideoJobRequest& setInputConfig(string inputConfig) { DARABONBA_PTR_SET_VALUE(inputConfig_, inputConfig) };
 
 
     // outputConfig Field Functions 
     bool hasOutputConfig() const { return this->outputConfig_ != nullptr;};
     void deleteOutputConfig() { this->outputConfig_ = nullptr;};
-    inline string outputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
+    inline string getOutputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
     inline SubmitAvatarVideoJobRequest& setOutputConfig(string outputConfig) { DARABONBA_PTR_SET_VALUE(outputConfig_, outputConfig) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline SubmitAvatarVideoJobRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitAvatarVideoJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
   protected:
     // The task description. Max length: 128 bytes.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The avatar configurations, including the avatar ID, voice, and speech rate.
-    std::shared_ptr<string> editingConfig_ = nullptr;
+    shared_ptr<string> editingConfig_ {};
     // The input configurations of the video rendering task for an avatar. You can specify text, the Object Storage Service (OSS) URL of an audio file, or the ID of a media asset. The audio file must be in the MP3 or WAV format.
     // 
     // >Notice: The text must be at least five characters in length.
-    std::shared_ptr<string> inputConfig_ = nullptr;
+    shared_ptr<string> inputConfig_ {};
     // The output configurations, including the destination URL for the rendered video.
-    std::shared_ptr<string> outputConfig_ = nullptr;
+    shared_ptr<string> outputConfig_ {};
     // The task name. Max length: 128 bytes.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
     // A user-defined JSON string for passing custom business information, such as environment details or task metadata.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

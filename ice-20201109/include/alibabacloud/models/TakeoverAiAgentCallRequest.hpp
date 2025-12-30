@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->humanAgentUserId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->requireToken_ == nullptr; };
+        && this->instanceId_ == nullptr && this->requireToken_ == nullptr; };
     // humanAgentUserId Field Functions 
     bool hasHumanAgentUserId() const { return this->humanAgentUserId_ != nullptr;};
     void deleteHumanAgentUserId() { this->humanAgentUserId_ = nullptr;};
-    inline string humanAgentUserId() const { DARABONBA_PTR_GET_DEFAULT(humanAgentUserId_, "") };
+    inline string getHumanAgentUserId() const { DARABONBA_PTR_GET_DEFAULT(humanAgentUserId_, "") };
     inline TakeoverAIAgentCallRequest& setHumanAgentUserId(string humanAgentUserId) { DARABONBA_PTR_SET_VALUE(humanAgentUserId_, humanAgentUserId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline TakeoverAIAgentCallRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // requireToken Field Functions 
     bool hasRequireToken() const { return this->requireToken_ != nullptr;};
     void deleteRequireToken() { this->requireToken_ = nullptr;};
-    inline bool requireToken() const { DARABONBA_PTR_GET_DEFAULT(requireToken_, false) };
+    inline bool getRequireToken() const { DARABONBA_PTR_GET_DEFAULT(requireToken_, false) };
     inline TakeoverAIAgentCallRequest& setRequireToken(bool requireToken) { DARABONBA_PTR_SET_VALUE(requireToken_, requireToken) };
 
 
   protected:
     // The ID of the human agent that will take over the AI agent (UserId in ARTC). If you do not specify this parameter, it is automatically generated and returned.
-    std::shared_ptr<string> humanAgentUserId_ = nullptr;
+    shared_ptr<string> humanAgentUserId_ {};
     // The ID of the AI agent that will be taken over.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Specifies whether to return the ARTC token. Default value: false.
-    std::shared_ptr<bool> requireToken_ = nullptr;
+    shared_ptr<bool> requireToken_ {};
   };
 
   } // namespace Models

@@ -52,95 +52,95 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authTimeout_ == nullptr
-        && return this->businessType_ == nullptr && return this->endTime_ == nullptr && return this->includeFileBasicInfo_ == nullptr && return this->maxResults_ == nullptr && return this->mediaId_ == nullptr
-        && return this->mediaType_ == nullptr && return this->nextToken_ == nullptr && return this->sortBy_ == nullptr && return this->source_ == nullptr && return this->startTime_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->businessType_ == nullptr && this->endTime_ == nullptr && this->includeFileBasicInfo_ == nullptr && this->maxResults_ == nullptr && this->mediaId_ == nullptr
+        && this->mediaType_ == nullptr && this->nextToken_ == nullptr && this->sortBy_ == nullptr && this->source_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr; };
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};
-    inline int64_t authTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
+    inline int64_t getAuthTimeout() const { DARABONBA_PTR_GET_DEFAULT(authTimeout_, 0L) };
     inline ListMediaBasicInfosRequest& setAuthTimeout(int64_t authTimeout) { DARABONBA_PTR_SET_VALUE(authTimeout_, authTimeout) };
 
 
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
-    inline string businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
+    inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
     inline ListMediaBasicInfosRequest& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ListMediaBasicInfosRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // includeFileBasicInfo Field Functions 
     bool hasIncludeFileBasicInfo() const { return this->includeFileBasicInfo_ != nullptr;};
     void deleteIncludeFileBasicInfo() { this->includeFileBasicInfo_ = nullptr;};
-    inline bool includeFileBasicInfo() const { DARABONBA_PTR_GET_DEFAULT(includeFileBasicInfo_, false) };
+    inline bool getIncludeFileBasicInfo() const { DARABONBA_PTR_GET_DEFAULT(includeFileBasicInfo_, false) };
     inline ListMediaBasicInfosRequest& setIncludeFileBasicInfo(bool includeFileBasicInfo) { DARABONBA_PTR_SET_VALUE(includeFileBasicInfo_, includeFileBasicInfo) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListMediaBasicInfosRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline ListMediaBasicInfosRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline string mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
+    inline string getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
     inline ListMediaBasicInfosRequest& setMediaType(string mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListMediaBasicInfosRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListMediaBasicInfosRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline ListMediaBasicInfosRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline ListMediaBasicInfosRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListMediaBasicInfosRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<int64_t> authTimeout_ = nullptr;
+    shared_ptr<int64_t> authTimeout_ {};
     // The business type of the media asset. Valid values:
     // 
     // \\- subtitles
@@ -152,21 +152,21 @@ namespace Models
     // \\- ending
     // 
     // \\- general
-    std::shared_ptr<string> businessType_ = nullptr;
+    shared_ptr<string> businessType_ {};
     // The end time of utcCreated.
     // 
     // \\- The value is the end of the left-open right-closed interval.
     // 
     // \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // Specifies whether to return the basic information of the source file.
-    std::shared_ptr<bool> includeFileBasicInfo_ = nullptr;
+    shared_ptr<bool> includeFileBasicInfo_ {};
     // The maximum number of entries to return.
     // 
     // Maximum value: 100. Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The ID of the media asset.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The type of the media asset. Valid values:
     // 
     // \\- image
@@ -176,15 +176,15 @@ namespace Models
     // \\- audio
     // 
     // \\- text
-    std::shared_ptr<string> mediaType_ = nullptr;
+    shared_ptr<string> mediaType_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The order of sorting by utcCreated. Default value: desc. Valid values:
     // 
     // \\- desc
     // 
     // \\- asc
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The source of the media asset. Valid values:
     // 
     // \\- oss: Object Storage Service (OSS).
@@ -194,13 +194,13 @@ namespace Models
     // \\- live: ApsaraVideo Live.
     // 
     // \\- general: other sources. This is the default value.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The start time of utcCreated.
     // 
     // \\- The value is the beginning of a left-open right-closed interval.
     // 
     // \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The status of the media asset. Valid values:
     // 
     // \\- Init: the initial state, which indicates that the source file is not ready.
@@ -210,7 +210,7 @@ namespace Models
     // \\- PrepareFail: The source file failed to be prepared. For example, the information of the source file failed to be obtained.
     // 
     // \\- Normal: The source file is ready.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

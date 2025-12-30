@@ -33,13 +33,13 @@ namespace Models
     // configurationName Field Functions 
     bool hasConfigurationName() const { return this->configurationName_ != nullptr;};
     void deleteConfigurationName() { this->configurationName_ = nullptr;};
-    inline string configurationName() const { DARABONBA_PTR_GET_DEFAULT(configurationName_, "") };
+    inline string getConfigurationName() const { DARABONBA_PTR_GET_DEFAULT(configurationName_, "") };
     inline GetVodPackagingConfigurationRequest& setConfigurationName(string configurationName) { DARABONBA_PTR_SET_VALUE(configurationName_, configurationName) };
 
 
   protected:
     // The name of the packaging configuration.
-    std::shared_ptr<string> configurationName_ = nullptr;
+    shared_ptr<string> configurationName_ {};
   };
 
   } // namespace Models

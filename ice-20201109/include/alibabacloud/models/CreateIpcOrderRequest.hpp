@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->capability_ == nullptr
-        && return this->deviceId_ == nullptr && return this->period_ == nullptr; };
+        && this->deviceId_ == nullptr && this->period_ == nullptr; };
     // capability Field Functions 
     bool hasCapability() const { return this->capability_ != nullptr;};
     void deleteCapability() { this->capability_ = nullptr;};
-    inline string capability() const { DARABONBA_PTR_GET_DEFAULT(capability_, "") };
+    inline string getCapability() const { DARABONBA_PTR_GET_DEFAULT(capability_, "") };
     inline CreateIpcOrderRequest& setCapability(string capability) { DARABONBA_PTR_SET_VALUE(capability_, capability) };
 
 
     // deviceId Field Functions 
     bool hasDeviceId() const { return this->deviceId_ != nullptr;};
     void deleteDeviceId() { this->deviceId_ = nullptr;};
-    inline string deviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
+    inline string getDeviceId() const { DARABONBA_PTR_GET_DEFAULT(deviceId_, "") };
     inline CreateIpcOrderRequest& setDeviceId(string deviceId) { DARABONBA_PTR_SET_VALUE(deviceId_, deviceId) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline CreateIpcOrderRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
   protected:
-    std::shared_ptr<string> capability_ = nullptr;
-    std::shared_ptr<string> deviceId_ = nullptr;
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> capability_ {};
+    shared_ptr<string> deviceId_ {};
+    shared_ptr<string> period_ {};
   };
 
   } // namespace Models

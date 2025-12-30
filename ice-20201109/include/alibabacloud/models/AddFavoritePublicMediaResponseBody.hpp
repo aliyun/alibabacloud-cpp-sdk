@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ignoredList_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // ignoredList Field Functions 
     bool hasIgnoredList() const { return this->ignoredList_ != nullptr;};
     void deleteIgnoredList() { this->ignoredList_ = nullptr;};
-    inline const vector<string> & ignoredList() const { DARABONBA_PTR_GET_CONST(ignoredList_, vector<string>) };
-    inline vector<string> ignoredList() { DARABONBA_PTR_GET(ignoredList_, vector<string>) };
+    inline const vector<string> & getIgnoredList() const { DARABONBA_PTR_GET_CONST(ignoredList_, vector<string>) };
+    inline vector<string> getIgnoredList() { DARABONBA_PTR_GET(ignoredList_, vector<string>) };
     inline AddFavoritePublicMediaResponseBody& setIgnoredList(const vector<string> & ignoredList) { DARABONBA_PTR_SET_VALUE(ignoredList_, ignoredList) };
     inline AddFavoritePublicMediaResponseBody& setIgnoredList(vector<string> && ignoredList) { DARABONBA_PTR_SET_RVALUE(ignoredList_, ignoredList) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddFavoritePublicMediaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> ignoredList_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<string>> ignoredList_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

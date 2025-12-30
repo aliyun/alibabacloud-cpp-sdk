@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTs_ == nullptr
-        && return this->interval_ == nullptr && return this->regionId_ == nullptr && return this->startTs_ == nullptr; };
+        && this->interval_ == nullptr && this->regionId_ == nullptr && this->startTs_ == nullptr; };
     // endTs Field Functions 
     bool hasEndTs() const { return this->endTs_ != nullptr;};
     void deleteEndTs() { this->endTs_ = nullptr;};
-    inline int64_t endTs() const { DARABONBA_PTR_GET_DEFAULT(endTs_, 0L) };
+    inline int64_t getEndTs() const { DARABONBA_PTR_GET_DEFAULT(endTs_, 0L) };
     inline DescribeMeterImsMediaConvertUHDUsageRequest& setEndTs(int64_t endTs) { DARABONBA_PTR_SET_VALUE(endTs_, endTs) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline string interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
+    inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
     inline DescribeMeterImsMediaConvertUHDUsageRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeMeterImsMediaConvertUHDUsageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTs Field Functions 
     bool hasStartTs() const { return this->startTs_ != nullptr;};
     void deleteStartTs() { this->startTs_ = nullptr;};
-    inline int64_t startTs() const { DARABONBA_PTR_GET_DEFAULT(startTs_, 0L) };
+    inline int64_t getStartTs() const { DARABONBA_PTR_GET_DEFAULT(startTs_, 0L) };
     inline DescribeMeterImsMediaConvertUHDUsageRequest& setStartTs(int64_t startTs) { DARABONBA_PTR_SET_VALUE(startTs_, startTs) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The end of the time range to query. The value is a 10-digit timestamp.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTs_ = nullptr;
+    shared_ptr<int64_t> endTs_ {};
     // The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
     // 
     // This parameter is required.
-    std::shared_ptr<string> interval_ = nullptr;
+    shared_ptr<string> interval_ {};
     // This parameter does not take effect. By default, the usage data of all regions is returned.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The beginning of the time range to query. The value is a 10-digit timestamp.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTs_ = nullptr;
+    shared_ptr<int64_t> startTs_ {};
   };
 
   } // namespace Models

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelName_ == nullptr
-        && return this->description_ == nullptr && return this->groupName_ == nullptr && return this->protocol_ == nullptr && return this->segmentCount_ == nullptr && return this->segmentDuration_ == nullptr; };
+        && this->description_ == nullptr && this->groupName_ == nullptr && this->protocol_ == nullptr && this->segmentCount_ == nullptr && this->segmentDuration_ == nullptr; };
     // channelName Field Functions 
     bool hasChannelName() const { return this->channelName_ != nullptr;};
     void deleteChannelName() { this->channelName_ = nullptr;};
-    inline string channelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
+    inline string getChannelName() const { DARABONBA_PTR_GET_DEFAULT(channelName_, "") };
     inline UpdateLivePackageChannelRequest& setChannelName(string channelName) { DARABONBA_PTR_SET_VALUE(channelName_, channelName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateLivePackageChannelRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline UpdateLivePackageChannelRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline UpdateLivePackageChannelRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // segmentCount Field Functions 
     bool hasSegmentCount() const { return this->segmentCount_ != nullptr;};
     void deleteSegmentCount() { this->segmentCount_ = nullptr;};
-    inline int32_t segmentCount() const { DARABONBA_PTR_GET_DEFAULT(segmentCount_, 0) };
+    inline int32_t getSegmentCount() const { DARABONBA_PTR_GET_DEFAULT(segmentCount_, 0) };
     inline UpdateLivePackageChannelRequest& setSegmentCount(int32_t segmentCount) { DARABONBA_PTR_SET_VALUE(segmentCount_, segmentCount) };
 
 
     // segmentDuration Field Functions 
     bool hasSegmentDuration() const { return this->segmentDuration_ != nullptr;};
     void deleteSegmentDuration() { this->segmentDuration_ = nullptr;};
-    inline int32_t segmentDuration() const { DARABONBA_PTR_GET_DEFAULT(segmentDuration_, 0) };
+    inline int32_t getSegmentDuration() const { DARABONBA_PTR_GET_DEFAULT(segmentDuration_, 0) };
     inline UpdateLivePackageChannelRequest& setSegmentDuration(int32_t segmentDuration) { DARABONBA_PTR_SET_VALUE(segmentDuration_, segmentDuration) };
 
 
@@ -87,25 +87,25 @@ namespace Models
     // The channel name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelName_ = nullptr;
+    shared_ptr<string> channelName_ {};
     // The channel description. It can be up to 1,000 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The ingest protocol. Only HLS is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> protocol_ {};
     // The number of M3U8 segments. Valid values: 2 to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> segmentCount_ = nullptr;
+    shared_ptr<int32_t> segmentCount_ {};
     // The segment duration. Valid values: 1 to 30.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> segmentDuration_ = nullptr;
+    shared_ptr<int32_t> segmentDuration_ {};
   };
 
   } // namespace Models

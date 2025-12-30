@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inputShrink_ == nullptr
-        && return this->params_ == nullptr && return this->userData_ == nullptr; };
+        && this->params_ == nullptr && this->userData_ == nullptr; };
     // inputShrink Field Functions 
     bool hasInputShrink() const { return this->inputShrink_ != nullptr;};
     void deleteInputShrink() { this->inputShrink_ = nullptr;};
-    inline string inputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
+    inline string getInputShrink() const { DARABONBA_PTR_GET_DEFAULT(inputShrink_, "") };
     inline SubmitCopyrightExtractJobShrinkRequest& setInputShrink(string inputShrink) { DARABONBA_PTR_SET_VALUE(inputShrink_, inputShrink) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline SubmitCopyrightExtractJobShrinkRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitCopyrightExtractJobShrinkRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -62,16 +62,16 @@ namespace Models
     // > The OSS object or media asset must reside in the same region as the IMS service region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputShrink_ = nullptr;
+    shared_ptr<string> inputShrink_ {};
     // Additional parameters for the watermark job, provided as a JSON string. Supported parameter:
     // 
     // *   algoType: The algorithm type. Defaults to v1. The extraction algorithm must match the one used for embedding.
     // 
     //     *   v1: Copyright watermark extraction algorithm for long videos.
     //     *   v2: Copyright watermark extraction algorithm for short videos.
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> params_ {};
     // The custom data, which can be up to 1,024 bytes in size.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

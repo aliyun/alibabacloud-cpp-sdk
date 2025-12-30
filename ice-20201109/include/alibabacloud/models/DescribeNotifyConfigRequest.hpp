@@ -33,13 +33,13 @@ namespace Models
     // AIAgentId Field Functions 
     bool hasAIAgentId() const { return this->AIAgentId_ != nullptr;};
     void deleteAIAgentId() { this->AIAgentId_ = nullptr;};
-    inline string AIAgentId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentId_, "") };
+    inline string getAIAgentId() const { DARABONBA_PTR_GET_DEFAULT(AIAgentId_, "") };
     inline DescribeNotifyConfigRequest& setAIAgentId(string AIAgentId) { DARABONBA_PTR_SET_VALUE(AIAgentId_, AIAgentId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> AIAgentId_ = nullptr;
+    shared_ptr<string> AIAgentId_ {};
   };
 
   } // namespace Models

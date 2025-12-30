@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cateId_ == nullptr
-        && return this->cateName_ == nullptr; };
+        && this->cateName_ == nullptr; };
     // cateId Field Functions 
     bool hasCateId() const { return this->cateId_ != nullptr;};
     void deleteCateId() { this->cateId_ = nullptr;};
-    inline int64_t cateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
+    inline int64_t getCateId() const { DARABONBA_PTR_GET_DEFAULT(cateId_, 0L) };
     inline UpdateCategoryRequest& setCateId(int64_t cateId) { DARABONBA_PTR_SET_VALUE(cateId_, cateId) };
 
 
     // cateName Field Functions 
     bool hasCateName() const { return this->cateName_ != nullptr;};
     void deleteCateName() { this->cateName_ = nullptr;};
-    inline string cateName() const { DARABONBA_PTR_GET_DEFAULT(cateName_, "") };
+    inline string getCateName() const { DARABONBA_PTR_GET_DEFAULT(cateName_, "") };
     inline UpdateCategoryRequest& setCateName(string cateName) { DARABONBA_PTR_SET_VALUE(cateName_, cateName) };
 
 
@@ -55,11 +55,11 @@ namespace Models
     // *   View the value of CateId returned by the GetCategories operation that you called to query a category.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> cateId_ = nullptr;
+    shared_ptr<int64_t> cateId_ {};
     // The category name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cateName_ = nullptr;
+    shared_ptr<string> cateName_ {};
   };
 
   } // namespace Models

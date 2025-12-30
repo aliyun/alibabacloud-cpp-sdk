@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->media_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // media Field Functions 
     bool hasMedia() const { return this->media_ != nullptr;};
     void deleteMedia() { this->media_ = nullptr;};
-    inline string media() const { DARABONBA_PTR_GET_DEFAULT(media_, "") };
+    inline string getMedia() const { DARABONBA_PTR_GET_DEFAULT(media_, "") };
     inline MediaObject& setMedia(string media) { DARABONBA_PTR_SET_VALUE(media_, media) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline MediaObject& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> media_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> media_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

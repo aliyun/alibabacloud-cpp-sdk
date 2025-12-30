@@ -33,7 +33,7 @@ namespace Models
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline DeleteMediaLiveChannelRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the channel.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
   };
 
   } // namespace Models

@@ -44,81 +44,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterState_ == nullptr
-        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr && return this->sortByModifiedTime_ == nullptr && return this->sourceLocationName_ == nullptr
-        && return this->sourceName_ == nullptr && return this->sourceType_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr && this->sortByModifiedTime_ == nullptr && this->sourceLocationName_ == nullptr
+        && this->sourceName_ == nullptr && this->sourceType_ == nullptr; };
     // filterState Field Functions 
     bool hasFilterState() const { return this->filterState_ != nullptr;};
     void deleteFilterState() { this->filterState_ = nullptr;};
-    inline bool filterState() const { DARABONBA_PTR_GET_DEFAULT(filterState_, false) };
+    inline bool getFilterState() const { DARABONBA_PTR_GET_DEFAULT(filterState_, false) };
     inline ListSourcesRequest& setFilterState(bool filterState) { DARABONBA_PTR_SET_VALUE(filterState_, filterState) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline string pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
+    inline string getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
     inline ListSourcesRequest& setPageNo(string pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline ListSourcesRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListSourcesRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // sortByModifiedTime Field Functions 
     bool hasSortByModifiedTime() const { return this->sortByModifiedTime_ != nullptr;};
     void deleteSortByModifiedTime() { this->sortByModifiedTime_ = nullptr;};
-    inline string sortByModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(sortByModifiedTime_, "") };
+    inline string getSortByModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(sortByModifiedTime_, "") };
     inline ListSourcesRequest& setSortByModifiedTime(string sortByModifiedTime) { DARABONBA_PTR_SET_VALUE(sortByModifiedTime_, sortByModifiedTime) };
 
 
     // sourceLocationName Field Functions 
     bool hasSourceLocationName() const { return this->sourceLocationName_ != nullptr;};
     void deleteSourceLocationName() { this->sourceLocationName_ = nullptr;};
-    inline string sourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
+    inline string getSourceLocationName() const { DARABONBA_PTR_GET_DEFAULT(sourceLocationName_, "") };
     inline ListSourcesRequest& setSourceLocationName(string sourceLocationName) { DARABONBA_PTR_SET_VALUE(sourceLocationName_, sourceLocationName) };
 
 
     // sourceName Field Functions 
     bool hasSourceName() const { return this->sourceName_ != nullptr;};
     void deleteSourceName() { this->sourceName_ = nullptr;};
-    inline string sourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
+    inline string getSourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceName_, "") };
     inline ListSourcesRequest& setSourceName(string sourceName) { DARABONBA_PTR_SET_VALUE(sourceName_, sourceName) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline ListSourcesRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
   protected:
     // Specifies whether to ignore sources marked as deleted.
-    std::shared_ptr<bool> filterState_ = nullptr;
+    shared_ptr<bool> filterState_ {};
     // The page number. Default value: 1.
-    std::shared_ptr<string> pageNo_ = nullptr;
+    shared_ptr<string> pageNo_ {};
     // The number of entries per page.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The sorting order. By default, the query results are sorted by creation time in descending order. Valid values: asc and desc.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The sorting order by modification time. Valid values: asc and desc.
-    std::shared_ptr<string> sortByModifiedTime_ = nullptr;
+    shared_ptr<string> sortByModifiedTime_ {};
     // The name of the source location.
-    std::shared_ptr<string> sourceLocationName_ = nullptr;
+    shared_ptr<string> sourceLocationName_ {};
     // The name of the source.
-    std::shared_ptr<string> sourceName_ = nullptr;
+    shared_ptr<string> sourceName_ {};
     // The source type. Valid values: vodSource and liveSource.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

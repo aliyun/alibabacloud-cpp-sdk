@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inputFile_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // inputFile Field Functions 
     bool hasInputFile() const { return this->inputFile_ != nullptr;};
     void deleteInputFile() { this->inputFile_ = nullptr;};
-    inline const MediaObject & inputFile() const { DARABONBA_PTR_GET_CONST(inputFile_, MediaObject) };
-    inline MediaObject inputFile() { DARABONBA_PTR_GET(inputFile_, MediaObject) };
+    inline const MediaObject & getInputFile() const { DARABONBA_PTR_GET_CONST(inputFile_, MediaObject) };
+    inline MediaObject getInputFile() { DARABONBA_PTR_GET(inputFile_, MediaObject) };
     inline MediaConvertInput& setInputFile(const MediaObject & inputFile) { DARABONBA_PTR_SET_VALUE(inputFile_, inputFile) };
     inline MediaConvertInput& setInputFile(MediaObject && inputFile) { DARABONBA_PTR_SET_RVALUE(inputFile_, inputFile) };
 
@@ -46,13 +46,13 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline MediaConvertInput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<MediaObject> inputFile_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<MediaObject> inputFile_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

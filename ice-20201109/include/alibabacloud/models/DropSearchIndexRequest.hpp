@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->indexType_ == nullptr
-        && return this->searchLibName_ == nullptr; };
+        && this->searchLibName_ == nullptr; };
     // indexType Field Functions 
     bool hasIndexType() const { return this->indexType_ != nullptr;};
     void deleteIndexType() { this->indexType_ = nullptr;};
-    inline string indexType() const { DARABONBA_PTR_GET_DEFAULT(indexType_, "") };
+    inline string getIndexType() const { DARABONBA_PTR_GET_DEFAULT(indexType_, "") };
     inline DropSearchIndexRequest& setIndexType(string indexType) { DARABONBA_PTR_SET_VALUE(indexType_, indexType) };
 
 
     // searchLibName Field Functions 
     bool hasSearchLibName() const { return this->searchLibName_ != nullptr;};
     void deleteSearchLibName() { this->searchLibName_ = nullptr;};
-    inline string searchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
+    inline string getSearchLibName() const { DARABONBA_PTR_GET_DEFAULT(searchLibName_, "") };
     inline DropSearchIndexRequest& setSearchLibName(string searchLibName) { DARABONBA_PTR_SET_VALUE(searchLibName_, searchLibName) };
 
 
@@ -55,12 +55,12 @@ namespace Models
     // *   aiLabel: smart tagging.
     // 
     // This parameter is required.
-    std::shared_ptr<string> indexType_ = nullptr;
+    shared_ptr<string> indexType_ {};
     // The name of the search library.
     // 
     // *   If you leave this parameter empty, the search index is created in the default search library of Intelligent Media Service (IMS). Default value: ims-default-search-lib.
     // *   To query information about an existing search library, call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API operation.
-    std::shared_ptr<string> searchLibName_ = nullptr;
+    shared_ptr<string> searchLibName_ {};
   };
 
   } // namespace Models

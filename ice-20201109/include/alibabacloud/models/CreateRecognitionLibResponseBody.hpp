@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->libId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
-    inline string libId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+    inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
     inline CreateRecognitionLibResponseBody& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateRecognitionLibResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the recognition library created.
-    std::shared_ptr<string> libId_ = nullptr;
+    shared_ptr<string> libId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

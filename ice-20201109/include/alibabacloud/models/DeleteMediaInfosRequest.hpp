@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deletePhysicalFiles_ == nullptr
-        && return this->inputURLs_ == nullptr && return this->mediaIds_ == nullptr; };
+        && this->inputURLs_ == nullptr && this->mediaIds_ == nullptr; };
     // deletePhysicalFiles Field Functions 
     bool hasDeletePhysicalFiles() const { return this->deletePhysicalFiles_ != nullptr;};
     void deleteDeletePhysicalFiles() { this->deletePhysicalFiles_ = nullptr;};
-    inline bool deletePhysicalFiles() const { DARABONBA_PTR_GET_DEFAULT(deletePhysicalFiles_, false) };
+    inline bool getDeletePhysicalFiles() const { DARABONBA_PTR_GET_DEFAULT(deletePhysicalFiles_, false) };
     inline DeleteMediaInfosRequest& setDeletePhysicalFiles(bool deletePhysicalFiles) { DARABONBA_PTR_SET_VALUE(deletePhysicalFiles_, deletePhysicalFiles) };
 
 
     // inputURLs Field Functions 
     bool hasInputURLs() const { return this->inputURLs_ != nullptr;};
     void deleteInputURLs() { this->inputURLs_ = nullptr;};
-    inline string inputURLs() const { DARABONBA_PTR_GET_DEFAULT(inputURLs_, "") };
+    inline string getInputURLs() const { DARABONBA_PTR_GET_DEFAULT(inputURLs_, "") };
     inline DeleteMediaInfosRequest& setInputURLs(string inputURLs) { DARABONBA_PTR_SET_VALUE(inputURLs_, inputURLs) };
 
 
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
-    inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
+    inline string getMediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline DeleteMediaInfosRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
 
 
@@ -60,19 +60,19 @@ namespace Models
     // Specifies whether to delete the physical file of the media asset.
     // 
     // If the media asset is stored in your own OSS bucket, you must authorize the service role AliyunICEDefaultRole in advance. For more information<props="china">, see [Authorize IMS to delete recording files in OSS](https://help.aliyun.com/zh/ims/user-guide/record?spm=a2c4g.11186623.0.i8#0737d9c437bmn).
-    std::shared_ptr<bool> deletePhysicalFiles_ = nullptr;
+    shared_ptr<bool> deletePhysicalFiles_ {};
     // The URL of the media asset that you want to delete. The file corresponding to the URL must be registered with IMS. Separate multiple URLs with commas (,). The following two formats are supported:
     // 
     // 1.  http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?
     // 2.  OSS://example-bucket/example.mp4?\\
     //     In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
-    std::shared_ptr<string> inputURLs_ = nullptr;
+    shared_ptr<string> inputURLs_ {};
     // The ID of the media asset that you want to delete from Intelligent Media Services (IMS).
     // 
     // *   Separate multiple IDs with commas (,).
     // 
     // If you leave MediaIds empty, you must specify InputURLs.
-    std::shared_ptr<string> mediaIds_ = nullptr;
+    shared_ptr<string> mediaIds_ {};
   };
 
   } // namespace Models

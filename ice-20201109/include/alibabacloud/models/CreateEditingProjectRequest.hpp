@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessConfig_ == nullptr
-        && return this->clipsParam_ == nullptr && return this->coverURL_ == nullptr && return this->description_ == nullptr && return this->materialMaps_ == nullptr && return this->projectType_ == nullptr
-        && return this->templateId_ == nullptr && return this->templateType_ == nullptr && return this->timeline_ == nullptr && return this->title_ == nullptr; };
+        && this->clipsParam_ == nullptr && this->coverURL_ == nullptr && this->description_ == nullptr && this->materialMaps_ == nullptr && this->projectType_ == nullptr
+        && this->templateId_ == nullptr && this->templateType_ == nullptr && this->timeline_ == nullptr && this->title_ == nullptr; };
     // businessConfig Field Functions 
     bool hasBusinessConfig() const { return this->businessConfig_ != nullptr;};
     void deleteBusinessConfig() { this->businessConfig_ = nullptr;};
-    inline string businessConfig() const { DARABONBA_PTR_GET_DEFAULT(businessConfig_, "") };
+    inline string getBusinessConfig() const { DARABONBA_PTR_GET_DEFAULT(businessConfig_, "") };
     inline CreateEditingProjectRequest& setBusinessConfig(string businessConfig) { DARABONBA_PTR_SET_VALUE(businessConfig_, businessConfig) };
 
 
     // clipsParam Field Functions 
     bool hasClipsParam() const { return this->clipsParam_ != nullptr;};
     void deleteClipsParam() { this->clipsParam_ = nullptr;};
-    inline string clipsParam() const { DARABONBA_PTR_GET_DEFAULT(clipsParam_, "") };
+    inline string getClipsParam() const { DARABONBA_PTR_GET_DEFAULT(clipsParam_, "") };
     inline CreateEditingProjectRequest& setClipsParam(string clipsParam) { DARABONBA_PTR_SET_VALUE(clipsParam_, clipsParam) };
 
 
     // coverURL Field Functions 
     bool hasCoverURL() const { return this->coverURL_ != nullptr;};
     void deleteCoverURL() { this->coverURL_ = nullptr;};
-    inline string coverURL() const { DARABONBA_PTR_GET_DEFAULT(coverURL_, "") };
+    inline string getCoverURL() const { DARABONBA_PTR_GET_DEFAULT(coverURL_, "") };
     inline CreateEditingProjectRequest& setCoverURL(string coverURL) { DARABONBA_PTR_SET_VALUE(coverURL_, coverURL) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateEditingProjectRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // materialMaps Field Functions 
     bool hasMaterialMaps() const { return this->materialMaps_ != nullptr;};
     void deleteMaterialMaps() { this->materialMaps_ = nullptr;};
-    inline string materialMaps() const { DARABONBA_PTR_GET_DEFAULT(materialMaps_, "") };
+    inline string getMaterialMaps() const { DARABONBA_PTR_GET_DEFAULT(materialMaps_, "") };
     inline CreateEditingProjectRequest& setMaterialMaps(string materialMaps) { DARABONBA_PTR_SET_VALUE(materialMaps_, materialMaps) };
 
 
     // projectType Field Functions 
     bool hasProjectType() const { return this->projectType_ != nullptr;};
     void deleteProjectType() { this->projectType_ = nullptr;};
-    inline string projectType() const { DARABONBA_PTR_GET_DEFAULT(projectType_, "") };
+    inline string getProjectType() const { DARABONBA_PTR_GET_DEFAULT(projectType_, "") };
     inline CreateEditingProjectRequest& setProjectType(string projectType) { DARABONBA_PTR_SET_VALUE(projectType_, projectType) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline CreateEditingProjectRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline string templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
     inline CreateEditingProjectRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
     // timeline Field Functions 
     bool hasTimeline() const { return this->timeline_ != nullptr;};
     void deleteTimeline() { this->timeline_ = nullptr;};
-    inline string timeline() const { DARABONBA_PTR_GET_DEFAULT(timeline_, "") };
+    inline string getTimeline() const { DARABONBA_PTR_GET_DEFAULT(timeline_, "") };
     inline CreateEditingProjectRequest& setTimeline(string timeline) { DARABONBA_PTR_SET_VALUE(timeline_, timeline) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateEditingProjectRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
@@ -128,29 +128,29 @@ namespace Models
     // Valid values of OutputMediaTarget include vod-media and oss-object. If you do not specify OutputMediaTarget, the default value oss-object is used.
     // 
     // If you set OutputMediaTarget to vod-media, the setting of OutputMediaConfig.Path does not take effect.
-    std::shared_ptr<string> businessConfig_ = nullptr;
+    shared_ptr<string> businessConfig_ {};
     // The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
-    std::shared_ptr<string> clipsParam_ = nullptr;
+    shared_ptr<string> clipsParam_ {};
     // The thumbnail URL of the online editing project.
-    std::shared_ptr<string> coverURL_ = nullptr;
+    shared_ptr<string> coverURL_ {};
     // The description of the online editing project.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The material associated with the project. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs.
-    std::shared_ptr<string> materialMaps_ = nullptr;
+    shared_ptr<string> materialMaps_ {};
     // The type of the editing project. Valid values: EditingProject and LiveEditingProject. A value of EditingProject indicates a regular editing project, and a value of LiveEditingProject indicates a live stream editing project.
-    std::shared_ptr<string> projectType_ = nullptr;
+    shared_ptr<string> projectType_ {};
     // The template ID. This parameter is used to quickly build a timeline with ease. Note: Only one of Timeline and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline. Valid values:
     // 
     // *   Timeline: a regular template.
     // *   VETemplate: an advanced template.
-    std::shared_ptr<string> templateType_ = nullptr;
-    std::shared_ptr<string> timeline_ = nullptr;
+    shared_ptr<string> templateType_ {};
+    shared_ptr<string> timeline_ {};
     // The title of the online editing project.
     // 
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

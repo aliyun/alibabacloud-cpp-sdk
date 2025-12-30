@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->command_ == nullptr
-        && return this->jobId_ == nullptr; };
+        && this->jobId_ == nullptr; };
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline string command() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
+    inline string getCommand() const { DARABONBA_PTR_GET_DEFAULT(command_, "") };
     inline SendLiveTranscodeJobCommandRequest& setCommand(string command) { DARABONBA_PTR_SET_VALUE(command_, command) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline SendLiveTranscodeJobCommandRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The operation command. Only the stop command is supported. This command is used to stop a transcoding job.
     // 
     // This parameter is required.
-    std::shared_ptr<string> command_ = nullptr;
+    shared_ptr<string> command_ {};
     // The ID of the transcoding job.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
   };
 
   } // namespace Models

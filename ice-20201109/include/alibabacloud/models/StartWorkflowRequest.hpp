@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->skipInputVerification_ == nullptr
-        && return this->taskInput_ == nullptr && return this->userData_ == nullptr && return this->workflowId_ == nullptr; };
+        && this->taskInput_ == nullptr && this->userData_ == nullptr && this->workflowId_ == nullptr; };
     // skipInputVerification Field Functions 
     bool hasSkipInputVerification() const { return this->skipInputVerification_ != nullptr;};
     void deleteSkipInputVerification() { this->skipInputVerification_ = nullptr;};
-    inline bool skipInputVerification() const { DARABONBA_PTR_GET_DEFAULT(skipInputVerification_, false) };
+    inline bool getSkipInputVerification() const { DARABONBA_PTR_GET_DEFAULT(skipInputVerification_, false) };
     inline StartWorkflowRequest& setSkipInputVerification(bool skipInputVerification) { DARABONBA_PTR_SET_VALUE(skipInputVerification_, skipInputVerification) };
 
 
     // taskInput Field Functions 
     bool hasTaskInput() const { return this->taskInput_ != nullptr;};
     void deleteTaskInput() { this->taskInput_ = nullptr;};
-    inline string taskInput() const { DARABONBA_PTR_GET_DEFAULT(taskInput_, "") };
+    inline string getTaskInput() const { DARABONBA_PTR_GET_DEFAULT(taskInput_, "") };
     inline StartWorkflowRequest& setTaskInput(string taskInput) { DARABONBA_PTR_SET_VALUE(taskInput_, taskInput) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline StartWorkflowRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
     // workflowId Field Functions 
     bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
     void deleteWorkflowId() { this->workflowId_ = nullptr;};
-    inline string workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, "") };
+    inline string getWorkflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, "") };
     inline StartWorkflowRequest& setWorkflowId(string workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
 
 
   protected:
-    std::shared_ptr<bool> skipInputVerification_ = nullptr;
+    shared_ptr<bool> skipInputVerification_ {};
     // The workflow input. Only media assets are supported.
-    std::shared_ptr<string> taskInput_ = nullptr;
+    shared_ptr<string> taskInput_ {};
     // The user-defined data in the JSON format, which cannot be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
     // The ID of the workflow template. To view the template ID, log on to the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) and choose Configurations > Workflow Template.
-    std::shared_ptr<string> workflowId_ = nullptr;
+    shared_ptr<string> workflowId_ {};
   };
 
   } // namespace Models

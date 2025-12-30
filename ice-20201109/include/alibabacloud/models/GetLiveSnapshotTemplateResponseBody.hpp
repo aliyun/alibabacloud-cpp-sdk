@@ -46,95 +46,95 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->lastModified_ == nullptr && return this->overwriteFormat_ == nullptr && return this->requestId_ == nullptr && return this->sequenceFormat_ == nullptr && return this->templateId_ == nullptr
-        && return this->templateName_ == nullptr && return this->timeInterval_ == nullptr && return this->type_ == nullptr; };
+        && this->lastModified_ == nullptr && this->overwriteFormat_ == nullptr && this->requestId_ == nullptr && this->sequenceFormat_ == nullptr && this->templateId_ == nullptr
+        && this->templateName_ == nullptr && this->timeInterval_ == nullptr && this->type_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // lastModified Field Functions 
     bool hasLastModified() const { return this->lastModified_ != nullptr;};
     void deleteLastModified() { this->lastModified_ = nullptr;};
-    inline string lastModified() const { DARABONBA_PTR_GET_DEFAULT(lastModified_, "") };
+    inline string getLastModified() const { DARABONBA_PTR_GET_DEFAULT(lastModified_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setLastModified(string lastModified) { DARABONBA_PTR_SET_VALUE(lastModified_, lastModified) };
 
 
     // overwriteFormat Field Functions 
     bool hasOverwriteFormat() const { return this->overwriteFormat_ != nullptr;};
     void deleteOverwriteFormat() { this->overwriteFormat_ = nullptr;};
-    inline string overwriteFormat() const { DARABONBA_PTR_GET_DEFAULT(overwriteFormat_, "") };
+    inline string getOverwriteFormat() const { DARABONBA_PTR_GET_DEFAULT(overwriteFormat_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setOverwriteFormat(string overwriteFormat) { DARABONBA_PTR_SET_VALUE(overwriteFormat_, overwriteFormat) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sequenceFormat Field Functions 
     bool hasSequenceFormat() const { return this->sequenceFormat_ != nullptr;};
     void deleteSequenceFormat() { this->sequenceFormat_ = nullptr;};
-    inline string sequenceFormat() const { DARABONBA_PTR_GET_DEFAULT(sequenceFormat_, "") };
+    inline string getSequenceFormat() const { DARABONBA_PTR_GET_DEFAULT(sequenceFormat_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setSequenceFormat(string sequenceFormat) { DARABONBA_PTR_SET_VALUE(sequenceFormat_, sequenceFormat) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // timeInterval Field Functions 
     bool hasTimeInterval() const { return this->timeInterval_ != nullptr;};
     void deleteTimeInterval() { this->timeInterval_ = nullptr;};
-    inline int32_t timeInterval() const { DARABONBA_PTR_GET_DEFAULT(timeInterval_, 0) };
+    inline int32_t getTimeInterval() const { DARABONBA_PTR_GET_DEFAULT(timeInterval_, 0) };
     inline GetLiveSnapshotTemplateResponseBody& setTimeInterval(int32_t timeInterval) { DARABONBA_PTR_SET_VALUE(timeInterval_, timeInterval) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GetLiveSnapshotTemplateResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The time when the configuration was modified.
-    std::shared_ptr<string> createTime_ = nullptr;
+    shared_ptr<string> createTime_ {};
     // The time when the template was created.
-    std::shared_ptr<string> lastModified_ = nullptr;
+    shared_ptr<string> lastModified_ {};
     // The naming format of the snapshot captured in overwrite mode.
-    std::shared_ptr<string> overwriteFormat_ = nullptr;
+    shared_ptr<string> overwriteFormat_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The naming format of the snapshot captured in time series mode.
-    std::shared_ptr<string> sequenceFormat_ = nullptr;
+    shared_ptr<string> sequenceFormat_ {};
     // The template ID.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The template name.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
     // The interval between two adjacent snapshots.
-    std::shared_ptr<int32_t> timeInterval_ = nullptr;
+    shared_ptr<int32_t> timeInterval_ {};
     // The type of the template.
     // 
     // Valid values:
     // 
     // *   system
     // *   custom
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->outputConfig_ == nullptr
-        && return this->projectIds_ == nullptr && return this->userData_ == nullptr; };
+        && this->projectIds_ == nullptr && this->userData_ == nullptr; };
     // outputConfig Field Functions 
     bool hasOutputConfig() const { return this->outputConfig_ != nullptr;};
     void deleteOutputConfig() { this->outputConfig_ = nullptr;};
-    inline string outputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
+    inline string getOutputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
     inline SubmitSceneBatchEditingJobRequest& setOutputConfig(string outputConfig) { DARABONBA_PTR_SET_VALUE(outputConfig_, outputConfig) };
 
 
     // projectIds Field Functions 
     bool hasProjectIds() const { return this->projectIds_ != nullptr;};
     void deleteProjectIds() { this->projectIds_ = nullptr;};
-    inline string projectIds() const { DARABONBA_PTR_GET_DEFAULT(projectIds_, "") };
+    inline string getProjectIds() const { DARABONBA_PTR_GET_DEFAULT(projectIds_, "") };
     inline SubmitSceneBatchEditingJobRequest& setProjectIds(string projectIds) { DARABONBA_PTR_SET_VALUE(projectIds_, projectIds) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline SubmitSceneBatchEditingJobRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The output configuration. The structure is the same as the [OutputConfig](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.3af86997GreVu9\\&scm=20140722.H_2863940._.OR_help-T_cn~zh-V_1#4111a373d0xbz) for batch video generation, except that Count and GeneratePreviewOnly are not supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputConfig_ = nullptr;
+    shared_ptr<string> outputConfig_ {};
     // A comma-separated list of editing project IDs. The video is rendered based on the timeline from each project.
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectIds_ = nullptr;
+    shared_ptr<string> projectIds_ {};
     // Custom user data, including callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
   };
 
   } // namespace Models

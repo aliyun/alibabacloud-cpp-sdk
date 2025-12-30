@@ -42,72 +42,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endOfCreateTime_ == nullptr
-        && return this->keyText_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->startOfCreateTime_ == nullptr && return this->workflowId_ == nullptr
-        && return this->workflowName_ == nullptr; };
+        && this->keyText_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->startOfCreateTime_ == nullptr && this->workflowId_ == nullptr
+        && this->workflowName_ == nullptr; };
     // endOfCreateTime Field Functions 
     bool hasEndOfCreateTime() const { return this->endOfCreateTime_ != nullptr;};
     void deleteEndOfCreateTime() { this->endOfCreateTime_ = nullptr;};
-    inline string endOfCreateTime() const { DARABONBA_PTR_GET_DEFAULT(endOfCreateTime_, "") };
+    inline string getEndOfCreateTime() const { DARABONBA_PTR_GET_DEFAULT(endOfCreateTime_, "") };
     inline ListWorkflowTasksRequest& setEndOfCreateTime(string endOfCreateTime) { DARABONBA_PTR_SET_VALUE(endOfCreateTime_, endOfCreateTime) };
 
 
     // keyText Field Functions 
     bool hasKeyText() const { return this->keyText_ != nullptr;};
     void deleteKeyText() { this->keyText_ = nullptr;};
-    inline string keyText() const { DARABONBA_PTR_GET_DEFAULT(keyText_, "") };
+    inline string getKeyText() const { DARABONBA_PTR_GET_DEFAULT(keyText_, "") };
     inline ListWorkflowTasksRequest& setKeyText(string keyText) { DARABONBA_PTR_SET_VALUE(keyText_, keyText) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListWorkflowTasksRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListWorkflowTasksRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // startOfCreateTime Field Functions 
     bool hasStartOfCreateTime() const { return this->startOfCreateTime_ != nullptr;};
     void deleteStartOfCreateTime() { this->startOfCreateTime_ = nullptr;};
-    inline string startOfCreateTime() const { DARABONBA_PTR_GET_DEFAULT(startOfCreateTime_, "") };
+    inline string getStartOfCreateTime() const { DARABONBA_PTR_GET_DEFAULT(startOfCreateTime_, "") };
     inline ListWorkflowTasksRequest& setStartOfCreateTime(string startOfCreateTime) { DARABONBA_PTR_SET_VALUE(startOfCreateTime_, startOfCreateTime) };
 
 
     // workflowId Field Functions 
     bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
     void deleteWorkflowId() { this->workflowId_ = nullptr;};
-    inline string workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, "") };
+    inline string getWorkflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, "") };
     inline ListWorkflowTasksRequest& setWorkflowId(string workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
 
 
     // workflowName Field Functions 
     bool hasWorkflowName() const { return this->workflowName_ != nullptr;};
     void deleteWorkflowName() { this->workflowName_ = nullptr;};
-    inline string workflowName() const { DARABONBA_PTR_GET_DEFAULT(workflowName_, "") };
+    inline string getWorkflowName() const { DARABONBA_PTR_GET_DEFAULT(workflowName_, "") };
     inline ListWorkflowTasksRequest& setWorkflowName(string workflowName) { DARABONBA_PTR_SET_VALUE(workflowName_, workflowName) };
 
 
   protected:
     // The end of the time range for filtering tasks by their creation time. Supports querying data from the last 90 days only.
-    std::shared_ptr<string> endOfCreateTime_ = nullptr;
+    shared_ptr<string> endOfCreateTime_ {};
     // A keyword for fuzzy matching against the TaskInput, such as a file name or Media ID. Max length: 32 characters.
-    std::shared_ptr<string> keyText_ = nullptr;
+    shared_ptr<string> keyText_ {};
     // The maximum number of media workflow instances to return. Valid values: 1 to 100. Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The start of the time range for filtering tasks by their creation time. Supports querying data from the last 90 days only.
-    std::shared_ptr<string> startOfCreateTime_ = nullptr;
+    shared_ptr<string> startOfCreateTime_ {};
     // The ID of the workflow template.[](https://ims.console.aliyun.com/settings/workflow/list)
-    std::shared_ptr<string> workflowId_ = nullptr;
+    shared_ptr<string> workflowId_ {};
     // The name of the workflow template.
-    std::shared_ptr<string> workflowName_ = nullptr;
+    shared_ptr<string> workflowName_ {};
   };
 
   } // namespace Models

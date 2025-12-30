@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callbackUrl_ == nullptr
-        && return this->jobName_ == nullptr && return this->snapshotOutputShrink_ == nullptr && return this->streamInputShrink_ == nullptr && return this->templateId_ == nullptr; };
+        && this->jobName_ == nullptr && this->snapshotOutputShrink_ == nullptr && this->streamInputShrink_ == nullptr && this->templateId_ == nullptr; };
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
-    inline string callbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
+    inline string getCallbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
     inline SubmitLiveSnapshotJobShrinkRequest& setCallbackUrl(string callbackUrl) { DARABONBA_PTR_SET_VALUE(callbackUrl_, callbackUrl) };
 
 
     // jobName Field Functions 
     bool hasJobName() const { return this->jobName_ != nullptr;};
     void deleteJobName() { this->jobName_ = nullptr;};
-    inline string jobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
+    inline string getJobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
     inline SubmitLiveSnapshotJobShrinkRequest& setJobName(string jobName) { DARABONBA_PTR_SET_VALUE(jobName_, jobName) };
 
 
     // snapshotOutputShrink Field Functions 
     bool hasSnapshotOutputShrink() const { return this->snapshotOutputShrink_ != nullptr;};
     void deleteSnapshotOutputShrink() { this->snapshotOutputShrink_ = nullptr;};
-    inline string snapshotOutputShrink() const { DARABONBA_PTR_GET_DEFAULT(snapshotOutputShrink_, "") };
+    inline string getSnapshotOutputShrink() const { DARABONBA_PTR_GET_DEFAULT(snapshotOutputShrink_, "") };
     inline SubmitLiveSnapshotJobShrinkRequest& setSnapshotOutputShrink(string snapshotOutputShrink) { DARABONBA_PTR_SET_VALUE(snapshotOutputShrink_, snapshotOutputShrink) };
 
 
     // streamInputShrink Field Functions 
     bool hasStreamInputShrink() const { return this->streamInputShrink_ != nullptr;};
     void deleteStreamInputShrink() { this->streamInputShrink_ = nullptr;};
-    inline string streamInputShrink() const { DARABONBA_PTR_GET_DEFAULT(streamInputShrink_, "") };
+    inline string getStreamInputShrink() const { DARABONBA_PTR_GET_DEFAULT(streamInputShrink_, "") };
     inline SubmitLiveSnapshotJobShrinkRequest& setStreamInputShrink(string streamInputShrink) { DARABONBA_PTR_SET_VALUE(streamInputShrink_, streamInputShrink) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline SubmitLiveSnapshotJobShrinkRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
@@ -79,25 +79,25 @@ namespace Models
     // 
     // *   It cannot exceed 255 characters in length.
     // *   Both HTTP and HTTPS URLs are supported.
-    std::shared_ptr<string> callbackUrl_ = nullptr;
+    shared_ptr<string> callbackUrl_ {};
     // The name of the job.
     // 
     // *   It cannot exceed 128 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobName_ = nullptr;
+    shared_ptr<string> jobName_ {};
     // The information about the output snapshot.
     // 
     // This parameter is required.
-    std::shared_ptr<string> snapshotOutputShrink_ = nullptr;
+    shared_ptr<string> snapshotOutputShrink_ {};
     // The information about the input stream.
     // 
     // This parameter is required.
-    std::shared_ptr<string> streamInputShrink_ = nullptr;
+    shared_ptr<string> streamInputShrink_ {};
     // The template ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

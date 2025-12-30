@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mediaId_ == nullptr
-        && return this->mediaMarks_ == nullptr; };
+        && this->mediaMarks_ == nullptr; };
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
-    inline string mediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
+    inline string getMediaId() const { DARABONBA_PTR_GET_DEFAULT(mediaId_, "") };
     inline AddMediaMarksRequest& setMediaId(string mediaId) { DARABONBA_PTR_SET_VALUE(mediaId_, mediaId) };
 
 
     // mediaMarks Field Functions 
     bool hasMediaMarks() const { return this->mediaMarks_ != nullptr;};
     void deleteMediaMarks() { this->mediaMarks_ = nullptr;};
-    inline string mediaMarks() const { DARABONBA_PTR_GET_DEFAULT(mediaMarks_, "") };
+    inline string getMediaMarks() const { DARABONBA_PTR_GET_DEFAULT(mediaMarks_, "") };
     inline AddMediaMarksRequest& setMediaMarks(string mediaMarks) { DARABONBA_PTR_SET_VALUE(mediaMarks_, mediaMarks) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the media asset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaId_ = nullptr;
+    shared_ptr<string> mediaId_ {};
     // The mark information. The value must be a JSONArray.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mediaMarks_ = nullptr;
+    shared_ptr<string> mediaMarks_ {};
   };
 
   } // namespace Models
