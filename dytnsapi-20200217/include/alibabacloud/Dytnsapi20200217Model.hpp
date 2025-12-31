@@ -120,6 +120,9 @@
 #include <alibabacloud/models/QueryUsageStatisticsByTagIdRequest.hpp>
 #include <alibabacloud/models/QueryUsageStatisticsByTagIdResponseBody.hpp>
 #include <alibabacloud/models/QueryUsageStatisticsByTagIdResponse.hpp>
+#include <alibabacloud/models/SaveContactsRequest.hpp>
+#include <alibabacloud/models/SaveContactsResponseBody.hpp>
+#include <alibabacloud/models/SaveContactsResponse.hpp>
 #include <alibabacloud/models/ThreeElementsVerificationRequest.hpp>
 #include <alibabacloud/models/ThreeElementsVerificationResponseBody.hpp>
 #include <alibabacloud/models/ThreeElementsVerificationResponse.hpp>

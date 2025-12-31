@@ -852,6 +852,23 @@ namespace Dytnsapi20200217
       Models::QueryUsageStatisticsByTagIdResponse queryUsageStatisticsByTagId(const Models::QueryUsageStatisticsByTagIdRequest &request);
 
       /**
+       * @summary 预警联系人保存
+       *
+       * @param request SaveContactsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveContactsResponse
+       */
+      Models::SaveContactsResponse saveContactsWithOptions(const Models::SaveContactsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预警联系人保存
+       *
+       * @param request SaveContactsRequest
+       * @return SaveContactsResponse
+       */
+      Models::SaveContactsResponse saveContacts(const Models::SaveContactsRequest &request);
+
+      /**
        * @summary Verifies whether the name, phone number, and ID card number entered by a user belong to the same user.
        *
        * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/154751.html) of Cell Phone Number Service.

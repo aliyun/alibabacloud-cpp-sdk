@@ -2688,6 +2688,88 @@ QueryUsageStatisticsByTagIdResponse Client::queryUsageStatisticsByTagId(const Qu
 }
 
 /**
+ * @summary 预警联系人保存
+ *
+ * @param request SaveContactsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveContactsResponse
+ */
+SaveContactsResponse Client::saveContactsWithOptions(const SaveContactsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasContactEmail()) {
+    query["ContactEmail"] = request.getContactEmail();
+  }
+
+  if (!!request.hasContactName()) {
+    query["ContactName"] = request.getContactName();
+  }
+
+  if (!!request.hasContactPhone()) {
+    query["ContactPhone"] = request.getContactPhone();
+  }
+
+  if (!!request.hasMailStatus()) {
+    query["MailStatus"] = request.getMailStatus();
+  }
+
+  if (!!request.hasOpenStatusWarning()) {
+    query["OpenStatusWarning"] = request.getOpenStatusWarning();
+  }
+
+  if (!!request.hasOpentAttributionWarning()) {
+    query["OpentAttributionWarning"] = request.getOpentAttributionWarning();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPhoneStatus()) {
+    query["PhoneStatus"] = request.getPhoneStatus();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SaveContacts"},
+    {"version" , "2020-02-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveContactsResponse>();
+}
+
+/**
+ * @summary 预警联系人保存
+ *
+ * @param request SaveContactsRequest
+ * @return SaveContactsResponse
+ */
+SaveContactsResponse Client::saveContacts(const SaveContactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return saveContactsWithOptions(request, runtime);
+}
+
+/**
  * @summary Verifies whether the name, phone number, and ID card number entered by a user belong to the same user.
  *
  * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/154751.html) of Cell Phone Number Service.
