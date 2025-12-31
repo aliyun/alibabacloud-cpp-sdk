@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATESUBCACERTIFICATEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateSubCACertificateRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -61,57 +60,99 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->clientToken_ == nullptr && return this->commonName_ == nullptr && return this->countryCode_ == nullptr && return this->crlDay_ == nullptr && return this->enableCrl_ == nullptr
-        && return this->extendedKeyUsages_ == nullptr && return this->locality_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr
-        && return this->pathLenConstraint_ == nullptr && return this->resourceGroupId_ == nullptr && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
+        && this->clientToken_ == nullptr && this->commonName_ == nullptr && this->countryCode_ == nullptr && this->crlDay_ == nullptr && this->enableCrl_ == nullptr
+        && this->extendedKeyUsages_ == nullptr && this->locality_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr
+        && this->pathLenConstraint_ == nullptr && this->resourceGroupId_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->years_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
-    inline string algorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline CreateSubCACertificateRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateSubCACertificateRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};
-    inline string commonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
+    inline string getCommonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
     inline CreateSubCACertificateRequest& setCommonName(string commonName) { DARABONBA_PTR_SET_VALUE(commonName_, commonName) };
 
 
     // countryCode Field Functions 
     bool hasCountryCode() const { return this->countryCode_ != nullptr;};
     void deleteCountryCode() { this->countryCode_ = nullptr;};
-    inline string countryCode() const { DARABONBA_PTR_GET_DEFAULT(countryCode_, "") };
+    inline string getCountryCode() const { DARABONBA_PTR_GET_DEFAULT(countryCode_, "") };
     inline CreateSubCACertificateRequest& setCountryCode(string countryCode) { DARABONBA_PTR_SET_VALUE(countryCode_, countryCode) };
 
 
     // crlDay Field Functions 
     bool hasCrlDay() const { return this->crlDay_ != nullptr;};
     void deleteCrlDay() { this->crlDay_ = nullptr;};
-    inline int32_t crlDay() const { DARABONBA_PTR_GET_DEFAULT(crlDay_, 0) };
+    inline int32_t getCrlDay() const { DARABONBA_PTR_GET_DEFAULT(crlDay_, 0) };
     inline CreateSubCACertificateRequest& setCrlDay(int32_t crlDay) { DARABONBA_PTR_SET_VALUE(crlDay_, crlDay) };
 
 
     // enableCrl Field Functions 
     bool hasEnableCrl() const { return this->enableCrl_ != nullptr;};
     void deleteEnableCrl() { this->enableCrl_ = nullptr;};
-    inline bool enableCrl() const { DARABONBA_PTR_GET_DEFAULT(enableCrl_, false) };
+    inline bool getEnableCrl() const { DARABONBA_PTR_GET_DEFAULT(enableCrl_, false) };
     inline CreateSubCACertificateRequest& setEnableCrl(bool enableCrl) { DARABONBA_PTR_SET_VALUE(enableCrl_, enableCrl) };
 
 
     // extendedKeyUsages Field Functions 
     bool hasExtendedKeyUsages() const { return this->extendedKeyUsages_ != nullptr;};
     void deleteExtendedKeyUsages() { this->extendedKeyUsages_ = nullptr;};
-    inline const vector<string> & extendedKeyUsages() const { DARABONBA_PTR_GET_CONST(extendedKeyUsages_, vector<string>) };
-    inline vector<string> extendedKeyUsages() { DARABONBA_PTR_GET(extendedKeyUsages_, vector<string>) };
+    inline const vector<string> & getExtendedKeyUsages() const { DARABONBA_PTR_GET_CONST(extendedKeyUsages_, vector<string>) };
+    inline vector<string> getExtendedKeyUsages() { DARABONBA_PTR_GET(extendedKeyUsages_, vector<string>) };
     inline CreateSubCACertificateRequest& setExtendedKeyUsages(const vector<string> & extendedKeyUsages) { DARABONBA_PTR_SET_VALUE(extendedKeyUsages_, extendedKeyUsages) };
     inline CreateSubCACertificateRequest& setExtendedKeyUsages(vector<string> && extendedKeyUsages) { DARABONBA_PTR_SET_RVALUE(extendedKeyUsages_, extendedKeyUsages) };
 
@@ -119,65 +160,65 @@ namespace Models
     // locality Field Functions 
     bool hasLocality() const { return this->locality_ != nullptr;};
     void deleteLocality() { this->locality_ = nullptr;};
-    inline string locality() const { DARABONBA_PTR_GET_DEFAULT(locality_, "") };
+    inline string getLocality() const { DARABONBA_PTR_GET_DEFAULT(locality_, "") };
     inline CreateSubCACertificateRequest& setLocality(string locality) { DARABONBA_PTR_SET_VALUE(locality_, locality) };
 
 
     // organization Field Functions 
     bool hasOrganization() const { return this->organization_ != nullptr;};
     void deleteOrganization() { this->organization_ = nullptr;};
-    inline string organization() const { DARABONBA_PTR_GET_DEFAULT(organization_, "") };
+    inline string getOrganization() const { DARABONBA_PTR_GET_DEFAULT(organization_, "") };
     inline CreateSubCACertificateRequest& setOrganization(string organization) { DARABONBA_PTR_SET_VALUE(organization_, organization) };
 
 
     // organizationUnit Field Functions 
     bool hasOrganizationUnit() const { return this->organizationUnit_ != nullptr;};
     void deleteOrganizationUnit() { this->organizationUnit_ = nullptr;};
-    inline string organizationUnit() const { DARABONBA_PTR_GET_DEFAULT(organizationUnit_, "") };
+    inline string getOrganizationUnit() const { DARABONBA_PTR_GET_DEFAULT(organizationUnit_, "") };
     inline CreateSubCACertificateRequest& setOrganizationUnit(string organizationUnit) { DARABONBA_PTR_SET_VALUE(organizationUnit_, organizationUnit) };
 
 
     // parentIdentifier Field Functions 
     bool hasParentIdentifier() const { return this->parentIdentifier_ != nullptr;};
     void deleteParentIdentifier() { this->parentIdentifier_ = nullptr;};
-    inline string parentIdentifier() const { DARABONBA_PTR_GET_DEFAULT(parentIdentifier_, "") };
+    inline string getParentIdentifier() const { DARABONBA_PTR_GET_DEFAULT(parentIdentifier_, "") };
     inline CreateSubCACertificateRequest& setParentIdentifier(string parentIdentifier) { DARABONBA_PTR_SET_VALUE(parentIdentifier_, parentIdentifier) };
 
 
     // pathLenConstraint Field Functions 
     bool hasPathLenConstraint() const { return this->pathLenConstraint_ != nullptr;};
     void deletePathLenConstraint() { this->pathLenConstraint_ = nullptr;};
-    inline int32_t pathLenConstraint() const { DARABONBA_PTR_GET_DEFAULT(pathLenConstraint_, 0) };
+    inline int32_t getPathLenConstraint() const { DARABONBA_PTR_GET_DEFAULT(pathLenConstraint_, 0) };
     inline CreateSubCACertificateRequest& setPathLenConstraint(int32_t pathLenConstraint) { DARABONBA_PTR_SET_VALUE(pathLenConstraint_, pathLenConstraint) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateSubCACertificateRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline CreateSubCACertificateRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<CreateSubCACertificateRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateSubCACertificateRequestTags>) };
-    inline vector<CreateSubCACertificateRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateSubCACertificateRequestTags>) };
-    inline CreateSubCACertificateRequest& setTags(const vector<CreateSubCACertificateRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline CreateSubCACertificateRequest& setTags(vector<CreateSubCACertificateRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<CreateSubCACertificateRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateSubCACertificateRequest::Tags>) };
+    inline vector<CreateSubCACertificateRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreateSubCACertificateRequest::Tags>) };
+    inline CreateSubCACertificateRequest& setTags(const vector<CreateSubCACertificateRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateSubCACertificateRequest& setTags(vector<CreateSubCACertificateRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // years Field Functions 
     bool hasYears() const { return this->years_ != nullptr;};
     void deleteYears() { this->years_ = nullptr;};
-    inline int32_t years() const { DARABONBA_PTR_GET_DEFAULT(years_, 0) };
+    inline int32_t getYears() const { DARABONBA_PTR_GET_DEFAULT(years_, 0) };
     inline CreateSubCACertificateRequest& setYears(int32_t years) { DARABONBA_PTR_SET_VALUE(years_, years) };
 
 
@@ -195,49 +236,49 @@ namespace Models
     // > You can call the [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) operation to query the key algorithm of a root CA certificate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> algorithm_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> algorithm_ {};
+    shared_ptr<string> clientToken_ {};
     // The common name or abbreviation of the organization. The value can contain letters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> commonName_ = nullptr;
+    shared_ptr<string> commonName_ {};
     // The code of the country or region in which the organization is located. You can enter an alpha-2 or alpha-3 code. For example, you can use **CN** to indicate China and use **US** to indicate the United States.
     // 
     // For more information about country codes, see the **"Country codes"** section in [Manage company profiles](https://help.aliyun.com/document_detail/198289.html).
-    std::shared_ptr<string> countryCode_ = nullptr;
+    shared_ptr<string> countryCode_ {};
     // CRL validity period: 1-365 days
-    std::shared_ptr<int32_t> crlDay_ = nullptr;
+    shared_ptr<int32_t> crlDay_ {};
     // Enable Crl Service.
     // 
     // - 0- No
     // - 1- Yes
-    std::shared_ptr<bool> enableCrl_ = nullptr;
+    shared_ptr<bool> enableCrl_ {};
     // The extended key usages of the certificate.
-    std::shared_ptr<vector<string>> extendedKeyUsages_ = nullptr;
+    shared_ptr<vector<string>> extendedKeyUsages_ {};
     // The name of the city in which the organization is located. The value can contain letters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> locality_ = nullptr;
+    shared_ptr<string> locality_ {};
     // The name of the organization that is associated with the intermediate CA certificate. You can enter the name of your enterprise or company. The value can contain letters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organization_ = nullptr;
+    shared_ptr<string> organization_ {};
     // The name of the department or branch in the organization. The value can contain letters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationUnit_ = nullptr;
+    shared_ptr<string> organizationUnit_ {};
     // The unique identifier of the root CA certificate.
     // 
     // > You can call the [DescribeCACertificateList] operation to query the unique identifiers of all CA certificates.
-    std::shared_ptr<string> parentIdentifier_ = nullptr;
+    shared_ptr<string> parentIdentifier_ {};
     // The path length constraint of the certificate. Default value: 0.
-    std::shared_ptr<int32_t> pathLenConstraint_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<int32_t> pathLenConstraint_ {};
+    shared_ptr<string> resourceGroupId_ {};
     // The name of the province or state in which the organization is located. The value can contain letters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> state_ = nullptr;
-    std::shared_ptr<vector<CreateSubCACertificateRequestTags>> tags_ = nullptr;
+    shared_ptr<string> state_ {};
+    shared_ptr<vector<CreateSubCACertificateRequest::Tags>> tags_ {};
     // The validity period of the intermediate CA certificate. Unit: years.
     // 
     // We recommend that you set this parameter to 5 to 10.
@@ -245,7 +286,7 @@ namespace Models
     // > The validity period of the intermediate CA certificate cannot exceed the validity period of the root CA certificate. You can call the [DescribeCACertificate]operation to query the validity period of a root CA certificate.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> years_ = nullptr;
+    shared_ptr<int32_t> years_ {};
   };
 
   } // namespace Models

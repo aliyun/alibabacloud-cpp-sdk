@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certCount_ == nullptr
-        && return this->currentYearFreeCertCount_ == nullptr && return this->requestId_ == nullptr; };
+        && this->currentYearFreeCertCount_ == nullptr && this->requestId_ == nullptr; };
     // certCount Field Functions 
     bool hasCertCount() const { return this->certCount_ != nullptr;};
     void deleteCertCount() { this->certCount_ = nullptr;};
-    inline int32_t certCount() const { DARABONBA_PTR_GET_DEFAULT(certCount_, 0) };
+    inline int32_t getCertCount() const { DARABONBA_PTR_GET_DEFAULT(certCount_, 0) };
     inline AssignCertificateCountResponseBody& setCertCount(int32_t certCount) { DARABONBA_PTR_SET_VALUE(certCount_, certCount) };
 
 
     // currentYearFreeCertCount Field Functions 
     bool hasCurrentYearFreeCertCount() const { return this->currentYearFreeCertCount_ != nullptr;};
     void deleteCurrentYearFreeCertCount() { this->currentYearFreeCertCount_ = nullptr;};
-    inline int32_t currentYearFreeCertCount() const { DARABONBA_PTR_GET_DEFAULT(currentYearFreeCertCount_, 0) };
+    inline int32_t getCurrentYearFreeCertCount() const { DARABONBA_PTR_GET_DEFAULT(currentYearFreeCertCount_, 0) };
     inline AssignCertificateCountResponseBody& setCurrentYearFreeCertCount(int32_t currentYearFreeCertCount) { DARABONBA_PTR_SET_VALUE(currentYearFreeCertCount_, currentYearFreeCertCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AssignCertificateCountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<int32_t> certCount_ = nullptr;
-    std::shared_ptr<int32_t> currentYearFreeCertCount_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<int32_t> certCount_ {};
+    shared_ptr<int32_t> currentYearFreeCertCount_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

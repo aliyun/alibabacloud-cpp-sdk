@@ -33,13 +33,13 @@ namespace Models
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline ListCACertificateLogRequest& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> identifier_ = nullptr;
+    shared_ptr<string> identifier_ {};
   };
 
   } // namespace Models

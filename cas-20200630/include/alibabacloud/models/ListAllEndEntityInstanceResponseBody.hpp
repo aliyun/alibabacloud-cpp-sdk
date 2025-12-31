@@ -45,20 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->list_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->pageCount_ == nullptr && return this->requestId_ == nullptr
-        && return this->showSize_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->list_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageCount_ == nullptr && this->requestId_ == nullptr
+        && this->showSize_ == nullptr && this->totalCount_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListAllEndEntityInstanceResponseBody& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // list Field Functions 
     bool hasList() const { return this->list_ != nullptr;};
     void deleteList() { this->list_ = nullptr;};
-    inline const vector<Darabonba::Json> & list() const { DARABONBA_PTR_GET_CONST(list_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> list() { DARABONBA_PTR_GET(list_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getList() const { DARABONBA_PTR_GET_CONST(list_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getList() { DARABONBA_PTR_GET(list_, vector<Darabonba::Json>) };
     inline ListAllEndEntityInstanceResponseBody& setList(const vector<Darabonba::Json> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
     inline ListAllEndEntityInstanceResponseBody& setList(vector<Darabonba::Json> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
 
@@ -66,54 +66,54 @@ namespace Models
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAllEndEntityInstanceResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAllEndEntityInstanceResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageCount Field Functions 
     bool hasPageCount() const { return this->pageCount_ != nullptr;};
     void deletePageCount() { this->pageCount_ = nullptr;};
-    inline int32_t pageCount() const { DARABONBA_PTR_GET_DEFAULT(pageCount_, 0) };
+    inline int32_t getPageCount() const { DARABONBA_PTR_GET_DEFAULT(pageCount_, 0) };
     inline ListAllEndEntityInstanceResponseBody& setPageCount(int32_t pageCount) { DARABONBA_PTR_SET_VALUE(pageCount_, pageCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListAllEndEntityInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // showSize Field Functions 
     bool hasShowSize() const { return this->showSize_ != nullptr;};
     void deleteShowSize() { this->showSize_ = nullptr;};
-    inline int32_t showSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
+    inline int32_t getShowSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
     inline ListAllEndEntityInstanceResponseBody& setShowSize(int32_t showSize) { DARABONBA_PTR_SET_VALUE(showSize_, showSize) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListAllEndEntityInstanceResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<vector<Darabonba::Json>> list_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<int32_t> pageCount_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> showSize_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<vector<Darabonba::Json>> list_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<int32_t> pageCount_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> showSize_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

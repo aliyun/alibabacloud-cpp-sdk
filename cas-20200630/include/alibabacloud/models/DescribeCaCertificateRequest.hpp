@@ -33,7 +33,7 @@ namespace Models
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline DescribeCACertificateRequest& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The unique identifier of the CA certificate that you want to query.
     // 
     // >  You can call the [DescribeCACertificateList](https://help.aliyun.com/document_detail/328095.html) operation to query the unique identifiers of all CA certificates.
-    std::shared_ptr<string> identifier_ = nullptr;
+    shared_ptr<string> identifier_ {};
   };
 
   } // namespace Models

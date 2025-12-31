@@ -33,13 +33,13 @@ namespace Models
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};
-    inline string ids() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
+    inline string getIds() const { DARABONBA_PTR_GET_DEFAULT(ids_, "") };
     inline UploadPcaCertToCasRequest& setIds(string ids) { DARABONBA_PTR_SET_VALUE(ids_, ids) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> ids_ = nullptr;
+    shared_ptr<string> ids_ {};
   };
 
   } // namespace Models

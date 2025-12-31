@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificate_ == nullptr
-        && return this->certificateChain_ == nullptr && return this->identifier_ == nullptr && return this->requestId_ == nullptr; };
+        && this->certificateChain_ == nullptr && this->identifier_ == nullptr && this->requestId_ == nullptr; };
     // certificate Field Functions 
     bool hasCertificate() const { return this->certificate_ != nullptr;};
     void deleteCertificate() { this->certificate_ = nullptr;};
-    inline string certificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
+    inline string getCertificate() const { DARABONBA_PTR_GET_DEFAULT(certificate_, "") };
     inline CreateRootCACertificateResponseBody& setCertificate(string certificate) { DARABONBA_PTR_SET_VALUE(certificate_, certificate) };
 
 
     // certificateChain Field Functions 
     bool hasCertificateChain() const { return this->certificateChain_ != nullptr;};
     void deleteCertificateChain() { this->certificateChain_ = nullptr;};
-    inline string certificateChain() const { DARABONBA_PTR_GET_DEFAULT(certificateChain_, "") };
+    inline string getCertificateChain() const { DARABONBA_PTR_GET_DEFAULT(certificateChain_, "") };
     inline CreateRootCACertificateResponseBody& setCertificateChain(string certificateChain) { DARABONBA_PTR_SET_VALUE(certificateChain_, certificateChain) };
 
 
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline CreateRootCACertificateResponseBody& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateRootCACertificateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The root CA certificate in the PEM format.
-    std::shared_ptr<string> certificate_ = nullptr;
+    shared_ptr<string> certificate_ {};
     // The certificate chain of the root CA certificate.
-    std::shared_ptr<string> certificateChain_ = nullptr;
+    shared_ptr<string> certificateChain_ {};
     // The unique identifier of the root CA certificate.
-    std::shared_ptr<string> identifier_ = nullptr;
+    shared_ptr<string> identifier_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

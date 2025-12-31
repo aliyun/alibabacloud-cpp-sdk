@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptedCode_ == nullptr
-        && return this->identifier_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->identifier_ == nullptr && this->resourceGroupId_ == nullptr; };
     // encryptedCode Field Functions 
     bool hasEncryptedCode() const { return this->encryptedCode_ != nullptr;};
     void deleteEncryptedCode() { this->encryptedCode_ = nullptr;};
-    inline string encryptedCode() const { DARABONBA_PTR_GET_DEFAULT(encryptedCode_, "") };
+    inline string getEncryptedCode() const { DARABONBA_PTR_GET_DEFAULT(encryptedCode_, "") };
     inline DescribeCertificatePrivateKeyRequest& setEncryptedCode(string encryptedCode) { DARABONBA_PTR_SET_VALUE(encryptedCode_, encryptedCode) };
 
 
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline DescribeCertificatePrivateKeyRequest& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeCertificatePrivateKeyRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -62,14 +62,14 @@ namespace Models
     // **Warning** You must remember the password that you specify. The password is required to decrypt the encrypted private key. If you forget the password, the encrypted private key that is returned cannot be decrypted. You must call this operation again.
     // 
     // This parameter is required.
-    std::shared_ptr<string> encryptedCode_ = nullptr;
+    shared_ptr<string> encryptedCode_ {};
     // The unique identifier of the client certificate or server certificate that you want to query.
     // 
     // >  You can call the [ListClientCertificate](https://help.aliyun.com/document_detail/330884.html) operation to query the unique identifiers of all client certificates and server certificates.
     // 
     // This parameter is required.
-    std::shared_ptr<string> identifier_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> identifier_ {};
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // serialNumber Field Functions 
     bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
     void deleteSerialNumber() { this->serialNumber_ = nullptr;};
-    inline string serialNumber() const { DARABONBA_PTR_GET_DEFAULT(serialNumber_, "") };
+    inline string getSerialNumber() const { DARABONBA_PTR_GET_DEFAULT(serialNumber_, "") };
     inline DescribeClientCertificateForSerialNumberRequest& setSerialNumber(string serialNumber) { DARABONBA_PTR_SET_VALUE(serialNumber_, serialNumber) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> serialNumber_ = nullptr;
+    shared_ptr<string> serialNumber_ {};
   };
 
   } // namespace Models
