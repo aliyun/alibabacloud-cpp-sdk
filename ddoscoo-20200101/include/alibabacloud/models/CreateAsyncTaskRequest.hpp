@@ -34,31 +34,31 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceGroupId_ == nullptr
-        && return this->taskParams_ == nullptr && return this->taskType_ == nullptr; };
+        && this->taskParams_ == nullptr && this->taskType_ == nullptr; };
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateAsyncTaskRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // taskParams Field Functions 
     bool hasTaskParams() const { return this->taskParams_ != nullptr;};
     void deleteTaskParams() { this->taskParams_ = nullptr;};
-    inline string taskParams() const { DARABONBA_PTR_GET_DEFAULT(taskParams_, "") };
+    inline string getTaskParams() const { DARABONBA_PTR_GET_DEFAULT(taskParams_, "") };
     inline CreateAsyncTaskRequest& setTaskParams(string taskParams) { DARABONBA_PTR_SET_VALUE(taskParams_, taskParams) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline int32_t taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
+    inline int32_t getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
     inline CreateAsyncTaskRequest& setTaskType(int32_t taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The details of the asynchronous export task. The value is a JSON string. The field in the value varies with **TaskType**.
     // 
     // If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following filed is returned:
@@ -70,7 +70,7 @@ namespace Models
     // *   **domain**: the domain name of the website, which must be of the STRING type. If you do not specify this field, the forwarding rules of all websites are exported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskParams_ = nullptr;
+    shared_ptr<string> taskParams_ {};
     // The type of the asynchronous export task that you want to create. Valid values:
     // 
     // *   **1**: the task to export the port forwarding rules of an instance
@@ -81,7 +81,7 @@ namespace Models
     // *   **6**: the task to download the whitelist for destination IP addresses of an instance
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> taskType_ = nullptr;
+    shared_ptr<int32_t> taskType_ {};
   };
 
   } // namespace Models

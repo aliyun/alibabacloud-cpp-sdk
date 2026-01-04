@@ -33,7 +33,7 @@ namespace Models
     // listeners Field Functions 
     bool hasListeners() const { return this->listeners_ != nullptr;};
     void deleteListeners() { this->listeners_ = nullptr;};
-    inline string listeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
+    inline string getListeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
     inline ConfigLayer4RulePolicyRequest& setListeners(string listeners) { DARABONBA_PTR_SET_VALUE(listeners_, listeners) };
 
 
@@ -72,7 +72,7 @@ namespace Models
     //     *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listeners_ = nullptr;
+    shared_ptr<string> listeners_ {};
   };
 
   } // namespace Models

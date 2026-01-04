@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->productType_ == nullptr; };
+        && this->productType_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInstanceStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline int32_t productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, 0) };
+    inline int32_t getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, 0) };
     inline DescribeInstanceStatusRequest& setProductType(int32_t productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -53,14 +53,14 @@ namespace Models
     // >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all Anti-DDoS Proxy (Chinese Mainland) or Anti-DDoS Proxy (Outside Chinese Mainland) instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The type of the Anti-DDoS Proxy instance to query. Valid values:
     // 
     // *   **1**: an Anti-DDoS Proxy (Chinese Mainland) instance
     // *   **2**: an Anti-DDoS Proxy (Outside Chinese Mainland) instance
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> productType_ = nullptr;
+    shared_ptr<int32_t> productType_ {};
   };
 
   } // namespace Models

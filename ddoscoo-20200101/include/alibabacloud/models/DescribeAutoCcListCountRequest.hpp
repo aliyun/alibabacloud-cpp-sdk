@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->queryType_ == nullptr; };
+        && this->queryType_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeAutoCcListCountRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // queryType Field Functions 
     bool hasQueryType() const { return this->queryType_ != nullptr;};
     void deleteQueryType() { this->queryType_ = nullptr;};
-    inline string queryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
+    inline string getQueryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
     inline DescribeAutoCcListCountRequest& setQueryType(string queryType) { DARABONBA_PTR_SET_VALUE(queryType_, queryType) };
 
 
@@ -53,12 +53,12 @@ namespace Models
     // > You can call the **DescribeInstanceIds** operation to query the IDs of all instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The mode of how an IP address is added to the whitelist or blacklist. Valid values:
     // 
     // *   **manual**: manually added
     // *   **auto**: automatically added
-    std::shared_ptr<string> queryType_ = nullptr;
+    shared_ptr<string> queryType_ {};
   };
 
   } // namespace Models

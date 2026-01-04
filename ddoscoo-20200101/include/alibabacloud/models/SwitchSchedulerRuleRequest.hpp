@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ruleName_ == nullptr
-        && return this->ruleType_ == nullptr && return this->switchData_ == nullptr; };
+        && this->ruleType_ == nullptr && this->switchData_ == nullptr; };
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline SwitchSchedulerRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline int32_t ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
+    inline int32_t getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
     inline SwitchSchedulerRuleRequest& setRuleType(int32_t ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
     // switchData Field Functions 
     bool hasSwitchData() const { return this->switchData_ != nullptr;};
     void deleteSwitchData() { this->switchData_ = nullptr;};
-    inline string switchData() const { DARABONBA_PTR_GET_DEFAULT(switchData_, "") };
+    inline string getSwitchData() const { DARABONBA_PTR_GET_DEFAULT(switchData_, "") };
     inline SwitchSchedulerRuleRequest& setSwitchData(string switchData) { DARABONBA_PTR_SET_VALUE(switchData_, switchData) };
 
 
@@ -62,7 +62,7 @@ namespace Models
     // > You can call the [DescribeSchedulerRules](https://help.aliyun.com/document_detail/157481.html) operation to query the names of all scheduling rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The type of the scheduling rule. Valid values:
     // 
     // *   **2**: tiered protection rule
@@ -71,7 +71,7 @@ namespace Models
     // *   **6**: cloud service interaction rule
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ruleType_ = nullptr;
+    shared_ptr<int32_t> ruleType_ {};
     // The configuration that is used to switch service traffic. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that includes the following parameters:
     // 
     // *   **Value**: required. The IP address of the associated resource. Data type: string.
@@ -87,7 +87,7 @@ namespace Models
     //     *   If the **State** parameter is set to **1**, you do not need to set this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> switchData_ = nullptr;
+    shared_ptr<string> switchData_ {};
   };
 
   } // namespace Models

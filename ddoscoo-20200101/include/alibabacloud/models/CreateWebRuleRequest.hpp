@@ -43,34 +43,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defenseId_ == nullptr
-        && return this->domain_ == nullptr && return this->httpsExt_ == nullptr && return this->instanceIds_ == nullptr && return this->resourceGroupId_ == nullptr && return this->rsType_ == nullptr
-        && return this->rules_ == nullptr; };
+        && this->domain_ == nullptr && this->httpsExt_ == nullptr && this->instanceIds_ == nullptr && this->resourceGroupId_ == nullptr && this->rsType_ == nullptr
+        && this->rules_ == nullptr; };
     // defenseId Field Functions 
     bool hasDefenseId() const { return this->defenseId_ != nullptr;};
     void deleteDefenseId() { this->defenseId_ = nullptr;};
-    inline string defenseId() const { DARABONBA_PTR_GET_DEFAULT(defenseId_, "") };
+    inline string getDefenseId() const { DARABONBA_PTR_GET_DEFAULT(defenseId_, "") };
     inline CreateWebRuleRequest& setDefenseId(string defenseId) { DARABONBA_PTR_SET_VALUE(defenseId_, defenseId) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline CreateWebRuleRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // httpsExt Field Functions 
     bool hasHttpsExt() const { return this->httpsExt_ != nullptr;};
     void deleteHttpsExt() { this->httpsExt_ = nullptr;};
-    inline string httpsExt() const { DARABONBA_PTR_GET_DEFAULT(httpsExt_, "") };
+    inline string getHttpsExt() const { DARABONBA_PTR_GET_DEFAULT(httpsExt_, "") };
     inline CreateWebRuleRequest& setHttpsExt(string httpsExt) { DARABONBA_PTR_SET_VALUE(httpsExt_, httpsExt) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline CreateWebRuleRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline CreateWebRuleRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -78,21 +78,21 @@ namespace Models
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateWebRuleRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // rsType Field Functions 
     bool hasRsType() const { return this->rsType_ != nullptr;};
     void deleteRsType() { this->rsType_ = nullptr;};
-    inline int32_t rsType() const { DARABONBA_PTR_GET_DEFAULT(rsType_, 0) };
+    inline int32_t getRsType() const { DARABONBA_PTR_GET_DEFAULT(rsType_, 0) };
     inline CreateWebRuleRequest& setRsType(int32_t rsType) { DARABONBA_PTR_SET_VALUE(rsType_, rsType) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline string rules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
+    inline string getRules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
     inline CreateWebRuleRequest& setRules(string rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
 
 
@@ -104,11 +104,11 @@ namespace Models
     // For example, if you integrate OSS with Anti-DDoS Pro or Anti-DDoS Premium, Anti-DDoS Pro or Anti-DDoS Premium allocates an IP address pool for the OSS production account. Each IP address corresponds to a unique defense ID. A defense ID is a CNAME, which is automatically resolved to the IP address of the required Anti-DDoS Pro or Anti-DDoS Premium instance. A defense ID can be resolved to the same IP address to facilitate scheduling.
     // 
     // > You can specify only one of the following parameters: **InstanceIds** and **DefenseId**.
-    std::shared_ptr<string> defenseId_ = nullptr;
+    shared_ptr<string> defenseId_ {};
     // The domain name of the website that you want to add to the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The advanced HTTPS settings. This parameter takes effect only when the value of the **ProxyType** parameter includes **https**. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
     // 
     // *   **Http2https**: specifies whether to turn on Enforce HTTPS Routing. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enforce HTTPS Routing is turned off. The value 1 indicates that Enforce HTTPS Routing is turned on. The default value is 0.
@@ -122,20 +122,20 @@ namespace Models
     // *   **Http2**: specifies whether to turn on Enable HTTP/2. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP/2 is turned off. The value 1 indicates that Enable HTTP/2 is turned on. The default value is 0.
     // 
     //     After you turn on Enable HTTP/2, the protocol type is HTTP/2.
-    std::shared_ptr<string> httpsExt_ = nullptr;
+    shared_ptr<string> httpsExt_ {};
     // An array consisting of the IDs of instances that you want to associate.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
     // 
     // For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The address type of the origin server. Valid values:
     // 
     // *   **0**: IP address
     // *   **1**: domain name The domain name of the origin server is returned if you deploy proxies, such as Web Application Firewall (WAF), between the origin server and the instance. In this case, the address of the proxy, such as the CNAME provided by WAF, is returned.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> rsType_ = nullptr;
+    shared_ptr<int32_t> rsType_ {};
     // The details of the forwarding rule. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
     // 
     // *   **ProxyRules**: the information about the origin server. The information includes the port number and IP address. This field is required and must be a JSON array. Each element in a JSON array is a JSON struct that contains the following fields:
@@ -146,7 +146,7 @@ namespace Models
     // *   **ProxyType**: the protocol type. This field is required and must be a string. Valid values: **http**, **https**, **websocket**, and **websockets**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> rules_ = nullptr;
+    shared_ptr<string> rules_ {};
   };
 
   } // namespace Models

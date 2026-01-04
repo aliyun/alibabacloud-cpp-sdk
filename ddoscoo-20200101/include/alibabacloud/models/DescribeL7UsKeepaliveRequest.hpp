@@ -33,7 +33,7 @@ namespace Models
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DescribeL7UsKeepaliveRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The domain name of the website.
     // 
     // >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
   };
 
   } // namespace Models

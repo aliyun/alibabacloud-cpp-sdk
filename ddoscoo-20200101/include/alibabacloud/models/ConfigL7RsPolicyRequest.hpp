@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->policy_ == nullptr && return this->resourceGroupId_ == nullptr && return this->upstreamRetry_ == nullptr; };
+        && this->policy_ == nullptr && this->resourceGroupId_ == nullptr && this->upstreamRetry_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ConfigL7RsPolicyRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // policy Field Functions 
     bool hasPolicy() const { return this->policy_ != nullptr;};
     void deletePolicy() { this->policy_ = nullptr;};
-    inline string policy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+    inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
     inline ConfigL7RsPolicyRequest& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ConfigL7RsPolicyRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // upstreamRetry Field Functions 
     bool hasUpstreamRetry() const { return this->upstreamRetry_ != nullptr;};
     void deleteUpstreamRetry() { this->upstreamRetry_ = nullptr;};
-    inline int32_t upstreamRetry() const { DARABONBA_PTR_GET_DEFAULT(upstreamRetry_, 0) };
+    inline int32_t getUpstreamRetry() const { DARABONBA_PTR_GET_DEFAULT(upstreamRetry_, 0) };
     inline ConfigL7RsPolicyRequest& setUpstreamRetry(int32_t upstreamRetry) { DARABONBA_PTR_SET_VALUE(upstreamRetry_, upstreamRetry) };
 
 
@@ -71,7 +71,7 @@ namespace Models
     // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query the domain names for which forwarding rules are configured.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The back-to-origin policy. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
     // 
     // *   **ProxyMode**: The load balancing algorithm for back-to-origin traffic. This field is required and must be a string. Valid values:
@@ -95,16 +95,16 @@ namespace Models
     //         *   **SendTimeout**: the write timeout period. This field is optional and must be an integer. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policy_ = nullptr;
+    shared_ptr<string> policy_ {};
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
     // 
     // For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The retry switch. Valid values:
     // 
     // *   **1**: on
     // *   **0**: off
-    std::shared_ptr<int32_t> upstreamRetry_ = nullptr;
+    shared_ptr<int32_t> upstreamRetry_ {};
   };
 
   } // namespace Models

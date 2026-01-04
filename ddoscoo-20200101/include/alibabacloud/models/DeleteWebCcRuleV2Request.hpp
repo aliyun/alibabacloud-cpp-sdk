@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->owner_ == nullptr && return this->ruleNames_ == nullptr; };
+        && this->owner_ == nullptr && this->ruleNames_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DeleteWebCCRuleV2Request& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline DeleteWebCCRuleV2Request& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // ruleNames Field Functions 
     bool hasRuleNames() const { return this->ruleNames_ != nullptr;};
     void deleteRuleNames() { this->ruleNames_ = nullptr;};
-    inline string ruleNames() const { DARABONBA_PTR_GET_DEFAULT(ruleNames_, "") };
+    inline string getRuleNames() const { DARABONBA_PTR_GET_DEFAULT(ruleNames_, "") };
     inline DeleteWebCCRuleV2Request& setRuleNames(string ruleNames) { DARABONBA_PTR_SET_VALUE(ruleNames_, ruleNames) };
 
 
@@ -62,14 +62,14 @@ namespace Models
     // >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The source of the rule. Valid values:
     // 
     // *   **manual** (default): manually created.
     // *   **clover**: automatically created. Specify this value when you want to delete intelligent protection rules.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The names of the rules that you want to delete.
-    std::shared_ptr<string> ruleNames_ = nullptr;
+    shared_ptr<string> ruleNames_ {};
   };
 
   } // namespace Models

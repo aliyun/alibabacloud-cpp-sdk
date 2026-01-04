@@ -36,53 +36,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cname_ == nullptr
-        && return this->domain_ == nullptr && return this->enable_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->domain_ == nullptr && this->enable_ == nullptr && this->resourceGroupId_ == nullptr; };
     // cname Field Functions 
     bool hasCname() const { return this->cname_ != nullptr;};
     void deleteCname() { this->cname_ = nullptr;};
-    inline string cname() const { DARABONBA_PTR_GET_DEFAULT(cname_, "") };
+    inline string getCname() const { DARABONBA_PTR_GET_DEFAULT(cname_, "") };
     inline ModifyCnameReuseRequest& setCname(string cname) { DARABONBA_PTR_SET_VALUE(cname_, cname) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyCnameReuseRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline int32_t enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
+    inline int32_t getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
     inline ModifyCnameReuseRequest& setEnable(int32_t enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyCnameReuseRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
     // The CNAME record that you want to reuse for the website.
-    std::shared_ptr<string> cname_ = nullptr;
+    shared_ptr<string> cname_ {};
     // The domain name of the website.
     // 
     // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // Specifies whether to enable CNAME reuse. Valid values:
     // 
     // *   **0:** disabled
     // *   **1:** enabled
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> enable_ = nullptr;
+    shared_ptr<int32_t> enable_ {};
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

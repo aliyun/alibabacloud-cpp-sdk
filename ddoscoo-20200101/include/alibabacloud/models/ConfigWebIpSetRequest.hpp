@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blackList_ == nullptr
-        && return this->domain_ == nullptr && return this->resourceGroupId_ == nullptr && return this->whiteList_ == nullptr; };
+        && this->domain_ == nullptr && this->resourceGroupId_ == nullptr && this->whiteList_ == nullptr; };
     // blackList Field Functions 
     bool hasBlackList() const { return this->blackList_ != nullptr;};
     void deleteBlackList() { this->blackList_ = nullptr;};
-    inline const vector<string> & blackList() const { DARABONBA_PTR_GET_CONST(blackList_, vector<string>) };
-    inline vector<string> blackList() { DARABONBA_PTR_GET(blackList_, vector<string>) };
+    inline const vector<string> & getBlackList() const { DARABONBA_PTR_GET_CONST(blackList_, vector<string>) };
+    inline vector<string> getBlackList() { DARABONBA_PTR_GET(blackList_, vector<string>) };
     inline ConfigWebIpSetRequest& setBlackList(const vector<string> & blackList) { DARABONBA_PTR_SET_VALUE(blackList_, blackList) };
     inline ConfigWebIpSetRequest& setBlackList(vector<string> && blackList) { DARABONBA_PTR_SET_RVALUE(blackList_, blackList) };
 
@@ -50,39 +50,39 @@ namespace Models
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ConfigWebIpSetRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ConfigWebIpSetRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // whiteList Field Functions 
     bool hasWhiteList() const { return this->whiteList_ != nullptr;};
     void deleteWhiteList() { this->whiteList_ = nullptr;};
-    inline const vector<string> & whiteList() const { DARABONBA_PTR_GET_CONST(whiteList_, vector<string>) };
-    inline vector<string> whiteList() { DARABONBA_PTR_GET(whiteList_, vector<string>) };
+    inline const vector<string> & getWhiteList() const { DARABONBA_PTR_GET_CONST(whiteList_, vector<string>) };
+    inline vector<string> getWhiteList() { DARABONBA_PTR_GET(whiteList_, vector<string>) };
     inline ConfigWebIpSetRequest& setWhiteList(const vector<string> & whiteList) { DARABONBA_PTR_SET_VALUE(whiteList_, whiteList) };
     inline ConfigWebIpSetRequest& setWhiteList(vector<string> && whiteList) { DARABONBA_PTR_SET_RVALUE(whiteList_, whiteList) };
 
 
   protected:
     // The IP addresses and CIDR blocks in the blacklist. You can add up to 200 IP addresses or CIDR blocks to the blacklist.
-    std::shared_ptr<vector<string>> blackList_ = nullptr;
+    shared_ptr<vector<string>> blackList_ {};
     // The domain name of the website.
     // 
     // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The IP addresses and CIDR blocks in the whitelist. You can add up to 200 IP addresses or CIDR blocks to the whitelist.
-    std::shared_ptr<vector<string>> whiteList_ = nullptr;
+    shared_ptr<vector<string>> whiteList_ {};
   };
 
   } // namespace Models

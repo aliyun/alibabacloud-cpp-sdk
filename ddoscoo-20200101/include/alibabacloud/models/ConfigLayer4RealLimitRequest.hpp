@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->limitValue_ == nullptr; };
+        && this->limitValue_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ConfigLayer4RealLimitRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // limitValue Field Functions 
     bool hasLimitValue() const { return this->limitValue_ != nullptr;};
     void deleteLimitValue() { this->limitValue_ = nullptr;};
-    inline int64_t limitValue() const { DARABONBA_PTR_GET_DEFAULT(limitValue_, 0L) };
+    inline int64_t getLimitValue() const { DARABONBA_PTR_GET_DEFAULT(limitValue_, 0L) };
     inline ConfigLayer4RealLimitRequest& setLimitValue(int64_t limitValue) { DARABONBA_PTR_SET_VALUE(limitValue_, limitValue) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Specifies the threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> limitValue_ = nullptr;
+    shared_ptr<int64_t> limitValue_ {};
   };
 
   } // namespace Models

@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->slsAuthStatus_ == nullptr; };
+        && this->slsAuthStatus_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSlsAuthStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // slsAuthStatus Field Functions 
     bool hasSlsAuthStatus() const { return this->slsAuthStatus_ != nullptr;};
     void deleteSlsAuthStatus() { this->slsAuthStatus_ = nullptr;};
-    inline bool slsAuthStatus() const { DARABONBA_PTR_GET_DEFAULT(slsAuthStatus_, false) };
+    inline bool getSlsAuthStatus() const { DARABONBA_PTR_GET_DEFAULT(slsAuthStatus_, false) };
     inline DescribeSlsAuthStatusResponseBody& setSlsAuthStatus(bool slsAuthStatus) { DARABONBA_PTR_SET_VALUE(slsAuthStatus_, slsAuthStatus) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service. Valid values:
     // 
     // *   **true**: yes
     // *   **false**: no
-    std::shared_ptr<bool> slsAuthStatus_ = nullptr;
+    shared_ptr<bool> slsAuthStatus_ {};
   };
 
   } // namespace Models

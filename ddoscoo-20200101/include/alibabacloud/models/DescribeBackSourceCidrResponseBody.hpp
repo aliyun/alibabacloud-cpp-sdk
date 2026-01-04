@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cidrs_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // cidrs Field Functions 
     bool hasCidrs() const { return this->cidrs_ != nullptr;};
     void deleteCidrs() { this->cidrs_ = nullptr;};
-    inline const vector<string> & cidrs() const { DARABONBA_PTR_GET_CONST(cidrs_, vector<string>) };
-    inline vector<string> cidrs() { DARABONBA_PTR_GET(cidrs_, vector<string>) };
+    inline const vector<string> & getCidrs() const { DARABONBA_PTR_GET_CONST(cidrs_, vector<string>) };
+    inline vector<string> getCidrs() { DARABONBA_PTR_GET(cidrs_, vector<string>) };
     inline DescribeBackSourceCidrResponseBody& setCidrs(const vector<string> & cidrs) { DARABONBA_PTR_SET_VALUE(cidrs_, cidrs) };
     inline DescribeBackSourceCidrResponseBody& setCidrs(vector<string> && cidrs) { DARABONBA_PTR_SET_RVALUE(cidrs_, cidrs) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeBackSourceCidrResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // An array that consists of the back-to-origin CIDR blocks of the instance.
-    std::shared_ptr<vector<string>> cidrs_ = nullptr;
+    shared_ptr<vector<string>> cidrs_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -1225,6 +1225,19 @@ namespace Ddoscoo20200101
       Models::DescribeDomainBpsResponse describeDomainBps(const Models::DescribeDomainBpsRequest &request);
 
       /**
+       * @param request DescribeDomainCcProtectSwitchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDomainCcProtectSwitchResponse
+       */
+      Models::DescribeDomainCcProtectSwitchResponse describeDomainCcProtectSwitchWithOptions(const Models::DescribeDomainCcProtectSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeDomainCcProtectSwitchRequest
+       * @return DescribeDomainCcProtectSwitchResponse
+       */
+      Models::DescribeDomainCcProtectSwitchResponse describeDomainCcProtectSwitch(const Models::DescribeDomainCcProtectSwitchRequest &request);
+
+      /**
        * @summary Queries the information about HTTP/2 fingerprints of a website.
        *
        * @param request DescribeDomainH2FingerprintRequest

@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->offset_ == nullptr && return this->owner_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->offset_ == nullptr && this->owner_ == nullptr && this->pageSize_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DescribeWebCCRulesV2Request& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline string offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
+    inline string getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
     inline DescribeWebCCRulesV2Request& setOffset(string offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline DescribeWebCCRulesV2Request& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeWebCCRulesV2Request& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The domain name of the website that you want to add to the Anti-DDoS Proxy instance for protection.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The number of entries that you want the system to skip before the system returns entries. Default value: **0**.
-    std::shared_ptr<string> offset_ = nullptr;
+    shared_ptr<string> offset_ {};
     // The method used to create the rule. Valid values:
     // 
     // *   **manual** (default): manually created.
     // *   **clover**: automatically created.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The number of entries per page. Maximum value: **20**. Default value: **20**.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
   };
 
   } // namespace Models

@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceGroupId_ == nullptr
-        && return this->ttl_ == nullptr; };
+        && this->ttl_ == nullptr; };
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyFullLogTtlRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // ttl Field Functions 
     bool hasTtl() const { return this->ttl_ != nullptr;};
     void deleteTtl() { this->ttl_ = nullptr;};
-    inline int32_t ttl() const { DARABONBA_PTR_GET_DEFAULT(ttl_, 0) };
+    inline int32_t getTtl() const { DARABONBA_PTR_GET_DEFAULT(ttl_, 0) };
     inline ModifyFullLogTtlRequest& setTtl(int32_t ttl) { DARABONBA_PTR_SET_VALUE(ttl_, ttl) };
 
 
   protected:
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The log storage duration of a website. Valid values: **7** to **180**. Unit: days.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ttl_ = nullptr;
+    shared_ptr<int32_t> ttl_ {};
   };
 
   } // namespace Models

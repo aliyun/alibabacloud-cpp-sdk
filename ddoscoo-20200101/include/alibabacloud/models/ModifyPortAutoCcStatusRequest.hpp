@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->mode_ == nullptr && return this->switch_ == nullptr; };
+        && this->mode_ == nullptr && this->switch_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyPortAutoCcStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline ModifyPortAutoCcStatusRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // switch Field Functions 
     bool hasSwitch() const { return this->switch_ != nullptr;};
     void deleteSwitch() { this->switch_ = nullptr;};
-    inline string _switch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
+    inline string getSwitch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
     inline ModifyPortAutoCcStatusRequest& setSwitch(string _switch) { DARABONBA_PTR_SET_VALUE(switch_, _switch) };
 
 
@@ -62,7 +62,7 @@ namespace Models
     // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The mode of the Intelligent Protection policy. Valid values:
     // 
     // *   **normal**
@@ -70,14 +70,14 @@ namespace Models
     // *   **strict**
     // 
     // This parameter is required.
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // Specifies the status of the Intelligent Protection policy. Valid values:
     // 
     // *   **on**: enables the policy.
     // *   **off**: disables the policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> switch_ = nullptr;
+    shared_ptr<string> switch_ {};
   };
 
   } // namespace Models

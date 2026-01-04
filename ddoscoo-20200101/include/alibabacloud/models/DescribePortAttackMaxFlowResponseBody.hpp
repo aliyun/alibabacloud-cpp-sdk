@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bps_ == nullptr
-        && return this->pps_ == nullptr && return this->requestId_ == nullptr; };
+        && this->pps_ == nullptr && this->requestId_ == nullptr; };
     // bps Field Functions 
     bool hasBps() const { return this->bps_ != nullptr;};
     void deleteBps() { this->bps_ = nullptr;};
-    inline int64_t bps() const { DARABONBA_PTR_GET_DEFAULT(bps_, 0L) };
+    inline int64_t getBps() const { DARABONBA_PTR_GET_DEFAULT(bps_, 0L) };
     inline DescribePortAttackMaxFlowResponseBody& setBps(int64_t bps) { DARABONBA_PTR_SET_VALUE(bps_, bps) };
 
 
     // pps Field Functions 
     bool hasPps() const { return this->pps_ != nullptr;};
     void deletePps() { this->pps_ = nullptr;};
-    inline int64_t pps() const { DARABONBA_PTR_GET_DEFAULT(pps_, 0L) };
+    inline int64_t getPps() const { DARABONBA_PTR_GET_DEFAULT(pps_, 0L) };
     inline DescribePortAttackMaxFlowResponseBody& setPps(int64_t pps) { DARABONBA_PTR_SET_VALUE(pps_, pps) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePortAttackMaxFlowResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The peak bandwidth of attack traffic. Unit: bit/s.
-    std::shared_ptr<int64_t> bps_ = nullptr;
+    shared_ptr<int64_t> bps_ {};
     // The peak packet rate of attack traffic . Unit: packets per second (pps).
-    std::shared_ptr<int64_t> pps_ = nullptr;
+    shared_ptr<int64_t> pps_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

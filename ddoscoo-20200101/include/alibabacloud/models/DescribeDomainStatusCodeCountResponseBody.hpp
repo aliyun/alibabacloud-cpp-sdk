@@ -58,143 +58,143 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->status200_ == nullptr && return this->status2XX_ == nullptr && return this->status3XX_ == nullptr && return this->status403_ == nullptr && return this->status404_ == nullptr
-        && return this->status405_ == nullptr && return this->status410_ == nullptr && return this->status499_ == nullptr && return this->status4XX_ == nullptr && return this->status501_ == nullptr
-        && return this->status502_ == nullptr && return this->status503_ == nullptr && return this->status504_ == nullptr && return this->status5XX_ == nullptr; };
+        && this->status200_ == nullptr && this->status2XX_ == nullptr && this->status3XX_ == nullptr && this->status403_ == nullptr && this->status404_ == nullptr
+        && this->status405_ == nullptr && this->status410_ == nullptr && this->status499_ == nullptr && this->status4XX_ == nullptr && this->status501_ == nullptr
+        && this->status502_ == nullptr && this->status503_ == nullptr && this->status504_ == nullptr && this->status5XX_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDomainStatusCodeCountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status200 Field Functions 
     bool hasStatus200() const { return this->status200_ != nullptr;};
     void deleteStatus200() { this->status200_ = nullptr;};
-    inline int64_t status200() const { DARABONBA_PTR_GET_DEFAULT(status200_, 0L) };
+    inline int64_t getStatus200() const { DARABONBA_PTR_GET_DEFAULT(status200_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus200(int64_t status200) { DARABONBA_PTR_SET_VALUE(status200_, status200) };
 
 
     // status2XX Field Functions 
     bool hasStatus2XX() const { return this->status2XX_ != nullptr;};
     void deleteStatus2XX() { this->status2XX_ = nullptr;};
-    inline int64_t status2XX() const { DARABONBA_PTR_GET_DEFAULT(status2XX_, 0L) };
+    inline int64_t getStatus2XX() const { DARABONBA_PTR_GET_DEFAULT(status2XX_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus2XX(int64_t status2XX) { DARABONBA_PTR_SET_VALUE(status2XX_, status2XX) };
 
 
     // status3XX Field Functions 
     bool hasStatus3XX() const { return this->status3XX_ != nullptr;};
     void deleteStatus3XX() { this->status3XX_ = nullptr;};
-    inline int64_t status3XX() const { DARABONBA_PTR_GET_DEFAULT(status3XX_, 0L) };
+    inline int64_t getStatus3XX() const { DARABONBA_PTR_GET_DEFAULT(status3XX_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus3XX(int64_t status3XX) { DARABONBA_PTR_SET_VALUE(status3XX_, status3XX) };
 
 
     // status403 Field Functions 
     bool hasStatus403() const { return this->status403_ != nullptr;};
     void deleteStatus403() { this->status403_ = nullptr;};
-    inline int64_t status403() const { DARABONBA_PTR_GET_DEFAULT(status403_, 0L) };
+    inline int64_t getStatus403() const { DARABONBA_PTR_GET_DEFAULT(status403_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus403(int64_t status403) { DARABONBA_PTR_SET_VALUE(status403_, status403) };
 
 
     // status404 Field Functions 
     bool hasStatus404() const { return this->status404_ != nullptr;};
     void deleteStatus404() { this->status404_ = nullptr;};
-    inline int64_t status404() const { DARABONBA_PTR_GET_DEFAULT(status404_, 0L) };
+    inline int64_t getStatus404() const { DARABONBA_PTR_GET_DEFAULT(status404_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus404(int64_t status404) { DARABONBA_PTR_SET_VALUE(status404_, status404) };
 
 
     // status405 Field Functions 
     bool hasStatus405() const { return this->status405_ != nullptr;};
     void deleteStatus405() { this->status405_ = nullptr;};
-    inline int64_t status405() const { DARABONBA_PTR_GET_DEFAULT(status405_, 0L) };
+    inline int64_t getStatus405() const { DARABONBA_PTR_GET_DEFAULT(status405_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus405(int64_t status405) { DARABONBA_PTR_SET_VALUE(status405_, status405) };
 
 
     // status410 Field Functions 
     bool hasStatus410() const { return this->status410_ != nullptr;};
     void deleteStatus410() { this->status410_ = nullptr;};
-    inline int64_t status410() const { DARABONBA_PTR_GET_DEFAULT(status410_, 0L) };
+    inline int64_t getStatus410() const { DARABONBA_PTR_GET_DEFAULT(status410_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus410(int64_t status410) { DARABONBA_PTR_SET_VALUE(status410_, status410) };
 
 
     // status499 Field Functions 
     bool hasStatus499() const { return this->status499_ != nullptr;};
     void deleteStatus499() { this->status499_ = nullptr;};
-    inline int64_t status499() const { DARABONBA_PTR_GET_DEFAULT(status499_, 0L) };
+    inline int64_t getStatus499() const { DARABONBA_PTR_GET_DEFAULT(status499_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus499(int64_t status499) { DARABONBA_PTR_SET_VALUE(status499_, status499) };
 
 
     // status4XX Field Functions 
     bool hasStatus4XX() const { return this->status4XX_ != nullptr;};
     void deleteStatus4XX() { this->status4XX_ = nullptr;};
-    inline int64_t status4XX() const { DARABONBA_PTR_GET_DEFAULT(status4XX_, 0L) };
+    inline int64_t getStatus4XX() const { DARABONBA_PTR_GET_DEFAULT(status4XX_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus4XX(int64_t status4XX) { DARABONBA_PTR_SET_VALUE(status4XX_, status4XX) };
 
 
     // status501 Field Functions 
     bool hasStatus501() const { return this->status501_ != nullptr;};
     void deleteStatus501() { this->status501_ = nullptr;};
-    inline int64_t status501() const { DARABONBA_PTR_GET_DEFAULT(status501_, 0L) };
+    inline int64_t getStatus501() const { DARABONBA_PTR_GET_DEFAULT(status501_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus501(int64_t status501) { DARABONBA_PTR_SET_VALUE(status501_, status501) };
 
 
     // status502 Field Functions 
     bool hasStatus502() const { return this->status502_ != nullptr;};
     void deleteStatus502() { this->status502_ = nullptr;};
-    inline int64_t status502() const { DARABONBA_PTR_GET_DEFAULT(status502_, 0L) };
+    inline int64_t getStatus502() const { DARABONBA_PTR_GET_DEFAULT(status502_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus502(int64_t status502) { DARABONBA_PTR_SET_VALUE(status502_, status502) };
 
 
     // status503 Field Functions 
     bool hasStatus503() const { return this->status503_ != nullptr;};
     void deleteStatus503() { this->status503_ = nullptr;};
-    inline int64_t status503() const { DARABONBA_PTR_GET_DEFAULT(status503_, 0L) };
+    inline int64_t getStatus503() const { DARABONBA_PTR_GET_DEFAULT(status503_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus503(int64_t status503) { DARABONBA_PTR_SET_VALUE(status503_, status503) };
 
 
     // status504 Field Functions 
     bool hasStatus504() const { return this->status504_ != nullptr;};
     void deleteStatus504() { this->status504_ = nullptr;};
-    inline int64_t status504() const { DARABONBA_PTR_GET_DEFAULT(status504_, 0L) };
+    inline int64_t getStatus504() const { DARABONBA_PTR_GET_DEFAULT(status504_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus504(int64_t status504) { DARABONBA_PTR_SET_VALUE(status504_, status504) };
 
 
     // status5XX Field Functions 
     bool hasStatus5XX() const { return this->status5XX_ != nullptr;};
     void deleteStatus5XX() { this->status5XX_ = nullptr;};
-    inline int64_t status5XX() const { DARABONBA_PTR_GET_DEFAULT(status5XX_, 0L) };
+    inline int64_t getStatus5XX() const { DARABONBA_PTR_GET_DEFAULT(status5XX_, 0L) };
     inline DescribeDomainStatusCodeCountResponseBody& setStatus5XX(int64_t status5XX) { DARABONBA_PTR_SET_VALUE(status5XX_, status5XX) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of 200 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status200_ = nullptr;
+    shared_ptr<int64_t> status200_ {};
     // The number of 2xx status codes within the specified period of time.
-    std::shared_ptr<int64_t> status2XX_ = nullptr;
+    shared_ptr<int64_t> status2XX_ {};
     // The number of 3xx status codes within the specified period of time.
-    std::shared_ptr<int64_t> status3XX_ = nullptr;
+    shared_ptr<int64_t> status3XX_ {};
     // The number of 403 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status403_ = nullptr;
+    shared_ptr<int64_t> status403_ {};
     // The number of 404 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status404_ = nullptr;
+    shared_ptr<int64_t> status404_ {};
     // The number of 405 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status405_ = nullptr;
-    std::shared_ptr<int64_t> status410_ = nullptr;
-    std::shared_ptr<int64_t> status499_ = nullptr;
+    shared_ptr<int64_t> status405_ {};
+    shared_ptr<int64_t> status410_ {};
+    shared_ptr<int64_t> status499_ {};
     // The number of 4xx status codes within the specified period of time.
-    std::shared_ptr<int64_t> status4XX_ = nullptr;
+    shared_ptr<int64_t> status4XX_ {};
     // The number of 501 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status501_ = nullptr;
+    shared_ptr<int64_t> status501_ {};
     // The number of 502 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status502_ = nullptr;
+    shared_ptr<int64_t> status502_ {};
     // The number of 503 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status503_ = nullptr;
+    shared_ptr<int64_t> status503_ {};
     // The number of 504 status codes within the specified period of time.
-    std::shared_ptr<int64_t> status504_ = nullptr;
+    shared_ptr<int64_t> status504_ {};
     // The number of 5xx status codes within the specified period of time.
-    std::shared_ptr<int64_t> status5XX_ = nullptr;
+    shared_ptr<int64_t> status5XX_ {};
   };
 
   } // namespace Models

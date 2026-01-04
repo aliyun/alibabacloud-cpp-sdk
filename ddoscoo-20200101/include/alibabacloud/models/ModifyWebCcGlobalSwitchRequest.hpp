@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ccGlobalSwitch_ == nullptr
-        && return this->domain_ == nullptr; };
+        && this->domain_ == nullptr; };
     // ccGlobalSwitch Field Functions 
     bool hasCcGlobalSwitch() const { return this->ccGlobalSwitch_ != nullptr;};
     void deleteCcGlobalSwitch() { this->ccGlobalSwitch_ = nullptr;};
-    inline string ccGlobalSwitch() const { DARABONBA_PTR_GET_DEFAULT(ccGlobalSwitch_, "") };
+    inline string getCcGlobalSwitch() const { DARABONBA_PTR_GET_DEFAULT(ccGlobalSwitch_, "") };
     inline ModifyWebCCGlobalSwitchRequest& setCcGlobalSwitch(string ccGlobalSwitch) { DARABONBA_PTR_SET_VALUE(ccGlobalSwitch_, ccGlobalSwitch) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyWebCCGlobalSwitchRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
@@ -54,13 +54,13 @@ namespace Models
     // *   **close**
     // 
     // This parameter is required.
-    std::shared_ptr<string> ccGlobalSwitch_ = nullptr;
+    shared_ptr<string> ccGlobalSwitch_ {};
     // The domain name of the website.
     // 
     // >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
   };
 
   } // namespace Models

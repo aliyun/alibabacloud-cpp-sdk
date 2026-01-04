@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domains_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // domains Field Functions 
     bool hasDomains() const { return this->domains_ != nullptr;};
     void deleteDomains() { this->domains_ = nullptr;};
-    inline const vector<string> & domains() const { DARABONBA_PTR_GET_CONST(domains_, vector<string>) };
-    inline vector<string> domains() { DARABONBA_PTR_GET(domains_, vector<string>) };
+    inline const vector<string> & getDomains() const { DARABONBA_PTR_GET_CONST(domains_, vector<string>) };
+    inline vector<string> getDomains() { DARABONBA_PTR_GET(domains_, vector<string>) };
     inline DescribeDomainsResponseBody& setDomains(const vector<string> & domains) { DARABONBA_PTR_SET_VALUE(domains_, domains) };
     inline DescribeDomainsResponseBody& setDomains(vector<string> && domains) { DARABONBA_PTR_SET_RVALUE(domains_, domains) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDomainsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // An array consisting of details of the domain name for which the forwarding rules are configured.
-    std::shared_ptr<vector<string>> domains_ = nullptr;
+    shared_ptr<vector<string>> domains_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -34,8 +34,8 @@ namespace Models
     // domains Field Functions 
     bool hasDomains() const { return this->domains_ != nullptr;};
     void deleteDomains() { this->domains_ = nullptr;};
-    inline const vector<string> & domains() const { DARABONBA_PTR_GET_CONST(domains_, vector<string>) };
-    inline vector<string> domains() { DARABONBA_PTR_GET(domains_, vector<string>) };
+    inline const vector<string> & getDomains() const { DARABONBA_PTR_GET_CONST(domains_, vector<string>) };
+    inline vector<string> getDomains() { DARABONBA_PTR_GET(domains_, vector<string>) };
     inline DescribeWebAccessModeRequest& setDomains(const vector<string> & domains) { DARABONBA_PTR_SET_VALUE(domains_, domains) };
     inline DescribeWebAccessModeRequest& setDomains(vector<string> && domains) { DARABONBA_PTR_SET_RVALUE(domains_, domains) };
 
@@ -46,7 +46,7 @@ namespace Models
     // > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> domains_ = nullptr;
+    shared_ptr<vector<string>> domains_ {};
   };
 
   } // namespace Models

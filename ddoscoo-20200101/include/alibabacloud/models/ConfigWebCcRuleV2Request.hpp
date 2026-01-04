@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->expires_ == nullptr && return this->ruleList_ == nullptr; };
+        && this->expires_ == nullptr && this->ruleList_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ConfigWebCCRuleV2Request& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // expires Field Functions 
     bool hasExpires() const { return this->expires_ != nullptr;};
     void deleteExpires() { this->expires_ = nullptr;};
-    inline int64_t expires() const { DARABONBA_PTR_GET_DEFAULT(expires_, 0L) };
+    inline int64_t getExpires() const { DARABONBA_PTR_GET_DEFAULT(expires_, 0L) };
     inline ConfigWebCCRuleV2Request& setExpires(int64_t expires) { DARABONBA_PTR_SET_VALUE(expires_, expires) };
 
 
     // ruleList Field Functions 
     bool hasRuleList() const { return this->ruleList_ != nullptr;};
     void deleteRuleList() { this->ruleList_ = nullptr;};
-    inline string ruleList() const { DARABONBA_PTR_GET_DEFAULT(ruleList_, "") };
+    inline string getRuleList() const { DARABONBA_PTR_GET_DEFAULT(ruleList_, "") };
     inline ConfigWebCCRuleV2Request& setRuleList(string ruleList) { DARABONBA_PTR_SET_VALUE(ruleList_, ruleList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
-    std::shared_ptr<int64_t> expires_ = nullptr;
+    shared_ptr<string> domain_ {};
+    shared_ptr<int64_t> expires_ {};
     // The frequency control rule. This parameter is a JSON string that contains the following fields:
     // 
     // *   **action**: the action that is performed if the rule is matched. This field is required and must be of the string type. Valid values:
@@ -120,7 +120,7 @@ namespace Models
     //     *   **header_name**: the name of the header. This field is optional and must be of the string type. This field is required only when field is set to header.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleList_ = nullptr;
+    shared_ptr<string> ruleList_ {};
   };
 
   } // namespace Models

@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->edition_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->resourceGroupId_ == nullptr; };
     // edition Field Functions 
     bool hasEdition() const { return this->edition_ != nullptr;};
     void deleteEdition() { this->edition_ = nullptr;};
-    inline int32_t edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, 0) };
+    inline int32_t getEdition() const { DARABONBA_PTR_GET_DEFAULT(edition_, 0) };
     inline DescribeInstanceIdsRequest& setEdition(int32_t edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline DescribeInstanceIdsRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline DescribeInstanceIdsRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -55,7 +55,7 @@ namespace Models
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeInstanceIdsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -67,10 +67,10 @@ namespace Models
     // *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
     // *   **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan
     // *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
-    std::shared_ptr<int32_t> edition_ = nullptr;
+    shared_ptr<int32_t> edition_ {};
     // The IDs of instances to query.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

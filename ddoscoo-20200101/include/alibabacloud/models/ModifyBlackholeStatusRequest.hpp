@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blackholeStatus_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // blackholeStatus Field Functions 
     bool hasBlackholeStatus() const { return this->blackholeStatus_ != nullptr;};
     void deleteBlackholeStatus() { this->blackholeStatus_ = nullptr;};
-    inline string blackholeStatus() const { DARABONBA_PTR_GET_DEFAULT(blackholeStatus_, "") };
+    inline string getBlackholeStatus() const { DARABONBA_PTR_GET_DEFAULT(blackholeStatus_, "") };
     inline ModifyBlackholeStatusRequest& setBlackholeStatus(string blackholeStatus) { DARABONBA_PTR_SET_VALUE(blackholeStatus_, blackholeStatus) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyBlackholeStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The action that you want to perform on the instance. Set the value to **undo**, which indicates that you want to deactivate blackhole filtering.
     // 
     // This parameter is required.
-    std::shared_ptr<string> blackholeStatus_ = nullptr;
+    shared_ptr<string> blackholeStatus_ {};
     // The ID of the instance.
     // 
     // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

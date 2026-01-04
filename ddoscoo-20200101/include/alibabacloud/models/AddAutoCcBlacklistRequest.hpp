@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blacklist_ == nullptr
-        && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->expireTime_ == nullptr && this->instanceId_ == nullptr; };
     // blacklist Field Functions 
     bool hasBlacklist() const { return this->blacklist_ != nullptr;};
     void deleteBlacklist() { this->blacklist_ = nullptr;};
-    inline string blacklist() const { DARABONBA_PTR_GET_DEFAULT(blacklist_, "") };
+    inline string getBlacklist() const { DARABONBA_PTR_GET_DEFAULT(blacklist_, "") };
     inline AddAutoCcBlacklistRequest& setBlacklist(string blacklist) { DARABONBA_PTR_SET_VALUE(blacklist_, blacklist) };
 
 
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
-    inline int32_t expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
+    inline int32_t getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0) };
     inline AddAutoCcBlacklistRequest& setExpireTime(int32_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AddAutoCcBlacklistRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -64,11 +64,11 @@ namespace Models
     // >  You can manually add up to 2,000 IP addresses to the IP address blacklist. Separate multiple IP addresses with spaces or line breaks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> blacklist_ = nullptr;
+    shared_ptr<string> blacklist_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> expireTime_ = nullptr;
+    shared_ptr<int32_t> expireTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

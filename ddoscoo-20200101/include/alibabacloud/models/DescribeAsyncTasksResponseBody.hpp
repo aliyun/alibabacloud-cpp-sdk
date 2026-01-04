@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEASYNCTASKSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeAsyncTasksResponseBodyAsyncTasks.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,38 +34,168 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class AsyncTasks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AsyncTasks& obj) { 
+        DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+        DARABONBA_PTR_TO_JSON(TaskParams, taskParams_);
+        DARABONBA_PTR_TO_JSON(TaskResult, taskResult_);
+        DARABONBA_PTR_TO_JSON(TaskStatus, taskStatus_);
+        DARABONBA_PTR_TO_JSON(TaskType, taskType_);
+      };
+      friend void from_json(const Darabonba::Json& j, AsyncTasks& obj) { 
+        DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(TaskParams, taskParams_);
+        DARABONBA_PTR_FROM_JSON(TaskResult, taskResult_);
+        DARABONBA_PTR_FROM_JSON(TaskStatus, taskStatus_);
+        DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
+      };
+      AsyncTasks() = default ;
+      AsyncTasks(const AsyncTasks &) = default ;
+      AsyncTasks(AsyncTasks &&) = default ;
+      AsyncTasks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AsyncTasks() = default ;
+      AsyncTasks& operator=(const AsyncTasks &) = default ;
+      AsyncTasks& operator=(AsyncTasks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->startTime_ == nullptr && this->taskId_ == nullptr && this->taskParams_ == nullptr && this->taskResult_ == nullptr && this->taskStatus_ == nullptr
+        && this->taskType_ == nullptr; };
+      // endTime Field Functions 
+      bool hasEndTime() const { return this->endTime_ != nullptr;};
+      void deleteEndTime() { this->endTime_ = nullptr;};
+      inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+      inline AsyncTasks& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // startTime Field Functions 
+      bool hasStartTime() const { return this->startTime_ != nullptr;};
+      void deleteStartTime() { this->startTime_ = nullptr;};
+      inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+      inline AsyncTasks& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+      inline AsyncTasks& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+      // taskParams Field Functions 
+      bool hasTaskParams() const { return this->taskParams_ != nullptr;};
+      void deleteTaskParams() { this->taskParams_ = nullptr;};
+      inline string getTaskParams() const { DARABONBA_PTR_GET_DEFAULT(taskParams_, "") };
+      inline AsyncTasks& setTaskParams(string taskParams) { DARABONBA_PTR_SET_VALUE(taskParams_, taskParams) };
+
+
+      // taskResult Field Functions 
+      bool hasTaskResult() const { return this->taskResult_ != nullptr;};
+      void deleteTaskResult() { this->taskResult_ = nullptr;};
+      inline string getTaskResult() const { DARABONBA_PTR_GET_DEFAULT(taskResult_, "") };
+      inline AsyncTasks& setTaskResult(string taskResult) { DARABONBA_PTR_SET_VALUE(taskResult_, taskResult) };
+
+
+      // taskStatus Field Functions 
+      bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
+      void deleteTaskStatus() { this->taskStatus_ = nullptr;};
+      inline int32_t getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, 0) };
+      inline AsyncTasks& setTaskStatus(int32_t taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
+
+
+      // taskType Field Functions 
+      bool hasTaskType() const { return this->taskType_ != nullptr;};
+      void deleteTaskType() { this->taskType_ = nullptr;};
+      inline int32_t getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
+      inline AsyncTasks& setTaskType(int32_t taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
+
+
+    protected:
+      // The end time of the task. This value is a UNIX timestamp. Unit: milliseconds.
+      shared_ptr<int64_t> endTime_ {};
+      // The start time of the task. The value is a UNIX timestamp. Unit: milliseconds.
+      shared_ptr<int64_t> startTime_ {};
+      // The ID of the job.
+      shared_ptr<int64_t> taskId_ {};
+      // The task parameter. The value is a JSON string. The returned field in the value varies based on the value of **TaskType**.
+      // 
+      // If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following filed is returned:
+      // 
+      // *   **instanceId**: the ID of the instance. Data type: string.
+      // 
+      // If **TaskType** is set to **2**, the following field is returned:
+      // 
+      // *   **domain**: the domain name of the website. Data type: string.
+      shared_ptr<string> taskParams_ {};
+      // The execution result of the task. The value is a JSON string. The returned fields in the value vary based on the value of **TaskType**.
+      // 
+      // If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following fields are returned:
+      // 
+      // *   **instanceId**: the ID of the instance. Data type: string.
+      // *   **url**: the URL to download the exported file from Object Storage Service (OSS). Data type: string.
+      // 
+      // If **TaskType** is set to **2**, the following fields are returned:
+      // 
+      // *   **domain**: the domain name of the website. Data type: string.
+      // *   **url**: the URL to download the exported file from OSS. Data type: string.
+      shared_ptr<string> taskResult_ {};
+      // The status of the task. Valid values:
+      // 
+      // *   **0**: indicates that the task is being initialized.
+      // *   **1**: indicates that the task is in progress.
+      // *   **2**: indicates that the task is successful.
+      // *   **3**: indicates that the task failed.
+      shared_ptr<int32_t> taskStatus_ {};
+      // The type of the task. Valid values:
+      // 
+      // *   **1**: the task to export the port forwarding rules of an instance
+      // *   **2**: the task to export the forwarding rules of a website protected by an instance
+      // *   **3**: the task to export the sessions and health check settings of an instance
+      // *   **4**: the task to export the mitigation policies of an instance
+      // *   **5**: the task to download the blacklist for destination IP addresses of an instance
+      // *   **6**: the task to download the whitelist for destination IP addresses of an instance
+      shared_ptr<int32_t> taskType_ {};
+    };
+
     virtual bool empty() const override { return this->asyncTasks_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // asyncTasks Field Functions 
     bool hasAsyncTasks() const { return this->asyncTasks_ != nullptr;};
     void deleteAsyncTasks() { this->asyncTasks_ = nullptr;};
-    inline const vector<DescribeAsyncTasksResponseBodyAsyncTasks> & asyncTasks() const { DARABONBA_PTR_GET_CONST(asyncTasks_, vector<DescribeAsyncTasksResponseBodyAsyncTasks>) };
-    inline vector<DescribeAsyncTasksResponseBodyAsyncTasks> asyncTasks() { DARABONBA_PTR_GET(asyncTasks_, vector<DescribeAsyncTasksResponseBodyAsyncTasks>) };
-    inline DescribeAsyncTasksResponseBody& setAsyncTasks(const vector<DescribeAsyncTasksResponseBodyAsyncTasks> & asyncTasks) { DARABONBA_PTR_SET_VALUE(asyncTasks_, asyncTasks) };
-    inline DescribeAsyncTasksResponseBody& setAsyncTasks(vector<DescribeAsyncTasksResponseBodyAsyncTasks> && asyncTasks) { DARABONBA_PTR_SET_RVALUE(asyncTasks_, asyncTasks) };
+    inline const vector<DescribeAsyncTasksResponseBody::AsyncTasks> & getAsyncTasks() const { DARABONBA_PTR_GET_CONST(asyncTasks_, vector<DescribeAsyncTasksResponseBody::AsyncTasks>) };
+    inline vector<DescribeAsyncTasksResponseBody::AsyncTasks> getAsyncTasks() { DARABONBA_PTR_GET(asyncTasks_, vector<DescribeAsyncTasksResponseBody::AsyncTasks>) };
+    inline DescribeAsyncTasksResponseBody& setAsyncTasks(const vector<DescribeAsyncTasksResponseBody::AsyncTasks> & asyncTasks) { DARABONBA_PTR_SET_VALUE(asyncTasks_, asyncTasks) };
+    inline DescribeAsyncTasksResponseBody& setAsyncTasks(vector<DescribeAsyncTasksResponseBody::AsyncTasks> && asyncTasks) { DARABONBA_PTR_SET_RVALUE(asyncTasks_, asyncTasks) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAsyncTasksResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline DescribeAsyncTasksResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // An array that consists of the details of the asynchronous export tasks.
-    std::shared_ptr<vector<DescribeAsyncTasksResponseBodyAsyncTasks>> asyncTasks_ = nullptr;
+    shared_ptr<vector<DescribeAsyncTasksResponseBody::AsyncTasks>> asyncTasks_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of asynchronous export tasks that are returned.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

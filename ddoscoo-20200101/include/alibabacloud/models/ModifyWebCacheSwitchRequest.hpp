@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->enable_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->enable_ == nullptr && this->resourceGroupId_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyWebCacheSwitchRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline int32_t enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
+    inline int32_t getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
     inline ModifyWebCacheSwitchRequest& setEnable(int32_t enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyWebCacheSwitchRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -62,18 +62,18 @@ namespace Models
     // > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // Specifies whether to enable or disable the Static Page Caching policy for a website. Valid values:
     // 
     // *   **1**: enables the policy.
     // *   **0**: disables the policy.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> enable_ = nullptr;
+    shared_ptr<int32_t> enable_ {};
     // The ID of the resource group to which the instance belongs in Resource Management.
     // 
     // If you do not configure this parameter, the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

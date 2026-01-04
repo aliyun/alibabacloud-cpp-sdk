@@ -33,7 +33,7 @@ namespace Models
     // networkRules Field Functions 
     bool hasNetworkRules() const { return this->networkRules_ != nullptr;};
     void deleteNetworkRules() { this->networkRules_ = nullptr;};
-    inline string networkRules() const { DARABONBA_PTR_GET_DEFAULT(networkRules_, "") };
+    inline string getNetworkRules() const { DARABONBA_PTR_GET_DEFAULT(networkRules_, "") };
     inline CreateNetworkRulesRequest& setNetworkRules(string networkRules) { DARABONBA_PTR_SET_VALUE(networkRules_, networkRules) };
 
 
@@ -47,7 +47,7 @@ namespace Models
     // *   **RealServers**: the IP addresses of the origin server. This field is required and must be a JSON array. You can specify up to 20 IP addresses.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkRules_ = nullptr;
+    shared_ptr<string> networkRules_ {};
   };
 
   } // namespace Models

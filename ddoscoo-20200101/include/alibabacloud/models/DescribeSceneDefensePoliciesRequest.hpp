@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceGroupId_ == nullptr
-        && return this->status_ == nullptr && return this->template_ == nullptr; };
+        && this->status_ == nullptr && this->template_ == nullptr; };
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeSceneDefensePoliciesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeSceneDefensePoliciesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline DescribeSceneDefensePoliciesRequest& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
@@ -60,19 +60,19 @@ namespace Models
     // The ID of the resource group to which the instance belongs in Resource Management.
     // 
     // If you do not configure this parameter, the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The status of the policy. Valid values:
     // 
     // *   **0**: disabled
     // *   **1**: pending enabling
     // *   **2**: enabled
     // *   **3**: expired
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The type of the template that is used to create the policy. Valid values:
     // 
     // *   **promotion**: the Important Activity template
     // *   **bypass**: the Forward All template
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
   };
 
   } // namespace Models

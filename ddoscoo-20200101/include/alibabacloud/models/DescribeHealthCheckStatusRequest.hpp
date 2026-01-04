@@ -33,7 +33,7 @@ namespace Models
     // networkRules Field Functions 
     bool hasNetworkRules() const { return this->networkRules_ != nullptr;};
     void deleteNetworkRules() { this->networkRules_ = nullptr;};
-    inline string networkRules() const { DARABONBA_PTR_GET_DEFAULT(networkRules_, "") };
+    inline string getNetworkRules() const { DARABONBA_PTR_GET_DEFAULT(networkRules_, "") };
     inline DescribeHealthCheckStatusRequest& setNetworkRules(string networkRules) { DARABONBA_PTR_SET_VALUE(networkRules_, networkRules) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkRules_ = nullptr;
+    shared_ptr<string> networkRules_ {};
   };
 
   } // namespace Models

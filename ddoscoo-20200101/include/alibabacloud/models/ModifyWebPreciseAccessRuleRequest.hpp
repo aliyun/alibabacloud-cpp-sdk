@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->expires_ == nullptr && return this->resourceGroupId_ == nullptr && return this->rules_ == nullptr; };
+        && this->expires_ == nullptr && this->resourceGroupId_ == nullptr && this->rules_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyWebPreciseAccessRuleRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // expires Field Functions 
     bool hasExpires() const { return this->expires_ != nullptr;};
     void deleteExpires() { this->expires_ = nullptr;};
-    inline int32_t expires() const { DARABONBA_PTR_GET_DEFAULT(expires_, 0) };
+    inline int32_t getExpires() const { DARABONBA_PTR_GET_DEFAULT(expires_, 0) };
     inline ModifyWebPreciseAccessRuleRequest& setExpires(int32_t expires) { DARABONBA_PTR_SET_VALUE(expires_, expires) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyWebPreciseAccessRuleRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline string rules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
+    inline string getRules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
     inline ModifyWebPreciseAccessRuleRequest& setRules(string rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
 
 
@@ -71,11 +71,11 @@ namespace Models
     // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. If you do not specify this parameter, this rule takes effect all the time.
-    std::shared_ptr<int32_t> expires_ = nullptr;
+    shared_ptr<int32_t> expires_ {};
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The settings of the accurate access control rule. This parameter is a JSON string. The following list describes the fields in the value of the parameter:
     // 
     // *   **action**: the action that is performed if the rule is matched. This field is required and must be of the string type. Valid values:
@@ -105,7 +105,7 @@ namespace Models
     // *   **header_name**: the HTTP header. This parameter is optional and must be of the string type. This parameter takes effect only when **field** is **header**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> rules_ = nullptr;
+    shared_ptr<string> rules_ {};
   };
 
   } // namespace Models

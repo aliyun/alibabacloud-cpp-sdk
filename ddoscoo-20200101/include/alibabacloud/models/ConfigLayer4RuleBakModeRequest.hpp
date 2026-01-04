@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bakMode_ == nullptr
-        && return this->listeners_ == nullptr; };
+        && this->listeners_ == nullptr; };
     // bakMode Field Functions 
     bool hasBakMode() const { return this->bakMode_ != nullptr;};
     void deleteBakMode() { this->bakMode_ = nullptr;};
-    inline string bakMode() const { DARABONBA_PTR_GET_DEFAULT(bakMode_, "") };
+    inline string getBakMode() const { DARABONBA_PTR_GET_DEFAULT(bakMode_, "") };
     inline ConfigLayer4RuleBakModeRequest& setBakMode(string bakMode) { DARABONBA_PTR_SET_VALUE(bakMode_, bakMode) };
 
 
     // listeners Field Functions 
     bool hasListeners() const { return this->listeners_ != nullptr;};
     void deleteListeners() { this->listeners_ = nullptr;};
-    inline string listeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
+    inline string getListeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
     inline ConfigLayer4RuleBakModeRequest& setListeners(string listeners) { DARABONBA_PTR_SET_VALUE(listeners_, listeners) };
 
 
@@ -54,7 +54,7 @@ namespace Models
     // *   **1**: the origin redundancy mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary or secondary origin servers. You can call the [ConfigLayer4RulePolicy](https://help.aliyun.com/document_detail/312684.html) operation to configure IP addresses.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bakMode_ = nullptr;
+    shared_ptr<string> bakMode_ {};
     // The port forwarding rule that you want to manage.
     // 
     // This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates a port forwarding rule. You can perform this operation only on one port forwarding rule at a time.
@@ -68,7 +68,7 @@ namespace Models
     // *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listeners_ = nullptr;
+    shared_ptr<string> listeners_ {};
   };
 
   } // namespace Models

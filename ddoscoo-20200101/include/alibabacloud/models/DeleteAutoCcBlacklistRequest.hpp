@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blacklist_ == nullptr
-        && return this->instanceId_ == nullptr && return this->queryType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->queryType_ == nullptr; };
     // blacklist Field Functions 
     bool hasBlacklist() const { return this->blacklist_ != nullptr;};
     void deleteBlacklist() { this->blacklist_ = nullptr;};
-    inline string blacklist() const { DARABONBA_PTR_GET_DEFAULT(blacklist_, "") };
+    inline string getBlacklist() const { DARABONBA_PTR_GET_DEFAULT(blacklist_, "") };
     inline DeleteAutoCcBlacklistRequest& setBlacklist(string blacklist) { DARABONBA_PTR_SET_VALUE(blacklist_, blacklist) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteAutoCcBlacklistRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // queryType Field Functions 
     bool hasQueryType() const { return this->queryType_ != nullptr;};
     void deleteQueryType() { this->queryType_ = nullptr;};
-    inline string queryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
+    inline string getQueryType() const { DARABONBA_PTR_GET_DEFAULT(queryType_, "") };
     inline DeleteAutoCcBlacklistRequest& setQueryType(string queryType) { DARABONBA_PTR_SET_VALUE(queryType_, queryType) };
 
 
@@ -62,14 +62,14 @@ namespace Models
     // *   **src**: the IP address. This field is required and must be of the STRING type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> blacklist_ = nullptr;
+    shared_ptr<string> blacklist_ {};
     // The ID of the instance.
     // 
     // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> queryType_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> queryType_ {};
   };
 
   } // namespace Models

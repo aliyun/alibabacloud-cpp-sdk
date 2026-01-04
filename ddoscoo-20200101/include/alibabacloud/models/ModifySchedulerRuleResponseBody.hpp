@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cname_ == nullptr
-        && return this->requestId_ == nullptr && return this->ruleName_ == nullptr; };
+        && this->requestId_ == nullptr && this->ruleName_ == nullptr; };
     // cname Field Functions 
     bool hasCname() const { return this->cname_ != nullptr;};
     void deleteCname() { this->cname_ = nullptr;};
-    inline string cname() const { DARABONBA_PTR_GET_DEFAULT(cname_, "") };
+    inline string getCname() const { DARABONBA_PTR_GET_DEFAULT(cname_, "") };
     inline ModifySchedulerRuleResponseBody& setCname(string cname) { DARABONBA_PTR_SET_VALUE(cname_, cname) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifySchedulerRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ModifySchedulerRuleResponseBody& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The CNAME that is assigned by Sec-Traffic Manager for the scheduling rule.
     // 
     // > To enable the scheduling rule, you must map the domain name of the service to the CNAME.
-    std::shared_ptr<string> cname_ = nullptr;
+    shared_ptr<string> cname_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The name of the rule.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

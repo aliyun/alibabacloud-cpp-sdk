@@ -34,31 +34,31 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cluster_ == nullptr
-        && return this->config_ == nullptr && return this->domain_ == nullptr; };
+        && this->config_ == nullptr && this->domain_ == nullptr; };
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
-    inline string cluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
+    inline string getCluster() const { DARABONBA_PTR_GET_DEFAULT(cluster_, "") };
     inline ConfigDomainSecurityProfileRequest& setCluster(string cluster) { DARABONBA_PTR_SET_VALUE(cluster_, cluster) };
 
 
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline ConfigDomainSecurityProfileRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ConfigDomainSecurityProfileRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
   protected:
     // This parameter is unavailable.
-    std::shared_ptr<string> cluster_ = nullptr;
+    shared_ptr<string> cluster_ {};
     // The configurations for the global mitigation policy feature. The configurations include the following fields:
     // 
     // *   **global_rule_mode**: optional. The mode for the global mitigation policy feature. Data type: string. Valid values:
@@ -73,13 +73,13 @@ namespace Models
     //     *   **1**: enabled.
     // 
     // This parameter is required.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The domain name of the website.
     // 
     // >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
   };
 
   } // namespace Models

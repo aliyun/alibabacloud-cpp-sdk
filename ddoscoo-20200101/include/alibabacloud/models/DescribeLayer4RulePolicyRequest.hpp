@@ -33,7 +33,7 @@ namespace Models
     // listeners Field Functions 
     bool hasListeners() const { return this->listeners_ != nullptr;};
     void deleteListeners() { this->listeners_ = nullptr;};
-    inline string listeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
+    inline string getListeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
     inline DescribeLayer4RulePolicyRequest& setListeners(string listeners) { DARABONBA_PTR_SET_VALUE(listeners_, listeners) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // *   **FrontendPort**: the forwarding port. This field is required and must be of the integer type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listeners_ = nullptr;
+    shared_ptr<string> listeners_ {};
   };
 
   } // namespace Models

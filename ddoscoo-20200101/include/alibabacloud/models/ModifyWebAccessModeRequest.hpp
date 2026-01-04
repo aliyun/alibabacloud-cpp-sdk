@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessMode_ == nullptr
-        && return this->domain_ == nullptr; };
+        && this->domain_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};
-    inline int32_t accessMode() const { DARABONBA_PTR_GET_DEFAULT(accessMode_, 0) };
+    inline int32_t getAccessMode() const { DARABONBA_PTR_GET_DEFAULT(accessMode_, 0) };
     inline ModifyWebAccessModeRequest& setAccessMode(int32_t accessMode) { DARABONBA_PTR_SET_VALUE(accessMode_, accessMode) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyWebAccessModeRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
@@ -55,13 +55,13 @@ namespace Models
     // *   **2**: origin redundancy mode
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> accessMode_ = nullptr;
+    shared_ptr<int32_t> accessMode_ {};
     // The domain name of the website.
     // 
     // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
   };
 
   } // namespace Models

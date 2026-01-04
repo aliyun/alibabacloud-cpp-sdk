@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->objectType_ == nullptr
-        && return this->objects_ == nullptr && return this->policyId_ == nullptr; };
+        && this->objects_ == nullptr && this->policyId_ == nullptr; };
     // objectType Field Functions 
     bool hasObjectType() const { return this->objectType_ != nullptr;};
     void deleteObjectType() { this->objectType_ = nullptr;};
-    inline string objectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+    inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
     inline AttachSceneDefenseObjectRequest& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
     // objects Field Functions 
     bool hasObjects() const { return this->objects_ != nullptr;};
     void deleteObjects() { this->objects_ = nullptr;};
-    inline string objects() const { DARABONBA_PTR_GET_DEFAULT(objects_, "") };
+    inline string getObjects() const { DARABONBA_PTR_GET_DEFAULT(objects_, "") };
     inline AttachSceneDefenseObjectRequest& setObjects(string objects) { DARABONBA_PTR_SET_VALUE(objects_, objects) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline AttachSceneDefenseObjectRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
@@ -60,17 +60,17 @@ namespace Models
     // The type of the object. Set the value to **Domain**, which indicates a domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectType_ = nullptr;
+    shared_ptr<string> objectType_ {};
     // The object that you want to add to the policy. Separate multiple objects with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> objects_ = nullptr;
+    shared_ptr<string> objects_ {};
     // The ID of the policy.
     // 
     // > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
   };
 
   } // namespace Models

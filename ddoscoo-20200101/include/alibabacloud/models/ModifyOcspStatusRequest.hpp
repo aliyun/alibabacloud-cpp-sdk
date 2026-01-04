@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->enable_ == nullptr; };
+        && this->enable_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyOcspStatusRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline int32_t enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
+    inline int32_t getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, 0) };
     inline ModifyOcspStatusRequest& setEnable(int32_t enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
@@ -53,14 +53,14 @@ namespace Models
     // > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // Specifies whether to enable the OCSP feature. Valid values:
     // 
     // *   **1**: yes.
     // *   **0**: no.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> enable_ = nullptr;
+    shared_ptr<int32_t> enable_ {};
   };
 
   } // namespace Models

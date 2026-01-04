@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->ruleAttr_ == nullptr; };
+        && this->ruleAttr_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ConfigL7GlobalRuleRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // ruleAttr Field Functions 
     bool hasRuleAttr() const { return this->ruleAttr_ != nullptr;};
     void deleteRuleAttr() { this->ruleAttr_ = nullptr;};
-    inline string ruleAttr() const { DARABONBA_PTR_GET_DEFAULT(ruleAttr_, "") };
+    inline string getRuleAttr() const { DARABONBA_PTR_GET_DEFAULT(ruleAttr_, "") };
     inline ConfigL7GlobalRuleRequest& setRuleAttr(string ruleAttr) { DARABONBA_PTR_SET_VALUE(ruleAttr_, ruleAttr) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // This parameter is required.
-    std::shared_ptr<string> ruleAttr_ = nullptr;
+    shared_ptr<string> ruleAttr_ {};
   };
 
   } // namespace Models

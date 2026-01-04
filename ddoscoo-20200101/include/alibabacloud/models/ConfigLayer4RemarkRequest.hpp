@@ -33,7 +33,7 @@ namespace Models
     // listeners Field Functions 
     bool hasListeners() const { return this->listeners_ != nullptr;};
     void deleteListeners() { this->listeners_ = nullptr;};
-    inline string listeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
+    inline string getListeners() const { DARABONBA_PTR_GET_DEFAULT(listeners_, "") };
     inline ConfigLayer4RemarkRequest& setListeners(string listeners) { DARABONBA_PTR_SET_VALUE(listeners_, listeners) };
 
 
@@ -52,7 +52,7 @@ namespace Models
     // *   **Remark**: the remarks of the port forwarding rule. This field is required and must be of the STRING type. The value can contain letters, digits, and some special characters, such as `, . + - * / _`. The value can be up to 200 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listeners_ = nullptr;
+    shared_ptr<string> listeners_ {};
   };
 
   } // namespace Models

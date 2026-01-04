@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customHeaders_ == nullptr
-        && return this->domain_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->domain_ == nullptr && this->resourceGroupId_ == nullptr; };
     // customHeaders Field Functions 
     bool hasCustomHeaders() const { return this->customHeaders_ != nullptr;};
     void deleteCustomHeaders() { this->customHeaders_ = nullptr;};
-    inline string customHeaders() const { DARABONBA_PTR_GET_DEFAULT(customHeaders_, "") };
+    inline string getCustomHeaders() const { DARABONBA_PTR_GET_DEFAULT(customHeaders_, "") };
     inline ModifyHeadersRequest& setCustomHeaders(string customHeaders) { DARABONBA_PTR_SET_VALUE(customHeaders_, customHeaders) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyHeadersRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyHeadersRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -72,13 +72,13 @@ namespace Models
     // >  If you specify a key of X-Forwarded-ClientSrcPort, the system obtains the originating ports of clients that access Anti-DDoS Proxy (a Layer 7 proxy). In this case, the value is an empty string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customHeaders_ = nullptr;
+    shared_ptr<string> customHeaders_ {};
     // The domain name of the website.
     // 
     // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The ID of the resource group to which the instance belongs.
     // 
     // > 
@@ -86,7 +86,7 @@ namespace Models
     // *   You can query resource group IDs in the Anti-DDoS Pro or Anti-DDoS Premium console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     // 
     // *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

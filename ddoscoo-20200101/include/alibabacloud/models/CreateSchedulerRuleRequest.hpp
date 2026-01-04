@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->param_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->ruleName_ == nullptr && return this->ruleType_ == nullptr && return this->rules_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->ruleName_ == nullptr && this->ruleType_ == nullptr && this->rules_ == nullptr; };
     // param Field Functions 
     bool hasParam() const { return this->param_ != nullptr;};
     void deleteParam() { this->param_ = nullptr;};
-    inline string param() const { DARABONBA_PTR_GET_DEFAULT(param_, "") };
+    inline string getParam() const { DARABONBA_PTR_GET_DEFAULT(param_, "") };
     inline CreateSchedulerRuleRequest& setParam(string param) { DARABONBA_PTR_SET_VALUE(param_, param) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateSchedulerRuleRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline CreateSchedulerRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline int32_t ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
+    inline int32_t getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, 0) };
     inline CreateSchedulerRuleRequest& setRuleType(int32_t ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline string rules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
+    inline string getRules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
     inline CreateSchedulerRuleRequest& setRules(string rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
 
 
@@ -85,13 +85,13 @@ namespace Models
     //     *   **Cname**: the CNAME that is assigned to the accelerated domain. This parameter is required and must be of the string type.
     //     *   **AccessQps**: the queries per second (QPS) threshold that is used to switch service traffic to Anti-DDoS Pro or Anti-DDoS Premium. This parameter is required and must be of the integer type.
     //     *   **UpstreamQps**: the QPS threshold that is used to switch service traffic to CDN. This parameter is optional and must be of the integer type.
-    std::shared_ptr<string> param_ = nullptr;
+    shared_ptr<string> param_ {};
     // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The name of the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The type of the rule. Valid values:
     // 
     // *   **2**: tiered protection
@@ -101,7 +101,7 @@ namespace Models
     // *   **8**: secure acceleration
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ruleType_ = nullptr;
+    shared_ptr<int32_t> ruleType_ {};
     // The details of the scheduling rule. This parameter is a JSON string. The following list describes the fields in the value of the parameter:
     // 
     // *   **Type**: the address type of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the string type. Valid values:
@@ -124,7 +124,7 @@ namespace Models
     // *   **RegionId**: the region where the interaction resource is deployed. This parameter must be specified when **ValueType** is set to **2**. The value must be of the string type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> rules_ = nullptr;
+    shared_ptr<string> rules_ {};
   };
 
   } // namespace Models
