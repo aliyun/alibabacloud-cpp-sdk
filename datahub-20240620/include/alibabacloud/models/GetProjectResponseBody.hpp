@@ -46,81 +46,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->projectName_ == nullptr && return this->requestId_ == nullptr && return this->storage_ == nullptr
-        && return this->success_ == nullptr && return this->updateTime_ == nullptr && return this->vpcWhitelist_ == nullptr; };
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->projectName_ == nullptr && this->requestId_ == nullptr && this->storage_ == nullptr
+        && this->success_ == nullptr && this->updateTime_ == nullptr && this->vpcWhitelist_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline GetProjectResponseBody& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetProjectResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline string creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline GetProjectResponseBody& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetProjectResponseBody& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetProjectResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // storage Field Functions 
     bool hasStorage() const { return this->storage_ != nullptr;};
     void deleteStorage() { this->storage_ = nullptr;};
-    inline int64_t storage() const { DARABONBA_PTR_GET_DEFAULT(storage_, 0L) };
+    inline int64_t getStorage() const { DARABONBA_PTR_GET_DEFAULT(storage_, 0L) };
     inline GetProjectResponseBody& setStorage(int64_t storage) { DARABONBA_PTR_SET_VALUE(storage_, storage) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetProjectResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
-    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
     inline GetProjectResponseBody& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
     // vpcWhitelist Field Functions 
     bool hasVpcWhitelist() const { return this->vpcWhitelist_ != nullptr;};
     void deleteVpcWhitelist() { this->vpcWhitelist_ = nullptr;};
-    inline string vpcWhitelist() const { DARABONBA_PTR_GET_DEFAULT(vpcWhitelist_, "") };
+    inline string getVpcWhitelist() const { DARABONBA_PTR_GET_DEFAULT(vpcWhitelist_, "") };
     inline GetProjectResponseBody& setVpcWhitelist(string vpcWhitelist) { DARABONBA_PTR_SET_VALUE(vpcWhitelist_, vpcWhitelist) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> creator_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> storage_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<string> updateTime_ = nullptr;
-    std::shared_ptr<string> vpcWhitelist_ = nullptr;
+    shared_ptr<string> comment_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> creator_ {};
+    shared_ptr<string> projectName_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> storage_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<string> updateTime_ {};
+    shared_ptr<string> vpcWhitelist_ {};
   };
 
   } // namespace Models
