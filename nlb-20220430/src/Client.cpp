@@ -46,24 +46,24 @@ AddServersToServerGroupResponse Client::addServersToServerGroupWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   json bodyFlat = {};
   if (!!request.hasServers()) {
-    bodyFlat["Servers"] = request.servers();
+    bodyFlat["Servers"] = request.getServers();
   }
 
   body = Darabonba::Core::merge(body,
@@ -71,7 +71,7 @@ AddServersToServerGroupResponse Client::addServersToServerGroupWithOptions(const
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AddServersToServerGroup"},
     {"version" , "2022-04-30"},
@@ -82,7 +82,7 @@ AddServersToServerGroupResponse Client::addServersToServerGroupWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddServersToServerGroupResponse>();
 }
 
@@ -112,28 +112,28 @@ AssociateAdditionalCertificatesWithListenerResponse Client::associateAdditionalC
   request.validate();
   json body = {};
   if (!!request.hasAdditionalCertificateIds()) {
-    body["AdditionalCertificateIds"] = request.additionalCertificateIds();
+    body["AdditionalCertificateIds"] = request.getAdditionalCertificateIds();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasListenerId()) {
-    body["ListenerId"] = request.listenerId();
+    body["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AssociateAdditionalCertificatesWithListener"},
     {"version" , "2022-04-30"},
@@ -144,7 +144,7 @@ AssociateAdditionalCertificatesWithListenerResponse Client::associateAdditionalC
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AssociateAdditionalCertificatesWithListenerResponse>();
 }
 
@@ -174,28 +174,28 @@ AttachCommonBandwidthPackageToLoadBalancerResponse Client::attachCommonBandwidth
   request.validate();
   json body = {};
   if (!!request.hasBandwidthPackageId()) {
-    body["BandwidthPackageId"] = request.bandwidthPackageId();
+    body["BandwidthPackageId"] = request.getBandwidthPackageId();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AttachCommonBandwidthPackageToLoadBalancer"},
     {"version" , "2022-04-30"},
@@ -206,7 +206,7 @@ AttachCommonBandwidthPackageToLoadBalancerResponse Client::attachCommonBandwidth
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AttachCommonBandwidthPackageToLoadBalancerResponse>();
 }
 
@@ -234,28 +234,28 @@ CancelShiftLoadBalancerZonesResponse Client::cancelShiftLoadBalancerZonesWithOpt
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasZoneMappings()) {
-    body["ZoneMappings"] = request.zoneMappings();
+    body["ZoneMappings"] = request.getZoneMappings();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CancelShiftLoadBalancerZones"},
     {"version" , "2022-04-30"},
@@ -266,7 +266,7 @@ CancelShiftLoadBalancerZonesResponse Client::cancelShiftLoadBalancerZonesWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelShiftLoadBalancerZonesResponse>();
 }
 
@@ -295,105 +295,105 @@ CreateListenerResponse Client::createListenerWithOptions(const CreateListenerReq
   CreateListenerShrinkRequest request = CreateListenerShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasProxyProtocolV2Config()) {
-    request.setProxyProtocolV2ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.proxyProtocolV2Config(), "ProxyProtocolV2Config", "json"));
+    request.setProxyProtocolV2ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProxyProtocolV2Config(), "ProxyProtocolV2Config", "json"));
   }
 
   json body = {};
   if (!!request.hasAlpnEnabled()) {
-    body["AlpnEnabled"] = request.alpnEnabled();
+    body["AlpnEnabled"] = request.getAlpnEnabled();
   }
 
   if (!!request.hasAlpnPolicy()) {
-    body["AlpnPolicy"] = request.alpnPolicy();
+    body["AlpnPolicy"] = request.getAlpnPolicy();
   }
 
   if (!!request.hasCaCertificateIds()) {
-    body["CaCertificateIds"] = request.caCertificateIds();
+    body["CaCertificateIds"] = request.getCaCertificateIds();
   }
 
   if (!!request.hasCaEnabled()) {
-    body["CaEnabled"] = request.caEnabled();
+    body["CaEnabled"] = request.getCaEnabled();
   }
 
   if (!!request.hasCertificateIds()) {
-    body["CertificateIds"] = request.certificateIds();
+    body["CertificateIds"] = request.getCertificateIds();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCps()) {
-    body["Cps"] = request.cps();
+    body["Cps"] = request.getCps();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEndPort()) {
-    body["EndPort"] = request.endPort();
+    body["EndPort"] = request.getEndPort();
   }
 
   if (!!request.hasIdleTimeout()) {
-    body["IdleTimeout"] = request.idleTimeout();
+    body["IdleTimeout"] = request.getIdleTimeout();
   }
 
   if (!!request.hasListenerDescription()) {
-    body["ListenerDescription"] = request.listenerDescription();
+    body["ListenerDescription"] = request.getListenerDescription();
   }
 
   if (!!request.hasListenerPort()) {
-    body["ListenerPort"] = request.listenerPort();
+    body["ListenerPort"] = request.getListenerPort();
   }
 
   if (!!request.hasListenerProtocol()) {
-    body["ListenerProtocol"] = request.listenerProtocol();
+    body["ListenerProtocol"] = request.getListenerProtocol();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasMss()) {
-    body["Mss"] = request.mss();
+    body["Mss"] = request.getMss();
   }
 
   if (!!request.hasProxyProtocolEnabled()) {
-    body["ProxyProtocolEnabled"] = request.proxyProtocolEnabled();
+    body["ProxyProtocolEnabled"] = request.getProxyProtocolEnabled();
   }
 
   if (!!request.hasProxyProtocolV2ConfigShrink()) {
-    body["ProxyProtocolV2Config"] = request.proxyProtocolV2ConfigShrink();
+    body["ProxyProtocolV2Config"] = request.getProxyProtocolV2ConfigShrink();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecSensorEnabled()) {
-    body["SecSensorEnabled"] = request.secSensorEnabled();
+    body["SecSensorEnabled"] = request.getSecSensorEnabled();
   }
 
   if (!!request.hasSecurityPolicyId()) {
-    body["SecurityPolicyId"] = request.securityPolicyId();
+    body["SecurityPolicyId"] = request.getSecurityPolicyId();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   if (!!request.hasStartPort()) {
-    body["StartPort"] = request.startPort();
+    body["StartPort"] = request.getStartPort();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateListener"},
     {"version" , "2022-04-30"},
@@ -404,7 +404,7 @@ CreateListenerResponse Client::createListenerWithOptions(const CreateListenerReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateListenerResponse>();
 }
 
@@ -435,64 +435,64 @@ CreateLoadBalancerResponse Client::createLoadBalancerWithOptions(const CreateLoa
   request.validate();
   json body = {};
   if (!!request.hasAddressIpVersion()) {
-    body["AddressIpVersion"] = request.addressIpVersion();
+    body["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasAddressType()) {
-    body["AddressType"] = request.addressType();
+    body["AddressType"] = request.getAddressType();
   }
 
   if (!!request.hasBandwidthPackageId()) {
-    body["BandwidthPackageId"] = request.bandwidthPackageId();
+    body["BandwidthPackageId"] = request.getBandwidthPackageId();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   json bodyFlat = {};
   if (!!request.hasDeletionProtectionConfig()) {
-    bodyFlat["DeletionProtectionConfig"] = request.deletionProtectionConfig();
+    bodyFlat["DeletionProtectionConfig"] = request.getDeletionProtectionConfig();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerBillingConfig()) {
-    bodyFlat["LoadBalancerBillingConfig"] = request.loadBalancerBillingConfig();
+    bodyFlat["LoadBalancerBillingConfig"] = request.getLoadBalancerBillingConfig();
   }
 
   if (!!request.hasLoadBalancerName()) {
-    body["LoadBalancerName"] = request.loadBalancerName();
+    body["LoadBalancerName"] = request.getLoadBalancerName();
   }
 
   if (!!request.hasLoadBalancerType()) {
-    body["LoadBalancerType"] = request.loadBalancerType();
+    body["LoadBalancerType"] = request.getLoadBalancerType();
   }
 
   if (!!request.hasModificationProtectionConfig()) {
-    bodyFlat["ModificationProtectionConfig"] = request.modificationProtectionConfig();
+    bodyFlat["ModificationProtectionConfig"] = request.getModificationProtectionConfig();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasZoneMappings()) {
-    bodyFlat["ZoneMappings"] = request.zoneMappings();
+    bodyFlat["ZoneMappings"] = request.getZoneMappings();
   }
 
   body = Darabonba::Core::merge(body,
@@ -500,7 +500,7 @@ CreateLoadBalancerResponse Client::createLoadBalancerWithOptions(const CreateLoa
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateLoadBalancer"},
     {"version" , "2022-04-30"},
@@ -511,7 +511,7 @@ CreateLoadBalancerResponse Client::createLoadBalancerWithOptions(const CreateLoa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLoadBalancerResponse>();
 }
 
@@ -542,40 +542,40 @@ CreateSecurityPolicyResponse Client::createSecurityPolicyWithOptions(const Creat
   request.validate();
   json body = {};
   if (!!request.hasCiphers()) {
-    body["Ciphers"] = request.ciphers();
+    body["Ciphers"] = request.getCiphers();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSecurityPolicyName()) {
-    body["SecurityPolicyName"] = request.securityPolicyName();
+    body["SecurityPolicyName"] = request.getSecurityPolicyName();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   if (!!request.hasTlsVersions()) {
-    body["TlsVersions"] = request.tlsVersions();
+    body["TlsVersions"] = request.getTlsVersions();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateSecurityPolicy"},
     {"version" , "2022-04-30"},
@@ -586,7 +586,7 @@ CreateSecurityPolicyResponse Client::createSecurityPolicyWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateSecurityPolicyResponse>();
 }
 
@@ -616,68 +616,68 @@ CreateServerGroupResponse Client::createServerGroupWithOptions(const CreateServe
   request.validate();
   json body = {};
   if (!!request.hasAddressIPVersion()) {
-    body["AddressIPVersion"] = request.addressIPVersion();
+    body["AddressIPVersion"] = request.getAddressIPVersion();
   }
 
   if (!!request.hasAnyPortEnabled()) {
-    body["AnyPortEnabled"] = request.anyPortEnabled();
+    body["AnyPortEnabled"] = request.getAnyPortEnabled();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConnectionDrainEnabled()) {
-    body["ConnectionDrainEnabled"] = request.connectionDrainEnabled();
+    body["ConnectionDrainEnabled"] = request.getConnectionDrainEnabled();
   }
 
   if (!!request.hasConnectionDrainTimeout()) {
-    body["ConnectionDrainTimeout"] = request.connectionDrainTimeout();
+    body["ConnectionDrainTimeout"] = request.getConnectionDrainTimeout();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   json bodyFlat = {};
   if (!!request.hasHealthCheckConfig()) {
-    bodyFlat["HealthCheckConfig"] = request.healthCheckConfig();
+    bodyFlat["HealthCheckConfig"] = request.getHealthCheckConfig();
   }
 
   if (!!request.hasPreserveClientIpEnabled()) {
-    body["PreserveClientIpEnabled"] = request.preserveClientIpEnabled();
+    body["PreserveClientIpEnabled"] = request.getPreserveClientIpEnabled();
   }
 
   if (!!request.hasProtocol()) {
-    body["Protocol"] = request.protocol();
+    body["Protocol"] = request.getProtocol();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasScheduler()) {
-    body["Scheduler"] = request.scheduler();
+    body["Scheduler"] = request.getScheduler();
   }
 
   if (!!request.hasServerGroupName()) {
-    body["ServerGroupName"] = request.serverGroupName();
+    body["ServerGroupName"] = request.getServerGroupName();
   }
 
   if (!!request.hasServerGroupType()) {
-    body["ServerGroupType"] = request.serverGroupType();
+    body["ServerGroupType"] = request.getServerGroupType();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   body = Darabonba::Core::merge(body,
@@ -685,7 +685,7 @@ CreateServerGroupResponse Client::createServerGroupWithOptions(const CreateServe
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateServerGroup"},
     {"version" , "2022-04-30"},
@@ -696,7 +696,7 @@ CreateServerGroupResponse Client::createServerGroupWithOptions(const CreateServe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateServerGroupResponse>();
 }
 
@@ -726,24 +726,24 @@ DeleteListenerResponse Client::deleteListenerWithOptions(const DeleteListenerReq
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasListenerId()) {
-    body["ListenerId"] = request.listenerId();
+    body["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteListener"},
     {"version" , "2022-04-30"},
@@ -754,7 +754,7 @@ DeleteListenerResponse Client::deleteListenerWithOptions(const DeleteListenerReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteListenerResponse>();
 }
 
@@ -780,24 +780,24 @@ DeleteLoadBalancerResponse Client::deleteLoadBalancerWithOptions(const DeleteLoa
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteLoadBalancer"},
     {"version" , "2022-04-30"},
@@ -808,7 +808,7 @@ DeleteLoadBalancerResponse Client::deleteLoadBalancerWithOptions(const DeleteLoa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteLoadBalancerResponse>();
 }
 
@@ -834,24 +834,24 @@ DeleteSecurityPolicyResponse Client::deleteSecurityPolicyWithOptions(const Delet
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecurityPolicyId()) {
-    body["SecurityPolicyId"] = request.securityPolicyId();
+    body["SecurityPolicyId"] = request.getSecurityPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteSecurityPolicy"},
     {"version" , "2022-04-30"},
@@ -862,7 +862,7 @@ DeleteSecurityPolicyResponse Client::deleteSecurityPolicyWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteSecurityPolicyResponse>();
 }
 
@@ -890,24 +890,24 @@ DeleteServerGroupResponse Client::deleteServerGroupWithOptions(const DeleteServe
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteServerGroup"},
     {"version" , "2022-04-30"},
@@ -918,7 +918,7 @@ DeleteServerGroupResponse Client::deleteServerGroupWithOptions(const DeleteServe
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteServerGroupResponse>();
 }
 
@@ -946,12 +946,12 @@ DescribeHdMonitorRegionConfigResponse Client::describeHdMonitorRegionConfigWithO
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeHdMonitorRegionConfig"},
     {"version" , "2022-04-30"},
@@ -962,7 +962,7 @@ DescribeHdMonitorRegionConfigResponse Client::describeHdMonitorRegionConfigWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeHdMonitorRegionConfigResponse>();
 }
 
@@ -988,16 +988,16 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasServiceCode()) {
-    query["ServiceCode"] = request.serviceCode();
+    query["ServiceCode"] = request.getServiceCode();
   }
 
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1014,7 +1014,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
 }
 
@@ -1040,24 +1040,24 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServiceCode()) {
-    query["ServiceCode"] = request.serviceCode();
+    query["ServiceCode"] = request.getServiceCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeZones"},
     {"version" , "2022-04-30"},
@@ -1068,7 +1068,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeZonesResponse>();
 }
 
@@ -1094,28 +1094,28 @@ DetachCommonBandwidthPackageFromLoadBalancerResponse Client::detachCommonBandwid
   request.validate();
   json body = {};
   if (!!request.hasBandwidthPackageId()) {
-    body["BandwidthPackageId"] = request.bandwidthPackageId();
+    body["BandwidthPackageId"] = request.getBandwidthPackageId();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DetachCommonBandwidthPackageFromLoadBalancer"},
     {"version" , "2022-04-30"},
@@ -1126,7 +1126,7 @@ DetachCommonBandwidthPackageFromLoadBalancerResponse Client::detachCommonBandwid
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DetachCommonBandwidthPackageFromLoadBalancerResponse>();
 }
 
@@ -1152,24 +1152,24 @@ DisableLoadBalancerIpv6InternetResponse Client::disableLoadBalancerIpv6InternetW
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DisableLoadBalancerIpv6Internet"},
     {"version" , "2022-04-30"},
@@ -1180,7 +1180,7 @@ DisableLoadBalancerIpv6InternetResponse Client::disableLoadBalancerIpv6InternetW
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisableLoadBalancerIpv6InternetResponse>();
 }
 
@@ -1210,28 +1210,28 @@ DisassociateAdditionalCertificatesWithListenerResponse Client::disassociateAddit
   request.validate();
   json body = {};
   if (!!request.hasAdditionalCertificateIds()) {
-    body["AdditionalCertificateIds"] = request.additionalCertificateIds();
+    body["AdditionalCertificateIds"] = request.getAdditionalCertificateIds();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasListenerId()) {
-    body["ListenerId"] = request.listenerId();
+    body["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DisassociateAdditionalCertificatesWithListener"},
     {"version" , "2022-04-30"},
@@ -1242,7 +1242,7 @@ DisassociateAdditionalCertificatesWithListenerResponse Client::disassociateAddit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DisassociateAdditionalCertificatesWithListenerResponse>();
 }
 
@@ -1272,24 +1272,24 @@ EnableLoadBalancerIpv6InternetResponse Client::enableLoadBalancerIpv6InternetWit
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "EnableLoadBalancerIpv6Internet"},
     {"version" , "2022-04-30"},
@@ -1300,7 +1300,7 @@ EnableLoadBalancerIpv6InternetResponse Client::enableLoadBalancerIpv6InternetWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<EnableLoadBalancerIpv6InternetResponse>();
 }
 
@@ -1326,16 +1326,16 @@ GetJobStatusResponse Client::getJobStatusWithOptions(const GetJobStatusRequest &
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasJobId()) {
-    query["JobId"] = request.jobId();
+    query["JobId"] = request.getJobId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetJobStatus"},
     {"version" , "2022-04-30"},
@@ -1346,7 +1346,7 @@ GetJobStatusResponse Client::getJobStatusWithOptions(const GetJobStatusRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetJobStatusResponse>();
 }
 
@@ -1372,24 +1372,24 @@ GetListenerAttributeResponse Client::getListenerAttributeWithOptions(const GetLi
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasListenerId()) {
-    query["ListenerId"] = request.listenerId();
+    query["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetListenerAttribute"},
     {"version" , "2022-04-30"},
@@ -1400,7 +1400,7 @@ GetListenerAttributeResponse Client::getListenerAttributeWithOptions(const GetLi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetListenerAttributeResponse>();
 }
 
@@ -1426,16 +1426,16 @@ GetListenerHealthStatusResponse Client::getListenerHealthStatusWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasListenerId()) {
-    query["ListenerId"] = request.listenerId();
+    query["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetListenerHealthStatus"},
     {"version" , "2022-04-30"},
@@ -1446,7 +1446,7 @@ GetListenerHealthStatusResponse Client::getListenerHealthStatusWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetListenerHealthStatusResponse>();
 }
 
@@ -1472,24 +1472,24 @@ GetLoadBalancerAttributeResponse Client::getLoadBalancerAttributeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    query["LoadBalancerId"] = request.loadBalancerId();
+    query["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetLoadBalancerAttribute"},
     {"version" , "2022-04-30"},
@@ -1500,7 +1500,7 @@ GetLoadBalancerAttributeResponse Client::getLoadBalancerAttributeWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetLoadBalancerAttributeResponse>();
 }
 
@@ -1526,12 +1526,12 @@ ListAsynJobsResponse Client::listAsynJobsWithOptions(const ListAsynJobsRequest &
   request.validate();
   json query = {};
   if (!!request.hasJobIds()) {
-    query["JobIds"] = request.jobIds();
+    query["JobIds"] = request.getJobIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListAsynJobs"},
     {"version" , "2022-04-30"},
@@ -1542,7 +1542,7 @@ ListAsynJobsResponse Client::listAsynJobsWithOptions(const ListAsynJobsRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAsynJobsResponse>();
 }
 
@@ -1568,32 +1568,32 @@ ListListenerCertificatesResponse Client::listListenerCertificatesWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasCertType()) {
-    body["CertType"] = request.certType();
+    body["CertType"] = request.getCertType();
   }
 
   if (!!request.hasCertificateIds()) {
-    body["CertificateIds"] = request.certificateIds();
+    body["CertificateIds"] = request.getCertificateIds();
   }
 
   if (!!request.hasListenerId()) {
-    body["ListenerId"] = request.listenerId();
+    body["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListListenerCertificates"},
     {"version" , "2022-04-30"},
@@ -1604,7 +1604,7 @@ ListListenerCertificatesResponse Client::listListenerCertificatesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListListenerCertificatesResponse>();
 }
 
@@ -1630,40 +1630,40 @@ ListListenersResponse Client::listListenersWithOptions(const ListListenersReques
   request.validate();
   json query = {};
   if (!!request.hasListenerIds()) {
-    query["ListenerIds"] = request.listenerIds();
+    query["ListenerIds"] = request.getListenerIds();
   }
 
   if (!!request.hasListenerProtocol()) {
-    query["ListenerProtocol"] = request.listenerProtocol();
+    query["ListenerProtocol"] = request.getListenerProtocol();
   }
 
   if (!!request.hasLoadBalancerIds()) {
-    query["LoadBalancerIds"] = request.loadBalancerIds();
+    query["LoadBalancerIds"] = request.getLoadBalancerIds();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecSensorEnabled()) {
-    query["SecSensorEnabled"] = request.secSensorEnabled();
+    query["SecSensorEnabled"] = request.getSecSensorEnabled();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListListeners"},
     {"version" , "2022-04-30"},
@@ -1674,7 +1674,7 @@ ListListenersResponse Client::listListenersWithOptions(const ListListenersReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListListenersResponse>();
 }
 
@@ -1700,72 +1700,72 @@ ListLoadBalancersResponse Client::listLoadBalancersWithOptions(const ListLoadBal
   request.validate();
   json query = {};
   if (!!request.hasAddressIpVersion()) {
-    query["AddressIpVersion"] = request.addressIpVersion();
+    query["AddressIpVersion"] = request.getAddressIpVersion();
   }
 
   if (!!request.hasAddressType()) {
-    query["AddressType"] = request.addressType();
+    query["AddressType"] = request.getAddressType();
   }
 
   if (!!request.hasDNSName()) {
-    query["DNSName"] = request.DNSName();
+    query["DNSName"] = request.getDNSName();
   }
 
   if (!!request.hasIpv6AddressType()) {
-    query["Ipv6AddressType"] = request.ipv6AddressType();
+    query["Ipv6AddressType"] = request.getIpv6AddressType();
   }
 
   if (!!request.hasLoadBalancerBusinessStatus()) {
-    query["LoadBalancerBusinessStatus"] = request.loadBalancerBusinessStatus();
+    query["LoadBalancerBusinessStatus"] = request.getLoadBalancerBusinessStatus();
   }
 
   if (!!request.hasLoadBalancerIds()) {
-    query["LoadBalancerIds"] = request.loadBalancerIds();
+    query["LoadBalancerIds"] = request.getLoadBalancerIds();
   }
 
   if (!!request.hasLoadBalancerNames()) {
-    query["LoadBalancerNames"] = request.loadBalancerNames();
+    query["LoadBalancerNames"] = request.getLoadBalancerNames();
   }
 
   if (!!request.hasLoadBalancerStatus()) {
-    query["LoadBalancerStatus"] = request.loadBalancerStatus();
+    query["LoadBalancerStatus"] = request.getLoadBalancerStatus();
   }
 
   if (!!request.hasLoadBalancerType()) {
-    query["LoadBalancerType"] = request.loadBalancerType();
+    query["LoadBalancerType"] = request.getLoadBalancerType();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasVpcIds()) {
-    query["VpcIds"] = request.vpcIds();
+    query["VpcIds"] = request.getVpcIds();
   }
 
   if (!!request.hasZoneId()) {
-    query["ZoneId"] = request.zoneId();
+    query["ZoneId"] = request.getZoneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListLoadBalancers"},
     {"version" , "2022-04-30"},
@@ -1776,7 +1776,7 @@ ListLoadBalancersResponse Client::listLoadBalancersWithOptions(const ListLoadBal
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListLoadBalancersResponse>();
 }
 
@@ -1802,32 +1802,32 @@ ListSecurityPolicyResponse Client::listSecurityPolicyWithOptions(const ListSecur
   request.validate();
   json query = {};
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSecurityPolicyIds()) {
-    body["SecurityPolicyIds"] = request.securityPolicyIds();
+    body["SecurityPolicyIds"] = request.getSecurityPolicyIds();
   }
 
   if (!!request.hasSecurityPolicyNames()) {
-    body["SecurityPolicyNames"] = request.securityPolicyNames();
+    body["SecurityPolicyNames"] = request.getSecurityPolicyNames();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1844,7 +1844,7 @@ ListSecurityPolicyResponse Client::listSecurityPolicyWithOptions(const ListSecur
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSecurityPolicyResponse>();
 }
 
@@ -1870,32 +1870,32 @@ ListServerGroupServersResponse Client::listServerGroupServersWithOptions(const L
   request.validate();
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   if (!!request.hasServerIds()) {
-    body["ServerIds"] = request.serverIds();
+    body["ServerIds"] = request.getServerIds();
   }
 
   if (!!request.hasServerIps()) {
-    body["ServerIps"] = request.serverIps();
+    body["ServerIps"] = request.getServerIps();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListServerGroupServers"},
     {"version" , "2022-04-30"},
@@ -1906,7 +1906,7 @@ ListServerGroupServersResponse Client::listServerGroupServersWithOptions(const L
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListServerGroupServersResponse>();
 }
 
@@ -1932,40 +1932,40 @@ ListServerGroupsResponse Client::listServerGroupsWithOptions(const ListServerGro
   request.validate();
   json query = {};
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasServerGroupIds()) {
-    body["ServerGroupIds"] = request.serverGroupIds();
+    body["ServerGroupIds"] = request.getServerGroupIds();
   }
 
   if (!!request.hasServerGroupNames()) {
-    body["ServerGroupNames"] = request.serverGroupNames();
+    body["ServerGroupNames"] = request.getServerGroupNames();
   }
 
   if (!!request.hasServerGroupType()) {
-    body["ServerGroupType"] = request.serverGroupType();
+    body["ServerGroupType"] = request.getServerGroupType();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1982,7 +1982,7 @@ ListServerGroupsResponse Client::listServerGroupsWithOptions(const ListServerGro
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListServerGroupsResponse>();
 }
 
@@ -2008,12 +2008,12 @@ ListSystemSecurityPolicyResponse Client::listSystemSecurityPolicyWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListSystemSecurityPolicy"},
     {"version" , "2022-04-30"},
@@ -2024,7 +2024,7 @@ ListSystemSecurityPolicyResponse Client::listSystemSecurityPolicyWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListSystemSecurityPolicyResponse>();
 }
 
@@ -2050,28 +2050,28 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   json bodyFlat = {};
   if (!!request.hasResourceId()) {
-    bodyFlat["ResourceId"] = request.resourceId();
+    bodyFlat["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    bodyFlat["Tag"] = request.tag();
+    bodyFlat["Tag"] = request.getTag();
   }
 
   body = Darabonba::Core::merge(body,
@@ -2079,7 +2079,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListTagResources"},
     {"version" , "2022-04-30"},
@@ -2090,7 +2090,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
 }
 
@@ -2123,28 +2123,28 @@ LoadBalancerJoinSecurityGroupResponse Client::loadBalancerJoinSecurityGroupWithO
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecurityGroupIds()) {
-    body["SecurityGroupIds"] = request.securityGroupIds();
+    body["SecurityGroupIds"] = request.getSecurityGroupIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "LoadBalancerJoinSecurityGroup"},
     {"version" , "2022-04-30"},
@@ -2155,7 +2155,7 @@ LoadBalancerJoinSecurityGroupResponse Client::loadBalancerJoinSecurityGroupWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<LoadBalancerJoinSecurityGroupResponse>();
 }
 
@@ -2192,28 +2192,28 @@ LoadBalancerLeaveSecurityGroupResponse Client::loadBalancerLeaveSecurityGroupWit
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecurityGroupIds()) {
-    body["SecurityGroupIds"] = request.securityGroupIds();
+    body["SecurityGroupIds"] = request.getSecurityGroupIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "LoadBalancerLeaveSecurityGroup"},
     {"version" , "2022-04-30"},
@@ -2224,7 +2224,7 @@ LoadBalancerLeaveSecurityGroupResponse Client::loadBalancerLeaveSecurityGroupWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<LoadBalancerLeaveSecurityGroupResponse>();
 }
 
@@ -2254,24 +2254,24 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourc
   request.validate();
   json body = {};
   if (!!request.hasNewResourceGroupId()) {
-    body["NewResourceGroupId"] = request.newResourceGroupId();
+    body["NewResourceGroupId"] = request.getNewResourceGroupId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "MoveResourceGroup"},
     {"version" , "2022-04-30"},
@@ -2282,7 +2282,7 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourc
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<MoveResourceGroupResponse>();
 }
 
@@ -2308,28 +2308,28 @@ RemoveServersFromServerGroupResponse Client::removeServersFromServerGroupWithOpt
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   if (!!request.hasServers()) {
-    body["Servers"] = request.servers();
+    body["Servers"] = request.getServers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RemoveServersFromServerGroup"},
     {"version" , "2022-04-30"},
@@ -2340,7 +2340,7 @@ RemoveServersFromServerGroupResponse Client::removeServersFromServerGroupWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RemoveServersFromServerGroupResponse>();
 }
 
@@ -2368,20 +2368,20 @@ SetHdMonitorRegionConfigResponse Client::setHdMonitorRegionConfigWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasLogProject()) {
-    query["LogProject"] = request.logProject();
+    query["LogProject"] = request.getLogProject();
   }
 
   if (!!request.hasMetricStore()) {
-    query["MetricStore"] = request.metricStore();
+    query["MetricStore"] = request.getMetricStore();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "SetHdMonitorRegionConfig"},
     {"version" , "2022-04-30"},
@@ -2392,7 +2392,7 @@ SetHdMonitorRegionConfigResponse Client::setHdMonitorRegionConfigWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SetHdMonitorRegionConfigResponse>();
 }
 
@@ -2420,24 +2420,24 @@ StartListenerResponse Client::startListenerWithOptions(const StartListenerReques
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasListenerId()) {
-    body["ListenerId"] = request.listenerId();
+    body["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "StartListener"},
     {"version" , "2022-04-30"},
@@ -2448,7 +2448,7 @@ StartListenerResponse Client::startListenerWithOptions(const StartListenerReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartListenerResponse>();
 }
 
@@ -2476,28 +2476,28 @@ StartShiftLoadBalancerZonesResponse Client::startShiftLoadBalancerZonesWithOptio
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasZoneMappings()) {
-    body["ZoneMappings"] = request.zoneMappings();
+    body["ZoneMappings"] = request.getZoneMappings();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "StartShiftLoadBalancerZones"},
     {"version" , "2022-04-30"},
@@ -2508,7 +2508,7 @@ StartShiftLoadBalancerZonesResponse Client::startShiftLoadBalancerZonesWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartShiftLoadBalancerZonesResponse>();
 }
 
@@ -2536,24 +2536,24 @@ StopListenerResponse Client::stopListenerWithOptions(const StopListenerRequest &
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasListenerId()) {
-    body["ListenerId"] = request.listenerId();
+    body["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "StopListener"},
     {"version" , "2022-04-30"},
@@ -2564,7 +2564,7 @@ StopListenerResponse Client::stopListenerWithOptions(const StopListenerRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StopListenerResponse>();
 }
 
@@ -2590,28 +2590,28 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   json bodyFlat = {};
   if (!!request.hasResourceId()) {
-    bodyFlat["ResourceId"] = request.resourceId();
+    bodyFlat["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    bodyFlat["Tag"] = request.tag();
+    bodyFlat["Tag"] = request.getTag();
   }
 
   body = Darabonba::Core::merge(body,
@@ -2619,7 +2619,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "TagResources"},
     {"version" , "2022-04-30"},
@@ -2630,7 +2630,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
 }
 
@@ -2656,32 +2656,32 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json body = {};
   if (!!request.hasAll()) {
-    body["All"] = request.all();
+    body["All"] = request.getAll();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   json bodyFlat = {};
   if (!!request.hasResourceId()) {
-    bodyFlat["ResourceId"] = request.resourceId();
+    bodyFlat["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    bodyFlat["TagKey"] = request.tagKey();
+    bodyFlat["TagKey"] = request.getTagKey();
   }
 
   body = Darabonba::Core::merge(body,
@@ -2689,7 +2689,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UntagResources"},
     {"version" , "2022-04-30"},
@@ -2700,7 +2700,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
 }
 
@@ -2727,85 +2727,85 @@ UpdateListenerAttributeResponse Client::updateListenerAttributeWithOptions(const
   UpdateListenerAttributeShrinkRequest request = UpdateListenerAttributeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasProxyProtocolV2Config()) {
-    request.setProxyProtocolV2ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.proxyProtocolV2Config(), "ProxyProtocolV2Config", "json"));
+    request.setProxyProtocolV2ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProxyProtocolV2Config(), "ProxyProtocolV2Config", "json"));
   }
 
   json body = {};
   if (!!request.hasAlpnEnabled()) {
-    body["AlpnEnabled"] = request.alpnEnabled();
+    body["AlpnEnabled"] = request.getAlpnEnabled();
   }
 
   if (!!request.hasAlpnPolicy()) {
-    body["AlpnPolicy"] = request.alpnPolicy();
+    body["AlpnPolicy"] = request.getAlpnPolicy();
   }
 
   if (!!request.hasCaCertificateIds()) {
-    body["CaCertificateIds"] = request.caCertificateIds();
+    body["CaCertificateIds"] = request.getCaCertificateIds();
   }
 
   if (!!request.hasCaEnabled()) {
-    body["CaEnabled"] = request.caEnabled();
+    body["CaEnabled"] = request.getCaEnabled();
   }
 
   if (!!request.hasCertificateIds()) {
-    body["CertificateIds"] = request.certificateIds();
+    body["CertificateIds"] = request.getCertificateIds();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCps()) {
-    body["Cps"] = request.cps();
+    body["Cps"] = request.getCps();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasIdleTimeout()) {
-    body["IdleTimeout"] = request.idleTimeout();
+    body["IdleTimeout"] = request.getIdleTimeout();
   }
 
   if (!!request.hasListenerDescription()) {
-    body["ListenerDescription"] = request.listenerDescription();
+    body["ListenerDescription"] = request.getListenerDescription();
   }
 
   if (!!request.hasListenerId()) {
-    body["ListenerId"] = request.listenerId();
+    body["ListenerId"] = request.getListenerId();
   }
 
   if (!!request.hasMss()) {
-    body["Mss"] = request.mss();
+    body["Mss"] = request.getMss();
   }
 
   if (!!request.hasProxyProtocolEnabled()) {
-    body["ProxyProtocolEnabled"] = request.proxyProtocolEnabled();
+    body["ProxyProtocolEnabled"] = request.getProxyProtocolEnabled();
   }
 
   if (!!request.hasProxyProtocolV2ConfigShrink()) {
-    body["ProxyProtocolV2Config"] = request.proxyProtocolV2ConfigShrink();
+    body["ProxyProtocolV2Config"] = request.getProxyProtocolV2ConfigShrink();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecSensorEnabled()) {
-    body["SecSensorEnabled"] = request.secSensorEnabled();
+    body["SecSensorEnabled"] = request.getSecSensorEnabled();
   }
 
   if (!!request.hasSecurityPolicyId()) {
-    body["SecurityPolicyId"] = request.securityPolicyId();
+    body["SecurityPolicyId"] = request.getSecurityPolicyId();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateListenerAttribute"},
     {"version" , "2022-04-30"},
@@ -2816,7 +2816,7 @@ UpdateListenerAttributeResponse Client::updateListenerAttributeWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateListenerAttributeResponse>();
 }
 
@@ -2848,32 +2848,32 @@ UpdateLoadBalancerAddressTypeConfigResponse Client::updateLoadBalancerAddressTyp
   request.validate();
   json body = {};
   if (!!request.hasAddressType()) {
-    body["AddressType"] = request.addressType();
+    body["AddressType"] = request.getAddressType();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasZoneMappings()) {
-    body["ZoneMappings"] = request.zoneMappings();
+    body["ZoneMappings"] = request.getZoneMappings();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateLoadBalancerAddressTypeConfig"},
     {"version" , "2022-04-30"},
@@ -2884,7 +2884,7 @@ UpdateLoadBalancerAddressTypeConfigResponse Client::updateLoadBalancerAddressTyp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLoadBalancerAddressTypeConfigResponse>();
 }
 
@@ -2916,36 +2916,36 @@ UpdateLoadBalancerAttributeResponse Client::updateLoadBalancerAttributeWithOptio
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCps()) {
-    body["Cps"] = request.cps();
+    body["Cps"] = request.getCps();
   }
 
   if (!!request.hasCrossZoneEnabled()) {
-    body["CrossZoneEnabled"] = request.crossZoneEnabled();
+    body["CrossZoneEnabled"] = request.getCrossZoneEnabled();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasLoadBalancerName()) {
-    body["LoadBalancerName"] = request.loadBalancerName();
+    body["LoadBalancerName"] = request.getLoadBalancerName();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateLoadBalancerAttribute"},
     {"version" , "2022-04-30"},
@@ -2956,7 +2956,7 @@ UpdateLoadBalancerAttributeResponse Client::updateLoadBalancerAttributeWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLoadBalancerAttributeResponse>();
 }
 
@@ -2984,40 +2984,40 @@ UpdateLoadBalancerProtectionResponse Client::updateLoadBalancerProtectionWithOpt
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDeletionProtectionEnabled()) {
-    body["DeletionProtectionEnabled"] = request.deletionProtectionEnabled();
+    body["DeletionProtectionEnabled"] = request.getDeletionProtectionEnabled();
   }
 
   if (!!request.hasDeletionProtectionReason()) {
-    body["DeletionProtectionReason"] = request.deletionProtectionReason();
+    body["DeletionProtectionReason"] = request.getDeletionProtectionReason();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasModificationProtectionReason()) {
-    body["ModificationProtectionReason"] = request.modificationProtectionReason();
+    body["ModificationProtectionReason"] = request.getModificationProtectionReason();
   }
 
   if (!!request.hasModificationProtectionStatus()) {
-    body["ModificationProtectionStatus"] = request.modificationProtectionStatus();
+    body["ModificationProtectionStatus"] = request.getModificationProtectionStatus();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateLoadBalancerProtection"},
     {"version" , "2022-04-30"},
@@ -3028,7 +3028,7 @@ UpdateLoadBalancerProtectionResponse Client::updateLoadBalancerProtectionWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLoadBalancerProtectionResponse>();
 }
 
@@ -3064,28 +3064,28 @@ UpdateLoadBalancerZonesResponse Client::updateLoadBalancerZonesWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLoadBalancerId()) {
-    body["LoadBalancerId"] = request.loadBalancerId();
+    body["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasZoneMappings()) {
-    body["ZoneMappings"] = request.zoneMappings();
+    body["ZoneMappings"] = request.getZoneMappings();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateLoadBalancerZones"},
     {"version" , "2022-04-30"},
@@ -3096,7 +3096,7 @@ UpdateLoadBalancerZonesResponse Client::updateLoadBalancerZonesWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLoadBalancerZonesResponse>();
 }
 
@@ -3130,36 +3130,36 @@ UpdateSecurityPolicyAttributeResponse Client::updateSecurityPolicyAttributeWithO
   request.validate();
   json body = {};
   if (!!request.hasCiphers()) {
-    body["Ciphers"] = request.ciphers();
+    body["Ciphers"] = request.getCiphers();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasSecurityPolicyId()) {
-    body["SecurityPolicyId"] = request.securityPolicyId();
+    body["SecurityPolicyId"] = request.getSecurityPolicyId();
   }
 
   if (!!request.hasSecurityPolicyName()) {
-    body["SecurityPolicyName"] = request.securityPolicyName();
+    body["SecurityPolicyName"] = request.getSecurityPolicyName();
   }
 
   if (!!request.hasTlsVersions()) {
-    body["TlsVersions"] = request.tlsVersions();
+    body["TlsVersions"] = request.getTlsVersions();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateSecurityPolicyAttribute"},
     {"version" , "2022-04-30"},
@@ -3170,7 +3170,7 @@ UpdateSecurityPolicyAttributeResponse Client::updateSecurityPolicyAttributeWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateSecurityPolicyAttributeResponse>();
 }
 
@@ -3196,44 +3196,44 @@ UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasConnectionDrainEnabled()) {
-    body["ConnectionDrainEnabled"] = request.connectionDrainEnabled();
+    body["ConnectionDrainEnabled"] = request.getConnectionDrainEnabled();
   }
 
   if (!!request.hasConnectionDrainTimeout()) {
-    body["ConnectionDrainTimeout"] = request.connectionDrainTimeout();
+    body["ConnectionDrainTimeout"] = request.getConnectionDrainTimeout();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   json bodyFlat = {};
   if (!!request.hasHealthCheckConfig()) {
-    bodyFlat["HealthCheckConfig"] = request.healthCheckConfig();
+    bodyFlat["HealthCheckConfig"] = request.getHealthCheckConfig();
   }
 
   if (!!request.hasPreserveClientIpEnabled()) {
-    body["PreserveClientIpEnabled"] = request.preserveClientIpEnabled();
+    body["PreserveClientIpEnabled"] = request.getPreserveClientIpEnabled();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasScheduler()) {
-    body["Scheduler"] = request.scheduler();
+    body["Scheduler"] = request.getScheduler();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   if (!!request.hasServerGroupName()) {
-    body["ServerGroupName"] = request.serverGroupName();
+    body["ServerGroupName"] = request.getServerGroupName();
   }
 
   body = Darabonba::Core::merge(body,
@@ -3241,7 +3241,7 @@ UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions
   );
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateServerGroupAttribute"},
     {"version" , "2022-04-30"},
@@ -3252,7 +3252,7 @@ UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateServerGroupAttributeResponse>();
 }
 
@@ -3286,28 +3286,28 @@ UpdateServerGroupServersAttributeResponse Client::updateServerGroupServersAttrib
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    body["DryRun"] = request.dryRun();
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasServerGroupId()) {
-    body["ServerGroupId"] = request.serverGroupId();
+    body["ServerGroupId"] = request.getServerGroupId();
   }
 
   if (!!request.hasServers()) {
-    body["Servers"] = request.servers();
+    body["Servers"] = request.getServers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateServerGroupServersAttribute"},
     {"version" , "2022-04-30"},
@@ -3318,7 +3318,7 @@ UpdateServerGroupServersAttributeResponse Client::updateServerGroupServersAttrib
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateServerGroupServersAttributeResponse>();
 }
 

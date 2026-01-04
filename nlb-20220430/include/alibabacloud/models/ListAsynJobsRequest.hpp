@@ -30,19 +30,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobIds_ != nullptr; };
+    virtual bool empty() const override { return this->jobIds_ == nullptr; };
     // jobIds Field Functions 
     bool hasJobIds() const { return this->jobIds_ != nullptr;};
     void deleteJobIds() { this->jobIds_ = nullptr;};
-    inline const vector<string> & jobIds() const { DARABONBA_PTR_GET_CONST(jobIds_, vector<string>) };
-    inline vector<string> jobIds() { DARABONBA_PTR_GET(jobIds_, vector<string>) };
+    inline const vector<string> & getJobIds() const { DARABONBA_PTR_GET_CONST(jobIds_, vector<string>) };
+    inline vector<string> getJobIds() { DARABONBA_PTR_GET(jobIds_, vector<string>) };
     inline ListAsynJobsRequest& setJobIds(const vector<string> & jobIds) { DARABONBA_PTR_SET_VALUE(jobIds_, jobIds) };
     inline ListAsynJobsRequest& setJobIds(vector<string> && jobIds) { DARABONBA_PTR_SET_RVALUE(jobIds_, jobIds) };
 
 
   protected:
     // The task IDs.
-    std::shared_ptr<vector<string>> jobIds_ = nullptr;
+    shared_ptr<vector<string>> jobIds_ {};
   };
 
   } // namespace Models

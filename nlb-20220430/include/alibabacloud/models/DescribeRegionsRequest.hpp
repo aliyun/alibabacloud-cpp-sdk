@@ -33,26 +33,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->clientToken_ != nullptr && this->serviceCode_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && this->clientToken_ == nullptr && this->serviceCode_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline DescribeRegionsRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DescribeRegionsRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // serviceCode Field Functions 
     bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
     void deleteServiceCode() { this->serviceCode_ = nullptr;};
-    inline string serviceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
     inline DescribeRegionsRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
@@ -62,15 +62,15 @@ namespace Models
     // *   **zh-CN**: Chinese
     // *   **en-US** (default): English
     // *   **ja**: Japanese
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The client token used to ensure the idempotence of the request.
     // 
     // You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
     // 
     // >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The service code. Set the value to **nlb**.
-    std::shared_ptr<string> serviceCode_ = nullptr;
+    shared_ptr<string> serviceCode_ {};
   };
 
   } // namespace Models

@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->listenerId_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->listenerId_ == nullptr
+        && this->regionId_ == nullptr; };
     // listenerId Field Functions 
     bool hasListenerId() const { return this->listenerId_ != nullptr;};
     void deleteListenerId() { this->listenerId_ = nullptr;};
-    inline string listenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
+    inline string getListenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
     inline GetListenerHealthStatusRequest& setListenerId(string listenerId) { DARABONBA_PTR_SET_VALUE(listenerId_, listenerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetListenerHealthStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the listener on the NLB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listenerId_ = nullptr;
+    shared_ptr<string> listenerId_ {};
     // The ID of the region where the NLB instance is deployed.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models
