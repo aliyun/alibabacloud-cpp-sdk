@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->globalAccelerationInstanceId_ == nullptr
-        && return this->ipAddress_ == nullptr && return this->requestId_ == nullptr; };
+        && this->ipAddress_ == nullptr && this->requestId_ == nullptr; };
     // globalAccelerationInstanceId Field Functions 
     bool hasGlobalAccelerationInstanceId() const { return this->globalAccelerationInstanceId_ != nullptr;};
     void deleteGlobalAccelerationInstanceId() { this->globalAccelerationInstanceId_ = nullptr;};
-    inline string globalAccelerationInstanceId() const { DARABONBA_PTR_GET_DEFAULT(globalAccelerationInstanceId_, "") };
+    inline string getGlobalAccelerationInstanceId() const { DARABONBA_PTR_GET_DEFAULT(globalAccelerationInstanceId_, "") };
     inline CreateGlobalAccelerationInstanceResponseBody& setGlobalAccelerationInstanceId(string globalAccelerationInstanceId) { DARABONBA_PTR_SET_VALUE(globalAccelerationInstanceId_, globalAccelerationInstanceId) };
 
 
     // ipAddress Field Functions 
     bool hasIpAddress() const { return this->ipAddress_ != nullptr;};
     void deleteIpAddress() { this->ipAddress_ = nullptr;};
-    inline string ipAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
+    inline string getIpAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
     inline CreateGlobalAccelerationInstanceResponseBody& setIpAddress(string ipAddress) { DARABONBA_PTR_SET_VALUE(ipAddress_, ipAddress) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateGlobalAccelerationInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the GA instance.
-    std::shared_ptr<string> globalAccelerationInstanceId_ = nullptr;
+    shared_ptr<string> globalAccelerationInstanceId_ {};
     // The public IP address of the GA instance.
     // 
     // If **BandwidthType** is set to **Sharing**, this parameter is not returned.
-    std::shared_ptr<string> ipAddress_ = nullptr;
+    shared_ptr<string> ipAddress_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

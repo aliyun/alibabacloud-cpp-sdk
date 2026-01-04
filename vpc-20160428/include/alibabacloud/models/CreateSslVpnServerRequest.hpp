@@ -66,140 +66,140 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cipher_ == nullptr
-        && return this->clientIpPool_ == nullptr && return this->clientToken_ == nullptr && return this->compress_ == nullptr && return this->dryRun_ == nullptr && return this->enableMultiFactorAuth_ == nullptr
-        && return this->IDaaSApplicationId_ == nullptr && return this->IDaaSInstanceId_ == nullptr && return this->IDaaSRegionId_ == nullptr && return this->localSubnet_ == nullptr && return this->name_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->port_ == nullptr && return this->proto_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
+        && this->clientIpPool_ == nullptr && this->clientToken_ == nullptr && this->compress_ == nullptr && this->dryRun_ == nullptr && this->enableMultiFactorAuth_ == nullptr
+        && this->IDaaSApplicationId_ == nullptr && this->IDaaSInstanceId_ == nullptr && this->IDaaSRegionId_ == nullptr && this->localSubnet_ == nullptr && this->name_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->port_ == nullptr && this->proto_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->vpnGatewayId_ == nullptr; };
     // cipher Field Functions 
     bool hasCipher() const { return this->cipher_ != nullptr;};
     void deleteCipher() { this->cipher_ = nullptr;};
-    inline string cipher() const { DARABONBA_PTR_GET_DEFAULT(cipher_, "") };
+    inline string getCipher() const { DARABONBA_PTR_GET_DEFAULT(cipher_, "") };
     inline CreateSslVpnServerRequest& setCipher(string cipher) { DARABONBA_PTR_SET_VALUE(cipher_, cipher) };
 
 
     // clientIpPool Field Functions 
     bool hasClientIpPool() const { return this->clientIpPool_ != nullptr;};
     void deleteClientIpPool() { this->clientIpPool_ = nullptr;};
-    inline string clientIpPool() const { DARABONBA_PTR_GET_DEFAULT(clientIpPool_, "") };
+    inline string getClientIpPool() const { DARABONBA_PTR_GET_DEFAULT(clientIpPool_, "") };
     inline CreateSslVpnServerRequest& setClientIpPool(string clientIpPool) { DARABONBA_PTR_SET_VALUE(clientIpPool_, clientIpPool) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateSslVpnServerRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // compress Field Functions 
     bool hasCompress() const { return this->compress_ != nullptr;};
     void deleteCompress() { this->compress_ = nullptr;};
-    inline bool compress() const { DARABONBA_PTR_GET_DEFAULT(compress_, false) };
+    inline bool getCompress() const { DARABONBA_PTR_GET_DEFAULT(compress_, false) };
     inline CreateSslVpnServerRequest& setCompress(bool compress) { DARABONBA_PTR_SET_VALUE(compress_, compress) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateSslVpnServerRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // enableMultiFactorAuth Field Functions 
     bool hasEnableMultiFactorAuth() const { return this->enableMultiFactorAuth_ != nullptr;};
     void deleteEnableMultiFactorAuth() { this->enableMultiFactorAuth_ = nullptr;};
-    inline bool enableMultiFactorAuth() const { DARABONBA_PTR_GET_DEFAULT(enableMultiFactorAuth_, false) };
+    inline bool getEnableMultiFactorAuth() const { DARABONBA_PTR_GET_DEFAULT(enableMultiFactorAuth_, false) };
     inline CreateSslVpnServerRequest& setEnableMultiFactorAuth(bool enableMultiFactorAuth) { DARABONBA_PTR_SET_VALUE(enableMultiFactorAuth_, enableMultiFactorAuth) };
 
 
     // IDaaSApplicationId Field Functions 
     bool hasIDaaSApplicationId() const { return this->IDaaSApplicationId_ != nullptr;};
     void deleteIDaaSApplicationId() { this->IDaaSApplicationId_ = nullptr;};
-    inline string IDaaSApplicationId() const { DARABONBA_PTR_GET_DEFAULT(IDaaSApplicationId_, "") };
+    inline string getIDaaSApplicationId() const { DARABONBA_PTR_GET_DEFAULT(IDaaSApplicationId_, "") };
     inline CreateSslVpnServerRequest& setIDaaSApplicationId(string IDaaSApplicationId) { DARABONBA_PTR_SET_VALUE(IDaaSApplicationId_, IDaaSApplicationId) };
 
 
     // IDaaSInstanceId Field Functions 
     bool hasIDaaSInstanceId() const { return this->IDaaSInstanceId_ != nullptr;};
     void deleteIDaaSInstanceId() { this->IDaaSInstanceId_ = nullptr;};
-    inline string IDaaSInstanceId() const { DARABONBA_PTR_GET_DEFAULT(IDaaSInstanceId_, "") };
+    inline string getIDaaSInstanceId() const { DARABONBA_PTR_GET_DEFAULT(IDaaSInstanceId_, "") };
     inline CreateSslVpnServerRequest& setIDaaSInstanceId(string IDaaSInstanceId) { DARABONBA_PTR_SET_VALUE(IDaaSInstanceId_, IDaaSInstanceId) };
 
 
     // IDaaSRegionId Field Functions 
     bool hasIDaaSRegionId() const { return this->IDaaSRegionId_ != nullptr;};
     void deleteIDaaSRegionId() { this->IDaaSRegionId_ = nullptr;};
-    inline string IDaaSRegionId() const { DARABONBA_PTR_GET_DEFAULT(IDaaSRegionId_, "") };
+    inline string getIDaaSRegionId() const { DARABONBA_PTR_GET_DEFAULT(IDaaSRegionId_, "") };
     inline CreateSslVpnServerRequest& setIDaaSRegionId(string IDaaSRegionId) { DARABONBA_PTR_SET_VALUE(IDaaSRegionId_, IDaaSRegionId) };
 
 
     // localSubnet Field Functions 
     bool hasLocalSubnet() const { return this->localSubnet_ != nullptr;};
     void deleteLocalSubnet() { this->localSubnet_ = nullptr;};
-    inline string localSubnet() const { DARABONBA_PTR_GET_DEFAULT(localSubnet_, "") };
+    inline string getLocalSubnet() const { DARABONBA_PTR_GET_DEFAULT(localSubnet_, "") };
     inline CreateSslVpnServerRequest& setLocalSubnet(string localSubnet) { DARABONBA_PTR_SET_VALUE(localSubnet_, localSubnet) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateSslVpnServerRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CreateSslVpnServerRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateSslVpnServerRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline CreateSslVpnServerRequest& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // proto Field Functions 
     bool hasProto() const { return this->proto_ != nullptr;};
     void deleteProto() { this->proto_ = nullptr;};
-    inline string proto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
+    inline string getProto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
     inline CreateSslVpnServerRequest& setProto(string proto) { DARABONBA_PTR_SET_VALUE(proto_, proto) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateSslVpnServerRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateSslVpnServerRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateSslVpnServerRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // vpnGatewayId Field Functions 
     bool hasVpnGatewayId() const { return this->vpnGatewayId_ != nullptr;};
     void deleteVpnGatewayId() { this->vpnGatewayId_ = nullptr;};
-    inline string vpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
+    inline string getVpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
     inline CreateSslVpnServerRequest& setVpnGatewayId(string vpnGatewayId) { DARABONBA_PTR_SET_VALUE(vpnGatewayId_, vpnGatewayId) };
 
 
@@ -214,7 +214,7 @@ namespace Models
     //     *   **AES-192-CBC**
     //     *   **AES-256-CBC**
     //     *   **none**
-    std::shared_ptr<string> cipher_ = nullptr;
+    shared_ptr<string> cipher_ {};
     // The client CIDR block.
     // 
     // The CIDR block from which an IP address is allocated to the virtual network interface controller (NIC) of the client, rather than the private CIDR block.
@@ -257,19 +257,19 @@ namespace Models
     // *   After you create an SSL server, the system automatically adds routes that point to the client CIDR block to the VPC route table. Do not manually add routes that point to the client CIDR block. Otherwise, SSL-VPN connections cannot work as expected.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clientIpPool_ = nullptr;
+    shared_ptr<string> clientIpPool_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
     // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to enable data compression. Valid values:
     // 
     // *   **true**
     // *   **false** (default)
-    std::shared_ptr<bool> compress_ = nullptr;
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> compress_ {};
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable two-factor authentication. To enable two-factor authentication, you need to specify `IDaaSInstanceId`, `IDaaSRegionId`, and `IDaaSApplicationId`. Valid values:
     // 
     // *   **true**: enables this feature.
@@ -282,16 +282,16 @@ namespace Models
     // *   When you create an SSL server in the UAE (Dubai) region, we recommend that you associate the SSL server with an IDaaS EIAM 2.0 instance in Singapore to reduce latency.
     // 
     // *   IDaaS EIAM 1.0 instances are no longer for purchase. If your Alibaba Cloud account has IDaaS EIAM 1.0 instances, the IDaaS EIAM 1.0 instances can be associated after two-factor authentication is enabled. If your Alibaba Cloud account does not have IDaaS EIAM 1.0 instances, only IDaaS EIAM 2.0 instances can be associated after two-factor authentication is enabled.
-    std::shared_ptr<bool> enableMultiFactorAuth_ = nullptr;
+    shared_ptr<bool> enableMultiFactorAuth_ {};
     // The ID of the IDaaS application.
     // 
     // *   If an IDaaS EIAM 2.0 instance is associated, you need to specify an IDaaS application ID.
     // *   If an IDaaS EIAM 1.0 instance is associated, you do not need to specify an IDaaS application ID.
-    std::shared_ptr<string> IDaaSApplicationId_ = nullptr;
+    shared_ptr<string> IDaaSApplicationId_ {};
     // The ID of the IDaaS EIAM instance.
-    std::shared_ptr<string> IDaaSInstanceId_ = nullptr;
+    shared_ptr<string> IDaaSInstanceId_ {};
     // The region ID of the IDaaS EIAM instance.
-    std::shared_ptr<string> IDaaSRegionId_ = nullptr;
+    shared_ptr<string> IDaaSRegionId_ {};
     // The local CIDR block.
     // 
     // The CIDR block that your client needs to access by using the SSL-VPN connection.
@@ -306,34 +306,34 @@ namespace Models
     // *   255.0.0.0~255.255.255.255
     // 
     // This parameter is required.
-    std::shared_ptr<string> localSubnet_ = nullptr;
+    shared_ptr<string> localSubnet_ {};
     // The SSL server name.
     // 
     // The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The port that is used by the SSL server. Valid values of port numbers: **1** to **65535**. Default value: **1194**.
     // 
     // The following ports are not supported: **22**, **2222**, **22222**, **9000**, **9001**, **9002**, **7505**, **80**, **443**, **53**, **68**, **123**, **4510**, **4560**, **500**, and **4500**.
-    std::shared_ptr<int32_t> port_ = nullptr;
+    shared_ptr<int32_t> port_ {};
     // The protocol that is used by the SSL server. Valid values:
     // 
     // *   **TCP** (default)
     // *   **UDP**
-    std::shared_ptr<string> proto_ = nullptr;
+    shared_ptr<string> proto_ {};
     // The region ID of the VPN gateway.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the VPN gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpnGatewayId_ = nullptr;
+    shared_ptr<string> vpnGatewayId_ {};
   };
 
   } // namespace Models

@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidth_ == nullptr
-        && return this->clientToken_ == nullptr && return this->eipMask_ == nullptr && return this->internetChargeType_ == nullptr && return this->isp_ == nullptr && return this->netmode_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->zone_ == nullptr; };
+        && this->clientToken_ == nullptr && this->eipMask_ == nullptr && this->internetChargeType_ == nullptr && this->isp_ == nullptr && this->netmode_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->zone_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
-    inline string bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, "") };
+    inline string getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, "") };
     inline AllocateEipSegmentAddressRequest& setBandwidth(string bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline AllocateEipSegmentAddressRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // eipMask Field Functions 
     bool hasEipMask() const { return this->eipMask_ != nullptr;};
     void deleteEipMask() { this->eipMask_ = nullptr;};
-    inline string eipMask() const { DARABONBA_PTR_GET_DEFAULT(eipMask_, "") };
+    inline string getEipMask() const { DARABONBA_PTR_GET_DEFAULT(eipMask_, "") };
     inline AllocateEipSegmentAddressRequest& setEipMask(string eipMask) { DARABONBA_PTR_SET_VALUE(eipMask_, eipMask) };
 
 
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
-    inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline string getInternetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
     inline AllocateEipSegmentAddressRequest& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
 
 
     // isp Field Functions 
     bool hasIsp() const { return this->isp_ != nullptr;};
     void deleteIsp() { this->isp_ = nullptr;};
-    inline string isp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
+    inline string getIsp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
     inline AllocateEipSegmentAddressRequest& setIsp(string isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
 
 
     // netmode Field Functions 
     bool hasNetmode() const { return this->netmode_ != nullptr;};
     void deleteNetmode() { this->netmode_ = nullptr;};
-    inline string netmode() const { DARABONBA_PTR_GET_DEFAULT(netmode_, "") };
+    inline string getNetmode() const { DARABONBA_PTR_GET_DEFAULT(netmode_, "") };
     inline AllocateEipSegmentAddressRequest& setNetmode(string netmode) { DARABONBA_PTR_SET_VALUE(netmode_, netmode) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline AllocateEipSegmentAddressRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AllocateEipSegmentAddressRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AllocateEipSegmentAddressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline AllocateEipSegmentAddressRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline AllocateEipSegmentAddressRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline AllocateEipSegmentAddressRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // zone Field Functions 
     bool hasZone() const { return this->zone_ != nullptr;};
     void deleteZone() { this->zone_ = nullptr;};
-    inline string zone() const { DARABONBA_PTR_GET_DEFAULT(zone_, "") };
+    inline string getZone() const { DARABONBA_PTR_GET_DEFAULT(zone_, "") };
     inline AllocateEipSegmentAddressRequest& setZone(string zone) { DARABONBA_PTR_SET_VALUE(zone_, zone) };
 
 
@@ -156,13 +156,13 @@ namespace Models
     // *   Valid values when **InstanceChargeType** is set to **PrePaid**: **1** to **1000**.****
     // 
     // Default value: **5**. Unit: Mbit/s.
-    std::shared_ptr<string> bandwidth_ = nullptr;
+    shared_ptr<string> bandwidth_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate a token, but you must make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters.
     // 
     // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The subnet mask of the contiguous EIP group. Valid values:
     // 
     // *   **28**: applies for 16 contiguous EIPs in each call.
@@ -174,12 +174,12 @@ namespace Models
     // >  Some IP address are reserved for specific purposes. Therefore, the actual number of the contiguous EIPs may be one, three, or four less than the expected number.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eipMask_ = nullptr;
+    shared_ptr<string> eipMask_ {};
     // The metering method of contiguous EIPs. Valid values:
     // 
     // *   **PayByBandwidth** (default)
     // *   **PayByTraffic**
-    std::shared_ptr<string> internetChargeType_ = nullptr;
+    shared_ptr<string> internetChargeType_ {};
     // The line type. Valid values:
     // 
     // *   **BGP** (default): BGP (Multi-ISP) line The BGP (Multi-ISP) line is supported in all regions.
@@ -197,23 +197,23 @@ namespace Models
     // *   **ChinaMobile_L2**
     // 
     // If your services are deployed in China East 1 Finance, this parameter is required and you must set the parameter to **BGP_FinanceCloud**.
-    std::shared_ptr<string> isp_ = nullptr;
+    shared_ptr<string> isp_ {};
     // The network type. Set the value to **public**, which specifies the public network type.
-    std::shared_ptr<string> netmode_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> netmode_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The ID of the region in which the contiguous EIP group resides.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The zone of the contiguous EIP group.
-    std::shared_ptr<string> zone_ = nullptr;
+    shared_ptr<string> zone_ {};
   };
 
   } // namespace Models

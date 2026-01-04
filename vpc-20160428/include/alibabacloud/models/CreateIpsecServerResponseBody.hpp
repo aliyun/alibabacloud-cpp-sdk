@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creationTime_ == nullptr
-        && return this->ipsecServerId_ == nullptr && return this->ipsecServerName_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
+        && this->ipsecServerId_ == nullptr && this->ipsecServerName_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->vpnGatewayId_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
-    inline string creationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+    inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
     inline CreateIpsecServerResponseBody& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
 
 
     // ipsecServerId Field Functions 
     bool hasIpsecServerId() const { return this->ipsecServerId_ != nullptr;};
     void deleteIpsecServerId() { this->ipsecServerId_ = nullptr;};
-    inline string ipsecServerId() const { DARABONBA_PTR_GET_DEFAULT(ipsecServerId_, "") };
+    inline string getIpsecServerId() const { DARABONBA_PTR_GET_DEFAULT(ipsecServerId_, "") };
     inline CreateIpsecServerResponseBody& setIpsecServerId(string ipsecServerId) { DARABONBA_PTR_SET_VALUE(ipsecServerId_, ipsecServerId) };
 
 
     // ipsecServerName Field Functions 
     bool hasIpsecServerName() const { return this->ipsecServerName_ != nullptr;};
     void deleteIpsecServerName() { this->ipsecServerName_ = nullptr;};
-    inline string ipsecServerName() const { DARABONBA_PTR_GET_DEFAULT(ipsecServerName_, "") };
+    inline string getIpsecServerName() const { DARABONBA_PTR_GET_DEFAULT(ipsecServerName_, "") };
     inline CreateIpsecServerResponseBody& setIpsecServerName(string ipsecServerName) { DARABONBA_PTR_SET_VALUE(ipsecServerName_, ipsecServerName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateIpsecServerResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateIpsecServerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vpnGatewayId Field Functions 
     bool hasVpnGatewayId() const { return this->vpnGatewayId_ != nullptr;};
     void deleteVpnGatewayId() { this->vpnGatewayId_ = nullptr;};
-    inline string vpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
+    inline string getVpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
     inline CreateIpsecServerResponseBody& setVpnGatewayId(string vpnGatewayId) { DARABONBA_PTR_SET_VALUE(vpnGatewayId_, vpnGatewayId) };
 
 
@@ -87,17 +87,17 @@ namespace Models
     // The time when the IPsec server was created.
     // 
     // T is used as a delimiter. Z indicates that the time is in UTC.
-    std::shared_ptr<string> creationTime_ = nullptr;
+    shared_ptr<string> creationTime_ {};
     // The IPsec server ID.
-    std::shared_ptr<string> ipsecServerId_ = nullptr;
+    shared_ptr<string> ipsecServerId_ {};
     // The IPsec server name.
-    std::shared_ptr<string> ipsecServerName_ = nullptr;
+    shared_ptr<string> ipsecServerName_ {};
     // The ID of the region where the VPN gateway is deployed.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the VPN gateway.
-    std::shared_ptr<string> vpnGatewayId_ = nullptr;
+    shared_ptr<string> vpnGatewayId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->vbrHaId_ == nullptr; };
+        && this->vbrHaId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateVbrHaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vbrHaId Field Functions 
     bool hasVbrHaId() const { return this->vbrHaId_ != nullptr;};
     void deleteVbrHaId() { this->vbrHaId_ = nullptr;};
-    inline string vbrHaId() const { DARABONBA_PTR_GET_DEFAULT(vbrHaId_, "") };
+    inline string getVbrHaId() const { DARABONBA_PTR_GET_DEFAULT(vbrHaId_, "") };
     inline CreateVbrHaResponseBody& setVbrHaId(string vbrHaId) { DARABONBA_PTR_SET_VALUE(vbrHaId_, vbrHaId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the VBR failover group.
-    std::shared_ptr<string> vbrHaId_ = nullptr;
+    shared_ptr<string> vbrHaId_ {};
   };
 
   } // namespace Models

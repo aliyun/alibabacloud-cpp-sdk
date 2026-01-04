@@ -1937,6 +1937,37 @@ namespace Vpc20160428
       Models::CreateRouteTableResponse createRouteTable(const Models::CreateRouteTableRequest &request);
 
       /**
+       * @summary Create Route Target Group
+       *
+       * @description - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
+       *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
+       *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has been created.
+       * - **Active-Standby Mode**: When creating a route target group, you need to configure primary and standby instances that are located in different availability zones and have the same type.
+       * - **Primary Instance**: The weight is 100. Under normal circumstances, it carries all traffic and takes effect when the health check is normal.
+       * - **Standby Instance**: The weight is 0. It takes over the traffic after the primary instance fails, serving as a disaster recovery backup.
+       *
+       * @param request CreateRouteTargetGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRouteTargetGroupResponse
+       */
+      Models::CreateRouteTargetGroupResponse createRouteTargetGroupWithOptions(const Models::CreateRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create Route Target Group
+       *
+       * @description - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
+       *     - When the route target group is in the **Pending** state, it indicates that the route target group is being created.
+       *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has been created.
+       * - **Active-Standby Mode**: When creating a route target group, you need to configure primary and standby instances that are located in different availability zones and have the same type.
+       * - **Primary Instance**: The weight is 100. Under normal circumstances, it carries all traffic and takes effect when the health check is normal.
+       * - **Standby Instance**: The weight is 0. It takes over the traffic after the primary instance fails, serving as a disaster recovery backup.
+       *
+       * @param request CreateRouteTargetGroupRequest
+       * @return CreateRouteTargetGroupResponse
+       */
+      Models::CreateRouteTargetGroupResponse createRouteTargetGroup(const Models::CreateRouteTargetGroupRequest &request);
+
+      /**
        * @summary Creates a router interface.
        *
        * @description When you call this operation, take note of the following limits:
@@ -3467,6 +3498,31 @@ namespace Vpc20160428
        * @return DeleteRouteTableResponse
        */
       Models::DeleteRouteTableResponse deleteRouteTable(const Models::DeleteRouteTableRequest &request);
+
+      /**
+       * @summary Delete Route Target Group
+       *
+       * @description - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+       *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
+       *     - If you cannot find the specified route target group, it means the route target group has been successfully deleted.
+       *
+       * @param request DeleteRouteTargetGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRouteTargetGroupResponse
+       */
+      Models::DeleteRouteTargetGroupResponse deleteRouteTargetGroupWithOptions(const Models::DeleteRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Route Target Group
+       *
+       * @description - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+       *     - When the route target group is in the **Deleting** state, it indicates that the route target group is being deleted.
+       *     - If you cannot find the specified route target group, it means the route target group has been successfully deleted.
+       *
+       * @param request DeleteRouteTargetGroupRequest
+       * @return DeleteRouteTargetGroupResponse
+       */
+      Models::DeleteRouteTargetGroupResponse deleteRouteTargetGroup(const Models::DeleteRouteTargetGroupRequest &request);
 
       /**
        * @summary Deletes a router interface.
@@ -5784,6 +5840,27 @@ namespace Vpc20160428
       Models::GetPublicIpAddressPoolServiceStatusResponse getPublicIpAddressPoolServiceStatus(const Models::GetPublicIpAddressPoolServiceStatusRequest &request);
 
       /**
+       * @summary Get the route target group
+       *
+       * @description Get the information of the route target group instance.
+       *
+       * @param request GetRouteTargetGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRouteTargetGroupResponse
+       */
+      Models::GetRouteTargetGroupResponse getRouteTargetGroupWithOptions(const Models::GetRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get the route target group
+       *
+       * @description Get the information of the route target group instance.
+       *
+       * @param request GetRouteTargetGroupRequest
+       * @return GetRouteTargetGroupResponse
+       */
+      Models::GetRouteTargetGroupResponse getRouteTargetGroup(const Models::GetRouteTargetGroupRequest &request);
+
+      /**
        * @summary Queries the status of the traffic mirror feature.
        *
        * @param request GetTrafficMirrorServiceStatusRequest
@@ -6228,6 +6305,27 @@ namespace Vpc20160428
        * @return ListPublicIpAddressPoolsResponse
        */
       Models::ListPublicIpAddressPoolsResponse listPublicIpAddressPools(const Models::ListPublicIpAddressPoolsRequest &request);
+
+      /**
+       * @summary Batch query for route target groups
+       *
+       * @description Lists the route target groups.
+       *
+       * @param request ListRouteTargetGroupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRouteTargetGroupsResponse
+       */
+      Models::ListRouteTargetGroupsResponse listRouteTargetGroupsWithOptions(const Models::ListRouteTargetGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Batch query for route target groups
+       *
+       * @description Lists the route target groups.
+       *
+       * @param request ListRouteTargetGroupsRequest
+       * @return ListRouteTargetGroupsResponse
+       */
+      Models::ListRouteTargetGroupsResponse listRouteTargetGroups(const Models::ListRouteTargetGroupsRequest &request);
 
       /**
        * @summary Queries the tags that are added to resources.
@@ -8238,6 +8336,27 @@ namespace Vpc20160428
       Models::StopFailoverTestJobResponse stopFailoverTestJob(const Models::StopFailoverTestJobRequest &request);
 
       /**
+       * @summary Switch Active and Standby For RouteTargetGroup.
+       *
+       * @description Switch Active and Standby For RouteTargetGroup.
+       *
+       * @param request SwitchActiveRouteTargetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SwitchActiveRouteTargetResponse
+       */
+      Models::SwitchActiveRouteTargetResponse switchActiveRouteTargetWithOptions(const Models::SwitchActiveRouteTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Switch Active and Standby For RouteTargetGroup.
+       *
+       * @description Switch Active and Standby For RouteTargetGroup.
+       *
+       * @param request SwitchActiveRouteTargetRequest
+       * @return SwitchActiveRouteTargetResponse
+       */
+      Models::SwitchActiveRouteTargetResponse switchActiveRouteTarget(const Models::SwitchActiveRouteTargetRequest &request);
+
+      /**
        * @summary Creates and adds tags to resources.
        *
        * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
@@ -8770,6 +8889,31 @@ namespace Vpc20160428
        * @return UpdatePublicIpAddressPoolAttributeResponse
        */
       Models::UpdatePublicIpAddressPoolAttributeResponse updatePublicIpAddressPoolAttribute(const Models::UpdatePublicIpAddressPoolAttributeRequest &request);
+
+      /**
+       * @summary Update Route Target Group
+       *
+       * @description - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
+       *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
+       *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has completed its update.
+       *
+       * @param request UpdateRouteTargetGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRouteTargetGroupResponse
+       */
+      Models::UpdateRouteTargetGroupResponse updateRouteTargetGroupWithOptions(const Models::UpdateRouteTargetGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update Route Target Group
+       *
+       * @description - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
+       *     - When the route target group is in the **Updating** state, it indicates that the route target group is being created.
+       *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the route target group has completed its update.
+       *
+       * @param request UpdateRouteTargetGroupRequest
+       * @return UpdateRouteTargetGroupResponse
+       */
+      Models::UpdateRouteTargetGroupResponse updateRouteTargetGroup(const Models::UpdateRouteTargetGroupRequest &request);
 
       /**
        * @summary Modifies the configuration of a filter for traffic mirror.

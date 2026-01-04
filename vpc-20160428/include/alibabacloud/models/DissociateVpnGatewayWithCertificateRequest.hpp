@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificateId_ == nullptr
-        && return this->certificateType_ == nullptr && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->regionId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
+        && this->certificateType_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->regionId_ == nullptr && this->vpnGatewayId_ == nullptr; };
     // certificateId Field Functions 
     bool hasCertificateId() const { return this->certificateId_ != nullptr;};
     void deleteCertificateId() { this->certificateId_ = nullptr;};
-    inline string certificateId() const { DARABONBA_PTR_GET_DEFAULT(certificateId_, "") };
+    inline string getCertificateId() const { DARABONBA_PTR_GET_DEFAULT(certificateId_, "") };
     inline DissociateVpnGatewayWithCertificateRequest& setCertificateId(string certificateId) { DARABONBA_PTR_SET_VALUE(certificateId_, certificateId) };
 
 
     // certificateType Field Functions 
     bool hasCertificateType() const { return this->certificateType_ != nullptr;};
     void deleteCertificateType() { this->certificateType_ = nullptr;};
-    inline string certificateType() const { DARABONBA_PTR_GET_DEFAULT(certificateType_, "") };
+    inline string getCertificateType() const { DARABONBA_PTR_GET_DEFAULT(certificateType_, "") };
     inline DissociateVpnGatewayWithCertificateRequest& setCertificateType(string certificateType) { DARABONBA_PTR_SET_VALUE(certificateType_, certificateType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DissociateVpnGatewayWithCertificateRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline DissociateVpnGatewayWithCertificateRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DissociateVpnGatewayWithCertificateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // vpnGatewayId Field Functions 
     bool hasVpnGatewayId() const { return this->vpnGatewayId_ != nullptr;};
     void deleteVpnGatewayId() { this->vpnGatewayId_ = nullptr;};
-    inline string vpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
+    inline string getVpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
     inline DissociateVpnGatewayWithCertificateRequest& setVpnGatewayId(string vpnGatewayId) { DARABONBA_PTR_SET_VALUE(vpnGatewayId_, vpnGatewayId) };
 
 
@@ -89,35 +89,35 @@ namespace Models
     // >  The certificate ID refers to the ID generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> certificateId_ = nullptr;
+    shared_ptr<string> certificateId_ {};
     // The certificate type. Valid values:
     // 
     // *   **Encryption**
     // *   **Signature**
     // 
     // This parameter is required.
-    std::shared_ptr<string> certificateType_ = nullptr;
+    shared_ptr<string> certificateType_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
     // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run, without performing the actual request. Valid values:
     // 
     // *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request passes the dry run, the `DryRunOperation` error code is returned. Otherwise, an error message is returned.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The region ID of the VPN gateway.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the VPN gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpnGatewayId_ = nullptr;
+    shared_ptr<string> vpnGatewayId_ {};
   };
 
   } // namespace Models

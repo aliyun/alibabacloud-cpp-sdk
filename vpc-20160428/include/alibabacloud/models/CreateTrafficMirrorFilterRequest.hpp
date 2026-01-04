@@ -3,9 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATETRAFFICMIRRORFILTERREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateTrafficMirrorFilterRequestEgressRules.hpp>
-#include <alibabacloud/models/CreateTrafficMirrorFilterRequestIngressRules.hpp>
-#include <alibabacloud/models/CreateTrafficMirrorFilterRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -57,104 +54,404 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // 
+      // The tag key can be up to 128 characters in length. The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      shared_ptr<string> key_ {};
+      // The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+      // 
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      shared_ptr<string> value_ {};
+    };
+
+    class IngressRules : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IngressRules& obj) { 
+        DARABONBA_PTR_TO_JSON(Action, action_);
+        DARABONBA_PTR_TO_JSON(DestinationCidrBlock, destinationCidrBlock_);
+        DARABONBA_PTR_TO_JSON(DestinationPortRange, destinationPortRange_);
+        DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
+        DARABONBA_PTR_TO_JSON(Protocol, protocol_);
+        DARABONBA_PTR_TO_JSON(SourceCidrBlock, sourceCidrBlock_);
+        DARABONBA_PTR_TO_JSON(SourcePortRange, sourcePortRange_);
+      };
+      friend void from_json(const Darabonba::Json& j, IngressRules& obj) { 
+        DARABONBA_PTR_FROM_JSON(Action, action_);
+        DARABONBA_PTR_FROM_JSON(DestinationCidrBlock, destinationCidrBlock_);
+        DARABONBA_PTR_FROM_JSON(DestinationPortRange, destinationPortRange_);
+        DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
+        DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
+        DARABONBA_PTR_FROM_JSON(SourceCidrBlock, sourceCidrBlock_);
+        DARABONBA_PTR_FROM_JSON(SourcePortRange, sourcePortRange_);
+      };
+      IngressRules() = default ;
+      IngressRules(const IngressRules &) = default ;
+      IngressRules(IngressRules &&) = default ;
+      IngressRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IngressRules() = default ;
+      IngressRules& operator=(const IngressRules &) = default ;
+      IngressRules& operator=(IngressRules &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->action_ == nullptr
+        && this->destinationCidrBlock_ == nullptr && this->destinationPortRange_ == nullptr && this->ipVersion_ == nullptr && this->priority_ == nullptr && this->protocol_ == nullptr
+        && this->sourceCidrBlock_ == nullptr && this->sourcePortRange_ == nullptr; };
+      // action Field Functions 
+      bool hasAction() const { return this->action_ != nullptr;};
+      void deleteAction() { this->action_ = nullptr;};
+      inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+      inline IngressRules& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+      // destinationCidrBlock Field Functions 
+      bool hasDestinationCidrBlock() const { return this->destinationCidrBlock_ != nullptr;};
+      void deleteDestinationCidrBlock() { this->destinationCidrBlock_ = nullptr;};
+      inline string getDestinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
+      inline IngressRules& setDestinationCidrBlock(string destinationCidrBlock) { DARABONBA_PTR_SET_VALUE(destinationCidrBlock_, destinationCidrBlock) };
+
+
+      // destinationPortRange Field Functions 
+      bool hasDestinationPortRange() const { return this->destinationPortRange_ != nullptr;};
+      void deleteDestinationPortRange() { this->destinationPortRange_ = nullptr;};
+      inline string getDestinationPortRange() const { DARABONBA_PTR_GET_DEFAULT(destinationPortRange_, "") };
+      inline IngressRules& setDestinationPortRange(string destinationPortRange) { DARABONBA_PTR_SET_VALUE(destinationPortRange_, destinationPortRange) };
+
+
+      // ipVersion Field Functions 
+      bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
+      void deleteIpVersion() { this->ipVersion_ = nullptr;};
+      inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+      inline IngressRules& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline IngressRules& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+      // protocol Field Functions 
+      bool hasProtocol() const { return this->protocol_ != nullptr;};
+      void deleteProtocol() { this->protocol_ = nullptr;};
+      inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+      inline IngressRules& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+      // sourceCidrBlock Field Functions 
+      bool hasSourceCidrBlock() const { return this->sourceCidrBlock_ != nullptr;};
+      void deleteSourceCidrBlock() { this->sourceCidrBlock_ = nullptr;};
+      inline string getSourceCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(sourceCidrBlock_, "") };
+      inline IngressRules& setSourceCidrBlock(string sourceCidrBlock) { DARABONBA_PTR_SET_VALUE(sourceCidrBlock_, sourceCidrBlock) };
+
+
+      // sourcePortRange Field Functions 
+      bool hasSourcePortRange() const { return this->sourcePortRange_ != nullptr;};
+      void deleteSourcePortRange() { this->sourcePortRange_ = nullptr;};
+      inline string getSourcePortRange() const { DARABONBA_PTR_GET_DEFAULT(sourcePortRange_, "") };
+      inline IngressRules& setSourcePortRange(string sourcePortRange) { DARABONBA_PTR_SET_VALUE(sourcePortRange_, sourcePortRange) };
+
+
+    protected:
+      // The collection policy of the inbound rule. Valid values:
+      // 
+      // *   **accept**: collects the network traffic.
+      // *   **drop**: does not collect the network traffic.
+      shared_ptr<string> action_ {};
+      // The destination CIDR block of the inbound traffic.
+      shared_ptr<string> destinationCidrBlock_ {};
+      // The destination port range of the inbound traffic. Valid value: **1** to **65535**. Separate the first port and last port with a forward slash (/). For example, **1/200** or **80/80**.
+      // 
+      // >  If you set **IngressRules.N.Protocol** to **ALL** or **ICMP**, you do not need to set this parameter. In this case, all ports are available.
+      shared_ptr<string> destinationPortRange_ {};
+      // The IP version of the instance. The following value may be returned:
+      // 
+      // *   **IPv4**
+      // *   **IPv6**
+      shared_ptr<string> ipVersion_ {};
+      // The priority of the inbound rule. A smaller value indicates a higher priority. The maximum value of **N** is **10**. You can configure up to 10 inbound rules for a filter.
+      shared_ptr<int32_t> priority_ {};
+      // The type of the protocol is used by the inbound traffic that you want to mirror. Valid values:
+      // 
+      // *   **ALL**: all protocols
+      // *   **ICMP**: Internet Control Message Protocol.
+      // *   **TCP**: Transmission Control Protocol.
+      // *   **UDP**: User Datagram Protocol.
+      shared_ptr<string> protocol_ {};
+      // The source CIDR block of the inbound traffic.
+      shared_ptr<string> sourceCidrBlock_ {};
+      // The source port range of the inbound traffic. Valid value: **1** to **65535**. Separate the first port and last port with a forward slash (/). For example, **1/200** or **80/80**.
+      // 
+      // >  If **IngressRules.N.Protocol** is set to **ALL** or **ICMP**, you do not need to specify this parameter. This indicates that all ports are available.
+      shared_ptr<string> sourcePortRange_ {};
+    };
+
+    class EgressRules : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EgressRules& obj) { 
+        DARABONBA_PTR_TO_JSON(Action, action_);
+        DARABONBA_PTR_TO_JSON(DestinationCidrBlock, destinationCidrBlock_);
+        DARABONBA_PTR_TO_JSON(DestinationPortRange, destinationPortRange_);
+        DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
+        DARABONBA_PTR_TO_JSON(Protocol, protocol_);
+        DARABONBA_PTR_TO_JSON(SourceCidrBlock, sourceCidrBlock_);
+        DARABONBA_PTR_TO_JSON(SourcePortRange, sourcePortRange_);
+      };
+      friend void from_json(const Darabonba::Json& j, EgressRules& obj) { 
+        DARABONBA_PTR_FROM_JSON(Action, action_);
+        DARABONBA_PTR_FROM_JSON(DestinationCidrBlock, destinationCidrBlock_);
+        DARABONBA_PTR_FROM_JSON(DestinationPortRange, destinationPortRange_);
+        DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
+        DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
+        DARABONBA_PTR_FROM_JSON(SourceCidrBlock, sourceCidrBlock_);
+        DARABONBA_PTR_FROM_JSON(SourcePortRange, sourcePortRange_);
+      };
+      EgressRules() = default ;
+      EgressRules(const EgressRules &) = default ;
+      EgressRules(EgressRules &&) = default ;
+      EgressRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EgressRules() = default ;
+      EgressRules& operator=(const EgressRules &) = default ;
+      EgressRules& operator=(EgressRules &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->action_ == nullptr
+        && this->destinationCidrBlock_ == nullptr && this->destinationPortRange_ == nullptr && this->ipVersion_ == nullptr && this->priority_ == nullptr && this->protocol_ == nullptr
+        && this->sourceCidrBlock_ == nullptr && this->sourcePortRange_ == nullptr; };
+      // action Field Functions 
+      bool hasAction() const { return this->action_ != nullptr;};
+      void deleteAction() { this->action_ = nullptr;};
+      inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+      inline EgressRules& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+      // destinationCidrBlock Field Functions 
+      bool hasDestinationCidrBlock() const { return this->destinationCidrBlock_ != nullptr;};
+      void deleteDestinationCidrBlock() { this->destinationCidrBlock_ = nullptr;};
+      inline string getDestinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
+      inline EgressRules& setDestinationCidrBlock(string destinationCidrBlock) { DARABONBA_PTR_SET_VALUE(destinationCidrBlock_, destinationCidrBlock) };
+
+
+      // destinationPortRange Field Functions 
+      bool hasDestinationPortRange() const { return this->destinationPortRange_ != nullptr;};
+      void deleteDestinationPortRange() { this->destinationPortRange_ = nullptr;};
+      inline string getDestinationPortRange() const { DARABONBA_PTR_GET_DEFAULT(destinationPortRange_, "") };
+      inline EgressRules& setDestinationPortRange(string destinationPortRange) { DARABONBA_PTR_SET_VALUE(destinationPortRange_, destinationPortRange) };
+
+
+      // ipVersion Field Functions 
+      bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
+      void deleteIpVersion() { this->ipVersion_ = nullptr;};
+      inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+      inline EgressRules& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline EgressRules& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+      // protocol Field Functions 
+      bool hasProtocol() const { return this->protocol_ != nullptr;};
+      void deleteProtocol() { this->protocol_ = nullptr;};
+      inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+      inline EgressRules& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+      // sourceCidrBlock Field Functions 
+      bool hasSourceCidrBlock() const { return this->sourceCidrBlock_ != nullptr;};
+      void deleteSourceCidrBlock() { this->sourceCidrBlock_ = nullptr;};
+      inline string getSourceCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(sourceCidrBlock_, "") };
+      inline EgressRules& setSourceCidrBlock(string sourceCidrBlock) { DARABONBA_PTR_SET_VALUE(sourceCidrBlock_, sourceCidrBlock) };
+
+
+      // sourcePortRange Field Functions 
+      bool hasSourcePortRange() const { return this->sourcePortRange_ != nullptr;};
+      void deleteSourcePortRange() { this->sourcePortRange_ = nullptr;};
+      inline string getSourcePortRange() const { DARABONBA_PTR_GET_DEFAULT(sourcePortRange_, "") };
+      inline EgressRules& setSourcePortRange(string sourcePortRange) { DARABONBA_PTR_SET_VALUE(sourcePortRange_, sourcePortRange) };
+
+
+    protected:
+      // The collection policy of the outbound rule. Valid values:
+      // 
+      // *   **accept**: collects the network traffic.
+      // *   **drop**: does not collect the network traffic.
+      shared_ptr<string> action_ {};
+      // The destination CIDR block of the outbound traffic.
+      shared_ptr<string> destinationCidrBlock_ {};
+      // The destination port range of the outbound traffic. Valid values for a port: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot set this parameter to only -1/-1, which specifies all ports.
+      // 
+      // >  If **EgressRules.N.Protocol** is set to **ALL** or **ICMP**, you do not need to specify this parameter. This indicates that all ports are available.
+      shared_ptr<string> destinationPortRange_ {};
+      // The IP version of the instance. The following value may be returned:
+      // 
+      // *   **IPv4**: IPv4
+      // *   **IPv6**: IPv6
+      shared_ptr<string> ipVersion_ {};
+      // The priority of the outbound rule. A smaller value indicates a higher priority. The maximum value of **N** is **10**. You can configure up to 10 outbound rules for a filter.
+      shared_ptr<int32_t> priority_ {};
+      // The type of the protocol that is used by the outbound traffic that you want to mirror. Valid values:
+      // 
+      // *   **ALL**: all protocols
+      // *   **ICMP**: Internet Control Message Protocol.
+      // *   **TCP**: Transmission Control Protocol.
+      // *   **UDP**: User Datagram Protocol.
+      shared_ptr<string> protocol_ {};
+      // The source CIDR block of the outbound traffic.
+      shared_ptr<string> sourceCidrBlock_ {};
+      // The source port range of the outbound traffic. Valid values: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot set this parameter to only -1/-1, which specifies all ports.
+      // 
+      // >  If **EgressRules.N.Protocol** is set to **ALL** or **ICMP**, you do not need to specify this parameter. This indicates that all ports are available.
+      shared_ptr<string> sourcePortRange_ {};
+    };
+
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->dryRun_ == nullptr && return this->egressRules_ == nullptr && return this->ingressRules_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tag_ == nullptr
-        && return this->trafficMirrorFilterDescription_ == nullptr && return this->trafficMirrorFilterName_ == nullptr; };
+        && this->dryRun_ == nullptr && this->egressRules_ == nullptr && this->ingressRules_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr
+        && this->trafficMirrorFilterDescription_ == nullptr && this->trafficMirrorFilterName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateTrafficMirrorFilterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateTrafficMirrorFilterRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // egressRules Field Functions 
     bool hasEgressRules() const { return this->egressRules_ != nullptr;};
     void deleteEgressRules() { this->egressRules_ = nullptr;};
-    inline const vector<CreateTrafficMirrorFilterRequestEgressRules> & egressRules() const { DARABONBA_PTR_GET_CONST(egressRules_, vector<CreateTrafficMirrorFilterRequestEgressRules>) };
-    inline vector<CreateTrafficMirrorFilterRequestEgressRules> egressRules() { DARABONBA_PTR_GET(egressRules_, vector<CreateTrafficMirrorFilterRequestEgressRules>) };
-    inline CreateTrafficMirrorFilterRequest& setEgressRules(const vector<CreateTrafficMirrorFilterRequestEgressRules> & egressRules) { DARABONBA_PTR_SET_VALUE(egressRules_, egressRules) };
-    inline CreateTrafficMirrorFilterRequest& setEgressRules(vector<CreateTrafficMirrorFilterRequestEgressRules> && egressRules) { DARABONBA_PTR_SET_RVALUE(egressRules_, egressRules) };
+    inline const vector<CreateTrafficMirrorFilterRequest::EgressRules> & getEgressRules() const { DARABONBA_PTR_GET_CONST(egressRules_, vector<CreateTrafficMirrorFilterRequest::EgressRules>) };
+    inline vector<CreateTrafficMirrorFilterRequest::EgressRules> getEgressRules() { DARABONBA_PTR_GET(egressRules_, vector<CreateTrafficMirrorFilterRequest::EgressRules>) };
+    inline CreateTrafficMirrorFilterRequest& setEgressRules(const vector<CreateTrafficMirrorFilterRequest::EgressRules> & egressRules) { DARABONBA_PTR_SET_VALUE(egressRules_, egressRules) };
+    inline CreateTrafficMirrorFilterRequest& setEgressRules(vector<CreateTrafficMirrorFilterRequest::EgressRules> && egressRules) { DARABONBA_PTR_SET_RVALUE(egressRules_, egressRules) };
 
 
     // ingressRules Field Functions 
     bool hasIngressRules() const { return this->ingressRules_ != nullptr;};
     void deleteIngressRules() { this->ingressRules_ = nullptr;};
-    inline const vector<CreateTrafficMirrorFilterRequestIngressRules> & ingressRules() const { DARABONBA_PTR_GET_CONST(ingressRules_, vector<CreateTrafficMirrorFilterRequestIngressRules>) };
-    inline vector<CreateTrafficMirrorFilterRequestIngressRules> ingressRules() { DARABONBA_PTR_GET(ingressRules_, vector<CreateTrafficMirrorFilterRequestIngressRules>) };
-    inline CreateTrafficMirrorFilterRequest& setIngressRules(const vector<CreateTrafficMirrorFilterRequestIngressRules> & ingressRules) { DARABONBA_PTR_SET_VALUE(ingressRules_, ingressRules) };
-    inline CreateTrafficMirrorFilterRequest& setIngressRules(vector<CreateTrafficMirrorFilterRequestIngressRules> && ingressRules) { DARABONBA_PTR_SET_RVALUE(ingressRules_, ingressRules) };
+    inline const vector<CreateTrafficMirrorFilterRequest::IngressRules> & getIngressRules() const { DARABONBA_PTR_GET_CONST(ingressRules_, vector<CreateTrafficMirrorFilterRequest::IngressRules>) };
+    inline vector<CreateTrafficMirrorFilterRequest::IngressRules> getIngressRules() { DARABONBA_PTR_GET(ingressRules_, vector<CreateTrafficMirrorFilterRequest::IngressRules>) };
+    inline CreateTrafficMirrorFilterRequest& setIngressRules(const vector<CreateTrafficMirrorFilterRequest::IngressRules> & ingressRules) { DARABONBA_PTR_SET_VALUE(ingressRules_, ingressRules) };
+    inline CreateTrafficMirrorFilterRequest& setIngressRules(vector<CreateTrafficMirrorFilterRequest::IngressRules> && ingressRules) { DARABONBA_PTR_SET_RVALUE(ingressRules_, ingressRules) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CreateTrafficMirrorFilterRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateTrafficMirrorFilterRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateTrafficMirrorFilterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateTrafficMirrorFilterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateTrafficMirrorFilterRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateTrafficMirrorFilterRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateTrafficMirrorFilterRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateTrafficMirrorFilterRequestTag>) };
-    inline vector<CreateTrafficMirrorFilterRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateTrafficMirrorFilterRequestTag>) };
-    inline CreateTrafficMirrorFilterRequest& setTag(const vector<CreateTrafficMirrorFilterRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateTrafficMirrorFilterRequest& setTag(vector<CreateTrafficMirrorFilterRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateTrafficMirrorFilterRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateTrafficMirrorFilterRequest::Tag>) };
+    inline vector<CreateTrafficMirrorFilterRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateTrafficMirrorFilterRequest::Tag>) };
+    inline CreateTrafficMirrorFilterRequest& setTag(const vector<CreateTrafficMirrorFilterRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateTrafficMirrorFilterRequest& setTag(vector<CreateTrafficMirrorFilterRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // trafficMirrorFilterDescription Field Functions 
     bool hasTrafficMirrorFilterDescription() const { return this->trafficMirrorFilterDescription_ != nullptr;};
     void deleteTrafficMirrorFilterDescription() { this->trafficMirrorFilterDescription_ = nullptr;};
-    inline string trafficMirrorFilterDescription() const { DARABONBA_PTR_GET_DEFAULT(trafficMirrorFilterDescription_, "") };
+    inline string getTrafficMirrorFilterDescription() const { DARABONBA_PTR_GET_DEFAULT(trafficMirrorFilterDescription_, "") };
     inline CreateTrafficMirrorFilterRequest& setTrafficMirrorFilterDescription(string trafficMirrorFilterDescription) { DARABONBA_PTR_SET_VALUE(trafficMirrorFilterDescription_, trafficMirrorFilterDescription) };
 
 
     // trafficMirrorFilterName Field Functions 
     bool hasTrafficMirrorFilterName() const { return this->trafficMirrorFilterName_ != nullptr;};
     void deleteTrafficMirrorFilterName() { this->trafficMirrorFilterName_ = nullptr;};
-    inline string trafficMirrorFilterName() const { DARABONBA_PTR_GET_DEFAULT(trafficMirrorFilterName_, "") };
+    inline string getTrafficMirrorFilterName() const { DARABONBA_PTR_GET_DEFAULT(trafficMirrorFilterName_, "") };
     inline CreateTrafficMirrorFilterRequest& setTrafficMirrorFilterName(string trafficMirrorFilterName) { DARABONBA_PTR_SET_VALUE(trafficMirrorFilterName_, trafficMirrorFilterName) };
 
 
@@ -164,38 +461,38 @@ namespace Models
     // You can use the client to generate the value, but you must ensure that the value is unique among all requests. The client token can contain only ASCII characters.
     // 
     // >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
     // *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // *   **false**: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed. This is the default value.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The information about the outbound rules.
-    std::shared_ptr<vector<CreateTrafficMirrorFilterRequestEgressRules>> egressRules_ = nullptr;
+    shared_ptr<vector<CreateTrafficMirrorFilterRequest::EgressRules>> egressRules_ {};
     // The information about inbound rules.
-    std::shared_ptr<vector<CreateTrafficMirrorFilterRequestIngressRules>> ingressRules_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<vector<CreateTrafficMirrorFilterRequest::IngressRules>> ingressRules_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The ID of the region to which the mirrored traffic belongs.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirror, see [Overview of traffic mirror](https://help.aliyun.com/document_detail/207513.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the mirrored traffic belongs.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The tag of the resource.
-    std::shared_ptr<vector<CreateTrafficMirrorFilterRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<CreateTrafficMirrorFilterRequest::Tag>> tag_ {};
     // The description of the filter.
     // 
     // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
-    std::shared_ptr<string> trafficMirrorFilterDescription_ = nullptr;
+    shared_ptr<string> trafficMirrorFilterDescription_ {};
     // The name of the filter.
     // 
     // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
-    std::shared_ptr<string> trafficMirrorFilterName_ = nullptr;
+    shared_ptr<string> trafficMirrorFilterName_ {};
   };
 
   } // namespace Models

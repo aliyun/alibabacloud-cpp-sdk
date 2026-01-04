@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->haVipId_ == nullptr
-        && return this->ipAddress_ == nullptr && return this->requestId_ == nullptr; };
+        && this->ipAddress_ == nullptr && this->requestId_ == nullptr; };
     // haVipId Field Functions 
     bool hasHaVipId() const { return this->haVipId_ != nullptr;};
     void deleteHaVipId() { this->haVipId_ = nullptr;};
-    inline string haVipId() const { DARABONBA_PTR_GET_DEFAULT(haVipId_, "") };
+    inline string getHaVipId() const { DARABONBA_PTR_GET_DEFAULT(haVipId_, "") };
     inline CreateHaVipResponseBody& setHaVipId(string haVipId) { DARABONBA_PTR_SET_VALUE(haVipId_, haVipId) };
 
 
     // ipAddress Field Functions 
     bool hasIpAddress() const { return this->ipAddress_ != nullptr;};
     void deleteIpAddress() { this->ipAddress_ = nullptr;};
-    inline string ipAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
+    inline string getIpAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
     inline CreateHaVipResponseBody& setIpAddress(string ipAddress) { DARABONBA_PTR_SET_VALUE(ipAddress_, ipAddress) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateHaVipResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the HaVip.
-    std::shared_ptr<string> haVipId_ = nullptr;
+    shared_ptr<string> haVipId_ {};
     // The IP address of the HaVip.
-    std::shared_ptr<string> ipAddress_ = nullptr;
+    shared_ptr<string> ipAddress_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

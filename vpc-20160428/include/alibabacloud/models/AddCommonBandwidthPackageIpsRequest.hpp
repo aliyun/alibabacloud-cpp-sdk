@@ -47,27 +47,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
-        && return this->clientToken_ == nullptr && return this->ipInstanceIds_ == nullptr && return this->ipType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->ipInstanceIds_ == nullptr && this->ipType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
-    inline string bandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
+    inline string getBandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
     inline AddCommonBandwidthPackageIpsRequest& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline AddCommonBandwidthPackageIpsRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // ipInstanceIds Field Functions 
     bool hasIpInstanceIds() const { return this->ipInstanceIds_ != nullptr;};
     void deleteIpInstanceIds() { this->ipInstanceIds_ = nullptr;};
-    inline const vector<string> & ipInstanceIds() const { DARABONBA_PTR_GET_CONST(ipInstanceIds_, vector<string>) };
-    inline vector<string> ipInstanceIds() { DARABONBA_PTR_GET(ipInstanceIds_, vector<string>) };
+    inline const vector<string> & getIpInstanceIds() const { DARABONBA_PTR_GET_CONST(ipInstanceIds_, vector<string>) };
+    inline vector<string> getIpInstanceIds() { DARABONBA_PTR_GET(ipInstanceIds_, vector<string>) };
     inline AddCommonBandwidthPackageIpsRequest& setIpInstanceIds(const vector<string> & ipInstanceIds) { DARABONBA_PTR_SET_VALUE(ipInstanceIds_, ipInstanceIds) };
     inline AddCommonBandwidthPackageIpsRequest& setIpInstanceIds(vector<string> && ipInstanceIds) { DARABONBA_PTR_SET_RVALUE(ipInstanceIds_, ipInstanceIds) };
 
@@ -75,42 +75,42 @@ namespace Models
     // ipType Field Functions 
     bool hasIpType() const { return this->ipType_ != nullptr;};
     void deleteIpType() { this->ipType_ = nullptr;};
-    inline string ipType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
+    inline string getIpType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
     inline AddCommonBandwidthPackageIpsRequest& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline AddCommonBandwidthPackageIpsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AddCommonBandwidthPackageIpsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddCommonBandwidthPackageIpsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline AddCommonBandwidthPackageIpsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline AddCommonBandwidthPackageIpsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -118,31 +118,31 @@ namespace Models
     // The ID of the Internet Shared Bandwidth instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bandwidthPackageId_ = nullptr;
+    shared_ptr<string> bandwidthPackageId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
     // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The list of EIPs that you want to associate with the Internet Shared Bandwidth instance.
     // 
     // You can specify at most 10 EIP IDs at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> ipInstanceIds_ = nullptr;
+    shared_ptr<vector<string>> ipInstanceIds_ {};
     // The type of the IP address. Set the value to **EIP** to associate EIPs with the EIP bandwidth plan.
-    std::shared_ptr<string> ipType_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> ipType_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID of the Internet Shared Bandwidth instance.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

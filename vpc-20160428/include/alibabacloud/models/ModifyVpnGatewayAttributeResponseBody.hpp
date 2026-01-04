@@ -66,140 +66,140 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPropagate_ == nullptr
-        && return this->businessStatus_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->disasterRecoveryInternetIp_ == nullptr && return this->disasterRecoveryVSwitchId_ == nullptr
-        && return this->enableBgp_ == nullptr && return this->endTime_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->name_ == nullptr
-        && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->spec_ == nullptr && return this->sslVpnInternetIp_ == nullptr && return this->status_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
+        && this->businessStatus_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->disasterRecoveryInternetIp_ == nullptr && this->disasterRecoveryVSwitchId_ == nullptr
+        && this->enableBgp_ == nullptr && this->endTime_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->name_ == nullptr
+        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->sslVpnInternetIp_ == nullptr && this->status_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->vpnGatewayId_ == nullptr; };
     // autoPropagate Field Functions 
     bool hasAutoPropagate() const { return this->autoPropagate_ != nullptr;};
     void deleteAutoPropagate() { this->autoPropagate_ = nullptr;};
-    inline bool autoPropagate() const { DARABONBA_PTR_GET_DEFAULT(autoPropagate_, false) };
+    inline bool getAutoPropagate() const { DARABONBA_PTR_GET_DEFAULT(autoPropagate_, false) };
     inline ModifyVpnGatewayAttributeResponseBody& setAutoPropagate(bool autoPropagate) { DARABONBA_PTR_SET_VALUE(autoPropagate_, autoPropagate) };
 
 
     // businessStatus Field Functions 
     bool hasBusinessStatus() const { return this->businessStatus_ != nullptr;};
     void deleteBusinessStatus() { this->businessStatus_ = nullptr;};
-    inline string businessStatus() const { DARABONBA_PTR_GET_DEFAULT(businessStatus_, "") };
+    inline string getBusinessStatus() const { DARABONBA_PTR_GET_DEFAULT(businessStatus_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setBusinessStatus(string businessStatus) { DARABONBA_PTR_SET_VALUE(businessStatus_, businessStatus) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline ModifyVpnGatewayAttributeResponseBody& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // disasterRecoveryInternetIp Field Functions 
     bool hasDisasterRecoveryInternetIp() const { return this->disasterRecoveryInternetIp_ != nullptr;};
     void deleteDisasterRecoveryInternetIp() { this->disasterRecoveryInternetIp_ = nullptr;};
-    inline string disasterRecoveryInternetIp() const { DARABONBA_PTR_GET_DEFAULT(disasterRecoveryInternetIp_, "") };
+    inline string getDisasterRecoveryInternetIp() const { DARABONBA_PTR_GET_DEFAULT(disasterRecoveryInternetIp_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setDisasterRecoveryInternetIp(string disasterRecoveryInternetIp) { DARABONBA_PTR_SET_VALUE(disasterRecoveryInternetIp_, disasterRecoveryInternetIp) };
 
 
     // disasterRecoveryVSwitchId Field Functions 
     bool hasDisasterRecoveryVSwitchId() const { return this->disasterRecoveryVSwitchId_ != nullptr;};
     void deleteDisasterRecoveryVSwitchId() { this->disasterRecoveryVSwitchId_ = nullptr;};
-    inline string disasterRecoveryVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(disasterRecoveryVSwitchId_, "") };
+    inline string getDisasterRecoveryVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(disasterRecoveryVSwitchId_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setDisasterRecoveryVSwitchId(string disasterRecoveryVSwitchId) { DARABONBA_PTR_SET_VALUE(disasterRecoveryVSwitchId_, disasterRecoveryVSwitchId) };
 
 
     // enableBgp Field Functions 
     bool hasEnableBgp() const { return this->enableBgp_ != nullptr;};
     void deleteEnableBgp() { this->enableBgp_ = nullptr;};
-    inline bool enableBgp() const { DARABONBA_PTR_GET_DEFAULT(enableBgp_, false) };
+    inline bool getEnableBgp() const { DARABONBA_PTR_GET_DEFAULT(enableBgp_, false) };
     inline ModifyVpnGatewayAttributeResponseBody& setEnableBgp(bool enableBgp) { DARABONBA_PTR_SET_VALUE(enableBgp_, enableBgp) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline ModifyVpnGatewayAttributeResponseBody& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // internetIp Field Functions 
     bool hasInternetIp() const { return this->internetIp_ != nullptr;};
     void deleteInternetIp() { this->internetIp_ = nullptr;};
-    inline string internetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
+    inline string getInternetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setInternetIp(string internetIp) { DARABONBA_PTR_SET_VALUE(internetIp_, internetIp) };
 
 
     // intranetIp Field Functions 
     bool hasIntranetIp() const { return this->intranetIp_ != nullptr;};
     void deleteIntranetIp() { this->intranetIp_ = nullptr;};
-    inline string intranetIp() const { DARABONBA_PTR_GET_DEFAULT(intranetIp_, "") };
+    inline string getIntranetIp() const { DARABONBA_PTR_GET_DEFAULT(intranetIp_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setIntranetIp(string intranetIp) { DARABONBA_PTR_SET_VALUE(intranetIp_, intranetIp) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
     // sslVpnInternetIp Field Functions 
     bool hasSslVpnInternetIp() const { return this->sslVpnInternetIp_ != nullptr;};
     void deleteSslVpnInternetIp() { this->sslVpnInternetIp_ = nullptr;};
-    inline string sslVpnInternetIp() const { DARABONBA_PTR_GET_DEFAULT(sslVpnInternetIp_, "") };
+    inline string getSslVpnInternetIp() const { DARABONBA_PTR_GET_DEFAULT(sslVpnInternetIp_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setSslVpnInternetIp(string sslVpnInternetIp) { DARABONBA_PTR_SET_VALUE(sslVpnInternetIp_, sslVpnInternetIp) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
     // vpnGatewayId Field Functions 
     bool hasVpnGatewayId() const { return this->vpnGatewayId_ != nullptr;};
     void deleteVpnGatewayId() { this->vpnGatewayId_ = nullptr;};
-    inline string vpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
+    inline string getVpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
     inline ModifyVpnGatewayAttributeResponseBody& setVpnGatewayId(string vpnGatewayId) { DARABONBA_PTR_SET_VALUE(vpnGatewayId_, vpnGatewayId) };
 
 
@@ -208,59 +208,59 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> autoPropagate_ = nullptr;
+    shared_ptr<bool> autoPropagate_ {};
     // The payment status of the VPN gateway. Valid values:
     // 
     // *   **Normal**
     // *   **FinancialLocked**
-    std::shared_ptr<string> businessStatus_ = nullptr;
+    shared_ptr<string> businessStatus_ {};
     // The time when the VPN gateway was created. Unit: milliseconds.
     // 
     // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> createTime_ = nullptr;
+    shared_ptr<int64_t> createTime_ {};
     // The description of the VPN gateway.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The second IP address assigned by the system to create an IPsec-VPN connection.
     // 
     // This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
-    std::shared_ptr<string> disasterRecoveryInternetIp_ = nullptr;
+    shared_ptr<string> disasterRecoveryInternetIp_ {};
     // The ID of the second vSwitch associated with the VPN gateway.
     // 
     // This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
-    std::shared_ptr<string> disasterRecoveryVSwitchId_ = nullptr;
+    shared_ptr<string> disasterRecoveryVSwitchId_ {};
     // Indicates whether BGP is enabled for the VPN gateway. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> enableBgp_ = nullptr;
+    shared_ptr<bool> enableBgp_ {};
     // The time when the VPN gateway expires. Unit: milliseconds.
     // 
     // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // *   If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
     // 
     // *   If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the address is the first IP address used to create an IPsec-VPN connection. The address cannot be used to create an SSL-VPN connection.
     // 
     //     If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
-    std::shared_ptr<string> internetIp_ = nullptr;
+    shared_ptr<string> internetIp_ {};
     // The private IP address of the vSwitch that is used by the system when the VPN gateway is deployed.
     // 
     // The parameter is returned only for VPN gateways that support single-tunnel IPsec-VPN connections. The IPsec-VPN feature must be enabled.
-    std::shared_ptr<string> intranetIp_ = nullptr;
+    shared_ptr<string> intranetIp_ {};
     // The name of the VPN gateway.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the VPN gateway belongs.
     // 
     // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The maximum bandwidth of the VPN gateway. Unit: Mbit/s.
-    std::shared_ptr<string> spec_ = nullptr;
+    shared_ptr<string> spec_ {};
     // The IP address of the SSL-VPN connection.
     // 
     // This parameter is returned only when the VPN gateway is a public VPN gateway and supports only the single-tunnel mode. In addition, the VPN gateway must have the SSL-VPN feature enabled.
-    std::shared_ptr<string> sslVpnInternetIp_ = nullptr;
+    shared_ptr<string> sslVpnInternetIp_ {};
     // The status of the VPN gateway. Valid values:
     // 
     // *   **init**
@@ -268,13 +268,13 @@ namespace Models
     // *   **active**
     // *   **updating**
     // *   **deleting**
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The ID of the vSwitch associated with the VPN gateway.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC to which the VPN gateway belongs.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
     // The ID of the VPN gateway.
-    std::shared_ptr<string> vpnGatewayId_ = nullptr;
+    shared_ptr<string> vpnGatewayId_ {};
   };
 
   } // namespace Models

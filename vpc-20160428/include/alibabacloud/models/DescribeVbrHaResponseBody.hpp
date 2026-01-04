@@ -46,95 +46,95 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creationTime_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->peerVbrId_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr
-        && return this->status_ == nullptr && return this->vbrHaId_ == nullptr && return this->vbrId_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->peerVbrId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->status_ == nullptr && this->vbrHaId_ == nullptr && this->vbrId_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
-    inline string creationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+    inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
     inline DescribeVbrHaResponseBody& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeVbrHaResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeVbrHaResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // peerVbrId Field Functions 
     bool hasPeerVbrId() const { return this->peerVbrId_ != nullptr;};
     void deletePeerVbrId() { this->peerVbrId_ = nullptr;};
-    inline string peerVbrId() const { DARABONBA_PTR_GET_DEFAULT(peerVbrId_, "") };
+    inline string getPeerVbrId() const { DARABONBA_PTR_GET_DEFAULT(peerVbrId_, "") };
     inline DescribeVbrHaResponseBody& setPeerVbrId(string peerVbrId) { DARABONBA_PTR_SET_VALUE(peerVbrId_, peerVbrId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeVbrHaResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVbrHaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeVbrHaResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // vbrHaId Field Functions 
     bool hasVbrHaId() const { return this->vbrHaId_ != nullptr;};
     void deleteVbrHaId() { this->vbrHaId_ = nullptr;};
-    inline string vbrHaId() const { DARABONBA_PTR_GET_DEFAULT(vbrHaId_, "") };
+    inline string getVbrHaId() const { DARABONBA_PTR_GET_DEFAULT(vbrHaId_, "") };
     inline DescribeVbrHaResponseBody& setVbrHaId(string vbrHaId) { DARABONBA_PTR_SET_VALUE(vbrHaId_, vbrHaId) };
 
 
     // vbrId Field Functions 
     bool hasVbrId() const { return this->vbrId_ != nullptr;};
     void deleteVbrId() { this->vbrId_ = nullptr;};
-    inline string vbrId() const { DARABONBA_PTR_GET_DEFAULT(vbrId_, "") };
+    inline string getVbrId() const { DARABONBA_PTR_GET_DEFAULT(vbrId_, "") };
     inline DescribeVbrHaResponseBody& setVbrId(string vbrId) { DARABONBA_PTR_SET_VALUE(vbrId_, vbrId) };
 
 
   protected:
     // The time when the VBR was created.
-    std::shared_ptr<string> creationTime_ = nullptr;
+    shared_ptr<string> creationTime_ {};
     // The description of the VBR failover group.
     // 
     // The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the VBR failover group.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the other VBR in the VBR failover group.
-    std::shared_ptr<string> peerVbrId_ = nullptr;
+    shared_ptr<string> peerVbrId_ {};
     // The ID of the region in which the VBR is deployed.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the VBR failover group.
     // 
     // *   **Creating**
     // *   **Active**
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The ID of the VBR failover group.
-    std::shared_ptr<string> vbrHaId_ = nullptr;
+    shared_ptr<string> vbrHaId_ {};
     // The VBR ID.
-    std::shared_ptr<string> vbrId_ = nullptr;
+    shared_ptr<string> vbrId_ {};
   };
 
   } // namespace Models

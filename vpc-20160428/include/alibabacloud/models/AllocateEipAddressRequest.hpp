@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_ALLOCATEEIPADDRESSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/AllocateEipAddressRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -77,164 +76,206 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->activityId_ == nullptr
-        && return this->autoPay_ == nullptr && return this->bandwidth_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->ISP_ == nullptr
-        && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipAddress_ == nullptr && return this->name_ == nullptr
-        && return this->netmode_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->period_ == nullptr && return this->pricingCycle_ == nullptr
-        && return this->publicIpAddressPoolId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->securityProtectionTypes_ == nullptr && return this->tag_ == nullptr && return this->zone_ == nullptr; };
+        && this->autoPay_ == nullptr && this->bandwidth_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->ISP_ == nullptr
+        && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->internetChargeType_ == nullptr && this->ipAddress_ == nullptr && this->name_ == nullptr
+        && this->netmode_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->period_ == nullptr && this->pricingCycle_ == nullptr
+        && this->publicIpAddressPoolId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->securityProtectionTypes_ == nullptr && this->tag_ == nullptr && this->zone_ == nullptr; };
     // activityId Field Functions 
     bool hasActivityId() const { return this->activityId_ != nullptr;};
     void deleteActivityId() { this->activityId_ = nullptr;};
-    inline int64_t activityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, 0L) };
+    inline int64_t getActivityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, 0L) };
     inline AllocateEipAddressRequest& setActivityId(int64_t activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
 
 
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline AllocateEipAddressRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
-    inline string bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, "") };
+    inline string getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, "") };
     inline AllocateEipAddressRequest& setBandwidth(string bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline AllocateEipAddressRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AllocateEipAddressRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // ISP Field Functions 
     bool hasISP() const { return this->ISP_ != nullptr;};
     void deleteISP() { this->ISP_ = nullptr;};
-    inline string ISP() const { DARABONBA_PTR_GET_DEFAULT(ISP_, "") };
+    inline string getISP() const { DARABONBA_PTR_GET_DEFAULT(ISP_, "") };
     inline AllocateEipAddressRequest& setISP(string ISP) { DARABONBA_PTR_SET_VALUE(ISP_, ISP) };
 
 
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
-    inline string instanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline AllocateEipAddressRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AllocateEipAddressRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
-    inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline string getInternetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
     inline AllocateEipAddressRequest& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
 
 
     // ipAddress Field Functions 
     bool hasIpAddress() const { return this->ipAddress_ != nullptr;};
     void deleteIpAddress() { this->ipAddress_ = nullptr;};
-    inline string ipAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
+    inline string getIpAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
     inline AllocateEipAddressRequest& setIpAddress(string ipAddress) { DARABONBA_PTR_SET_VALUE(ipAddress_, ipAddress) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AllocateEipAddressRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // netmode Field Functions 
     bool hasNetmode() const { return this->netmode_ != nullptr;};
     void deleteNetmode() { this->netmode_ = nullptr;};
-    inline string netmode() const { DARABONBA_PTR_GET_DEFAULT(netmode_, "") };
+    inline string getNetmode() const { DARABONBA_PTR_GET_DEFAULT(netmode_, "") };
     inline AllocateEipAddressRequest& setNetmode(string netmode) { DARABONBA_PTR_SET_VALUE(netmode_, netmode) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline AllocateEipAddressRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AllocateEipAddressRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline AllocateEipAddressRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline AllocateEipAddressRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // publicIpAddressPoolId Field Functions 
     bool hasPublicIpAddressPoolId() const { return this->publicIpAddressPoolId_ != nullptr;};
     void deletePublicIpAddressPoolId() { this->publicIpAddressPoolId_ = nullptr;};
-    inline string publicIpAddressPoolId() const { DARABONBA_PTR_GET_DEFAULT(publicIpAddressPoolId_, "") };
+    inline string getPublicIpAddressPoolId() const { DARABONBA_PTR_GET_DEFAULT(publicIpAddressPoolId_, "") };
     inline AllocateEipAddressRequest& setPublicIpAddressPoolId(string publicIpAddressPoolId) { DARABONBA_PTR_SET_VALUE(publicIpAddressPoolId_, publicIpAddressPoolId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AllocateEipAddressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline AllocateEipAddressRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline AllocateEipAddressRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline AllocateEipAddressRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityProtectionTypes Field Functions 
     bool hasSecurityProtectionTypes() const { return this->securityProtectionTypes_ != nullptr;};
     void deleteSecurityProtectionTypes() { this->securityProtectionTypes_ = nullptr;};
-    inline const vector<string> & securityProtectionTypes() const { DARABONBA_PTR_GET_CONST(securityProtectionTypes_, vector<string>) };
-    inline vector<string> securityProtectionTypes() { DARABONBA_PTR_GET(securityProtectionTypes_, vector<string>) };
+    inline const vector<string> & getSecurityProtectionTypes() const { DARABONBA_PTR_GET_CONST(securityProtectionTypes_, vector<string>) };
+    inline vector<string> getSecurityProtectionTypes() { DARABONBA_PTR_GET(securityProtectionTypes_, vector<string>) };
     inline AllocateEipAddressRequest& setSecurityProtectionTypes(const vector<string> & securityProtectionTypes) { DARABONBA_PTR_SET_VALUE(securityProtectionTypes_, securityProtectionTypes) };
     inline AllocateEipAddressRequest& setSecurityProtectionTypes(vector<string> && securityProtectionTypes) { DARABONBA_PTR_SET_RVALUE(securityProtectionTypes_, securityProtectionTypes) };
 
@@ -242,29 +283,29 @@ namespace Models
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<AllocateEipAddressRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<AllocateEipAddressRequestTag>) };
-    inline vector<AllocateEipAddressRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<AllocateEipAddressRequestTag>) };
-    inline AllocateEipAddressRequest& setTag(const vector<AllocateEipAddressRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline AllocateEipAddressRequest& setTag(vector<AllocateEipAddressRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<AllocateEipAddressRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<AllocateEipAddressRequest::Tag>) };
+    inline vector<AllocateEipAddressRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<AllocateEipAddressRequest::Tag>) };
+    inline AllocateEipAddressRequest& setTag(const vector<AllocateEipAddressRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline AllocateEipAddressRequest& setTag(vector<AllocateEipAddressRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // zone Field Functions 
     bool hasZone() const { return this->zone_ != nullptr;};
     void deleteZone() { this->zone_ = nullptr;};
-    inline string zone() const { DARABONBA_PTR_GET_DEFAULT(zone_, "") };
+    inline string getZone() const { DARABONBA_PTR_GET_DEFAULT(zone_, "") };
     inline AllocateEipAddressRequest& setZone(string zone) { DARABONBA_PTR_SET_VALUE(zone_, zone) };
 
 
   protected:
     // The promotion code. This parameter is not required.
-    std::shared_ptr<int64_t> activityId_ = nullptr;
+    shared_ptr<int64_t> activityId_ {};
     // Specifies whether to enable automatic payment. Valid values:
     // 
     // *   **false** (default): The automatic payment is disabled. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
     // *   **true**: The automatic payment is enabled. Payments are automatically complete after an order is generated.
     // 
     // If **InstanceChargeType** is set to **PrePaid**, this parameter is required. If **InstanceChargeType** is set to **PostPaid**, this parameter is not required.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // The maximum bandwidth of the EIP. Unit: Mbit/s.
     // 
     // *   Valid values when **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**: **1** to **500**.****
@@ -272,19 +313,19 @@ namespace Models
     // *   Valid values when **InstanceChargeType** is set to **PrePaid**: **1** to **1000**.****
     // 
     // Default value: **5**. Unit: Mbit/s.
-    std::shared_ptr<string> bandwidth_ = nullptr;
+    shared_ptr<string> bandwidth_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate a token, but you must make sure that the token is unique among different requests. The **client token** can contain only ASCII characters.
     // 
     // >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the **client token**. The value of **RequestId** is different for each API request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The description of the EIP.
     // 
     // The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
     // 
     // >  You cannot specify this parameter if you create a subscription EIP.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The line type. Valid values:
     // 
     // *   **BGP** (default): BGP (Multi-ISP) All regions support BGP (Multi-ISP) EIPs.
@@ -302,18 +343,18 @@ namespace Models
     //     *   **ChinaMobile_L2**
     // 
     // *   If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
-    std::shared_ptr<string> ISP_ = nullptr;
+    shared_ptr<string> ISP_ {};
     // The billing method of the EIP. Valid values:
     // 
     // *   **PrePaid**: subscription
     // *   **PostPaid** (default): pay-as-you-go
     // 
     // If **InstanceChargeType** is set to **PrePaid**, set **InternetChargeType** to **PayByBandwidth**. If **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
-    std::shared_ptr<string> instanceChargeType_ = nullptr;
+    shared_ptr<string> instanceChargeType_ {};
     // The EIP ID.
     // 
     // Specify **IpAddress** or **InstanceId**. If you leave both parameters empty, the system randomly allocates an EIP.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The metering method of the EIP. Valid values:
     // 
     // *   **PayByBandwidth** (default): pay-by-bandwidth
@@ -322,21 +363,21 @@ namespace Models
     // When **InstanceChargeType** is set to **PrePaid**, set **InternetChargeType** to **PayByBandwidth**.
     // 
     // When **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
-    std::shared_ptr<string> internetChargeType_ = nullptr;
+    shared_ptr<string> internetChargeType_ {};
     // The IP address of the EIP that you want to request.
     // 
     // Specify **IpAddress** or **InstanceId**. If you leave both parameters empty, the system randomly allocates an EIP.
-    std::shared_ptr<string> ipAddress_ = nullptr;
+    shared_ptr<string> ipAddress_ {};
     // The EIP name.
     // 
     // The name must be 1 to 128 characters in length and start with a letter, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
     // 
     // >  You cannot specify this parameter if you create a subscription EIP.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The network type. Default value: **public**.
-    std::shared_ptr<string> netmode_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> netmode_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The subscription duration of the EIP.
     // 
     // Valid values when **PricingCycle** is set to **Month**: **1** to **9**.****
@@ -344,44 +385,44 @@ namespace Models
     // Valid values when **PricingCycle** is set to **Year**: **1** to **5**.****
     // 
     // This parameter must be specified when **InstanceChargeType** is set to **PrePaid**. This parameter is optional when **InstanceChargeType** is set to **PostPaid**.
-    std::shared_ptr<int32_t> period_ = nullptr;
+    shared_ptr<int32_t> period_ {};
     // The billing cycle of the subscription EIP. Valid values:
     // 
     // *   **Month** (default)
     // *   **Year**
     // 
     // If **InstanceChargeType** is set to **PrePaid**, this parameter is required. If **InstanceChargeType** is set to **PostPaid**, this parameter is not required.
-    std::shared_ptr<string> pricingCycle_ = nullptr;
+    shared_ptr<string> pricingCycle_ {};
     // The ID of the IP address pool.
     // 
     // The EIP is allocated from the IP address pool.
     // 
     // By default, the IP address pool feature is unavailable. To use the IP address pool, apply for the privilege in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html).
-    std::shared_ptr<string> publicIpAddressPoolId_ = nullptr;
+    shared_ptr<string> publicIpAddressPoolId_ {};
     // The ID of the region to which the EIP belongs.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The editions of Anti-DDoS.
     // 
     // *   If you do not specify this parameter, Anti-DDoS Origin Basic is used.
     // *   If you set the parameter to **AntiDDoS_Enhanced**, Anti-DDoS Pro/Premium is used.
     // 
     // You can specify up to 10 editions of Anti-DDoS.
-    std::shared_ptr<vector<string>> securityProtectionTypes_ = nullptr;
-    std::shared_ptr<vector<AllocateEipAddressRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<string>> securityProtectionTypes_ {};
+    shared_ptr<vector<AllocateEipAddressRequest::Tag>> tag_ {};
     // The zone of the EIP.
     // 
     // When the service type of the IP address pool specified by **PublicIpAddressPoolId** is CloudBox, the default value is the zone of the IP address pool.
     // 
     // For more information, see [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html).
-    std::shared_ptr<string> zone_ = nullptr;
+    shared_ptr<string> zone_ {};
   };
 
   } // namespace Models

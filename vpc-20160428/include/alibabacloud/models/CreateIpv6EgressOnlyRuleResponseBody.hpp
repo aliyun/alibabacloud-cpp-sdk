@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipv6EgressRuleId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // ipv6EgressRuleId Field Functions 
     bool hasIpv6EgressRuleId() const { return this->ipv6EgressRuleId_ != nullptr;};
     void deleteIpv6EgressRuleId() { this->ipv6EgressRuleId_ = nullptr;};
-    inline string ipv6EgressRuleId() const { DARABONBA_PTR_GET_DEFAULT(ipv6EgressRuleId_, "") };
+    inline string getIpv6EgressRuleId() const { DARABONBA_PTR_GET_DEFAULT(ipv6EgressRuleId_, "") };
     inline CreateIpv6EgressOnlyRuleResponseBody& setIpv6EgressRuleId(string ipv6EgressRuleId) { DARABONBA_PTR_SET_VALUE(ipv6EgressRuleId_, ipv6EgressRuleId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateIpv6EgressOnlyRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the egress-only rule.
-    std::shared_ptr<string> ipv6EgressRuleId_ = nullptr;
+    shared_ptr<string> ipv6EgressRuleId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

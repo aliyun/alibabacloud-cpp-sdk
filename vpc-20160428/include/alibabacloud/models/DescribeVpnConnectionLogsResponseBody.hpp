@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEVPNCONNECTIONLOGSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEVPNCONNECTIONLOGSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeVpnConnectionLogsResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,68 +40,101 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Logs, logs_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Logs, logs_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->logs_ == nullptr; };
+      // logs Field Functions 
+      bool hasLogs() const { return this->logs_ != nullptr;};
+      void deleteLogs() { this->logs_ = nullptr;};
+      inline const vector<string> & getLogs() const { DARABONBA_PTR_GET_CONST(logs_, vector<string>) };
+      inline vector<string> getLogs() { DARABONBA_PTR_GET(logs_, vector<string>) };
+      inline Data& setLogs(const vector<string> & logs) { DARABONBA_PTR_SET_VALUE(logs_, logs) };
+      inline Data& setLogs(vector<string> && logs) { DARABONBA_PTR_SET_RVALUE(logs_, logs) };
+
+
+    protected:
+      shared_ptr<vector<string>> logs_ {};
+    };
+
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->data_ == nullptr && return this->isCompleted_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->isCompleted_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline DescribeVpnConnectionLogsResponseBody& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DescribeVpnConnectionLogsResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, DescribeVpnConnectionLogsResponseBodyData) };
-    inline DescribeVpnConnectionLogsResponseBodyData data() { DARABONBA_PTR_GET(data_, DescribeVpnConnectionLogsResponseBodyData) };
-    inline DescribeVpnConnectionLogsResponseBody& setData(const DescribeVpnConnectionLogsResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DescribeVpnConnectionLogsResponseBody& setData(DescribeVpnConnectionLogsResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const DescribeVpnConnectionLogsResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DescribeVpnConnectionLogsResponseBody::Data) };
+    inline DescribeVpnConnectionLogsResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DescribeVpnConnectionLogsResponseBody::Data) };
+    inline DescribeVpnConnectionLogsResponseBody& setData(const DescribeVpnConnectionLogsResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeVpnConnectionLogsResponseBody& setData(DescribeVpnConnectionLogsResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // isCompleted Field Functions 
     bool hasIsCompleted() const { return this->isCompleted_ != nullptr;};
     void deleteIsCompleted() { this->isCompleted_ = nullptr;};
-    inline bool isCompleted() const { DARABONBA_PTR_GET_DEFAULT(isCompleted_, false) };
+    inline bool getIsCompleted() const { DARABONBA_PTR_GET_DEFAULT(isCompleted_, false) };
     inline DescribeVpnConnectionLogsResponseBody& setIsCompleted(bool isCompleted) { DARABONBA_PTR_SET_VALUE(isCompleted_, isCompleted) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeVpnConnectionLogsResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeVpnConnectionLogsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVpnConnectionLogsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of entries on the current page.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // The log list.
-    std::shared_ptr<DescribeVpnConnectionLogsResponseBodyData> data_ = nullptr;
+    shared_ptr<DescribeVpnConnectionLogsResponseBody::Data> data_ {};
     // Indicates whether the log is accurate. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> isCompleted_ = nullptr;
+    shared_ptr<bool> isCompleted_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

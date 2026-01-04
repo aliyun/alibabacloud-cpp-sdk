@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->internetBandwidthId_ == nullptr
-        && return this->ipv6AddressId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->ipv6AddressId_ == nullptr && this->requestId_ == nullptr; };
     // internetBandwidthId Field Functions 
     bool hasInternetBandwidthId() const { return this->internetBandwidthId_ != nullptr;};
     void deleteInternetBandwidthId() { this->internetBandwidthId_ = nullptr;};
-    inline string internetBandwidthId() const { DARABONBA_PTR_GET_DEFAULT(internetBandwidthId_, "") };
+    inline string getInternetBandwidthId() const { DARABONBA_PTR_GET_DEFAULT(internetBandwidthId_, "") };
     inline AllocateIpv6InternetBandwidthResponseBody& setInternetBandwidthId(string internetBandwidthId) { DARABONBA_PTR_SET_VALUE(internetBandwidthId_, internetBandwidthId) };
 
 
     // ipv6AddressId Field Functions 
     bool hasIpv6AddressId() const { return this->ipv6AddressId_ != nullptr;};
     void deleteIpv6AddressId() { this->ipv6AddressId_ = nullptr;};
-    inline string ipv6AddressId() const { DARABONBA_PTR_GET_DEFAULT(ipv6AddressId_, "") };
+    inline string getIpv6AddressId() const { DARABONBA_PTR_GET_DEFAULT(ipv6AddressId_, "") };
     inline AllocateIpv6InternetBandwidthResponseBody& setIpv6AddressId(string ipv6AddressId) { DARABONBA_PTR_SET_VALUE(ipv6AddressId_, ipv6AddressId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AllocateIpv6InternetBandwidthResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the Internet bandwidth that you purchased for the IPv6 gateway.
-    std::shared_ptr<string> internetBandwidthId_ = nullptr;
+    shared_ptr<string> internetBandwidthId_ {};
     // The ID of the IPv6 address.
-    std::shared_ptr<string> ipv6AddressId_ = nullptr;
+    shared_ptr<string> ipv6AddressId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipsecServerId_ == nullptr
-        && return this->ipsecServerName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->vpnGatewayId_ == nullptr; };
+        && this->ipsecServerName_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->vpnGatewayId_ == nullptr; };
     // ipsecServerId Field Functions 
     bool hasIpsecServerId() const { return this->ipsecServerId_ != nullptr;};
     void deleteIpsecServerId() { this->ipsecServerId_ = nullptr;};
-    inline const vector<string> & ipsecServerId() const { DARABONBA_PTR_GET_CONST(ipsecServerId_, vector<string>) };
-    inline vector<string> ipsecServerId() { DARABONBA_PTR_GET(ipsecServerId_, vector<string>) };
+    inline const vector<string> & getIpsecServerId() const { DARABONBA_PTR_GET_CONST(ipsecServerId_, vector<string>) };
+    inline vector<string> getIpsecServerId() { DARABONBA_PTR_GET(ipsecServerId_, vector<string>) };
     inline ListIpsecServersRequest& setIpsecServerId(const vector<string> & ipsecServerId) { DARABONBA_PTR_SET_VALUE(ipsecServerId_, ipsecServerId) };
     inline ListIpsecServersRequest& setIpsecServerId(vector<string> && ipsecServerId) { DARABONBA_PTR_SET_RVALUE(ipsecServerId_, ipsecServerId) };
 
@@ -57,71 +57,71 @@ namespace Models
     // ipsecServerName Field Functions 
     bool hasIpsecServerName() const { return this->ipsecServerName_ != nullptr;};
     void deleteIpsecServerName() { this->ipsecServerName_ = nullptr;};
-    inline string ipsecServerName() const { DARABONBA_PTR_GET_DEFAULT(ipsecServerName_, "") };
+    inline string getIpsecServerName() const { DARABONBA_PTR_GET_DEFAULT(ipsecServerName_, "") };
     inline ListIpsecServersRequest& setIpsecServerName(string ipsecServerName) { DARABONBA_PTR_SET_VALUE(ipsecServerName_, ipsecServerName) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListIpsecServersRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListIpsecServersRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListIpsecServersRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListIpsecServersRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // vpnGatewayId Field Functions 
     bool hasVpnGatewayId() const { return this->vpnGatewayId_ != nullptr;};
     void deleteVpnGatewayId() { this->vpnGatewayId_ = nullptr;};
-    inline string vpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
+    inline string getVpnGatewayId() const { DARABONBA_PTR_GET_DEFAULT(vpnGatewayId_, "") };
     inline ListIpsecServersRequest& setVpnGatewayId(string vpnGatewayId) { DARABONBA_PTR_SET_VALUE(vpnGatewayId_, vpnGatewayId) };
 
 
   protected:
     // The ID of the IPsec server.
-    std::shared_ptr<vector<string>> ipsecServerId_ = nullptr;
+    shared_ptr<vector<string>> ipsecServerId_ {};
     // The name of the IPsec server.
     // 
     // The name must be 1 to 100 characters in length.
-    std::shared_ptr<string> ipsecServerName_ = nullptr;
+    shared_ptr<string> ipsecServerName_ {};
     // The number of entries to return on each page. Valid values: **1** to **20**. Default value: **10**.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
     // *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the region where the IPsec server is created.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the IPsec server belongs.
     // 
     // The IPsec server and its associated VPN gateway belong to the same resource group. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the ID of the resource group to which the VPN gateway belongs.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The ID of the VPN gateway.
-    std::shared_ptr<string> vpnGatewayId_ = nullptr;
+    shared_ptr<string> vpnGatewayId_ {};
   };
 
   } // namespace Models

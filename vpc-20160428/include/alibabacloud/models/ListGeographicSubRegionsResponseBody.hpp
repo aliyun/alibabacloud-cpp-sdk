@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->geographicSubRegions_ == nullptr && return this->requestId_ == nullptr; };
+        && this->geographicSubRegions_ == nullptr && this->requestId_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int64_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
+    inline int64_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0L) };
     inline ListGeographicSubRegionsResponseBody& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // geographicSubRegions Field Functions 
     bool hasGeographicSubRegions() const { return this->geographicSubRegions_ != nullptr;};
     void deleteGeographicSubRegions() { this->geographicSubRegions_ = nullptr;};
-    inline const vector<string> & geographicSubRegions() const { DARABONBA_PTR_GET_CONST(geographicSubRegions_, vector<string>) };
-    inline vector<string> geographicSubRegions() { DARABONBA_PTR_GET(geographicSubRegions_, vector<string>) };
+    inline const vector<string> & getGeographicSubRegions() const { DARABONBA_PTR_GET_CONST(geographicSubRegions_, vector<string>) };
+    inline vector<string> getGeographicSubRegions() { DARABONBA_PTR_GET(geographicSubRegions_, vector<string>) };
     inline ListGeographicSubRegionsResponseBody& setGeographicSubRegions(const vector<string> & geographicSubRegions) { DARABONBA_PTR_SET_VALUE(geographicSubRegions_, geographicSubRegions) };
     inline ListGeographicSubRegionsResponseBody& setGeographicSubRegions(vector<string> && geographicSubRegions) { DARABONBA_PTR_SET_RVALUE(geographicSubRegions_, geographicSubRegions) };
 
@@ -55,17 +55,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListGeographicSubRegionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of entries.
-    std::shared_ptr<int64_t> count_ = nullptr;
+    shared_ptr<int64_t> count_ {};
     // The region list.
-    std::shared_ptr<vector<string>> geographicSubRegions_ = nullptr;
+    shared_ptr<vector<string>> geographicSubRegions_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

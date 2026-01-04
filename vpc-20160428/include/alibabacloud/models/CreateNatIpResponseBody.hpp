@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATENATIPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateNatIpResponseBodyNatIps.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,54 +38,106 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class NatIps : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const NatIps& obj) { 
+        DARABONBA_PTR_TO_JSON(Ipv4Prefix, ipv4Prefix_);
+        DARABONBA_PTR_TO_JSON(NatIp, natIp_);
+        DARABONBA_PTR_TO_JSON(NatIpId, natIpId_);
+      };
+      friend void from_json(const Darabonba::Json& j, NatIps& obj) { 
+        DARABONBA_PTR_FROM_JSON(Ipv4Prefix, ipv4Prefix_);
+        DARABONBA_PTR_FROM_JSON(NatIp, natIp_);
+        DARABONBA_PTR_FROM_JSON(NatIpId, natIpId_);
+      };
+      NatIps() = default ;
+      NatIps(const NatIps &) = default ;
+      NatIps(NatIps &&) = default ;
+      NatIps(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~NatIps() = default ;
+      NatIps& operator=(const NatIps &) = default ;
+      NatIps& operator=(NatIps &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ipv4Prefix_ == nullptr
+        && this->natIp_ == nullptr && this->natIpId_ == nullptr; };
+      // ipv4Prefix Field Functions 
+      bool hasIpv4Prefix() const { return this->ipv4Prefix_ != nullptr;};
+      void deleteIpv4Prefix() { this->ipv4Prefix_ = nullptr;};
+      inline string getIpv4Prefix() const { DARABONBA_PTR_GET_DEFAULT(ipv4Prefix_, "") };
+      inline NatIps& setIpv4Prefix(string ipv4Prefix) { DARABONBA_PTR_SET_VALUE(ipv4Prefix_, ipv4Prefix) };
+
+
+      // natIp Field Functions 
+      bool hasNatIp() const { return this->natIp_ != nullptr;};
+      void deleteNatIp() { this->natIp_ = nullptr;};
+      inline string getNatIp() const { DARABONBA_PTR_GET_DEFAULT(natIp_, "") };
+      inline NatIps& setNatIp(string natIp) { DARABONBA_PTR_SET_VALUE(natIp_, natIp) };
+
+
+      // natIpId Field Functions 
+      bool hasNatIpId() const { return this->natIpId_ != nullptr;};
+      void deleteNatIpId() { this->natIpId_ = nullptr;};
+      inline string getNatIpId() const { DARABONBA_PTR_GET_DEFAULT(natIpId_, "") };
+      inline NatIps& setNatIpId(string natIpId) { DARABONBA_PTR_SET_VALUE(natIpId_, natIpId) };
+
+
+    protected:
+      shared_ptr<string> ipv4Prefix_ {};
+      shared_ptr<string> natIp_ {};
+      shared_ptr<string> natIpId_ {};
+    };
+
     virtual bool empty() const override { return this->ipv4Prefix_ == nullptr
-        && return this->natIp_ == nullptr && return this->natIpId_ == nullptr && return this->natIps_ == nullptr && return this->requestId_ == nullptr; };
+        && this->natIp_ == nullptr && this->natIpId_ == nullptr && this->natIps_ == nullptr && this->requestId_ == nullptr; };
     // ipv4Prefix Field Functions 
     bool hasIpv4Prefix() const { return this->ipv4Prefix_ != nullptr;};
     void deleteIpv4Prefix() { this->ipv4Prefix_ = nullptr;};
-    inline string ipv4Prefix() const { DARABONBA_PTR_GET_DEFAULT(ipv4Prefix_, "") };
+    inline string getIpv4Prefix() const { DARABONBA_PTR_GET_DEFAULT(ipv4Prefix_, "") };
     inline CreateNatIpResponseBody& setIpv4Prefix(string ipv4Prefix) { DARABONBA_PTR_SET_VALUE(ipv4Prefix_, ipv4Prefix) };
 
 
     // natIp Field Functions 
     bool hasNatIp() const { return this->natIp_ != nullptr;};
     void deleteNatIp() { this->natIp_ = nullptr;};
-    inline string natIp() const { DARABONBA_PTR_GET_DEFAULT(natIp_, "") };
+    inline string getNatIp() const { DARABONBA_PTR_GET_DEFAULT(natIp_, "") };
     inline CreateNatIpResponseBody& setNatIp(string natIp) { DARABONBA_PTR_SET_VALUE(natIp_, natIp) };
 
 
     // natIpId Field Functions 
     bool hasNatIpId() const { return this->natIpId_ != nullptr;};
     void deleteNatIpId() { this->natIpId_ = nullptr;};
-    inline string natIpId() const { DARABONBA_PTR_GET_DEFAULT(natIpId_, "") };
+    inline string getNatIpId() const { DARABONBA_PTR_GET_DEFAULT(natIpId_, "") };
     inline CreateNatIpResponseBody& setNatIpId(string natIpId) { DARABONBA_PTR_SET_VALUE(natIpId_, natIpId) };
 
 
     // natIps Field Functions 
     bool hasNatIps() const { return this->natIps_ != nullptr;};
     void deleteNatIps() { this->natIps_ = nullptr;};
-    inline const vector<CreateNatIpResponseBodyNatIps> & natIps() const { DARABONBA_PTR_GET_CONST(natIps_, vector<CreateNatIpResponseBodyNatIps>) };
-    inline vector<CreateNatIpResponseBodyNatIps> natIps() { DARABONBA_PTR_GET(natIps_, vector<CreateNatIpResponseBodyNatIps>) };
-    inline CreateNatIpResponseBody& setNatIps(const vector<CreateNatIpResponseBodyNatIps> & natIps) { DARABONBA_PTR_SET_VALUE(natIps_, natIps) };
-    inline CreateNatIpResponseBody& setNatIps(vector<CreateNatIpResponseBodyNatIps> && natIps) { DARABONBA_PTR_SET_RVALUE(natIps_, natIps) };
+    inline const vector<CreateNatIpResponseBody::NatIps> & getNatIps() const { DARABONBA_PTR_GET_CONST(natIps_, vector<CreateNatIpResponseBody::NatIps>) };
+    inline vector<CreateNatIpResponseBody::NatIps> getNatIps() { DARABONBA_PTR_GET(natIps_, vector<CreateNatIpResponseBody::NatIps>) };
+    inline CreateNatIpResponseBody& setNatIps(const vector<CreateNatIpResponseBody::NatIps> & natIps) { DARABONBA_PTR_SET_VALUE(natIps_, natIps) };
+    inline CreateNatIpResponseBody& setNatIps(vector<CreateNatIpResponseBody::NatIps> && natIps) { DARABONBA_PTR_SET_RVALUE(natIps_, natIps) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateNatIpResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> ipv4Prefix_ = nullptr;
+    shared_ptr<string> ipv4Prefix_ {};
     // The NAT IP address.
-    std::shared_ptr<string> natIp_ = nullptr;
+    shared_ptr<string> natIp_ {};
     // The ID of the NAT IP address.
-    std::shared_ptr<string> natIpId_ = nullptr;
-    std::shared_ptr<vector<CreateNatIpResponseBodyNatIps>> natIps_ = nullptr;
+    shared_ptr<string> natIpId_ {};
+    shared_ptr<vector<CreateNatIpResponseBody::NatIps>> natIps_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

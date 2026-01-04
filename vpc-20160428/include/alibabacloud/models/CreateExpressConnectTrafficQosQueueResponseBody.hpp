@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->qosId_ == nullptr
-        && return this->queueId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->queueId_ == nullptr && this->requestId_ == nullptr; };
     // qosId Field Functions 
     bool hasQosId() const { return this->qosId_ != nullptr;};
     void deleteQosId() { this->qosId_ = nullptr;};
-    inline string qosId() const { DARABONBA_PTR_GET_DEFAULT(qosId_, "") };
+    inline string getQosId() const { DARABONBA_PTR_GET_DEFAULT(qosId_, "") };
     inline CreateExpressConnectTrafficQosQueueResponseBody& setQosId(string qosId) { DARABONBA_PTR_SET_VALUE(qosId_, qosId) };
 
 
     // queueId Field Functions 
     bool hasQueueId() const { return this->queueId_ != nullptr;};
     void deleteQueueId() { this->queueId_ = nullptr;};
-    inline string queueId() const { DARABONBA_PTR_GET_DEFAULT(queueId_, "") };
+    inline string getQueueId() const { DARABONBA_PTR_GET_DEFAULT(queueId_, "") };
     inline CreateExpressConnectTrafficQosQueueResponseBody& setQueueId(string queueId) { DARABONBA_PTR_SET_VALUE(queueId_, queueId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateExpressConnectTrafficQosQueueResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the QoS policy.
-    std::shared_ptr<string> qosId_ = nullptr;
+    shared_ptr<string> qosId_ {};
     // The ID of the QoS queue.
-    std::shared_ptr<string> queueId_ = nullptr;
+    shared_ptr<string> queueId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

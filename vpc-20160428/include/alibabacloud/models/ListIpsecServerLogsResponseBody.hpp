@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->data_ == nullptr && return this->isCompleted_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->isCompleted_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline ListIpsecServerLogsResponseBody& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<string> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<string>) };
-    inline vector<string> data() { DARABONBA_PTR_GET(data_, vector<string>) };
+    inline const vector<string> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<string>) };
+    inline vector<string> getData() { DARABONBA_PTR_GET(data_, vector<string>) };
     inline ListIpsecServerLogsResponseBody& setData(const vector<string> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline ListIpsecServerLogsResponseBody& setData(vector<string> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -61,47 +61,47 @@ namespace Models
     // isCompleted Field Functions 
     bool hasIsCompleted() const { return this->isCompleted_ != nullptr;};
     void deleteIsCompleted() { this->isCompleted_ = nullptr;};
-    inline bool isCompleted() const { DARABONBA_PTR_GET_DEFAULT(isCompleted_, false) };
+    inline bool getIsCompleted() const { DARABONBA_PTR_GET_DEFAULT(isCompleted_, false) };
     inline ListIpsecServerLogsResponseBody& setIsCompleted(bool isCompleted) { DARABONBA_PTR_SET_VALUE(isCompleted_, isCompleted) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListIpsecServerLogsResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListIpsecServerLogsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListIpsecServerLogsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of entries on the current page.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // Log information list.
-    std::shared_ptr<vector<string>> data_ = nullptr;
+    shared_ptr<vector<string>> data_ {};
     // Indicates whether the log is accurate. Valid values:
     // 
     // *   **true**: accurate
     // *   **false**: inaccurate
-    std::shared_ptr<bool> isCompleted_ = nullptr;
+    shared_ptr<bool> isCompleted_ {};
     // The page number of the returned page.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

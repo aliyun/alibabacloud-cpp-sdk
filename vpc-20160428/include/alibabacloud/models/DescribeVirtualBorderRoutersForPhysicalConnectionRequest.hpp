@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEVIRTUALBORDERROUTERSFORPHYSICALCONNECTIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -45,85 +44,139 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Filter : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Filter& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Filter& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Filter() = default ;
+      Filter(const Filter &) = default ;
+      Filter(Filter &&) = default ;
+      Filter(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Filter() = default ;
+      Filter& operator=(const Filter &) = default ;
+      Filter& operator=(Filter &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Filter& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline const vector<string> & getValue() const { DARABONBA_PTR_GET_CONST(value_, vector<string>) };
+      inline vector<string> getValue() { DARABONBA_PTR_GET(value_, vector<string>) };
+      inline Filter& setValue(const vector<string> & value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+      inline Filter& setValue(vector<string> && value) { DARABONBA_PTR_SET_RVALUE(value_, value) };
+
+
+    protected:
+      // The filter conditions. You can specify at most five filter conditions. The following filter conditions are supported:
+      // 
+      // *   **PhysicalConnectionId**: filter VBRs by the Express Connect circuit ID.
+      // *   **VbrId**: filter VBRs by ID.
+      // *   **Status**: filter VBRs by status.
+      // *   **Name**: filter VBRs by name.
+      // *   **AccessPointId**: filter VBRs by access point ID.
+      // *   **eccId**: filter VBRs by ID of Express Cloud Connect (ECC) instance.
+      // *   **type**: filter VBRs by type.
+      shared_ptr<string> key_ {};
+      // The filter value for the key. You can specify multiple filter values for one key. The logical operator among filter values is OR. If one filter value is matched, the filter condition is matched.
+      shared_ptr<vector<string>> value_ {};
+    };
+
     virtual bool empty() const override { return this->filter_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->physicalConnectionId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline const vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter> & filter() const { DARABONBA_PTR_GET_CONST(filter_, vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter>) };
-    inline vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter> filter() { DARABONBA_PTR_GET(filter_, vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter>) };
-    inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setFilter(const vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter> & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
-    inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setFilter(vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter> && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
+    inline const vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter> & getFilter() const { DARABONBA_PTR_GET_CONST(filter_, vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter>) };
+    inline vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter> getFilter() { DARABONBA_PTR_GET(filter_, vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter>) };
+    inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setFilter(const vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter> & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
+    inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setFilter(vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter> && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // physicalConnectionId Field Functions 
     bool hasPhysicalConnectionId() const { return this->physicalConnectionId_ != nullptr;};
     void deletePhysicalConnectionId() { this->physicalConnectionId_ = nullptr;};
-    inline string physicalConnectionId() const { DARABONBA_PTR_GET_DEFAULT(physicalConnectionId_, "") };
+    inline string getPhysicalConnectionId() const { DARABONBA_PTR_GET_DEFAULT(physicalConnectionId_, "") };
     inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setPhysicalConnectionId(string physicalConnectionId) { DARABONBA_PTR_SET_VALUE(physicalConnectionId_, physicalConnectionId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeVirtualBorderRoutersForPhysicalConnectionRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
   protected:
     // The filter keys.
-    std::shared_ptr<vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter>> filter_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter>> filter_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: **50**. Default value: **10**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the Express Connect circuit.
     // 
     // This parameter is required.
-    std::shared_ptr<string> physicalConnectionId_ = nullptr;
+    shared_ptr<string> physicalConnectionId_ {};
     // The region in which the Express Connect circuit is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

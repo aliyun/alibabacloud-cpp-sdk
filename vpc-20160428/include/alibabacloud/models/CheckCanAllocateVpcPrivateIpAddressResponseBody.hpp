@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->canAllocate_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // canAllocate Field Functions 
     bool hasCanAllocate() const { return this->canAllocate_ != nullptr;};
     void deleteCanAllocate() { this->canAllocate_ = nullptr;};
-    inline bool canAllocate() const { DARABONBA_PTR_GET_DEFAULT(canAllocate_, false) };
+    inline bool getCanAllocate() const { DARABONBA_PTR_GET_DEFAULT(canAllocate_, false) };
     inline CheckCanAllocateVpcPrivateIpAddressResponseBody& setCanAllocate(bool canAllocate) { DARABONBA_PTR_SET_VALUE(canAllocate_, canAllocate) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckCanAllocateVpcPrivateIpAddressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> canAllocate_ = nullptr;
+    shared_ptr<bool> canAllocate_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

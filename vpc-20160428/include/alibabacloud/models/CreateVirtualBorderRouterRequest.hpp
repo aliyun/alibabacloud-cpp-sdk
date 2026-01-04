@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEVIRTUALBORDERROUTERREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateVirtualBorderRouterRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -73,165 +72,213 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key. You must enter at least one tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // 
+      // A tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      shared_ptr<string> key_ {};
+      // The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+      // 
+      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->bandwidth_ == nullptr
-        && return this->circuitCode_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->enableIpv6_ == nullptr && return this->localGatewayIp_ == nullptr
-        && return this->localIpv6GatewayIp_ == nullptr && return this->name_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->peerGatewayIp_ == nullptr
-        && return this->peerIpv6GatewayIp_ == nullptr && return this->peeringIpv6SubnetMask_ == nullptr && return this->peeringSubnetMask_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tags_ == nullptr && return this->vbrOwnerId_ == nullptr
-        && return this->vlanId_ == nullptr; };
+        && this->circuitCode_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->enableIpv6_ == nullptr && this->localGatewayIp_ == nullptr
+        && this->localIpv6GatewayIp_ == nullptr && this->name_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->peerGatewayIp_ == nullptr
+        && this->peerIpv6GatewayIp_ == nullptr && this->peeringIpv6SubnetMask_ == nullptr && this->peeringSubnetMask_ == nullptr && this->physicalConnectionId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tags_ == nullptr && this->vbrOwnerId_ == nullptr
+        && this->vlanId_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
-    inline int64_t bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0L) };
+    inline int64_t getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0L) };
     inline CreateVirtualBorderRouterRequest& setBandwidth(int64_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
     // circuitCode Field Functions 
     bool hasCircuitCode() const { return this->circuitCode_ != nullptr;};
     void deleteCircuitCode() { this->circuitCode_ = nullptr;};
-    inline string circuitCode() const { DARABONBA_PTR_GET_DEFAULT(circuitCode_, "") };
+    inline string getCircuitCode() const { DARABONBA_PTR_GET_DEFAULT(circuitCode_, "") };
     inline CreateVirtualBorderRouterRequest& setCircuitCode(string circuitCode) { DARABONBA_PTR_SET_VALUE(circuitCode_, circuitCode) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateVirtualBorderRouterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateVirtualBorderRouterRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enableIpv6 Field Functions 
     bool hasEnableIpv6() const { return this->enableIpv6_ != nullptr;};
     void deleteEnableIpv6() { this->enableIpv6_ = nullptr;};
-    inline bool enableIpv6() const { DARABONBA_PTR_GET_DEFAULT(enableIpv6_, false) };
+    inline bool getEnableIpv6() const { DARABONBA_PTR_GET_DEFAULT(enableIpv6_, false) };
     inline CreateVirtualBorderRouterRequest& setEnableIpv6(bool enableIpv6) { DARABONBA_PTR_SET_VALUE(enableIpv6_, enableIpv6) };
 
 
     // localGatewayIp Field Functions 
     bool hasLocalGatewayIp() const { return this->localGatewayIp_ != nullptr;};
     void deleteLocalGatewayIp() { this->localGatewayIp_ = nullptr;};
-    inline string localGatewayIp() const { DARABONBA_PTR_GET_DEFAULT(localGatewayIp_, "") };
+    inline string getLocalGatewayIp() const { DARABONBA_PTR_GET_DEFAULT(localGatewayIp_, "") };
     inline CreateVirtualBorderRouterRequest& setLocalGatewayIp(string localGatewayIp) { DARABONBA_PTR_SET_VALUE(localGatewayIp_, localGatewayIp) };
 
 
     // localIpv6GatewayIp Field Functions 
     bool hasLocalIpv6GatewayIp() const { return this->localIpv6GatewayIp_ != nullptr;};
     void deleteLocalIpv6GatewayIp() { this->localIpv6GatewayIp_ = nullptr;};
-    inline string localIpv6GatewayIp() const { DARABONBA_PTR_GET_DEFAULT(localIpv6GatewayIp_, "") };
+    inline string getLocalIpv6GatewayIp() const { DARABONBA_PTR_GET_DEFAULT(localIpv6GatewayIp_, "") };
     inline CreateVirtualBorderRouterRequest& setLocalIpv6GatewayIp(string localIpv6GatewayIp) { DARABONBA_PTR_SET_VALUE(localIpv6GatewayIp_, localIpv6GatewayIp) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateVirtualBorderRouterRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CreateVirtualBorderRouterRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateVirtualBorderRouterRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // peerGatewayIp Field Functions 
     bool hasPeerGatewayIp() const { return this->peerGatewayIp_ != nullptr;};
     void deletePeerGatewayIp() { this->peerGatewayIp_ = nullptr;};
-    inline string peerGatewayIp() const { DARABONBA_PTR_GET_DEFAULT(peerGatewayIp_, "") };
+    inline string getPeerGatewayIp() const { DARABONBA_PTR_GET_DEFAULT(peerGatewayIp_, "") };
     inline CreateVirtualBorderRouterRequest& setPeerGatewayIp(string peerGatewayIp) { DARABONBA_PTR_SET_VALUE(peerGatewayIp_, peerGatewayIp) };
 
 
     // peerIpv6GatewayIp Field Functions 
     bool hasPeerIpv6GatewayIp() const { return this->peerIpv6GatewayIp_ != nullptr;};
     void deletePeerIpv6GatewayIp() { this->peerIpv6GatewayIp_ = nullptr;};
-    inline string peerIpv6GatewayIp() const { DARABONBA_PTR_GET_DEFAULT(peerIpv6GatewayIp_, "") };
+    inline string getPeerIpv6GatewayIp() const { DARABONBA_PTR_GET_DEFAULT(peerIpv6GatewayIp_, "") };
     inline CreateVirtualBorderRouterRequest& setPeerIpv6GatewayIp(string peerIpv6GatewayIp) { DARABONBA_PTR_SET_VALUE(peerIpv6GatewayIp_, peerIpv6GatewayIp) };
 
 
     // peeringIpv6SubnetMask Field Functions 
     bool hasPeeringIpv6SubnetMask() const { return this->peeringIpv6SubnetMask_ != nullptr;};
     void deletePeeringIpv6SubnetMask() { this->peeringIpv6SubnetMask_ = nullptr;};
-    inline string peeringIpv6SubnetMask() const { DARABONBA_PTR_GET_DEFAULT(peeringIpv6SubnetMask_, "") };
+    inline string getPeeringIpv6SubnetMask() const { DARABONBA_PTR_GET_DEFAULT(peeringIpv6SubnetMask_, "") };
     inline CreateVirtualBorderRouterRequest& setPeeringIpv6SubnetMask(string peeringIpv6SubnetMask) { DARABONBA_PTR_SET_VALUE(peeringIpv6SubnetMask_, peeringIpv6SubnetMask) };
 
 
     // peeringSubnetMask Field Functions 
     bool hasPeeringSubnetMask() const { return this->peeringSubnetMask_ != nullptr;};
     void deletePeeringSubnetMask() { this->peeringSubnetMask_ = nullptr;};
-    inline string peeringSubnetMask() const { DARABONBA_PTR_GET_DEFAULT(peeringSubnetMask_, "") };
+    inline string getPeeringSubnetMask() const { DARABONBA_PTR_GET_DEFAULT(peeringSubnetMask_, "") };
     inline CreateVirtualBorderRouterRequest& setPeeringSubnetMask(string peeringSubnetMask) { DARABONBA_PTR_SET_VALUE(peeringSubnetMask_, peeringSubnetMask) };
 
 
     // physicalConnectionId Field Functions 
     bool hasPhysicalConnectionId() const { return this->physicalConnectionId_ != nullptr;};
     void deletePhysicalConnectionId() { this->physicalConnectionId_ = nullptr;};
-    inline string physicalConnectionId() const { DARABONBA_PTR_GET_DEFAULT(physicalConnectionId_, "") };
+    inline string getPhysicalConnectionId() const { DARABONBA_PTR_GET_DEFAULT(physicalConnectionId_, "") };
     inline CreateVirtualBorderRouterRequest& setPhysicalConnectionId(string physicalConnectionId) { DARABONBA_PTR_SET_VALUE(physicalConnectionId_, physicalConnectionId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateVirtualBorderRouterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateVirtualBorderRouterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateVirtualBorderRouterRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateVirtualBorderRouterRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<CreateVirtualBorderRouterRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateVirtualBorderRouterRequestTags>) };
-    inline vector<CreateVirtualBorderRouterRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateVirtualBorderRouterRequestTags>) };
-    inline CreateVirtualBorderRouterRequest& setTags(const vector<CreateVirtualBorderRouterRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline CreateVirtualBorderRouterRequest& setTags(vector<CreateVirtualBorderRouterRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<CreateVirtualBorderRouterRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateVirtualBorderRouterRequest::Tags>) };
+    inline vector<CreateVirtualBorderRouterRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreateVirtualBorderRouterRequest::Tags>) };
+    inline CreateVirtualBorderRouterRequest& setTags(const vector<CreateVirtualBorderRouterRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateVirtualBorderRouterRequest& setTags(vector<CreateVirtualBorderRouterRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // vbrOwnerId Field Functions 
     bool hasVbrOwnerId() const { return this->vbrOwnerId_ != nullptr;};
     void deleteVbrOwnerId() { this->vbrOwnerId_ = nullptr;};
-    inline int64_t vbrOwnerId() const { DARABONBA_PTR_GET_DEFAULT(vbrOwnerId_, 0L) };
+    inline int64_t getVbrOwnerId() const { DARABONBA_PTR_GET_DEFAULT(vbrOwnerId_, 0L) };
     inline CreateVirtualBorderRouterRequest& setVbrOwnerId(int64_t vbrOwnerId) { DARABONBA_PTR_SET_VALUE(vbrOwnerId_, vbrOwnerId) };
 
 
     // vlanId Field Functions 
     bool hasVlanId() const { return this->vlanId_ != nullptr;};
     void deleteVlanId() { this->vlanId_ = nullptr;};
-    inline int32_t vlanId() const { DARABONBA_PTR_GET_DEFAULT(vlanId_, 0) };
+    inline int32_t getVlanId() const { DARABONBA_PTR_GET_DEFAULT(vlanId_, 0) };
     inline CreateVirtualBorderRouterRequest& setVlanId(int32_t vlanId) { DARABONBA_PTR_SET_VALUE(vlanId_, vlanId) };
 
 
@@ -240,86 +287,86 @@ namespace Models
     // 
     // *   When you create a VBR for a dedicated connection, valid values are **50**, **100**, **200**, **300**, **400**, **500**, **1000**, **2048**, **5120**, **8192**, **10240**, **20480**, **40960**, **50120**, **61440**, and **102400**.
     // *   You do not need to set this parameter when you create a VBR for a hosted connection. The bandwidth is already configured when the hosted connection is created.
-    std::shared_ptr<int64_t> bandwidth_ = nullptr;
+    shared_ptr<int64_t> bandwidth_ {};
     // The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
     // 
     // >  Only the owner of the Express Connect circuit can set this parameter.
-    std::shared_ptr<string> circuitCode_ = nullptr;
+    shared_ptr<string> circuitCode_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the value, but you must make sure that it is unique among different requests.
     // 
     // >  If you do not set this parameter, the system automatically sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The description of the VBR.
     // 
     // The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to enable IPv6. Valid values:
     // 
     // *   **true**: enables IPv6.
     // *   **false** (default): disables IPv6.
-    std::shared_ptr<bool> enableIpv6_ = nullptr;
+    shared_ptr<bool> enableIpv6_ {};
     // The IP address of the VBR. Only the owner of the VBR can set or modify this parameter.
     // 
     // When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
-    std::shared_ptr<string> localGatewayIp_ = nullptr;
+    shared_ptr<string> localGatewayIp_ {};
     // The IPv6 address of the VBR. Only the owner of the VBR can set or modify this parameter.
     // 
     // When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
-    std::shared_ptr<string> localIpv6GatewayIp_ = nullptr;
+    shared_ptr<string> localIpv6GatewayIp_ {};
     // The name of the VBR.
     // 
     // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The IP address of the gateway device in the data center. Only the owner of the VBR can set or modify this parameter.
     // 
     // When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
-    std::shared_ptr<string> peerGatewayIp_ = nullptr;
+    shared_ptr<string> peerGatewayIp_ {};
     // The IPv6 address of the gateway device in the data center. Only the owner of the VBR can set or modify this parameter.
     // 
     // When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
-    std::shared_ptr<string> peerIpv6GatewayIp_ = nullptr;
+    shared_ptr<string> peerIpv6GatewayIp_ {};
     // The subnet mask of the IPv6 addresses of the VBR and the gateway device in the data center.
     // 
     // The two IPv6 addresses must fall within the same subnet.
-    std::shared_ptr<string> peeringIpv6SubnetMask_ = nullptr;
+    shared_ptr<string> peeringIpv6SubnetMask_ {};
     // The subnet mask of the IP addresses of the VBR and the gateway device in the data center.
     // 
     // The two IP addresses must fall within the same subnet.
-    std::shared_ptr<string> peeringSubnetMask_ = nullptr;
+    shared_ptr<string> peeringSubnetMask_ {};
     // The ID of the Express Connect circuit.
     // 
     // You can create a VBR for a dedicated connection or a hosted connection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> physicalConnectionId_ = nullptr;
+    shared_ptr<string> physicalConnectionId_ {};
     // The region ID of the Express Connect circuit.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
     // 
     // For more information about resource group, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags.
-    std::shared_ptr<vector<CreateVirtualBorderRouterRequestTags>> tags_ = nullptr;
+    shared_ptr<vector<CreateVirtualBorderRouterRequest::Tags>> tags_ {};
     // The account ID of the VBR owner.
     // 
     // The default value is the ID of the current Alibaba Cloud account.
-    std::shared_ptr<int64_t> vbrOwnerId_ = nullptr;
+    shared_ptr<int64_t> vbrOwnerId_ {};
     // The VLAN ID of the VBR. Valid values: **0 to 2999**.
     // 
     // >  Only the owner of the Express Connect circuit can set this parameter. The VLAN IDs of two VBRs of the same the Express Connect circuit must be different.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> vlanId_ = nullptr;
+    shared_ptr<int32_t> vlanId_ {};
   };
 
   } // namespace Models

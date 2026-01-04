@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->natIpCidrId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // natIpCidrId Field Functions 
     bool hasNatIpCidrId() const { return this->natIpCidrId_ != nullptr;};
     void deleteNatIpCidrId() { this->natIpCidrId_ = nullptr;};
-    inline string natIpCidrId() const { DARABONBA_PTR_GET_DEFAULT(natIpCidrId_, "") };
+    inline string getNatIpCidrId() const { DARABONBA_PTR_GET_DEFAULT(natIpCidrId_, "") };
     inline CreateNatIpCidrResponseBody& setNatIpCidrId(string natIpCidrId) { DARABONBA_PTR_SET_VALUE(natIpCidrId_, natIpCidrId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateNatIpCidrResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the NAT CIDR block.
-    std::shared_ptr<string> natIpCidrId_ = nullptr;
+    shared_ptr<string> natIpCidrId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

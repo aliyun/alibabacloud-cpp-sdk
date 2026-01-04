@@ -60,118 +60,118 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessIp_ == nullptr
-        && return this->accessPort_ == nullptr && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->fullNatEntryDescription_ == nullptr && return this->fullNatEntryName_ == nullptr
-        && return this->fullNatTableId_ == nullptr && return this->ipProtocol_ == nullptr && return this->natIp_ == nullptr && return this->natIpPort_ == nullptr && return this->networkInterfaceId_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->accessPort_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->fullNatEntryDescription_ == nullptr && this->fullNatEntryName_ == nullptr
+        && this->fullNatTableId_ == nullptr && this->ipProtocol_ == nullptr && this->natIp_ == nullptr && this->natIpPort_ == nullptr && this->networkInterfaceId_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // accessIp Field Functions 
     bool hasAccessIp() const { return this->accessIp_ != nullptr;};
     void deleteAccessIp() { this->accessIp_ = nullptr;};
-    inline string accessIp() const { DARABONBA_PTR_GET_DEFAULT(accessIp_, "") };
+    inline string getAccessIp() const { DARABONBA_PTR_GET_DEFAULT(accessIp_, "") };
     inline CreateFullNatEntryRequest& setAccessIp(string accessIp) { DARABONBA_PTR_SET_VALUE(accessIp_, accessIp) };
 
 
     // accessPort Field Functions 
     bool hasAccessPort() const { return this->accessPort_ != nullptr;};
     void deleteAccessPort() { this->accessPort_ = nullptr;};
-    inline string accessPort() const { DARABONBA_PTR_GET_DEFAULT(accessPort_, "") };
+    inline string getAccessPort() const { DARABONBA_PTR_GET_DEFAULT(accessPort_, "") };
     inline CreateFullNatEntryRequest& setAccessPort(string accessPort) { DARABONBA_PTR_SET_VALUE(accessPort_, accessPort) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateFullNatEntryRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateFullNatEntryRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // fullNatEntryDescription Field Functions 
     bool hasFullNatEntryDescription() const { return this->fullNatEntryDescription_ != nullptr;};
     void deleteFullNatEntryDescription() { this->fullNatEntryDescription_ = nullptr;};
-    inline string fullNatEntryDescription() const { DARABONBA_PTR_GET_DEFAULT(fullNatEntryDescription_, "") };
+    inline string getFullNatEntryDescription() const { DARABONBA_PTR_GET_DEFAULT(fullNatEntryDescription_, "") };
     inline CreateFullNatEntryRequest& setFullNatEntryDescription(string fullNatEntryDescription) { DARABONBA_PTR_SET_VALUE(fullNatEntryDescription_, fullNatEntryDescription) };
 
 
     // fullNatEntryName Field Functions 
     bool hasFullNatEntryName() const { return this->fullNatEntryName_ != nullptr;};
     void deleteFullNatEntryName() { this->fullNatEntryName_ = nullptr;};
-    inline string fullNatEntryName() const { DARABONBA_PTR_GET_DEFAULT(fullNatEntryName_, "") };
+    inline string getFullNatEntryName() const { DARABONBA_PTR_GET_DEFAULT(fullNatEntryName_, "") };
     inline CreateFullNatEntryRequest& setFullNatEntryName(string fullNatEntryName) { DARABONBA_PTR_SET_VALUE(fullNatEntryName_, fullNatEntryName) };
 
 
     // fullNatTableId Field Functions 
     bool hasFullNatTableId() const { return this->fullNatTableId_ != nullptr;};
     void deleteFullNatTableId() { this->fullNatTableId_ = nullptr;};
-    inline string fullNatTableId() const { DARABONBA_PTR_GET_DEFAULT(fullNatTableId_, "") };
+    inline string getFullNatTableId() const { DARABONBA_PTR_GET_DEFAULT(fullNatTableId_, "") };
     inline CreateFullNatEntryRequest& setFullNatTableId(string fullNatTableId) { DARABONBA_PTR_SET_VALUE(fullNatTableId_, fullNatTableId) };
 
 
     // ipProtocol Field Functions 
     bool hasIpProtocol() const { return this->ipProtocol_ != nullptr;};
     void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
-    inline string ipProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
+    inline string getIpProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
     inline CreateFullNatEntryRequest& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
 
 
     // natIp Field Functions 
     bool hasNatIp() const { return this->natIp_ != nullptr;};
     void deleteNatIp() { this->natIp_ = nullptr;};
-    inline string natIp() const { DARABONBA_PTR_GET_DEFAULT(natIp_, "") };
+    inline string getNatIp() const { DARABONBA_PTR_GET_DEFAULT(natIp_, "") };
     inline CreateFullNatEntryRequest& setNatIp(string natIp) { DARABONBA_PTR_SET_VALUE(natIp_, natIp) };
 
 
     // natIpPort Field Functions 
     bool hasNatIpPort() const { return this->natIpPort_ != nullptr;};
     void deleteNatIpPort() { this->natIpPort_ = nullptr;};
-    inline string natIpPort() const { DARABONBA_PTR_GET_DEFAULT(natIpPort_, "") };
+    inline string getNatIpPort() const { DARABONBA_PTR_GET_DEFAULT(natIpPort_, "") };
     inline CreateFullNatEntryRequest& setNatIpPort(string natIpPort) { DARABONBA_PTR_SET_VALUE(natIpPort_, natIpPort) };
 
 
     // networkInterfaceId Field Functions 
     bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
     void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
-    inline string networkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
+    inline string getNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
     inline CreateFullNatEntryRequest& setNetworkInterfaceId(string networkInterfaceId) { DARABONBA_PTR_SET_VALUE(networkInterfaceId_, networkInterfaceId) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CreateFullNatEntryRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateFullNatEntryRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateFullNatEntryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateFullNatEntryRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateFullNatEntryRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -179,59 +179,59 @@ namespace Models
     // The backend IP address to be modified in FULLNAT address translation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessIp_ = nullptr;
+    shared_ptr<string> accessIp_ {};
     // The backend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessPort_ = nullptr;
+    shared_ptr<string> accessPort_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate a value, and you must make sure that each request has a unique token value. The client token can contain only ASCII characters.
     // 
     // >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to only precheck this request. Valid values:
     // 
     // *   **true**: prechecks the request without adding the FULLNAT entry. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails to pass the precheck, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
     // *   **false**: sends the API request. This is the default value. After the request passes the precheck, a 2XX HTTP status code is returned and the FULLNAT entry is added.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The description of the FULLNAT entry.
     // 
     // This parameter is optional. If you enter a description, the description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
-    std::shared_ptr<string> fullNatEntryDescription_ = nullptr;
+    shared_ptr<string> fullNatEntryDescription_ {};
     // The FULLNAT entry name. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://.
-    std::shared_ptr<string> fullNatEntryName_ = nullptr;
+    shared_ptr<string> fullNatEntryName_ {};
     // The ID of the FULLNAT table to which the FULLNAT entry belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fullNatTableId_ = nullptr;
+    shared_ptr<string> fullNatTableId_ {};
     // The protocol of the packets that are forwarded by the port. Valid values:
     // 
     // *   **TCP**
     // *   **UDP**
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipProtocol_ = nullptr;
+    shared_ptr<string> ipProtocol_ {};
     // The NAT IP address that provides address translation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> natIp_ = nullptr;
+    shared_ptr<string> natIp_ {};
     // The frontend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
-    std::shared_ptr<string> natIpPort_ = nullptr;
+    shared_ptr<string> natIpPort_ {};
     // The elastic network interface (ENI) ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkInterfaceId_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> networkInterfaceId_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID of the Virtual Private Cloud (VPC) NAT gateway to which the FULLNAT entry to be added belongs.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models
