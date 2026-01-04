@@ -38,59 +38,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->instanceId_ == nullptr && return this->organizationalUnitExternalId_ == nullptr && return this->organizationalUnitName_ == nullptr && return this->parentId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->organizationalUnitExternalId_ == nullptr && this->organizationalUnitName_ == nullptr && this->parentId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateOrganizationalUnitRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateOrganizationalUnitRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // organizationalUnitExternalId Field Functions 
     bool hasOrganizationalUnitExternalId() const { return this->organizationalUnitExternalId_ != nullptr;};
     void deleteOrganizationalUnitExternalId() { this->organizationalUnitExternalId_ = nullptr;};
-    inline string organizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
+    inline string getOrganizationalUnitExternalId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitExternalId_, "") };
     inline CreateOrganizationalUnitRequest& setOrganizationalUnitExternalId(string organizationalUnitExternalId) { DARABONBA_PTR_SET_VALUE(organizationalUnitExternalId_, organizationalUnitExternalId) };
 
 
     // organizationalUnitName Field Functions 
     bool hasOrganizationalUnitName() const { return this->organizationalUnitName_ != nullptr;};
     void deleteOrganizationalUnitName() { this->organizationalUnitName_ = nullptr;};
-    inline string organizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
+    inline string getOrganizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
     inline CreateOrganizationalUnitRequest& setOrganizationalUnitName(string organizationalUnitName) { DARABONBA_PTR_SET_VALUE(organizationalUnitName_, organizationalUnitName) };
 
 
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
-    inline string parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
     inline CreateOrganizationalUnitRequest& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
   protected:
     // The description of the organization. The value can be up to 256 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The external ID of the organization, which can be used to associate the organization with an external system. By default, the external ID is the organization ID. The value can be up to 64 characters in length.
-    std::shared_ptr<string> organizationalUnitExternalId_ = nullptr;
+    shared_ptr<string> organizationalUnitExternalId_ {};
     // The name of the organization. The name can be up to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationalUnitName_ = nullptr;
+    shared_ptr<string> organizationalUnitName_ {};
     // The parent organization ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> parentId_ = nullptr;
+    shared_ptr<string> parentId_ {};
   };
 
   } // namespace Models

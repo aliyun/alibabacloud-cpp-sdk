@@ -33,7 +33,7 @@ namespace Models
     // naeRegionId Field Functions 
     bool hasNaeRegionId() const { return this->naeRegionId_ != nullptr;};
     void deleteNaeRegionId() { this->naeRegionId_ = nullptr;};
-    inline string naeRegionId() const { DARABONBA_PTR_GET_DEFAULT(naeRegionId_, "") };
+    inline string getNaeRegionId() const { DARABONBA_PTR_GET_DEFAULT(naeRegionId_, "") };
     inline ListNetworkAccessEndpointAvailableZonesRequest& setNaeRegionId(string naeRegionId) { DARABONBA_PTR_SET_VALUE(naeRegionId_, naeRegionId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // 专属网络端点支持的地域
     // 
     // This parameter is required.
-    std::shared_ptr<string> naeRegionId_ = nullptr;
+    shared_ptr<string> naeRegionId_ {};
   };
 
   } // namespace Models

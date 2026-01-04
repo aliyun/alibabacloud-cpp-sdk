@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->userPrimaryOrganizationalUnitId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->userPrimaryOrganizationalUnitId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // userPrimaryOrganizationalUnitId Field Functions 
     bool hasUserPrimaryOrganizationalUnitId() const { return this->userPrimaryOrganizationalUnitId_ != nullptr;};
     void deleteUserPrimaryOrganizationalUnitId() { this->userPrimaryOrganizationalUnitId_ = nullptr;};
-    inline string userPrimaryOrganizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(userPrimaryOrganizationalUnitId_, "") };
+    inline string getUserPrimaryOrganizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(userPrimaryOrganizationalUnitId_, "") };
     inline SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest& setUserPrimaryOrganizationalUnitId(string userPrimaryOrganizationalUnitId) { DARABONBA_PTR_SET_VALUE(userPrimaryOrganizationalUnitId_, userPrimaryOrganizationalUnitId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // IDaaS的应用资源ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // 组织ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> userPrimaryOrganizationalUnitId_ = nullptr;
+    shared_ptr<string> userPrimaryOrganizationalUnitId_ {};
   };
 
   } // namespace Models

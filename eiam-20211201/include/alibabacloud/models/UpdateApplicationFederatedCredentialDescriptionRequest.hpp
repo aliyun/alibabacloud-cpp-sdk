@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationFederatedCredentialId_ == nullptr
-        && return this->applicationId_ == nullptr && return this->description_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->applicationId_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr; };
     // applicationFederatedCredentialId Field Functions 
     bool hasApplicationFederatedCredentialId() const { return this->applicationFederatedCredentialId_ != nullptr;};
     void deleteApplicationFederatedCredentialId() { this->applicationFederatedCredentialId_ = nullptr;};
-    inline string applicationFederatedCredentialId() const { DARABONBA_PTR_GET_DEFAULT(applicationFederatedCredentialId_, "") };
+    inline string getApplicationFederatedCredentialId() const { DARABONBA_PTR_GET_DEFAULT(applicationFederatedCredentialId_, "") };
     inline UpdateApplicationFederatedCredentialDescriptionRequest& setApplicationFederatedCredentialId(string applicationFederatedCredentialId) { DARABONBA_PTR_SET_VALUE(applicationFederatedCredentialId_, applicationFederatedCredentialId) };
 
 
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline UpdateApplicationFederatedCredentialDescriptionRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateApplicationFederatedCredentialDescriptionRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateApplicationFederatedCredentialDescriptionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // 应用联邦凭证Id
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationFederatedCredentialId_ = nullptr;
+    shared_ptr<string> applicationFederatedCredentialId_ {};
     // IDaaS的应用资源ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // 联邦凭证描述
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

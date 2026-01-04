@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->userIds_ == nullptr; };
+        && this->instanceId_ == nullptr && this->userIds_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline RevokeApplicationFromUsersRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RevokeApplicationFromUsersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // userIds Field Functions 
     bool hasUserIds() const { return this->userIds_ != nullptr;};
     void deleteUserIds() { this->userIds_ = nullptr;};
-    inline const vector<string> & userIds() const { DARABONBA_PTR_GET_CONST(userIds_, vector<string>) };
-    inline vector<string> userIds() { DARABONBA_PTR_GET(userIds_, vector<string>) };
+    inline const vector<string> & getUserIds() const { DARABONBA_PTR_GET_CONST(userIds_, vector<string>) };
+    inline vector<string> getUserIds() { DARABONBA_PTR_GET(userIds_, vector<string>) };
     inline RevokeApplicationFromUsersRequest& setUserIds(const vector<string> & userIds) { DARABONBA_PTR_SET_VALUE(userIds_, userIds) };
     inline RevokeApplicationFromUsersRequest& setUserIds(vector<string> && userIds) { DARABONBA_PTR_SET_RVALUE(userIds_, userIds) };
 
@@ -63,15 +63,15 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The IDs of the accounts. You can revoke the access permissions from a maximum of 100 accounts at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> userIds_ = nullptr;
+    shared_ptr<vector<string>> userIds_ {};
   };
 
   } // namespace Models

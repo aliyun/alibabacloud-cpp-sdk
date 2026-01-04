@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationAccountId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // applicationAccountId Field Functions 
     bool hasApplicationAccountId() const { return this->applicationAccountId_ != nullptr;};
     void deleteApplicationAccountId() { this->applicationAccountId_ = nullptr;};
-    inline string applicationAccountId() const { DARABONBA_PTR_GET_DEFAULT(applicationAccountId_, "") };
+    inline string getApplicationAccountId() const { DARABONBA_PTR_GET_DEFAULT(applicationAccountId_, "") };
     inline AddApplicationAccountToUserResponseBody& setApplicationAccountId(string applicationAccountId) { DARABONBA_PTR_SET_VALUE(applicationAccountId_, applicationAccountId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddApplicationAccountToUserResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> applicationAccountId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> applicationAccountId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

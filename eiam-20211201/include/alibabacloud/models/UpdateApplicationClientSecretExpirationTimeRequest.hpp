@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->expirationTime_ == nullptr && return this->instanceId_ == nullptr && return this->secretId_ == nullptr; };
+        && this->expirationTime_ == nullptr && this->instanceId_ == nullptr && this->secretId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline UpdateApplicationClientSecretExpirationTimeRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // expirationTime Field Functions 
     bool hasExpirationTime() const { return this->expirationTime_ != nullptr;};
     void deleteExpirationTime() { this->expirationTime_ = nullptr;};
-    inline int64_t expirationTime() const { DARABONBA_PTR_GET_DEFAULT(expirationTime_, 0L) };
+    inline int64_t getExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(expirationTime_, 0L) };
     inline UpdateApplicationClientSecretExpirationTimeRequest& setExpirationTime(int64_t expirationTime) { DARABONBA_PTR_SET_VALUE(expirationTime_, expirationTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateApplicationClientSecretExpirationTimeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // secretId Field Functions 
     bool hasSecretId() const { return this->secretId_ != nullptr;};
     void deleteSecretId() { this->secretId_ = nullptr;};
-    inline string secretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, "") };
+    inline string getSecretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, "") };
     inline UpdateApplicationClientSecretExpirationTimeRequest& setSecretId(string secretId) { DARABONBA_PTR_SET_VALUE(secretId_, secretId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // IDaaS的应用资源ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // client secret的有效期时间，Unix时间戳格式，单位为毫秒
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> expirationTime_ = nullptr;
+    shared_ptr<int64_t> expirationTime_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // OIDC 场景下用于客户端身份验证的客户端密钥
     // 
     // This parameter is required.
-    std::shared_ptr<string> secretId_ = nullptr;
+    shared_ptr<string> secretId_ {};
   };
 
   } // namespace Models

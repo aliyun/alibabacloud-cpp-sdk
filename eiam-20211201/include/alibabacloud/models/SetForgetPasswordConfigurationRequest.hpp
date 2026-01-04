@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authenticationChannels_ == nullptr
-        && return this->forgetPasswordStatus_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->forgetPasswordStatus_ == nullptr && this->instanceId_ == nullptr; };
     // authenticationChannels Field Functions 
     bool hasAuthenticationChannels() const { return this->authenticationChannels_ != nullptr;};
     void deleteAuthenticationChannels() { this->authenticationChannels_ = nullptr;};
-    inline const vector<string> & authenticationChannels() const { DARABONBA_PTR_GET_CONST(authenticationChannels_, vector<string>) };
-    inline vector<string> authenticationChannels() { DARABONBA_PTR_GET(authenticationChannels_, vector<string>) };
+    inline const vector<string> & getAuthenticationChannels() const { DARABONBA_PTR_GET_CONST(authenticationChannels_, vector<string>) };
+    inline vector<string> getAuthenticationChannels() { DARABONBA_PTR_GET(authenticationChannels_, vector<string>) };
     inline SetForgetPasswordConfigurationRequest& setAuthenticationChannels(const vector<string> & authenticationChannels) { DARABONBA_PTR_SET_VALUE(authenticationChannels_, authenticationChannels) };
     inline SetForgetPasswordConfigurationRequest& setAuthenticationChannels(vector<string> && authenticationChannels) { DARABONBA_PTR_SET_RVALUE(authenticationChannels_, authenticationChannels) };
 
@@ -48,28 +48,28 @@ namespace Models
     // forgetPasswordStatus Field Functions 
     bool hasForgetPasswordStatus() const { return this->forgetPasswordStatus_ != nullptr;};
     void deleteForgetPasswordStatus() { this->forgetPasswordStatus_ = nullptr;};
-    inline string forgetPasswordStatus() const { DARABONBA_PTR_GET_DEFAULT(forgetPasswordStatus_, "") };
+    inline string getForgetPasswordStatus() const { DARABONBA_PTR_GET_DEFAULT(forgetPasswordStatus_, "") };
     inline SetForgetPasswordConfigurationRequest& setForgetPasswordStatus(string forgetPasswordStatus) { DARABONBA_PTR_SET_VALUE(forgetPasswordStatus_, forgetPasswordStatus) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SetForgetPasswordConfigurationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // The authentication channels. Valid values: email and sms.
-    std::shared_ptr<vector<string>> authenticationChannels_ = nullptr;
+    shared_ptr<vector<string>> authenticationChannels_ {};
     // The status of the forgot password feature. Valid values: enabled and disabled.
     // 
     // This parameter is required.
-    std::shared_ptr<string> forgetPasswordStatus_ = nullptr;
+    shared_ptr<string> forgetPasswordStatus_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

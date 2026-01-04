@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->brandId_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // brandId Field Functions 
     bool hasBrandId() const { return this->brandId_ != nullptr;};
     void deleteBrandId() { this->brandId_ = nullptr;};
-    inline string brandId() const { DARABONBA_PTR_GET_DEFAULT(brandId_, "") };
+    inline string getBrandId() const { DARABONBA_PTR_GET_DEFAULT(brandId_, "") };
     inline GetLoginRedirectApplicationForBrandRequest& setBrandId(string brandId) { DARABONBA_PTR_SET_VALUE(brandId_, brandId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetLoginRedirectApplicationForBrandRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // 品牌化Id
     // 
     // This parameter is required.
-    std::shared_ptr<string> brandId_ = nullptr;
+    shared_ptr<string> brandId_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->passwordForcedUpdateStatus_ == nullptr && return this->passwordInitializationNotificationChannels_ == nullptr && return this->passwordInitializationStatus_ == nullptr && return this->passwordInitializationType_ == nullptr; };
+        && this->passwordForcedUpdateStatus_ == nullptr && this->passwordInitializationNotificationChannels_ == nullptr && this->passwordInitializationStatus_ == nullptr && this->passwordInitializationType_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SetPasswordInitializationConfigurationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // passwordForcedUpdateStatus Field Functions 
     bool hasPasswordForcedUpdateStatus() const { return this->passwordForcedUpdateStatus_ != nullptr;};
     void deletePasswordForcedUpdateStatus() { this->passwordForcedUpdateStatus_ = nullptr;};
-    inline string passwordForcedUpdateStatus() const { DARABONBA_PTR_GET_DEFAULT(passwordForcedUpdateStatus_, "") };
+    inline string getPasswordForcedUpdateStatus() const { DARABONBA_PTR_GET_DEFAULT(passwordForcedUpdateStatus_, "") };
     inline SetPasswordInitializationConfigurationRequest& setPasswordForcedUpdateStatus(string passwordForcedUpdateStatus) { DARABONBA_PTR_SET_VALUE(passwordForcedUpdateStatus_, passwordForcedUpdateStatus) };
 
 
     // passwordInitializationNotificationChannels Field Functions 
     bool hasPasswordInitializationNotificationChannels() const { return this->passwordInitializationNotificationChannels_ != nullptr;};
     void deletePasswordInitializationNotificationChannels() { this->passwordInitializationNotificationChannels_ = nullptr;};
-    inline const vector<string> & passwordInitializationNotificationChannels() const { DARABONBA_PTR_GET_CONST(passwordInitializationNotificationChannels_, vector<string>) };
-    inline vector<string> passwordInitializationNotificationChannels() { DARABONBA_PTR_GET(passwordInitializationNotificationChannels_, vector<string>) };
+    inline const vector<string> & getPasswordInitializationNotificationChannels() const { DARABONBA_PTR_GET_CONST(passwordInitializationNotificationChannels_, vector<string>) };
+    inline vector<string> getPasswordInitializationNotificationChannels() { DARABONBA_PTR_GET(passwordInitializationNotificationChannels_, vector<string>) };
     inline SetPasswordInitializationConfigurationRequest& setPasswordInitializationNotificationChannels(const vector<string> & passwordInitializationNotificationChannels) { DARABONBA_PTR_SET_VALUE(passwordInitializationNotificationChannels_, passwordInitializationNotificationChannels) };
     inline SetPasswordInitializationConfigurationRequest& setPasswordInitializationNotificationChannels(vector<string> && passwordInitializationNotificationChannels) { DARABONBA_PTR_SET_RVALUE(passwordInitializationNotificationChannels_, passwordInitializationNotificationChannels) };
 
@@ -66,14 +66,14 @@ namespace Models
     // passwordInitializationStatus Field Functions 
     bool hasPasswordInitializationStatus() const { return this->passwordInitializationStatus_ != nullptr;};
     void deletePasswordInitializationStatus() { this->passwordInitializationStatus_ = nullptr;};
-    inline string passwordInitializationStatus() const { DARABONBA_PTR_GET_DEFAULT(passwordInitializationStatus_, "") };
+    inline string getPasswordInitializationStatus() const { DARABONBA_PTR_GET_DEFAULT(passwordInitializationStatus_, "") };
     inline SetPasswordInitializationConfigurationRequest& setPasswordInitializationStatus(string passwordInitializationStatus) { DARABONBA_PTR_SET_VALUE(passwordInitializationStatus_, passwordInitializationStatus) };
 
 
     // passwordInitializationType Field Functions 
     bool hasPasswordInitializationType() const { return this->passwordInitializationType_ != nullptr;};
     void deletePasswordInitializationType() { this->passwordInitializationType_ = nullptr;};
-    inline string passwordInitializationType() const { DARABONBA_PTR_GET_DEFAULT(passwordInitializationType_, "") };
+    inline string getPasswordInitializationType() const { DARABONBA_PTR_GET_DEFAULT(passwordInitializationType_, "") };
     inline SetPasswordInitializationConfigurationRequest& setPasswordInitializationType(string passwordInitializationType) { DARABONBA_PTR_SET_VALUE(passwordInitializationType_, passwordInitializationType) };
 
 
@@ -81,25 +81,25 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Specifies whether to enable forcible password change upon first logon. Valid values:
     // 
     // *   enabled
     // *   disabled
-    std::shared_ptr<string> passwordForcedUpdateStatus_ = nullptr;
+    shared_ptr<string> passwordForcedUpdateStatus_ {};
     // The methods for receiving password initialization notifications.
-    std::shared_ptr<vector<string>> passwordInitializationNotificationChannels_ = nullptr;
+    shared_ptr<vector<string>> passwordInitializationNotificationChannels_ {};
     // Specifies whether to enable password initialization. Valid values:
     // 
     // *   enabled
     // *   disabled
     // 
     // This parameter is required.
-    std::shared_ptr<string> passwordInitializationStatus_ = nullptr;
+    shared_ptr<string> passwordInitializationStatus_ {};
     // The password initialization method. This parameter is required when PasswordInitializationStatus is set to enabled. Set the value to random.
     // 
     // *   random: A randomly generated password is used.
-    std::shared_ptr<string> passwordInitializationType_ = nullptr;
+    shared_ptr<string> passwordInitializationType_ {};
   };
 
   } // namespace Models

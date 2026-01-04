@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->maxResults_ == nullptr && return this->networkZoneIds_ == nullptr && return this->nextToken_ == nullptr && return this->previousToken_ == nullptr; };
+        && this->maxResults_ == nullptr && this->networkZoneIds_ == nullptr && this->nextToken_ == nullptr && this->previousToken_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListNetworkZonesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListNetworkZonesRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // networkZoneIds Field Functions 
     bool hasNetworkZoneIds() const { return this->networkZoneIds_ != nullptr;};
     void deleteNetworkZoneIds() { this->networkZoneIds_ = nullptr;};
-    inline const vector<string> & networkZoneIds() const { DARABONBA_PTR_GET_CONST(networkZoneIds_, vector<string>) };
-    inline vector<string> networkZoneIds() { DARABONBA_PTR_GET(networkZoneIds_, vector<string>) };
+    inline const vector<string> & getNetworkZoneIds() const { DARABONBA_PTR_GET_CONST(networkZoneIds_, vector<string>) };
+    inline vector<string> getNetworkZoneIds() { DARABONBA_PTR_GET(networkZoneIds_, vector<string>) };
     inline ListNetworkZonesRequest& setNetworkZoneIds(const vector<string> & networkZoneIds) { DARABONBA_PTR_SET_VALUE(networkZoneIds_, networkZoneIds) };
     inline ListNetworkZonesRequest& setNetworkZoneIds(vector<string> && networkZoneIds) { DARABONBA_PTR_SET_RVALUE(networkZoneIds_, networkZoneIds) };
 
@@ -66,14 +66,14 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListNetworkZonesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // previousToken Field Functions 
     bool hasPreviousToken() const { return this->previousToken_ != nullptr;};
     void deletePreviousToken() { this->previousToken_ = nullptr;};
-    inline string previousToken() const { DARABONBA_PTR_GET_DEFAULT(previousToken_, "") };
+    inline string getPreviousToken() const { DARABONBA_PTR_GET_DEFAULT(previousToken_, "") };
     inline ListNetworkZonesRequest& setPreviousToken(string previousToken) { DARABONBA_PTR_SET_VALUE(previousToken_, previousToken) };
 
 
@@ -81,14 +81,14 @@ namespace Models
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // 分页查询时每页行数。默认值为20，最大值为100。
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // 网络ID集合
-    std::shared_ptr<vector<string>> networkZoneIds_ = nullptr;
+    shared_ptr<vector<string>> networkZoneIds_ {};
     // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> previousToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> previousToken_ {};
   };
 
   } // namespace Models

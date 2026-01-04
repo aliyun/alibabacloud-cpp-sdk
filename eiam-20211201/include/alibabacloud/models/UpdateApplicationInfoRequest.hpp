@@ -41,26 +41,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->applicationName_ == nullptr && return this->applicationVisibility_ == nullptr && return this->clientToken_ == nullptr && return this->instanceId_ == nullptr && return this->logoUrl_ == nullptr; };
+        && this->applicationName_ == nullptr && this->applicationVisibility_ == nullptr && this->clientToken_ == nullptr && this->instanceId_ == nullptr && this->logoUrl_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline UpdateApplicationInfoRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline UpdateApplicationInfoRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // applicationVisibility Field Functions 
     bool hasApplicationVisibility() const { return this->applicationVisibility_ != nullptr;};
     void deleteApplicationVisibility() { this->applicationVisibility_ = nullptr;};
-    inline const vector<string> & applicationVisibility() const { DARABONBA_PTR_GET_CONST(applicationVisibility_, vector<string>) };
-    inline vector<string> applicationVisibility() { DARABONBA_PTR_GET(applicationVisibility_, vector<string>) };
+    inline const vector<string> & getApplicationVisibility() const { DARABONBA_PTR_GET_CONST(applicationVisibility_, vector<string>) };
+    inline vector<string> getApplicationVisibility() { DARABONBA_PTR_GET(applicationVisibility_, vector<string>) };
     inline UpdateApplicationInfoRequest& setApplicationVisibility(const vector<string> & applicationVisibility) { DARABONBA_PTR_SET_VALUE(applicationVisibility_, applicationVisibility) };
     inline UpdateApplicationInfoRequest& setApplicationVisibility(vector<string> && applicationVisibility) { DARABONBA_PTR_SET_RVALUE(applicationVisibility_, applicationVisibility) };
 
@@ -68,21 +68,21 @@ namespace Models
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateApplicationInfoRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateApplicationInfoRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // logoUrl Field Functions 
     bool hasLogoUrl() const { return this->logoUrl_ != nullptr;};
     void deleteLogoUrl() { this->logoUrl_ = nullptr;};
-    inline string logoUrl() const { DARABONBA_PTR_GET_DEFAULT(logoUrl_, "") };
+    inline string getLogoUrl() const { DARABONBA_PTR_GET_DEFAULT(logoUrl_, "") };
     inline UpdateApplicationInfoRequest& setLogoUrl(string logoUrl) { DARABONBA_PTR_SET_VALUE(logoUrl_, logoUrl) };
 
 
@@ -90,19 +90,19 @@ namespace Models
     // IDaaS的应用主键id
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // 应用的表示名称
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationName_ = nullptr;
-    std::shared_ptr<vector<string>> applicationVisibility_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> applicationName_ {};
+    shared_ptr<vector<string>> applicationVisibility_ {};
+    shared_ptr<string> clientToken_ {};
     // IDaaS EIAM的实例id
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // 应用Logo地址
-    std::shared_ptr<string> logoUrl_ = nullptr;
+    shared_ptr<string> logoUrl_ {};
   };
 
   } // namespace Models

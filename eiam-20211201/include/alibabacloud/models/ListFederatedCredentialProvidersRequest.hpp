@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->federatedCredentialProviderName_ == nullptr
-        && return this->federatedCredentialProviderType_ == nullptr && return this->instanceId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->previousToken_ == nullptr; };
+        && this->federatedCredentialProviderType_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->previousToken_ == nullptr; };
     // federatedCredentialProviderName Field Functions 
     bool hasFederatedCredentialProviderName() const { return this->federatedCredentialProviderName_ != nullptr;};
     void deleteFederatedCredentialProviderName() { this->federatedCredentialProviderName_ = nullptr;};
-    inline string federatedCredentialProviderName() const { DARABONBA_PTR_GET_DEFAULT(federatedCredentialProviderName_, "") };
+    inline string getFederatedCredentialProviderName() const { DARABONBA_PTR_GET_DEFAULT(federatedCredentialProviderName_, "") };
     inline ListFederatedCredentialProvidersRequest& setFederatedCredentialProviderName(string federatedCredentialProviderName) { DARABONBA_PTR_SET_VALUE(federatedCredentialProviderName_, federatedCredentialProviderName) };
 
 
     // federatedCredentialProviderType Field Functions 
     bool hasFederatedCredentialProviderType() const { return this->federatedCredentialProviderType_ != nullptr;};
     void deleteFederatedCredentialProviderType() { this->federatedCredentialProviderType_ = nullptr;};
-    inline string federatedCredentialProviderType() const { DARABONBA_PTR_GET_DEFAULT(federatedCredentialProviderType_, "") };
+    inline string getFederatedCredentialProviderType() const { DARABONBA_PTR_GET_DEFAULT(federatedCredentialProviderType_, "") };
     inline ListFederatedCredentialProvidersRequest& setFederatedCredentialProviderType(string federatedCredentialProviderType) { DARABONBA_PTR_SET_VALUE(federatedCredentialProviderType_, federatedCredentialProviderType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListFederatedCredentialProvidersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListFederatedCredentialProvidersRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListFederatedCredentialProvidersRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // previousToken Field Functions 
     bool hasPreviousToken() const { return this->previousToken_ != nullptr;};
     void deletePreviousToken() { this->previousToken_ = nullptr;};
-    inline string previousToken() const { DARABONBA_PTR_GET_DEFAULT(previousToken_, "") };
+    inline string getPreviousToken() const { DARABONBA_PTR_GET_DEFAULT(previousToken_, "") };
     inline ListFederatedCredentialProvidersRequest& setPreviousToken(string previousToken) { DARABONBA_PTR_SET_VALUE(previousToken_, previousToken) };
 
 
   protected:
     // 联邦凭证提供方名称
-    std::shared_ptr<string> federatedCredentialProviderName_ = nullptr;
+    shared_ptr<string> federatedCredentialProviderName_ {};
     // 联邦凭证提供方类型
-    std::shared_ptr<string> federatedCredentialProviderType_ = nullptr;
+    shared_ptr<string> federatedCredentialProviderType_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // 分页查询时每页行数。默认值为20，最大值为100。
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // 查询凭证（Token），取值为上一次API调用返回的NextToken参数值。
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // 查询上一页凭证（Token），取值为上一次API调用返回的previousToken参数值。
-    std::shared_ptr<string> previousToken_ = nullptr;
+    shared_ptr<string> previousToken_ {};
   };
 
   } // namespace Models

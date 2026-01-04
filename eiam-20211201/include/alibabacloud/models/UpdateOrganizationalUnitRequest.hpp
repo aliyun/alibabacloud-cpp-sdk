@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->organizationalUnitId_ == nullptr && return this->organizationalUnitName_ == nullptr; };
+        && this->organizationalUnitId_ == nullptr && this->organizationalUnitName_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateOrganizationalUnitRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // organizationalUnitId Field Functions 
     bool hasOrganizationalUnitId() const { return this->organizationalUnitId_ != nullptr;};
     void deleteOrganizationalUnitId() { this->organizationalUnitId_ = nullptr;};
-    inline string organizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
+    inline string getOrganizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
     inline UpdateOrganizationalUnitRequest& setOrganizationalUnitId(string organizationalUnitId) { DARABONBA_PTR_SET_VALUE(organizationalUnitId_, organizationalUnitId) };
 
 
     // organizationalUnitName Field Functions 
     bool hasOrganizationalUnitName() const { return this->organizationalUnitName_ != nullptr;};
     void deleteOrganizationalUnitName() { this->organizationalUnitName_ = nullptr;};
-    inline string organizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
+    inline string getOrganizationalUnitName() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitName_, "") };
     inline UpdateOrganizationalUnitRequest& setOrganizationalUnitName(string organizationalUnitName) { DARABONBA_PTR_SET_VALUE(organizationalUnitName_, organizationalUnitName) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The organization ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationalUnitId_ = nullptr;
+    shared_ptr<string> organizationalUnitId_ {};
     // The name of the organization. The name can be up to 128 characters in length and must be unique in the same parent organization.
-    std::shared_ptr<string> organizationalUnitName_ = nullptr;
+    shared_ptr<string> organizationalUnitName_ {};
   };
 
   } // namespace Models

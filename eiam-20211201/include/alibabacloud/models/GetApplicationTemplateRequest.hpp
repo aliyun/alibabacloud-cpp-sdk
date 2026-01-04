@@ -33,7 +33,7 @@ namespace Models
     // applicationTemplateId Field Functions 
     bool hasApplicationTemplateId() const { return this->applicationTemplateId_ != nullptr;};
     void deleteApplicationTemplateId() { this->applicationTemplateId_ = nullptr;};
-    inline string applicationTemplateId() const { DARABONBA_PTR_GET_DEFAULT(applicationTemplateId_, "") };
+    inline string getApplicationTemplateId() const { DARABONBA_PTR_GET_DEFAULT(applicationTemplateId_, "") };
     inline GetApplicationTemplateRequest& setApplicationTemplateId(string applicationTemplateId) { DARABONBA_PTR_SET_VALUE(applicationTemplateId_, applicationTemplateId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // 应用模板id
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationTemplateId_ = nullptr;
+    shared_ptr<string> applicationTemplateId_ {};
   };
 
   } // namespace Models

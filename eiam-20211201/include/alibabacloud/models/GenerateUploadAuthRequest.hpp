@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->purpose_ == nullptr && return this->type_ == nullptr; };
+        && this->purpose_ == nullptr && this->type_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GenerateUploadAuthRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // purpose Field Functions 
     bool hasPurpose() const { return this->purpose_ != nullptr;};
     void deletePurpose() { this->purpose_ = nullptr;};
-    inline string purpose() const { DARABONBA_PTR_GET_DEFAULT(purpose_, "") };
+    inline string getPurpose() const { DARABONBA_PTR_GET_DEFAULT(purpose_, "") };
     inline GenerateUploadAuthRequest& setPurpose(string purpose) { DARABONBA_PTR_SET_VALUE(purpose_, purpose) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline GenerateUploadAuthRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // IDaaS EIAM的实例id
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // 文件用途
-    std::shared_ptr<string> purpose_ = nullptr;
+    shared_ptr<string> purpose_ {};
     // 文件类型，目前只支持image,最大1M
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

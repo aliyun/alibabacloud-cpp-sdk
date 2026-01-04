@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->brandName_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // brandName Field Functions 
     bool hasBrandName() const { return this->brandName_ != nullptr;};
     void deleteBrandName() { this->brandName_ = nullptr;};
-    inline string brandName() const { DARABONBA_PTR_GET_DEFAULT(brandName_, "") };
+    inline string getBrandName() const { DARABONBA_PTR_GET_DEFAULT(brandName_, "") };
     inline CreateBrandRequest& setBrandName(string brandName) { DARABONBA_PTR_SET_VALUE(brandName_, brandName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateBrandRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // 品牌化名称
     // 
     // This parameter is required.
-    std::shared_ptr<string> brandName_ = nullptr;
+    shared_ptr<string> brandName_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

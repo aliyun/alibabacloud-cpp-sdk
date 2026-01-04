@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authenticationSourceId_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // authenticationSourceId Field Functions 
     bool hasAuthenticationSourceId() const { return this->authenticationSourceId_ != nullptr;};
     void deleteAuthenticationSourceId() { this->authenticationSourceId_ = nullptr;};
-    inline string authenticationSourceId() const { DARABONBA_PTR_GET_DEFAULT(authenticationSourceId_, "") };
+    inline string getAuthenticationSourceId() const { DARABONBA_PTR_GET_DEFAULT(authenticationSourceId_, "") };
     inline EnableInternalAuthenticationSourceRequest& setAuthenticationSourceId(string authenticationSourceId) { DARABONBA_PTR_SET_VALUE(authenticationSourceId_, authenticationSourceId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline EnableInternalAuthenticationSourceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // 内部认证源ID，比如 ia_password, ia_otp_sms 等
-    std::shared_ptr<string> authenticationSourceId_ = nullptr;
+    shared_ptr<string> authenticationSourceId_ {};
     // IDaaS EIAM的实例id
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

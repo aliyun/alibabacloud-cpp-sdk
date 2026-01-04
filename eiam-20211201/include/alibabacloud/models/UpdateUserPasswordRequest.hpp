@@ -39,40 +39,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->password_ == nullptr && return this->passwordForcedUpdateStatus_ == nullptr && return this->userId_ == nullptr && return this->userNotificationChannels_ == nullptr; };
+        && this->password_ == nullptr && this->passwordForcedUpdateStatus_ == nullptr && this->userId_ == nullptr && this->userNotificationChannels_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateUserPasswordRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline UpdateUserPasswordRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // passwordForcedUpdateStatus Field Functions 
     bool hasPasswordForcedUpdateStatus() const { return this->passwordForcedUpdateStatus_ != nullptr;};
     void deletePasswordForcedUpdateStatus() { this->passwordForcedUpdateStatus_ = nullptr;};
-    inline string passwordForcedUpdateStatus() const { DARABONBA_PTR_GET_DEFAULT(passwordForcedUpdateStatus_, "") };
+    inline string getPasswordForcedUpdateStatus() const { DARABONBA_PTR_GET_DEFAULT(passwordForcedUpdateStatus_, "") };
     inline UpdateUserPasswordRequest& setPasswordForcedUpdateStatus(string passwordForcedUpdateStatus) { DARABONBA_PTR_SET_VALUE(passwordForcedUpdateStatus_, passwordForcedUpdateStatus) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline UpdateUserPasswordRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // userNotificationChannels Field Functions 
     bool hasUserNotificationChannels() const { return this->userNotificationChannels_ != nullptr;};
     void deleteUserNotificationChannels() { this->userNotificationChannels_ = nullptr;};
-    inline const vector<string> & userNotificationChannels() const { DARABONBA_PTR_GET_CONST(userNotificationChannels_, vector<string>) };
-    inline vector<string> userNotificationChannels() { DARABONBA_PTR_GET(userNotificationChannels_, vector<string>) };
+    inline const vector<string> & getUserNotificationChannels() const { DARABONBA_PTR_GET_CONST(userNotificationChannels_, vector<string>) };
+    inline vector<string> getUserNotificationChannels() { DARABONBA_PTR_GET(userNotificationChannels_, vector<string>) };
     inline UpdateUserPasswordRequest& setUserNotificationChannels(const vector<string> & userNotificationChannels) { DARABONBA_PTR_SET_VALUE(userNotificationChannels_, userNotificationChannels) };
     inline UpdateUserPasswordRequest& setUserNotificationChannels(vector<string> && userNotificationChannels) { DARABONBA_PTR_SET_RVALUE(userNotificationChannels_, userNotificationChannels) };
 
@@ -81,22 +81,22 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The new password of the account. For more information about the password format, see the "Password Policies" topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
     // Specifies whether to enable forcible password change upon first logon. Default value: disabled. Valid values:
     // 
     // *   enabled
     // *   disabled
-    std::shared_ptr<string> passwordForcedUpdateStatus_ = nullptr;
+    shared_ptr<string> passwordForcedUpdateStatus_ {};
     // The account ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // The methods for receiving password notifications.
-    std::shared_ptr<vector<string>> userNotificationChannels_ = nullptr;
+    shared_ptr<vector<string>> userNotificationChannels_ {};
   };
 
   } // namespace Models

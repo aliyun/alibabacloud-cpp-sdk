@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->brandId_ == nullptr
-        && return this->customPrivacyPolicyIds_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->customPrivacyPolicyIds_ == nullptr && this->instanceId_ == nullptr; };
     // brandId Field Functions 
     bool hasBrandId() const { return this->brandId_ != nullptr;};
     void deleteBrandId() { this->brandId_ = nullptr;};
-    inline string brandId() const { DARABONBA_PTR_GET_DEFAULT(brandId_, "") };
+    inline string getBrandId() const { DARABONBA_PTR_GET_DEFAULT(brandId_, "") };
     inline RemoveCustomPrivacyPoliciesFromBrandRequest& setBrandId(string brandId) { DARABONBA_PTR_SET_VALUE(brandId_, brandId) };
 
 
     // customPrivacyPolicyIds Field Functions 
     bool hasCustomPrivacyPolicyIds() const { return this->customPrivacyPolicyIds_ != nullptr;};
     void deleteCustomPrivacyPolicyIds() { this->customPrivacyPolicyIds_ = nullptr;};
-    inline const vector<string> & customPrivacyPolicyIds() const { DARABONBA_PTR_GET_CONST(customPrivacyPolicyIds_, vector<string>) };
-    inline vector<string> customPrivacyPolicyIds() { DARABONBA_PTR_GET(customPrivacyPolicyIds_, vector<string>) };
+    inline const vector<string> & getCustomPrivacyPolicyIds() const { DARABONBA_PTR_GET_CONST(customPrivacyPolicyIds_, vector<string>) };
+    inline vector<string> getCustomPrivacyPolicyIds() { DARABONBA_PTR_GET(customPrivacyPolicyIds_, vector<string>) };
     inline RemoveCustomPrivacyPoliciesFromBrandRequest& setCustomPrivacyPolicyIds(const vector<string> & customPrivacyPolicyIds) { DARABONBA_PTR_SET_VALUE(customPrivacyPolicyIds_, customPrivacyPolicyIds) };
     inline RemoveCustomPrivacyPoliciesFromBrandRequest& setCustomPrivacyPolicyIds(vector<string> && customPrivacyPolicyIds) { DARABONBA_PTR_SET_RVALUE(customPrivacyPolicyIds_, customPrivacyPolicyIds) };
 
@@ -55,7 +55,7 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RemoveCustomPrivacyPoliciesFromBrandRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -63,15 +63,15 @@ namespace Models
     // 品牌化Id
     // 
     // This parameter is required.
-    std::shared_ptr<string> brandId_ = nullptr;
+    shared_ptr<string> brandId_ {};
     // 条款ID列表
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> customPrivacyPolicyIds_ = nullptr;
+    shared_ptr<vector<string>> customPrivacyPolicyIds_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->applicationTokenType_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->applicationTokenType_ == nullptr && this->instanceId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline ListApplicationTokensRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // applicationTokenType Field Functions 
     bool hasApplicationTokenType() const { return this->applicationTokenType_ != nullptr;};
     void deleteApplicationTokenType() { this->applicationTokenType_ = nullptr;};
-    inline string applicationTokenType() const { DARABONBA_PTR_GET_DEFAULT(applicationTokenType_, "") };
+    inline string getApplicationTokenType() const { DARABONBA_PTR_GET_DEFAULT(applicationTokenType_, "") };
     inline ListApplicationTokensRequest& setApplicationTokenType(string applicationTokenType) { DARABONBA_PTR_SET_VALUE(applicationTokenType_, applicationTokenType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListApplicationTokensRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // IDaaS的应用资源ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // ApplicationToken的类型
     // 
     // This parameter is required.
-    std::shared_ptr<string> applicationTokenType_ = nullptr;
+    shared_ptr<string> applicationTokenType_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

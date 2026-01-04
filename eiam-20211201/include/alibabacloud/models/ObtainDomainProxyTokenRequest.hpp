@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainId_ == nullptr
-        && return this->domainProxyTokenId_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->domainProxyTokenId_ == nullptr && this->instanceId_ == nullptr; };
     // domainId Field Functions 
     bool hasDomainId() const { return this->domainId_ != nullptr;};
     void deleteDomainId() { this->domainId_ = nullptr;};
-    inline string domainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
+    inline string getDomainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
     inline ObtainDomainProxyTokenRequest& setDomainId(string domainId) { DARABONBA_PTR_SET_VALUE(domainId_, domainId) };
 
 
     // domainProxyTokenId Field Functions 
     bool hasDomainProxyTokenId() const { return this->domainProxyTokenId_ != nullptr;};
     void deleteDomainProxyTokenId() { this->domainProxyTokenId_ = nullptr;};
-    inline string domainProxyTokenId() const { DARABONBA_PTR_GET_DEFAULT(domainProxyTokenId_, "") };
+    inline string getDomainProxyTokenId() const { DARABONBA_PTR_GET_DEFAULT(domainProxyTokenId_, "") };
     inline ObtainDomainProxyTokenRequest& setDomainProxyTokenId(string domainProxyTokenId) { DARABONBA_PTR_SET_VALUE(domainProxyTokenId_, domainProxyTokenId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ObtainDomainProxyTokenRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainId_ = nullptr;
+    shared_ptr<string> domainId_ {};
     // The ID of the proxy token of the domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainProxyTokenId_ = nullptr;
+    shared_ptr<string> domainProxyTokenId_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

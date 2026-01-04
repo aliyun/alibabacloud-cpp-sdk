@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authenticatorId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->userId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->userId_ == nullptr; };
     // authenticatorId Field Functions 
     bool hasAuthenticatorId() const { return this->authenticatorId_ != nullptr;};
     void deleteAuthenticatorId() { this->authenticatorId_ = nullptr;};
-    inline string authenticatorId() const { DARABONBA_PTR_GET_DEFAULT(authenticatorId_, "") };
+    inline string getAuthenticatorId() const { DARABONBA_PTR_GET_DEFAULT(authenticatorId_, "") };
     inline DeleteWebAuthnAuthenticatorRequest& setAuthenticatorId(string authenticatorId) { DARABONBA_PTR_SET_VALUE(authenticatorId_, authenticatorId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteWebAuthnAuthenticatorRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline DeleteWebAuthnAuthenticatorRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // 认证器ID
     // 
     // This parameter is required.
-    std::shared_ptr<string> authenticatorId_ = nullptr;
+    shared_ptr<string> authenticatorId_ {};
     // IDaaS EIAM实例的ID。
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // UserID
     // 
     // This parameter is required.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

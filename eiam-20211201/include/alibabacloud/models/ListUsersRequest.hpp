@@ -57,84 +57,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->displayNameStartsWith_ == nullptr
-        && return this->email_ == nullptr && return this->instanceId_ == nullptr && return this->organizationalUnitId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->phoneNumber_ == nullptr && return this->phoneRegion_ == nullptr && return this->status_ == nullptr && return this->userExternalId_ == nullptr && return this->userIds_ == nullptr
-        && return this->userSourceId_ == nullptr && return this->userSourceType_ == nullptr && return this->usernameStartsWith_ == nullptr; };
+        && this->email_ == nullptr && this->instanceId_ == nullptr && this->organizationalUnitId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->phoneNumber_ == nullptr && this->phoneRegion_ == nullptr && this->status_ == nullptr && this->userExternalId_ == nullptr && this->userIds_ == nullptr
+        && this->userSourceId_ == nullptr && this->userSourceType_ == nullptr && this->usernameStartsWith_ == nullptr; };
     // displayNameStartsWith Field Functions 
     bool hasDisplayNameStartsWith() const { return this->displayNameStartsWith_ != nullptr;};
     void deleteDisplayNameStartsWith() { this->displayNameStartsWith_ = nullptr;};
-    inline string displayNameStartsWith() const { DARABONBA_PTR_GET_DEFAULT(displayNameStartsWith_, "") };
+    inline string getDisplayNameStartsWith() const { DARABONBA_PTR_GET_DEFAULT(displayNameStartsWith_, "") };
     inline ListUsersRequest& setDisplayNameStartsWith(string displayNameStartsWith) { DARABONBA_PTR_SET_VALUE(displayNameStartsWith_, displayNameStartsWith) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline ListUsersRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListUsersRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // organizationalUnitId Field Functions 
     bool hasOrganizationalUnitId() const { return this->organizationalUnitId_ != nullptr;};
     void deleteOrganizationalUnitId() { this->organizationalUnitId_ = nullptr;};
-    inline string organizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
+    inline string getOrganizationalUnitId() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitId_, "") };
     inline ListUsersRequest& setOrganizationalUnitId(string organizationalUnitId) { DARABONBA_PTR_SET_VALUE(organizationalUnitId_, organizationalUnitId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListUsersRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListUsersRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // phoneNumber Field Functions 
     bool hasPhoneNumber() const { return this->phoneNumber_ != nullptr;};
     void deletePhoneNumber() { this->phoneNumber_ = nullptr;};
-    inline string phoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
+    inline string getPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
     inline ListUsersRequest& setPhoneNumber(string phoneNumber) { DARABONBA_PTR_SET_VALUE(phoneNumber_, phoneNumber) };
 
 
     // phoneRegion Field Functions 
     bool hasPhoneRegion() const { return this->phoneRegion_ != nullptr;};
     void deletePhoneRegion() { this->phoneRegion_ = nullptr;};
-    inline string phoneRegion() const { DARABONBA_PTR_GET_DEFAULT(phoneRegion_, "") };
+    inline string getPhoneRegion() const { DARABONBA_PTR_GET_DEFAULT(phoneRegion_, "") };
     inline ListUsersRequest& setPhoneRegion(string phoneRegion) { DARABONBA_PTR_SET_VALUE(phoneRegion_, phoneRegion) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListUsersRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // userExternalId Field Functions 
     bool hasUserExternalId() const { return this->userExternalId_ != nullptr;};
     void deleteUserExternalId() { this->userExternalId_ = nullptr;};
-    inline string userExternalId() const { DARABONBA_PTR_GET_DEFAULT(userExternalId_, "") };
+    inline string getUserExternalId() const { DARABONBA_PTR_GET_DEFAULT(userExternalId_, "") };
     inline ListUsersRequest& setUserExternalId(string userExternalId) { DARABONBA_PTR_SET_VALUE(userExternalId_, userExternalId) };
 
 
     // userIds Field Functions 
     bool hasUserIds() const { return this->userIds_ != nullptr;};
     void deleteUserIds() { this->userIds_ = nullptr;};
-    inline const vector<string> & userIds() const { DARABONBA_PTR_GET_CONST(userIds_, vector<string>) };
-    inline vector<string> userIds() { DARABONBA_PTR_GET(userIds_, vector<string>) };
+    inline const vector<string> & getUserIds() const { DARABONBA_PTR_GET_CONST(userIds_, vector<string>) };
+    inline vector<string> getUserIds() { DARABONBA_PTR_GET(userIds_, vector<string>) };
     inline ListUsersRequest& setUserIds(const vector<string> & userIds) { DARABONBA_PTR_SET_VALUE(userIds_, userIds) };
     inline ListUsersRequest& setUserIds(vector<string> && userIds) { DARABONBA_PTR_SET_RVALUE(userIds_, userIds) };
 
@@ -142,67 +142,67 @@ namespace Models
     // userSourceId Field Functions 
     bool hasUserSourceId() const { return this->userSourceId_ != nullptr;};
     void deleteUserSourceId() { this->userSourceId_ = nullptr;};
-    inline string userSourceId() const { DARABONBA_PTR_GET_DEFAULT(userSourceId_, "") };
+    inline string getUserSourceId() const { DARABONBA_PTR_GET_DEFAULT(userSourceId_, "") };
     inline ListUsersRequest& setUserSourceId(string userSourceId) { DARABONBA_PTR_SET_VALUE(userSourceId_, userSourceId) };
 
 
     // userSourceType Field Functions 
     bool hasUserSourceType() const { return this->userSourceType_ != nullptr;};
     void deleteUserSourceType() { this->userSourceType_ = nullptr;};
-    inline string userSourceType() const { DARABONBA_PTR_GET_DEFAULT(userSourceType_, "") };
+    inline string getUserSourceType() const { DARABONBA_PTR_GET_DEFAULT(userSourceType_, "") };
     inline ListUsersRequest& setUserSourceType(string userSourceType) { DARABONBA_PTR_SET_VALUE(userSourceType_, userSourceType) };
 
 
     // usernameStartsWith Field Functions 
     bool hasUsernameStartsWith() const { return this->usernameStartsWith_ != nullptr;};
     void deleteUsernameStartsWith() { this->usernameStartsWith_ = nullptr;};
-    inline string usernameStartsWith() const { DARABONBA_PTR_GET_DEFAULT(usernameStartsWith_, "") };
+    inline string getUsernameStartsWith() const { DARABONBA_PTR_GET_DEFAULT(usernameStartsWith_, "") };
     inline ListUsersRequest& setUsernameStartsWith(string usernameStartsWith) { DARABONBA_PTR_SET_VALUE(usernameStartsWith_, usernameStartsWith) };
 
 
   protected:
     // Displayname
-    std::shared_ptr<string> displayNameStartsWith_ = nullptr;
+    shared_ptr<string> displayNameStartsWith_ {};
     // The email address of the user who owns the account.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the organizational unit.
-    std::shared_ptr<string> organizationalUnitId_ = nullptr;
+    shared_ptr<string> organizationalUnitId_ {};
     // The number of the page to return. Default value: 1.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: 20.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The mobile number of the user who owns the account.
-    std::shared_ptr<string> phoneNumber_ = nullptr;
+    shared_ptr<string> phoneNumber_ {};
     // The country code of the mobile number. For example, the country code of China is 86 without 00 or +.
-    std::shared_ptr<string> phoneRegion_ = nullptr;
+    shared_ptr<string> phoneRegion_ {};
     // The status of the account. Valid values:
     // 
     // *   enabled: The account is enabled.
     // *   disabled: The account is disabled.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The external ID of the account. The external ID can be used by external data to map the data of the account in IDaaS EIAM.
     // 
     // For accounts with the same source type and source ID, each account has a unique external ID.
-    std::shared_ptr<string> userExternalId_ = nullptr;
+    shared_ptr<string> userExternalId_ {};
     // User ID set
-    std::shared_ptr<vector<string>> userIds_ = nullptr;
+    shared_ptr<vector<string>> userIds_ {};
     // The source ID of the account.
     // 
     // If the account was created in IDaaS, its source ID is the ID of the IDaaS instance. If the account was imported, its source ID is the enterprise ID in the source. For example, if the account was imported from DingTalk, its source ID is the corpId value of the enterprise in DingTalk.
-    std::shared_ptr<string> userSourceId_ = nullptr;
+    shared_ptr<string> userSourceId_ {};
     // The source type of the account. Valid values:
     // 
     // *   build_in: The account was created in IDaaS.
     // *   ding_talk: The account was imported from DingTalk.
     // *   ad: The account was imported from Microsoft Active Directory (AD).
     // *   ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
-    std::shared_ptr<string> userSourceType_ = nullptr;
+    shared_ptr<string> userSourceType_ {};
     // Username
-    std::shared_ptr<string> usernameStartsWith_ = nullptr;
+    shared_ptr<string> usernameStartsWith_ {};
   };
 
   } // namespace Models
