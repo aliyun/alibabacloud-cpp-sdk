@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commodityCode_ == nullptr
-        && return this->customAccount_ == nullptr && return this->orderType_ == nullptr; };
+        && this->customAccount_ == nullptr && this->orderType_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline DescribeEnsSaleControlAvailableResourceRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // customAccount Field Functions 
     bool hasCustomAccount() const { return this->customAccount_ != nullptr;};
     void deleteCustomAccount() { this->customAccount_ = nullptr;};
-    inline string customAccount() const { DARABONBA_PTR_GET_DEFAULT(customAccount_, "") };
+    inline string getCustomAccount() const { DARABONBA_PTR_GET_DEFAULT(customAccount_, "") };
     inline DescribeEnsSaleControlAvailableResourceRequest& setCustomAccount(string customAccount) { DARABONBA_PTR_SET_VALUE(customAccount_, customAccount) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline DescribeEnsSaleControlAvailableResourceRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> commodityCode_ = nullptr;
-    std::shared_ptr<string> customAccount_ = nullptr;
-    std::shared_ptr<string> orderType_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
+    shared_ptr<string> customAccount_ {};
+    shared_ptr<string> orderType_ {};
   };
 
   } // namespace Models

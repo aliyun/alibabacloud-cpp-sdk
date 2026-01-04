@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && return this->sdgIds_ == nullptr; };
+        && this->sdgIds_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline RemoveSDGsRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline RemoveSDGsRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -46,8 +46,8 @@ namespace Models
     // sdgIds Field Functions 
     bool hasSdgIds() const { return this->sdgIds_ != nullptr;};
     void deleteSdgIds() { this->sdgIds_ = nullptr;};
-    inline const vector<string> & sdgIds() const { DARABONBA_PTR_GET_CONST(sdgIds_, vector<string>) };
-    inline vector<string> sdgIds() { DARABONBA_PTR_GET(sdgIds_, vector<string>) };
+    inline const vector<string> & getSdgIds() const { DARABONBA_PTR_GET_CONST(sdgIds_, vector<string>) };
+    inline vector<string> getSdgIds() { DARABONBA_PTR_GET(sdgIds_, vector<string>) };
     inline RemoveSDGsRequest& setSdgIds(const vector<string> & sdgIds) { DARABONBA_PTR_SET_VALUE(sdgIds_, sdgIds) };
     inline RemoveSDGsRequest& setSdgIds(vector<string> && sdgIds) { DARABONBA_PTR_SET_RVALUE(sdgIds_, sdgIds) };
 
@@ -56,9 +56,9 @@ namespace Models
     // The IDs of the instances.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The IDs of SDG.
-    std::shared_ptr<vector<string>> sdgIds_ = nullptr;
+    shared_ptr<vector<string>> sdgIds_ {};
   };
 
   } // namespace Models

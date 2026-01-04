@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diskId_ == nullptr
-        && return this->snapshotId_ == nullptr; };
+        && this->snapshotId_ == nullptr; };
     // diskId Field Functions 
     bool hasDiskId() const { return this->diskId_ != nullptr;};
     void deleteDiskId() { this->diskId_ = nullptr;};
-    inline string diskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
+    inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
     inline ResetDiskRequest& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
 
 
     // snapshotId Field Functions 
     bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
     void deleteSnapshotId() { this->snapshotId_ = nullptr;};
-    inline string snapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+    inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
     inline ResetDiskRequest& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the disk that you want to roll back.
     // 
     // This parameter is required.
-    std::shared_ptr<string> diskId_ = nullptr;
+    shared_ptr<string> diskId_ {};
     // The ID of the snapshot that you want to use to roll back the disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> snapshotId_ = nullptr;
+    shared_ptr<string> snapshotId_ {};
   };
 
   } // namespace Models

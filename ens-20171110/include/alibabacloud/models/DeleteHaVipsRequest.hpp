@@ -34,8 +34,8 @@ namespace Models
     // haVipIds Field Functions 
     bool hasHaVipIds() const { return this->haVipIds_ != nullptr;};
     void deleteHaVipIds() { this->haVipIds_ = nullptr;};
-    inline const vector<string> & haVipIds() const { DARABONBA_PTR_GET_CONST(haVipIds_, vector<string>) };
-    inline vector<string> haVipIds() { DARABONBA_PTR_GET(haVipIds_, vector<string>) };
+    inline const vector<string> & getHaVipIds() const { DARABONBA_PTR_GET_CONST(haVipIds_, vector<string>) };
+    inline vector<string> getHaVipIds() { DARABONBA_PTR_GET(haVipIds_, vector<string>) };
     inline DeleteHaVipsRequest& setHaVipIds(const vector<string> & haVipIds) { DARABONBA_PTR_SET_VALUE(haVipIds_, haVipIds) };
     inline DeleteHaVipsRequest& setHaVipIds(vector<string> && haVipIds) { DARABONBA_PTR_SET_RVALUE(haVipIds_, haVipIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of high-availability virtual IP addresses (HAVIPs).
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> haVipIds_ = nullptr;
+    shared_ptr<vector<string>> haVipIds_ {};
   };
 
   } // namespace Models

@@ -44,82 +44,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentType_ == nullptr
-        && return this->diskIdsShrink_ == nullptr && return this->instanceIdsShrink_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionIdsShrink_ == nullptr
-        && return this->SDGId_ == nullptr && return this->status_ == nullptr; };
+        && this->diskIdsShrink_ == nullptr && this->instanceIdsShrink_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionIdsShrink_ == nullptr
+        && this->SDGId_ == nullptr && this->status_ == nullptr; };
     // deploymentType Field Functions 
     bool hasDeploymentType() const { return this->deploymentType_ != nullptr;};
     void deleteDeploymentType() { this->deploymentType_ = nullptr;};
-    inline string deploymentType() const { DARABONBA_PTR_GET_DEFAULT(deploymentType_, "") };
+    inline string getDeploymentType() const { DARABONBA_PTR_GET_DEFAULT(deploymentType_, "") };
     inline DescribeSDGDeploymentStatusShrinkRequest& setDeploymentType(string deploymentType) { DARABONBA_PTR_SET_VALUE(deploymentType_, deploymentType) };
 
 
     // diskIdsShrink Field Functions 
     bool hasDiskIdsShrink() const { return this->diskIdsShrink_ != nullptr;};
     void deleteDiskIdsShrink() { this->diskIdsShrink_ = nullptr;};
-    inline string diskIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(diskIdsShrink_, "") };
+    inline string getDiskIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(diskIdsShrink_, "") };
     inline DescribeSDGDeploymentStatusShrinkRequest& setDiskIdsShrink(string diskIdsShrink) { DARABONBA_PTR_SET_VALUE(diskIdsShrink_, diskIdsShrink) };
 
 
     // instanceIdsShrink Field Functions 
     bool hasInstanceIdsShrink() const { return this->instanceIdsShrink_ != nullptr;};
     void deleteInstanceIdsShrink() { this->instanceIdsShrink_ = nullptr;};
-    inline string instanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
+    inline string getInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
     inline DescribeSDGDeploymentStatusShrinkRequest& setInstanceIdsShrink(string instanceIdsShrink) { DARABONBA_PTR_SET_VALUE(instanceIdsShrink_, instanceIdsShrink) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeSDGDeploymentStatusShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeSDGDeploymentStatusShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionIdsShrink Field Functions 
     bool hasRegionIdsShrink() const { return this->regionIdsShrink_ != nullptr;};
     void deleteRegionIdsShrink() { this->regionIdsShrink_ = nullptr;};
-    inline string regionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionIdsShrink_, "") };
+    inline string getRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionIdsShrink_, "") };
     inline DescribeSDGDeploymentStatusShrinkRequest& setRegionIdsShrink(string regionIdsShrink) { DARABONBA_PTR_SET_VALUE(regionIdsShrink_, regionIdsShrink) };
 
 
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline string SDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
+    inline string getSDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
     inline DescribeSDGDeploymentStatusShrinkRequest& setSDGId(string SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeSDGDeploymentStatusShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The deployment type.
-    std::shared_ptr<string> deploymentType_ = nullptr;
-    std::shared_ptr<string> diskIdsShrink_ = nullptr;
+    shared_ptr<string> deploymentType_ {};
+    shared_ptr<string> diskIdsShrink_ {};
     // IDs of Android in Container (AIC) instances.
-    std::shared_ptr<string> instanceIdsShrink_ = nullptr;
+    shared_ptr<string> instanceIdsShrink_ {};
     // The number of the page to return. Pages start from page **1**. Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned on each page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The IDs of the nodes.
-    std::shared_ptr<string> regionIdsShrink_ = nullptr;
+    shared_ptr<string> regionIdsShrink_ {};
     // The ID of the SDG.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SDGId_ = nullptr;
+    shared_ptr<string> SDGId_ {};
     // The deployment status of the SDG.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

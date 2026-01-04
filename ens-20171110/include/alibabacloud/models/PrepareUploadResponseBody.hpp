@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->endpoint_ == nullptr && return this->requestId_ == nullptr; };
+        && this->endpoint_ == nullptr && this->requestId_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline PrepareUploadResponseBody& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};
-    inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline PrepareUploadResponseBody& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline PrepareUploadResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The name of the bucket. This parameter is available only when the OSS SDK is used.
-    std::shared_ptr<string> bucketName_ = nullptr;
+    shared_ptr<string> bucketName_ {};
     // The endpoint. This parameter is available only when the OSS SDK is used.
-    std::shared_ptr<string> endpoint_ = nullptr;
+    shared_ptr<string> endpoint_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diskId_ == nullptr
-        && return this->newSize_ == nullptr; };
+        && this->newSize_ == nullptr; };
     // diskId Field Functions 
     bool hasDiskId() const { return this->diskId_ != nullptr;};
     void deleteDiskId() { this->diskId_ = nullptr;};
-    inline string diskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
+    inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
     inline ResizeDiskRequest& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
 
 
     // newSize Field Functions 
     bool hasNewSize() const { return this->newSize_ != nullptr;};
     void deleteNewSize() { this->newSize_ = nullptr;};
-    inline string newSize() const { DARABONBA_PTR_GET_DEFAULT(newSize_, "") };
+    inline string getNewSize() const { DARABONBA_PTR_GET_DEFAULT(newSize_, "") };
     inline ResizeDiskRequest& setNewSize(string newSize) { DARABONBA_PTR_SET_VALUE(newSize_, newSize) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the disk that you want to resize.
     // 
     // This parameter is required.
-    std::shared_ptr<string> diskId_ = nullptr;
+    shared_ptr<string> diskId_ {};
     // The size of the disk that you want to resize. Unit: GiB.
     // 
     // This parameter is required.
-    std::shared_ptr<string> newSize_ = nullptr;
+    shared_ptr<string> newSize_ {};
   };
 
   } // namespace Models

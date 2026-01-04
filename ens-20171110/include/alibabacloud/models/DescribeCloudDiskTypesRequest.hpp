@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ensRegionId_ == nullptr
-        && return this->ensRegionIds_ == nullptr; };
+        && this->ensRegionIds_ == nullptr; };
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline DescribeCloudDiskTypesRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // ensRegionIds Field Functions 
     bool hasEnsRegionIds() const { return this->ensRegionIds_ != nullptr;};
     void deleteEnsRegionIds() { this->ensRegionIds_ = nullptr;};
-    inline const vector<string> & ensRegionIds() const { DARABONBA_PTR_GET_CONST(ensRegionIds_, vector<string>) };
-    inline vector<string> ensRegionIds() { DARABONBA_PTR_GET(ensRegionIds_, vector<string>) };
+    inline const vector<string> & getEnsRegionIds() const { DARABONBA_PTR_GET_CONST(ensRegionIds_, vector<string>) };
+    inline vector<string> getEnsRegionIds() { DARABONBA_PTR_GET(ensRegionIds_, vector<string>) };
     inline DescribeCloudDiskTypesRequest& setEnsRegionIds(const vector<string> & ensRegionIds) { DARABONBA_PTR_SET_VALUE(ensRegionIds_, ensRegionIds) };
     inline DescribeCloudDiskTypesRequest& setEnsRegionIds(vector<string> && ensRegionIds) { DARABONBA_PTR_SET_RVALUE(ensRegionIds_, ensRegionIds) };
 
 
   protected:
     // The ID of the edge node.
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> ensRegionId_ {};
     // The edge nodes.
-    std::shared_ptr<vector<string>> ensRegionIds_ = nullptr;
+    shared_ptr<vector<string>> ensRegionIds_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // SDGIdShrink Field Functions 
     bool hasSDGIdShrink() const { return this->SDGIdShrink_ != nullptr;};
     void deleteSDGIdShrink() { this->SDGIdShrink_ = nullptr;};
-    inline string SDGIdShrink() const { DARABONBA_PTR_GET_DEFAULT(SDGIdShrink_, "") };
+    inline string getSDGIdShrink() const { DARABONBA_PTR_GET_DEFAULT(SDGIdShrink_, "") };
     inline DeleteSDGShrinkRequest& setSDGIdShrink(string SDGIdShrink) { DARABONBA_PTR_SET_VALUE(SDGIdShrink_, SDGIdShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the SDGs that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SDGIdShrink_ = nullptr;
+    shared_ptr<string> SDGIdShrink_ {};
   };
 
   } // namespace Models

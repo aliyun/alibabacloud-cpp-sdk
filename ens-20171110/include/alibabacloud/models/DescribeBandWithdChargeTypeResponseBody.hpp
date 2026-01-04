@@ -38,56 +38,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandWithTypeInfo_ == nullptr
-        && return this->chargeContractType_ == nullptr && return this->chargeCycleInfo_ == nullptr && return this->code_ == nullptr && return this->requestId_ == nullptr; };
+        && this->chargeContractType_ == nullptr && this->chargeCycleInfo_ == nullptr && this->code_ == nullptr && this->requestId_ == nullptr; };
     // bandWithTypeInfo Field Functions 
     bool hasBandWithTypeInfo() const { return this->bandWithTypeInfo_ != nullptr;};
     void deleteBandWithTypeInfo() { this->bandWithTypeInfo_ = nullptr;};
-    inline string bandWithTypeInfo() const { DARABONBA_PTR_GET_DEFAULT(bandWithTypeInfo_, "") };
+    inline string getBandWithTypeInfo() const { DARABONBA_PTR_GET_DEFAULT(bandWithTypeInfo_, "") };
     inline DescribeBandWithdChargeTypeResponseBody& setBandWithTypeInfo(string bandWithTypeInfo) { DARABONBA_PTR_SET_VALUE(bandWithTypeInfo_, bandWithTypeInfo) };
 
 
     // chargeContractType Field Functions 
     bool hasChargeContractType() const { return this->chargeContractType_ != nullptr;};
     void deleteChargeContractType() { this->chargeContractType_ = nullptr;};
-    inline string chargeContractType() const { DARABONBA_PTR_GET_DEFAULT(chargeContractType_, "") };
+    inline string getChargeContractType() const { DARABONBA_PTR_GET_DEFAULT(chargeContractType_, "") };
     inline DescribeBandWithdChargeTypeResponseBody& setChargeContractType(string chargeContractType) { DARABONBA_PTR_SET_VALUE(chargeContractType_, chargeContractType) };
 
 
     // chargeCycleInfo Field Functions 
     bool hasChargeCycleInfo() const { return this->chargeCycleInfo_ != nullptr;};
     void deleteChargeCycleInfo() { this->chargeCycleInfo_ = nullptr;};
-    inline string chargeCycleInfo() const { DARABONBA_PTR_GET_DEFAULT(chargeCycleInfo_, "") };
+    inline string getChargeCycleInfo() const { DARABONBA_PTR_GET_DEFAULT(chargeCycleInfo_, "") };
     inline DescribeBandWithdChargeTypeResponseBody& setChargeCycleInfo(string chargeCycleInfo) { DARABONBA_PTR_SET_VALUE(chargeCycleInfo_, chargeCycleInfo) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline DescribeBandWithdChargeTypeResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeBandWithdChargeTypeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The information about the metering method.
-    std::shared_ptr<string> bandWithTypeInfo_ = nullptr;
+    shared_ptr<string> bandWithTypeInfo_ {};
     // The metering type.
     // 
     // *   ChargeByUnified: unified metering.
     // *   ChargeByGrade: differential metering.
-    std::shared_ptr<string> chargeContractType_ = nullptr;
+    shared_ptr<string> chargeContractType_ {};
     // The metering cycle. Currently, this parameter is empty in the response.
-    std::shared_ptr<string> chargeCycleInfo_ = nullptr;
+    shared_ptr<string> chargeCycleInfo_ {};
     // The returned service code. A value of 0 indicates that the operation was successful.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

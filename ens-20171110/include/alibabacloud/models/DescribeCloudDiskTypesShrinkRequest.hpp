@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ensRegionId_ == nullptr
-        && return this->ensRegionIdsShrink_ == nullptr; };
+        && this->ensRegionIdsShrink_ == nullptr; };
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline DescribeCloudDiskTypesShrinkRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // ensRegionIdsShrink Field Functions 
     bool hasEnsRegionIdsShrink() const { return this->ensRegionIdsShrink_ != nullptr;};
     void deleteEnsRegionIdsShrink() { this->ensRegionIdsShrink_ = nullptr;};
-    inline string ensRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(ensRegionIdsShrink_, "") };
+    inline string getEnsRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(ensRegionIdsShrink_, "") };
     inline DescribeCloudDiskTypesShrinkRequest& setEnsRegionIdsShrink(string ensRegionIdsShrink) { DARABONBA_PTR_SET_VALUE(ensRegionIdsShrink_, ensRegionIdsShrink) };
 
 
   protected:
     // The ID of the edge node.
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> ensRegionId_ {};
     // The edge nodes.
-    std::shared_ptr<string> ensRegionIdsShrink_ = nullptr;
+    shared_ptr<string> ensRegionIdsShrink_ {};
   };
 
   } // namespace Models

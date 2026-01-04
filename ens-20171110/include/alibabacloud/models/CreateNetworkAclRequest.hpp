@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->networkAclName_ == nullptr; };
+        && this->networkAclName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateNetworkAclRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // networkAclName Field Functions 
     bool hasNetworkAclName() const { return this->networkAclName_ != nullptr;};
     void deleteNetworkAclName() { this->networkAclName_ = nullptr;};
-    inline string networkAclName() const { DARABONBA_PTR_GET_DEFAULT(networkAclName_, "") };
+    inline string getNetworkAclName() const { DARABONBA_PTR_GET_DEFAULT(networkAclName_, "") };
     inline CreateNetworkAclRequest& setNetworkAclName(string networkAclName) { DARABONBA_PTR_SET_VALUE(networkAclName_, networkAclName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The description of the network ACL.
     // 
     // The description must be 1 to 256 characters in length and cannot start with http:// or https://.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Enter a name for the network ACL.
     // 
     // The name must be 1 to 128 characters in length and cannot start with http:// or https://.
-    std::shared_ptr<string> networkAclName_ = nullptr;
+    shared_ptr<string> networkAclName_ {};
   };
 
   } // namespace Models

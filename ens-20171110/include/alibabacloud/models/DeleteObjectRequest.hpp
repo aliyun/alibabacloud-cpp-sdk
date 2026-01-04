@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->objectKey_ == nullptr; };
+        && this->objectKey_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline DeleteObjectRequest& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // objectKey Field Functions 
     bool hasObjectKey() const { return this->objectKey_ != nullptr;};
     void deleteObjectKey() { this->objectKey_ = nullptr;};
-    inline string objectKey() const { DARABONBA_PTR_GET_DEFAULT(objectKey_, "") };
+    inline string getObjectKey() const { DARABONBA_PTR_GET_DEFAULT(objectKey_, "") };
     inline DeleteObjectRequest& setObjectKey(string objectKey) { DARABONBA_PTR_SET_VALUE(objectKey_, objectKey) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the bucket.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bucketName_ = nullptr;
+    shared_ptr<string> bucketName_ {};
     // The name of the file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> objectKey_ = nullptr;
+    shared_ptr<string> objectKey_ {};
   };
 
   } // namespace Models

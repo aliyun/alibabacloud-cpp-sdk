@@ -45,48 +45,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->billingCycle_ == nullptr && return this->includeDataDisks_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceIds_ == nullptr
-        && return this->period_ == nullptr && return this->periodUnit_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->billingCycle_ == nullptr && this->includeDataDisks_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceIds_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline ModifyInstanceChargeTypeRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline ModifyInstanceChargeTypeRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // billingCycle Field Functions 
     bool hasBillingCycle() const { return this->billingCycle_ != nullptr;};
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};
-    inline string billingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
+    inline string getBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
     inline ModifyInstanceChargeTypeRequest& setBillingCycle(string billingCycle) { DARABONBA_PTR_SET_VALUE(billingCycle_, billingCycle) };
 
 
     // includeDataDisks Field Functions 
     bool hasIncludeDataDisks() const { return this->includeDataDisks_ != nullptr;};
     void deleteIncludeDataDisks() { this->includeDataDisks_ = nullptr;};
-    inline bool includeDataDisks() const { DARABONBA_PTR_GET_DEFAULT(includeDataDisks_, false) };
+    inline bool getIncludeDataDisks() const { DARABONBA_PTR_GET_DEFAULT(includeDataDisks_, false) };
     inline ModifyInstanceChargeTypeRequest& setIncludeDataDisks(bool includeDataDisks) { DARABONBA_PTR_SET_VALUE(includeDataDisks_, includeDataDisks) };
 
 
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
-    inline string instanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline ModifyInstanceChargeTypeRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline ModifyInstanceChargeTypeRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline ModifyInstanceChargeTypeRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -94,14 +94,14 @@ namespace Models
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline ModifyInstanceChargeTypeRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // periodUnit Field Functions 
     bool hasPeriodUnit() const { return this->periodUnit_ != nullptr;};
     void deletePeriodUnit() { this->periodUnit_ = nullptr;};
-    inline string periodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
+    inline string getPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
     inline ModifyInstanceChargeTypeRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
@@ -111,20 +111,20 @@ namespace Models
     // true: enables auto-payment. Make sure that your account has sufficient balance.
     // 
     // false (default): does not enable auto-payment. The order is generated but not paid.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal when you change the billing method from pay-as-you-go to subscription. Valid values:
     // 
     // true: enables auto-renewal for the instance.
     // 
     // false
-    std::shared_ptr<bool> autoRenew_ = nullptr;
-    std::shared_ptr<string> billingCycle_ = nullptr;
+    shared_ptr<bool> autoRenew_ {};
+    shared_ptr<string> billingCycle_ {};
     // Specifies whether to change the billing method of all data disks that are created with the instance to subscription when you change the billing method of the instance from pay-as-you-go to subscription. Valid values:
     // 
     // true
     // 
     // false (default)
-    std::shared_ptr<bool> includeDataDisks_ = nullptr;
+    shared_ptr<bool> includeDataDisks_ {};
     // The new billing method. Valid values:
     // 
     // PrePaid
@@ -132,23 +132,23 @@ namespace Models
     // PostPaid (default)
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceChargeType_ = nullptr;
+    shared_ptr<string> instanceChargeType_ {};
     // The IDs of the instances.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Valid values:
     // 
     // If the PeriodUnit parameter is set to Day, Period can only be set to 3.
     // 
     // If PeriodUnit is Month, Period can be set to 1 to 9 or 12.
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> period_ {};
     // The unit of the subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Valid values:
     // 
     // Month
     // 
     // Day
-    std::shared_ptr<string> periodUnit_ = nullptr;
+    shared_ptr<string> periodUnit_ {};
   };
 
   } // namespace Models

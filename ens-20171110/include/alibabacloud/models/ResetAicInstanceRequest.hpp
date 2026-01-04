@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->serverId_ == nullptr; };
+        && this->serverId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ResetAICInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // serverId Field Functions 
     bool hasServerId() const { return this->serverId_ != nullptr;};
     void deleteServerId() { this->serverId_ = nullptr;};
-    inline string serverId() const { DARABONBA_PTR_GET_DEFAULT(serverId_, "") };
+    inline string getServerId() const { DARABONBA_PTR_GET_DEFAULT(serverId_, "") };
     inline ResetAICInstanceRequest& setServerId(string serverId) { DARABONBA_PTR_SET_VALUE(serverId_, serverId) };
 
 
   protected:
     // The ID of the AIC instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the server.
-    std::shared_ptr<string> serverId_ = nullptr;
+    shared_ptr<string> serverId_ {};
   };
 
   } // namespace Models

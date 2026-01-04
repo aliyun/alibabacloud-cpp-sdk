@@ -33,7 +33,7 @@ namespace Models
     // volumeId Field Functions 
     bool hasVolumeId() const { return this->volumeId_ != nullptr;};
     void deleteVolumeId() { this->volumeId_ = nullptr;};
-    inline string volumeId() const { DARABONBA_PTR_GET_DEFAULT(volumeId_, "") };
+    inline string getVolumeId() const { DARABONBA_PTR_GET_DEFAULT(volumeId_, "") };
     inline DeleteStorageVolumeRequest& setVolumeId(string volumeId) { DARABONBA_PTR_SET_VALUE(volumeId_, volumeId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the volume.
     // 
     // This parameter is required.
-    std::shared_ptr<string> volumeId_ = nullptr;
+    shared_ptr<string> volumeId_ {};
   };
 
   } // namespace Models

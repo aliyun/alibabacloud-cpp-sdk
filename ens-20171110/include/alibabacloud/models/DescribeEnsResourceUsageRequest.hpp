@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expiredEndTime_ == nullptr
-        && return this->expiredStartTime_ == nullptr; };
+        && this->expiredStartTime_ == nullptr; };
     // expiredEndTime Field Functions 
     bool hasExpiredEndTime() const { return this->expiredEndTime_ != nullptr;};
     void deleteExpiredEndTime() { this->expiredEndTime_ = nullptr;};
-    inline string expiredEndTime() const { DARABONBA_PTR_GET_DEFAULT(expiredEndTime_, "") };
+    inline string getExpiredEndTime() const { DARABONBA_PTR_GET_DEFAULT(expiredEndTime_, "") };
     inline DescribeEnsResourceUsageRequest& setExpiredEndTime(string expiredEndTime) { DARABONBA_PTR_SET_VALUE(expiredEndTime_, expiredEndTime) };
 
 
     // expiredStartTime Field Functions 
     bool hasExpiredStartTime() const { return this->expiredStartTime_ != nullptr;};
     void deleteExpiredStartTime() { this->expiredStartTime_ = nullptr;};
-    inline string expiredStartTime() const { DARABONBA_PTR_GET_DEFAULT(expiredStartTime_, "") };
+    inline string getExpiredStartTime() const { DARABONBA_PTR_GET_DEFAULT(expiredStartTime_, "") };
     inline DescribeEnsResourceUsageRequest& setExpiredStartTime(string expiredStartTime) { DARABONBA_PTR_SET_VALUE(expiredStartTime_, expiredStartTime) };
 
 
   protected:
     // The end of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> expiredEndTime_ = nullptr;
+    shared_ptr<string> expiredEndTime_ {};
     // The beginning of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
-    std::shared_ptr<string> expiredStartTime_ = nullptr;
+    shared_ptr<string> expiredStartTime_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // forwardEntryId Field Functions 
     bool hasForwardEntryId() const { return this->forwardEntryId_ != nullptr;};
     void deleteForwardEntryId() { this->forwardEntryId_ = nullptr;};
-    inline string forwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
+    inline string getForwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
     inline DeleteForwardEntryRequest& setForwardEntryId(string forwardEntryId) { DARABONBA_PTR_SET_VALUE(forwardEntryId_, forwardEntryId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the DNAT entry that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> forwardEntryId_ = nullptr;
+    shared_ptr<string> forwardEntryId_ {};
   };
 
   } // namespace Models

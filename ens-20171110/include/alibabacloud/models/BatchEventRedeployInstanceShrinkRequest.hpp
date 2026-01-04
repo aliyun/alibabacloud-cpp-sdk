@@ -33,13 +33,13 @@ namespace Models
     // eventInfosShrink Field Functions 
     bool hasEventInfosShrink() const { return this->eventInfosShrink_ != nullptr;};
     void deleteEventInfosShrink() { this->eventInfosShrink_ = nullptr;};
-    inline string eventInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(eventInfosShrink_, "") };
+    inline string getEventInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(eventInfosShrink_, "") };
     inline BatchEventRedeployInstanceShrinkRequest& setEventInfosShrink(string eventInfosShrink) { DARABONBA_PTR_SET_VALUE(eventInfosShrink_, eventInfosShrink) };
 
 
   protected:
     // List of events.
-    std::shared_ptr<string> eventInfosShrink_ = nullptr;
+    shared_ptr<string> eventInfosShrink_ {};
   };
 
   } // namespace Models

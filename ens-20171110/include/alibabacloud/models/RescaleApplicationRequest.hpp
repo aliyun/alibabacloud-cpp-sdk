@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->rescaleLevel_ == nullptr && return this->rescaleType_ == nullptr && return this->resourceSelector_ == nullptr && return this->timeout_ == nullptr && return this->toAppVersion_ == nullptr; };
+        && this->rescaleLevel_ == nullptr && this->rescaleType_ == nullptr && this->resourceSelector_ == nullptr && this->timeout_ == nullptr && this->toAppVersion_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline RescaleApplicationRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // rescaleLevel Field Functions 
     bool hasRescaleLevel() const { return this->rescaleLevel_ != nullptr;};
     void deleteRescaleLevel() { this->rescaleLevel_ = nullptr;};
-    inline string rescaleLevel() const { DARABONBA_PTR_GET_DEFAULT(rescaleLevel_, "") };
+    inline string getRescaleLevel() const { DARABONBA_PTR_GET_DEFAULT(rescaleLevel_, "") };
     inline RescaleApplicationRequest& setRescaleLevel(string rescaleLevel) { DARABONBA_PTR_SET_VALUE(rescaleLevel_, rescaleLevel) };
 
 
     // rescaleType Field Functions 
     bool hasRescaleType() const { return this->rescaleType_ != nullptr;};
     void deleteRescaleType() { this->rescaleType_ = nullptr;};
-    inline string rescaleType() const { DARABONBA_PTR_GET_DEFAULT(rescaleType_, "") };
+    inline string getRescaleType() const { DARABONBA_PTR_GET_DEFAULT(rescaleType_, "") };
     inline RescaleApplicationRequest& setRescaleType(string rescaleType) { DARABONBA_PTR_SET_VALUE(rescaleType_, rescaleType) };
 
 
     // resourceSelector Field Functions 
     bool hasResourceSelector() const { return this->resourceSelector_ != nullptr;};
     void deleteResourceSelector() { this->resourceSelector_ = nullptr;};
-    inline string resourceSelector() const { DARABONBA_PTR_GET_DEFAULT(resourceSelector_, "") };
+    inline string getResourceSelector() const { DARABONBA_PTR_GET_DEFAULT(resourceSelector_, "") };
     inline RescaleApplicationRequest& setResourceSelector(string resourceSelector) { DARABONBA_PTR_SET_VALUE(resourceSelector_, resourceSelector) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline RescaleApplicationRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
     // toAppVersion Field Functions 
     bool hasToAppVersion() const { return this->toAppVersion_ != nullptr;};
     void deleteToAppVersion() { this->toAppVersion_ = nullptr;};
-    inline string toAppVersion() const { DARABONBA_PTR_GET_DEFAULT(toAppVersion_, "") };
+    inline string getToAppVersion() const { DARABONBA_PTR_GET_DEFAULT(toAppVersion_, "") };
     inline RescaleApplicationRequest& setToAppVersion(string toAppVersion) { DARABONBA_PTR_SET_VALUE(toAppVersion_, toAppVersion) };
 
 
@@ -87,7 +87,7 @@ namespace Models
     // The ID of the application. You can query the application ID by calling the ListApplications operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The level of resource scaling. The value is of the enumeration type. Valid values:
     // 
     // *   AreaIspCode (default): scales resources based on the Internet service provider (ISP).
@@ -95,22 +95,22 @@ namespace Models
     // *   InstanceId: scales resources based on the instance ID. Resource scale-out specifies resource hosting and scale-in specifies resource release.
     // 
     // Default value: AreaIspCode.
-    std::shared_ptr<string> rescaleLevel_ = nullptr;
+    shared_ptr<string> rescaleLevel_ {};
     // The scaling operation. The value must be of the enumerated data type. Valid values:
     // 
     // *   Add: adds new resources.
     // *   Del: releases resources.
     // 
     // This parameter is required.
-    std::shared_ptr<string> rescaleType_ = nullptr;
+    shared_ptr<string> rescaleType_ {};
     // The required resources. The value must be a JSON string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceSelector_ = nullptr;
+    shared_ptr<string> resourceSelector_ {};
     // The timeout period for asynchronous scaling. Unit: seconds. Default value: 300.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
     // The version number of the application deployment package. By default, the stable version number is used. This parameter takes effect only when you perform resource scale-out.
-    std::shared_ptr<string> toAppVersion_ = nullptr;
+    shared_ptr<string> toAppVersion_ {};
   };
 
   } // namespace Models

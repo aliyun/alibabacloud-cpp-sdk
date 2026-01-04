@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationRegionIds_ == nullptr
-        && return this->namespaces_ == nullptr && return this->SDGId_ == nullptr; };
+        && this->namespaces_ == nullptr && this->SDGId_ == nullptr; };
     // destinationRegionIds Field Functions 
     bool hasDestinationRegionIds() const { return this->destinationRegionIds_ != nullptr;};
     void deleteDestinationRegionIds() { this->destinationRegionIds_ = nullptr;};
-    inline const vector<string> & destinationRegionIds() const { DARABONBA_PTR_GET_CONST(destinationRegionIds_, vector<string>) };
-    inline vector<string> destinationRegionIds() { DARABONBA_PTR_GET(destinationRegionIds_, vector<string>) };
+    inline const vector<string> & getDestinationRegionIds() const { DARABONBA_PTR_GET_CONST(destinationRegionIds_, vector<string>) };
+    inline vector<string> getDestinationRegionIds() { DARABONBA_PTR_GET(destinationRegionIds_, vector<string>) };
     inline UnloadRegionSDGRequest& setDestinationRegionIds(const vector<string> & destinationRegionIds) { DARABONBA_PTR_SET_VALUE(destinationRegionIds_, destinationRegionIds) };
     inline UnloadRegionSDGRequest& setDestinationRegionIds(vector<string> && destinationRegionIds) { DARABONBA_PTR_SET_RVALUE(destinationRegionIds_, destinationRegionIds) };
 
@@ -48,8 +48,8 @@ namespace Models
     // namespaces Field Functions 
     bool hasNamespaces() const { return this->namespaces_ != nullptr;};
     void deleteNamespaces() { this->namespaces_ = nullptr;};
-    inline const vector<string> & namespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
-    inline vector<string> namespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
+    inline const vector<string> & getNamespaces() const { DARABONBA_PTR_GET_CONST(namespaces_, vector<string>) };
+    inline vector<string> getNamespaces() { DARABONBA_PTR_GET(namespaces_, vector<string>) };
     inline UnloadRegionSDGRequest& setNamespaces(const vector<string> & namespaces) { DARABONBA_PTR_SET_VALUE(namespaces_, namespaces) };
     inline UnloadRegionSDGRequest& setNamespaces(vector<string> && namespaces) { DARABONBA_PTR_SET_RVALUE(namespaces_, namespaces) };
 
@@ -57,7 +57,7 @@ namespace Models
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline string SDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
+    inline string getSDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
     inline UnloadRegionSDGRequest& setSDGId(string SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
 
 
@@ -65,13 +65,13 @@ namespace Models
     // The destination nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> destinationRegionIds_ = nullptr;
+    shared_ptr<vector<string>> destinationRegionIds_ {};
     // An array that consists of queried namespaces.
-    std::shared_ptr<vector<string>> namespaces_ = nullptr;
+    shared_ptr<vector<string>> namespaces_ {};
     // Deletes the shared data group (SDG) ID of the preloaded data.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SDGId_ = nullptr;
+    shared_ptr<string> SDGId_ {};
   };
 
   } // namespace Models

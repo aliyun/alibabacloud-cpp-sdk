@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forceDelete_ == nullptr
-        && return this->natGatewayId_ == nullptr; };
+        && this->natGatewayId_ == nullptr; };
     // forceDelete Field Functions 
     bool hasForceDelete() const { return this->forceDelete_ != nullptr;};
     void deleteForceDelete() { this->forceDelete_ = nullptr;};
-    inline bool forceDelete() const { DARABONBA_PTR_GET_DEFAULT(forceDelete_, false) };
+    inline bool getForceDelete() const { DARABONBA_PTR_GET_DEFAULT(forceDelete_, false) };
     inline DeleteNatGatewayRequest& setForceDelete(bool forceDelete) { DARABONBA_PTR_SET_VALUE(forceDelete_, forceDelete) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline DeleteNatGatewayRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
   protected:
     // Specifies whether to forcefully delete the NAT instance.
-    std::shared_ptr<bool> forceDelete_ = nullptr;
+    shared_ptr<bool> forceDelete_ {};
     // The ID of the NAT gateway that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> natGatewayId_ = nullptr;
+    shared_ptr<string> natGatewayId_ {};
   };
 
   } // namespace Models

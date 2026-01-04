@@ -33,13 +33,13 @@ namespace Models
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline string SDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
+    inline string getSDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
     inline SaveSDGRequest& setSDGId(string SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
 
 
   protected:
     // The ID of the SDG to be saved.
-    std::shared_ptr<string> SDGId_ = nullptr;
+    shared_ptr<string> SDGId_ {};
   };
 
   } // namespace Models

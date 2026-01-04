@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->dataName_ == nullptr && return this->dataVersion_ == nullptr && return this->ensRegionId_ == nullptr; };
+        && this->dataName_ == nullptr && this->dataVersion_ == nullptr && this->ensRegionId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CleanDistDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // dataName Field Functions 
     bool hasDataName() const { return this->dataName_ != nullptr;};
     void deleteDataName() { this->dataName_ = nullptr;};
-    inline string dataName() const { DARABONBA_PTR_GET_DEFAULT(dataName_, "") };
+    inline string getDataName() const { DARABONBA_PTR_GET_DEFAULT(dataName_, "") };
     inline CleanDistDataRequest& setDataName(string dataName) { DARABONBA_PTR_SET_VALUE(dataName_, dataName) };
 
 
     // dataVersion Field Functions 
     bool hasDataVersion() const { return this->dataVersion_ != nullptr;};
     void deleteDataVersion() { this->dataVersion_ = nullptr;};
-    inline string dataVersion() const { DARABONBA_PTR_GET_DEFAULT(dataVersion_, "") };
+    inline string getDataVersion() const { DARABONBA_PTR_GET_DEFAULT(dataVersion_, "") };
     inline CleanDistDataRequest& setDataVersion(string dataVersion) { DARABONBA_PTR_SET_VALUE(dataVersion_, dataVersion) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline CleanDistDataRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> dataName_ = nullptr;
-    std::shared_ptr<string> dataVersion_ = nullptr;
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> dataName_ {};
+    shared_ptr<string> dataVersion_ {};
+    shared_ptr<string> ensRegionId_ {};
   };
 
   } // namespace Models

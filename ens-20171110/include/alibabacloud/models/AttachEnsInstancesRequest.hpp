@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->scripts_ == nullptr; };
+        && this->scripts_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AttachEnsInstancesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scripts Field Functions 
     bool hasScripts() const { return this->scripts_ != nullptr;};
     void deleteScripts() { this->scripts_ = nullptr;};
-    inline string scripts() const { DARABONBA_PTR_GET_DEFAULT(scripts_, "") };
+    inline string getScripts() const { DARABONBA_PTR_GET_DEFAULT(scripts_, "") };
     inline AttachEnsInstancesRequest& setScripts(string scripts) { DARABONBA_PTR_SET_VALUE(scripts_, scripts) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the instance. You can specify only one instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The command that you want to execute on the instance. The command must be encoded in Base64 or UTF-8.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scripts_ = nullptr;
+    shared_ptr<string> scripts_ {};
   };
 
   } // namespace Models

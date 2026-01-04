@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allocationId_ == nullptr
-        && return this->force_ == nullptr; };
+        && this->force_ == nullptr; };
     // allocationId Field Functions 
     bool hasAllocationId() const { return this->allocationId_ != nullptr;};
     void deleteAllocationId() { this->allocationId_ = nullptr;};
-    inline string allocationId() const { DARABONBA_PTR_GET_DEFAULT(allocationId_, "") };
+    inline string getAllocationId() const { DARABONBA_PTR_GET_DEFAULT(allocationId_, "") };
     inline UnAssociateEnsEipAddressRequest& setAllocationId(string allocationId) { DARABONBA_PTR_SET_VALUE(allocationId_, allocationId) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline UnAssociateEnsEipAddressRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The ID of the EIP.
     // 
     // This parameter is required.
-    std::shared_ptr<string> allocationId_ = nullptr;
+    shared_ptr<string> allocationId_ {};
     // Specifies whether to disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway. Valid values:
     // 
     // *   **false** (default): does not disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
     // *   **true**: disassociates the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
   };
 
   } // namespace Models

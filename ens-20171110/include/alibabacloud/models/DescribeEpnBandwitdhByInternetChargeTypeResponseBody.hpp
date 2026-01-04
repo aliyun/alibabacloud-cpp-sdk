@@ -36,38 +36,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidthValue_ == nullptr
-        && return this->internetChargeType_ == nullptr && return this->requestId_ == nullptr && return this->timeStamp_ == nullptr; };
+        && this->internetChargeType_ == nullptr && this->requestId_ == nullptr && this->timeStamp_ == nullptr; };
     // bandwidthValue Field Functions 
     bool hasBandwidthValue() const { return this->bandwidthValue_ != nullptr;};
     void deleteBandwidthValue() { this->bandwidthValue_ = nullptr;};
-    inline int64_t bandwidthValue() const { DARABONBA_PTR_GET_DEFAULT(bandwidthValue_, 0L) };
+    inline int64_t getBandwidthValue() const { DARABONBA_PTR_GET_DEFAULT(bandwidthValue_, 0L) };
     inline DescribeEpnBandwitdhByInternetChargeTypeResponseBody& setBandwidthValue(int64_t bandwidthValue) { DARABONBA_PTR_SET_VALUE(bandwidthValue_, bandwidthValue) };
 
 
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
-    inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline string getInternetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeResponseBody& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // timeStamp Field Functions 
     bool hasTimeStamp() const { return this->timeStamp_ != nullptr;};
     void deleteTimeStamp() { this->timeStamp_ = nullptr;};
-    inline string timeStamp() const { DARABONBA_PTR_GET_DEFAULT(timeStamp_, "") };
+    inline string getTimeStamp() const { DARABONBA_PTR_GET_DEFAULT(timeStamp_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeResponseBody& setTimeStamp(string timeStamp) { DARABONBA_PTR_SET_VALUE(timeStamp_, timeStamp) };
 
 
   protected:
     // The bandwidth. Unit: bit/s.
-    std::shared_ptr<int64_t> bandwidthValue_ = nullptr;
+    shared_ptr<int64_t> bandwidthValue_ {};
     // The metering method. Valid values:
     // 
     // *   BandwidthByDay: Pay by daily peak bandwidth
@@ -76,11 +76,11 @@ namespace Models
     // *   PayByBandwidth: Pay by fixed bandwidth
     // 
     // You can specify only one metering method for network usage and cannot overwrite the existing metering method.
-    std::shared_ptr<string> internetChargeType_ = nullptr;
+    shared_ptr<string> internetChargeType_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The timestamp when the monitoring data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-    std::shared_ptr<string> timeStamp_ = nullptr;
+    shared_ptr<string> timeStamp_ {};
   };
 
   } // namespace Models

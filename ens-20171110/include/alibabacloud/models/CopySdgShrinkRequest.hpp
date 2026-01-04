@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationRegionIdsShrink_ == nullptr
-        && return this->SDGId_ == nullptr; };
+        && this->SDGId_ == nullptr; };
     // destinationRegionIdsShrink Field Functions 
     bool hasDestinationRegionIdsShrink() const { return this->destinationRegionIdsShrink_ != nullptr;};
     void deleteDestinationRegionIdsShrink() { this->destinationRegionIdsShrink_ = nullptr;};
-    inline string destinationRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionIdsShrink_, "") };
+    inline string getDestinationRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionIdsShrink_, "") };
     inline CopySDGShrinkRequest& setDestinationRegionIdsShrink(string destinationRegionIdsShrink) { DARABONBA_PTR_SET_VALUE(destinationRegionIdsShrink_, destinationRegionIdsShrink) };
 
 
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline string SDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
+    inline string getSDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
     inline CopySDGShrinkRequest& setSDGId(string SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The destination nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destinationRegionIdsShrink_ = nullptr;
+    shared_ptr<string> destinationRegionIdsShrink_ {};
     // The ID of the SDG that you want to copy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SDGId_ = nullptr;
+    shared_ptr<string> SDGId_ {};
   };
 
   } // namespace Models

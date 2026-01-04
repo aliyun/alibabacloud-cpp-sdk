@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyPairName_ == nullptr
-        && return this->publicKeyBody_ == nullptr; };
+        && this->publicKeyBody_ == nullptr; };
     // keyPairName Field Functions 
     bool hasKeyPairName() const { return this->keyPairName_ != nullptr;};
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
-    inline string keyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
+    inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline ImportKeyPairRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
 
 
     // publicKeyBody Field Functions 
     bool hasPublicKeyBody() const { return this->publicKeyBody_ != nullptr;};
     void deletePublicKeyBody() { this->publicKeyBody_ = nullptr;};
-    inline string publicKeyBody() const { DARABONBA_PTR_GET_DEFAULT(publicKeyBody_, "") };
+    inline string getPublicKeyBody() const { DARABONBA_PTR_GET_DEFAULT(publicKeyBody_, "") };
     inline ImportKeyPairRequest& setPublicKeyBody(string publicKeyBody) { DARABONBA_PTR_SET_VALUE(publicKeyBody_, publicKeyBody) };
 
 
@@ -57,11 +57,11 @@ namespace Models
     // You can specify the name of only one key pair.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyPairName_ = nullptr;
+    shared_ptr<string> keyPairName_ {};
     // The public key of the key pair. You can specify only one public key.
     // 
     // This parameter is required.
-    std::shared_ptr<string> publicKeyBody_ = nullptr;
+    shared_ptr<string> publicKeyBody_ {};
   };
 
   } // namespace Models

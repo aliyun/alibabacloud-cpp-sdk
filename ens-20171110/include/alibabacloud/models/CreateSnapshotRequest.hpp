@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->diskId_ == nullptr && return this->ensRegionId_ == nullptr && return this->instanceBillingCycle_ == nullptr && return this->snapshotName_ == nullptr; };
+        && this->diskId_ == nullptr && this->ensRegionId_ == nullptr && this->instanceBillingCycle_ == nullptr && this->snapshotName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateSnapshotRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // diskId Field Functions 
     bool hasDiskId() const { return this->diskId_ != nullptr;};
     void deleteDiskId() { this->diskId_ = nullptr;};
-    inline string diskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
+    inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
     inline CreateSnapshotRequest& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline CreateSnapshotRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // instanceBillingCycle Field Functions 
     bool hasInstanceBillingCycle() const { return this->instanceBillingCycle_ != nullptr;};
     void deleteInstanceBillingCycle() { this->instanceBillingCycle_ = nullptr;};
-    inline string instanceBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(instanceBillingCycle_, "") };
+    inline string getInstanceBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(instanceBillingCycle_, "") };
     inline CreateSnapshotRequest& setInstanceBillingCycle(string instanceBillingCycle) { DARABONBA_PTR_SET_VALUE(instanceBillingCycle_, instanceBillingCycle) };
 
 
     // snapshotName Field Functions 
     bool hasSnapshotName() const { return this->snapshotName_ != nullptr;};
     void deleteSnapshotName() { this->snapshotName_ = nullptr;};
-    inline string snapshotName() const { DARABONBA_PTR_GET_DEFAULT(snapshotName_, "") };
+    inline string getSnapshotName() const { DARABONBA_PTR_GET_DEFAULT(snapshotName_, "") };
     inline CreateSnapshotRequest& setSnapshotName(string snapshotName) { DARABONBA_PTR_SET_VALUE(snapshotName_, snapshotName) };
 
 
@@ -78,18 +78,18 @@ namespace Models
     // The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     // 
     // By default, this parameter is left empty.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the cloud disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> diskId_ = nullptr;
+    shared_ptr<string> diskId_ {};
     // The ID of the edge node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ensRegionId_ = nullptr;
-    std::shared_ptr<string> instanceBillingCycle_ = nullptr;
+    shared_ptr<string> ensRegionId_ {};
+    shared_ptr<string> instanceBillingCycle_ {};
     // The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-    std::shared_ptr<string> snapshotName_ = nullptr;
+    shared_ptr<string> snapshotName_ {};
   };
 
   } // namespace Models

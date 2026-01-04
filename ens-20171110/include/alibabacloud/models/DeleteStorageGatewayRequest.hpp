@@ -33,7 +33,7 @@ namespace Models
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline DeleteStorageGatewayRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gatewayId_ = nullptr;
+    shared_ptr<string> gatewayId_ {};
   };
 
   } // namespace Models

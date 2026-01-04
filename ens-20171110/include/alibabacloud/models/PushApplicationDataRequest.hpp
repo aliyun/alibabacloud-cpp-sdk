@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->data_ == nullptr && return this->pushStrategy_ == nullptr && return this->timeout_ == nullptr; };
+        && this->data_ == nullptr && this->pushStrategy_ == nullptr && this->timeout_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline PushApplicationDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline PushApplicationDataRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // pushStrategy Field Functions 
     bool hasPushStrategy() const { return this->pushStrategy_ != nullptr;};
     void deletePushStrategy() { this->pushStrategy_ = nullptr;};
-    inline string pushStrategy() const { DARABONBA_PTR_GET_DEFAULT(pushStrategy_, "") };
+    inline string getPushStrategy() const { DARABONBA_PTR_GET_DEFAULT(pushStrategy_, "") };
     inline PushApplicationDataRequest& setPushStrategy(string pushStrategy) { DARABONBA_PTR_SET_VALUE(pushStrategy_, pushStrategy) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline PushApplicationDataRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The data files that you want to push. The value must be a JSON string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // The push policy in the canary release environment. The value must be a JSON string. You can specify multiple push policies. By default, all data files are pushed.
-    std::shared_ptr<string> pushStrategy_ = nullptr;
+    shared_ptr<string> pushStrategy_ {};
     // This parameter does not take effect.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->podConfigName_ == nullptr && return this->uuid_ == nullptr; };
+        && this->podConfigName_ == nullptr && this->uuid_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeServcieScheduleRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // podConfigName Field Functions 
     bool hasPodConfigName() const { return this->podConfigName_ != nullptr;};
     void deletePodConfigName() { this->podConfigName_ = nullptr;};
-    inline string podConfigName() const { DARABONBA_PTR_GET_DEFAULT(podConfigName_, "") };
+    inline string getPodConfigName() const { DARABONBA_PTR_GET_DEFAULT(podConfigName_, "") };
     inline DescribeServcieScheduleRequest& setPodConfigName(string podConfigName) { DARABONBA_PTR_SET_VALUE(podConfigName_, podConfigName) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline DescribeServcieScheduleRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter does not take effect.
-    std::shared_ptr<string> podConfigName_ = nullptr;
+    shared_ptr<string> podConfigName_ {};
     // The unique ID of the device.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

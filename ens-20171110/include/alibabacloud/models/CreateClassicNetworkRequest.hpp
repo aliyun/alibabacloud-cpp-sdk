@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cidrBlock_ == nullptr
-        && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->networkName_ == nullptr; };
+        && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->networkName_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
-    inline string cidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
+    inline string getCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
     inline CreateClassicNetworkRequest& setCidrBlock(string cidrBlock) { DARABONBA_PTR_SET_VALUE(cidrBlock_, cidrBlock) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateClassicNetworkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline CreateClassicNetworkRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // networkName Field Functions 
     bool hasNetworkName() const { return this->networkName_ != nullptr;};
     void deleteNetworkName() { this->networkName_ = nullptr;};
-    inline string networkName() const { DARABONBA_PTR_GET_DEFAULT(networkName_, "") };
+    inline string getNetworkName() const { DARABONBA_PTR_GET_DEFAULT(networkName_, "") };
     inline CreateClassicNetworkRequest& setNetworkName(string networkName) { DARABONBA_PTR_SET_VALUE(networkName_, networkName) };
 
 
@@ -73,19 +73,19 @@ namespace Models
     // *   192.168.0.0/16
     // 
     // This parameter is required.
-    std::shared_ptr<string> cidrBlock_ = nullptr;
+    shared_ptr<string> cidrBlock_ {};
     // The description of the network. The name must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the edge node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> ensRegionId_ {};
     // The name of the network. The name must meet the following requirements:
     // 
     // *   The name must be 2 to 128 characters in length.
     // *   The name must start with a letter but cannot start with http:// or https://.
     // *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-    std::shared_ptr<string> networkName_ = nullptr;
+    shared_ptr<string> networkName_ {};
   };
 
   } // namespace Models

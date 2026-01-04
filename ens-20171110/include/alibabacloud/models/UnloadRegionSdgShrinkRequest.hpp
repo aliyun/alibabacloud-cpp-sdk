@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationRegionIdsShrink_ == nullptr
-        && return this->namespacesShrink_ == nullptr && return this->SDGId_ == nullptr; };
+        && this->namespacesShrink_ == nullptr && this->SDGId_ == nullptr; };
     // destinationRegionIdsShrink Field Functions 
     bool hasDestinationRegionIdsShrink() const { return this->destinationRegionIdsShrink_ != nullptr;};
     void deleteDestinationRegionIdsShrink() { this->destinationRegionIdsShrink_ = nullptr;};
-    inline string destinationRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionIdsShrink_, "") };
+    inline string getDestinationRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionIdsShrink_, "") };
     inline UnloadRegionSDGShrinkRequest& setDestinationRegionIdsShrink(string destinationRegionIdsShrink) { DARABONBA_PTR_SET_VALUE(destinationRegionIdsShrink_, destinationRegionIdsShrink) };
 
 
     // namespacesShrink Field Functions 
     bool hasNamespacesShrink() const { return this->namespacesShrink_ != nullptr;};
     void deleteNamespacesShrink() { this->namespacesShrink_ = nullptr;};
-    inline string namespacesShrink() const { DARABONBA_PTR_GET_DEFAULT(namespacesShrink_, "") };
+    inline string getNamespacesShrink() const { DARABONBA_PTR_GET_DEFAULT(namespacesShrink_, "") };
     inline UnloadRegionSDGShrinkRequest& setNamespacesShrink(string namespacesShrink) { DARABONBA_PTR_SET_VALUE(namespacesShrink_, namespacesShrink) };
 
 
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline string SDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
+    inline string getSDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
     inline UnloadRegionSDGShrinkRequest& setSDGId(string SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The destination nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destinationRegionIdsShrink_ = nullptr;
+    shared_ptr<string> destinationRegionIdsShrink_ {};
     // An array that consists of queried namespaces.
-    std::shared_ptr<string> namespacesShrink_ = nullptr;
+    shared_ptr<string> namespacesShrink_ {};
     // Deletes the shared data group (SDG) ID of the preloaded data.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SDGId_ = nullptr;
+    shared_ptr<string> SDGId_ {};
   };
 
   } // namespace Models

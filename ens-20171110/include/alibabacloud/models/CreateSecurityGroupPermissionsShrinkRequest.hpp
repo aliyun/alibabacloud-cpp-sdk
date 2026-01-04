@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->permissionsShrink_ == nullptr
-        && return this->securityGroupId_ == nullptr; };
+        && this->securityGroupId_ == nullptr; };
     // permissionsShrink Field Functions 
     bool hasPermissionsShrink() const { return this->permissionsShrink_ != nullptr;};
     void deletePermissionsShrink() { this->permissionsShrink_ = nullptr;};
-    inline string permissionsShrink() const { DARABONBA_PTR_GET_DEFAULT(permissionsShrink_, "") };
+    inline string getPermissionsShrink() const { DARABONBA_PTR_GET_DEFAULT(permissionsShrink_, "") };
     inline CreateSecurityGroupPermissionsShrinkRequest& setPermissionsShrink(string permissionsShrink) { DARABONBA_PTR_SET_VALUE(permissionsShrink_, permissionsShrink) };
 
 
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline CreateSecurityGroupPermissionsShrinkRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The security group rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> permissionsShrink_ = nullptr;
+    shared_ptr<string> permissionsShrink_ {};
     // The IDs of the security groups.
     // 
     // This parameter is required.
-    std::shared_ptr<string> securityGroupId_ = nullptr;
+    shared_ptr<string> securityGroupId_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // osType Field Functions 
     bool hasOsType() const { return this->osType_ != nullptr;};
     void deleteOsType() { this->osType_ = nullptr;};
-    inline string osType() const { DARABONBA_PTR_GET_DEFAULT(osType_, "") };
+    inline string getOsType() const { DARABONBA_PTR_GET_DEFAULT(osType_, "") };
     inline DescribeImageInfosRequest& setOsType(string osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   linux
     // *   windows
-    std::shared_ptr<string> osType_ = nullptr;
+    shared_ptr<string> osType_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->template_ == nullptr && return this->timeout_ == nullptr; };
+        && this->template_ == nullptr && this->timeout_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpgradeApplicationRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline UpgradeApplicationRequest& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline UpgradeApplicationRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The information template for phased update. The value must be a JSON string and contain the following information:
     // 
     // *   Version range that you want to update
@@ -69,9 +69,9 @@ namespace Models
     // *   Intelligent upgrade policy that contains information such as the time window and resource usage limit
     // 
     // This parameter is required.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
     // The timeout period for asynchronous upgrade. Unit: seconds. Default value: 300.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

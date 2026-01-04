@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->haVipIds_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // haVipIds Field Functions 
     bool hasHaVipIds() const { return this->haVipIds_ != nullptr;};
     void deleteHaVipIds() { this->haVipIds_ = nullptr;};
-    inline const vector<string> & haVipIds() const { DARABONBA_PTR_GET_CONST(haVipIds_, vector<string>) };
-    inline vector<string> haVipIds() { DARABONBA_PTR_GET(haVipIds_, vector<string>) };
+    inline const vector<string> & getHaVipIds() const { DARABONBA_PTR_GET_CONST(haVipIds_, vector<string>) };
+    inline vector<string> getHaVipIds() { DARABONBA_PTR_GET(haVipIds_, vector<string>) };
     inline CreateHaVipResponseBody& setHaVipIds(const vector<string> & haVipIds) { DARABONBA_PTR_SET_VALUE(haVipIds_, haVipIds) };
     inline CreateHaVipResponseBody& setHaVipIds(vector<string> && haVipIds) { DARABONBA_PTR_SET_RVALUE(haVipIds_, haVipIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateHaVipResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The IDs of the HAVIPs.
-    std::shared_ptr<vector<string>> haVipIds_ = nullptr;
+    shared_ptr<vector<string>> haVipIds_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

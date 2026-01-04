@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commodityCode_ == nullptr
-        && return this->moduleCode_ == nullptr; };
+        && this->moduleCode_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline DescribeEnsCommodityModuleCodeRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // moduleCode Field Functions 
     bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
     void deleteModuleCode() { this->moduleCode_ = nullptr;};
-    inline string moduleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
+    inline string getModuleCode() const { DARABONBA_PTR_GET_DEFAULT(moduleCode_, "") };
     inline DescribeEnsCommodityModuleCodeRequest& setModuleCode(string moduleCode) { DARABONBA_PTR_SET_VALUE(moduleCode_, moduleCode) };
 
 
   protected:
-    std::shared_ptr<string> commodityCode_ = nullptr;
-    std::shared_ptr<string> moduleCode_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
+    shared_ptr<string> moduleCode_ {};
   };
 
   } // namespace Models

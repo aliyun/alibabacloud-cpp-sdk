@@ -33,7 +33,7 @@ namespace Models
     // instanceIdsShrink Field Functions 
     bool hasInstanceIdsShrink() const { return this->instanceIdsShrink_ != nullptr;};
     void deleteInstanceIdsShrink() { this->instanceIdsShrink_ = nullptr;};
-    inline string instanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
+    inline string getInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
     inline RemoveSDGShrinkRequest& setInstanceIdsShrink(string instanceIdsShrink) { DARABONBA_PTR_SET_VALUE(instanceIdsShrink_, instanceIdsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // IDs of Android in Container (AIC) instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIdsShrink_ = nullptr;
+    shared_ptr<string> instanceIdsShrink_ {};
   };
 
   } // namespace Models

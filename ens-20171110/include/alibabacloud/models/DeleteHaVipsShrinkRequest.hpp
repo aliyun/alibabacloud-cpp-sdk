@@ -33,7 +33,7 @@ namespace Models
     // haVipIdsShrink Field Functions 
     bool hasHaVipIdsShrink() const { return this->haVipIdsShrink_ != nullptr;};
     void deleteHaVipIdsShrink() { this->haVipIdsShrink_ = nullptr;};
-    inline string haVipIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(haVipIdsShrink_, "") };
+    inline string getHaVipIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(haVipIdsShrink_, "") };
     inline DeleteHaVipsShrinkRequest& setHaVipIdsShrink(string haVipIdsShrink) { DARABONBA_PTR_SET_VALUE(haVipIdsShrink_, haVipIdsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of high-availability virtual IP addresses (HAVIPs).
     // 
     // This parameter is required.
-    std::shared_ptr<string> haVipIdsShrink_ = nullptr;
+    shared_ptr<string> haVipIdsShrink_ {};
   };
 
   } // namespace Models

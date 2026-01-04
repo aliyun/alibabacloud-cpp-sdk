@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addAccounts_ == nullptr
-        && return this->imageId_ == nullptr && return this->removeAccounts_ == nullptr; };
+        && this->imageId_ == nullptr && this->removeAccounts_ == nullptr; };
     // addAccounts Field Functions 
     bool hasAddAccounts() const { return this->addAccounts_ != nullptr;};
     void deleteAddAccounts() { this->addAccounts_ = nullptr;};
-    inline string addAccounts() const { DARABONBA_PTR_GET_DEFAULT(addAccounts_, "") };
+    inline string getAddAccounts() const { DARABONBA_PTR_GET_DEFAULT(addAccounts_, "") };
     inline ModifyImageSharePermissionRequest& setAddAccounts(string addAccounts) { DARABONBA_PTR_SET_VALUE(addAccounts_, addAccounts) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ModifyImageSharePermissionRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // removeAccounts Field Functions 
     bool hasRemoveAccounts() const { return this->removeAccounts_ != nullptr;};
     void deleteRemoveAccounts() { this->removeAccounts_ = nullptr;};
-    inline string removeAccounts() const { DARABONBA_PTR_GET_DEFAULT(removeAccounts_, "") };
+    inline string getRemoveAccounts() const { DARABONBA_PTR_GET_DEFAULT(removeAccounts_, "") };
     inline ModifyImageSharePermissionRequest& setRemoveAccounts(string removeAccounts) { DARABONBA_PTR_SET_VALUE(removeAccounts_, removeAccounts) };
 
 
   protected:
     // The ID of the Alibaba Cloud account with which you want to share the image. You can specify multiple Alibaba Cloud IDs. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> addAccounts_ = nullptr;
+    shared_ptr<string> addAccounts_ {};
     // The ID of the image. You can specify only one image ID. Custom images and public images are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The ID of the Alibaba Cloud account from which you want to unshare the image. You can specify only one Alibaba Cloud account ID.
-    std::shared_ptr<string> removeAccounts_ = nullptr;
+    shared_ptr<string> removeAccounts_ {};
   };
 
   } // namespace Models

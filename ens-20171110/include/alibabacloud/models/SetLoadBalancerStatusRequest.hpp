@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->loadBalancerId_ == nullptr
-        && return this->loadBalancerStatus_ == nullptr; };
+        && this->loadBalancerStatus_ == nullptr; };
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline SetLoadBalancerStatusRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
     // loadBalancerStatus Field Functions 
     bool hasLoadBalancerStatus() const { return this->loadBalancerStatus_ != nullptr;};
     void deleteLoadBalancerStatus() { this->loadBalancerStatus_ = nullptr;};
-    inline string loadBalancerStatus() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerStatus_, "") };
+    inline string getLoadBalancerStatus() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerStatus_, "") };
     inline SetLoadBalancerStatusRequest& setLoadBalancerStatus(string loadBalancerStatus) { DARABONBA_PTR_SET_VALUE(loadBalancerStatus_, loadBalancerStatus) };
 
 
@@ -51,14 +51,14 @@ namespace Models
     // The ID of the ELB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
     // The new instance status. Valid values:
     // 
     // *   **Active**
     // *   **InActive**
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerStatus_ = nullptr;
+    shared_ptr<string> loadBalancerStatus_ {};
   };
 
   } // namespace Models

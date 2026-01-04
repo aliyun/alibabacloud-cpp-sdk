@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceActiveOpsTaskId_ == nullptr
-        && return this->instanceActiveOpsTaskStatus_ == nullptr; };
+        && this->instanceActiveOpsTaskStatus_ == nullptr; };
     // instanceActiveOpsTaskId Field Functions 
     bool hasInstanceActiveOpsTaskId() const { return this->instanceActiveOpsTaskId_ != nullptr;};
     void deleteInstanceActiveOpsTaskId() { this->instanceActiveOpsTaskId_ = nullptr;};
-    inline string instanceActiveOpsTaskId() const { DARABONBA_PTR_GET_DEFAULT(instanceActiveOpsTaskId_, "") };
+    inline string getInstanceActiveOpsTaskId() const { DARABONBA_PTR_GET_DEFAULT(instanceActiveOpsTaskId_, "") };
     inline InstanceActiveOpsTask& setInstanceActiveOpsTaskId(string instanceActiveOpsTaskId) { DARABONBA_PTR_SET_VALUE(instanceActiveOpsTaskId_, instanceActiveOpsTaskId) };
 
 
     // instanceActiveOpsTaskStatus Field Functions 
     bool hasInstanceActiveOpsTaskStatus() const { return this->instanceActiveOpsTaskStatus_ != nullptr;};
     void deleteInstanceActiveOpsTaskStatus() { this->instanceActiveOpsTaskStatus_ = nullptr;};
-    inline string instanceActiveOpsTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(instanceActiveOpsTaskStatus_, "") };
+    inline string getInstanceActiveOpsTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(instanceActiveOpsTaskStatus_, "") };
     inline InstanceActiveOpsTask& setInstanceActiveOpsTaskStatus(string instanceActiveOpsTaskStatus) { DARABONBA_PTR_SET_VALUE(instanceActiveOpsTaskStatus_, instanceActiveOpsTaskStatus) };
 
 
   protected:
-    std::shared_ptr<string> instanceActiveOpsTaskId_ = nullptr;
-    std::shared_ptr<string> instanceActiveOpsTaskStatus_ = nullptr;
+    shared_ptr<string> instanceActiveOpsTaskId_ {};
+    shared_ptr<string> instanceActiveOpsTaskStatus_ {};
   };
 
   } // namespace Models

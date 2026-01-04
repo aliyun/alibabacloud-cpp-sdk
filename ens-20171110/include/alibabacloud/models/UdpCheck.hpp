@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->healthCheckConnectPort_ == nullptr
-        && return this->healthCheckConnectTimeout_ == nullptr && return this->healthCheckInterval_ == nullptr && return this->healthyThreshold_ == nullptr && return this->unhealthyThreshold_ == nullptr; };
+        && this->healthCheckConnectTimeout_ == nullptr && this->healthCheckInterval_ == nullptr && this->healthyThreshold_ == nullptr && this->unhealthyThreshold_ == nullptr; };
     // healthCheckConnectPort Field Functions 
     bool hasHealthCheckConnectPort() const { return this->healthCheckConnectPort_ != nullptr;};
     void deleteHealthCheckConnectPort() { this->healthCheckConnectPort_ = nullptr;};
-    inline int32_t healthCheckConnectPort() const { DARABONBA_PTR_GET_DEFAULT(healthCheckConnectPort_, 0) };
+    inline int32_t getHealthCheckConnectPort() const { DARABONBA_PTR_GET_DEFAULT(healthCheckConnectPort_, 0) };
     inline UdpCheck& setHealthCheckConnectPort(int32_t healthCheckConnectPort) { DARABONBA_PTR_SET_VALUE(healthCheckConnectPort_, healthCheckConnectPort) };
 
 
     // healthCheckConnectTimeout Field Functions 
     bool hasHealthCheckConnectTimeout() const { return this->healthCheckConnectTimeout_ != nullptr;};
     void deleteHealthCheckConnectTimeout() { this->healthCheckConnectTimeout_ = nullptr;};
-    inline int32_t healthCheckConnectTimeout() const { DARABONBA_PTR_GET_DEFAULT(healthCheckConnectTimeout_, 0) };
+    inline int32_t getHealthCheckConnectTimeout() const { DARABONBA_PTR_GET_DEFAULT(healthCheckConnectTimeout_, 0) };
     inline UdpCheck& setHealthCheckConnectTimeout(int32_t healthCheckConnectTimeout) { DARABONBA_PTR_SET_VALUE(healthCheckConnectTimeout_, healthCheckConnectTimeout) };
 
 
     // healthCheckInterval Field Functions 
     bool hasHealthCheckInterval() const { return this->healthCheckInterval_ != nullptr;};
     void deleteHealthCheckInterval() { this->healthCheckInterval_ = nullptr;};
-    inline int32_t healthCheckInterval() const { DARABONBA_PTR_GET_DEFAULT(healthCheckInterval_, 0) };
+    inline int32_t getHealthCheckInterval() const { DARABONBA_PTR_GET_DEFAULT(healthCheckInterval_, 0) };
     inline UdpCheck& setHealthCheckInterval(int32_t healthCheckInterval) { DARABONBA_PTR_SET_VALUE(healthCheckInterval_, healthCheckInterval) };
 
 
     // healthyThreshold Field Functions 
     bool hasHealthyThreshold() const { return this->healthyThreshold_ != nullptr;};
     void deleteHealthyThreshold() { this->healthyThreshold_ = nullptr;};
-    inline int32_t healthyThreshold() const { DARABONBA_PTR_GET_DEFAULT(healthyThreshold_, 0) };
+    inline int32_t getHealthyThreshold() const { DARABONBA_PTR_GET_DEFAULT(healthyThreshold_, 0) };
     inline UdpCheck& setHealthyThreshold(int32_t healthyThreshold) { DARABONBA_PTR_SET_VALUE(healthyThreshold_, healthyThreshold) };
 
 
     // unhealthyThreshold Field Functions 
     bool hasUnhealthyThreshold() const { return this->unhealthyThreshold_ != nullptr;};
     void deleteUnhealthyThreshold() { this->unhealthyThreshold_ = nullptr;};
-    inline int32_t unhealthyThreshold() const { DARABONBA_PTR_GET_DEFAULT(unhealthyThreshold_, 0) };
+    inline int32_t getUnhealthyThreshold() const { DARABONBA_PTR_GET_DEFAULT(unhealthyThreshold_, 0) };
     inline UdpCheck& setUnhealthyThreshold(int32_t unhealthyThreshold) { DARABONBA_PTR_SET_VALUE(unhealthyThreshold_, unhealthyThreshold) };
 
 
   protected:
-    std::shared_ptr<int32_t> healthCheckConnectPort_ = nullptr;
-    std::shared_ptr<int32_t> healthCheckConnectTimeout_ = nullptr;
-    std::shared_ptr<int32_t> healthCheckInterval_ = nullptr;
-    std::shared_ptr<int32_t> healthyThreshold_ = nullptr;
-    std::shared_ptr<int32_t> unhealthyThreshold_ = nullptr;
+    shared_ptr<int32_t> healthCheckConnectPort_ {};
+    shared_ptr<int32_t> healthCheckConnectTimeout_ {};
+    shared_ptr<int32_t> healthCheckInterval_ {};
+    shared_ptr<int32_t> healthyThreshold_ {};
+    shared_ptr<int32_t> unhealthyThreshold_ {};
   };
 
   } // namespace Models

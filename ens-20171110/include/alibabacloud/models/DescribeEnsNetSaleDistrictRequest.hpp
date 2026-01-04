@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->netDistrictCode_ == nullptr
-        && return this->netLevelCode_ == nullptr; };
+        && this->netLevelCode_ == nullptr; };
     // netDistrictCode Field Functions 
     bool hasNetDistrictCode() const { return this->netDistrictCode_ != nullptr;};
     void deleteNetDistrictCode() { this->netDistrictCode_ = nullptr;};
-    inline string netDistrictCode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCode_, "") };
+    inline string getNetDistrictCode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCode_, "") };
     inline DescribeEnsNetSaleDistrictRequest& setNetDistrictCode(string netDistrictCode) { DARABONBA_PTR_SET_VALUE(netDistrictCode_, netDistrictCode) };
 
 
     // netLevelCode Field Functions 
     bool hasNetLevelCode() const { return this->netLevelCode_ != nullptr;};
     void deleteNetLevelCode() { this->netLevelCode_ = nullptr;};
-    inline string netLevelCode() const { DARABONBA_PTR_GET_DEFAULT(netLevelCode_, "") };
+    inline string getNetLevelCode() const { DARABONBA_PTR_GET_DEFAULT(netLevelCode_, "") };
     inline DescribeEnsNetSaleDistrictRequest& setNetLevelCode(string netLevelCode) { DARABONBA_PTR_SET_VALUE(netLevelCode_, netLevelCode) };
 
 
@@ -52,7 +52,7 @@ namespace Models
     // 
     // *   If you do not specify this parameter, only nodes under the area level that is specified by NetLevelCode are queried.
     // *   If you specify this parameter, only child nodes in the area that is specified by NetDistrictCode are queried.
-    std::shared_ptr<string> netDistrictCode_ = nullptr;
+    shared_ptr<string> netDistrictCode_ {};
     // The network level. Valid values:
     // 
     // *   **Big**: area
@@ -60,7 +60,7 @@ namespace Models
     // *   **Small**: city
     // 
     // This parameter is required.
-    std::shared_ptr<string> netLevelCode_ = nullptr;
+    shared_ptr<string> netLevelCode_ {};
   };
 
   } // namespace Models

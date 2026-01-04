@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->establishedTimeout_ == nullptr
-        && return this->persistenceTimeout_ == nullptr && return this->scheduler_ == nullptr; };
+        && this->persistenceTimeout_ == nullptr && this->scheduler_ == nullptr; };
     // establishedTimeout Field Functions 
     bool hasEstablishedTimeout() const { return this->establishedTimeout_ != nullptr;};
     void deleteEstablishedTimeout() { this->establishedTimeout_ = nullptr;};
-    inline int32_t establishedTimeout() const { DARABONBA_PTR_GET_DEFAULT(establishedTimeout_, 0) };
+    inline int32_t getEstablishedTimeout() const { DARABONBA_PTR_GET_DEFAULT(establishedTimeout_, 0) };
     inline TcpConfig& setEstablishedTimeout(int32_t establishedTimeout) { DARABONBA_PTR_SET_VALUE(establishedTimeout_, establishedTimeout) };
 
 
     // persistenceTimeout Field Functions 
     bool hasPersistenceTimeout() const { return this->persistenceTimeout_ != nullptr;};
     void deletePersistenceTimeout() { this->persistenceTimeout_ = nullptr;};
-    inline int32_t persistenceTimeout() const { DARABONBA_PTR_GET_DEFAULT(persistenceTimeout_, 0) };
+    inline int32_t getPersistenceTimeout() const { DARABONBA_PTR_GET_DEFAULT(persistenceTimeout_, 0) };
     inline TcpConfig& setPersistenceTimeout(int32_t persistenceTimeout) { DARABONBA_PTR_SET_VALUE(persistenceTimeout_, persistenceTimeout) };
 
 
     // scheduler Field Functions 
     bool hasScheduler() const { return this->scheduler_ != nullptr;};
     void deleteScheduler() { this->scheduler_ = nullptr;};
-    inline string scheduler() const { DARABONBA_PTR_GET_DEFAULT(scheduler_, "") };
+    inline string getScheduler() const { DARABONBA_PTR_GET_DEFAULT(scheduler_, "") };
     inline TcpConfig& setScheduler(string scheduler) { DARABONBA_PTR_SET_VALUE(scheduler_, scheduler) };
 
 
   protected:
-    std::shared_ptr<int32_t> establishedTimeout_ = nullptr;
-    std::shared_ptr<int32_t> persistenceTimeout_ = nullptr;
-    std::shared_ptr<string> scheduler_ = nullptr;
+    shared_ptr<int32_t> establishedTimeout_ {};
+    shared_ptr<int32_t> persistenceTimeout_ {};
+    shared_ptr<string> scheduler_ {};
   };
 
   } // namespace Models

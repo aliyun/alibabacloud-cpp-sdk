@@ -33,7 +33,7 @@ namespace Models
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline DescribeEnsRegionsRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the node.
     // 
     // By default, all available node IDs are returned.
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> ensRegionId_ {};
   };
 
   } // namespace Models

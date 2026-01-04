@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->OSSBucket_ == nullptr && return this->OSSPrefix_ == nullptr && return this->OSSRegionId_ == nullptr && return this->roleName_ == nullptr; };
+        && this->OSSBucket_ == nullptr && this->OSSPrefix_ == nullptr && this->OSSRegionId_ == nullptr && this->roleName_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ExportImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // OSSBucket Field Functions 
     bool hasOSSBucket() const { return this->OSSBucket_ != nullptr;};
     void deleteOSSBucket() { this->OSSBucket_ = nullptr;};
-    inline string OSSBucket() const { DARABONBA_PTR_GET_DEFAULT(OSSBucket_, "") };
+    inline string getOSSBucket() const { DARABONBA_PTR_GET_DEFAULT(OSSBucket_, "") };
     inline ExportImageRequest& setOSSBucket(string OSSBucket) { DARABONBA_PTR_SET_VALUE(OSSBucket_, OSSBucket) };
 
 
     // OSSPrefix Field Functions 
     bool hasOSSPrefix() const { return this->OSSPrefix_ != nullptr;};
     void deleteOSSPrefix() { this->OSSPrefix_ = nullptr;};
-    inline string OSSPrefix() const { DARABONBA_PTR_GET_DEFAULT(OSSPrefix_, "") };
+    inline string getOSSPrefix() const { DARABONBA_PTR_GET_DEFAULT(OSSPrefix_, "") };
     inline ExportImageRequest& setOSSPrefix(string OSSPrefix) { DARABONBA_PTR_SET_VALUE(OSSPrefix_, OSSPrefix) };
 
 
     // OSSRegionId Field Functions 
     bool hasOSSRegionId() const { return this->OSSRegionId_ != nullptr;};
     void deleteOSSRegionId() { this->OSSRegionId_ = nullptr;};
-    inline string OSSRegionId() const { DARABONBA_PTR_GET_DEFAULT(OSSRegionId_, "") };
+    inline string getOSSRegionId() const { DARABONBA_PTR_GET_DEFAULT(OSSRegionId_, "") };
     inline ExportImageRequest& setOSSRegionId(string OSSRegionId) { DARABONBA_PTR_SET_VALUE(OSSRegionId_, OSSRegionId) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline ExportImageRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
@@ -78,19 +78,19 @@ namespace Models
     // The ID of the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The OSS bucket to which you want to export the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> OSSBucket_ = nullptr;
+    shared_ptr<string> OSSBucket_ {};
     // The prefix of the object as which you want to store the image in the OSS bucket. The prefix must be 1 to 30 characters in length and can contain digits and letters.
-    std::shared_ptr<string> OSSPrefix_ = nullptr;
+    shared_ptr<string> OSSPrefix_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> OSSRegionId_ = nullptr;
+    shared_ptr<string> OSSRegionId_ {};
     // The name of the Resource Access Management (RAM) role.
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

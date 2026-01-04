@@ -34,8 +34,8 @@ namespace Models
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline const vector<string> & SDGId() const { DARABONBA_PTR_GET_CONST(SDGId_, vector<string>) };
-    inline vector<string> SDGId() { DARABONBA_PTR_GET(SDGId_, vector<string>) };
+    inline const vector<string> & getSDGId() const { DARABONBA_PTR_GET_CONST(SDGId_, vector<string>) };
+    inline vector<string> getSDGId() { DARABONBA_PTR_GET(SDGId_, vector<string>) };
     inline DeleteSDGRequest& setSDGId(const vector<string> & SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
     inline DeleteSDGRequest& setSDGId(vector<string> && SDGId) { DARABONBA_PTR_SET_RVALUE(SDGId_, SDGId) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of the SDGs that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> SDGId_ = nullptr;
+    shared_ptr<vector<string>> SDGId_ {};
   };
 
   } // namespace Models

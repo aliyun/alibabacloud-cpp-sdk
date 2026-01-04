@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->serverIdsShrink_ == nullptr && return this->timeout_ == nullptr; };
+        && this->serverIdsShrink_ == nullptr && this->timeout_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline UpgradeAICInstanceImageShrinkRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // serverIdsShrink Field Functions 
     bool hasServerIdsShrink() const { return this->serverIdsShrink_ != nullptr;};
     void deleteServerIdsShrink() { this->serverIdsShrink_ = nullptr;};
-    inline string serverIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(serverIdsShrink_, "") };
+    inline string getServerIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(serverIdsShrink_, "") };
     inline UpgradeAICInstanceImageShrinkRequest& setServerIdsShrink(string serverIdsShrink) { DARABONBA_PTR_SET_VALUE(serverIdsShrink_, serverIdsShrink) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline UpgradeAICInstanceImageShrinkRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the AIC image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The IDs of the servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serverIdsShrink_ = nullptr;
+    shared_ptr<string> serverIdsShrink_ {};
     // The timeout period of the update. Unit: seconds.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

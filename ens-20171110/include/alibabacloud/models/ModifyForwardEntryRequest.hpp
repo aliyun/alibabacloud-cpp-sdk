@@ -44,97 +44,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->externalIp_ == nullptr
-        && return this->externalPort_ == nullptr && return this->forwardEntryId_ == nullptr && return this->forwardEntryName_ == nullptr && return this->healthCheckPort_ == nullptr && return this->internalIp_ == nullptr
-        && return this->internalPort_ == nullptr && return this->ipProtocol_ == nullptr; };
+        && this->externalPort_ == nullptr && this->forwardEntryId_ == nullptr && this->forwardEntryName_ == nullptr && this->healthCheckPort_ == nullptr && this->internalIp_ == nullptr
+        && this->internalPort_ == nullptr && this->ipProtocol_ == nullptr; };
     // externalIp Field Functions 
     bool hasExternalIp() const { return this->externalIp_ != nullptr;};
     void deleteExternalIp() { this->externalIp_ = nullptr;};
-    inline string externalIp() const { DARABONBA_PTR_GET_DEFAULT(externalIp_, "") };
+    inline string getExternalIp() const { DARABONBA_PTR_GET_DEFAULT(externalIp_, "") };
     inline ModifyForwardEntryRequest& setExternalIp(string externalIp) { DARABONBA_PTR_SET_VALUE(externalIp_, externalIp) };
 
 
     // externalPort Field Functions 
     bool hasExternalPort() const { return this->externalPort_ != nullptr;};
     void deleteExternalPort() { this->externalPort_ = nullptr;};
-    inline string externalPort() const { DARABONBA_PTR_GET_DEFAULT(externalPort_, "") };
+    inline string getExternalPort() const { DARABONBA_PTR_GET_DEFAULT(externalPort_, "") };
     inline ModifyForwardEntryRequest& setExternalPort(string externalPort) { DARABONBA_PTR_SET_VALUE(externalPort_, externalPort) };
 
 
     // forwardEntryId Field Functions 
     bool hasForwardEntryId() const { return this->forwardEntryId_ != nullptr;};
     void deleteForwardEntryId() { this->forwardEntryId_ = nullptr;};
-    inline string forwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
+    inline string getForwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
     inline ModifyForwardEntryRequest& setForwardEntryId(string forwardEntryId) { DARABONBA_PTR_SET_VALUE(forwardEntryId_, forwardEntryId) };
 
 
     // forwardEntryName Field Functions 
     bool hasForwardEntryName() const { return this->forwardEntryName_ != nullptr;};
     void deleteForwardEntryName() { this->forwardEntryName_ = nullptr;};
-    inline string forwardEntryName() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryName_, "") };
+    inline string getForwardEntryName() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryName_, "") };
     inline ModifyForwardEntryRequest& setForwardEntryName(string forwardEntryName) { DARABONBA_PTR_SET_VALUE(forwardEntryName_, forwardEntryName) };
 
 
     // healthCheckPort Field Functions 
     bool hasHealthCheckPort() const { return this->healthCheckPort_ != nullptr;};
     void deleteHealthCheckPort() { this->healthCheckPort_ = nullptr;};
-    inline int32_t healthCheckPort() const { DARABONBA_PTR_GET_DEFAULT(healthCheckPort_, 0) };
+    inline int32_t getHealthCheckPort() const { DARABONBA_PTR_GET_DEFAULT(healthCheckPort_, 0) };
     inline ModifyForwardEntryRequest& setHealthCheckPort(int32_t healthCheckPort) { DARABONBA_PTR_SET_VALUE(healthCheckPort_, healthCheckPort) };
 
 
     // internalIp Field Functions 
     bool hasInternalIp() const { return this->internalIp_ != nullptr;};
     void deleteInternalIp() { this->internalIp_ = nullptr;};
-    inline string internalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
+    inline string getInternalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
     inline ModifyForwardEntryRequest& setInternalIp(string internalIp) { DARABONBA_PTR_SET_VALUE(internalIp_, internalIp) };
 
 
     // internalPort Field Functions 
     bool hasInternalPort() const { return this->internalPort_ != nullptr;};
     void deleteInternalPort() { this->internalPort_ = nullptr;};
-    inline string internalPort() const { DARABONBA_PTR_GET_DEFAULT(internalPort_, "") };
+    inline string getInternalPort() const { DARABONBA_PTR_GET_DEFAULT(internalPort_, "") };
     inline ModifyForwardEntryRequest& setInternalPort(string internalPort) { DARABONBA_PTR_SET_VALUE(internalPort_, internalPort) };
 
 
     // ipProtocol Field Functions 
     bool hasIpProtocol() const { return this->ipProtocol_ != nullptr;};
     void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
-    inline string ipProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
+    inline string getIpProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
     inline ModifyForwardEntryRequest& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
 
 
   protected:
     // The EIP in the DNAT entry. The public IP address is used to access the Internet.
-    std::shared_ptr<string> externalIp_ = nullptr;
+    shared_ptr<string> externalIp_ {};
     // The external port or port range that is used for port forwarding.
     // 
     // *   Valid values: 1 to 65535.
     // *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20. The first port and the last port are included.
     // *   If you set ExternalPort to a port range, you must also set InternalPort to a port range. The number of ports in the port ranges must be the same. For example, if you set ExternalPort to 10/20, you can set InternalPort to 80/90.
     // *   The maximum port range is 1000.
-    std::shared_ptr<string> externalPort_ = nullptr;
+    shared_ptr<string> externalPort_ {};
     // The ID of the DNAT entry.
     // 
     // This parameter is required.
-    std::shared_ptr<string> forwardEntryId_ = nullptr;
+    shared_ptr<string> forwardEntryId_ {};
     // The name of the DNAT entry. The name must be 2 to 128 characters in length. It cannot start with `http://` or `https://`.
-    std::shared_ptr<string> forwardEntryName_ = nullptr;
+    shared_ptr<string> forwardEntryName_ {};
     // The probe port. The port must be within the internal port range. By default, this parameter is left empty.
-    std::shared_ptr<int32_t> healthCheckPort_ = nullptr;
+    shared_ptr<int32_t> healthCheckPort_ {};
     // The private IP address of the instance that uses the DNAT entry for Internet communication.
-    std::shared_ptr<string> internalIp_ = nullptr;
+    shared_ptr<string> internalIp_ {};
     // The private port or port range that is used in port forwarding.
     // 
     // *   Valid values: 1 to 65535.
     // *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20. The first port and the last port are included.
     // *   If you set InternalPort to a port range, you must also set ExternalPort to a port range. The number of ports in the port ranges must be the same. For example, if you set ExternalPort to 10/20, you can set InternalPort to 80/90.
     // *   The maximum port range is 1000.
-    std::shared_ptr<string> internalPort_ = nullptr;
+    shared_ptr<string> internalPort_ {};
     // The protocol. Valid values:
     // 
     // *   **TCP**: forwards TCP packets.
     // *   **UDP**: forwards UDP packets.
     // *   **Any** (default): forwards all packets.
-    std::shared_ptr<string> ipProtocol_ = nullptr;
+    shared_ptr<string> ipProtocol_ {};
   };
 
   } // namespace Models

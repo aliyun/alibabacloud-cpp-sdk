@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventLevelsShrink_ == nullptr
-        && return this->eventStatusShrink_ == nullptr && return this->eventTypesShrink_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->resourceIdsShrink_ == nullptr; };
+        && this->eventStatusShrink_ == nullptr && this->eventTypesShrink_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceIdsShrink_ == nullptr; };
     // eventLevelsShrink Field Functions 
     bool hasEventLevelsShrink() const { return this->eventLevelsShrink_ != nullptr;};
     void deleteEventLevelsShrink() { this->eventLevelsShrink_ = nullptr;};
-    inline string eventLevelsShrink() const { DARABONBA_PTR_GET_DEFAULT(eventLevelsShrink_, "") };
+    inline string getEventLevelsShrink() const { DARABONBA_PTR_GET_DEFAULT(eventLevelsShrink_, "") };
     inline DescribeHistoryEventsShrinkRequest& setEventLevelsShrink(string eventLevelsShrink) { DARABONBA_PTR_SET_VALUE(eventLevelsShrink_, eventLevelsShrink) };
 
 
     // eventStatusShrink Field Functions 
     bool hasEventStatusShrink() const { return this->eventStatusShrink_ != nullptr;};
     void deleteEventStatusShrink() { this->eventStatusShrink_ = nullptr;};
-    inline string eventStatusShrink() const { DARABONBA_PTR_GET_DEFAULT(eventStatusShrink_, "") };
+    inline string getEventStatusShrink() const { DARABONBA_PTR_GET_DEFAULT(eventStatusShrink_, "") };
     inline DescribeHistoryEventsShrinkRequest& setEventStatusShrink(string eventStatusShrink) { DARABONBA_PTR_SET_VALUE(eventStatusShrink_, eventStatusShrink) };
 
 
     // eventTypesShrink Field Functions 
     bool hasEventTypesShrink() const { return this->eventTypesShrink_ != nullptr;};
     void deleteEventTypesShrink() { this->eventTypesShrink_ = nullptr;};
-    inline string eventTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(eventTypesShrink_, "") };
+    inline string getEventTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(eventTypesShrink_, "") };
     inline DescribeHistoryEventsShrinkRequest& setEventTypesShrink(string eventTypesShrink) { DARABONBA_PTR_SET_VALUE(eventTypesShrink_, eventTypesShrink) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeHistoryEventsShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeHistoryEventsShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceIdsShrink Field Functions 
     bool hasResourceIdsShrink() const { return this->resourceIdsShrink_ != nullptr;};
     void deleteResourceIdsShrink() { this->resourceIdsShrink_ = nullptr;};
-    inline string resourceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceIdsShrink_, "") };
+    inline string getResourceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceIdsShrink_, "") };
     inline DescribeHistoryEventsShrinkRequest& setResourceIdsShrink(string resourceIdsShrink) { DARABONBA_PTR_SET_VALUE(resourceIdsShrink_, resourceIdsShrink) };
 
 
   protected:
     // The levels of the event-triggered alerts.
-    std::shared_ptr<string> eventLevelsShrink_ = nullptr;
+    shared_ptr<string> eventLevelsShrink_ {};
     // Event status list.
-    std::shared_ptr<string> eventStatusShrink_ = nullptr;
+    shared_ptr<string> eventStatusShrink_ {};
     // The list of event types.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventTypesShrink_ = nullptr;
+    shared_ptr<string> eventTypesShrink_ {};
     // The page number. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The IDs of resources.
-    std::shared_ptr<string> resourceIdsShrink_ = nullptr;
+    shared_ptr<string> resourceIdsShrink_ {};
   };
 
   } // namespace Models

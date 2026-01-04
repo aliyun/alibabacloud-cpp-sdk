@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceActiveOpsTask_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // instanceActiveOpsTask Field Functions 
     bool hasInstanceActiveOpsTask() const { return this->instanceActiveOpsTask_ != nullptr;};
     void deleteInstanceActiveOpsTask() { this->instanceActiveOpsTask_ = nullptr;};
-    inline const InstanceActiveOpsTask & instanceActiveOpsTask() const { DARABONBA_PTR_GET_CONST(instanceActiveOpsTask_, InstanceActiveOpsTask) };
-    inline InstanceActiveOpsTask instanceActiveOpsTask() { DARABONBA_PTR_GET(instanceActiveOpsTask_, InstanceActiveOpsTask) };
+    inline const InstanceActiveOpsTask & getInstanceActiveOpsTask() const { DARABONBA_PTR_GET_CONST(instanceActiveOpsTask_, InstanceActiveOpsTask) };
+    inline InstanceActiveOpsTask getInstanceActiveOpsTask() { DARABONBA_PTR_GET(instanceActiveOpsTask_, InstanceActiveOpsTask) };
     inline CreateInstanceActiveOpsTaskResponseBody& setInstanceActiveOpsTask(const InstanceActiveOpsTask & instanceActiveOpsTask) { DARABONBA_PTR_SET_VALUE(instanceActiveOpsTask_, instanceActiveOpsTask) };
     inline CreateInstanceActiveOpsTaskResponseBody& setInstanceActiveOpsTask(InstanceActiveOpsTask && instanceActiveOpsTask) { DARABONBA_PTR_SET_RVALUE(instanceActiveOpsTask_, instanceActiveOpsTask) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateInstanceActiveOpsTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<InstanceActiveOpsTask> instanceActiveOpsTask_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<InstanceActiveOpsTask> instanceActiveOpsTask_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

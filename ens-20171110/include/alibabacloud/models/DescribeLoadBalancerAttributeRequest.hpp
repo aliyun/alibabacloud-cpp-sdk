@@ -33,7 +33,7 @@ namespace Models
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline DescribeLoadBalancerAttributeRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the ELB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
   };
 
   } // namespace Models

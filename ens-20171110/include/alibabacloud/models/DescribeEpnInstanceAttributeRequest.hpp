@@ -33,7 +33,7 @@ namespace Models
     // EPNInstanceId Field Functions 
     bool hasEPNInstanceId() const { return this->EPNInstanceId_ != nullptr;};
     void deleteEPNInstanceId() { this->EPNInstanceId_ = nullptr;};
-    inline string EPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
+    inline string getEPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
     inline DescribeEpnInstanceAttributeRequest& setEPNInstanceId(string EPNInstanceId) { DARABONBA_PTR_SET_VALUE(EPNInstanceId_, EPNInstanceId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the EPN instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> EPNInstanceId_ = nullptr;
+    shared_ptr<string> EPNInstanceId_ {};
   };
 
   } // namespace Models

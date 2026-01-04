@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketAcl_ == nullptr
-        && return this->bucketName_ == nullptr; };
+        && this->bucketName_ == nullptr; };
     // bucketAcl Field Functions 
     bool hasBucketAcl() const { return this->bucketAcl_ != nullptr;};
     void deleteBucketAcl() { this->bucketAcl_ = nullptr;};
-    inline string bucketAcl() const { DARABONBA_PTR_GET_DEFAULT(bucketAcl_, "") };
+    inline string getBucketAcl() const { DARABONBA_PTR_GET_DEFAULT(bucketAcl_, "") };
     inline PutBucketAclRequest& setBucketAcl(string bucketAcl) { DARABONBA_PTR_SET_VALUE(bucketAcl_, bucketAcl) };
 
 
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline PutBucketAclRequest& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
@@ -55,11 +55,11 @@ namespace Models
     // *   **private** (default)
     // 
     // This parameter is required.
-    std::shared_ptr<string> bucketAcl_ = nullptr;
+    shared_ptr<string> bucketAcl_ {};
     // The name of the bucket.
     // 
     // This parameter is required.
-    std::shared_ptr<string> bucketName_ = nullptr;
+    shared_ptr<string> bucketName_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBESNAPSHOTSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeSnapshotsResponseBodySnapshots.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,56 +38,225 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Snapshots : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Snapshots& obj) { 
+        DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
+        DARABONBA_PTR_TO_JSON(Size, size_);
+        DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
+        DARABONBA_PTR_TO_JSON(SnapshotName, snapshotName_);
+        DARABONBA_PTR_TO_JSON(SourceDiskCategory, sourceDiskCategory_);
+        DARABONBA_PTR_TO_JSON(SourceDiskId, sourceDiskId_);
+        DARABONBA_PTR_TO_JSON(SourceDiskType, sourceDiskType_);
+        DARABONBA_PTR_TO_JSON(SourceEnsRegionId, sourceEnsRegionId_);
+        DARABONBA_PTR_TO_JSON(SourceSnapshotId, sourceSnapshotId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, Snapshots& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
+        DARABONBA_PTR_FROM_JSON(Size, size_);
+        DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
+        DARABONBA_PTR_FROM_JSON(SnapshotName, snapshotName_);
+        DARABONBA_PTR_FROM_JSON(SourceDiskCategory, sourceDiskCategory_);
+        DARABONBA_PTR_FROM_JSON(SourceDiskId, sourceDiskId_);
+        DARABONBA_PTR_FROM_JSON(SourceDiskType, sourceDiskType_);
+        DARABONBA_PTR_FROM_JSON(SourceEnsRegionId, sourceEnsRegionId_);
+        DARABONBA_PTR_FROM_JSON(SourceSnapshotId, sourceSnapshotId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      Snapshots() = default ;
+      Snapshots(const Snapshots &) = default ;
+      Snapshots(Snapshots &&) = default ;
+      Snapshots(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Snapshots() = default ;
+      Snapshots& operator=(const Snapshots &) = default ;
+      Snapshots& operator=(Snapshots &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->creationTime_ == nullptr
+        && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->size_ == nullptr && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr
+        && this->sourceDiskCategory_ == nullptr && this->sourceDiskId_ == nullptr && this->sourceDiskType_ == nullptr && this->sourceEnsRegionId_ == nullptr && this->sourceSnapshotId_ == nullptr
+        && this->status_ == nullptr; };
+      // creationTime Field Functions 
+      bool hasCreationTime() const { return this->creationTime_ != nullptr;};
+      void deleteCreationTime() { this->creationTime_ = nullptr;};
+      inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+      inline Snapshots& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Snapshots& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // ensRegionId Field Functions 
+      bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
+      void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
+      inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+      inline Snapshots& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
+
+
+      // size Field Functions 
+      bool hasSize() const { return this->size_ != nullptr;};
+      void deleteSize() { this->size_ = nullptr;};
+      inline string getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, "") };
+      inline Snapshots& setSize(string size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+      // snapshotId Field Functions 
+      bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
+      void deleteSnapshotId() { this->snapshotId_ = nullptr;};
+      inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+      inline Snapshots& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
+
+
+      // snapshotName Field Functions 
+      bool hasSnapshotName() const { return this->snapshotName_ != nullptr;};
+      void deleteSnapshotName() { this->snapshotName_ = nullptr;};
+      inline string getSnapshotName() const { DARABONBA_PTR_GET_DEFAULT(snapshotName_, "") };
+      inline Snapshots& setSnapshotName(string snapshotName) { DARABONBA_PTR_SET_VALUE(snapshotName_, snapshotName) };
+
+
+      // sourceDiskCategory Field Functions 
+      bool hasSourceDiskCategory() const { return this->sourceDiskCategory_ != nullptr;};
+      void deleteSourceDiskCategory() { this->sourceDiskCategory_ = nullptr;};
+      inline string getSourceDiskCategory() const { DARABONBA_PTR_GET_DEFAULT(sourceDiskCategory_, "") };
+      inline Snapshots& setSourceDiskCategory(string sourceDiskCategory) { DARABONBA_PTR_SET_VALUE(sourceDiskCategory_, sourceDiskCategory) };
+
+
+      // sourceDiskId Field Functions 
+      bool hasSourceDiskId() const { return this->sourceDiskId_ != nullptr;};
+      void deleteSourceDiskId() { this->sourceDiskId_ = nullptr;};
+      inline string getSourceDiskId() const { DARABONBA_PTR_GET_DEFAULT(sourceDiskId_, "") };
+      inline Snapshots& setSourceDiskId(string sourceDiskId) { DARABONBA_PTR_SET_VALUE(sourceDiskId_, sourceDiskId) };
+
+
+      // sourceDiskType Field Functions 
+      bool hasSourceDiskType() const { return this->sourceDiskType_ != nullptr;};
+      void deleteSourceDiskType() { this->sourceDiskType_ = nullptr;};
+      inline string getSourceDiskType() const { DARABONBA_PTR_GET_DEFAULT(sourceDiskType_, "") };
+      inline Snapshots& setSourceDiskType(string sourceDiskType) { DARABONBA_PTR_SET_VALUE(sourceDiskType_, sourceDiskType) };
+
+
+      // sourceEnsRegionId Field Functions 
+      bool hasSourceEnsRegionId() const { return this->sourceEnsRegionId_ != nullptr;};
+      void deleteSourceEnsRegionId() { this->sourceEnsRegionId_ = nullptr;};
+      inline string getSourceEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(sourceEnsRegionId_, "") };
+      inline Snapshots& setSourceEnsRegionId(string sourceEnsRegionId) { DARABONBA_PTR_SET_VALUE(sourceEnsRegionId_, sourceEnsRegionId) };
+
+
+      // sourceSnapshotId Field Functions 
+      bool hasSourceSnapshotId() const { return this->sourceSnapshotId_ != nullptr;};
+      void deleteSourceSnapshotId() { this->sourceSnapshotId_ = nullptr;};
+      inline string getSourceSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(sourceSnapshotId_, "") };
+      inline Snapshots& setSourceSnapshotId(string sourceSnapshotId) { DARABONBA_PTR_SET_VALUE(sourceSnapshotId_, sourceSnapshotId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Snapshots& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      shared_ptr<string> creationTime_ {};
+      // The description of the snapshot.
+      shared_ptr<string> description_ {};
+      // The ID of the edge node.
+      shared_ptr<string> ensRegionId_ {};
+      // The capacity of the disk. Unit: MiB.
+      shared_ptr<string> size_ {};
+      // The ID of the snapshot.
+      shared_ptr<string> snapshotId_ {};
+      // The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
+      shared_ptr<string> snapshotName_ {};
+      // The type of the disk. Valid value:
+      // 
+      // *   cloud_efficiency: ultra disk
+      // *   cloud_ssd: all-flash disk
+      // *   local_hdd: local HDD
+      // *   local_ssd: local SSD
+      shared_ptr<string> sourceDiskCategory_ {};
+      // The ID of the source disk. This parameter is retained even after the source disk for which the snapshot was created is released.
+      shared_ptr<string> sourceDiskId_ {};
+      // The type of the disk. Valid value:
+      // 
+      // *   1: system disk
+      // *   2: data disk
+      shared_ptr<string> sourceDiskType_ {};
+      // The ID of the source edge node.
+      shared_ptr<string> sourceEnsRegionId_ {};
+      // The ID of the source snapshot.
+      shared_ptr<string> sourceSnapshotId_ {};
+      // The status of the snapshot. Valid value:
+      // 
+      // *   creating: The snapshot is being created.
+      // *   Available: The snapshot is available.
+      // *   deleting: The snapshot is being deleted.
+      // *   error: An error occurred on the snapshot.
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->snapshots_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->snapshots_ == nullptr && this->totalCount_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeSnapshotsResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeSnapshotsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSnapshotsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // snapshots Field Functions 
     bool hasSnapshots() const { return this->snapshots_ != nullptr;};
     void deleteSnapshots() { this->snapshots_ = nullptr;};
-    inline const vector<DescribeSnapshotsResponseBodySnapshots> & snapshots() const { DARABONBA_PTR_GET_CONST(snapshots_, vector<DescribeSnapshotsResponseBodySnapshots>) };
-    inline vector<DescribeSnapshotsResponseBodySnapshots> snapshots() { DARABONBA_PTR_GET(snapshots_, vector<DescribeSnapshotsResponseBodySnapshots>) };
-    inline DescribeSnapshotsResponseBody& setSnapshots(const vector<DescribeSnapshotsResponseBodySnapshots> & snapshots) { DARABONBA_PTR_SET_VALUE(snapshots_, snapshots) };
-    inline DescribeSnapshotsResponseBody& setSnapshots(vector<DescribeSnapshotsResponseBodySnapshots> && snapshots) { DARABONBA_PTR_SET_RVALUE(snapshots_, snapshots) };
+    inline const vector<DescribeSnapshotsResponseBody::Snapshots> & getSnapshots() const { DARABONBA_PTR_GET_CONST(snapshots_, vector<DescribeSnapshotsResponseBody::Snapshots>) };
+    inline vector<DescribeSnapshotsResponseBody::Snapshots> getSnapshots() { DARABONBA_PTR_GET(snapshots_, vector<DescribeSnapshotsResponseBody::Snapshots>) };
+    inline DescribeSnapshotsResponseBody& setSnapshots(const vector<DescribeSnapshotsResponseBody::Snapshots> & snapshots) { DARABONBA_PTR_SET_VALUE(snapshots_, snapshots) };
+    inline DescribeSnapshotsResponseBody& setSnapshots(vector<DescribeSnapshotsResponseBody::Snapshots> && snapshots) { DARABONBA_PTR_SET_RVALUE(snapshots_, snapshots) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline DescribeSnapshotsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The page number of the returned page.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information about the snapshots.
-    std::shared_ptr<vector<DescribeSnapshotsResponseBodySnapshots>> snapshots_ = nullptr;
+    shared_ptr<vector<DescribeSnapshotsResponseBody::Snapshots>> snapshots_ {};
     // The total number of snapshots.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

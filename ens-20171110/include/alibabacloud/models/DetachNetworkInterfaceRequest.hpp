@@ -33,7 +33,7 @@ namespace Models
     // networkInterfaceId Field Functions 
     bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
     void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
-    inline string networkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
+    inline string getNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
     inline DetachNetworkInterfaceRequest& setNetworkInterfaceId(string networkInterfaceId) { DARABONBA_PTR_SET_VALUE(networkInterfaceId_, networkInterfaceId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the ENI.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkInterfaceId_ = nullptr;
+    shared_ptr<string> networkInterfaceId_ {};
   };
 
   } // namespace Models

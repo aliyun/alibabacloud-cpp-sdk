@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIdsShrink_ == nullptr
-        && return this->sdgIdsShrink_ == nullptr; };
+        && this->sdgIdsShrink_ == nullptr; };
     // instanceIdsShrink Field Functions 
     bool hasInstanceIdsShrink() const { return this->instanceIdsShrink_ != nullptr;};
     void deleteInstanceIdsShrink() { this->instanceIdsShrink_ = nullptr;};
-    inline string instanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
+    inline string getInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
     inline RemoveSDGsShrinkRequest& setInstanceIdsShrink(string instanceIdsShrink) { DARABONBA_PTR_SET_VALUE(instanceIdsShrink_, instanceIdsShrink) };
 
 
     // sdgIdsShrink Field Functions 
     bool hasSdgIdsShrink() const { return this->sdgIdsShrink_ != nullptr;};
     void deleteSdgIdsShrink() { this->sdgIdsShrink_ = nullptr;};
-    inline string sdgIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(sdgIdsShrink_, "") };
+    inline string getSdgIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(sdgIdsShrink_, "") };
     inline RemoveSDGsShrinkRequest& setSdgIdsShrink(string sdgIdsShrink) { DARABONBA_PTR_SET_VALUE(sdgIdsShrink_, sdgIdsShrink) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The IDs of the instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIdsShrink_ = nullptr;
+    shared_ptr<string> instanceIdsShrink_ {};
     // The IDs of SDG.
-    std::shared_ptr<string> sdgIdsShrink_ = nullptr;
+    shared_ptr<string> sdgIdsShrink_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backendServersShrink_ == nullptr
-        && return this->loadBalancerId_ == nullptr; };
+        && this->loadBalancerId_ == nullptr; };
     // backendServersShrink Field Functions 
     bool hasBackendServersShrink() const { return this->backendServersShrink_ != nullptr;};
     void deleteBackendServersShrink() { this->backendServersShrink_ = nullptr;};
-    inline string backendServersShrink() const { DARABONBA_PTR_GET_DEFAULT(backendServersShrink_, "") };
+    inline string getBackendServersShrink() const { DARABONBA_PTR_GET_DEFAULT(backendServersShrink_, "") };
     inline RemoveBackendServersShrinkRequest& setBackendServersShrink(string backendServersShrink) { DARABONBA_PTR_SET_VALUE(backendServersShrink_, backendServersShrink) };
 
 
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline RemoveBackendServersShrinkRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The list of backend servers that you want to remove. You can remove up to 20 backend servers at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> backendServersShrink_ = nullptr;
+    shared_ptr<string> backendServersShrink_ {};
     // The ID of the Edge Load Balancer (ELB) instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
   };
 
   } // namespace Models

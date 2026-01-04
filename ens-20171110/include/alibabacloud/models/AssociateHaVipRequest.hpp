@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->haVipId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->instanceType_ == nullptr; };
     // haVipId Field Functions 
     bool hasHaVipId() const { return this->haVipId_ != nullptr;};
     void deleteHaVipId() { this->haVipId_ = nullptr;};
-    inline string haVipId() const { DARABONBA_PTR_GET_DEFAULT(haVipId_, "") };
+    inline string getHaVipId() const { DARABONBA_PTR_GET_DEFAULT(haVipId_, "") };
     inline AssociateHaVipRequest& setHaVipId(string haVipId) { DARABONBA_PTR_SET_VALUE(haVipId_, haVipId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AssociateHaVipRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline AssociateHaVipRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
@@ -60,16 +60,16 @@ namespace Models
     // The ID of the HAVIP.
     // 
     // This parameter is required.
-    std::shared_ptr<string> haVipId_ = nullptr;
+    shared_ptr<string> haVipId_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The type of the instance to be associated with the HAVIP. Valid values:
     // 
     // *   EnsInstance (default): ENS instance
     // *   NetworkInterface: elastic network interface (ENI)
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
   };
 
   } // namespace Models

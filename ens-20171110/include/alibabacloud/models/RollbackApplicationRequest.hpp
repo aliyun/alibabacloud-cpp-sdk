@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->fromAppVersion_ == nullptr && return this->timeout_ == nullptr && return this->toAppVersion_ == nullptr; };
+        && this->fromAppVersion_ == nullptr && this->timeout_ == nullptr && this->toAppVersion_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline RollbackApplicationRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // fromAppVersion Field Functions 
     bool hasFromAppVersion() const { return this->fromAppVersion_ != nullptr;};
     void deleteFromAppVersion() { this->fromAppVersion_ = nullptr;};
-    inline string fromAppVersion() const { DARABONBA_PTR_GET_DEFAULT(fromAppVersion_, "") };
+    inline string getFromAppVersion() const { DARABONBA_PTR_GET_DEFAULT(fromAppVersion_, "") };
     inline RollbackApplicationRequest& setFromAppVersion(string fromAppVersion) { DARABONBA_PTR_SET_VALUE(fromAppVersion_, fromAppVersion) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline RollbackApplicationRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
     // toAppVersion Field Functions 
     bool hasToAppVersion() const { return this->toAppVersion_ != nullptr;};
     void deleteToAppVersion() { this->toAppVersion_ = nullptr;};
-    inline string toAppVersion() const { DARABONBA_PTR_GET_DEFAULT(toAppVersion_, "") };
+    inline string getToAppVersion() const { DARABONBA_PTR_GET_DEFAULT(toAppVersion_, "") };
     inline RollbackApplicationRequest& setToAppVersion(string toAppVersion) { DARABONBA_PTR_SET_VALUE(toAppVersion_, toAppVersion) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The current version number.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fromAppVersion_ = nullptr;
+    shared_ptr<string> fromAppVersion_ {};
     // The timeout period of the asynchronous rollback operation. Unit: seconds. Default value: 300.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
     // The target version number. By default, the system automatically rolls back the container version to the previous version.
-    std::shared_ptr<string> toAppVersion_ = nullptr;
+    shared_ptr<string> toAppVersion_ {};
   };
 
   } // namespace Models

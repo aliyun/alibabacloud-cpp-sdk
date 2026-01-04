@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appVersions_ == nullptr && return this->level_ == nullptr && return this->outDetailStatParams_ == nullptr && return this->resourceSelector_ == nullptr; };
+        && this->appVersions_ == nullptr && this->level_ == nullptr && this->outDetailStatParams_ == nullptr && this->resourceSelector_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeApplicationRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appVersions Field Functions 
     bool hasAppVersions() const { return this->appVersions_ != nullptr;};
     void deleteAppVersions() { this->appVersions_ = nullptr;};
-    inline string appVersions() const { DARABONBA_PTR_GET_DEFAULT(appVersions_, "") };
+    inline string getAppVersions() const { DARABONBA_PTR_GET_DEFAULT(appVersions_, "") };
     inline DescribeApplicationRequest& setAppVersions(string appVersions) { DARABONBA_PTR_SET_VALUE(appVersions_, appVersions) };
 
 
     // level Field Functions 
     bool hasLevel() const { return this->level_ != nullptr;};
     void deleteLevel() { this->level_ = nullptr;};
-    inline string level() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+    inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
     inline DescribeApplicationRequest& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
     // outDetailStatParams Field Functions 
     bool hasOutDetailStatParams() const { return this->outDetailStatParams_ != nullptr;};
     void deleteOutDetailStatParams() { this->outDetailStatParams_ = nullptr;};
-    inline string outDetailStatParams() const { DARABONBA_PTR_GET_DEFAULT(outDetailStatParams_, "") };
+    inline string getOutDetailStatParams() const { DARABONBA_PTR_GET_DEFAULT(outDetailStatParams_, "") };
     inline DescribeApplicationRequest& setOutDetailStatParams(string outDetailStatParams) { DARABONBA_PTR_SET_VALUE(outDetailStatParams_, outDetailStatParams) };
 
 
     // resourceSelector Field Functions 
     bool hasResourceSelector() const { return this->resourceSelector_ != nullptr;};
     void deleteResourceSelector() { this->resourceSelector_ = nullptr;};
-    inline string resourceSelector() const { DARABONBA_PTR_GET_DEFAULT(resourceSelector_, "") };
+    inline string getResourceSelector() const { DARABONBA_PTR_GET_DEFAULT(resourceSelector_, "") };
     inline DescribeApplicationRequest& setResourceSelector(string resourceSelector) { DARABONBA_PTR_SET_VALUE(resourceSelector_, resourceSelector) };
 
 
@@ -78,9 +78,9 @@ namespace Models
     // The ID of the application. You can call the ListApplications operation to obtain the application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The version number of the application. Separate multiple version numbers with commas (,). If you want to query data of all versions of applications, specify All for this parameter. By default, only data of applications in the stable versions are queried.
-    std::shared_ptr<string> appVersions_ = nullptr;
+    shared_ptr<string> appVersions_ {};
     // The region level by which edge resources of the application are collected. The value is of the enumeration type. Valid values:
     // 
     // *   National: Chinese mainland
@@ -90,11 +90,11 @@ namespace Models
     // *   RegionId: edge node
     // 
     // Default value: National.
-    std::shared_ptr<string> level_ = nullptr;
+    shared_ptr<string> level_ {};
     // Specifies whether to return other information about the application, such as statistics on resource instances and pods. The value must be a JSON string. By default, all information is returned.
-    std::shared_ptr<string> outDetailStatParams_ = nullptr;
+    shared_ptr<string> outDetailStatParams_ {};
     // The resource filtering condition.
-    std::shared_ptr<string> resourceSelector_ = nullptr;
+    shared_ptr<string> resourceSelector_ {};
   };
 
   } // namespace Models

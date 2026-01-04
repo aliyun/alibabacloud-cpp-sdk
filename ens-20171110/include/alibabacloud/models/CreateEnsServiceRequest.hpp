@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ensServiceId_ == nullptr
-        && return this->orderType_ == nullptr; };
+        && this->orderType_ == nullptr; };
     // ensServiceId Field Functions 
     bool hasEnsServiceId() const { return this->ensServiceId_ != nullptr;};
     void deleteEnsServiceId() { this->ensServiceId_ = nullptr;};
-    inline string ensServiceId() const { DARABONBA_PTR_GET_DEFAULT(ensServiceId_, "") };
+    inline string getEnsServiceId() const { DARABONBA_PTR_GET_DEFAULT(ensServiceId_, "") };
     inline CreateEnsServiceRequest& setEnsServiceId(string ensServiceId) { DARABONBA_PTR_SET_VALUE(ensServiceId_, ensServiceId) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline CreateEnsServiceRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
@@ -51,14 +51,14 @@ namespace Models
     // The ID of the resource that you want to obtain. You can specify only one ID in a request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ensServiceId_ = nullptr;
+    shared_ptr<string> ensServiceId_ {};
     // The operation to perform after you preview the created edge service. Valid values:
     // 
     // *   **Buy**: create
     // *   **Upgrade**: change
     // 
     // This parameter is required.
-    std::shared_ptr<string> orderType_ = nullptr;
+    shared_ptr<string> orderType_ {};
   };
 
   } // namespace Models

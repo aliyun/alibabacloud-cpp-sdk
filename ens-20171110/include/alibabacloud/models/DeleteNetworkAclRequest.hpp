@@ -33,7 +33,7 @@ namespace Models
     // networkAclId Field Functions 
     bool hasNetworkAclId() const { return this->networkAclId_ != nullptr;};
     void deleteNetworkAclId() { this->networkAclId_ = nullptr;};
-    inline string networkAclId() const { DARABONBA_PTR_GET_DEFAULT(networkAclId_, "") };
+    inline string getNetworkAclId() const { DARABONBA_PTR_GET_DEFAULT(networkAclId_, "") };
     inline DeleteNetworkAclRequest& setNetworkAclId(string networkAclId) { DARABONBA_PTR_SET_VALUE(networkAclId_, networkAclId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the network ACL.
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkAclId_ = nullptr;
+    shared_ptr<string> networkAclId_ {};
   };
 
   } // namespace Models

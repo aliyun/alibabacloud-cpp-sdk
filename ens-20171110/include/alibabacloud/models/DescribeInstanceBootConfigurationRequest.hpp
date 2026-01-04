@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bootSet_ == nullptr
-        && return this->bootType_ == nullptr && return this->diskSet_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->bootType_ == nullptr && this->diskSet_ == nullptr && this->instanceId_ == nullptr; };
     // bootSet Field Functions 
     bool hasBootSet() const { return this->bootSet_ != nullptr;};
     void deleteBootSet() { this->bootSet_ = nullptr;};
-    inline string bootSet() const { DARABONBA_PTR_GET_DEFAULT(bootSet_, "") };
+    inline string getBootSet() const { DARABONBA_PTR_GET_DEFAULT(bootSet_, "") };
     inline DescribeInstanceBootConfigurationRequest& setBootSet(string bootSet) { DARABONBA_PTR_SET_VALUE(bootSet_, bootSet) };
 
 
     // bootType Field Functions 
     bool hasBootType() const { return this->bootType_ != nullptr;};
     void deleteBootType() { this->bootType_ = nullptr;};
-    inline string bootType() const { DARABONBA_PTR_GET_DEFAULT(bootType_, "") };
+    inline string getBootType() const { DARABONBA_PTR_GET_DEFAULT(bootType_, "") };
     inline DescribeInstanceBootConfigurationRequest& setBootType(string bootType) { DARABONBA_PTR_SET_VALUE(bootType_, bootType) };
 
 
     // diskSet Field Functions 
     bool hasDiskSet() const { return this->diskSet_ != nullptr;};
     void deleteDiskSet() { this->diskSet_ = nullptr;};
-    inline string diskSet() const { DARABONBA_PTR_GET_DEFAULT(diskSet_, "") };
+    inline string getDiskSet() const { DARABONBA_PTR_GET_DEFAULT(diskSet_, "") };
     inline DescribeInstanceBootConfigurationRequest& setDiskSet(string diskSet) { DARABONBA_PTR_SET_VALUE(diskSet_, diskSet) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInstanceBootConfigurationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // The startup method.
-    std::shared_ptr<string> bootSet_ = nullptr;
+    shared_ptr<string> bootSet_ {};
     // The startup type.
-    std::shared_ptr<string> bootType_ = nullptr;
+    shared_ptr<string> bootType_ {};
     // Specifies whether the startup depends on the disk.
-    std::shared_ptr<string> diskSet_ = nullptr;
+    shared_ptr<string> diskSet_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

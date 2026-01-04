@@ -36,38 +36,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyPairId_ == nullptr
-        && return this->keyPairName_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->keyPairName_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // keyPairId Field Functions 
     bool hasKeyPairId() const { return this->keyPairId_ != nullptr;};
     void deleteKeyPairId() { this->keyPairId_ = nullptr;};
-    inline string keyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
+    inline string getKeyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
     inline DescribeKeyPairsRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
 
 
     // keyPairName Field Functions 
     bool hasKeyPairName() const { return this->keyPairName_ != nullptr;};
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
-    inline string keyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
+    inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline DescribeKeyPairsRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline DescribeKeyPairsRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeKeyPairsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The ID of the key pair.
-    std::shared_ptr<string> keyPairId_ = nullptr;
+    shared_ptr<string> keyPairId_ {};
     // The name of the key pair that you want to bind to the simple application server. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain the following characters:
     // 
     // *   Numbers.
@@ -76,11 +76,11 @@ namespace Models
     // *   .
     // 
     // You can specify only one name. By default, all key pairs are queried.
-    std::shared_ptr<string> keyPairName_ = nullptr;
+    shared_ptr<string> keyPairName_ {};
     // The page number of the returned page. Valid values: integers that are greater than 0. Default value: 1.
-    std::shared_ptr<string> pageNumber_ = nullptr;
+    shared_ptr<string> pageNumber_ {};
     // The number of entries per page. Valid values: integers that are greater than 0. Default value: 10.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
   };
 
   } // namespace Models

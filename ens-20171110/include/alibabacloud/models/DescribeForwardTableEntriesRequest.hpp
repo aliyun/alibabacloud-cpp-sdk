@@ -44,91 +44,91 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->externalIp_ == nullptr
-        && return this->forwardEntryId_ == nullptr && return this->forwardEntryName_ == nullptr && return this->internalIp_ == nullptr && return this->ipProtocol_ == nullptr && return this->natGatewayId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->forwardEntryId_ == nullptr && this->forwardEntryName_ == nullptr && this->internalIp_ == nullptr && this->ipProtocol_ == nullptr && this->natGatewayId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // externalIp Field Functions 
     bool hasExternalIp() const { return this->externalIp_ != nullptr;};
     void deleteExternalIp() { this->externalIp_ = nullptr;};
-    inline string externalIp() const { DARABONBA_PTR_GET_DEFAULT(externalIp_, "") };
+    inline string getExternalIp() const { DARABONBA_PTR_GET_DEFAULT(externalIp_, "") };
     inline DescribeForwardTableEntriesRequest& setExternalIp(string externalIp) { DARABONBA_PTR_SET_VALUE(externalIp_, externalIp) };
 
 
     // forwardEntryId Field Functions 
     bool hasForwardEntryId() const { return this->forwardEntryId_ != nullptr;};
     void deleteForwardEntryId() { this->forwardEntryId_ = nullptr;};
-    inline string forwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
+    inline string getForwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
     inline DescribeForwardTableEntriesRequest& setForwardEntryId(string forwardEntryId) { DARABONBA_PTR_SET_VALUE(forwardEntryId_, forwardEntryId) };
 
 
     // forwardEntryName Field Functions 
     bool hasForwardEntryName() const { return this->forwardEntryName_ != nullptr;};
     void deleteForwardEntryName() { this->forwardEntryName_ = nullptr;};
-    inline string forwardEntryName() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryName_, "") };
+    inline string getForwardEntryName() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryName_, "") };
     inline DescribeForwardTableEntriesRequest& setForwardEntryName(string forwardEntryName) { DARABONBA_PTR_SET_VALUE(forwardEntryName_, forwardEntryName) };
 
 
     // internalIp Field Functions 
     bool hasInternalIp() const { return this->internalIp_ != nullptr;};
     void deleteInternalIp() { this->internalIp_ = nullptr;};
-    inline string internalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
+    inline string getInternalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
     inline DescribeForwardTableEntriesRequest& setInternalIp(string internalIp) { DARABONBA_PTR_SET_VALUE(internalIp_, internalIp) };
 
 
     // ipProtocol Field Functions 
     bool hasIpProtocol() const { return this->ipProtocol_ != nullptr;};
     void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
-    inline string ipProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
+    inline string getIpProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
     inline DescribeForwardTableEntriesRequest& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline DescribeForwardTableEntriesRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeForwardTableEntriesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeForwardTableEntriesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // The EIP in the DNAT entry. The public IP address is used to access the Internet.
-    std::shared_ptr<string> externalIp_ = nullptr;
+    shared_ptr<string> externalIp_ {};
     // The ID of the DNAT entry.
-    std::shared_ptr<string> forwardEntryId_ = nullptr;
+    shared_ptr<string> forwardEntryId_ {};
     // The name of the DNAT entry.
-    std::shared_ptr<string> forwardEntryName_ = nullptr;
+    shared_ptr<string> forwardEntryName_ {};
     // The private IP address of the instance that uses the DNAT entry for Internet communication.
-    std::shared_ptr<string> internalIp_ = nullptr;
+    shared_ptr<string> internalIp_ {};
     // The protocol. Valid values:
     // 
     // *   **TCP**: forwards TCP packets.
     // *   **UDP**: forwards UDP packets.
     // *   **Any**: forwards all packets.
-    std::shared_ptr<string> ipProtocol_ = nullptr;
+    shared_ptr<string> ipProtocol_ {};
     // The ID of the NAT gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> natGatewayId_ = nullptr;
+    shared_ptr<string> natGatewayId_ {};
     // The page number. Pages start from page **1**.
     // 
     // Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: **100**.
     // 
     // Default value: **10**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

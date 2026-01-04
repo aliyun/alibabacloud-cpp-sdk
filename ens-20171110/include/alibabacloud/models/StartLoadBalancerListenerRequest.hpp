@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->listenerPort_ == nullptr
-        && return this->listenerProtocol_ == nullptr && return this->loadBalancerId_ == nullptr; };
+        && this->listenerProtocol_ == nullptr && this->loadBalancerId_ == nullptr; };
     // listenerPort Field Functions 
     bool hasListenerPort() const { return this->listenerPort_ != nullptr;};
     void deleteListenerPort() { this->listenerPort_ = nullptr;};
-    inline int32_t listenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
+    inline int32_t getListenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
     inline StartLoadBalancerListenerRequest& setListenerPort(int32_t listenerPort) { DARABONBA_PTR_SET_VALUE(listenerPort_, listenerPort) };
 
 
     // listenerProtocol Field Functions 
     bool hasListenerProtocol() const { return this->listenerProtocol_ != nullptr;};
     void deleteListenerProtocol() { this->listenerProtocol_ = nullptr;};
-    inline string listenerProtocol() const { DARABONBA_PTR_GET_DEFAULT(listenerProtocol_, "") };
+    inline string getListenerProtocol() const { DARABONBA_PTR_GET_DEFAULT(listenerProtocol_, "") };
     inline StartLoadBalancerListenerRequest& setListenerProtocol(string listenerProtocol) { DARABONBA_PTR_SET_VALUE(listenerProtocol_, listenerProtocol) };
 
 
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline StartLoadBalancerListenerRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The listener port to be enabled. Valid values: **1** to **65535**.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> listenerPort_ = nullptr;
+    shared_ptr<int32_t> listenerPort_ {};
     // The frontend protocol that is used by the ELB instance. Valid values:
     // 
     // *   tcp
@@ -69,11 +69,11 @@ namespace Models
     // *   https
     // 
     // >  This parameter is required if the same port is used by listeners that use different protocols.
-    std::shared_ptr<string> listenerProtocol_ = nullptr;
+    shared_ptr<string> listenerProtocol_ {};
     // The ID of the ELB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
   };
 
   } // namespace Models

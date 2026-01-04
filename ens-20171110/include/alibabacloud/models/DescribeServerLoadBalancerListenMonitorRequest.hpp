@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->loadBalancerId_ == nullptr && return this->proto_ == nullptr && return this->startTime_ == nullptr && return this->VPort_ == nullptr; };
+        && this->loadBalancerId_ == nullptr && this->proto_ == nullptr && this->startTime_ == nullptr && this->VPort_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeServerLoadBalancerListenMonitorRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline DescribeServerLoadBalancerListenMonitorRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
     // proto Field Functions 
     bool hasProto() const { return this->proto_ != nullptr;};
     void deleteProto() { this->proto_ = nullptr;};
-    inline string proto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
+    inline string getProto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
     inline DescribeServerLoadBalancerListenMonitorRequest& setProto(string proto) { DARABONBA_PTR_SET_VALUE(proto_, proto) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeServerLoadBalancerListenMonitorRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // VPort Field Functions 
     bool hasVPort() const { return this->VPort_ != nullptr;};
     void deleteVPort() { this->VPort_ = nullptr;};
-    inline string VPort() const { DARABONBA_PTR_GET_DEFAULT(VPort_, "") };
+    inline string getVPort() const { DARABONBA_PTR_GET_DEFAULT(VPort_, "") };
     inline DescribeServerLoadBalancerListenMonitorRequest& setVPort(string VPort) { DARABONBA_PTR_SET_VALUE(VPort_, VPort) };
 
 
@@ -78,19 +78,19 @@ namespace Models
     // The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The ID of the ELB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
     // The request protocol, such as http, https, or tcp.
-    std::shared_ptr<string> proto_ = nullptr;
+    shared_ptr<string> proto_ {};
     // The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The virtual IP address (VIP) port, such as 80, 8080, or 443.
-    std::shared_ptr<string> VPort_ = nullptr;
+    shared_ptr<string> VPort_ {};
   };
 
   } // namespace Models

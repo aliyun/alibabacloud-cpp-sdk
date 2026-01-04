@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->routeEntryId_ == nullptr && return this->routeEntryName_ == nullptr; };
+        && this->routeEntryId_ == nullptr && this->routeEntryName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyEnsRouteEntryRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // routeEntryId Field Functions 
     bool hasRouteEntryId() const { return this->routeEntryId_ != nullptr;};
     void deleteRouteEntryId() { this->routeEntryId_ = nullptr;};
-    inline string routeEntryId() const { DARABONBA_PTR_GET_DEFAULT(routeEntryId_, "") };
+    inline string getRouteEntryId() const { DARABONBA_PTR_GET_DEFAULT(routeEntryId_, "") };
     inline ModifyEnsRouteEntryRequest& setRouteEntryId(string routeEntryId) { DARABONBA_PTR_SET_VALUE(routeEntryId_, routeEntryId) };
 
 
     // routeEntryName Field Functions 
     bool hasRouteEntryName() const { return this->routeEntryName_ != nullptr;};
     void deleteRouteEntryName() { this->routeEntryName_ = nullptr;};
-    inline string routeEntryName() const { DARABONBA_PTR_GET_DEFAULT(routeEntryName_, "") };
+    inline string getRouteEntryName() const { DARABONBA_PTR_GET_DEFAULT(routeEntryName_, "") };
     inline ModifyEnsRouteEntryRequest& setRouteEntryName(string routeEntryName) { DARABONBA_PTR_SET_VALUE(routeEntryName_, routeEntryName) };
 
 
   protected:
     // The description of the route entry. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the custom route.
     // 
     // This parameter is required.
-    std::shared_ptr<string> routeEntryId_ = nullptr;
+    shared_ptr<string> routeEntryId_ {};
     // The name of the route.
     // 
     // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
-    std::shared_ptr<string> routeEntryName_ = nullptr;
+    shared_ptr<string> routeEntryName_ {};
   };
 
   } // namespace Models

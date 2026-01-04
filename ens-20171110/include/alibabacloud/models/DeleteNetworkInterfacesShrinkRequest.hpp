@@ -33,7 +33,7 @@ namespace Models
     // networkInterfaceIdsShrink Field Functions 
     bool hasNetworkInterfaceIdsShrink() const { return this->networkInterfaceIdsShrink_ != nullptr;};
     void deleteNetworkInterfaceIdsShrink() { this->networkInterfaceIdsShrink_ = nullptr;};
-    inline string networkInterfaceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceIdsShrink_, "") };
+    inline string getNetworkInterfaceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceIdsShrink_, "") };
     inline DeleteNetworkInterfacesShrinkRequest& setNetworkInterfaceIdsShrink(string networkInterfaceIdsShrink) { DARABONBA_PTR_SET_VALUE(networkInterfaceIdsShrink_, networkInterfaceIdsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the elastic network interfaces (ENIs).
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkInterfaceIdsShrink_ = nullptr;
+    shared_ptr<string> networkInterfaceIdsShrink_ {};
   };
 
   } // namespace Models

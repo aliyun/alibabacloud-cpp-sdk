@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportedImageURL_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // exportedImageURL Field Functions 
     bool hasExportedImageURL() const { return this->exportedImageURL_ != nullptr;};
     void deleteExportedImageURL() { this->exportedImageURL_ = nullptr;};
-    inline string exportedImageURL() const { DARABONBA_PTR_GET_DEFAULT(exportedImageURL_, "") };
+    inline string getExportedImageURL() const { DARABONBA_PTR_GET_DEFAULT(exportedImageURL_, "") };
     inline ExportImageResponseBody& setExportedImageURL(string exportedImageURL) { DARABONBA_PTR_SET_VALUE(exportedImageURL_, exportedImageURL) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ExportImageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The URL that points to the exported image.
-    std::shared_ptr<string> exportedImageURL_ = nullptr;
+    shared_ptr<string> exportedImageURL_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

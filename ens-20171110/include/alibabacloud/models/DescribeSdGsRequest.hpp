@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && return this->SDGIds_ == nullptr; };
+        && this->SDGIds_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline DescribeSDGsRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline DescribeSDGsRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -46,17 +46,17 @@ namespace Models
     // SDGIds Field Functions 
     bool hasSDGIds() const { return this->SDGIds_ != nullptr;};
     void deleteSDGIds() { this->SDGIds_ = nullptr;};
-    inline const vector<string> & SDGIds() const { DARABONBA_PTR_GET_CONST(SDGIds_, vector<string>) };
-    inline vector<string> SDGIds() { DARABONBA_PTR_GET(SDGIds_, vector<string>) };
+    inline const vector<string> & getSDGIds() const { DARABONBA_PTR_GET_CONST(SDGIds_, vector<string>) };
+    inline vector<string> getSDGIds() { DARABONBA_PTR_GET(SDGIds_, vector<string>) };
     inline DescribeSDGsRequest& setSDGIds(const vector<string> & SDGIds) { DARABONBA_PTR_SET_VALUE(SDGIds_, SDGIds) };
     inline DescribeSDGsRequest& setSDGIds(vector<string> && SDGIds) { DARABONBA_PTR_SET_RVALUE(SDGIds_, SDGIds) };
 
 
   protected:
     // The AIC instance ID to be queried.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The IDs of SDGs that you want to query. By default, all SDGs are queried.
-    std::shared_ptr<vector<string>> SDGIds_ = nullptr;
+    shared_ptr<vector<string>> SDGIds_ {};
   };
 
   } // namespace Models

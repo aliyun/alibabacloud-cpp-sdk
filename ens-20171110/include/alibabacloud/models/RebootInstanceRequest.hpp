@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forceStop_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // forceStop Field Functions 
     bool hasForceStop() const { return this->forceStop_ != nullptr;};
     void deleteForceStop() { this->forceStop_ = nullptr;};
-    inline string forceStop() const { DARABONBA_PTR_GET_DEFAULT(forceStop_, "") };
+    inline string getForceStop() const { DARABONBA_PTR_GET_DEFAULT(forceStop_, "") };
     inline RebootInstanceRequest& setForceStop(string forceStop) { DARABONBA_PTR_SET_VALUE(forceStop_, forceStop) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RebootInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // 
     // *   **true**
     // *   **false** (default)
-    std::shared_ptr<string> forceStop_ = nullptr;
+    shared_ptr<string> forceStop_ {};
     // The ID of the instance that you want to reboot. You can specify only one instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

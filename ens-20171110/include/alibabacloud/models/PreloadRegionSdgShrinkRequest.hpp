@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationRegionIdsShrink_ == nullptr
-        && return this->diskType_ == nullptr && return this->namespacesShrink_ == nullptr && return this->redundantNum_ == nullptr && return this->SDGId_ == nullptr; };
+        && this->diskType_ == nullptr && this->namespacesShrink_ == nullptr && this->redundantNum_ == nullptr && this->SDGId_ == nullptr; };
     // destinationRegionIdsShrink Field Functions 
     bool hasDestinationRegionIdsShrink() const { return this->destinationRegionIdsShrink_ != nullptr;};
     void deleteDestinationRegionIdsShrink() { this->destinationRegionIdsShrink_ = nullptr;};
-    inline string destinationRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionIdsShrink_, "") };
+    inline string getDestinationRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionIdsShrink_, "") };
     inline PreloadRegionSDGShrinkRequest& setDestinationRegionIdsShrink(string destinationRegionIdsShrink) { DARABONBA_PTR_SET_VALUE(destinationRegionIdsShrink_, destinationRegionIdsShrink) };
 
 
     // diskType Field Functions 
     bool hasDiskType() const { return this->diskType_ != nullptr;};
     void deleteDiskType() { this->diskType_ = nullptr;};
-    inline string diskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+    inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
     inline PreloadRegionSDGShrinkRequest& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
 
 
     // namespacesShrink Field Functions 
     bool hasNamespacesShrink() const { return this->namespacesShrink_ != nullptr;};
     void deleteNamespacesShrink() { this->namespacesShrink_ = nullptr;};
-    inline string namespacesShrink() const { DARABONBA_PTR_GET_DEFAULT(namespacesShrink_, "") };
+    inline string getNamespacesShrink() const { DARABONBA_PTR_GET_DEFAULT(namespacesShrink_, "") };
     inline PreloadRegionSDGShrinkRequest& setNamespacesShrink(string namespacesShrink) { DARABONBA_PTR_SET_VALUE(namespacesShrink_, namespacesShrink) };
 
 
     // redundantNum Field Functions 
     bool hasRedundantNum() const { return this->redundantNum_ != nullptr;};
     void deleteRedundantNum() { this->redundantNum_ = nullptr;};
-    inline int32_t redundantNum() const { DARABONBA_PTR_GET_DEFAULT(redundantNum_, 0) };
+    inline int32_t getRedundantNum() const { DARABONBA_PTR_GET_DEFAULT(redundantNum_, 0) };
     inline PreloadRegionSDGShrinkRequest& setRedundantNum(int32_t redundantNum) { DARABONBA_PTR_SET_VALUE(redundantNum_, redundantNum) };
 
 
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline string SDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
+    inline string getSDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
     inline PreloadRegionSDGShrinkRequest& setSDGId(string SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
 
 
@@ -78,18 +78,18 @@ namespace Models
     // The IDs of the destination nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destinationRegionIdsShrink_ = nullptr;
-    std::shared_ptr<string> diskType_ = nullptr;
+    shared_ptr<string> destinationRegionIdsShrink_ {};
+    shared_ptr<string> diskType_ {};
     // An array that consists of queried namespaces.
-    std::shared_ptr<string> namespacesShrink_ = nullptr;
+    shared_ptr<string> namespacesShrink_ {};
     // The number of redundant replicas to support rapid deployment.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> redundantNum_ = nullptr;
+    shared_ptr<int32_t> redundantNum_ {};
     // The ID of the SDG for which data is preloaded.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SDGId_ = nullptr;
+    shared_ptr<string> SDGId_ {};
   };
 
   } // namespace Models

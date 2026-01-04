@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->SDGIdsShrink_ == nullptr; };
+        && this->pageSize_ == nullptr && this->SDGIdsShrink_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeSDGShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeSDGShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // SDGIdsShrink Field Functions 
     bool hasSDGIdsShrink() const { return this->SDGIdsShrink_ != nullptr;};
     void deleteSDGIdsShrink() { this->SDGIdsShrink_ = nullptr;};
-    inline string SDGIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(SDGIdsShrink_, "") };
+    inline string getSDGIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(SDGIdsShrink_, "") };
     inline DescribeSDGShrinkRequest& setSDGIdsShrink(string SDGIdsShrink) { DARABONBA_PTR_SET_VALUE(SDGIdsShrink_, SDGIdsShrink) };
 
 
   protected:
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
     // 
     // Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The IDs of SDGs that you want to query. By default, all SDGs are queried.
-    std::shared_ptr<string> SDGIdsShrink_ = nullptr;
+    shared_ptr<string> SDGIdsShrink_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->template_ == nullptr
-        && return this->timeout_ == nullptr; };
+        && this->timeout_ == nullptr; };
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline CreateApplicationRequest& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int32_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
+    inline int32_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0) };
     inline CreateApplicationRequest& setTimeout(int32_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
@@ -56,9 +56,9 @@ namespace Models
     // *   Required resources
     // 
     // This parameter is required.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
     // The timeout period for asynchronous processing. Unit: seconds. Default value: 1800.
-    std::shared_ptr<int32_t> timeout_ = nullptr;
+    shared_ptr<int32_t> timeout_ {};
   };
 
   } // namespace Models

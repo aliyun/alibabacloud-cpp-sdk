@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoStart_ == nullptr
-        && return this->instanceId_ == nullptr && return this->networks_ == nullptr; };
+        && this->instanceId_ == nullptr && this->networks_ == nullptr; };
     // autoStart Field Functions 
     bool hasAutoStart() const { return this->autoStart_ != nullptr;};
     void deleteAutoStart() { this->autoStart_ = nullptr;};
-    inline bool autoStart() const { DARABONBA_PTR_GET_DEFAULT(autoStart_, false) };
+    inline bool getAutoStart() const { DARABONBA_PTR_GET_DEFAULT(autoStart_, false) };
     inline AddNetworkInterfaceToInstanceRequest& setAutoStart(bool autoStart) { DARABONBA_PTR_SET_VALUE(autoStart_, autoStart) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AddNetworkInterfaceToInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // networks Field Functions 
     bool hasNetworks() const { return this->networks_ != nullptr;};
     void deleteNetworks() { this->networks_ = nullptr;};
-    inline string networks() const { DARABONBA_PTR_GET_DEFAULT(networks_, "") };
+    inline string getNetworks() const { DARABONBA_PTR_GET_DEFAULT(networks_, "") };
     inline AddNetworkInterfaceToInstanceRequest& setNetworks(string networks) { DARABONBA_PTR_SET_VALUE(networks_, networks) };
 
 
   protected:
     // Specifies whether to automatically restart the instance.
-    std::shared_ptr<bool> autoStart_ = nullptr;
+    shared_ptr<bool> autoStart_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The network. The value is a JSON string. Only IPv6 is supported. Sample code of an IPv6 network: [{ "ipType": "public", "ipAddressType": "ipv6" }]
     // 
     // This parameter is required.
-    std::shared_ptr<string> networks_ = nullptr;
+    shared_ptr<string> networks_ {};
   };
 
   } // namespace Models

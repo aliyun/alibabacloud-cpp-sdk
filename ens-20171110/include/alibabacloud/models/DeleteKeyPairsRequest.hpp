@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyPairId_ == nullptr
-        && return this->keyPairName_ == nullptr; };
+        && this->keyPairName_ == nullptr; };
     // keyPairId Field Functions 
     bool hasKeyPairId() const { return this->keyPairId_ != nullptr;};
     void deleteKeyPairId() { this->keyPairId_ = nullptr;};
-    inline string keyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
+    inline string getKeyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
     inline DeleteKeyPairsRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
 
 
     // keyPairName Field Functions 
     bool hasKeyPairName() const { return this->keyPairName_ != nullptr;};
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
-    inline string keyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
+    inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline DeleteKeyPairsRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
 
 
   protected:
     // The ID of the SSH key pair.
-    std::shared_ptr<string> keyPairId_ = nullptr;
+    shared_ptr<string> keyPairId_ {};
     // The name of the key pair. The name must conform to the following naming conventions:
     // 
     // *   The name must be 2 to 128 characters in length.
@@ -57,7 +57,7 @@ namespace Models
     // *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
     // 
     // Before you delete a key pair, you can call the DescribeKeyPairs operation to query existing key pairs.
-    std::shared_ptr<string> keyPairName_ = nullptr;
+    shared_ptr<string> keyPairName_ {};
   };
 
   } // namespace Models

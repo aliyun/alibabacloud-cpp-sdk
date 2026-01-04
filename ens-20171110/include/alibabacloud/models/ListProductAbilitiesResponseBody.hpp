@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->productAbilities_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // productAbilities Field Functions 
     bool hasProductAbilities() const { return this->productAbilities_ != nullptr;};
     void deleteProductAbilities() { this->productAbilities_ = nullptr;};
-    inline const vector<string> & productAbilities() const { DARABONBA_PTR_GET_CONST(productAbilities_, vector<string>) };
-    inline vector<string> productAbilities() { DARABONBA_PTR_GET(productAbilities_, vector<string>) };
+    inline const vector<string> & getProductAbilities() const { DARABONBA_PTR_GET_CONST(productAbilities_, vector<string>) };
+    inline vector<string> getProductAbilities() { DARABONBA_PTR_GET(productAbilities_, vector<string>) };
     inline ListProductAbilitiesResponseBody& setProductAbilities(const vector<string> & productAbilities) { DARABONBA_PTR_SET_VALUE(productAbilities_, productAbilities) };
     inline ListProductAbilitiesResponseBody& setProductAbilities(vector<string> && productAbilities) { DARABONBA_PTR_SET_RVALUE(productAbilities_, productAbilities) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListProductAbilitiesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Products supported by the edge node.
-    std::shared_ptr<vector<string>> productAbilities_ = nullptr;
+    shared_ptr<vector<string>> productAbilities_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

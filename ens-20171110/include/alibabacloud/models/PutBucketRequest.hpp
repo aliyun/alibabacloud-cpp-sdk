@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketAcl_ == nullptr
-        && return this->bucketName_ == nullptr && return this->comment_ == nullptr && return this->dispatchScope_ == nullptr && return this->ensRegionId_ == nullptr && return this->logicalBucketType_ == nullptr; };
+        && this->bucketName_ == nullptr && this->comment_ == nullptr && this->dispatchScope_ == nullptr && this->ensRegionId_ == nullptr && this->logicalBucketType_ == nullptr; };
     // bucketAcl Field Functions 
     bool hasBucketAcl() const { return this->bucketAcl_ != nullptr;};
     void deleteBucketAcl() { this->bucketAcl_ = nullptr;};
-    inline string bucketAcl() const { DARABONBA_PTR_GET_DEFAULT(bucketAcl_, "") };
+    inline string getBucketAcl() const { DARABONBA_PTR_GET_DEFAULT(bucketAcl_, "") };
     inline PutBucketRequest& setBucketAcl(string bucketAcl) { DARABONBA_PTR_SET_VALUE(bucketAcl_, bucketAcl) };
 
 
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline PutBucketRequest& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline PutBucketRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // dispatchScope Field Functions 
     bool hasDispatchScope() const { return this->dispatchScope_ != nullptr;};
     void deleteDispatchScope() { this->dispatchScope_ = nullptr;};
-    inline string dispatchScope() const { DARABONBA_PTR_GET_DEFAULT(dispatchScope_, "") };
+    inline string getDispatchScope() const { DARABONBA_PTR_GET_DEFAULT(dispatchScope_, "") };
     inline PutBucketRequest& setDispatchScope(string dispatchScope) { DARABONBA_PTR_SET_VALUE(dispatchScope_, dispatchScope) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline PutBucketRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // logicalBucketType Field Functions 
     bool hasLogicalBucketType() const { return this->logicalBucketType_ != nullptr;};
     void deleteLogicalBucketType() { this->logicalBucketType_ = nullptr;};
-    inline string logicalBucketType() const { DARABONBA_PTR_GET_DEFAULT(logicalBucketType_, "") };
+    inline string getLogicalBucketType() const { DARABONBA_PTR_GET_DEFAULT(logicalBucketType_, "") };
     inline PutBucketRequest& setLogicalBucketType(string logicalBucketType) { DARABONBA_PTR_SET_VALUE(logicalBucketType_, logicalBucketType) };
 
 
   protected:
-    std::shared_ptr<string> bucketAcl_ = nullptr;
+    shared_ptr<string> bucketAcl_ {};
     // This parameter is required.
-    std::shared_ptr<string> bucketName_ = nullptr;
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> dispatchScope_ = nullptr;
-    std::shared_ptr<string> ensRegionId_ = nullptr;
-    std::shared_ptr<string> logicalBucketType_ = nullptr;
+    shared_ptr<string> bucketName_ {};
+    shared_ptr<string> comment_ {};
+    shared_ptr<string> dispatchScope_ {};
+    shared_ptr<string> ensRegionId_ {};
+    shared_ptr<string> logicalBucketType_ {};
   };
 
   } // namespace Models

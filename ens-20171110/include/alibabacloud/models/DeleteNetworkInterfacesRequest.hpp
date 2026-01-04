@@ -34,8 +34,8 @@ namespace Models
     // networkInterfaceIds Field Functions 
     bool hasNetworkInterfaceIds() const { return this->networkInterfaceIds_ != nullptr;};
     void deleteNetworkInterfaceIds() { this->networkInterfaceIds_ = nullptr;};
-    inline const vector<string> & networkInterfaceIds() const { DARABONBA_PTR_GET_CONST(networkInterfaceIds_, vector<string>) };
-    inline vector<string> networkInterfaceIds() { DARABONBA_PTR_GET(networkInterfaceIds_, vector<string>) };
+    inline const vector<string> & getNetworkInterfaceIds() const { DARABONBA_PTR_GET_CONST(networkInterfaceIds_, vector<string>) };
+    inline vector<string> getNetworkInterfaceIds() { DARABONBA_PTR_GET(networkInterfaceIds_, vector<string>) };
     inline DeleteNetworkInterfacesRequest& setNetworkInterfaceIds(const vector<string> & networkInterfaceIds) { DARABONBA_PTR_SET_VALUE(networkInterfaceIds_, networkInterfaceIds) };
     inline DeleteNetworkInterfacesRequest& setNetworkInterfaceIds(vector<string> && networkInterfaceIds) { DARABONBA_PTR_SET_RVALUE(networkInterfaceIds_, networkInterfaceIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of the elastic network interfaces (ENIs).
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> networkInterfaceIds_ = nullptr;
+    shared_ptr<vector<string>> networkInterfaceIds_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allocationId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->standby_ == nullptr; };
+        && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->standby_ == nullptr; };
     // allocationId Field Functions 
     bool hasAllocationId() const { return this->allocationId_ != nullptr;};
     void deleteAllocationId() { this->allocationId_ = nullptr;};
-    inline string allocationId() const { DARABONBA_PTR_GET_DEFAULT(allocationId_, "") };
+    inline string getAllocationId() const { DARABONBA_PTR_GET_DEFAULT(allocationId_, "") };
     inline AssociateEnsEipAddressRequest& setAllocationId(string allocationId) { DARABONBA_PTR_SET_VALUE(allocationId_, allocationId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AssociateEnsEipAddressRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline AssociateEnsEipAddressRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // standby Field Functions 
     bool hasStandby() const { return this->standby_ != nullptr;};
     void deleteStandby() { this->standby_ = nullptr;};
-    inline bool standby() const { DARABONBA_PTR_GET_DEFAULT(standby_, false) };
+    inline bool getStandby() const { DARABONBA_PTR_GET_DEFAULT(standby_, false) };
     inline AssociateEnsEipAddressRequest& setStandby(bool standby) { DARABONBA_PTR_SET_VALUE(standby_, standby) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // The ID of the EIP that you want to associate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> allocationId_ = nullptr;
+    shared_ptr<string> allocationId_ {};
     // The ID of the cloud service with which the EIP is associated.
     // 
     // >  You can specify the ID of an Edge Load Balancer (ELB) instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The type of instance with which you want to associate the EIP. Valid values:
     // 
     // *   **Nat**: NAT gateway.
@@ -83,12 +83,12 @@ namespace Models
     // *   **NetworkInterface**: secondary elastic network interface (ENI).
     // *   **NatSlbInstance**: If you want to associate multiple EIPs with an ELB instance, you need to set the parameter to this value.
     // *   **EnsInstance** (default): ENS instance.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
     // Specifies whether the EIP is a secondary EIP. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> standby_ = nullptr;
+    shared_ptr<bool> standby_ {};
   };
 
   } // namespace Models

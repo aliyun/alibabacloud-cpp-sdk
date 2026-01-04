@@ -33,13 +33,13 @@ namespace Models
     // bucketList Field Functions 
     bool hasBucketList() const { return this->bucketList_ != nullptr;};
     void deleteBucketList() { this->bucketList_ = nullptr;};
-    inline string bucketList() const { DARABONBA_PTR_GET_DEFAULT(bucketList_, "") };
+    inline string getBucketList() const { DARABONBA_PTR_GET_DEFAULT(bucketList_, "") };
     inline GetOssStorageAndAccByBucketsRequest& setBucketList(string bucketList) { DARABONBA_PTR_SET_VALUE(bucketList_, bucketList) };
 
 
   protected:
     // The information about the bucket.
-    std::shared_ptr<string> bucketList_ = nullptr;
+    shared_ptr<string> bucketList_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // loadBalancerSpec Field Functions 
     bool hasLoadBalancerSpec() const { return this->loadBalancerSpec_ != nullptr;};
     void deleteLoadBalancerSpec() { this->loadBalancerSpec_ = nullptr;};
-    inline string loadBalancerSpec() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerSpec_, "") };
+    inline string getLoadBalancerSpec() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerSpec_, "") };
     inline DescribeLoadBalancerSpecRequest& setLoadBalancerSpec(string loadBalancerSpec) { DARABONBA_PTR_SET_VALUE(loadBalancerSpec_, loadBalancerSpec) };
 
 
   protected:
     // The specifications of the ELB instance.
-    std::shared_ptr<string> loadBalancerSpec_ = nullptr;
+    shared_ptr<string> loadBalancerSpec_ {};
   };
 
   } // namespace Models

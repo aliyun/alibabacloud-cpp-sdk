@@ -4005,6 +4005,22 @@ namespace Ens20171110
       Models::ListAICPublicKeysResponse listAICPublicKeys(const Models::ListAICPublicKeysRequest &request);
 
       /**
+       * @summary 查询可用的组件列表
+       *
+       * @param request ListAddonsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAddonsResponse
+       */
+      Models::ListAddonsResponse listAddonsWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询可用的组件列表
+       *
+       * @return ListAddonsResponse
+       */
+      Models::ListAddonsResponse listAddons();
+
+      /**
        * @summary Queries the created applications.
        *
        * @param request ListApplicationsRequest
@@ -4037,6 +4053,23 @@ namespace Ens20171110
        * @return ListBucketsResponse
        */
       Models::ListBucketsResponse listBuckets(const Models::ListBucketsRequest &request);
+
+      /**
+       * @summary 查询集群已安装的组件实例列表
+       *
+       * @param request ListClusterAddonInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListClusterAddonInstancesResponse
+       */
+      Models::ListClusterAddonInstancesResponse listClusterAddonInstancesWithOptions(const Models::ListClusterAddonInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询集群已安装的组件实例列表
+       *
+       * @param request ListClusterAddonInstancesRequest
+       * @return ListClusterAddonInstancesResponse
+       */
+      Models::ListClusterAddonInstancesResponse listClusterAddonInstances(const Models::ListClusterAddonInstancesRequest &request);
 
       /**
        * @summary Queries the information about all objects in a bucket.

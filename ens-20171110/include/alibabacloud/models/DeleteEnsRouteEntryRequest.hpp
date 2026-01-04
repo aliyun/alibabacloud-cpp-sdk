@@ -33,7 +33,7 @@ namespace Models
     // routeEntryId Field Functions 
     bool hasRouteEntryId() const { return this->routeEntryId_ != nullptr;};
     void deleteRouteEntryId() { this->routeEntryId_ = nullptr;};
-    inline string routeEntryId() const { DARABONBA_PTR_GET_DEFAULT(routeEntryId_, "") };
+    inline string getRouteEntryId() const { DARABONBA_PTR_GET_DEFAULT(routeEntryId_, "") };
     inline DeleteEnsRouteEntryRequest& setRouteEntryId(string routeEntryId) { DARABONBA_PTR_SET_VALUE(routeEntryId_, routeEntryId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the route that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> routeEntryId_ = nullptr;
+    shared_ptr<string> routeEntryId_ {};
   };
 
   } // namespace Models

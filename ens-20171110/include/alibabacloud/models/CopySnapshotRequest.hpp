@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationRegionIds_ == nullptr
-        && return this->destinationSnapshotDescription_ == nullptr && return this->destinationSnapshotName_ == nullptr && return this->instanceBillingCycle_ == nullptr && return this->snapshotId_ == nullptr; };
+        && this->destinationSnapshotDescription_ == nullptr && this->destinationSnapshotName_ == nullptr && this->instanceBillingCycle_ == nullptr && this->snapshotId_ == nullptr; };
     // destinationRegionIds Field Functions 
     bool hasDestinationRegionIds() const { return this->destinationRegionIds_ != nullptr;};
     void deleteDestinationRegionIds() { this->destinationRegionIds_ = nullptr;};
-    inline const vector<string> & destinationRegionIds() const { DARABONBA_PTR_GET_CONST(destinationRegionIds_, vector<string>) };
-    inline vector<string> destinationRegionIds() { DARABONBA_PTR_GET(destinationRegionIds_, vector<string>) };
+    inline const vector<string> & getDestinationRegionIds() const { DARABONBA_PTR_GET_CONST(destinationRegionIds_, vector<string>) };
+    inline vector<string> getDestinationRegionIds() { DARABONBA_PTR_GET(destinationRegionIds_, vector<string>) };
     inline CopySnapshotRequest& setDestinationRegionIds(const vector<string> & destinationRegionIds) { DARABONBA_PTR_SET_VALUE(destinationRegionIds_, destinationRegionIds) };
     inline CopySnapshotRequest& setDestinationRegionIds(vector<string> && destinationRegionIds) { DARABONBA_PTR_SET_RVALUE(destinationRegionIds_, destinationRegionIds) };
 
@@ -52,28 +52,28 @@ namespace Models
     // destinationSnapshotDescription Field Functions 
     bool hasDestinationSnapshotDescription() const { return this->destinationSnapshotDescription_ != nullptr;};
     void deleteDestinationSnapshotDescription() { this->destinationSnapshotDescription_ = nullptr;};
-    inline string destinationSnapshotDescription() const { DARABONBA_PTR_GET_DEFAULT(destinationSnapshotDescription_, "") };
+    inline string getDestinationSnapshotDescription() const { DARABONBA_PTR_GET_DEFAULT(destinationSnapshotDescription_, "") };
     inline CopySnapshotRequest& setDestinationSnapshotDescription(string destinationSnapshotDescription) { DARABONBA_PTR_SET_VALUE(destinationSnapshotDescription_, destinationSnapshotDescription) };
 
 
     // destinationSnapshotName Field Functions 
     bool hasDestinationSnapshotName() const { return this->destinationSnapshotName_ != nullptr;};
     void deleteDestinationSnapshotName() { this->destinationSnapshotName_ = nullptr;};
-    inline string destinationSnapshotName() const { DARABONBA_PTR_GET_DEFAULT(destinationSnapshotName_, "") };
+    inline string getDestinationSnapshotName() const { DARABONBA_PTR_GET_DEFAULT(destinationSnapshotName_, "") };
     inline CopySnapshotRequest& setDestinationSnapshotName(string destinationSnapshotName) { DARABONBA_PTR_SET_VALUE(destinationSnapshotName_, destinationSnapshotName) };
 
 
     // instanceBillingCycle Field Functions 
     bool hasInstanceBillingCycle() const { return this->instanceBillingCycle_ != nullptr;};
     void deleteInstanceBillingCycle() { this->instanceBillingCycle_ = nullptr;};
-    inline string instanceBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(instanceBillingCycle_, "") };
+    inline string getInstanceBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(instanceBillingCycle_, "") };
     inline CopySnapshotRequest& setInstanceBillingCycle(string instanceBillingCycle) { DARABONBA_PTR_SET_VALUE(instanceBillingCycle_, instanceBillingCycle) };
 
 
     // snapshotId Field Functions 
     bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
     void deleteSnapshotId() { this->snapshotId_ = nullptr;};
-    inline string snapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+    inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
     inline CopySnapshotRequest& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
 
 
@@ -81,16 +81,16 @@ namespace Models
     // The IDs of destination nodes.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> destinationRegionIds_ = nullptr;
+    shared_ptr<vector<string>> destinationRegionIds_ {};
     // The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-    std::shared_ptr<string> destinationSnapshotDescription_ = nullptr;
+    shared_ptr<string> destinationSnapshotDescription_ {};
     // The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-    std::shared_ptr<string> destinationSnapshotName_ = nullptr;
-    std::shared_ptr<string> instanceBillingCycle_ = nullptr;
+    shared_ptr<string> destinationSnapshotName_ {};
+    shared_ptr<string> instanceBillingCycle_ {};
     // The ID of the source snapshot.
     // 
     // This parameter is required.
-    std::shared_ptr<string> snapshotId_ = nullptr;
+    shared_ptr<string> snapshotId_ {};
   };
 
   } // namespace Models

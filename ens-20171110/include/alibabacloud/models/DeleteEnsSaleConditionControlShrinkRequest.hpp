@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliUidAccount_ == nullptr
-        && return this->commodityCode_ == nullptr && return this->customAccount_ == nullptr && return this->saleControlsShrink_ == nullptr; };
+        && this->commodityCode_ == nullptr && this->customAccount_ == nullptr && this->saleControlsShrink_ == nullptr; };
     // aliUidAccount Field Functions 
     bool hasAliUidAccount() const { return this->aliUidAccount_ != nullptr;};
     void deleteAliUidAccount() { this->aliUidAccount_ = nullptr;};
-    inline string aliUidAccount() const { DARABONBA_PTR_GET_DEFAULT(aliUidAccount_, "") };
+    inline string getAliUidAccount() const { DARABONBA_PTR_GET_DEFAULT(aliUidAccount_, "") };
     inline DeleteEnsSaleConditionControlShrinkRequest& setAliUidAccount(string aliUidAccount) { DARABONBA_PTR_SET_VALUE(aliUidAccount_, aliUidAccount) };
 
 
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline DeleteEnsSaleConditionControlShrinkRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // customAccount Field Functions 
     bool hasCustomAccount() const { return this->customAccount_ != nullptr;};
     void deleteCustomAccount() { this->customAccount_ = nullptr;};
-    inline string customAccount() const { DARABONBA_PTR_GET_DEFAULT(customAccount_, "") };
+    inline string getCustomAccount() const { DARABONBA_PTR_GET_DEFAULT(customAccount_, "") };
     inline DeleteEnsSaleConditionControlShrinkRequest& setCustomAccount(string customAccount) { DARABONBA_PTR_SET_VALUE(customAccount_, customAccount) };
 
 
     // saleControlsShrink Field Functions 
     bool hasSaleControlsShrink() const { return this->saleControlsShrink_ != nullptr;};
     void deleteSaleControlsShrink() { this->saleControlsShrink_ = nullptr;};
-    inline string saleControlsShrink() const { DARABONBA_PTR_GET_DEFAULT(saleControlsShrink_, "") };
+    inline string getSaleControlsShrink() const { DARABONBA_PTR_GET_DEFAULT(saleControlsShrink_, "") };
     inline DeleteEnsSaleConditionControlShrinkRequest& setSaleControlsShrink(string saleControlsShrink) { DARABONBA_PTR_SET_VALUE(saleControlsShrink_, saleControlsShrink) };
 
 
   protected:
-    std::shared_ptr<string> aliUidAccount_ = nullptr;
+    shared_ptr<string> aliUidAccount_ {};
     // This parameter is required.
-    std::shared_ptr<string> commodityCode_ = nullptr;
-    std::shared_ptr<string> customAccount_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
+    shared_ptr<string> customAccount_ {};
     // This parameter is required.
-    std::shared_ptr<string> saleControlsShrink_ = nullptr;
+    shared_ptr<string> saleControlsShrink_ {};
   };
 
   } // namespace Models

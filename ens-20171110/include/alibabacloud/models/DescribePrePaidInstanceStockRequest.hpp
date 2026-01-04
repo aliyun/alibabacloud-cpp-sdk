@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataDiskSize_ == nullptr
-        && return this->ensRegionId_ == nullptr && return this->instanceSpec_ == nullptr && return this->systemDiskSize_ == nullptr; };
+        && this->ensRegionId_ == nullptr && this->instanceSpec_ == nullptr && this->systemDiskSize_ == nullptr; };
     // dataDiskSize Field Functions 
     bool hasDataDiskSize() const { return this->dataDiskSize_ != nullptr;};
     void deleteDataDiskSize() { this->dataDiskSize_ = nullptr;};
-    inline int32_t dataDiskSize() const { DARABONBA_PTR_GET_DEFAULT(dataDiskSize_, 0) };
+    inline int32_t getDataDiskSize() const { DARABONBA_PTR_GET_DEFAULT(dataDiskSize_, 0) };
     inline DescribePrePaidInstanceStockRequest& setDataDiskSize(int32_t dataDiskSize) { DARABONBA_PTR_SET_VALUE(dataDiskSize_, dataDiskSize) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline DescribePrePaidInstanceStockRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // instanceSpec Field Functions 
     bool hasInstanceSpec() const { return this->instanceSpec_ != nullptr;};
     void deleteInstanceSpec() { this->instanceSpec_ = nullptr;};
-    inline string instanceSpec() const { DARABONBA_PTR_GET_DEFAULT(instanceSpec_, "") };
+    inline string getInstanceSpec() const { DARABONBA_PTR_GET_DEFAULT(instanceSpec_, "") };
     inline DescribePrePaidInstanceStockRequest& setInstanceSpec(string instanceSpec) { DARABONBA_PTR_SET_VALUE(instanceSpec_, instanceSpec) };
 
 
     // systemDiskSize Field Functions 
     bool hasSystemDiskSize() const { return this->systemDiskSize_ != nullptr;};
     void deleteSystemDiskSize() { this->systemDiskSize_ = nullptr;};
-    inline int32_t systemDiskSize() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSize_, 0) };
+    inline int32_t getSystemDiskSize() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSize_, 0) };
     inline DescribePrePaidInstanceStockRequest& setSystemDiskSize(int32_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The size of the data disk. Unit: GB.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> dataDiskSize_ = nullptr;
+    shared_ptr<int32_t> dataDiskSize_ {};
     // The ID of the edge node.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> ensRegionId_ {};
     // The specification of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceSpec_ = nullptr;
+    shared_ptr<string> instanceSpec_ {};
     // The size of the system disk. Unit: GB.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
+    shared_ptr<int32_t> systemDiskSize_ {};
   };
 
   } // namespace Models

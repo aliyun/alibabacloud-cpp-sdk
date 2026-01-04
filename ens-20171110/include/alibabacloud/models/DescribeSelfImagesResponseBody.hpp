@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBESELFIMAGESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBESELFIMAGESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeSelfImagesResponseBodyImages.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,65 +40,413 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Images : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Images& obj) { 
+        DARABONBA_PTR_TO_JSON(Image, image_);
+      };
+      friend void from_json(const Darabonba::Json& j, Images& obj) { 
+        DARABONBA_PTR_FROM_JSON(Image, image_);
+      };
+      Images() = default ;
+      Images(const Images &) = default ;
+      Images(Images &&) = default ;
+      Images(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Images() = default ;
+      Images& operator=(const Images &) = default ;
+      Images& operator=(Images &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Image : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Image& obj) { 
+          DARABONBA_PTR_TO_JSON(Architecture, architecture_);
+          DARABONBA_PTR_TO_JSON(ComputeType, computeType_);
+          DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_TO_JSON(DiskDeviceMappings, diskDeviceMappings_);
+          DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+          DARABONBA_PTR_TO_JSON(ImageName, imageName_);
+          DARABONBA_PTR_TO_JSON(ImageOwnerAlias, imageOwnerAlias_);
+          DARABONBA_PTR_TO_JSON(ImageSize, imageSize_);
+          DARABONBA_PTR_TO_JSON(ImageStorageSize, imageStorageSize_);
+          DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(OsVersion, osVersion_);
+          DARABONBA_PTR_TO_JSON(Platform, platform_);
+          DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+          DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, Image& obj) { 
+          DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
+          DARABONBA_PTR_FROM_JSON(ComputeType, computeType_);
+          DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+          DARABONBA_PTR_FROM_JSON(DiskDeviceMappings, diskDeviceMappings_);
+          DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+          DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
+          DARABONBA_PTR_FROM_JSON(ImageOwnerAlias, imageOwnerAlias_);
+          DARABONBA_PTR_FROM_JSON(ImageSize, imageSize_);
+          DARABONBA_PTR_FROM_JSON(ImageStorageSize, imageStorageSize_);
+          DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(OsVersion, osVersion_);
+          DARABONBA_PTR_FROM_JSON(Platform, platform_);
+          DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+          DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        Image() = default ;
+        Image(const Image &) = default ;
+        Image(Image &&) = default ;
+        Image(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Image() = default ;
+        Image& operator=(const Image &) = default ;
+        Image& operator=(Image &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class DiskDeviceMappings : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DiskDeviceMappings& obj) { 
+            DARABONBA_PTR_TO_JSON(DiskDeviceMapping, diskDeviceMapping_);
+          };
+          friend void from_json(const Darabonba::Json& j, DiskDeviceMappings& obj) { 
+            DARABONBA_PTR_FROM_JSON(DiskDeviceMapping, diskDeviceMapping_);
+          };
+          DiskDeviceMappings() = default ;
+          DiskDeviceMappings(const DiskDeviceMappings &) = default ;
+          DiskDeviceMappings(DiskDeviceMappings &&) = default ;
+          DiskDeviceMappings(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DiskDeviceMappings() = default ;
+          DiskDeviceMappings& operator=(const DiskDeviceMappings &) = default ;
+          DiskDeviceMappings& operator=(DiskDeviceMappings &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class DiskDeviceMapping : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const DiskDeviceMapping& obj) { 
+              DARABONBA_PTR_TO_JSON(Format, format_);
+              DARABONBA_PTR_TO_JSON(Size, size_);
+              DARABONBA_PTR_TO_JSON(Type, type_);
+              DARABONBA_PTR_TO_JSON(imageId, imageId_);
+            };
+            friend void from_json(const Darabonba::Json& j, DiskDeviceMapping& obj) { 
+              DARABONBA_PTR_FROM_JSON(Format, format_);
+              DARABONBA_PTR_FROM_JSON(Size, size_);
+              DARABONBA_PTR_FROM_JSON(Type, type_);
+              DARABONBA_PTR_FROM_JSON(imageId, imageId_);
+            };
+            DiskDeviceMapping() = default ;
+            DiskDeviceMapping(const DiskDeviceMapping &) = default ;
+            DiskDeviceMapping(DiskDeviceMapping &&) = default ;
+            DiskDeviceMapping(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~DiskDeviceMapping() = default ;
+            DiskDeviceMapping& operator=(const DiskDeviceMapping &) = default ;
+            DiskDeviceMapping& operator=(DiskDeviceMapping &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->format_ == nullptr
+        && this->size_ == nullptr && this->type_ == nullptr && this->imageId_ == nullptr; };
+            // format Field Functions 
+            bool hasFormat() const { return this->format_ != nullptr;};
+            void deleteFormat() { this->format_ = nullptr;};
+            inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+            inline DiskDeviceMapping& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
+
+
+            // size Field Functions 
+            bool hasSize() const { return this->size_ != nullptr;};
+            void deleteSize() { this->size_ = nullptr;};
+            inline string getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, "") };
+            inline DiskDeviceMapping& setSize(string size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+            // type Field Functions 
+            bool hasType() const { return this->type_ != nullptr;};
+            void deleteType() { this->type_ = nullptr;};
+            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+            inline DiskDeviceMapping& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+            // imageId Field Functions 
+            bool hasImageId() const { return this->imageId_ != nullptr;};
+            void deleteImageId() { this->imageId_ = nullptr;};
+            inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+            inline DiskDeviceMapping& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+          protected:
+            // The format of the image.
+            shared_ptr<string> format_ {};
+            // The size of the disk. Unit: GiB.
+            shared_ptr<string> size_ {};
+            // The type of the disk. Valid values:
+            // 
+            // *   system: system disk.
+            // *   data: data disk.
+            shared_ptr<string> type_ {};
+            // The ID of image.
+            shared_ptr<string> imageId_ {};
+          };
+
+          virtual bool empty() const override { return this->diskDeviceMapping_ == nullptr; };
+          // diskDeviceMapping Field Functions 
+          bool hasDiskDeviceMapping() const { return this->diskDeviceMapping_ != nullptr;};
+          void deleteDiskDeviceMapping() { this->diskDeviceMapping_ = nullptr;};
+          inline const vector<DiskDeviceMappings::DiskDeviceMapping> & getDiskDeviceMapping() const { DARABONBA_PTR_GET_CONST(diskDeviceMapping_, vector<DiskDeviceMappings::DiskDeviceMapping>) };
+          inline vector<DiskDeviceMappings::DiskDeviceMapping> getDiskDeviceMapping() { DARABONBA_PTR_GET(diskDeviceMapping_, vector<DiskDeviceMappings::DiskDeviceMapping>) };
+          inline DiskDeviceMappings& setDiskDeviceMapping(const vector<DiskDeviceMappings::DiskDeviceMapping> & diskDeviceMapping) { DARABONBA_PTR_SET_VALUE(diskDeviceMapping_, diskDeviceMapping) };
+          inline DiskDeviceMappings& setDiskDeviceMapping(vector<DiskDeviceMappings::DiskDeviceMapping> && diskDeviceMapping) { DARABONBA_PTR_SET_RVALUE(diskDeviceMapping_, diskDeviceMapping) };
+
+
+        protected:
+          shared_ptr<vector<DiskDeviceMappings::DiskDeviceMapping>> diskDeviceMapping_ {};
+        };
+
+        virtual bool empty() const override { return this->architecture_ == nullptr
+        && this->computeType_ == nullptr && this->creationTime_ == nullptr && this->diskDeviceMappings_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr
+        && this->imageOwnerAlias_ == nullptr && this->imageSize_ == nullptr && this->imageStorageSize_ == nullptr && this->instanceId_ == nullptr && this->osVersion_ == nullptr
+        && this->platform_ == nullptr && this->regionId_ == nullptr && this->snapshotId_ == nullptr && this->status_ == nullptr; };
+        // architecture Field Functions 
+        bool hasArchitecture() const { return this->architecture_ != nullptr;};
+        void deleteArchitecture() { this->architecture_ = nullptr;};
+        inline string getArchitecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
+        inline Image& setArchitecture(string architecture) { DARABONBA_PTR_SET_VALUE(architecture_, architecture) };
+
+
+        // computeType Field Functions 
+        bool hasComputeType() const { return this->computeType_ != nullptr;};
+        void deleteComputeType() { this->computeType_ = nullptr;};
+        inline string getComputeType() const { DARABONBA_PTR_GET_DEFAULT(computeType_, "") };
+        inline Image& setComputeType(string computeType) { DARABONBA_PTR_SET_VALUE(computeType_, computeType) };
+
+
+        // creationTime Field Functions 
+        bool hasCreationTime() const { return this->creationTime_ != nullptr;};
+        void deleteCreationTime() { this->creationTime_ = nullptr;};
+        inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+        inline Image& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+        // diskDeviceMappings Field Functions 
+        bool hasDiskDeviceMappings() const { return this->diskDeviceMappings_ != nullptr;};
+        void deleteDiskDeviceMappings() { this->diskDeviceMappings_ = nullptr;};
+        inline const Image::DiskDeviceMappings & getDiskDeviceMappings() const { DARABONBA_PTR_GET_CONST(diskDeviceMappings_, Image::DiskDeviceMappings) };
+        inline Image::DiskDeviceMappings getDiskDeviceMappings() { DARABONBA_PTR_GET(diskDeviceMappings_, Image::DiskDeviceMappings) };
+        inline Image& setDiskDeviceMappings(const Image::DiskDeviceMappings & diskDeviceMappings) { DARABONBA_PTR_SET_VALUE(diskDeviceMappings_, diskDeviceMappings) };
+        inline Image& setDiskDeviceMappings(Image::DiskDeviceMappings && diskDeviceMappings) { DARABONBA_PTR_SET_RVALUE(diskDeviceMappings_, diskDeviceMappings) };
+
+
+        // imageId Field Functions 
+        bool hasImageId() const { return this->imageId_ != nullptr;};
+        void deleteImageId() { this->imageId_ = nullptr;};
+        inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+        inline Image& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+        // imageName Field Functions 
+        bool hasImageName() const { return this->imageName_ != nullptr;};
+        void deleteImageName() { this->imageName_ = nullptr;};
+        inline string getImageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
+        inline Image& setImageName(string imageName) { DARABONBA_PTR_SET_VALUE(imageName_, imageName) };
+
+
+        // imageOwnerAlias Field Functions 
+        bool hasImageOwnerAlias() const { return this->imageOwnerAlias_ != nullptr;};
+        void deleteImageOwnerAlias() { this->imageOwnerAlias_ = nullptr;};
+        inline string getImageOwnerAlias() const { DARABONBA_PTR_GET_DEFAULT(imageOwnerAlias_, "") };
+        inline Image& setImageOwnerAlias(string imageOwnerAlias) { DARABONBA_PTR_SET_VALUE(imageOwnerAlias_, imageOwnerAlias) };
+
+
+        // imageSize Field Functions 
+        bool hasImageSize() const { return this->imageSize_ != nullptr;};
+        void deleteImageSize() { this->imageSize_ = nullptr;};
+        inline string getImageSize() const { DARABONBA_PTR_GET_DEFAULT(imageSize_, "") };
+        inline Image& setImageSize(string imageSize) { DARABONBA_PTR_SET_VALUE(imageSize_, imageSize) };
+
+
+        // imageStorageSize Field Functions 
+        bool hasImageStorageSize() const { return this->imageStorageSize_ != nullptr;};
+        void deleteImageStorageSize() { this->imageStorageSize_ = nullptr;};
+        inline string getImageStorageSize() const { DARABONBA_PTR_GET_DEFAULT(imageStorageSize_, "") };
+        inline Image& setImageStorageSize(string imageStorageSize) { DARABONBA_PTR_SET_VALUE(imageStorageSize_, imageStorageSize) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline Image& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // osVersion Field Functions 
+        bool hasOsVersion() const { return this->osVersion_ != nullptr;};
+        void deleteOsVersion() { this->osVersion_ = nullptr;};
+        inline string getOsVersion() const { DARABONBA_PTR_GET_DEFAULT(osVersion_, "") };
+        inline Image& setOsVersion(string osVersion) { DARABONBA_PTR_SET_VALUE(osVersion_, osVersion) };
+
+
+        // platform Field Functions 
+        bool hasPlatform() const { return this->platform_ != nullptr;};
+        void deletePlatform() { this->platform_ = nullptr;};
+        inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+        inline Image& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
+
+
+        // regionId Field Functions 
+        bool hasRegionId() const { return this->regionId_ != nullptr;};
+        void deleteRegionId() { this->regionId_ = nullptr;};
+        inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+        inline Image& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+        // snapshotId Field Functions 
+        bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
+        void deleteSnapshotId() { this->snapshotId_ = nullptr;};
+        inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+        inline Image& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline Image& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // The image architecture. Valid values:
+        // 
+        // *   i386
+        // *   x86_64
+        shared_ptr<string> architecture_ {};
+        // Computing type. ens_vm/ens: x86 computing. bare_metal: x86 bare machine or x86 bare metal. arm_vm: ARM computing. arm_bare_metal: ARM bare machine or ARM bare metal. pcfarm: heterogeneous computing.
+        shared_ptr<string> computeType_ {};
+        // The image creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        shared_ptr<string> creationTime_ {};
+        // The mappings between the disk and the snapshot in the image.
+        shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
+        // The ID of the image.
+        shared_ptr<string> imageId_ {};
+        // The name of the image.
+        shared_ptr<string> imageName_ {};
+        // The source of the image. Valid values:
+        // 
+        // *   **others**: a custom image that is shared by other Alibaba Cloud accounts.
+        // *   **self**: your own custom image.
+        shared_ptr<string> imageOwnerAlias_ {};
+        // The size of the image. Unit: GiB.
+        shared_ptr<string> imageSize_ {};
+        // The size of the image storage.
+        shared_ptr<string> imageStorageSize_ {};
+        // The ID of the instance.
+        shared_ptr<string> instanceId_ {};
+        // The operating system version.
+        shared_ptr<string> osVersion_ {};
+        // The platform.
+        // 
+        // *   centos
+        // *   ubuntu
+        // *   alios
+        // *   debian
+        // *   rhel
+        // *   windows
+        shared_ptr<string> platform_ {};
+        // The ID of the region.
+        shared_ptr<string> regionId_ {};
+        // The snapshot ID.
+        shared_ptr<string> snapshotId_ {};
+        // The state of the image.
+        // 
+        // *   Creating.
+        // *   Packing.
+        // *   Uploading.
+        // *   Pack_failed.
+        // *   Upload_failed.
+        // *   Available: Only images in the Available state can be used and operated.
+        // *   Unavailable.
+        // *   Copying.
+        shared_ptr<string> status_ {};
+      };
+
+      virtual bool empty() const override { return this->image_ == nullptr; };
+      // image Field Functions 
+      bool hasImage() const { return this->image_ != nullptr;};
+      void deleteImage() { this->image_ = nullptr;};
+      inline const vector<Images::Image> & getImage() const { DARABONBA_PTR_GET_CONST(image_, vector<Images::Image>) };
+      inline vector<Images::Image> getImage() { DARABONBA_PTR_GET(image_, vector<Images::Image>) };
+      inline Images& setImage(const vector<Images::Image> & image) { DARABONBA_PTR_SET_VALUE(image_, image) };
+      inline Images& setImage(vector<Images::Image> && image) { DARABONBA_PTR_SET_RVALUE(image_, image) };
+
+
+    protected:
+      shared_ptr<vector<Images::Image>> image_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->images_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->images_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline DescribeSelfImagesResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // images Field Functions 
     bool hasImages() const { return this->images_ != nullptr;};
     void deleteImages() { this->images_ = nullptr;};
-    inline const DescribeSelfImagesResponseBodyImages & images() const { DARABONBA_PTR_GET_CONST(images_, DescribeSelfImagesResponseBodyImages) };
-    inline DescribeSelfImagesResponseBodyImages images() { DARABONBA_PTR_GET(images_, DescribeSelfImagesResponseBodyImages) };
-    inline DescribeSelfImagesResponseBody& setImages(const DescribeSelfImagesResponseBodyImages & images) { DARABONBA_PTR_SET_VALUE(images_, images) };
-    inline DescribeSelfImagesResponseBody& setImages(DescribeSelfImagesResponseBodyImages && images) { DARABONBA_PTR_SET_RVALUE(images_, images) };
+    inline const DescribeSelfImagesResponseBody::Images & getImages() const { DARABONBA_PTR_GET_CONST(images_, DescribeSelfImagesResponseBody::Images) };
+    inline DescribeSelfImagesResponseBody::Images getImages() { DARABONBA_PTR_GET(images_, DescribeSelfImagesResponseBody::Images) };
+    inline DescribeSelfImagesResponseBody& setImages(const DescribeSelfImagesResponseBody::Images & images) { DARABONBA_PTR_SET_VALUE(images_, images) };
+    inline DescribeSelfImagesResponseBody& setImages(DescribeSelfImagesResponseBody::Images && images) { DARABONBA_PTR_SET_RVALUE(images_, images) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline DescribeSelfImagesResponseBody& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeSelfImagesResponseBody& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSelfImagesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline string totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
+    inline string getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
     inline DescribeSelfImagesResponseBody& setTotalCount(string totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The HTTP status code that is returned.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The image information.
-    std::shared_ptr<DescribeSelfImagesResponseBodyImages> images_ = nullptr;
+    shared_ptr<DescribeSelfImagesResponseBody::Images> images_ {};
     // The page number.
-    std::shared_ptr<string> pageNumber_ = nullptr;
+    shared_ptr<string> pageNumber_ {};
     // The number of entries per page. Maximum value: 50. Default value: 10.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<string> totalCount_ = nullptr;
+    shared_ptr<string> totalCount_ {};
   };
 
   } // namespace Models

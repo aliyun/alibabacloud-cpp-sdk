@@ -38,55 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentType_ == nullptr
-        && return this->diskAccessProtocol_ == nullptr && return this->diskType_ == nullptr && return this->instanceIdsShrink_ == nullptr && return this->SDGId_ == nullptr; };
+        && this->diskAccessProtocol_ == nullptr && this->diskType_ == nullptr && this->instanceIdsShrink_ == nullptr && this->SDGId_ == nullptr; };
     // deploymentType Field Functions 
     bool hasDeploymentType() const { return this->deploymentType_ != nullptr;};
     void deleteDeploymentType() { this->deploymentType_ = nullptr;};
-    inline string deploymentType() const { DARABONBA_PTR_GET_DEFAULT(deploymentType_, "") };
+    inline string getDeploymentType() const { DARABONBA_PTR_GET_DEFAULT(deploymentType_, "") };
     inline DeployInstanceSDGShrinkRequest& setDeploymentType(string deploymentType) { DARABONBA_PTR_SET_VALUE(deploymentType_, deploymentType) };
 
 
     // diskAccessProtocol Field Functions 
     bool hasDiskAccessProtocol() const { return this->diskAccessProtocol_ != nullptr;};
     void deleteDiskAccessProtocol() { this->diskAccessProtocol_ = nullptr;};
-    inline string diskAccessProtocol() const { DARABONBA_PTR_GET_DEFAULT(diskAccessProtocol_, "") };
+    inline string getDiskAccessProtocol() const { DARABONBA_PTR_GET_DEFAULT(diskAccessProtocol_, "") };
     inline DeployInstanceSDGShrinkRequest& setDiskAccessProtocol(string diskAccessProtocol) { DARABONBA_PTR_SET_VALUE(diskAccessProtocol_, diskAccessProtocol) };
 
 
     // diskType Field Functions 
     bool hasDiskType() const { return this->diskType_ != nullptr;};
     void deleteDiskType() { this->diskType_ = nullptr;};
-    inline string diskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+    inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
     inline DeployInstanceSDGShrinkRequest& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
 
 
     // instanceIdsShrink Field Functions 
     bool hasInstanceIdsShrink() const { return this->instanceIdsShrink_ != nullptr;};
     void deleteInstanceIdsShrink() { this->instanceIdsShrink_ = nullptr;};
-    inline string instanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
+    inline string getInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
     inline DeployInstanceSDGShrinkRequest& setInstanceIdsShrink(string instanceIdsShrink) { DARABONBA_PTR_SET_VALUE(instanceIdsShrink_, instanceIdsShrink) };
 
 
     // SDGId Field Functions 
     bool hasSDGId() const { return this->SDGId_ != nullptr;};
     void deleteSDGId() { this->SDGId_ = nullptr;};
-    inline string SDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
+    inline string getSDGId() const { DARABONBA_PTR_GET_DEFAULT(SDGId_, "") };
     inline DeployInstanceSDGShrinkRequest& setSDGId(string SDGId) { DARABONBA_PTR_SET_VALUE(SDGId_, SDGId) };
 
 
   protected:
     // The deployment type of the SDG. shared: shared read/write splitting deployment. The content of the SDG is read-only, and data updates are written to the local storage of the instance.
-    std::shared_ptr<string> deploymentType_ = nullptr;
-    std::shared_ptr<string> diskAccessProtocol_ = nullptr;
-    std::shared_ptr<string> diskType_ = nullptr;
+    shared_ptr<string> deploymentType_ {};
+    shared_ptr<string> diskAccessProtocol_ {};
+    shared_ptr<string> diskType_ {};
     // The IDs of the instances. The value is a JSON array that consists of up to 100 IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIdsShrink_ = nullptr;
+    shared_ptr<string> instanceIdsShrink_ {};
     // The ID of the SDG.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SDGId_ = nullptr;
+    shared_ptr<string> SDGId_ {};
   };
 
   } // namespace Models

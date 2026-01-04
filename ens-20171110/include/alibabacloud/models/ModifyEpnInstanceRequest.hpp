@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->EPNInstanceId_ == nullptr
-        && return this->EPNInstanceName_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->networkingModel_ == nullptr; };
+        && this->EPNInstanceName_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->networkingModel_ == nullptr; };
     // EPNInstanceId Field Functions 
     bool hasEPNInstanceId() const { return this->EPNInstanceId_ != nullptr;};
     void deleteEPNInstanceId() { this->EPNInstanceId_ = nullptr;};
-    inline string EPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
+    inline string getEPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
     inline ModifyEpnInstanceRequest& setEPNInstanceId(string EPNInstanceId) { DARABONBA_PTR_SET_VALUE(EPNInstanceId_, EPNInstanceId) };
 
 
     // EPNInstanceName Field Functions 
     bool hasEPNInstanceName() const { return this->EPNInstanceName_ != nullptr;};
     void deleteEPNInstanceName() { this->EPNInstanceName_ = nullptr;};
-    inline string EPNInstanceName() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceName_, "") };
+    inline string getEPNInstanceName() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceName_, "") };
     inline ModifyEpnInstanceRequest& setEPNInstanceName(string EPNInstanceName) { DARABONBA_PTR_SET_VALUE(EPNInstanceName_, EPNInstanceName) };
 
 
     // internetMaxBandwidthOut Field Functions 
     bool hasInternetMaxBandwidthOut() const { return this->internetMaxBandwidthOut_ != nullptr;};
     void deleteInternetMaxBandwidthOut() { this->internetMaxBandwidthOut_ = nullptr;};
-    inline int32_t internetMaxBandwidthOut() const { DARABONBA_PTR_GET_DEFAULT(internetMaxBandwidthOut_, 0) };
+    inline int32_t getInternetMaxBandwidthOut() const { DARABONBA_PTR_GET_DEFAULT(internetMaxBandwidthOut_, 0) };
     inline ModifyEpnInstanceRequest& setInternetMaxBandwidthOut(int32_t internetMaxBandwidthOut) { DARABONBA_PTR_SET_VALUE(internetMaxBandwidthOut_, internetMaxBandwidthOut) };
 
 
     // networkingModel Field Functions 
     bool hasNetworkingModel() const { return this->networkingModel_ != nullptr;};
     void deleteNetworkingModel() { this->networkingModel_ = nullptr;};
-    inline string networkingModel() const { DARABONBA_PTR_GET_DEFAULT(networkingModel_, "") };
+    inline string getNetworkingModel() const { DARABONBA_PTR_GET_DEFAULT(networkingModel_, "") };
     inline ModifyEpnInstanceRequest& setNetworkingModel(string networkingModel) { DARABONBA_PTR_SET_VALUE(networkingModel_, networkingModel) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // The ID of the EPN instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> EPNInstanceId_ = nullptr;
+    shared_ptr<string> EPNInstanceId_ {};
     // The name of the EPN instance.
-    std::shared_ptr<string> EPNInstanceName_ = nullptr;
+    shared_ptr<string> EPNInstanceName_ {};
     // The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 1 Mbit/s to 100 Mbit/s.
-    std::shared_ptr<int32_t> internetMaxBandwidthOut_ = nullptr;
+    shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     // The networking mode. Valid values:
     // 
     // *   **SpeedUp**: Intelligent acceleration network (Internet).
@@ -81,7 +81,7 @@ namespace Models
     // *   **SpeedUpAndConnection**: Intelligent acceleration network and internal network.
     // 
     // >  The internal network supports only **Connection** and **SpeedUpAndConnection**.
-    std::shared_ptr<string> networkingModel_ = nullptr;
+    shared_ptr<string> networkingModel_ {};
   };
 
   } // namespace Models

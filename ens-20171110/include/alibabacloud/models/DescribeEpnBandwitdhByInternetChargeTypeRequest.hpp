@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->ensRegionId_ == nullptr && return this->isp_ == nullptr && return this->networkingModel_ == nullptr && return this->startTime_ == nullptr; };
+        && this->ensRegionId_ == nullptr && this->isp_ == nullptr && this->networkingModel_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // isp Field Functions 
     bool hasIsp() const { return this->isp_ != nullptr;};
     void deleteIsp() { this->isp_ = nullptr;};
-    inline string isp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
+    inline string getIsp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeRequest& setIsp(string isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
 
 
     // networkingModel Field Functions 
     bool hasNetworkingModel() const { return this->networkingModel_ != nullptr;};
     void deleteNetworkingModel() { this->networkingModel_ = nullptr;};
-    inline string networkingModel() const { DARABONBA_PTR_GET_DEFAULT(networkingModel_, "") };
+    inline string getNetworkingModel() const { DARABONBA_PTR_GET_DEFAULT(networkingModel_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeRequest& setNetworkingModel(string networkingModel) { DARABONBA_PTR_SET_VALUE(networkingModel_, networkingModel) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeEpnBandwitdhByInternetChargeTypeRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -81,29 +81,29 @@ namespace Models
     // *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The ID of the Edge Node Service (ENS) node.
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> ensRegionId_ {};
     // The Internet service provider (ISP). Valid values:
     // 
     // *   cmcc: China Mobile
     // *   telecom: China Telecom
     // *   unicom: China Unicom
     // *   multiCarrier: multi-line ISP
-    std::shared_ptr<string> isp_ = nullptr;
+    shared_ptr<string> isp_ {};
     // The networking mode. Valid values:
     // 
     // *   **SpeedUp**: intelligent acceleration network (Internet)
     // *   **Connection**: internal network
     // *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
-    std::shared_ptr<string> networkingModel_ = nullptr;
+    shared_ptr<string> networkingModel_ {};
     // The beginning of the time range to query.
     // 
     // *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

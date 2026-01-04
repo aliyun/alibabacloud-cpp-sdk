@@ -33,7 +33,7 @@ namespace Models
     // snatEntryId Field Functions 
     bool hasSnatEntryId() const { return this->snatEntryId_ != nullptr;};
     void deleteSnatEntryId() { this->snatEntryId_ = nullptr;};
-    inline string snatEntryId() const { DARABONBA_PTR_GET_DEFAULT(snatEntryId_, "") };
+    inline string getSnatEntryId() const { DARABONBA_PTR_GET_DEFAULT(snatEntryId_, "") };
     inline DeleteSnatEntryRequest& setSnatEntryId(string snatEntryId) { DARABONBA_PTR_SET_VALUE(snatEntryId_, snatEntryId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the SNAT entry that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> snatEntryId_ = nullptr;
+    shared_ptr<string> snatEntryId_ {};
   };
 
   } // namespace Models

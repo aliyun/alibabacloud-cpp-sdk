@@ -33,13 +33,13 @@ namespace Models
     // networkAclEntryId Field Functions 
     bool hasNetworkAclEntryId() const { return this->networkAclEntryId_ != nullptr;};
     void deleteNetworkAclEntryId() { this->networkAclEntryId_ = nullptr;};
-    inline string networkAclEntryId() const { DARABONBA_PTR_GET_DEFAULT(networkAclEntryId_, "") };
+    inline string getNetworkAclEntryId() const { DARABONBA_PTR_GET_DEFAULT(networkAclEntryId_, "") };
     inline DeleteNetworkAclEntryRequest& setNetworkAclEntryId(string networkAclEntryId) { DARABONBA_PTR_SET_VALUE(networkAclEntryId_, networkAclEntryId) };
 
 
   protected:
     // The ID of the network ACL for which you want to delete a rule.
-    std::shared_ptr<string> networkAclEntryId_ = nullptr;
+    shared_ptr<string> networkAclEntryId_ {};
   };
 
   } // namespace Models

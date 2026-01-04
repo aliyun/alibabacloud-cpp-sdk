@@ -33,12 +33,12 @@ namespace Models
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int64_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+    inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
     inline DataDisk& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
   protected:
-    std::shared_ptr<int64_t> size_ = nullptr;
+    shared_ptr<int64_t> size_ {};
   };
 
   } // namespace Models

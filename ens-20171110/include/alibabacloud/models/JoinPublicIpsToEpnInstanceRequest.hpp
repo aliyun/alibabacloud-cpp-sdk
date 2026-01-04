@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->EPNInstanceId_ == nullptr
-        && return this->instanceInfos_ == nullptr; };
+        && this->instanceInfos_ == nullptr; };
     // EPNInstanceId Field Functions 
     bool hasEPNInstanceId() const { return this->EPNInstanceId_ != nullptr;};
     void deleteEPNInstanceId() { this->EPNInstanceId_ = nullptr;};
-    inline string EPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
+    inline string getEPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
     inline JoinPublicIpsToEpnInstanceRequest& setEPNInstanceId(string EPNInstanceId) { DARABONBA_PTR_SET_VALUE(EPNInstanceId_, EPNInstanceId) };
 
 
     // instanceInfos Field Functions 
     bool hasInstanceInfos() const { return this->instanceInfos_ != nullptr;};
     void deleteInstanceInfos() { this->instanceInfos_ = nullptr;};
-    inline string instanceInfos() const { DARABONBA_PTR_GET_DEFAULT(instanceInfos_, "") };
+    inline string getInstanceInfos() const { DARABONBA_PTR_GET_DEFAULT(instanceInfos_, "") };
     inline JoinPublicIpsToEpnInstanceRequest& setInstanceInfos(string instanceInfos) { DARABONBA_PTR_SET_VALUE(instanceInfos_, instanceInfos) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the EPN instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> EPNInstanceId_ = nullptr;
+    shared_ptr<string> EPNInstanceId_ {};
     // The information about the public IP address that you want to add to the EPN instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceInfos_ = nullptr;
+    shared_ptr<string> instanceInfos_ {};
   };
 
   } // namespace Models

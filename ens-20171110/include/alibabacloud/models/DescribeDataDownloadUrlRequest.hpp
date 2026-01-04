@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->dataName_ == nullptr && return this->dataVersion_ == nullptr && return this->expireTimeout_ == nullptr && return this->serverFilterStrategy_ == nullptr; };
+        && this->dataName_ == nullptr && this->dataVersion_ == nullptr && this->expireTimeout_ == nullptr && this->serverFilterStrategy_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeDataDownloadURLRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // dataName Field Functions 
     bool hasDataName() const { return this->dataName_ != nullptr;};
     void deleteDataName() { this->dataName_ = nullptr;};
-    inline string dataName() const { DARABONBA_PTR_GET_DEFAULT(dataName_, "") };
+    inline string getDataName() const { DARABONBA_PTR_GET_DEFAULT(dataName_, "") };
     inline DescribeDataDownloadURLRequest& setDataName(string dataName) { DARABONBA_PTR_SET_VALUE(dataName_, dataName) };
 
 
     // dataVersion Field Functions 
     bool hasDataVersion() const { return this->dataVersion_ != nullptr;};
     void deleteDataVersion() { this->dataVersion_ = nullptr;};
-    inline string dataVersion() const { DARABONBA_PTR_GET_DEFAULT(dataVersion_, "") };
+    inline string getDataVersion() const { DARABONBA_PTR_GET_DEFAULT(dataVersion_, "") };
     inline DescribeDataDownloadURLRequest& setDataVersion(string dataVersion) { DARABONBA_PTR_SET_VALUE(dataVersion_, dataVersion) };
 
 
     // expireTimeout Field Functions 
     bool hasExpireTimeout() const { return this->expireTimeout_ != nullptr;};
     void deleteExpireTimeout() { this->expireTimeout_ = nullptr;};
-    inline int64_t expireTimeout() const { DARABONBA_PTR_GET_DEFAULT(expireTimeout_, 0L) };
+    inline int64_t getExpireTimeout() const { DARABONBA_PTR_GET_DEFAULT(expireTimeout_, 0L) };
     inline DescribeDataDownloadURLRequest& setExpireTimeout(int64_t expireTimeout) { DARABONBA_PTR_SET_VALUE(expireTimeout_, expireTimeout) };
 
 
     // serverFilterStrategy Field Functions 
     bool hasServerFilterStrategy() const { return this->serverFilterStrategy_ != nullptr;};
     void deleteServerFilterStrategy() { this->serverFilterStrategy_ = nullptr;};
-    inline string serverFilterStrategy() const { DARABONBA_PTR_GET_DEFAULT(serverFilterStrategy_, "") };
+    inline string getServerFilterStrategy() const { DARABONBA_PTR_GET_DEFAULT(serverFilterStrategy_, "") };
     inline DescribeDataDownloadURLRequest& setServerFilterStrategy(string serverFilterStrategy) { DARABONBA_PTR_SET_VALUE(serverFilterStrategy_, serverFilterStrategy) };
 
 
@@ -78,19 +78,19 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The name of the data file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataName_ = nullptr;
+    shared_ptr<string> dataName_ {};
     // The version number of the data file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataVersion_ = nullptr;
+    shared_ptr<string> dataVersion_ {};
     // This parameter is reserved.
-    std::shared_ptr<int64_t> expireTimeout_ = nullptr;
+    shared_ptr<int64_t> expireTimeout_ {};
     // The condition that you want to use to filter file servers. You can specify multiple canary release policies. By default, all resources are queried.
-    std::shared_ptr<string> serverFilterStrategy_ = nullptr;
+    shared_ptr<string> serverFilterStrategy_ {};
   };
 
   } // namespace Models

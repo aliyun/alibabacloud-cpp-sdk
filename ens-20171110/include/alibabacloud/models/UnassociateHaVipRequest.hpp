@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->haVipId_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // haVipId Field Functions 
     bool hasHaVipId() const { return this->haVipId_ != nullptr;};
     void deleteHaVipId() { this->haVipId_ = nullptr;};
-    inline string haVipId() const { DARABONBA_PTR_GET_DEFAULT(haVipId_, "") };
+    inline string getHaVipId() const { DARABONBA_PTR_GET_DEFAULT(haVipId_, "") };
     inline UnassociateHaVipRequest& setHaVipId(string haVipId) { DARABONBA_PTR_SET_VALUE(haVipId_, haVipId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UnassociateHaVipRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the HAVIP that you want to disassociate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> haVipId_ = nullptr;
+    shared_ptr<string> haVipId_ {};
     // The ID of the ENS instance or ENI that you want to disassociate from the HAVIP.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

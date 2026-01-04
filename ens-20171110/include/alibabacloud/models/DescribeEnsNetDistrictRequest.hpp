@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->netDistrictCode_ == nullptr
-        && return this->netDistrictCodeNode_ == nullptr && return this->netLevelCode_ == nullptr; };
+        && this->netDistrictCodeNode_ == nullptr && this->netLevelCode_ == nullptr; };
     // netDistrictCode Field Functions 
     bool hasNetDistrictCode() const { return this->netDistrictCode_ != nullptr;};
     void deleteNetDistrictCode() { this->netDistrictCode_ = nullptr;};
-    inline string netDistrictCode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCode_, "") };
+    inline string getNetDistrictCode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCode_, "") };
     inline DescribeEnsNetDistrictRequest& setNetDistrictCode(string netDistrictCode) { DARABONBA_PTR_SET_VALUE(netDistrictCode_, netDistrictCode) };
 
 
     // netDistrictCodeNode Field Functions 
     bool hasNetDistrictCodeNode() const { return this->netDistrictCodeNode_ != nullptr;};
     void deleteNetDistrictCodeNode() { this->netDistrictCodeNode_ = nullptr;};
-    inline bool netDistrictCodeNode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCodeNode_, false) };
+    inline bool getNetDistrictCodeNode() const { DARABONBA_PTR_GET_DEFAULT(netDistrictCodeNode_, false) };
     inline DescribeEnsNetDistrictRequest& setNetDistrictCodeNode(bool netDistrictCodeNode) { DARABONBA_PTR_SET_VALUE(netDistrictCodeNode_, netDistrictCodeNode) };
 
 
     // netLevelCode Field Functions 
     bool hasNetLevelCode() const { return this->netLevelCode_ != nullptr;};
     void deleteNetLevelCode() { this->netLevelCode_ = nullptr;};
-    inline string netLevelCode() const { DARABONBA_PTR_GET_DEFAULT(netLevelCode_, "") };
+    inline string getNetLevelCode() const { DARABONBA_PTR_GET_DEFAULT(netLevelCode_, "") };
     inline DescribeEnsNetDistrictRequest& setNetLevelCode(string netLevelCode) { DARABONBA_PTR_SET_VALUE(netLevelCode_, netLevelCode) };
 
 
@@ -62,8 +62,8 @@ namespace Models
     // If you do not specify this parameter, only nodes in the regions of the level that is specified by the NetLevelCode parameter are queried.
     // 
     // If you specify this parameter, only nodes in the regions of the level that is specified by this parameter are queried.
-    std::shared_ptr<string> netDistrictCode_ = nullptr;
-    std::shared_ptr<bool> netDistrictCodeNode_ = nullptr;
+    shared_ptr<string> netDistrictCode_ {};
+    shared_ptr<bool> netDistrictCodeNode_ {};
     // The level of the region.
     // 
     // *   **Big**: area
@@ -71,7 +71,7 @@ namespace Models
     // *   **Small**: city
     // 
     // This parameter is required.
-    std::shared_ptr<string> netLevelCode_ = nullptr;
+    shared_ptr<string> netLevelCode_ {};
   };
 
   } // namespace Models

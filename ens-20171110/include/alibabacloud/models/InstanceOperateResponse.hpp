@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->instanceId_ == nullptr && return this->message_ == nullptr; };
+        && this->instanceId_ == nullptr && this->message_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int64_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
+    inline int64_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
     inline InstanceOperateResponse& setCode(int64_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline InstanceOperateResponse& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline InstanceOperateResponse& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
   protected:
-    std::shared_ptr<int64_t> code_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<int64_t> code_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> message_ {};
   };
 
   } // namespace Models

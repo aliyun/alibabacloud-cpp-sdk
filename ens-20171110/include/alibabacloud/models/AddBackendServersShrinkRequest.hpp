@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backendServersShrink_ == nullptr
-        && return this->loadBalancerId_ == nullptr; };
+        && this->loadBalancerId_ == nullptr; };
     // backendServersShrink Field Functions 
     bool hasBackendServersShrink() const { return this->backendServersShrink_ != nullptr;};
     void deleteBackendServersShrink() { this->backendServersShrink_ = nullptr;};
-    inline string backendServersShrink() const { DARABONBA_PTR_GET_DEFAULT(backendServersShrink_, "") };
+    inline string getBackendServersShrink() const { DARABONBA_PTR_GET_DEFAULT(backendServersShrink_, "") };
     inline AddBackendServersShrinkRequest& setBackendServersShrink(string backendServersShrink) { DARABONBA_PTR_SET_VALUE(backendServersShrink_, backendServersShrink) };
 
 
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline AddBackendServersShrinkRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // >  Only Edge Node Service (ENS) instances that are in the running state can be added to the ELB instance as backend servers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> backendServersShrink_ = nullptr;
+    shared_ptr<string> backendServersShrink_ {};
     // The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
   };
 
   } // namespace Models

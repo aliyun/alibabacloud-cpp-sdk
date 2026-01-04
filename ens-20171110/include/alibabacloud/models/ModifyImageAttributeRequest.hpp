@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->imageName_ == nullptr; };
+        && this->imageName_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ModifyImageAttributeRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // imageName Field Functions 
     bool hasImageName() const { return this->imageName_ != nullptr;};
     void deleteImageName() { this->imageName_ = nullptr;};
-    inline string imageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
+    inline string getImageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
     inline ModifyImageAttributeRequest& setImageName(string imageName) { DARABONBA_PTR_SET_VALUE(imageName_, imageName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The name of the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageName_ = nullptr;
+    shared_ptr<string> imageName_ {};
   };
 
   } // namespace Models

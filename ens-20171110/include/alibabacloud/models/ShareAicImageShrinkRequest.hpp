@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->usersShrink_ == nullptr; };
+        && this->usersShrink_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ShareAICImageShrinkRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // usersShrink Field Functions 
     bool hasUsersShrink() const { return this->usersShrink_ != nullptr;};
     void deleteUsersShrink() { this->usersShrink_ = nullptr;};
-    inline string usersShrink() const { DARABONBA_PTR_GET_DEFAULT(usersShrink_, "") };
+    inline string getUsersShrink() const { DARABONBA_PTR_GET_DEFAULT(usersShrink_, "") };
     inline ShareAICImageShrinkRequest& setUsersShrink(string usersShrink) { DARABONBA_PTR_SET_VALUE(usersShrink_, usersShrink) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The image name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The user groups.
     // 
     // This parameter is required.
-    std::shared_ptr<string> usersShrink_ = nullptr;
+    shared_ptr<string> usersShrink_ {};
   };
 
   } // namespace Models

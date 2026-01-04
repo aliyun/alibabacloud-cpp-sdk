@@ -50,98 +50,98 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketAcl_ == nullptr
-        && return this->bucketName_ == nullptr && return this->comment_ == nullptr && return this->createTime_ == nullptr && return this->dataRedundancyType_ == nullptr && return this->dispatcherType_ == nullptr
-        && return this->endpoint_ == nullptr && return this->ensRegionId_ == nullptr && return this->modifyTime_ == nullptr && return this->resourceType_ == nullptr && return this->storageClass_ == nullptr; };
+        && this->bucketName_ == nullptr && this->comment_ == nullptr && this->createTime_ == nullptr && this->dataRedundancyType_ == nullptr && this->dispatcherType_ == nullptr
+        && this->endpoint_ == nullptr && this->ensRegionId_ == nullptr && this->modifyTime_ == nullptr && this->resourceType_ == nullptr && this->storageClass_ == nullptr; };
     // bucketAcl Field Functions 
     bool hasBucketAcl() const { return this->bucketAcl_ != nullptr;};
     void deleteBucketAcl() { this->bucketAcl_ = nullptr;};
-    inline string bucketAcl() const { DARABONBA_PTR_GET_DEFAULT(bucketAcl_, "") };
+    inline string getBucketAcl() const { DARABONBA_PTR_GET_DEFAULT(bucketAcl_, "") };
     inline BucketInfo& setBucketAcl(string bucketAcl) { DARABONBA_PTR_SET_VALUE(bucketAcl_, bucketAcl) };
 
 
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline BucketInfo& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline BucketInfo& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline BucketInfo& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // dataRedundancyType Field Functions 
     bool hasDataRedundancyType() const { return this->dataRedundancyType_ != nullptr;};
     void deleteDataRedundancyType() { this->dataRedundancyType_ = nullptr;};
-    inline string dataRedundancyType() const { DARABONBA_PTR_GET_DEFAULT(dataRedundancyType_, "") };
+    inline string getDataRedundancyType() const { DARABONBA_PTR_GET_DEFAULT(dataRedundancyType_, "") };
     inline BucketInfo& setDataRedundancyType(string dataRedundancyType) { DARABONBA_PTR_SET_VALUE(dataRedundancyType_, dataRedundancyType) };
 
 
     // dispatcherType Field Functions 
     bool hasDispatcherType() const { return this->dispatcherType_ != nullptr;};
     void deleteDispatcherType() { this->dispatcherType_ = nullptr;};
-    inline string dispatcherType() const { DARABONBA_PTR_GET_DEFAULT(dispatcherType_, "") };
+    inline string getDispatcherType() const { DARABONBA_PTR_GET_DEFAULT(dispatcherType_, "") };
     inline BucketInfo& setDispatcherType(string dispatcherType) { DARABONBA_PTR_SET_VALUE(dispatcherType_, dispatcherType) };
 
 
     // endpoint Field Functions 
     bool hasEndpoint() const { return this->endpoint_ != nullptr;};
     void deleteEndpoint() { this->endpoint_ = nullptr;};
-    inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+    inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline BucketInfo& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline BucketInfo& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline BucketInfo& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline BucketInfo& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // storageClass Field Functions 
     bool hasStorageClass() const { return this->storageClass_ != nullptr;};
     void deleteStorageClass() { this->storageClass_ = nullptr;};
-    inline string storageClass() const { DARABONBA_PTR_GET_DEFAULT(storageClass_, "") };
+    inline string getStorageClass() const { DARABONBA_PTR_GET_DEFAULT(storageClass_, "") };
     inline BucketInfo& setStorageClass(string storageClass) { DARABONBA_PTR_SET_VALUE(storageClass_, storageClass) };
 
 
   protected:
-    std::shared_ptr<string> bucketAcl_ = nullptr;
+    shared_ptr<string> bucketAcl_ {};
     // This parameter is required.
-    std::shared_ptr<string> bucketName_ = nullptr;
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> dataRedundancyType_ = nullptr;
-    std::shared_ptr<string> dispatcherType_ = nullptr;
-    std::shared_ptr<string> endpoint_ = nullptr;
-    std::shared_ptr<string> ensRegionId_ = nullptr;
-    std::shared_ptr<string> modifyTime_ = nullptr;
-    std::shared_ptr<string> resourceType_ = nullptr;
-    std::shared_ptr<string> storageClass_ = nullptr;
+    shared_ptr<string> bucketName_ {};
+    shared_ptr<string> comment_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> dataRedundancyType_ {};
+    shared_ptr<string> dispatcherType_ {};
+    shared_ptr<string> endpoint_ {};
+    shared_ptr<string> ensRegionId_ {};
+    shared_ptr<string> modifyTime_ {};
+    shared_ptr<string> resourceType_ {};
+    shared_ptr<string> storageClass_ {};
   };
 
   } // namespace Models

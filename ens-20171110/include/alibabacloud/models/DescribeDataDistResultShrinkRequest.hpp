@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->dataNames_ == nullptr && return this->dataVersions_ == nullptr && return this->ensRegionIdsShrink_ == nullptr && return this->instanceIds_ == nullptr && return this->maxDate_ == nullptr
-        && return this->minDate_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->dataNames_ == nullptr && this->dataVersions_ == nullptr && this->ensRegionIdsShrink_ == nullptr && this->instanceIds_ == nullptr && this->maxDate_ == nullptr
+        && this->minDate_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeDataDistResultShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // dataNames Field Functions 
     bool hasDataNames() const { return this->dataNames_ != nullptr;};
     void deleteDataNames() { this->dataNames_ = nullptr;};
-    inline string dataNames() const { DARABONBA_PTR_GET_DEFAULT(dataNames_, "") };
+    inline string getDataNames() const { DARABONBA_PTR_GET_DEFAULT(dataNames_, "") };
     inline DescribeDataDistResultShrinkRequest& setDataNames(string dataNames) { DARABONBA_PTR_SET_VALUE(dataNames_, dataNames) };
 
 
     // dataVersions Field Functions 
     bool hasDataVersions() const { return this->dataVersions_ != nullptr;};
     void deleteDataVersions() { this->dataVersions_ = nullptr;};
-    inline string dataVersions() const { DARABONBA_PTR_GET_DEFAULT(dataVersions_, "") };
+    inline string getDataVersions() const { DARABONBA_PTR_GET_DEFAULT(dataVersions_, "") };
     inline DescribeDataDistResultShrinkRequest& setDataVersions(string dataVersions) { DARABONBA_PTR_SET_VALUE(dataVersions_, dataVersions) };
 
 
     // ensRegionIdsShrink Field Functions 
     bool hasEnsRegionIdsShrink() const { return this->ensRegionIdsShrink_ != nullptr;};
     void deleteEnsRegionIdsShrink() { this->ensRegionIdsShrink_ = nullptr;};
-    inline string ensRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(ensRegionIdsShrink_, "") };
+    inline string getEnsRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(ensRegionIdsShrink_, "") };
     inline DescribeDataDistResultShrinkRequest& setEnsRegionIdsShrink(string ensRegionIdsShrink) { DARABONBA_PTR_SET_VALUE(ensRegionIdsShrink_, ensRegionIdsShrink) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline DescribeDataDistResultShrinkRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // maxDate Field Functions 
     bool hasMaxDate() const { return this->maxDate_ != nullptr;};
     void deleteMaxDate() { this->maxDate_ = nullptr;};
-    inline string maxDate() const { DARABONBA_PTR_GET_DEFAULT(maxDate_, "") };
+    inline string getMaxDate() const { DARABONBA_PTR_GET_DEFAULT(maxDate_, "") };
     inline DescribeDataDistResultShrinkRequest& setMaxDate(string maxDate) { DARABONBA_PTR_SET_VALUE(maxDate_, maxDate) };
 
 
     // minDate Field Functions 
     bool hasMinDate() const { return this->minDate_ != nullptr;};
     void deleteMinDate() { this->minDate_ = nullptr;};
-    inline string minDate() const { DARABONBA_PTR_GET_DEFAULT(minDate_, "") };
+    inline string getMinDate() const { DARABONBA_PTR_GET_DEFAULT(minDate_, "") };
     inline DescribeDataDistResultShrinkRequest& setMinDate(string minDate) { DARABONBA_PTR_SET_VALUE(minDate_, minDate) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeDataDistResultShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeDataDistResultShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -115,23 +115,23 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The name of the data file. Separate multiple names with commas (,). By default, all data files are queried.
-    std::shared_ptr<string> dataNames_ = nullptr;
+    shared_ptr<string> dataNames_ {};
     // The version number of the data file. Separate multiple numbers with commas (,). By default, all versions of data files are queried.
-    std::shared_ptr<string> dataVersions_ = nullptr;
+    shared_ptr<string> dataVersions_ {};
     // The IDs of the ENS nodes.
-    std::shared_ptr<string> ensRegionIdsShrink_ = nullptr;
+    shared_ptr<string> ensRegionIdsShrink_ {};
     // The IDs of ENS instances. Separate multiple IDs with commas (,). By default, all instances are queried.
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
-    std::shared_ptr<string> maxDate_ = nullptr;
+    shared_ptr<string> maxDate_ {};
     // The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
-    std::shared_ptr<string> minDate_ = nullptr;
+    shared_ptr<string> minDate_ {};
     // The page number. Pages start from page 1. This parameter is optional if you want to return the push status of all data files.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. This parameter is optional if you want to return the distribution status of all data files.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->EPNInstanceId_ == nullptr
-        && return this->vSwitchesInfo_ == nullptr; };
+        && this->vSwitchesInfo_ == nullptr; };
     // EPNInstanceId Field Functions 
     bool hasEPNInstanceId() const { return this->EPNInstanceId_ != nullptr;};
     void deleteEPNInstanceId() { this->EPNInstanceId_ = nullptr;};
-    inline string EPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
+    inline string getEPNInstanceId() const { DARABONBA_PTR_GET_DEFAULT(EPNInstanceId_, "") };
     inline JoinVSwitchesToEpnInstanceRequest& setEPNInstanceId(string EPNInstanceId) { DARABONBA_PTR_SET_VALUE(EPNInstanceId_, EPNInstanceId) };
 
 
     // vSwitchesInfo Field Functions 
     bool hasVSwitchesInfo() const { return this->vSwitchesInfo_ != nullptr;};
     void deleteVSwitchesInfo() { this->vSwitchesInfo_ = nullptr;};
-    inline string vSwitchesInfo() const { DARABONBA_PTR_GET_DEFAULT(vSwitchesInfo_, "") };
+    inline string getVSwitchesInfo() const { DARABONBA_PTR_GET_DEFAULT(vSwitchesInfo_, "") };
     inline JoinVSwitchesToEpnInstanceRequest& setVSwitchesInfo(string vSwitchesInfo) { DARABONBA_PTR_SET_VALUE(vSwitchesInfo_, vSwitchesInfo) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the edge network instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> EPNInstanceId_ = nullptr;
+    shared_ptr<string> EPNInstanceId_ {};
     // The information about the internal networking to which you want to add the edge network instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vSwitchesInfo_ = nullptr;
+    shared_ptr<string> vSwitchesInfo_ {};
   };
 
   } // namespace Models

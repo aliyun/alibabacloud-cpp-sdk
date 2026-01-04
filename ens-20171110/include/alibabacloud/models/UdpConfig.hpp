@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hashKey_ == nullptr
-        && return this->scheduler_ == nullptr; };
+        && this->scheduler_ == nullptr; };
     // hashKey Field Functions 
     bool hasHashKey() const { return this->hashKey_ != nullptr;};
     void deleteHashKey() { this->hashKey_ = nullptr;};
-    inline string hashKey() const { DARABONBA_PTR_GET_DEFAULT(hashKey_, "") };
+    inline string getHashKey() const { DARABONBA_PTR_GET_DEFAULT(hashKey_, "") };
     inline UdpConfig& setHashKey(string hashKey) { DARABONBA_PTR_SET_VALUE(hashKey_, hashKey) };
 
 
     // scheduler Field Functions 
     bool hasScheduler() const { return this->scheduler_ != nullptr;};
     void deleteScheduler() { this->scheduler_ = nullptr;};
-    inline string scheduler() const { DARABONBA_PTR_GET_DEFAULT(scheduler_, "") };
+    inline string getScheduler() const { DARABONBA_PTR_GET_DEFAULT(scheduler_, "") };
     inline UdpConfig& setScheduler(string scheduler) { DARABONBA_PTR_SET_VALUE(scheduler_, scheduler) };
 
 
   protected:
-    std::shared_ptr<string> hashKey_ = nullptr;
-    std::shared_ptr<string> scheduler_ = nullptr;
+    shared_ptr<string> hashKey_ {};
+    shared_ptr<string> scheduler_ {};
   };
 
   } // namespace Models

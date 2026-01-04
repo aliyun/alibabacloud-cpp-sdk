@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->users_ == nullptr; };
+        && this->users_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ShareAICImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // users Field Functions 
     bool hasUsers() const { return this->users_ != nullptr;};
     void deleteUsers() { this->users_ = nullptr;};
-    inline const vector<string> & users() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
-    inline vector<string> users() { DARABONBA_PTR_GET(users_, vector<string>) };
+    inline const vector<string> & getUsers() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
+    inline vector<string> getUsers() { DARABONBA_PTR_GET(users_, vector<string>) };
     inline ShareAICImageRequest& setUsers(const vector<string> & users) { DARABONBA_PTR_SET_VALUE(users_, users) };
     inline ShareAICImageRequest& setUsers(vector<string> && users) { DARABONBA_PTR_SET_RVALUE(users_, users) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The image name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The user groups.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> users_ = nullptr;
+    shared_ptr<vector<string>> users_ {};
   };
 
   } // namespace Models

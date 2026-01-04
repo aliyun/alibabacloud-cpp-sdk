@@ -33,13 +33,13 @@ namespace Models
     // serverId Field Functions 
     bool hasServerId() const { return this->serverId_ != nullptr;};
     void deleteServerId() { this->serverId_ = nullptr;};
-    inline string serverId() const { DARABONBA_PTR_GET_DEFAULT(serverId_, "") };
+    inline string getServerId() const { DARABONBA_PTR_GET_DEFAULT(serverId_, "") };
     inline RebootARMServerInstanceRequest& setServerId(string serverId) { DARABONBA_PTR_SET_VALUE(serverId_, serverId) };
 
 
   protected:
     // The ID of the server.
-    std::shared_ptr<string> serverId_ = nullptr;
+    shared_ptr<string> serverId_ {};
   };
 
   } // namespace Models

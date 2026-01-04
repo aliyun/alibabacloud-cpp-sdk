@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
-        && return this->description_ == nullptr && return this->ipAddress_ == nullptr && return this->name_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && this->description_ == nullptr && this->ipAddress_ == nullptr && this->name_ == nullptr && this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
-    inline int32_t amount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
+    inline int32_t getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
     inline CreateHaVipRequest& setAmount(int32_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateHaVipRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // ipAddress Field Functions 
     bool hasIpAddress() const { return this->ipAddress_ != nullptr;};
     void deleteIpAddress() { this->ipAddress_ = nullptr;};
-    inline string ipAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
+    inline string getIpAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
     inline CreateHaVipRequest& setIpAddress(string ipAddress) { DARABONBA_PTR_SET_VALUE(ipAddress_, ipAddress) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateHaVipRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateHaVipRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
@@ -78,15 +78,15 @@ namespace Models
     // The number of HAVIPs that you want to create. Valid values: 1 to 10. The value can be only 1 if you specify an IP address.
     // 
     // Default value: 1.
-    std::shared_ptr<int32_t> amount_ = nullptr;
+    shared_ptr<int32_t> amount_ {};
     // The description of the HAVIP.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The IP address of the HAVIP.
-    std::shared_ptr<string> ipAddress_ = nullptr;
+    shared_ptr<string> ipAddress_ {};
     // The name of the HAVIP.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The vSwitch ID of the HAVIP.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
   };
 
   } // namespace Models
