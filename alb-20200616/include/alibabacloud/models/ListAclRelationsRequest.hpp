@@ -30,12 +30,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclIds_ != nullptr; };
+    virtual bool empty() const override { return this->aclIds_ == nullptr; };
     // aclIds Field Functions 
     bool hasAclIds() const { return this->aclIds_ != nullptr;};
     void deleteAclIds() { this->aclIds_ = nullptr;};
-    inline const vector<string> & aclIds() const { DARABONBA_PTR_GET_CONST(aclIds_, vector<string>) };
-    inline vector<string> aclIds() { DARABONBA_PTR_GET(aclIds_, vector<string>) };
+    inline const vector<string> & getAclIds() const { DARABONBA_PTR_GET_CONST(aclIds_, vector<string>) };
+    inline vector<string> getAclIds() { DARABONBA_PTR_GET(aclIds_, vector<string>) };
     inline ListAclRelationsRequest& setAclIds(const vector<string> & aclIds) { DARABONBA_PTR_SET_VALUE(aclIds_, aclIds) };
     inline ListAclRelationsRequest& setAclIds(vector<string> && aclIds) { DARABONBA_PTR_SET_RVALUE(aclIds_, aclIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The access control list (ACL) IDs. You can query at most five ACLs in each call.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> aclIds_ = nullptr;
+    shared_ptr<vector<string>> aclIds_ {};
   };
 
   } // namespace Models

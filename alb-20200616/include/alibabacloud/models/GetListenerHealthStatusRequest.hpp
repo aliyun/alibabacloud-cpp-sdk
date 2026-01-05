@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->includeRule_ != nullptr
-        && this->listenerId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr; };
+    virtual bool empty() const override { return this->includeRule_ == nullptr
+        && this->listenerId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
     // includeRule Field Functions 
     bool hasIncludeRule() const { return this->includeRule_ != nullptr;};
     void deleteIncludeRule() { this->includeRule_ = nullptr;};
-    inline bool includeRule() const { DARABONBA_PTR_GET_DEFAULT(includeRule_, false) };
+    inline bool getIncludeRule() const { DARABONBA_PTR_GET_DEFAULT(includeRule_, false) };
     inline GetListenerHealthStatusRequest& setIncludeRule(bool includeRule) { DARABONBA_PTR_SET_VALUE(includeRule_, includeRule) };
 
 
     // listenerId Field Functions 
     bool hasListenerId() const { return this->listenerId_ != nullptr;};
     void deleteListenerId() { this->listenerId_ = nullptr;};
-    inline string listenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
+    inline string getListenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
     inline GetListenerHealthStatusRequest& setListenerId(string listenerId) { DARABONBA_PTR_SET_VALUE(listenerId_, listenerId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline GetListenerHealthStatusRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline GetListenerHealthStatusRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
@@ -70,18 +70,18 @@ namespace Models
     // 
     // *   **true**
     // *   **false** (default)
-    std::shared_ptr<bool> includeRule_ = nullptr;
+    shared_ptr<bool> includeRule_ {};
     // The listener ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listenerId_ = nullptr;
+    shared_ptr<string> listenerId_ {};
     // The number of entries to return on each page. Valid values: **1** to **30**. Default value: **20**.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The token that determines the start point of the query. Valid values:
     // 
     // *   If this is your first query or no next queries are to be sent, ignore this parameter.
     // *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->listenerId_ != nullptr; };
+    virtual bool empty() const override { return this->listenerId_ == nullptr; };
     // listenerId Field Functions 
     bool hasListenerId() const { return this->listenerId_ != nullptr;};
     void deleteListenerId() { this->listenerId_ = nullptr;};
-    inline string listenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
+    inline string getListenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
     inline GetListenerAttributeRequest& setListenerId(string listenerId) { DARABONBA_PTR_SET_VALUE(listenerId_, listenerId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The listener ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listenerId_ = nullptr;
+    shared_ptr<string> listenerId_ {};
   };
 
   } // namespace Models

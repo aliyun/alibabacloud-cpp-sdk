@@ -34,43 +34,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->healthCheckTemplateIds_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->healthCheckTemplateIds_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteHealthCheckTemplatesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline DeleteHealthCheckTemplatesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // healthCheckTemplateIds Field Functions 
     bool hasHealthCheckTemplateIds() const { return this->healthCheckTemplateIds_ != nullptr;};
     void deleteHealthCheckTemplateIds() { this->healthCheckTemplateIds_ = nullptr;};
-    inline const vector<string> & healthCheckTemplateIds() const { DARABONBA_PTR_GET_CONST(healthCheckTemplateIds_, vector<string>) };
-    inline vector<string> healthCheckTemplateIds() { DARABONBA_PTR_GET(healthCheckTemplateIds_, vector<string>) };
+    inline const vector<string> & getHealthCheckTemplateIds() const { DARABONBA_PTR_GET_CONST(healthCheckTemplateIds_, vector<string>) };
+    inline vector<string> getHealthCheckTemplateIds() { DARABONBA_PTR_GET(healthCheckTemplateIds_, vector<string>) };
     inline DeleteHealthCheckTemplatesRequest& setHealthCheckTemplateIds(const vector<string> & healthCheckTemplateIds) { DARABONBA_PTR_SET_VALUE(healthCheckTemplateIds_, healthCheckTemplateIds) };
     inline DeleteHealthCheckTemplatesRequest& setHealthCheckTemplateIds(vector<string> && healthCheckTemplateIds) { DARABONBA_PTR_SET_RVALUE(healthCheckTemplateIds_, healthCheckTemplateIds) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx HTTP** status code is returned and the operation is performed.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The IDs of health check templates. You can specify at most 10 IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> healthCheckTemplateIds_ = nullptr;
+    shared_ptr<vector<string>> healthCheckTemplateIds_ {};
   };
 
   } // namespace Models

@@ -650,6 +650,23 @@ namespace Alb20200616
       Models::DeleteServerGroupResponse deleteServerGroup(const Models::DeleteServerGroupRequest &request);
 
       /**
+       * @summary 查询资源预留
+       *
+       * @param request DescribeCapacityReservationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCapacityReservationResponse
+       */
+      Models::DescribeCapacityReservationResponse describeCapacityReservationWithOptions(const Models::DescribeCapacityReservationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资源预留
+       *
+       * @param request DescribeCapacityReservationRequest
+       * @return DescribeCapacityReservationResponse
+       */
+      Models::DescribeCapacityReservationResponse describeCapacityReservation(const Models::DescribeCapacityReservationRequest &request);
+
+      /**
        * @summary Queries available regions.
        *
        * @param request DescribeRegionsRequest
@@ -1330,6 +1347,23 @@ namespace Alb20200616
        * @return LoadBalancerLeaveSecurityGroupResponse
        */
       Models::LoadBalancerLeaveSecurityGroupResponse loadBalancerLeaveSecurityGroup(const Models::LoadBalancerLeaveSecurityGroupRequest &request);
+
+      /**
+       * @summary 修改资源预留
+       *
+       * @param request ModifyCapacityReservationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCapacityReservationResponse
+       */
+      Models::ModifyCapacityReservationResponse modifyCapacityReservationWithOptions(const Models::ModifyCapacityReservationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改资源预留
+       *
+       * @param request ModifyCapacityReservationRequest
+       * @return ModifyCapacityReservationResponse
+       */
+      Models::ModifyCapacityReservationResponse modifyCapacityReservation(const Models::ModifyCapacityReservationRequest &request);
 
       /**
        * @summary Moves a resource to another resource group.

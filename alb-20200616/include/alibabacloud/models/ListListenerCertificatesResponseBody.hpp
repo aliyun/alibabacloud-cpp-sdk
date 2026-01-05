@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTLISTENERCERTIFICATESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListListenerCertificatesResponseBodyCertificates.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,59 +38,132 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certificates_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    class Certificates : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Certificates& obj) { 
+        DARABONBA_PTR_TO_JSON(CertificateId, certificateId_);
+        DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
+        DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, Certificates& obj) { 
+        DARABONBA_PTR_FROM_JSON(CertificateId, certificateId_);
+        DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
+        DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      Certificates() = default ;
+      Certificates(const Certificates &) = default ;
+      Certificates(Certificates &&) = default ;
+      Certificates(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Certificates() = default ;
+      Certificates& operator=(const Certificates &) = default ;
+      Certificates& operator=(Certificates &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->certificateId_ == nullptr
+        && this->certificateType_ == nullptr && this->isDefault_ == nullptr && this->status_ == nullptr; };
+      // certificateId Field Functions 
+      bool hasCertificateId() const { return this->certificateId_ != nullptr;};
+      void deleteCertificateId() { this->certificateId_ = nullptr;};
+      inline string getCertificateId() const { DARABONBA_PTR_GET_DEFAULT(certificateId_, "") };
+      inline Certificates& setCertificateId(string certificateId) { DARABONBA_PTR_SET_VALUE(certificateId_, certificateId) };
+
+
+      // certificateType Field Functions 
+      bool hasCertificateType() const { return this->certificateType_ != nullptr;};
+      void deleteCertificateType() { this->certificateType_ = nullptr;};
+      inline string getCertificateType() const { DARABONBA_PTR_GET_DEFAULT(certificateType_, "") };
+      inline Certificates& setCertificateType(string certificateType) { DARABONBA_PTR_SET_VALUE(certificateType_, certificateType) };
+
+
+      // isDefault Field Functions 
+      bool hasIsDefault() const { return this->isDefault_ != nullptr;};
+      void deleteIsDefault() { this->isDefault_ = nullptr;};
+      inline bool getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
+      inline Certificates& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Certificates& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The certificate ID. Only server certificates are supported.
+      shared_ptr<string> certificateId_ {};
+      // The type of the certificate.
+      shared_ptr<string> certificateType_ {};
+      // Indicates whether the certificate is the default certificate of the listener. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> isDefault_ {};
+      // Indicates whether the certificate is associated with the listener. Valid values:
+      // 
+      // *   **Associating**
+      // *   **Associated**
+      // *   **Diassociating**
+      shared_ptr<string> status_ {};
+    };
+
+    virtual bool empty() const override { return this->certificates_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // certificates Field Functions 
     bool hasCertificates() const { return this->certificates_ != nullptr;};
     void deleteCertificates() { this->certificates_ = nullptr;};
-    inline const vector<ListListenerCertificatesResponseBodyCertificates> & certificates() const { DARABONBA_PTR_GET_CONST(certificates_, vector<ListListenerCertificatesResponseBodyCertificates>) };
-    inline vector<ListListenerCertificatesResponseBodyCertificates> certificates() { DARABONBA_PTR_GET(certificates_, vector<ListListenerCertificatesResponseBodyCertificates>) };
-    inline ListListenerCertificatesResponseBody& setCertificates(const vector<ListListenerCertificatesResponseBodyCertificates> & certificates) { DARABONBA_PTR_SET_VALUE(certificates_, certificates) };
-    inline ListListenerCertificatesResponseBody& setCertificates(vector<ListListenerCertificatesResponseBodyCertificates> && certificates) { DARABONBA_PTR_SET_RVALUE(certificates_, certificates) };
+    inline const vector<ListListenerCertificatesResponseBody::Certificates> & getCertificates() const { DARABONBA_PTR_GET_CONST(certificates_, vector<ListListenerCertificatesResponseBody::Certificates>) };
+    inline vector<ListListenerCertificatesResponseBody::Certificates> getCertificates() { DARABONBA_PTR_GET(certificates_, vector<ListListenerCertificatesResponseBody::Certificates>) };
+    inline ListListenerCertificatesResponseBody& setCertificates(const vector<ListListenerCertificatesResponseBody::Certificates> & certificates) { DARABONBA_PTR_SET_VALUE(certificates_, certificates) };
+    inline ListListenerCertificatesResponseBody& setCertificates(vector<ListListenerCertificatesResponseBody::Certificates> && certificates) { DARABONBA_PTR_SET_RVALUE(certificates_, certificates) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListListenerCertificatesResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListListenerCertificatesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListListenerCertificatesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListListenerCertificatesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The certificates.
-    std::shared_ptr<vector<ListListenerCertificatesResponseBodyCertificates>> certificates_ = nullptr;
+    shared_ptr<vector<ListListenerCertificatesResponseBody::Certificates>> certificates_ {};
     // The maximum number of entries returned.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   If **NextToken** is empty, no next page exists.
     // *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

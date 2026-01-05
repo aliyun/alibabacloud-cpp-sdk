@@ -1,0 +1,48 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBECAPACITYRESERVATIONREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBECAPACITYRESERVATIONREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Alb20200616
+{
+namespace Models
+{
+  class DescribeCapacityReservationRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeCapacityReservationRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeCapacityReservationRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
+    };
+    DescribeCapacityReservationRequest() = default ;
+    DescribeCapacityReservationRequest(const DescribeCapacityReservationRequest &) = default ;
+    DescribeCapacityReservationRequest(DescribeCapacityReservationRequest &&) = default ;
+    DescribeCapacityReservationRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeCapacityReservationRequest() = default ;
+    DescribeCapacityReservationRequest& operator=(const DescribeCapacityReservationRequest &) = default ;
+    DescribeCapacityReservationRequest& operator=(DescribeCapacityReservationRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->loadBalancerId_ == nullptr; };
+    // loadBalancerId Field Functions 
+    bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
+    void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline DescribeCapacityReservationRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
+
+
+  protected:
+    // This parameter is required.
+    shared_ptr<string> loadBalancerId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Alb20200616
+#endif

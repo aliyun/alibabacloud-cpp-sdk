@@ -29,11 +29,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->healthCheckTemplateId_ != nullptr; };
+    virtual bool empty() const override { return this->healthCheckTemplateId_ == nullptr; };
     // healthCheckTemplateId Field Functions 
     bool hasHealthCheckTemplateId() const { return this->healthCheckTemplateId_ != nullptr;};
     void deleteHealthCheckTemplateId() { this->healthCheckTemplateId_ = nullptr;};
-    inline string healthCheckTemplateId() const { DARABONBA_PTR_GET_DEFAULT(healthCheckTemplateId_, "") };
+    inline string getHealthCheckTemplateId() const { DARABONBA_PTR_GET_DEFAULT(healthCheckTemplateId_, "") };
     inline GetHealthCheckTemplateAttributeRequest& setHealthCheckTemplateId(string healthCheckTemplateId) { DARABONBA_PTR_SET_VALUE(healthCheckTemplateId_, healthCheckTemplateId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the health check template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> healthCheckTemplateId_ = nullptr;
+    shared_ptr<string> healthCheckTemplateId_ {};
   };
 
   } // namespace Models

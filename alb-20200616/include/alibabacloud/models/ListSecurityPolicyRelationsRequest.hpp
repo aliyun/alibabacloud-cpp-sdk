@@ -30,12 +30,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->securityPolicyIds_ != nullptr; };
+    virtual bool empty() const override { return this->securityPolicyIds_ == nullptr; };
     // securityPolicyIds Field Functions 
     bool hasSecurityPolicyIds() const { return this->securityPolicyIds_ != nullptr;};
     void deleteSecurityPolicyIds() { this->securityPolicyIds_ = nullptr;};
-    inline const vector<string> & securityPolicyIds() const { DARABONBA_PTR_GET_CONST(securityPolicyIds_, vector<string>) };
-    inline vector<string> securityPolicyIds() { DARABONBA_PTR_GET(securityPolicyIds_, vector<string>) };
+    inline const vector<string> & getSecurityPolicyIds() const { DARABONBA_PTR_GET_CONST(securityPolicyIds_, vector<string>) };
+    inline vector<string> getSecurityPolicyIds() { DARABONBA_PTR_GET(securityPolicyIds_, vector<string>) };
     inline ListSecurityPolicyRelationsRequest& setSecurityPolicyIds(const vector<string> & securityPolicyIds) { DARABONBA_PTR_SET_VALUE(securityPolicyIds_, securityPolicyIds) };
     inline ListSecurityPolicyRelationsRequest& setSecurityPolicyIds(vector<string> && securityPolicyIds) { DARABONBA_PTR_SET_RVALUE(securityPolicyIds_, securityPolicyIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The security policy IDs. You can specify up to five IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> securityPolicyIds_ = nullptr;
+    shared_ptr<vector<string>> securityPolicyIds_ {};
   };
 
   } // namespace Models

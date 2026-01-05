@@ -38,13 +38,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certificateIds_ != nullptr
-        && this->certificateType_ != nullptr && this->listenerId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr; };
+    virtual bool empty() const override { return this->certificateIds_ == nullptr
+        && this->certificateType_ == nullptr && this->listenerId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
     // certificateIds Field Functions 
     bool hasCertificateIds() const { return this->certificateIds_ != nullptr;};
     void deleteCertificateIds() { this->certificateIds_ = nullptr;};
-    inline const vector<string> & certificateIds() const { DARABONBA_PTR_GET_CONST(certificateIds_, vector<string>) };
-    inline vector<string> certificateIds() { DARABONBA_PTR_GET(certificateIds_, vector<string>) };
+    inline const vector<string> & getCertificateIds() const { DARABONBA_PTR_GET_CONST(certificateIds_, vector<string>) };
+    inline vector<string> getCertificateIds() { DARABONBA_PTR_GET(certificateIds_, vector<string>) };
     inline ListListenerCertificatesRequest& setCertificateIds(const vector<string> & certificateIds) { DARABONBA_PTR_SET_VALUE(certificateIds_, certificateIds) };
     inline ListListenerCertificatesRequest& setCertificateIds(vector<string> && certificateIds) { DARABONBA_PTR_SET_RVALUE(certificateIds_, certificateIds) };
 
@@ -52,47 +52,47 @@ namespace Models
     // certificateType Field Functions 
     bool hasCertificateType() const { return this->certificateType_ != nullptr;};
     void deleteCertificateType() { this->certificateType_ = nullptr;};
-    inline string certificateType() const { DARABONBA_PTR_GET_DEFAULT(certificateType_, "") };
+    inline string getCertificateType() const { DARABONBA_PTR_GET_DEFAULT(certificateType_, "") };
     inline ListListenerCertificatesRequest& setCertificateType(string certificateType) { DARABONBA_PTR_SET_VALUE(certificateType_, certificateType) };
 
 
     // listenerId Field Functions 
     bool hasListenerId() const { return this->listenerId_ != nullptr;};
     void deleteListenerId() { this->listenerId_ = nullptr;};
-    inline string listenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
+    inline string getListenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
     inline ListListenerCertificatesRequest& setListenerId(string listenerId) { DARABONBA_PTR_SET_VALUE(listenerId_, listenerId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListListenerCertificatesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListListenerCertificatesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
     // The certificates.
-    std::shared_ptr<vector<string>> certificateIds_ = nullptr;
+    shared_ptr<vector<string>> certificateIds_ {};
     // The type of the certificate. Valid values: **Ca** and **Server**.
-    std::shared_ptr<string> certificateType_ = nullptr;
+    shared_ptr<string> certificateType_ {};
     // The listener ID. You must specify the ID of an HTTPS listener or a QUIC listener.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listenerId_ = nullptr;
+    shared_ptr<string> listenerId_ {};
     // The number of entries to return in each call. Valid values: **1 to 100**. Default value: **20**.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   You do not need to specify this parameter for the first request.
     // *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

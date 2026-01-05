@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTACLSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListAclsResponseBodyAcls.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,59 +38,223 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acls_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    class Acls : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Acls& obj) { 
+        DARABONBA_PTR_TO_JSON(AclId, aclId_);
+        DARABONBA_PTR_TO_JSON(AclName, aclName_);
+        DARABONBA_PTR_TO_JSON(AclStatus, aclStatus_);
+        DARABONBA_PTR_TO_JSON(AddressIPVersion, addressIPVersion_);
+        DARABONBA_PTR_TO_JSON(ConfigManagedEnabled, configManagedEnabled_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
+      };
+      friend void from_json(const Darabonba::Json& j, Acls& obj) { 
+        DARABONBA_PTR_FROM_JSON(AclId, aclId_);
+        DARABONBA_PTR_FROM_JSON(AclName, aclName_);
+        DARABONBA_PTR_FROM_JSON(AclStatus, aclStatus_);
+        DARABONBA_PTR_FROM_JSON(AddressIPVersion, addressIPVersion_);
+        DARABONBA_PTR_FROM_JSON(ConfigManagedEnabled, configManagedEnabled_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      };
+      Acls() = default ;
+      Acls(const Acls &) = default ;
+      Acls(Acls &&) = default ;
+      Acls(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Acls() = default ;
+      Acls& operator=(const Acls &) = default ;
+      Acls& operator=(Acls &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+        shared_ptr<string> key_ {};
+        // The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->aclId_ == nullptr
+        && this->aclName_ == nullptr && this->aclStatus_ == nullptr && this->addressIPVersion_ == nullptr && this->configManagedEnabled_ == nullptr && this->createTime_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->tags_ == nullptr; };
+      // aclId Field Functions 
+      bool hasAclId() const { return this->aclId_ != nullptr;};
+      void deleteAclId() { this->aclId_ = nullptr;};
+      inline string getAclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
+      inline Acls& setAclId(string aclId) { DARABONBA_PTR_SET_VALUE(aclId_, aclId) };
+
+
+      // aclName Field Functions 
+      bool hasAclName() const { return this->aclName_ != nullptr;};
+      void deleteAclName() { this->aclName_ = nullptr;};
+      inline string getAclName() const { DARABONBA_PTR_GET_DEFAULT(aclName_, "") };
+      inline Acls& setAclName(string aclName) { DARABONBA_PTR_SET_VALUE(aclName_, aclName) };
+
+
+      // aclStatus Field Functions 
+      bool hasAclStatus() const { return this->aclStatus_ != nullptr;};
+      void deleteAclStatus() { this->aclStatus_ = nullptr;};
+      inline string getAclStatus() const { DARABONBA_PTR_GET_DEFAULT(aclStatus_, "") };
+      inline Acls& setAclStatus(string aclStatus) { DARABONBA_PTR_SET_VALUE(aclStatus_, aclStatus) };
+
+
+      // addressIPVersion Field Functions 
+      bool hasAddressIPVersion() const { return this->addressIPVersion_ != nullptr;};
+      void deleteAddressIPVersion() { this->addressIPVersion_ = nullptr;};
+      inline string getAddressIPVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIPVersion_, "") };
+      inline Acls& setAddressIPVersion(string addressIPVersion) { DARABONBA_PTR_SET_VALUE(addressIPVersion_, addressIPVersion) };
+
+
+      // configManagedEnabled Field Functions 
+      bool hasConfigManagedEnabled() const { return this->configManagedEnabled_ != nullptr;};
+      void deleteConfigManagedEnabled() { this->configManagedEnabled_ = nullptr;};
+      inline bool getConfigManagedEnabled() const { DARABONBA_PTR_GET_DEFAULT(configManagedEnabled_, false) };
+      inline Acls& setConfigManagedEnabled(bool configManagedEnabled) { DARABONBA_PTR_SET_VALUE(configManagedEnabled_, configManagedEnabled) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline Acls& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Acls& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<Acls::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Acls::Tags>) };
+      inline vector<Acls::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<Acls::Tags>) };
+      inline Acls& setTags(const vector<Acls::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline Acls& setTags(vector<Acls::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+    protected:
+      // The ACL ID.
+      shared_ptr<string> aclId_ {};
+      // The name of the ACL.
+      shared_ptr<string> aclName_ {};
+      // The status of the ACL. Valid values:
+      // 
+      // *   **Creating**: The network ACL is being created.
+      // *   **Available**: The network ACL is available.
+      // *   **Configuring**
+      shared_ptr<string> aclStatus_ {};
+      // The IP version of the ACL. Only **IPv4** may be returned.
+      shared_ptr<string> addressIPVersion_ {};
+      // Indicates whether configuration management is enabled. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> configManagedEnabled_ {};
+      // The time when the ACL was created. The follows the `YYYY-MM-DDThh:mm:ssZ` format.
+      shared_ptr<string> createTime_ {};
+      // The ID of the resource group.
+      shared_ptr<string> resourceGroupId_ {};
+      // The tags.
+      shared_ptr<vector<Acls::Tags>> tags_ {};
+    };
+
+    virtual bool empty() const override { return this->acls_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // acls Field Functions 
     bool hasAcls() const { return this->acls_ != nullptr;};
     void deleteAcls() { this->acls_ = nullptr;};
-    inline const vector<ListAclsResponseBodyAcls> & acls() const { DARABONBA_PTR_GET_CONST(acls_, vector<ListAclsResponseBodyAcls>) };
-    inline vector<ListAclsResponseBodyAcls> acls() { DARABONBA_PTR_GET(acls_, vector<ListAclsResponseBodyAcls>) };
-    inline ListAclsResponseBody& setAcls(const vector<ListAclsResponseBodyAcls> & acls) { DARABONBA_PTR_SET_VALUE(acls_, acls) };
-    inline ListAclsResponseBody& setAcls(vector<ListAclsResponseBodyAcls> && acls) { DARABONBA_PTR_SET_RVALUE(acls_, acls) };
+    inline const vector<ListAclsResponseBody::Acls> & getAcls() const { DARABONBA_PTR_GET_CONST(acls_, vector<ListAclsResponseBody::Acls>) };
+    inline vector<ListAclsResponseBody::Acls> getAcls() { DARABONBA_PTR_GET(acls_, vector<ListAclsResponseBody::Acls>) };
+    inline ListAclsResponseBody& setAcls(const vector<ListAclsResponseBody::Acls> & acls) { DARABONBA_PTR_SET_VALUE(acls_, acls) };
+    inline ListAclsResponseBody& setAcls(vector<ListAclsResponseBody::Acls> && acls) { DARABONBA_PTR_SET_RVALUE(acls_, acls) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAclsResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAclsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListAclsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListAclsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // A list of ACLs.
-    std::shared_ptr<vector<ListAclsResponseBodyAcls>> acls_ = nullptr;
+    shared_ptr<vector<ListAclsResponseBody::Acls>> acls_ {};
     // The maximum number of network ACLs returned. This parameter is optional. Valid values: **1** to **100**. If this parameter is not set, the default value **20** is returned.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The token that is used for the next query. Valid values:
     // 
     // *   If **NextToken** is empty, it indicates that no next query is to be sent.
     // *   If **NextToken** is returned, the value indicates the token that is used for the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

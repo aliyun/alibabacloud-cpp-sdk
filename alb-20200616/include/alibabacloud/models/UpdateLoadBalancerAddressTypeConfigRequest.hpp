@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATELOADBALANCERADDRESSTYPECONFIGREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateLoadBalancerAddressTypeConfigRequestZoneMappings.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,43 +38,118 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressType_ != nullptr
-        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->loadBalancerId_ != nullptr && this->zoneMappings_ != nullptr; };
+    class ZoneMappings : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ZoneMappings& obj) { 
+        DARABONBA_PTR_TO_JSON(AllocationId, allocationId_);
+        DARABONBA_PTR_TO_JSON(EipType, eipType_);
+        DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ZoneMappings& obj) { 
+        DARABONBA_PTR_FROM_JSON(AllocationId, allocationId_);
+        DARABONBA_PTR_FROM_JSON(EipType, eipType_);
+        DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+      };
+      ZoneMappings() = default ;
+      ZoneMappings(const ZoneMappings &) = default ;
+      ZoneMappings(ZoneMappings &&) = default ;
+      ZoneMappings(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ZoneMappings() = default ;
+      ZoneMappings& operator=(const ZoneMappings &) = default ;
+      ZoneMappings& operator=(ZoneMappings &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->allocationId_ == nullptr
+        && this->eipType_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+      // allocationId Field Functions 
+      bool hasAllocationId() const { return this->allocationId_ != nullptr;};
+      void deleteAllocationId() { this->allocationId_ = nullptr;};
+      inline string getAllocationId() const { DARABONBA_PTR_GET_DEFAULT(allocationId_, "") };
+      inline ZoneMappings& setAllocationId(string allocationId) { DARABONBA_PTR_SET_VALUE(allocationId_, allocationId) };
+
+
+      // eipType Field Functions 
+      bool hasEipType() const { return this->eipType_ != nullptr;};
+      void deleteEipType() { this->eipType_ = nullptr;};
+      inline string getEipType() const { DARABONBA_PTR_GET_DEFAULT(eipType_, "") };
+      inline ZoneMappings& setEipType(string eipType) { DARABONBA_PTR_SET_VALUE(eipType_, eipType) };
+
+
+      // vSwitchId Field Functions 
+      bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+      void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+      inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+      inline ZoneMappings& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+      // zoneId Field Functions 
+      bool hasZoneId() const { return this->zoneId_ != nullptr;};
+      void deleteZoneId() { this->zoneId_ = nullptr;};
+      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+      inline ZoneMappings& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+    protected:
+      // The ID of the elastic IP address (EIP). You can specify a maximum of 10 zones.
+      // 
+      // >  This parameter is required if you want to change the network type from internal-facing to Internet-facing.
+      shared_ptr<string> allocationId_ {};
+      // The type of the EIP. Valid values:
+      // 
+      // *   Common (default): indicates an EIP
+      // *   Anycast: indicates an Anycast EIP
+      // 
+      // >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+      shared_ptr<string> eipType_ {};
+      // The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+      shared_ptr<string> vSwitchId_ {};
+      // The zone ID of the ALB instance. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
+      // 
+      // You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the information about the zone.
+      shared_ptr<string> zoneId_ {};
+    };
+
+    virtual bool empty() const override { return this->addressType_ == nullptr
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->loadBalancerId_ == nullptr && this->zoneMappings_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};
-    inline string addressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
+    inline string getAddressType() const { DARABONBA_PTR_GET_DEFAULT(addressType_, "") };
     inline UpdateLoadBalancerAddressTypeConfigRequest& setAddressType(string addressType) { DARABONBA_PTR_SET_VALUE(addressType_, addressType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateLoadBalancerAddressTypeConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline string dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
+    inline string getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, "") };
     inline UpdateLoadBalancerAddressTypeConfigRequest& setDryRun(string dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // loadBalancerId Field Functions 
     bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
-    inline string loadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+    inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline UpdateLoadBalancerAddressTypeConfigRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
     // zoneMappings Field Functions 
     bool hasZoneMappings() const { return this->zoneMappings_ != nullptr;};
     void deleteZoneMappings() { this->zoneMappings_ = nullptr;};
-    inline const vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings> & zoneMappings() const { DARABONBA_PTR_GET_CONST(zoneMappings_, vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings>) };
-    inline vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings> zoneMappings() { DARABONBA_PTR_GET(zoneMappings_, vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings>) };
-    inline UpdateLoadBalancerAddressTypeConfigRequest& setZoneMappings(const vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings> & zoneMappings) { DARABONBA_PTR_SET_VALUE(zoneMappings_, zoneMappings) };
-    inline UpdateLoadBalancerAddressTypeConfigRequest& setZoneMappings(vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings> && zoneMappings) { DARABONBA_PTR_SET_RVALUE(zoneMappings_, zoneMappings) };
+    inline const vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings> & getZoneMappings() const { DARABONBA_PTR_GET_CONST(zoneMappings_, vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings>) };
+    inline vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings> getZoneMappings() { DARABONBA_PTR_GET(zoneMappings_, vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings>) };
+    inline UpdateLoadBalancerAddressTypeConfigRequest& setZoneMappings(const vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings> & zoneMappings) { DARABONBA_PTR_SET_VALUE(zoneMappings_, zoneMappings) };
+    inline UpdateLoadBalancerAddressTypeConfigRequest& setZoneMappings(vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings> && zoneMappings) { DARABONBA_PTR_SET_RVALUE(zoneMappings_, zoneMappings) };
 
 
   protected:
@@ -85,24 +159,24 @@ namespace Models
     // *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the virtual private cloud (VPC) where the ALB instance is deployed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> addressType_ = nullptr;
+    shared_ptr<string> addressType_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
     // > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-    std::shared_ptr<string> dryRun_ = nullptr;
+    shared_ptr<string> dryRun_ {};
     // The ALB instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> loadBalancerId_ = nullptr;
+    shared_ptr<string> loadBalancerId_ {};
     // The zones and the vSwitches in the zones. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
-    std::shared_ptr<vector<UpdateLoadBalancerAddressTypeConfigRequestZoneMappings>> zoneMappings_ = nullptr;
+    shared_ptr<vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings>> zoneMappings_ {};
   };
 
   } // namespace Models
