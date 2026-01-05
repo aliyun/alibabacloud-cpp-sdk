@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->storageSetId_ == nullptr; };
+        && this->storageSetId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateStorageSetResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // storageSetId Field Functions 
     bool hasStorageSetId() const { return this->storageSetId_ != nullptr;};
     void deleteStorageSetId() { this->storageSetId_ = nullptr;};
-    inline string storageSetId() const { DARABONBA_PTR_GET_DEFAULT(storageSetId_, "") };
+    inline string getStorageSetId() const { DARABONBA_PTR_GET_DEFAULT(storageSetId_, "") };
     inline CreateStorageSetResponseBody& setStorageSetId(string storageSetId) { DARABONBA_PTR_SET_VALUE(storageSetId_, storageSetId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the storage set.
-    std::shared_ptr<string> storageSetId_ = nullptr;
+    shared_ptr<string> storageSetId_ {};
   };
 
   } // namespace Models

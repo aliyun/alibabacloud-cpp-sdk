@@ -53,42 +53,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commandContent_ == nullptr
-        && return this->contentEncoding_ == nullptr && return this->enableParameter_ == nullptr && return this->frequency_ == nullptr && return this->instanceId_ == nullptr && return this->invokeId_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->parametersShrink_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr; };
+        && this->contentEncoding_ == nullptr && this->enableParameter_ == nullptr && this->frequency_ == nullptr && this->instanceId_ == nullptr && this->invokeId_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parametersShrink_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr; };
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};
-    inline string commandContent() const { DARABONBA_PTR_GET_DEFAULT(commandContent_, "") };
+    inline string getCommandContent() const { DARABONBA_PTR_GET_DEFAULT(commandContent_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setCommandContent(string commandContent) { DARABONBA_PTR_SET_VALUE(commandContent_, commandContent) };
 
 
     // contentEncoding Field Functions 
     bool hasContentEncoding() const { return this->contentEncoding_ != nullptr;};
     void deleteContentEncoding() { this->contentEncoding_ = nullptr;};
-    inline string contentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
+    inline string getContentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setContentEncoding(string contentEncoding) { DARABONBA_PTR_SET_VALUE(contentEncoding_, contentEncoding) };
 
 
     // enableParameter Field Functions 
     bool hasEnableParameter() const { return this->enableParameter_ != nullptr;};
     void deleteEnableParameter() { this->enableParameter_ = nullptr;};
-    inline bool enableParameter() const { DARABONBA_PTR_GET_DEFAULT(enableParameter_, false) };
+    inline bool getEnableParameter() const { DARABONBA_PTR_GET_DEFAULT(enableParameter_, false) };
     inline ModifyInvocationAttributeShrinkRequest& setEnableParameter(bool enableParameter) { DARABONBA_PTR_SET_VALUE(enableParameter_, enableParameter) };
 
 
     // frequency Field Functions 
     bool hasFrequency() const { return this->frequency_ != nullptr;};
     void deleteFrequency() { this->frequency_ = nullptr;};
-    inline string frequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
+    inline string getFrequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setFrequency(string frequency) { DARABONBA_PTR_SET_VALUE(frequency_, frequency) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline const vector<string> & instanceId() const { DARABONBA_PTR_GET_CONST(instanceId_, vector<string>) };
-    inline vector<string> instanceId() { DARABONBA_PTR_GET(instanceId_, vector<string>) };
+    inline const vector<string> & getInstanceId() const { DARABONBA_PTR_GET_CONST(instanceId_, vector<string>) };
+    inline vector<string> getInstanceId() { DARABONBA_PTR_GET(instanceId_, vector<string>) };
     inline ModifyInvocationAttributeShrinkRequest& setInstanceId(const vector<string> & instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
     inline ModifyInvocationAttributeShrinkRequest& setInstanceId(vector<string> && instanceId) { DARABONBA_PTR_SET_RVALUE(instanceId_, instanceId) };
 
@@ -96,49 +96,49 @@ namespace Models
     // invokeId Field Functions 
     bool hasInvokeId() const { return this->invokeId_ != nullptr;};
     void deleteInvokeId() { this->invokeId_ = nullptr;};
-    inline string invokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
+    inline string getInvokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setInvokeId(string invokeId) { DARABONBA_PTR_SET_VALUE(invokeId_, invokeId) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyInvocationAttributeShrinkRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // parametersShrink Field Functions 
     bool hasParametersShrink() const { return this->parametersShrink_ != nullptr;};
     void deleteParametersShrink() { this->parametersShrink_ = nullptr;};
-    inline string parametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
+    inline string getParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setParametersShrink(string parametersShrink) { DARABONBA_PTR_SET_VALUE(parametersShrink_, parametersShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyInvocationAttributeShrinkRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyInvocationAttributeShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -181,19 +181,19 @@ namespace Models
     // 
     //         *   Linux: 2.2.3.309
     //         *   Windows: 2.1.3.309
-    std::shared_ptr<string> commandContent_ = nullptr;
+    shared_ptr<string> commandContent_ {};
     // The encoding mode of the command content that is specified by `CommandContent`. Valid values (case-insensitive):
     // 
     // *   PlainText: The command content is not encoded.
     // *   Base64: The command content is encoded in Base64.
     // 
     // Default value: PlainText. If the value is invalid, the PlainText mode is used.
-    std::shared_ptr<string> contentEncoding_ = nullptr;
+    shared_ptr<string> contentEncoding_ {};
     // Specifies whether to include custom parameters in the command.
     // 
     // *   If you want to enable the custom parameter feature, or configure `Parameters` to modify the custom parameters in the command, set EnableParameter to `true`.
     // *   If you do not want to configure `Parameters` to modify the custom parameters in the command, leave EnableParameter empty or set it to `false`.
-    std::shared_ptr<bool> enableParameter_ = nullptr;
+    shared_ptr<bool> enableParameter_ {};
     // The frequency at which to run the command. This parameter takes effect only when `RepeatMode` is set to `Period`. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specific point in time, or run at designated points in time based on a cron expression.
     // 
     // *   To run the command at a fixed interval, use a rate expression to specify the interval. You can specify the interval in seconds, minutes, hours, or days. This option is suitable for scenarios in which tasks need to be executed at a fixed interval. Specify the interval in the following format: `rate(<Execution interval value> <Execution interval unit>)`. For example, specify `rate(5m)` to run the command every 5 minutes. Take note of the following limits when you specify an interval:
@@ -219,15 +219,15 @@ namespace Models
     //     **
     // 
     //     **Note** The minimum interval must be 10 seconds or longer and cannot be shorter than the timeout period of scheduled executions.
-    std::shared_ptr<string> frequency_ = nullptr;
+    shared_ptr<string> frequency_ {};
     // The IDs of the ECS instances or managed instances that you want to add to the scheduled command task.
-    std::shared_ptr<vector<string>> instanceId_ = nullptr;
+    shared_ptr<vector<string>> instanceId_ {};
     // The execution ID of the command.
     // 
     // This parameter is required.
-    std::shared_ptr<string> invokeId_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> invokeId_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The key-value pairs of the custom parameters that are passed in if custom parameters are included in the command.
     // 
     // You can specify 0 to 10 custom parameters. Take note of the following items:
@@ -238,13 +238,13 @@ namespace Models
     // *   The custom parameter names that are specified by Parameters must be included in the custom parameter names that you specified when you created the command. You can use empty strings to represent the parameters that are not passed in.
     // 
     // This parameter is empty by default, which indicates not to modify the key-value pairs of the custom parameters.
-    std::shared_ptr<string> parametersShrink_ = nullptr;
+    shared_ptr<string> parametersShrink_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

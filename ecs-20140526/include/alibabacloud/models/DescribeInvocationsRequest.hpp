@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEINVOCATIONSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeInvocationsRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -71,199 +70,243 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The command task ID.
+      shared_ptr<string> key_ {};
+      // The ID of the resource group. After you set this parameter, command execution results in the specified resource group are queried.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->commandId_ == nullptr
-        && return this->commandName_ == nullptr && return this->commandType_ == nullptr && return this->contentEncoding_ == nullptr && return this->includeOutput_ == nullptr && return this->instanceId_ == nullptr
-        && return this->invokeId_ == nullptr && return this->invokeStatus_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->repeatMode_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tag_ == nullptr && return this->timed_ == nullptr; };
+        && this->commandName_ == nullptr && this->commandType_ == nullptr && this->contentEncoding_ == nullptr && this->includeOutput_ == nullptr && this->instanceId_ == nullptr
+        && this->invokeId_ == nullptr && this->invokeStatus_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->repeatMode_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr && this->timed_ == nullptr; };
     // commandId Field Functions 
     bool hasCommandId() const { return this->commandId_ != nullptr;};
     void deleteCommandId() { this->commandId_ = nullptr;};
-    inline string commandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
+    inline string getCommandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
     inline DescribeInvocationsRequest& setCommandId(string commandId) { DARABONBA_PTR_SET_VALUE(commandId_, commandId) };
 
 
     // commandName Field Functions 
     bool hasCommandName() const { return this->commandName_ != nullptr;};
     void deleteCommandName() { this->commandName_ = nullptr;};
-    inline string commandName() const { DARABONBA_PTR_GET_DEFAULT(commandName_, "") };
+    inline string getCommandName() const { DARABONBA_PTR_GET_DEFAULT(commandName_, "") };
     inline DescribeInvocationsRequest& setCommandName(string commandName) { DARABONBA_PTR_SET_VALUE(commandName_, commandName) };
 
 
     // commandType Field Functions 
     bool hasCommandType() const { return this->commandType_ != nullptr;};
     void deleteCommandType() { this->commandType_ = nullptr;};
-    inline string commandType() const { DARABONBA_PTR_GET_DEFAULT(commandType_, "") };
+    inline string getCommandType() const { DARABONBA_PTR_GET_DEFAULT(commandType_, "") };
     inline DescribeInvocationsRequest& setCommandType(string commandType) { DARABONBA_PTR_SET_VALUE(commandType_, commandType) };
 
 
     // contentEncoding Field Functions 
     bool hasContentEncoding() const { return this->contentEncoding_ != nullptr;};
     void deleteContentEncoding() { this->contentEncoding_ = nullptr;};
-    inline string contentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
+    inline string getContentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
     inline DescribeInvocationsRequest& setContentEncoding(string contentEncoding) { DARABONBA_PTR_SET_VALUE(contentEncoding_, contentEncoding) };
 
 
     // includeOutput Field Functions 
     bool hasIncludeOutput() const { return this->includeOutput_ != nullptr;};
     void deleteIncludeOutput() { this->includeOutput_ = nullptr;};
-    inline bool includeOutput() const { DARABONBA_PTR_GET_DEFAULT(includeOutput_, false) };
+    inline bool getIncludeOutput() const { DARABONBA_PTR_GET_DEFAULT(includeOutput_, false) };
     inline DescribeInvocationsRequest& setIncludeOutput(bool includeOutput) { DARABONBA_PTR_SET_VALUE(includeOutput_, includeOutput) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInvocationsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // invokeId Field Functions 
     bool hasInvokeId() const { return this->invokeId_ != nullptr;};
     void deleteInvokeId() { this->invokeId_ = nullptr;};
-    inline string invokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
+    inline string getInvokeId() const { DARABONBA_PTR_GET_DEFAULT(invokeId_, "") };
     inline DescribeInvocationsRequest& setInvokeId(string invokeId) { DARABONBA_PTR_SET_VALUE(invokeId_, invokeId) };
 
 
     // invokeStatus Field Functions 
     bool hasInvokeStatus() const { return this->invokeStatus_ != nullptr;};
     void deleteInvokeStatus() { this->invokeStatus_ = nullptr;};
-    inline string invokeStatus() const { DARABONBA_PTR_GET_DEFAULT(invokeStatus_, "") };
+    inline string getInvokeStatus() const { DARABONBA_PTR_GET_DEFAULT(invokeStatus_, "") };
     inline DescribeInvocationsRequest& setInvokeStatus(string invokeStatus) { DARABONBA_PTR_SET_VALUE(invokeStatus_, invokeStatus) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeInvocationsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeInvocationsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DescribeInvocationsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeInvocationsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline DescribeInvocationsRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline DescribeInvocationsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeInvocationsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // repeatMode Field Functions 
     bool hasRepeatMode() const { return this->repeatMode_ != nullptr;};
     void deleteRepeatMode() { this->repeatMode_ = nullptr;};
-    inline string repeatMode() const { DARABONBA_PTR_GET_DEFAULT(repeatMode_, "") };
+    inline string getRepeatMode() const { DARABONBA_PTR_GET_DEFAULT(repeatMode_, "") };
     inline DescribeInvocationsRequest& setRepeatMode(string repeatMode) { DARABONBA_PTR_SET_VALUE(repeatMode_, repeatMode) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeInvocationsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeInvocationsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeInvocationsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<DescribeInvocationsRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<DescribeInvocationsRequestTag>) };
-    inline vector<DescribeInvocationsRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<DescribeInvocationsRequestTag>) };
-    inline DescribeInvocationsRequest& setTag(const vector<DescribeInvocationsRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline DescribeInvocationsRequest& setTag(vector<DescribeInvocationsRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<DescribeInvocationsRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<DescribeInvocationsRequest::Tag>) };
+    inline vector<DescribeInvocationsRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<DescribeInvocationsRequest::Tag>) };
+    inline DescribeInvocationsRequest& setTag(const vector<DescribeInvocationsRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline DescribeInvocationsRequest& setTag(vector<DescribeInvocationsRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // timed Field Functions 
     bool hasTimed() const { return this->timed_ != nullptr;};
     void deleteTimed() { this->timed_ = nullptr;};
-    inline bool timed() const { DARABONBA_PTR_GET_DEFAULT(timed_, false) };
+    inline bool getTimed() const { DARABONBA_PTR_GET_DEFAULT(timed_, false) };
     inline DescribeInvocationsRequest& setTimed(bool timed) { DARABONBA_PTR_SET_VALUE(timed_, timed) };
 
 
   protected:
     // $.parameters[15].schema.items.description
-    std::shared_ptr<string> commandId_ = nullptr;
+    shared_ptr<string> commandId_ {};
     // $.parameters[15].schema.items.example
-    std::shared_ptr<string> commandName_ = nullptr;
+    shared_ptr<string> commandName_ {};
     // $.parameters[15].schema.items.enumValueTitles
-    std::shared_ptr<string> commandType_ = nullptr;
-    std::shared_ptr<string> contentEncoding_ = nullptr;
-    std::shared_ptr<bool> includeOutput_ = nullptr;
+    shared_ptr<string> commandType_ {};
+    shared_ptr<string> contentEncoding_ {};
+    shared_ptr<bool> includeOutput_ {};
     // $.parameters[15].schema.enumValueTitles
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // $.parameters[15].schema.items.properties.Value.enumValueTitles
-    std::shared_ptr<string> invokeId_ = nullptr;
+    shared_ptr<string> invokeId_ {};
     // $.parameters[15].schema.example
-    std::shared_ptr<string> invokeStatus_ = nullptr;
+    shared_ptr<string> invokeStatus_ {};
     // acs:ecs:{#regionId}:{#accountId}:instance/*
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // Instance
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // acs:ecs:{#regionId}:{#accountId}:command/*
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // Command
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // $.parameters[15].schema.items.properties.Value.description
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // FEATUREecsXZ3H4M
-    std::shared_ptr<string> repeatMode_ = nullptr;
+    shared_ptr<string> repeatMode_ {};
     // $.parameters[15].schema.items.properties.Value.example
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // dubbo
-    std::shared_ptr<vector<DescribeInvocationsRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<DescribeInvocationsRequest::Tag>> tag_ {};
     // $.parameters[15].schema.description
-    std::shared_ptr<bool> timed_ = nullptr;
+    shared_ptr<bool> timed_ {};
   };
 
   } // namespace Models

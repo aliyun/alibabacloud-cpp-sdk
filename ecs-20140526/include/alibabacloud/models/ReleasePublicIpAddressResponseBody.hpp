@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->remainTimes_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // remainTimes Field Functions 
     bool hasRemainTimes() const { return this->remainTimes_ != nullptr;};
     void deleteRemainTimes() { this->remainTimes_ = nullptr;};
-    inline string remainTimes() const { DARABONBA_PTR_GET_DEFAULT(remainTimes_, "") };
+    inline string getRemainTimes() const { DARABONBA_PTR_GET_DEFAULT(remainTimes_, "") };
     inline ReleasePublicIpAddressResponseBody& setRemainTimes(string remainTimes) { DARABONBA_PTR_SET_VALUE(remainTimes_, remainTimes) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ReleasePublicIpAddressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // > This parameter is unavailable.
-    std::shared_ptr<string> remainTimes_ = nullptr;
+    shared_ptr<string> remainTimes_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

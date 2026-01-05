@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->statusValue_ == nullptr; };
+        && this->statusValue_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeUserBusinessBehaviorResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // statusValue Field Functions 
     bool hasStatusValue() const { return this->statusValue_ != nullptr;};
     void deleteStatusValue() { this->statusValue_ = nullptr;};
-    inline string statusValue() const { DARABONBA_PTR_GET_DEFAULT(statusValue_, "") };
+    inline string getStatusValue() const { DARABONBA_PTR_GET_DEFAULT(statusValue_, "") };
     inline DescribeUserBusinessBehaviorResponseBody& setStatusValue(string statusValue) { DARABONBA_PTR_SET_VALUE(statusValue_, statusValue) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> statusValue_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> statusValue_ {};
   };
 
   } // namespace Models

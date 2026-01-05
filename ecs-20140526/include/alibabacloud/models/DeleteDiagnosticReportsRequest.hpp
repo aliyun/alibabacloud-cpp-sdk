@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->reportIds_ == nullptr; };
+        && this->reportIds_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDiagnosticReportsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // reportIds Field Functions 
     bool hasReportIds() const { return this->reportIds_ != nullptr;};
     void deleteReportIds() { this->reportIds_ = nullptr;};
-    inline const vector<string> & reportIds() const { DARABONBA_PTR_GET_CONST(reportIds_, vector<string>) };
-    inline vector<string> reportIds() { DARABONBA_PTR_GET(reportIds_, vector<string>) };
+    inline const vector<string> & getReportIds() const { DARABONBA_PTR_GET_CONST(reportIds_, vector<string>) };
+    inline vector<string> getReportIds() { DARABONBA_PTR_GET(reportIds_, vector<string>) };
     inline DeleteDiagnosticReportsRequest& setReportIds(const vector<string> & reportIds) { DARABONBA_PTR_SET_VALUE(reportIds_, reportIds) };
     inline DeleteDiagnosticReportsRequest& setReportIds(vector<string> && reportIds) { DARABONBA_PTR_SET_RVALUE(reportIds_, reportIds) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of the diagnostic reports. You can specify up to 100 resource IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> reportIds_ = nullptr;
+    shared_ptr<vector<string>> reportIds_ {};
   };
 
   } // namespace Models

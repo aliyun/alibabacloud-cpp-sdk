@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->limitation_ == nullptr
-        && return this->requestId_ == nullptr && return this->value_ == nullptr; };
+        && this->requestId_ == nullptr && this->value_ == nullptr; };
     // limitation Field Functions 
     bool hasLimitation() const { return this->limitation_ != nullptr;};
     void deleteLimitation() { this->limitation_ = nullptr;};
-    inline string limitation() const { DARABONBA_PTR_GET_DEFAULT(limitation_, "") };
+    inline string getLimitation() const { DARABONBA_PTR_GET_DEFAULT(limitation_, "") };
     inline DescribeLimitationResponseBody& setLimitation(string limitation) { DARABONBA_PTR_SET_VALUE(limitation_, limitation) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLimitationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline DescribeLimitationResponseBody& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> limitation_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> limitation_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

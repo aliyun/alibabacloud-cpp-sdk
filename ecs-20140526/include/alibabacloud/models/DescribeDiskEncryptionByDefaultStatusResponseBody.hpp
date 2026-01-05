@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encrypted_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // encrypted Field Functions 
     bool hasEncrypted() const { return this->encrypted_ != nullptr;};
     void deleteEncrypted() { this->encrypted_ = nullptr;};
-    inline bool encrypted() const { DARABONBA_PTR_GET_DEFAULT(encrypted_, false) };
+    inline bool getEncrypted() const { DARABONBA_PTR_GET_DEFAULT(encrypted_, false) };
     inline DescribeDiskEncryptionByDefaultStatusResponseBody& setEncrypted(bool encrypted) { DARABONBA_PTR_SET_VALUE(encrypted_, encrypted) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDiskEncryptionByDefaultStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // *   false
     // 
     // Default value: false.
-    std::shared_ptr<bool> encrypted_ = nullptr;
+    shared_ptr<bool> encrypted_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

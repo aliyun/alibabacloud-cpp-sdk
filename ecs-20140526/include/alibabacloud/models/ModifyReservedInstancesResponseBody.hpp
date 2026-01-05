@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_MODIFYRESERVEDINSTANCESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_MODIFYRESERVEDINSTANCESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ModifyReservedInstancesResponseBodyReservedInstanceIdSets.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +32,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ReservedInstanceIdSets : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ReservedInstanceIdSets& obj) { 
+        DARABONBA_PTR_TO_JSON(ReservedInstanceId, reservedInstanceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ReservedInstanceIdSets& obj) { 
+        DARABONBA_PTR_FROM_JSON(ReservedInstanceId, reservedInstanceId_);
+      };
+      ReservedInstanceIdSets() = default ;
+      ReservedInstanceIdSets(const ReservedInstanceIdSets &) = default ;
+      ReservedInstanceIdSets(ReservedInstanceIdSets &&) = default ;
+      ReservedInstanceIdSets(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ReservedInstanceIdSets() = default ;
+      ReservedInstanceIdSets& operator=(const ReservedInstanceIdSets &) = default ;
+      ReservedInstanceIdSets& operator=(ReservedInstanceIdSets &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->reservedInstanceId_ == nullptr; };
+      // reservedInstanceId Field Functions 
+      bool hasReservedInstanceId() const { return this->reservedInstanceId_ != nullptr;};
+      void deleteReservedInstanceId() { this->reservedInstanceId_ = nullptr;};
+      inline const vector<string> & getReservedInstanceId() const { DARABONBA_PTR_GET_CONST(reservedInstanceId_, vector<string>) };
+      inline vector<string> getReservedInstanceId() { DARABONBA_PTR_GET(reservedInstanceId_, vector<string>) };
+      inline ReservedInstanceIdSets& setReservedInstanceId(const vector<string> & reservedInstanceId) { DARABONBA_PTR_SET_VALUE(reservedInstanceId_, reservedInstanceId) };
+      inline ReservedInstanceIdSets& setReservedInstanceId(vector<string> && reservedInstanceId) { DARABONBA_PTR_SET_RVALUE(reservedInstanceId_, reservedInstanceId) };
+
+
+    protected:
+      shared_ptr<vector<string>> reservedInstanceId_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->reservedInstanceIdSets_ == nullptr; };
+        && this->reservedInstanceIdSets_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyReservedInstancesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // reservedInstanceIdSets Field Functions 
     bool hasReservedInstanceIdSets() const { return this->reservedInstanceIdSets_ != nullptr;};
     void deleteReservedInstanceIdSets() { this->reservedInstanceIdSets_ = nullptr;};
-    inline const ModifyReservedInstancesResponseBodyReservedInstanceIdSets & reservedInstanceIdSets() const { DARABONBA_PTR_GET_CONST(reservedInstanceIdSets_, ModifyReservedInstancesResponseBodyReservedInstanceIdSets) };
-    inline ModifyReservedInstancesResponseBodyReservedInstanceIdSets reservedInstanceIdSets() { DARABONBA_PTR_GET(reservedInstanceIdSets_, ModifyReservedInstancesResponseBodyReservedInstanceIdSets) };
-    inline ModifyReservedInstancesResponseBody& setReservedInstanceIdSets(const ModifyReservedInstancesResponseBodyReservedInstanceIdSets & reservedInstanceIdSets) { DARABONBA_PTR_SET_VALUE(reservedInstanceIdSets_, reservedInstanceIdSets) };
-    inline ModifyReservedInstancesResponseBody& setReservedInstanceIdSets(ModifyReservedInstancesResponseBodyReservedInstanceIdSets && reservedInstanceIdSets) { DARABONBA_PTR_SET_RVALUE(reservedInstanceIdSets_, reservedInstanceIdSets) };
+    inline const ModifyReservedInstancesResponseBody::ReservedInstanceIdSets & getReservedInstanceIdSets() const { DARABONBA_PTR_GET_CONST(reservedInstanceIdSets_, ModifyReservedInstancesResponseBody::ReservedInstanceIdSets) };
+    inline ModifyReservedInstancesResponseBody::ReservedInstanceIdSets getReservedInstanceIdSets() { DARABONBA_PTR_GET(reservedInstanceIdSets_, ModifyReservedInstancesResponseBody::ReservedInstanceIdSets) };
+    inline ModifyReservedInstancesResponseBody& setReservedInstanceIdSets(const ModifyReservedInstancesResponseBody::ReservedInstanceIdSets & reservedInstanceIdSets) { DARABONBA_PTR_SET_VALUE(reservedInstanceIdSets_, reservedInstanceIdSets) };
+    inline ModifyReservedInstancesResponseBody& setReservedInstanceIdSets(ModifyReservedInstancesResponseBody::ReservedInstanceIdSets && reservedInstanceIdSets) { DARABONBA_PTR_SET_RVALUE(reservedInstanceIdSets_, reservedInstanceIdSets) };
 
 
   protected:
     // Details about the reserved instance.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The IDs of the reserved instances.
-    std::shared_ptr<ModifyReservedInstancesResponseBodyReservedInstanceIdSets> reservedInstanceIdSets_ = nullptr;
+    shared_ptr<ModifyReservedInstancesResponseBody::ReservedInstanceIdSets> reservedInstanceIdSets_ {};
   };
 
   } // namespace Models

@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_INVOKECOMMANDREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/InvokeCommandRequestResourceTag.hpp>
-#include <alibabacloud/models/InvokeCommandRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -78,52 +76,159 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of tag N to add to the command task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+      // 
+      // If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // 
+      // The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      shared_ptr<string> key_ {};
+      // The value of tag N to add to the command task. Valid values of N: 1 to 20. The tag value can be an empty string.
+      // 
+      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      shared_ptr<string> value_ {};
+    };
+
+    class ResourceTag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceTag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceTag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      ResourceTag() = default ;
+      ResourceTag(const ResourceTag &) = default ;
+      ResourceTag(ResourceTag &&) = default ;
+      ResourceTag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceTag() = default ;
+      ResourceTag& operator=(const ResourceTag &) = default ;
+      ResourceTag& operator=(ResourceTag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline ResourceTag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline ResourceTag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of tag N of the instance.
+      // 
+      // Take note of the following items:
+      // 
+      // *   This parameter and InstanceId.N are mutually exclusive.
+      // *   Valid values of N: 1 to 10. The tag key cannot be an empty string.
+      // *   The number of instances that have the specified tags cannot exceed 100. If more than 100 instances have the specified tags, we recommend that you use batch tags such as batch: b1 to group the instances into batches of up to 100 instances.
+      // *   The tag key can be up to 64 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+      shared_ptr<string> key_ {};
+      // The value of tag N of the instance.
+      // 
+      // Take note of the following items:
+      // 
+      // *   Valid values of N: 1 to 10.
+      // *   The tag value can be an empty string.
+      // *   The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->commandId_ == nullptr && return this->containerId_ == nullptr && return this->containerName_ == nullptr && return this->frequency_ == nullptr && return this->instanceId_ == nullptr
-        && return this->launcher_ == nullptr && return this->ossOutputDelivery_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->parameters_ == nullptr
-        && return this->regionId_ == nullptr && return this->repeatMode_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->resourceTag_ == nullptr && return this->tag_ == nullptr && return this->terminationMode_ == nullptr && return this->timed_ == nullptr && return this->timeout_ == nullptr
-        && return this->username_ == nullptr && return this->windowsPasswordName_ == nullptr && return this->workingDir_ == nullptr; };
+        && this->commandId_ == nullptr && this->containerId_ == nullptr && this->containerName_ == nullptr && this->frequency_ == nullptr && this->instanceId_ == nullptr
+        && this->launcher_ == nullptr && this->ossOutputDelivery_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parameters_ == nullptr
+        && this->regionId_ == nullptr && this->repeatMode_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->resourceTag_ == nullptr && this->tag_ == nullptr && this->terminationMode_ == nullptr && this->timed_ == nullptr && this->timeout_ == nullptr
+        && this->username_ == nullptr && this->windowsPasswordName_ == nullptr && this->workingDir_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline InvokeCommandRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // commandId Field Functions 
     bool hasCommandId() const { return this->commandId_ != nullptr;};
     void deleteCommandId() { this->commandId_ = nullptr;};
-    inline string commandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
+    inline string getCommandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
     inline InvokeCommandRequest& setCommandId(string commandId) { DARABONBA_PTR_SET_VALUE(commandId_, commandId) };
 
 
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
-    inline string containerId() const { DARABONBA_PTR_GET_DEFAULT(containerId_, "") };
+    inline string getContainerId() const { DARABONBA_PTR_GET_DEFAULT(containerId_, "") };
     inline InvokeCommandRequest& setContainerId(string containerId) { DARABONBA_PTR_SET_VALUE(containerId_, containerId) };
 
 
     // containerName Field Functions 
     bool hasContainerName() const { return this->containerName_ != nullptr;};
     void deleteContainerName() { this->containerName_ = nullptr;};
-    inline string containerName() const { DARABONBA_PTR_GET_DEFAULT(containerName_, "") };
+    inline string getContainerName() const { DARABONBA_PTR_GET_DEFAULT(containerName_, "") };
     inline InvokeCommandRequest& setContainerName(string containerName) { DARABONBA_PTR_SET_VALUE(containerName_, containerName) };
 
 
     // frequency Field Functions 
     bool hasFrequency() const { return this->frequency_ != nullptr;};
     void deleteFrequency() { this->frequency_ = nullptr;};
-    inline string frequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
+    inline string getFrequency() const { DARABONBA_PTR_GET_DEFAULT(frequency_, "") };
     inline InvokeCommandRequest& setFrequency(string frequency) { DARABONBA_PTR_SET_VALUE(frequency_, frequency) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline const vector<string> & instanceId() const { DARABONBA_PTR_GET_CONST(instanceId_, vector<string>) };
-    inline vector<string> instanceId() { DARABONBA_PTR_GET(instanceId_, vector<string>) };
+    inline const vector<string> & getInstanceId() const { DARABONBA_PTR_GET_CONST(instanceId_, vector<string>) };
+    inline vector<string> getInstanceId() { DARABONBA_PTR_GET(instanceId_, vector<string>) };
     inline InvokeCommandRequest& setInstanceId(const vector<string> & instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
     inline InvokeCommandRequest& setInstanceId(vector<string> && instanceId) { DARABONBA_PTR_SET_RVALUE(instanceId_, instanceId) };
 
@@ -131,144 +236,144 @@ namespace Models
     // launcher Field Functions 
     bool hasLauncher() const { return this->launcher_ != nullptr;};
     void deleteLauncher() { this->launcher_ = nullptr;};
-    inline string launcher() const { DARABONBA_PTR_GET_DEFAULT(launcher_, "") };
+    inline string getLauncher() const { DARABONBA_PTR_GET_DEFAULT(launcher_, "") };
     inline InvokeCommandRequest& setLauncher(string launcher) { DARABONBA_PTR_SET_VALUE(launcher_, launcher) };
 
 
     // ossOutputDelivery Field Functions 
     bool hasOssOutputDelivery() const { return this->ossOutputDelivery_ != nullptr;};
     void deleteOssOutputDelivery() { this->ossOutputDelivery_ = nullptr;};
-    inline string ossOutputDelivery() const { DARABONBA_PTR_GET_DEFAULT(ossOutputDelivery_, "") };
+    inline string getOssOutputDelivery() const { DARABONBA_PTR_GET_DEFAULT(ossOutputDelivery_, "") };
     inline InvokeCommandRequest& setOssOutputDelivery(string ossOutputDelivery) { DARABONBA_PTR_SET_VALUE(ossOutputDelivery_, ossOutputDelivery) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline InvokeCommandRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline InvokeCommandRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline     const Darabonba::Json & parameters() const { DARABONBA_GET(parameters_) };
-    Darabonba::Json & parameters() { DARABONBA_GET(parameters_) };
+    inline     const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+    Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
     inline InvokeCommandRequest& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
-    inline InvokeCommandRequest& setParameters(Darabonba::Json & parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+    inline InvokeCommandRequest& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline InvokeCommandRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // repeatMode Field Functions 
     bool hasRepeatMode() const { return this->repeatMode_ != nullptr;};
     void deleteRepeatMode() { this->repeatMode_ = nullptr;};
-    inline string repeatMode() const { DARABONBA_PTR_GET_DEFAULT(repeatMode_, "") };
+    inline string getRepeatMode() const { DARABONBA_PTR_GET_DEFAULT(repeatMode_, "") };
     inline InvokeCommandRequest& setRepeatMode(string repeatMode) { DARABONBA_PTR_SET_VALUE(repeatMode_, repeatMode) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline InvokeCommandRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline InvokeCommandRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline InvokeCommandRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // resourceTag Field Functions 
     bool hasResourceTag() const { return this->resourceTag_ != nullptr;};
     void deleteResourceTag() { this->resourceTag_ = nullptr;};
-    inline const vector<InvokeCommandRequestResourceTag> & resourceTag() const { DARABONBA_PTR_GET_CONST(resourceTag_, vector<InvokeCommandRequestResourceTag>) };
-    inline vector<InvokeCommandRequestResourceTag> resourceTag() { DARABONBA_PTR_GET(resourceTag_, vector<InvokeCommandRequestResourceTag>) };
-    inline InvokeCommandRequest& setResourceTag(const vector<InvokeCommandRequestResourceTag> & resourceTag) { DARABONBA_PTR_SET_VALUE(resourceTag_, resourceTag) };
-    inline InvokeCommandRequest& setResourceTag(vector<InvokeCommandRequestResourceTag> && resourceTag) { DARABONBA_PTR_SET_RVALUE(resourceTag_, resourceTag) };
+    inline const vector<InvokeCommandRequest::ResourceTag> & getResourceTag() const { DARABONBA_PTR_GET_CONST(resourceTag_, vector<InvokeCommandRequest::ResourceTag>) };
+    inline vector<InvokeCommandRequest::ResourceTag> getResourceTag() { DARABONBA_PTR_GET(resourceTag_, vector<InvokeCommandRequest::ResourceTag>) };
+    inline InvokeCommandRequest& setResourceTag(const vector<InvokeCommandRequest::ResourceTag> & resourceTag) { DARABONBA_PTR_SET_VALUE(resourceTag_, resourceTag) };
+    inline InvokeCommandRequest& setResourceTag(vector<InvokeCommandRequest::ResourceTag> && resourceTag) { DARABONBA_PTR_SET_RVALUE(resourceTag_, resourceTag) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<InvokeCommandRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<InvokeCommandRequestTag>) };
-    inline vector<InvokeCommandRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<InvokeCommandRequestTag>) };
-    inline InvokeCommandRequest& setTag(const vector<InvokeCommandRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline InvokeCommandRequest& setTag(vector<InvokeCommandRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<InvokeCommandRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<InvokeCommandRequest::Tag>) };
+    inline vector<InvokeCommandRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<InvokeCommandRequest::Tag>) };
+    inline InvokeCommandRequest& setTag(const vector<InvokeCommandRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline InvokeCommandRequest& setTag(vector<InvokeCommandRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // terminationMode Field Functions 
     bool hasTerminationMode() const { return this->terminationMode_ != nullptr;};
     void deleteTerminationMode() { this->terminationMode_ = nullptr;};
-    inline string terminationMode() const { DARABONBA_PTR_GET_DEFAULT(terminationMode_, "") };
+    inline string getTerminationMode() const { DARABONBA_PTR_GET_DEFAULT(terminationMode_, "") };
     inline InvokeCommandRequest& setTerminationMode(string terminationMode) { DARABONBA_PTR_SET_VALUE(terminationMode_, terminationMode) };
 
 
     // timed Field Functions 
     bool hasTimed() const { return this->timed_ != nullptr;};
     void deleteTimed() { this->timed_ = nullptr;};
-    inline bool timed() const { DARABONBA_PTR_GET_DEFAULT(timed_, false) };
+    inline bool getTimed() const { DARABONBA_PTR_GET_DEFAULT(timed_, false) };
     inline InvokeCommandRequest& setTimed(bool timed) { DARABONBA_PTR_SET_VALUE(timed_, timed) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int64_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
+    inline int64_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
     inline InvokeCommandRequest& setTimeout(int64_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
-    inline string username() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
+    inline string getUsername() const { DARABONBA_PTR_GET_DEFAULT(username_, "") };
     inline InvokeCommandRequest& setUsername(string username) { DARABONBA_PTR_SET_VALUE(username_, username) };
 
 
     // windowsPasswordName Field Functions 
     bool hasWindowsPasswordName() const { return this->windowsPasswordName_ != nullptr;};
     void deleteWindowsPasswordName() { this->windowsPasswordName_ = nullptr;};
-    inline string windowsPasswordName() const { DARABONBA_PTR_GET_DEFAULT(windowsPasswordName_, "") };
+    inline string getWindowsPasswordName() const { DARABONBA_PTR_GET_DEFAULT(windowsPasswordName_, "") };
     inline InvokeCommandRequest& setWindowsPasswordName(string windowsPasswordName) { DARABONBA_PTR_SET_VALUE(windowsPasswordName_, windowsPasswordName) };
 
 
     // workingDir Field Functions 
     bool hasWorkingDir() const { return this->workingDir_ != nullptr;};
     void deleteWorkingDir() { this->workingDir_ = nullptr;};
-    inline string workingDir() const { DARABONBA_PTR_GET_DEFAULT(workingDir_, "") };
+    inline string getWorkingDir() const { DARABONBA_PTR_GET_DEFAULT(workingDir_, "") };
     inline InvokeCommandRequest& setWorkingDir(string workingDir) { DARABONBA_PTR_SET_VALUE(workingDir_, workingDir) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The command ID. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
     // 
     // >  Common Cloud Assistant commands can be run based on their names. For more information, see [View and run common Cloud Assistant commands](https://help.aliyun.com/document_detail/429635.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> commandId_ = nullptr;
+    shared_ptr<string> commandId_ {};
     // The ID of the container. Only 64-bit hexadecimal strings are supported. You can use container IDs that are prefixed with `docker://`, `containerd://`, or `cri-o://` to specify container runtimes.
     // 
     // Take note of the following items:
@@ -283,7 +388,7 @@ namespace Models
     // *   If this parameter is specified, the `Username` parameter that is specified in a request to call this operation and the `WorkingDir` parameter that is specified in a request to call the [CreateCommand](https://help.aliyun.com/document_detail/64844.html) operation do not take effect. You can run the command only in the default working directory of the container by using the default user of the container. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
     // 
     // *   If this parameter is specified, only shell scripts can be run in Linux containers. You cannot add a command in the format similar to `#!/usr/bin/python` at the beginning of a script to specify a script interpreter. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
-    std::shared_ptr<string> containerId_ = nullptr;
+    shared_ptr<string> containerId_ {};
     // The name of the container.
     // 
     // Take note of the following items:
@@ -298,7 +403,7 @@ namespace Models
     // *   If this parameter is specified, the `Username` parameter that is specified in a request to call this operation and the `WorkingDir` parameter that is specified in a request to call the [CreateCommand](https://help.aliyun.com/document_detail/64844.html) operation do not take effect. You can run the command only in the default working directory of the container by using the default user of the container. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
     // 
     // *   If this parameter is specified, only shell scripts can be run in Linux containers. You cannot add a command in the format similar to `#!/usr/bin/python` at the beginning of a script to specify a script interpreter. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
-    std::shared_ptr<string> containerName_ = nullptr;
+    shared_ptr<string> containerName_ {};
     // The schedule on which to run the command. You can configure a command to run at a fixed interval based on a rate expression, run only once at a specific time, or run at specific times based on a cron expression.
     // 
     // *   To run a command at a fixed interval, use a rate expression to specify the interval. You can specify the interval in seconds, minutes, hours, or days. This option is suitable for scenarios in which tasks need to be executed at a fixed interval. Specify the interval in the following format: `rate(<Execution interval value><Execution interval unit>)`. For example, specify `rate(5m)` to run the command every 5 minutes. When you specify an interval, take note of the following limits:
@@ -324,16 +429,16 @@ namespace Models
     //     **
     // 
     //     **Note** The minimum interval must be 10 seconds or more and cannot be shorter than the timeout period of scheduled executions.
-    std::shared_ptr<string> frequency_ = nullptr;
+    shared_ptr<string> frequency_ {};
     // The IDs of instances on which you want to run the command. You can specify up to 100 instance IDs in each request. Valid values of N: 1 to 100.
     // 
     // You can apply for a quota increase in the Quota Center console. The quota name is Maximum number of instances supported for command execution.
-    std::shared_ptr<vector<string>> instanceId_ = nullptr;
+    shared_ptr<vector<string>> instanceId_ {};
     // The launcher for script execution. The value cannot exceed 1 KB in length.
-    std::shared_ptr<string> launcher_ = nullptr;
-    std::shared_ptr<string> ossOutputDelivery_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> launcher_ {};
+    shared_ptr<string> ossOutputDelivery_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The key-value pairs of custom parameters to pass in when the custom parameter feature is enabled. You can specify up to 10 custom parameters.
     // 
     // *   Each key in a Map collection cannot be an empty string, and can be up to 64 characters in length.
@@ -342,11 +447,11 @@ namespace Models
     // *   The custom parameter names that are specified by Parameters must be included in the custom parameter names that you specified when you created the command. You can use empty strings to represent the custom parameters that are not specified.
     // 
     // If you want to disable the custom parameter feature, you can leave this parameter empty.
-    Darabonba::Json parameters_ = nullptr;
+    Darabonba::Json parameters_ {};
     // The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies how to run the command. Valid values:
     // 
     // *   Once: immediately runs the command.
@@ -364,50 +469,50 @@ namespace Models
     // 
     // *   You can call the [StopInvocation](https://help.aliyun.com/document_detail/64838.html) operation to stop the pending or scheduled executions of the command.
     // *   If you set this parameter to `Period` or `EveryReboot`, you can call the [DescribeInvocationResults](https://help.aliyun.com/document_detail/64845.html) operation with `IncludeHistory` set to true to query the results of historical scheduled executions.
-    std::shared_ptr<string> repeatMode_ = nullptr;
+    shared_ptr<string> repeatMode_ {};
     // The ID of the resource group to which to assign the command executions. When you set this parameter, take note of the following items:
     // 
     // *   The instances specified by InstanceId.N must belong to the specified resource group.
     // *   After the command is run, you can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) or [DescribeInvocationResults](https://help.aliyun.com/document_detail/64845.html) operation with ResourceGroupId set to query the execution results in the specified resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags of the instance. If you do not specify InstanceId.N, the command is run on the instances that have the specified tags.
-    std::shared_ptr<vector<InvokeCommandRequestResourceTag>> resourceTag_ = nullptr;
+    shared_ptr<vector<InvokeCommandRequest::ResourceTag>> resourceTag_ {};
     // The tags of the command.
-    std::shared_ptr<vector<InvokeCommandRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<InvokeCommandRequest::Tag>> tag_ {};
     // Specifies how to stop the command task when a command execution is manually stopped or times out. Valid values:
     // 
     // *   Process: stops the process of the command.
     // *   ProcessTree: stops the process tree of the command. In this case, the process of the command and all subprocesses of the process are stopped.
-    std::shared_ptr<string> terminationMode_ = nullptr;
+    shared_ptr<string> terminationMode_ {};
     // >  This parameter is no longer used and does not take effect.
-    std::shared_ptr<bool> timed_ = nullptr;
+    shared_ptr<bool> timed_ {};
     // The timeout period for the command execution. Unit: seconds.
     // 
     // *   The timeout period cannot be less than 10 seconds.
     // *   A timeout error occurs if the command cannot be run because the process slows down or because a specific module or Cloud Assistant Agent does not exist. When the specified timeout period ends, the command process is forcefully terminated.
     // *   If you do not specify this parameter, the timeout period that is specified when the command is created is used.
     // *   This timeout period is applicable only to this execution. The timeout period of the command is not modified.
-    std::shared_ptr<int64_t> timeout_ = nullptr;
+    shared_ptr<int64_t> timeout_ {};
     // The username to use to run the command on the ECS instances. The username cannot exceed 255 characters in length.
     // 
     // *   For Linux instances, the root username is used by default.
     // *   For Windows instances, the System username is used by default.
     // 
     // You can also specify other usernames that already exist in the instances to run the command. For security purposes, we recommend that you run Cloud Assistant commands as a regular user. For more information, see [Run Cloud Assistant commands as a regular user](https://help.aliyun.com/document_detail/203771.html).
-    std::shared_ptr<string> username_ = nullptr;
+    shared_ptr<string> username_ {};
     // The name of the password to use to run the command on a Windows instance. The name cannot exceed 255 characters in length.
     // 
     // If you do not want to use the default System user to run the command on Windows instances, specify both WindowsPasswordName and `Username`. To mitigate the risk of password leaks, the password is stored in plaintext in CloudOps Orchestration Service (OOS) Parameter Store, and only the name of the password is passed in by using WindowsPasswordName. For more information, see [Manage encryption parameters](https://help.aliyun.com/document_detail/186828.html) and [Run Cloud Assistant commands as a regular user](https://help.aliyun.com/document_detail/203771.html).
     // 
     // >  If you use the root username for Linux instances or the System username for Windows instances to run the command, you do not need to specify WindowsPasswordName.
-    std::shared_ptr<string> windowsPasswordName_ = nullptr;
+    shared_ptr<string> windowsPasswordName_ {};
     // The execution path of the command on ECS instances. The value can be up to 200 characters in length.
     // 
     // *   If you do not specify this parameter, the execution path specified when the command is created is used.
     // *   This execution path is applicable only to this task. The execution path of the command is not changed.
-    std::shared_ptr<string> workingDir_ = nullptr;
+    shared_ptr<string> workingDir_ {};
   };
 
   } // namespace Models

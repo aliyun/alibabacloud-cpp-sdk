@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricSetIds_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // metricSetIds Field Functions 
     bool hasMetricSetIds() const { return this->metricSetIds_ != nullptr;};
     void deleteMetricSetIds() { this->metricSetIds_ = nullptr;};
-    inline const vector<string> & metricSetIds() const { DARABONBA_PTR_GET_CONST(metricSetIds_, vector<string>) };
-    inline vector<string> metricSetIds() { DARABONBA_PTR_GET(metricSetIds_, vector<string>) };
+    inline const vector<string> & getMetricSetIds() const { DARABONBA_PTR_GET_CONST(metricSetIds_, vector<string>) };
+    inline vector<string> getMetricSetIds() { DARABONBA_PTR_GET(metricSetIds_, vector<string>) };
     inline DeleteDiagnosticMetricSetsRequest& setMetricSetIds(const vector<string> & metricSetIds) { DARABONBA_PTR_SET_VALUE(metricSetIds_, metricSetIds) };
     inline DeleteDiagnosticMetricSetsRequest& setMetricSetIds(vector<string> && metricSetIds) { DARABONBA_PTR_SET_RVALUE(metricSetIds_, metricSetIds) };
 
@@ -46,7 +46,7 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDiagnosticMetricSetsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The IDs of diagnostic metric sets. You can specify up to 10 set IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> metricSetIds_ = nullptr;
+    shared_ptr<vector<string>> metricSetIds_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

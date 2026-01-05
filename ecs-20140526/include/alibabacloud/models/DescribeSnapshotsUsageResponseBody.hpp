@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->snapshotCount_ == nullptr && return this->snapshotSize_ == nullptr; };
+        && this->snapshotCount_ == nullptr && this->snapshotSize_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSnapshotsUsageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // snapshotCount Field Functions 
     bool hasSnapshotCount() const { return this->snapshotCount_ != nullptr;};
     void deleteSnapshotCount() { this->snapshotCount_ = nullptr;};
-    inline int32_t snapshotCount() const { DARABONBA_PTR_GET_DEFAULT(snapshotCount_, 0) };
+    inline int32_t getSnapshotCount() const { DARABONBA_PTR_GET_DEFAULT(snapshotCount_, 0) };
     inline DescribeSnapshotsUsageResponseBody& setSnapshotCount(int32_t snapshotCount) { DARABONBA_PTR_SET_VALUE(snapshotCount_, snapshotCount) };
 
 
     // snapshotSize Field Functions 
     bool hasSnapshotSize() const { return this->snapshotSize_ != nullptr;};
     void deleteSnapshotSize() { this->snapshotSize_ = nullptr;};
-    inline int64_t snapshotSize() const { DARABONBA_PTR_GET_DEFAULT(snapshotSize_, 0L) };
+    inline int64_t getSnapshotSize() const { DARABONBA_PTR_GET_DEFAULT(snapshotSize_, 0L) };
     inline DescribeSnapshotsUsageResponseBody& setSnapshotSize(int64_t snapshotSize) { DARABONBA_PTR_SET_VALUE(snapshotSize_, snapshotSize) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of snapshots stored in the current region.
-    std::shared_ptr<int32_t> snapshotCount_ = nullptr;
+    shared_ptr<int32_t> snapshotCount_ {};
     // The total size of snapshots stored in the current region. Unit: bytes.
-    std::shared_ptr<int64_t> snapshotSize_ = nullptr;
+    shared_ptr<int64_t> snapshotSize_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEFORWARDTABLEENTRIESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEFORWARDTABLEENTRIESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeForwardTableEntriesResponseBodyForwardTableEntries.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,51 +38,187 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ForwardTableEntries : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ForwardTableEntries& obj) { 
+        DARABONBA_PTR_TO_JSON(ForwardTableEntry, forwardTableEntry_);
+      };
+      friend void from_json(const Darabonba::Json& j, ForwardTableEntries& obj) { 
+        DARABONBA_PTR_FROM_JSON(ForwardTableEntry, forwardTableEntry_);
+      };
+      ForwardTableEntries() = default ;
+      ForwardTableEntries(const ForwardTableEntries &) = default ;
+      ForwardTableEntries(ForwardTableEntries &&) = default ;
+      ForwardTableEntries(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ForwardTableEntries() = default ;
+      ForwardTableEntries& operator=(const ForwardTableEntries &) = default ;
+      ForwardTableEntries& operator=(ForwardTableEntries &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ForwardTableEntry : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ForwardTableEntry& obj) { 
+          DARABONBA_PTR_TO_JSON(ExternalIp, externalIp_);
+          DARABONBA_PTR_TO_JSON(ExternalPort, externalPort_);
+          DARABONBA_PTR_TO_JSON(ForwardEntryId, forwardEntryId_);
+          DARABONBA_PTR_TO_JSON(ForwardTableId, forwardTableId_);
+          DARABONBA_PTR_TO_JSON(InternalIp, internalIp_);
+          DARABONBA_PTR_TO_JSON(InternalPort, internalPort_);
+          DARABONBA_PTR_TO_JSON(IpProtocol, ipProtocol_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, ForwardTableEntry& obj) { 
+          DARABONBA_PTR_FROM_JSON(ExternalIp, externalIp_);
+          DARABONBA_PTR_FROM_JSON(ExternalPort, externalPort_);
+          DARABONBA_PTR_FROM_JSON(ForwardEntryId, forwardEntryId_);
+          DARABONBA_PTR_FROM_JSON(ForwardTableId, forwardTableId_);
+          DARABONBA_PTR_FROM_JSON(InternalIp, internalIp_);
+          DARABONBA_PTR_FROM_JSON(InternalPort, internalPort_);
+          DARABONBA_PTR_FROM_JSON(IpProtocol, ipProtocol_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        ForwardTableEntry() = default ;
+        ForwardTableEntry(const ForwardTableEntry &) = default ;
+        ForwardTableEntry(ForwardTableEntry &&) = default ;
+        ForwardTableEntry(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ForwardTableEntry() = default ;
+        ForwardTableEntry& operator=(const ForwardTableEntry &) = default ;
+        ForwardTableEntry& operator=(ForwardTableEntry &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->externalIp_ == nullptr
+        && this->externalPort_ == nullptr && this->forwardEntryId_ == nullptr && this->forwardTableId_ == nullptr && this->internalIp_ == nullptr && this->internalPort_ == nullptr
+        && this->ipProtocol_ == nullptr && this->status_ == nullptr; };
+        // externalIp Field Functions 
+        bool hasExternalIp() const { return this->externalIp_ != nullptr;};
+        void deleteExternalIp() { this->externalIp_ = nullptr;};
+        inline string getExternalIp() const { DARABONBA_PTR_GET_DEFAULT(externalIp_, "") };
+        inline ForwardTableEntry& setExternalIp(string externalIp) { DARABONBA_PTR_SET_VALUE(externalIp_, externalIp) };
+
+
+        // externalPort Field Functions 
+        bool hasExternalPort() const { return this->externalPort_ != nullptr;};
+        void deleteExternalPort() { this->externalPort_ = nullptr;};
+        inline string getExternalPort() const { DARABONBA_PTR_GET_DEFAULT(externalPort_, "") };
+        inline ForwardTableEntry& setExternalPort(string externalPort) { DARABONBA_PTR_SET_VALUE(externalPort_, externalPort) };
+
+
+        // forwardEntryId Field Functions 
+        bool hasForwardEntryId() const { return this->forwardEntryId_ != nullptr;};
+        void deleteForwardEntryId() { this->forwardEntryId_ = nullptr;};
+        inline string getForwardEntryId() const { DARABONBA_PTR_GET_DEFAULT(forwardEntryId_, "") };
+        inline ForwardTableEntry& setForwardEntryId(string forwardEntryId) { DARABONBA_PTR_SET_VALUE(forwardEntryId_, forwardEntryId) };
+
+
+        // forwardTableId Field Functions 
+        bool hasForwardTableId() const { return this->forwardTableId_ != nullptr;};
+        void deleteForwardTableId() { this->forwardTableId_ = nullptr;};
+        inline string getForwardTableId() const { DARABONBA_PTR_GET_DEFAULT(forwardTableId_, "") };
+        inline ForwardTableEntry& setForwardTableId(string forwardTableId) { DARABONBA_PTR_SET_VALUE(forwardTableId_, forwardTableId) };
+
+
+        // internalIp Field Functions 
+        bool hasInternalIp() const { return this->internalIp_ != nullptr;};
+        void deleteInternalIp() { this->internalIp_ = nullptr;};
+        inline string getInternalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
+        inline ForwardTableEntry& setInternalIp(string internalIp) { DARABONBA_PTR_SET_VALUE(internalIp_, internalIp) };
+
+
+        // internalPort Field Functions 
+        bool hasInternalPort() const { return this->internalPort_ != nullptr;};
+        void deleteInternalPort() { this->internalPort_ = nullptr;};
+        inline string getInternalPort() const { DARABONBA_PTR_GET_DEFAULT(internalPort_, "") };
+        inline ForwardTableEntry& setInternalPort(string internalPort) { DARABONBA_PTR_SET_VALUE(internalPort_, internalPort) };
+
+
+        // ipProtocol Field Functions 
+        bool hasIpProtocol() const { return this->ipProtocol_ != nullptr;};
+        void deleteIpProtocol() { this->ipProtocol_ = nullptr;};
+        inline string getIpProtocol() const { DARABONBA_PTR_GET_DEFAULT(ipProtocol_, "") };
+        inline ForwardTableEntry& setIpProtocol(string ipProtocol) { DARABONBA_PTR_SET_VALUE(ipProtocol_, ipProtocol) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline ForwardTableEntry& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        shared_ptr<string> externalIp_ {};
+        shared_ptr<string> externalPort_ {};
+        shared_ptr<string> forwardEntryId_ {};
+        shared_ptr<string> forwardTableId_ {};
+        shared_ptr<string> internalIp_ {};
+        shared_ptr<string> internalPort_ {};
+        shared_ptr<string> ipProtocol_ {};
+        shared_ptr<string> status_ {};
+      };
+
+      virtual bool empty() const override { return this->forwardTableEntry_ == nullptr; };
+      // forwardTableEntry Field Functions 
+      bool hasForwardTableEntry() const { return this->forwardTableEntry_ != nullptr;};
+      void deleteForwardTableEntry() { this->forwardTableEntry_ = nullptr;};
+      inline const vector<ForwardTableEntries::ForwardTableEntry> & getForwardTableEntry() const { DARABONBA_PTR_GET_CONST(forwardTableEntry_, vector<ForwardTableEntries::ForwardTableEntry>) };
+      inline vector<ForwardTableEntries::ForwardTableEntry> getForwardTableEntry() { DARABONBA_PTR_GET(forwardTableEntry_, vector<ForwardTableEntries::ForwardTableEntry>) };
+      inline ForwardTableEntries& setForwardTableEntry(const vector<ForwardTableEntries::ForwardTableEntry> & forwardTableEntry) { DARABONBA_PTR_SET_VALUE(forwardTableEntry_, forwardTableEntry) };
+      inline ForwardTableEntries& setForwardTableEntry(vector<ForwardTableEntries::ForwardTableEntry> && forwardTableEntry) { DARABONBA_PTR_SET_RVALUE(forwardTableEntry_, forwardTableEntry) };
+
+
+    protected:
+      shared_ptr<vector<ForwardTableEntries::ForwardTableEntry>> forwardTableEntry_ {};
+    };
+
     virtual bool empty() const override { return this->forwardTableEntries_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // forwardTableEntries Field Functions 
     bool hasForwardTableEntries() const { return this->forwardTableEntries_ != nullptr;};
     void deleteForwardTableEntries() { this->forwardTableEntries_ = nullptr;};
-    inline const DescribeForwardTableEntriesResponseBodyForwardTableEntries & forwardTableEntries() const { DARABONBA_PTR_GET_CONST(forwardTableEntries_, DescribeForwardTableEntriesResponseBodyForwardTableEntries) };
-    inline DescribeForwardTableEntriesResponseBodyForwardTableEntries forwardTableEntries() { DARABONBA_PTR_GET(forwardTableEntries_, DescribeForwardTableEntriesResponseBodyForwardTableEntries) };
-    inline DescribeForwardTableEntriesResponseBody& setForwardTableEntries(const DescribeForwardTableEntriesResponseBodyForwardTableEntries & forwardTableEntries) { DARABONBA_PTR_SET_VALUE(forwardTableEntries_, forwardTableEntries) };
-    inline DescribeForwardTableEntriesResponseBody& setForwardTableEntries(DescribeForwardTableEntriesResponseBodyForwardTableEntries && forwardTableEntries) { DARABONBA_PTR_SET_RVALUE(forwardTableEntries_, forwardTableEntries) };
+    inline const DescribeForwardTableEntriesResponseBody::ForwardTableEntries & getForwardTableEntries() const { DARABONBA_PTR_GET_CONST(forwardTableEntries_, DescribeForwardTableEntriesResponseBody::ForwardTableEntries) };
+    inline DescribeForwardTableEntriesResponseBody::ForwardTableEntries getForwardTableEntries() { DARABONBA_PTR_GET(forwardTableEntries_, DescribeForwardTableEntriesResponseBody::ForwardTableEntries) };
+    inline DescribeForwardTableEntriesResponseBody& setForwardTableEntries(const DescribeForwardTableEntriesResponseBody::ForwardTableEntries & forwardTableEntries) { DARABONBA_PTR_SET_VALUE(forwardTableEntries_, forwardTableEntries) };
+    inline DescribeForwardTableEntriesResponseBody& setForwardTableEntries(DescribeForwardTableEntriesResponseBody::ForwardTableEntries && forwardTableEntries) { DARABONBA_PTR_SET_RVALUE(forwardTableEntries_, forwardTableEntries) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeForwardTableEntriesResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeForwardTableEntriesResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeForwardTableEntriesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline DescribeForwardTableEntriesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<DescribeForwardTableEntriesResponseBodyForwardTableEntries> forwardTableEntries_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<DescribeForwardTableEntriesResponseBody::ForwardTableEntries> forwardTableEntries_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

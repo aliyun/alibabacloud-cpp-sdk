@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_MODIFYAUTOPROVISIONINGGROUPREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ModifyAutoProvisioningGroupRequestLaunchTemplateConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -59,159 +58,241 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class LaunchTemplateConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const LaunchTemplateConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+        DARABONBA_PTR_TO_JSON(MaxPrice, maxPrice_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
+        DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_TO_JSON(WeightedCapacity, weightedCapacity_);
+      };
+      friend void from_json(const Darabonba::Json& j, LaunchTemplateConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+        DARABONBA_PTR_FROM_JSON(MaxPrice, maxPrice_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
+        DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_FROM_JSON(WeightedCapacity, weightedCapacity_);
+      };
+      LaunchTemplateConfig() = default ;
+      LaunchTemplateConfig(const LaunchTemplateConfig &) = default ;
+      LaunchTemplateConfig(LaunchTemplateConfig &&) = default ;
+      LaunchTemplateConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~LaunchTemplateConfig() = default ;
+      LaunchTemplateConfig& operator=(const LaunchTemplateConfig &) = default ;
+      LaunchTemplateConfig& operator=(LaunchTemplateConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->instanceType_ == nullptr
+        && this->maxPrice_ == nullptr && this->priority_ == nullptr && this->vSwitchId_ == nullptr && this->weightedCapacity_ == nullptr; };
+      // instanceType Field Functions 
+      bool hasInstanceType() const { return this->instanceType_ != nullptr;};
+      void deleteInstanceType() { this->instanceType_ = nullptr;};
+      inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+      inline LaunchTemplateConfig& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+      // maxPrice Field Functions 
+      bool hasMaxPrice() const { return this->maxPrice_ != nullptr;};
+      void deleteMaxPrice() { this->maxPrice_ = nullptr;};
+      inline double getMaxPrice() const { DARABONBA_PTR_GET_DEFAULT(maxPrice_, 0.0) };
+      inline LaunchTemplateConfig& setMaxPrice(double maxPrice) { DARABONBA_PTR_SET_VALUE(maxPrice_, maxPrice) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline LaunchTemplateConfig& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+      // vSwitchId Field Functions 
+      bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+      void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+      inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+      inline LaunchTemplateConfig& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+      // weightedCapacity Field Functions 
+      bool hasWeightedCapacity() const { return this->weightedCapacity_ != nullptr;};
+      void deleteWeightedCapacity() { this->weightedCapacity_ = nullptr;};
+      inline double getWeightedCapacity() const { DARABONBA_PTR_GET_DEFAULT(weightedCapacity_, 0.0) };
+      inline LaunchTemplateConfig& setWeightedCapacity(double weightedCapacity) { DARABONBA_PTR_SET_VALUE(weightedCapacity_, weightedCapacity) };
+
+
+    protected:
+      // The instance type in extended configuration N. Valid values of N: 1 to 20. For more information about the valid values of this parameter, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+      shared_ptr<string> instanceType_ {};
+      // The maximum price of spot instances in extended configuration N.
+      shared_ptr<double> maxPrice_ {};
+      // The priority of extended configuration N. A value of 0 indicates the highest priority. The value must be greater than 0.
+      shared_ptr<int32_t> priority_ {};
+      // The ID of the vSwitch in extended configuration N. The zone of the instances created from the extended configuration is determined by the vSwitch.
+      shared_ptr<string> vSwitchId_ {};
+      // The weight of the instance type specified in the extended configuration. A greater weight indicates that a single instance has more computing power and fewer instances are required. The value must be greater than 0.
+      // 
+      // The weight is calculated based on the computing power of the instance type and the minimum computing power of a single instance in the cluster that can created by the auto-provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
+      // 
+      // *   For an instance type with 8 vCPUs and 60 GiB of memory, you can set the weight to 1.
+      // *   For an instance type with 16 vCPUs and 120 GiB of memory, you can set the weight to 2.
+      shared_ptr<double> weightedCapacity_ {};
+    };
+
     virtual bool empty() const override { return this->autoProvisioningGroupId_ == nullptr
-        && return this->autoProvisioningGroupName_ == nullptr && return this->defaultTargetCapacityType_ == nullptr && return this->excessCapacityTerminationPolicy_ == nullptr && return this->launchTemplateConfig_ == nullptr && return this->maxSpotPrice_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->payAsYouGoTargetCapacity_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->spotTargetCapacity_ == nullptr && return this->terminateInstancesWithExpiration_ == nullptr && return this->totalTargetCapacity_ == nullptr; };
+        && this->autoProvisioningGroupName_ == nullptr && this->defaultTargetCapacityType_ == nullptr && this->excessCapacityTerminationPolicy_ == nullptr && this->launchTemplateConfig_ == nullptr && this->maxSpotPrice_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->payAsYouGoTargetCapacity_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->spotTargetCapacity_ == nullptr && this->terminateInstancesWithExpiration_ == nullptr && this->totalTargetCapacity_ == nullptr; };
     // autoProvisioningGroupId Field Functions 
     bool hasAutoProvisioningGroupId() const { return this->autoProvisioningGroupId_ != nullptr;};
     void deleteAutoProvisioningGroupId() { this->autoProvisioningGroupId_ = nullptr;};
-    inline string autoProvisioningGroupId() const { DARABONBA_PTR_GET_DEFAULT(autoProvisioningGroupId_, "") };
+    inline string getAutoProvisioningGroupId() const { DARABONBA_PTR_GET_DEFAULT(autoProvisioningGroupId_, "") };
     inline ModifyAutoProvisioningGroupRequest& setAutoProvisioningGroupId(string autoProvisioningGroupId) { DARABONBA_PTR_SET_VALUE(autoProvisioningGroupId_, autoProvisioningGroupId) };
 
 
     // autoProvisioningGroupName Field Functions 
     bool hasAutoProvisioningGroupName() const { return this->autoProvisioningGroupName_ != nullptr;};
     void deleteAutoProvisioningGroupName() { this->autoProvisioningGroupName_ = nullptr;};
-    inline string autoProvisioningGroupName() const { DARABONBA_PTR_GET_DEFAULT(autoProvisioningGroupName_, "") };
+    inline string getAutoProvisioningGroupName() const { DARABONBA_PTR_GET_DEFAULT(autoProvisioningGroupName_, "") };
     inline ModifyAutoProvisioningGroupRequest& setAutoProvisioningGroupName(string autoProvisioningGroupName) { DARABONBA_PTR_SET_VALUE(autoProvisioningGroupName_, autoProvisioningGroupName) };
 
 
     // defaultTargetCapacityType Field Functions 
     bool hasDefaultTargetCapacityType() const { return this->defaultTargetCapacityType_ != nullptr;};
     void deleteDefaultTargetCapacityType() { this->defaultTargetCapacityType_ = nullptr;};
-    inline string defaultTargetCapacityType() const { DARABONBA_PTR_GET_DEFAULT(defaultTargetCapacityType_, "") };
+    inline string getDefaultTargetCapacityType() const { DARABONBA_PTR_GET_DEFAULT(defaultTargetCapacityType_, "") };
     inline ModifyAutoProvisioningGroupRequest& setDefaultTargetCapacityType(string defaultTargetCapacityType) { DARABONBA_PTR_SET_VALUE(defaultTargetCapacityType_, defaultTargetCapacityType) };
 
 
     // excessCapacityTerminationPolicy Field Functions 
     bool hasExcessCapacityTerminationPolicy() const { return this->excessCapacityTerminationPolicy_ != nullptr;};
     void deleteExcessCapacityTerminationPolicy() { this->excessCapacityTerminationPolicy_ = nullptr;};
-    inline string excessCapacityTerminationPolicy() const { DARABONBA_PTR_GET_DEFAULT(excessCapacityTerminationPolicy_, "") };
+    inline string getExcessCapacityTerminationPolicy() const { DARABONBA_PTR_GET_DEFAULT(excessCapacityTerminationPolicy_, "") };
     inline ModifyAutoProvisioningGroupRequest& setExcessCapacityTerminationPolicy(string excessCapacityTerminationPolicy) { DARABONBA_PTR_SET_VALUE(excessCapacityTerminationPolicy_, excessCapacityTerminationPolicy) };
 
 
     // launchTemplateConfig Field Functions 
     bool hasLaunchTemplateConfig() const { return this->launchTemplateConfig_ != nullptr;};
     void deleteLaunchTemplateConfig() { this->launchTemplateConfig_ = nullptr;};
-    inline const vector<ModifyAutoProvisioningGroupRequestLaunchTemplateConfig> & launchTemplateConfig() const { DARABONBA_PTR_GET_CONST(launchTemplateConfig_, vector<ModifyAutoProvisioningGroupRequestLaunchTemplateConfig>) };
-    inline vector<ModifyAutoProvisioningGroupRequestLaunchTemplateConfig> launchTemplateConfig() { DARABONBA_PTR_GET(launchTemplateConfig_, vector<ModifyAutoProvisioningGroupRequestLaunchTemplateConfig>) };
-    inline ModifyAutoProvisioningGroupRequest& setLaunchTemplateConfig(const vector<ModifyAutoProvisioningGroupRequestLaunchTemplateConfig> & launchTemplateConfig) { DARABONBA_PTR_SET_VALUE(launchTemplateConfig_, launchTemplateConfig) };
-    inline ModifyAutoProvisioningGroupRequest& setLaunchTemplateConfig(vector<ModifyAutoProvisioningGroupRequestLaunchTemplateConfig> && launchTemplateConfig) { DARABONBA_PTR_SET_RVALUE(launchTemplateConfig_, launchTemplateConfig) };
+    inline const vector<ModifyAutoProvisioningGroupRequest::LaunchTemplateConfig> & getLaunchTemplateConfig() const { DARABONBA_PTR_GET_CONST(launchTemplateConfig_, vector<ModifyAutoProvisioningGroupRequest::LaunchTemplateConfig>) };
+    inline vector<ModifyAutoProvisioningGroupRequest::LaunchTemplateConfig> getLaunchTemplateConfig() { DARABONBA_PTR_GET(launchTemplateConfig_, vector<ModifyAutoProvisioningGroupRequest::LaunchTemplateConfig>) };
+    inline ModifyAutoProvisioningGroupRequest& setLaunchTemplateConfig(const vector<ModifyAutoProvisioningGroupRequest::LaunchTemplateConfig> & launchTemplateConfig) { DARABONBA_PTR_SET_VALUE(launchTemplateConfig_, launchTemplateConfig) };
+    inline ModifyAutoProvisioningGroupRequest& setLaunchTemplateConfig(vector<ModifyAutoProvisioningGroupRequest::LaunchTemplateConfig> && launchTemplateConfig) { DARABONBA_PTR_SET_RVALUE(launchTemplateConfig_, launchTemplateConfig) };
 
 
     // maxSpotPrice Field Functions 
     bool hasMaxSpotPrice() const { return this->maxSpotPrice_ != nullptr;};
     void deleteMaxSpotPrice() { this->maxSpotPrice_ = nullptr;};
-    inline float maxSpotPrice() const { DARABONBA_PTR_GET_DEFAULT(maxSpotPrice_, 0.0) };
+    inline float getMaxSpotPrice() const { DARABONBA_PTR_GET_DEFAULT(maxSpotPrice_, 0.0) };
     inline ModifyAutoProvisioningGroupRequest& setMaxSpotPrice(float maxSpotPrice) { DARABONBA_PTR_SET_VALUE(maxSpotPrice_, maxSpotPrice) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyAutoProvisioningGroupRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyAutoProvisioningGroupRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // payAsYouGoTargetCapacity Field Functions 
     bool hasPayAsYouGoTargetCapacity() const { return this->payAsYouGoTargetCapacity_ != nullptr;};
     void deletePayAsYouGoTargetCapacity() { this->payAsYouGoTargetCapacity_ = nullptr;};
-    inline string payAsYouGoTargetCapacity() const { DARABONBA_PTR_GET_DEFAULT(payAsYouGoTargetCapacity_, "") };
+    inline string getPayAsYouGoTargetCapacity() const { DARABONBA_PTR_GET_DEFAULT(payAsYouGoTargetCapacity_, "") };
     inline ModifyAutoProvisioningGroupRequest& setPayAsYouGoTargetCapacity(string payAsYouGoTargetCapacity) { DARABONBA_PTR_SET_VALUE(payAsYouGoTargetCapacity_, payAsYouGoTargetCapacity) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyAutoProvisioningGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyAutoProvisioningGroupRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyAutoProvisioningGroupRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // spotTargetCapacity Field Functions 
     bool hasSpotTargetCapacity() const { return this->spotTargetCapacity_ != nullptr;};
     void deleteSpotTargetCapacity() { this->spotTargetCapacity_ = nullptr;};
-    inline string spotTargetCapacity() const { DARABONBA_PTR_GET_DEFAULT(spotTargetCapacity_, "") };
+    inline string getSpotTargetCapacity() const { DARABONBA_PTR_GET_DEFAULT(spotTargetCapacity_, "") };
     inline ModifyAutoProvisioningGroupRequest& setSpotTargetCapacity(string spotTargetCapacity) { DARABONBA_PTR_SET_VALUE(spotTargetCapacity_, spotTargetCapacity) };
 
 
     // terminateInstancesWithExpiration Field Functions 
     bool hasTerminateInstancesWithExpiration() const { return this->terminateInstancesWithExpiration_ != nullptr;};
     void deleteTerminateInstancesWithExpiration() { this->terminateInstancesWithExpiration_ = nullptr;};
-    inline bool terminateInstancesWithExpiration() const { DARABONBA_PTR_GET_DEFAULT(terminateInstancesWithExpiration_, false) };
+    inline bool getTerminateInstancesWithExpiration() const { DARABONBA_PTR_GET_DEFAULT(terminateInstancesWithExpiration_, false) };
     inline ModifyAutoProvisioningGroupRequest& setTerminateInstancesWithExpiration(bool terminateInstancesWithExpiration) { DARABONBA_PTR_SET_VALUE(terminateInstancesWithExpiration_, terminateInstancesWithExpiration) };
 
 
     // totalTargetCapacity Field Functions 
     bool hasTotalTargetCapacity() const { return this->totalTargetCapacity_ != nullptr;};
     void deleteTotalTargetCapacity() { this->totalTargetCapacity_ = nullptr;};
-    inline string totalTargetCapacity() const { DARABONBA_PTR_GET_DEFAULT(totalTargetCapacity_, "") };
+    inline string getTotalTargetCapacity() const { DARABONBA_PTR_GET_DEFAULT(totalTargetCapacity_, "") };
     inline ModifyAutoProvisioningGroupRequest& setTotalTargetCapacity(string totalTargetCapacity) { DARABONBA_PTR_SET_VALUE(totalTargetCapacity_, totalTargetCapacity) };
 
 
   protected:
     // The auto-provisioning group ID.
-    std::shared_ptr<string> autoProvisioningGroupId_ = nullptr;
+    shared_ptr<string> autoProvisioningGroupId_ {};
     // The name of the auto-provisioning group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://.[ It can contain letters, digits, colons (:), underscores (_), and hyphens (-).](http://https://。、（:）、（_）（-）。)
-    std::shared_ptr<string> autoProvisioningGroupName_ = nullptr;
+    shared_ptr<string> autoProvisioningGroupName_ {};
     // The type of supplemental instances. When the sum of the PayAsYouGoTargetCapacity and SpotTargetCapacity values is smaller than the TotalTargetCapacity value, the auto-provisioning group creates instances of the specified type to meet the target capacity. Valid values:
     // 
     // *   PayAsYouGo: pay-as-you-go instances
     // *   Spot: spot instances
-    std::shared_ptr<string> defaultTargetCapacityType_ = nullptr;
+    shared_ptr<string> defaultTargetCapacityType_ {};
     // Specifies whether to release the removed instances when the real-time capacity of the auto-provisioning group exceeds the target capacity and a scale-in event is triggered. Valid values:
     // 
     // *   termination: releases the removed instances.
     // *   no-termination: removes the instances from the auto-provisioning group but does not release them.
-    std::shared_ptr<string> excessCapacityTerminationPolicy_ = nullptr;
+    shared_ptr<string> excessCapacityTerminationPolicy_ {};
     // The extended configurations of the launch template.
-    std::shared_ptr<vector<ModifyAutoProvisioningGroupRequestLaunchTemplateConfig>> launchTemplateConfig_ = nullptr;
+    shared_ptr<vector<ModifyAutoProvisioningGroupRequest::LaunchTemplateConfig>> launchTemplateConfig_ {};
     // The maximum price of spot instances in the auto-provisioning group.
     // 
     // > When both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the smaller one of the two parameter values is used. The LaunchTemplateConfig.N.MaxPrice parameter is specified when the auto-provisioning group is created, and cannot be modified.
-    std::shared_ptr<float> maxSpotPrice_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<float> maxSpotPrice_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The target capacity of pay-as-you-go instances in the auto-provisioning group. Valid values: Set this parameter to a value smaller than the TotalTargetCapacity value.
-    std::shared_ptr<string> payAsYouGoTargetCapacity_ = nullptr;
+    shared_ptr<string> payAsYouGoTargetCapacity_ {};
     // The region ID of the auto-provisioning group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The target capacity of spot instances in the auto-provisioning group. Valid values: Set this parameter to a value smaller than the TotalTargetCapacity value.
-    std::shared_ptr<string> spotTargetCapacity_ = nullptr;
+    shared_ptr<string> spotTargetCapacity_ {};
     // Specifies whether to release instances that are located in the auto-provisioning group after the group expires. Valid values:
     // 
     // *   true: releases instances that are located in the auto-provisioning group.
     // *   false: removes instances from the auto-provisioning group but does not release them.
-    std::shared_ptr<bool> terminateInstancesWithExpiration_ = nullptr;
+    shared_ptr<bool> terminateInstancesWithExpiration_ {};
     // The total target capacity of the auto-provisioning group. The value must be a positive integer.
     // 
     // The total target capacity of the auto-provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by the PayAsYouGoTargetCapacity parameter as well as the target capacity of spot instances specified by the SpotTargetCapacity parameter.
-    std::shared_ptr<string> totalTargetCapacity_ = nullptr;
+    shared_ptr<string> totalTargetCapacity_ {};
   };
 
   } // namespace Models

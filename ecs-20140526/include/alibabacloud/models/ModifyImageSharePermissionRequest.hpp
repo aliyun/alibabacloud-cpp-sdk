@@ -51,13 +51,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addAccount_ == nullptr
-        && return this->dryRun_ == nullptr && return this->imageId_ == nullptr && return this->isPublic_ == nullptr && return this->launchPermission_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->removeAccount_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->imageId_ == nullptr && this->isPublic_ == nullptr && this->launchPermission_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->removeAccount_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // addAccount Field Functions 
     bool hasAddAccount() const { return this->addAccount_ != nullptr;};
     void deleteAddAccount() { this->addAccount_ = nullptr;};
-    inline const vector<string> & addAccount() const { DARABONBA_PTR_GET_CONST(addAccount_, vector<string>) };
-    inline vector<string> addAccount() { DARABONBA_PTR_GET(addAccount_, vector<string>) };
+    inline const vector<string> & getAddAccount() const { DARABONBA_PTR_GET_CONST(addAccount_, vector<string>) };
+    inline vector<string> getAddAccount() { DARABONBA_PTR_GET(addAccount_, vector<string>) };
     inline ModifyImageSharePermissionRequest& setAddAccount(const vector<string> & addAccount) { DARABONBA_PTR_SET_VALUE(addAccount_, addAccount) };
     inline ModifyImageSharePermissionRequest& setAddAccount(vector<string> && addAccount) { DARABONBA_PTR_SET_RVALUE(addAccount_, addAccount) };
 
@@ -65,57 +65,57 @@ namespace Models
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ModifyImageSharePermissionRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ModifyImageSharePermissionRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // isPublic Field Functions 
     bool hasIsPublic() const { return this->isPublic_ != nullptr;};
     void deleteIsPublic() { this->isPublic_ = nullptr;};
-    inline bool isPublic() const { DARABONBA_PTR_GET_DEFAULT(isPublic_, false) };
+    inline bool getIsPublic() const { DARABONBA_PTR_GET_DEFAULT(isPublic_, false) };
     inline ModifyImageSharePermissionRequest& setIsPublic(bool isPublic) { DARABONBA_PTR_SET_VALUE(isPublic_, isPublic) };
 
 
     // launchPermission Field Functions 
     bool hasLaunchPermission() const { return this->launchPermission_ != nullptr;};
     void deleteLaunchPermission() { this->launchPermission_ = nullptr;};
-    inline string launchPermission() const { DARABONBA_PTR_GET_DEFAULT(launchPermission_, "") };
+    inline string getLaunchPermission() const { DARABONBA_PTR_GET_DEFAULT(launchPermission_, "") };
     inline ModifyImageSharePermissionRequest& setLaunchPermission(string launchPermission) { DARABONBA_PTR_SET_VALUE(launchPermission_, launchPermission) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyImageSharePermissionRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyImageSharePermissionRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyImageSharePermissionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // removeAccount Field Functions 
     bool hasRemoveAccount() const { return this->removeAccount_ != nullptr;};
     void deleteRemoveAccount() { this->removeAccount_ = nullptr;};
-    inline const vector<string> & removeAccount() const { DARABONBA_PTR_GET_CONST(removeAccount_, vector<string>) };
-    inline vector<string> removeAccount() { DARABONBA_PTR_GET(removeAccount_, vector<string>) };
+    inline const vector<string> & getRemoveAccount() const { DARABONBA_PTR_GET_CONST(removeAccount_, vector<string>) };
+    inline vector<string> getRemoveAccount() { DARABONBA_PTR_GET(removeAccount_, vector<string>) };
     inline ModifyImageSharePermissionRequest& setRemoveAccount(const vector<string> & removeAccount) { DARABONBA_PTR_SET_VALUE(removeAccount_, removeAccount) };
     inline ModifyImageSharePermissionRequest& setRemoveAccount(vector<string> && removeAccount) { DARABONBA_PTR_SET_RVALUE(removeAccount_, removeAccount) };
 
@@ -123,46 +123,46 @@ namespace Models
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyImageSharePermissionRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyImageSharePermissionRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
   protected:
     // The IDs of Alibaba Cloud accounts to which you want to share the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
-    std::shared_ptr<vector<string>> addAccount_ = nullptr;
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<vector<string>> addAccount_ {};
+    shared_ptr<bool> dryRun_ {};
     // The ID of the shared custom image.
     // 
     // >  You can share images encrypted by using CMKs but cannot share images encrypted by using service keys. When you share an image encrypted by using a service key, an error is reported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // Specifies whether to publish or unpublish a community image. Valid values:
     // 
     // *   true: publishes the custom image as a community image.
     // *   false: unpublishes a community image. The unpublish operation takes effect only on community images.
     // 
     // Default value: false.
-    std::shared_ptr<bool> isPublic_ = nullptr;
+    shared_ptr<bool> isPublic_ {};
     // > This parameter is in invitational preview and is not publicly available.
-    std::shared_ptr<string> launchPermission_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> launchPermission_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of Alibaba Cloud accounts from which you want to unshare the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
-    std::shared_ptr<vector<string>> removeAccount_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<vector<string>> removeAccount_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceTypeFamilies_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // instanceTypeFamilies Field Functions 
     bool hasInstanceTypeFamilies() const { return this->instanceTypeFamilies_ != nullptr;};
     void deleteInstanceTypeFamilies() { this->instanceTypeFamilies_ = nullptr;};
-    inline string instanceTypeFamilies() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamilies_, "") };
+    inline string getInstanceTypeFamilies() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamilies_, "") };
     inline DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody& setInstanceTypeFamilies(string instanceTypeFamilies) { DARABONBA_PTR_SET_VALUE(instanceTypeFamilies_, instanceTypeFamilies) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The instance families that support the deployment strategy.
-    std::shared_ptr<string> instanceTypeFamilies_ = nullptr;
+    shared_ptr<string> instanceTypeFamilies_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

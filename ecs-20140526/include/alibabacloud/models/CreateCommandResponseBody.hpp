@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commandId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // commandId Field Functions 
     bool hasCommandId() const { return this->commandId_ != nullptr;};
     void deleteCommandId() { this->commandId_ = nullptr;};
-    inline string commandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
+    inline string getCommandId() const { DARABONBA_PTR_GET_DEFAULT(commandId_, "") };
     inline CreateCommandResponseBody& setCommandId(string commandId) { DARABONBA_PTR_SET_VALUE(commandId_, commandId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCommandResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the command.
-    std::shared_ptr<string> commandId_ = nullptr;
+    shared_ptr<string> commandId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

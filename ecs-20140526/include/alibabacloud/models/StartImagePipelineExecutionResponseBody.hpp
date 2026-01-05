@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->executionId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // executionId Field Functions 
     bool hasExecutionId() const { return this->executionId_ != nullptr;};
     void deleteExecutionId() { this->executionId_ = nullptr;};
-    inline string executionId() const { DARABONBA_PTR_GET_DEFAULT(executionId_, "") };
+    inline string getExecutionId() const { DARABONBA_PTR_GET_DEFAULT(executionId_, "") };
     inline StartImagePipelineExecutionResponseBody& setExecutionId(string executionId) { DARABONBA_PTR_SET_VALUE(executionId_, executionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartImagePipelineExecutionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the image creation task.
-    std::shared_ptr<string> executionId_ = nullptr;
+    shared_ptr<string> executionId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

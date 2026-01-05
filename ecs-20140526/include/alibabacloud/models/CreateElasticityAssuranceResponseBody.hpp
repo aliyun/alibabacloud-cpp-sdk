@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderId_ == nullptr
-        && return this->privatePoolOptionsId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->privatePoolOptionsId_ == nullptr && this->requestId_ == nullptr; };
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline CreateElasticityAssuranceResponseBody& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // privatePoolOptionsId Field Functions 
     bool hasPrivatePoolOptionsId() const { return this->privatePoolOptionsId_ != nullptr;};
     void deletePrivatePoolOptionsId() { this->privatePoolOptionsId_ = nullptr;};
-    inline string privatePoolOptionsId() const { DARABONBA_PTR_GET_DEFAULT(privatePoolOptionsId_, "") };
+    inline string getPrivatePoolOptionsId() const { DARABONBA_PTR_GET_DEFAULT(privatePoolOptionsId_, "") };
     inline CreateElasticityAssuranceResponseBody& setPrivatePoolOptionsId(string privatePoolOptionsId) { DARABONBA_PTR_SET_VALUE(privatePoolOptionsId_, privatePoolOptionsId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateElasticityAssuranceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The order ID.
-    std::shared_ptr<string> orderId_ = nullptr;
+    shared_ptr<string> orderId_ {};
     // The elasticity assurance ID.
-    std::shared_ptr<string> privatePoolOptionsId_ = nullptr;
+    shared_ptr<string> privatePoolOptionsId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

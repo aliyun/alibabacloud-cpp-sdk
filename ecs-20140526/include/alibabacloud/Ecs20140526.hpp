@@ -4480,6 +4480,23 @@ namespace Ecs20140526
       Models::DescribeLimitationResponse describeLimitation(const Models::DescribeLimitationRequest &request);
 
       /**
+       * @summary Queries the lock information of a snapshot, such as snapshot lock status and lock configuration.
+       *
+       * @param request DescribeLockedSnapshotsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLockedSnapshotsResponse
+       */
+      Models::DescribeLockedSnapshotsResponse describeLockedSnapshotsWithOptions(const Models::DescribeLockedSnapshotsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the lock information of a snapshot, such as snapshot lock status and lock configuration.
+       *
+       * @param request DescribeLockedSnapshotsRequest
+       * @return DescribeLockedSnapshotsResponse
+       */
+      Models::DescribeLockedSnapshotsResponse describeLockedSnapshots(const Models::DescribeLockedSnapshotsRequest &request);
+
+      /**
        * @summary Queries managed instances.
        *
        * @description During a paged query, when you call the DescribeManagedInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeManagedInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
@@ -5855,7 +5872,7 @@ namespace Ecs20140526
       Models::DisableDiskEncryptionByDefaultResponse disableDiskEncryptionByDefault(const Models::DisableDiskEncryptionByDefaultRequest &request);
 
       /**
-       * @summary 禁用弹性网卡QoS限速设置
+       * @summary Disables Elastic Network Interface (ENI) QoS speed setting.
        *
        * @param request DisableNetworkInterfaceQoSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5864,7 +5881,7 @@ namespace Ecs20140526
       Models::DisableNetworkInterfaceQoSResponse disableNetworkInterfaceQoSWithOptions(const Models::DisableNetworkInterfaceQoSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用弹性网卡QoS限速设置
+       * @summary Disables Elastic Network Interface (ENI) QoS speed setting.
        *
        * @param request DisableNetworkInterfaceQoSRequest
        * @return DisableNetworkInterfaceQoSResponse
@@ -6607,6 +6624,33 @@ namespace Ecs20140526
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary Lock the snapshot in compliance mode to prevent it from being accidentally or maliciously deleted. During the snapshot lock period, no user can delete it.
+       *
+       * @description You can also use this operation to reconfigure locked snapshots. The configurable items depend on the lock mode and lock status:
+       * *   If a snapshot is locked in compliance mode and is in a cooling-off period, you can extend or shorten the cooling-off period and extend or shorten the lock duration.
+       * *   If the snapshot is locked in compliance mode and the cooling-off period has expired, you can only extend the lock duration.
+       * >  If you reconfigure a locked snapshot during the cooling-off period, the system will be regarded as a relock operation, and all lock parameters will be reset instead of individual adjustments.
+       *
+       * @param request LockSnapshotRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LockSnapshotResponse
+       */
+      Models::LockSnapshotResponse lockSnapshotWithOptions(const Models::LockSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lock the snapshot in compliance mode to prevent it from being accidentally or maliciously deleted. During the snapshot lock period, no user can delete it.
+       *
+       * @description You can also use this operation to reconfigure locked snapshots. The configurable items depend on the lock mode and lock status:
+       * *   If a snapshot is locked in compliance mode and is in a cooling-off period, you can extend or shorten the cooling-off period and extend or shorten the lock duration.
+       * *   If the snapshot is locked in compliance mode and the cooling-off period has expired, you can only extend the lock duration.
+       * >  If you reconfigure a locked snapshot during the cooling-off period, the system will be regarded as a relock operation, and all lock parameters will be reset instead of individual adjustments.
+       *
+       * @param request LockSnapshotRequest
+       * @return LockSnapshotResponse
+       */
+      Models::LockSnapshotResponse lockSnapshot(const Models::LockSnapshotRequest &request);
 
       /**
        * @summary Modifies the configurations of an auto provisioning group.
@@ -9955,6 +9999,23 @@ namespace Ecs20140526
        * @return UnassociateHaVipResponse
        */
       Models::UnassociateHaVipResponse unassociateHaVip(const Models::UnassociateHaVipRequest &request);
+
+      /**
+       * @summary Unlock snapshots that are locked in compliance mode but are still in a cooling-off period. If the snapshot is locked in compliance mode and the cooling-off period has ended, it cannot be unlocked.
+       *
+       * @param request UnlockSnapshotRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnlockSnapshotResponse
+       */
+      Models::UnlockSnapshotResponse unlockSnapshotWithOptions(const Models::UnlockSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Unlock snapshots that are locked in compliance mode but are still in a cooling-off period. If the snapshot is locked in compliance mode and the cooling-off period has ended, it cannot be unlocked.
+       *
+       * @param request UnlockSnapshotRequest
+       * @return UnlockSnapshotResponse
+       */
+      Models::UnlockSnapshotResponse unlockSnapshot(const Models::UnlockSnapshotRequest &request);
 
       /**
        * @summary Removes tags from Elastic Compute Service (ECS) resources. After a tag is removed from a resource, the tag is automatically deleted if it is not added to other resources.

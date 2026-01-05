@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEINSTANCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeInstancesRequestFilter.hpp>
-#include <alibabacloud/models/DescribeInstancesRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -114,30 +112,120 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of tag N of the instance. Valid values of N: 1 to 20.
+      // 
+      // If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      shared_ptr<string> key_ {};
+      // The value of tag N of the instance. Valid values of N: 1 to 20.
+      shared_ptr<string> value_ {};
+    };
+
+    class Filter : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Filter& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Filter& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Filter() = default ;
+      Filter(const Filter &) = default ;
+      Filter(Filter &&) = default ;
+      Filter(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Filter() = default ;
+      Filter& operator=(const Filter &) = default ;
+      Filter& operator=(Filter &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Filter& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Filter& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of filter 1 used to query resources. Set the value to `CreationStartTime`. You can specify a time by setting both `Filter.1.Key` and `Filter.1.Value` to query resources that were created after the specified time.
+      shared_ptr<string> key_ {};
+      // The value of filter 1 used to query resources. Set the value to a time. If you specify this parameter, you must also specify `Filter.1.Key`. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->filter_ == nullptr
-        && return this->additionalAttributes_ == nullptr && return this->deviceAvailable_ == nullptr && return this->dryRun_ == nullptr && return this->eipAddresses_ == nullptr && return this->hpcClusterId_ == nullptr
-        && return this->httpEndpoint_ == nullptr && return this->httpPutResponseHopLimit_ == nullptr && return this->httpTokens_ == nullptr && return this->imageId_ == nullptr && return this->innerIpAddresses_ == nullptr
-        && return this->instanceChargeType_ == nullptr && return this->instanceIds_ == nullptr && return this->instanceName_ == nullptr && return this->instanceNetworkType_ == nullptr && return this->instanceType_ == nullptr
-        && return this->instanceTypeFamily_ == nullptr && return this->internetChargeType_ == nullptr && return this->ioOptimized_ == nullptr && return this->ipv6Address_ == nullptr && return this->keyPairName_ == nullptr
-        && return this->lockReason_ == nullptr && return this->maxResults_ == nullptr && return this->needSaleCycle_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->privateIpAddresses_ == nullptr && return this->publicIpAddresses_ == nullptr
-        && return this->rdmaIpAddresses_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->securityGroupId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && this->additionalAttributes_ == nullptr && this->deviceAvailable_ == nullptr && this->dryRun_ == nullptr && this->eipAddresses_ == nullptr && this->hpcClusterId_ == nullptr
+        && this->httpEndpoint_ == nullptr && this->httpPutResponseHopLimit_ == nullptr && this->httpTokens_ == nullptr && this->imageId_ == nullptr && this->innerIpAddresses_ == nullptr
+        && this->instanceChargeType_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr && this->instanceNetworkType_ == nullptr && this->instanceType_ == nullptr
+        && this->instanceTypeFamily_ == nullptr && this->internetChargeType_ == nullptr && this->ioOptimized_ == nullptr && this->ipv6Address_ == nullptr && this->keyPairName_ == nullptr
+        && this->lockReason_ == nullptr && this->maxResults_ == nullptr && this->needSaleCycle_ == nullptr && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->privateIpAddresses_ == nullptr && this->publicIpAddresses_ == nullptr
+        && this->rdmaIpAddresses_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->securityGroupId_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline const vector<DescribeInstancesRequestFilter> & filter() const { DARABONBA_PTR_GET_CONST(filter_, vector<DescribeInstancesRequestFilter>) };
-    inline vector<DescribeInstancesRequestFilter> filter() { DARABONBA_PTR_GET(filter_, vector<DescribeInstancesRequestFilter>) };
-    inline DescribeInstancesRequest& setFilter(const vector<DescribeInstancesRequestFilter> & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
-    inline DescribeInstancesRequest& setFilter(vector<DescribeInstancesRequestFilter> && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
+    inline const vector<DescribeInstancesRequest::Filter> & getFilter() const { DARABONBA_PTR_GET_CONST(filter_, vector<DescribeInstancesRequest::Filter>) };
+    inline vector<DescribeInstancesRequest::Filter> getFilter() { DARABONBA_PTR_GET(filter_, vector<DescribeInstancesRequest::Filter>) };
+    inline DescribeInstancesRequest& setFilter(const vector<DescribeInstancesRequest::Filter> & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
+    inline DescribeInstancesRequest& setFilter(vector<DescribeInstancesRequest::Filter> && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
 
 
     // additionalAttributes Field Functions 
     bool hasAdditionalAttributes() const { return this->additionalAttributes_ != nullptr;};
     void deleteAdditionalAttributes() { this->additionalAttributes_ = nullptr;};
-    inline const vector<string> & additionalAttributes() const { DARABONBA_PTR_GET_CONST(additionalAttributes_, vector<string>) };
-    inline vector<string> additionalAttributes() { DARABONBA_PTR_GET(additionalAttributes_, vector<string>) };
+    inline const vector<string> & getAdditionalAttributes() const { DARABONBA_PTR_GET_CONST(additionalAttributes_, vector<string>) };
+    inline vector<string> getAdditionalAttributes() { DARABONBA_PTR_GET(additionalAttributes_, vector<string>) };
     inline DescribeInstancesRequest& setAdditionalAttributes(const vector<string> & additionalAttributes) { DARABONBA_PTR_SET_VALUE(additionalAttributes_, additionalAttributes) };
     inline DescribeInstancesRequest& setAdditionalAttributes(vector<string> && additionalAttributes) { DARABONBA_PTR_SET_RVALUE(additionalAttributes_, additionalAttributes) };
 
@@ -145,127 +233,127 @@ namespace Models
     // deviceAvailable Field Functions 
     bool hasDeviceAvailable() const { return this->deviceAvailable_ != nullptr;};
     void deleteDeviceAvailable() { this->deviceAvailable_ = nullptr;};
-    inline bool deviceAvailable() const { DARABONBA_PTR_GET_DEFAULT(deviceAvailable_, false) };
+    inline bool getDeviceAvailable() const { DARABONBA_PTR_GET_DEFAULT(deviceAvailable_, false) };
     inline DescribeInstancesRequest& setDeviceAvailable(bool deviceAvailable) { DARABONBA_PTR_SET_VALUE(deviceAvailable_, deviceAvailable) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline DescribeInstancesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // eipAddresses Field Functions 
     bool hasEipAddresses() const { return this->eipAddresses_ != nullptr;};
     void deleteEipAddresses() { this->eipAddresses_ = nullptr;};
-    inline string eipAddresses() const { DARABONBA_PTR_GET_DEFAULT(eipAddresses_, "") };
+    inline string getEipAddresses() const { DARABONBA_PTR_GET_DEFAULT(eipAddresses_, "") };
     inline DescribeInstancesRequest& setEipAddresses(string eipAddresses) { DARABONBA_PTR_SET_VALUE(eipAddresses_, eipAddresses) };
 
 
     // hpcClusterId Field Functions 
     bool hasHpcClusterId() const { return this->hpcClusterId_ != nullptr;};
     void deleteHpcClusterId() { this->hpcClusterId_ = nullptr;};
-    inline string hpcClusterId() const { DARABONBA_PTR_GET_DEFAULT(hpcClusterId_, "") };
+    inline string getHpcClusterId() const { DARABONBA_PTR_GET_DEFAULT(hpcClusterId_, "") };
     inline DescribeInstancesRequest& setHpcClusterId(string hpcClusterId) { DARABONBA_PTR_SET_VALUE(hpcClusterId_, hpcClusterId) };
 
 
     // httpEndpoint Field Functions 
     bool hasHttpEndpoint() const { return this->httpEndpoint_ != nullptr;};
     void deleteHttpEndpoint() { this->httpEndpoint_ = nullptr;};
-    inline string httpEndpoint() const { DARABONBA_PTR_GET_DEFAULT(httpEndpoint_, "") };
+    inline string getHttpEndpoint() const { DARABONBA_PTR_GET_DEFAULT(httpEndpoint_, "") };
     inline DescribeInstancesRequest& setHttpEndpoint(string httpEndpoint) { DARABONBA_PTR_SET_VALUE(httpEndpoint_, httpEndpoint) };
 
 
     // httpPutResponseHopLimit Field Functions 
     bool hasHttpPutResponseHopLimit() const { return this->httpPutResponseHopLimit_ != nullptr;};
     void deleteHttpPutResponseHopLimit() { this->httpPutResponseHopLimit_ = nullptr;};
-    inline int32_t httpPutResponseHopLimit() const { DARABONBA_PTR_GET_DEFAULT(httpPutResponseHopLimit_, 0) };
+    inline int32_t getHttpPutResponseHopLimit() const { DARABONBA_PTR_GET_DEFAULT(httpPutResponseHopLimit_, 0) };
     inline DescribeInstancesRequest& setHttpPutResponseHopLimit(int32_t httpPutResponseHopLimit) { DARABONBA_PTR_SET_VALUE(httpPutResponseHopLimit_, httpPutResponseHopLimit) };
 
 
     // httpTokens Field Functions 
     bool hasHttpTokens() const { return this->httpTokens_ != nullptr;};
     void deleteHttpTokens() { this->httpTokens_ = nullptr;};
-    inline string httpTokens() const { DARABONBA_PTR_GET_DEFAULT(httpTokens_, "") };
+    inline string getHttpTokens() const { DARABONBA_PTR_GET_DEFAULT(httpTokens_, "") };
     inline DescribeInstancesRequest& setHttpTokens(string httpTokens) { DARABONBA_PTR_SET_VALUE(httpTokens_, httpTokens) };
 
 
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline DescribeInstancesRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // innerIpAddresses Field Functions 
     bool hasInnerIpAddresses() const { return this->innerIpAddresses_ != nullptr;};
     void deleteInnerIpAddresses() { this->innerIpAddresses_ = nullptr;};
-    inline string innerIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(innerIpAddresses_, "") };
+    inline string getInnerIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(innerIpAddresses_, "") };
     inline DescribeInstancesRequest& setInnerIpAddresses(string innerIpAddresses) { DARABONBA_PTR_SET_VALUE(innerIpAddresses_, innerIpAddresses) };
 
 
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
-    inline string instanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline DescribeInstancesRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline DescribeInstancesRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline DescribeInstancesRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // instanceNetworkType Field Functions 
     bool hasInstanceNetworkType() const { return this->instanceNetworkType_ != nullptr;};
     void deleteInstanceNetworkType() { this->instanceNetworkType_ = nullptr;};
-    inline string instanceNetworkType() const { DARABONBA_PTR_GET_DEFAULT(instanceNetworkType_, "") };
+    inline string getInstanceNetworkType() const { DARABONBA_PTR_GET_DEFAULT(instanceNetworkType_, "") };
     inline DescribeInstancesRequest& setInstanceNetworkType(string instanceNetworkType) { DARABONBA_PTR_SET_VALUE(instanceNetworkType_, instanceNetworkType) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline DescribeInstancesRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // instanceTypeFamily Field Functions 
     bool hasInstanceTypeFamily() const { return this->instanceTypeFamily_ != nullptr;};
     void deleteInstanceTypeFamily() { this->instanceTypeFamily_ = nullptr;};
-    inline string instanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamily_, "") };
+    inline string getInstanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamily_, "") };
     inline DescribeInstancesRequest& setInstanceTypeFamily(string instanceTypeFamily) { DARABONBA_PTR_SET_VALUE(instanceTypeFamily_, instanceTypeFamily) };
 
 
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
-    inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline string getInternetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
     inline DescribeInstancesRequest& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
 
 
     // ioOptimized Field Functions 
     bool hasIoOptimized() const { return this->ioOptimized_ != nullptr;};
     void deleteIoOptimized() { this->ioOptimized_ = nullptr;};
-    inline bool ioOptimized() const { DARABONBA_PTR_GET_DEFAULT(ioOptimized_, false) };
+    inline bool getIoOptimized() const { DARABONBA_PTR_GET_DEFAULT(ioOptimized_, false) };
     inline DescribeInstancesRequest& setIoOptimized(bool ioOptimized) { DARABONBA_PTR_SET_VALUE(ioOptimized_, ioOptimized) };
 
 
     // ipv6Address Field Functions 
     bool hasIpv6Address() const { return this->ipv6Address_ != nullptr;};
     void deleteIpv6Address() { this->ipv6Address_ = nullptr;};
-    inline const vector<string> & ipv6Address() const { DARABONBA_PTR_GET_CONST(ipv6Address_, vector<string>) };
-    inline vector<string> ipv6Address() { DARABONBA_PTR_GET(ipv6Address_, vector<string>) };
+    inline const vector<string> & getIpv6Address() const { DARABONBA_PTR_GET_CONST(ipv6Address_, vector<string>) };
+    inline vector<string> getIpv6Address() { DARABONBA_PTR_GET(ipv6Address_, vector<string>) };
     inline DescribeInstancesRequest& setIpv6Address(const vector<string> & ipv6Address) { DARABONBA_PTR_SET_VALUE(ipv6Address_, ipv6Address) };
     inline DescribeInstancesRequest& setIpv6Address(vector<string> && ipv6Address) { DARABONBA_PTR_SET_RVALUE(ipv6Address_, ipv6Address) };
 
@@ -273,176 +361,176 @@ namespace Models
     // keyPairName Field Functions 
     bool hasKeyPairName() const { return this->keyPairName_ != nullptr;};
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
-    inline string keyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
+    inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline DescribeInstancesRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
 
 
     // lockReason Field Functions 
     bool hasLockReason() const { return this->lockReason_ != nullptr;};
     void deleteLockReason() { this->lockReason_ = nullptr;};
-    inline string lockReason() const { DARABONBA_PTR_GET_DEFAULT(lockReason_, "") };
+    inline string getLockReason() const { DARABONBA_PTR_GET_DEFAULT(lockReason_, "") };
     inline DescribeInstancesRequest& setLockReason(string lockReason) { DARABONBA_PTR_SET_VALUE(lockReason_, lockReason) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeInstancesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // needSaleCycle Field Functions 
     bool hasNeedSaleCycle() const { return this->needSaleCycle_ != nullptr;};
     void deleteNeedSaleCycle() { this->needSaleCycle_ = nullptr;};
-    inline bool needSaleCycle() const { DARABONBA_PTR_GET_DEFAULT(needSaleCycle_, false) };
+    inline bool getNeedSaleCycle() const { DARABONBA_PTR_GET_DEFAULT(needSaleCycle_, false) };
     inline DescribeInstancesRequest& setNeedSaleCycle(bool needSaleCycle) { DARABONBA_PTR_SET_VALUE(needSaleCycle_, needSaleCycle) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeInstancesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DescribeInstancesRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeInstancesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeInstancesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // privateIpAddresses Field Functions 
     bool hasPrivateIpAddresses() const { return this->privateIpAddresses_ != nullptr;};
     void deletePrivateIpAddresses() { this->privateIpAddresses_ = nullptr;};
-    inline string privateIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddresses_, "") };
+    inline string getPrivateIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddresses_, "") };
     inline DescribeInstancesRequest& setPrivateIpAddresses(string privateIpAddresses) { DARABONBA_PTR_SET_VALUE(privateIpAddresses_, privateIpAddresses) };
 
 
     // publicIpAddresses Field Functions 
     bool hasPublicIpAddresses() const { return this->publicIpAddresses_ != nullptr;};
     void deletePublicIpAddresses() { this->publicIpAddresses_ = nullptr;};
-    inline string publicIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(publicIpAddresses_, "") };
+    inline string getPublicIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(publicIpAddresses_, "") };
     inline DescribeInstancesRequest& setPublicIpAddresses(string publicIpAddresses) { DARABONBA_PTR_SET_VALUE(publicIpAddresses_, publicIpAddresses) };
 
 
     // rdmaIpAddresses Field Functions 
     bool hasRdmaIpAddresses() const { return this->rdmaIpAddresses_ != nullptr;};
     void deleteRdmaIpAddresses() { this->rdmaIpAddresses_ = nullptr;};
-    inline string rdmaIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(rdmaIpAddresses_, "") };
+    inline string getRdmaIpAddresses() const { DARABONBA_PTR_GET_DEFAULT(rdmaIpAddresses_, "") };
     inline DescribeInstancesRequest& setRdmaIpAddresses(string rdmaIpAddresses) { DARABONBA_PTR_SET_VALUE(rdmaIpAddresses_, rdmaIpAddresses) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeInstancesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeInstancesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeInstancesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeInstancesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline DescribeInstancesRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeInstancesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<DescribeInstancesRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<DescribeInstancesRequestTag>) };
-    inline vector<DescribeInstancesRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<DescribeInstancesRequestTag>) };
-    inline DescribeInstancesRequest& setTag(const vector<DescribeInstancesRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline DescribeInstancesRequest& setTag(vector<DescribeInstancesRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<DescribeInstancesRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<DescribeInstancesRequest::Tag>) };
+    inline vector<DescribeInstancesRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<DescribeInstancesRequest::Tag>) };
+    inline DescribeInstancesRequest& setTag(const vector<DescribeInstancesRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline DescribeInstancesRequest& setTag(vector<DescribeInstancesRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline DescribeInstancesRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline DescribeInstancesRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline DescribeInstancesRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
-    std::shared_ptr<vector<DescribeInstancesRequestFilter>> filter_ = nullptr;
+    shared_ptr<vector<DescribeInstancesRequest::Filter>> filter_ {};
     // The additional instance attributes.
-    std::shared_ptr<vector<string>> additionalAttributes_ = nullptr;
+    shared_ptr<vector<string>> additionalAttributes_ {};
     // >  This parameter is in invitational preview and is not publicly available.
-    std::shared_ptr<bool> deviceAvailable_ = nullptr;
+    shared_ptr<bool> deviceAvailable_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
     // *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
     // *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
     // 
     // Default value: false.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The elastic IP addresses (EIPs) of instances. This parameter is valid when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
-    std::shared_ptr<string> eipAddresses_ = nullptr;
+    shared_ptr<string> eipAddresses_ {};
     // The ID of the high-performance computing (HPC) cluster to which the instance belongs.
-    std::shared_ptr<string> hpcClusterId_ = nullptr;
+    shared_ptr<string> hpcClusterId_ {};
     // Specifies whether the access channel is enabled for instance metadata. Valid values:
     // 
     // *   enabled
@@ -451,9 +539,9 @@ namespace Models
     // Default value: enabled.
     // 
     // >  For information about instance metadata, see [Access instance metadata](https://help.aliyun.com/document_detail/49122.html).
-    std::shared_ptr<string> httpEndpoint_ = nullptr;
+    shared_ptr<string> httpEndpoint_ {};
     // >  This parameter is in invitational preview and is not publicly available.
-    std::shared_ptr<int32_t> httpPutResponseHopLimit_ = nullptr;
+    shared_ptr<int32_t> httpPutResponseHopLimit_ {};
     // Specifies whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
     // 
     // *   optional: The security hardening mode (IMDSv2) is not forcefully used.
@@ -462,45 +550,45 @@ namespace Models
     // Default value: optional.
     // 
     // >  For information about modes of accessing instance metadata, see [Access instance metadata](https://help.aliyun.com/document_detail/150575.html).
-    std::shared_ptr<string> httpTokens_ = nullptr;
+    shared_ptr<string> httpTokens_ {};
     // The ID of the image.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The internal IP addresses of instances located in the classic network. This parameter is valid when InstanceNetworkType is set to classic. The value can be a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
-    std::shared_ptr<string> innerIpAddresses_ = nullptr;
+    shared_ptr<string> innerIpAddresses_ {};
     // The billing method of the instance. Valid values:
     // 
     // *   PostPaid: pay-as-you-go
     // *   PrePaid: subscription
-    std::shared_ptr<string> instanceChargeType_ = nullptr;
+    shared_ptr<string> instanceChargeType_ {};
     // The ID of the instance. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // The name of the instance. Fuzzy search with asterisk (\\*) wildcard characters is supported.
-    std::shared_ptr<string> instanceName_ = nullptr;
+    shared_ptr<string> instanceName_ {};
     // The network type of the instance. Valid values:
     // 
     // *   classic
     // *   vpc
-    std::shared_ptr<string> instanceNetworkType_ = nullptr;
+    shared_ptr<string> instanceNetworkType_ {};
     // The instance type of the instance.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
     // The instance family of the instance.
-    std::shared_ptr<string> instanceTypeFamily_ = nullptr;
+    shared_ptr<string> instanceTypeFamily_ {};
     // The billing method for network usage. Valid values:
     // 
     // *   PayByBandwidth
     // *   PayByTraffic
     // 
     // >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
-    std::shared_ptr<string> internetChargeType_ = nullptr;
+    shared_ptr<string> internetChargeType_ {};
     // Specifies whether the instance is an I/O optimized instance. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> ioOptimized_ = nullptr;
+    shared_ptr<bool> ioOptimized_ {};
     // The IPv6 addresses assigned to elastic network interfaces (ENIs).
-    std::shared_ptr<vector<string>> ipv6Address_ = nullptr;
+    shared_ptr<vector<string>> ipv6Address_ {};
     // The name of the SSH key pair bound to the instance.
-    std::shared_ptr<string> keyPairName_ = nullptr;
+    shared_ptr<string> keyPairName_ {};
     // The reason why the instance is locked. Valid values:
     // 
     // *   financial: The instance is locked due to overdue payments.
@@ -508,42 +596,42 @@ namespace Models
     // *   recycling: The spot instance is locked and pending release.
     // *   dedicatedhostfinancial: The instance is locked due to overdue payments for the dedicated host.
     // *   refunded: The instance is locked because a refund is made for the instance.
-    std::shared_ptr<string> lockReason_ = nullptr;
+    shared_ptr<string> lockReason_ {};
     // The maximum number of entries per page. Valid values: 1 to 100.
     // 
     // Default value:
     // 
     // *   If you do not specify this parameter or if you set this parameter to a value that is smaller than 10, the default value is 10.
     // *   If you set this parameter to a value that is greater than 100, the default value is 100.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // >  This parameter is in invitational preview and is not publicly available.
-    std::shared_ptr<bool> needSaleCycle_ = nullptr;
+    shared_ptr<bool> needSaleCycle_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The private IP addresses of instances located in a VPC. This parameter is valid when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
-    std::shared_ptr<string> privateIpAddresses_ = nullptr;
+    shared_ptr<string> privateIpAddresses_ {};
     // The public IP addresses of instances. The value can be a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
-    std::shared_ptr<string> publicIpAddresses_ = nullptr;
+    shared_ptr<string> publicIpAddresses_ {};
     // The remote direct memory access (RDMA) IP addresses of the instance in the HPC cluster.
-    std::shared_ptr<string> rdmaIpAddresses_ = nullptr;
+    shared_ptr<string> rdmaIpAddresses_ {};
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the instance belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
     // 
     // >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the security group to which the instance belongs.
-    std::shared_ptr<string> securityGroupId_ = nullptr;
+    shared_ptr<string> securityGroupId_ {};
     // The status of the instance. Valid values:
     // 
     // *   Pending: The instance is being created.
@@ -551,15 +639,15 @@ namespace Models
     // *   Starting: The instance is being started.
     // *   Stopping: The instance is being stopped.
     // *   Stopped: The instance is stopped.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The tags of the instance.
-    std::shared_ptr<vector<DescribeInstancesRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<DescribeInstancesRequest::Tag>> tag_ {};
     // The ID of the vSwitch.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // The ID of the virtual private cloud (VPC).
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
     // The zone ID of the instance.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

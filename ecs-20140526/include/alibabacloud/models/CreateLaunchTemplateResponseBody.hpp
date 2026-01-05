@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->launchTemplateId_ == nullptr
-        && return this->launchTemplateVersionNumber_ == nullptr && return this->requestId_ == nullptr; };
+        && this->launchTemplateVersionNumber_ == nullptr && this->requestId_ == nullptr; };
     // launchTemplateId Field Functions 
     bool hasLaunchTemplateId() const { return this->launchTemplateId_ != nullptr;};
     void deleteLaunchTemplateId() { this->launchTemplateId_ = nullptr;};
-    inline string launchTemplateId() const { DARABONBA_PTR_GET_DEFAULT(launchTemplateId_, "") };
+    inline string getLaunchTemplateId() const { DARABONBA_PTR_GET_DEFAULT(launchTemplateId_, "") };
     inline CreateLaunchTemplateResponseBody& setLaunchTemplateId(string launchTemplateId) { DARABONBA_PTR_SET_VALUE(launchTemplateId_, launchTemplateId) };
 
 
     // launchTemplateVersionNumber Field Functions 
     bool hasLaunchTemplateVersionNumber() const { return this->launchTemplateVersionNumber_ != nullptr;};
     void deleteLaunchTemplateVersionNumber() { this->launchTemplateVersionNumber_ = nullptr;};
-    inline int64_t launchTemplateVersionNumber() const { DARABONBA_PTR_GET_DEFAULT(launchTemplateVersionNumber_, 0L) };
+    inline int64_t getLaunchTemplateVersionNumber() const { DARABONBA_PTR_GET_DEFAULT(launchTemplateVersionNumber_, 0L) };
     inline CreateLaunchTemplateResponseBody& setLaunchTemplateVersionNumber(int64_t launchTemplateVersionNumber) { DARABONBA_PTR_SET_VALUE(launchTemplateVersionNumber_, launchTemplateVersionNumber) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateLaunchTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the launch template.
-    std::shared_ptr<string> launchTemplateId_ = nullptr;
+    shared_ptr<string> launchTemplateId_ {};
     // The version number of the launch template.
-    std::shared_ptr<int64_t> launchTemplateVersionNumber_ = nullptr;
+    shared_ptr<int64_t> launchTemplateVersionNumber_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

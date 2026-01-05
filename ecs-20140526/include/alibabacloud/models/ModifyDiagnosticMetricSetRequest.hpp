@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->metricIds_ == nullptr && return this->metricSetId_ == nullptr && return this->metricSetName_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->metricIds_ == nullptr && this->metricSetId_ == nullptr && this->metricSetName_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyDiagnosticMetricSetRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // metricIds Field Functions 
     bool hasMetricIds() const { return this->metricIds_ != nullptr;};
     void deleteMetricIds() { this->metricIds_ = nullptr;};
-    inline const vector<string> & metricIds() const { DARABONBA_PTR_GET_CONST(metricIds_, vector<string>) };
-    inline vector<string> metricIds() { DARABONBA_PTR_GET(metricIds_, vector<string>) };
+    inline const vector<string> & getMetricIds() const { DARABONBA_PTR_GET_CONST(metricIds_, vector<string>) };
+    inline vector<string> getMetricIds() { DARABONBA_PTR_GET(metricIds_, vector<string>) };
     inline ModifyDiagnosticMetricSetRequest& setMetricIds(const vector<string> & metricIds) { DARABONBA_PTR_SET_VALUE(metricIds_, metricIds) };
     inline ModifyDiagnosticMetricSetRequest& setMetricIds(vector<string> && metricIds) { DARABONBA_PTR_SET_RVALUE(metricIds_, metricIds) };
 
@@ -61,48 +61,48 @@ namespace Models
     // metricSetId Field Functions 
     bool hasMetricSetId() const { return this->metricSetId_ != nullptr;};
     void deleteMetricSetId() { this->metricSetId_ = nullptr;};
-    inline string metricSetId() const { DARABONBA_PTR_GET_DEFAULT(metricSetId_, "") };
+    inline string getMetricSetId() const { DARABONBA_PTR_GET_DEFAULT(metricSetId_, "") };
     inline ModifyDiagnosticMetricSetRequest& setMetricSetId(string metricSetId) { DARABONBA_PTR_SET_VALUE(metricSetId_, metricSetId) };
 
 
     // metricSetName Field Functions 
     bool hasMetricSetName() const { return this->metricSetName_ != nullptr;};
     void deleteMetricSetName() { this->metricSetName_ = nullptr;};
-    inline string metricSetName() const { DARABONBA_PTR_GET_DEFAULT(metricSetName_, "") };
+    inline string getMetricSetName() const { DARABONBA_PTR_GET_DEFAULT(metricSetName_, "") };
     inline ModifyDiagnosticMetricSetRequest& setMetricSetName(string metricSetName) { DARABONBA_PTR_SET_VALUE(metricSetName_, metricSetName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDiagnosticMetricSetRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ModifyDiagnosticMetricSetRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
     // The description of the diagnostic metric set.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The IDs of diagnostic metrics.
-    std::shared_ptr<vector<string>> metricIds_ = nullptr;
+    shared_ptr<vector<string>> metricIds_ {};
     // The IDs of the diagnostic metric sets.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metricSetId_ = nullptr;
+    shared_ptr<string> metricSetId_ {};
     // The name of the diagnostic metric set.
-    std::shared_ptr<string> metricSetName_ = nullptr;
+    shared_ptr<string> metricSetName_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource type.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

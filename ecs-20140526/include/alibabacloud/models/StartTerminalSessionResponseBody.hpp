@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->securityToken_ == nullptr && return this->sessionId_ == nullptr && return this->webSocketUrl_ == nullptr; };
+        && this->securityToken_ == nullptr && this->sessionId_ == nullptr && this->webSocketUrl_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartTerminalSessionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline StartTerminalSessionResponseBody& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline StartTerminalSessionResponseBody& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // webSocketUrl Field Functions 
     bool hasWebSocketUrl() const { return this->webSocketUrl_ != nullptr;};
     void deleteWebSocketUrl() { this->webSocketUrl_ = nullptr;};
-    inline string webSocketUrl() const { DARABONBA_PTR_GET_DEFAULT(webSocketUrl_, "") };
+    inline string getWebSocketUrl() const { DARABONBA_PTR_GET_DEFAULT(webSocketUrl_, "") };
     inline StartTerminalSessionResponseBody& setWebSocketUrl(string webSocketUrl) { DARABONBA_PTR_SET_VALUE(webSocketUrl_, webSocketUrl) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> securityToken_ {};
     // The session ID.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
     // The URL of the WebSocket session that is used to connect to the instance. The URL includes the session ID (`SessionId`) and the authentication token (`SecurityToken`).
-    std::shared_ptr<string> webSocketUrl_ = nullptr;
+    shared_ptr<string> webSocketUrl_ {};
   };
 
   } // namespace Models

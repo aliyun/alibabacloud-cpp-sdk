@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageComponentId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // imageComponentId Field Functions 
     bool hasImageComponentId() const { return this->imageComponentId_ != nullptr;};
     void deleteImageComponentId() { this->imageComponentId_ = nullptr;};
-    inline string imageComponentId() const { DARABONBA_PTR_GET_DEFAULT(imageComponentId_, "") };
+    inline string getImageComponentId() const { DARABONBA_PTR_GET_DEFAULT(imageComponentId_, "") };
     inline CreateImageComponentResponseBody& setImageComponentId(string imageComponentId) { DARABONBA_PTR_SET_VALUE(imageComponentId_, imageComponentId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateImageComponentResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the image component.
-    std::shared_ptr<string> imageComponentId_ = nullptr;
+    shared_ptr<string> imageComponentId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
