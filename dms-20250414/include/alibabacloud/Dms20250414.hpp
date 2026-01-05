@@ -276,6 +276,23 @@ namespace Dms20250414
       Models::DeleteDataLakeTableResponse deleteDataLakeTable(const Models::DeleteDataLakeTableRequest &request);
 
       /**
+       * @summary DeleteFileUpload
+       *
+       * @param request DeleteFileUploadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFileUploadResponse
+       */
+      Models::DeleteFileUploadResponse deleteFileUploadWithOptions(const Models::DeleteFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteFileUpload
+       *
+       * @param request DeleteFileUploadRequest
+       * @return DeleteFileUploadResponse
+       */
+      Models::DeleteFileUploadResponse deleteFileUpload(const Models::DeleteFileUploadRequest &request);
+
+      /**
        * @summary DescribeCustomAgent
        *
        * @param request DescribeCustomAgentRequest
@@ -308,6 +325,40 @@ namespace Dms20250414
        * @return DescribeDataAgentSessionResponse
        */
       Models::DescribeDataAgentSessionResponse describeDataAgentSession(const Models::DescribeDataAgentSessionRequest &request);
+
+      /**
+       * @summary DescribeFileUploadSignature
+       *
+       * @param request DescribeFileUploadSignatureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFileUploadSignatureResponse
+       */
+      Models::DescribeFileUploadSignatureResponse describeFileUploadSignatureWithOptions(const Models::DescribeFileUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeFileUploadSignature
+       *
+       * @param request DescribeFileUploadSignatureRequest
+       * @return DescribeFileUploadSignatureResponse
+       */
+      Models::DescribeFileUploadSignatureResponse describeFileUploadSignature(const Models::DescribeFileUploadSignatureRequest &request);
+
+      /**
+       * @summary FileUploadCallback
+       *
+       * @param request FileUploadCallbackRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FileUploadCallbackResponse
+       */
+      Models::FileUploadCallbackResponse fileUploadCallbackWithOptions(const Models::FileUploadCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary FileUploadCallback
+       *
+       * @param request FileUploadCallbackRequest
+       * @return FileUploadCallbackResponse
+       */
+      Models::FileUploadCallbackResponse fileUploadCallback(const Models::FileUploadCallbackRequest &request);
 
       /**
        * @summary 查询 Airflow

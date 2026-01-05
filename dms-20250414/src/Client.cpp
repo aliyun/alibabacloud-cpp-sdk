@@ -1033,6 +1033,56 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTable(const DeleteDataLakeTabl
 }
 
 /**
+ * @summary DeleteFileUpload
+ *
+ * @param request DeleteFileUploadRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFileUploadResponse
+ */
+DeleteFileUploadResponse Client::deleteFileUploadWithOptions(const DeleteFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallFrom()) {
+    query["CallFrom"] = request.getCallFrom();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFileUpload"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFileUploadResponse>();
+}
+
+/**
+ * @summary DeleteFileUpload
+ *
+ * @param request DeleteFileUploadRequest
+ * @return DeleteFileUploadResponse
+ */
+DeleteFileUploadResponse Client::deleteFileUpload(const DeleteFileUploadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFileUploadWithOptions(request, runtime);
+}
+
+/**
  * @summary DescribeCustomAgent
  *
  * @param request DescribeCustomAgentRequest
@@ -1126,6 +1176,110 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSessionWithOptions(con
 DescribeDataAgentSessionResponse Client::describeDataAgentSession(const DescribeDataAgentSessionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDataAgentSessionWithOptions(request, runtime);
+}
+
+/**
+ * @summary DescribeFileUploadSignature
+ *
+ * @param request DescribeFileUploadSignatureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeFileUploadSignatureResponse
+ */
+DescribeFileUploadSignatureResponse Client::describeFileUploadSignatureWithOptions(const DescribeFileUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallFrom()) {
+    query["CallFrom"] = request.getCallFrom();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeFileUploadSignature"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeFileUploadSignatureResponse>();
+}
+
+/**
+ * @summary DescribeFileUploadSignature
+ *
+ * @param request DescribeFileUploadSignatureRequest
+ * @return DescribeFileUploadSignatureResponse
+ */
+DescribeFileUploadSignatureResponse Client::describeFileUploadSignature(const DescribeFileUploadSignatureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeFileUploadSignatureWithOptions(request, runtime);
+}
+
+/**
+ * @summary FileUploadCallback
+ *
+ * @param request FileUploadCallbackRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FileUploadCallbackResponse
+ */
+FileUploadCallbackResponse Client::fileUploadCallbackWithOptions(const FileUploadCallbackRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallFrom()) {
+    query["CallFrom"] = request.getCallFrom();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasFileSize()) {
+    query["FileSize"] = request.getFileSize();
+  }
+
+  if (!!request.hasFilename()) {
+    query["Filename"] = request.getFilename();
+  }
+
+  if (!!request.hasUploadLocation()) {
+    query["UploadLocation"] = request.getUploadLocation();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "FileUploadCallback"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FileUploadCallbackResponse>();
+}
+
+/**
+ * @summary FileUploadCallback
+ *
+ * @param request FileUploadCallbackRequest
+ * @return FileUploadCallbackResponse
+ */
+FileUploadCallbackResponse Client::fileUploadCallback(const FileUploadCallbackRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return fileUploadCallbackWithOptions(request, runtime);
 }
 
 /**
