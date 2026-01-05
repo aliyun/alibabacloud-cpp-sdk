@@ -306,6 +306,23 @@ namespace Polardb20170801
       Models::CheckServiceLinkedRoleResponse checkServiceLinkedRole(const Models::CheckServiceLinkedRoleRequest &request);
 
       /**
+       * @summary 支持基础版支持clone文件或目录快照
+       *
+       * @param request ClonePolarFsBasicSnapshotRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClonePolarFsBasicSnapshotResponse
+       */
+      Models::ClonePolarFsBasicSnapshotResponse clonePolarFsBasicSnapshotWithOptions(const Models::ClonePolarFsBasicSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 支持基础版支持clone文件或目录快照
+       *
+       * @param request ClonePolarFsBasicSnapshotRequest
+       * @return ClonePolarFsBasicSnapshotResponse
+       */
+      Models::ClonePolarFsBasicSnapshotResponse clonePolarFsBasicSnapshot(const Models::ClonePolarFsBasicSnapshotRequest &request);
+
+      /**
        * @summary 关闭DB4AI
        *
        * @param request CloseAITaskRequest

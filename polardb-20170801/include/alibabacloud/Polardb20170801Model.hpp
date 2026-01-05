@@ -53,6 +53,9 @@
 #include <alibabacloud/models/CheckServiceLinkedRoleRequest.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResponseBody.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResponse.hpp>
+#include <alibabacloud/models/ClonePolarFsBasicSnapshotRequest.hpp>
+#include <alibabacloud/models/ClonePolarFsBasicSnapshotResponseBody.hpp>
+#include <alibabacloud/models/ClonePolarFsBasicSnapshotResponse.hpp>
 #include <alibabacloud/models/CloseAiTaskRequest.hpp>
 #include <alibabacloud/models/CloseAiTaskResponseBody.hpp>
 #include <alibabacloud/models/CloseAiTaskResponse.hpp>

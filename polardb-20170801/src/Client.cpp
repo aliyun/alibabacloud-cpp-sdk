@@ -1123,6 +1123,60 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRole(const CheckService
 }
 
 /**
+ * @summary 支持基础版支持clone文件或目录快照
+ *
+ * @param request ClonePolarFsBasicSnapshotRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClonePolarFsBasicSnapshotResponse
+ */
+ClonePolarFsBasicSnapshotResponse Client::clonePolarFsBasicSnapshotWithOptions(const ClonePolarFsBasicSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasSourcePath()) {
+    query["SourcePath"] = request.getSourcePath();
+  }
+
+  if (!!request.hasTargetPath()) {
+    query["TargetPath"] = request.getTargetPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClonePolarFsBasicSnapshot"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClonePolarFsBasicSnapshotResponse>();
+}
+
+/**
+ * @summary 支持基础版支持clone文件或目录快照
+ *
+ * @param request ClonePolarFsBasicSnapshotRequest
+ * @return ClonePolarFsBasicSnapshotResponse
+ */
+ClonePolarFsBasicSnapshotResponse Client::clonePolarFsBasicSnapshot(const ClonePolarFsBasicSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clonePolarFsBasicSnapshotWithOptions(request, runtime);
+}
+
+/**
  * @summary 关闭DB4AI
  *
  * @param request CloseAITaskRequest
