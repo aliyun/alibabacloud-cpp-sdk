@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->polarFSAccessKeyId_ == nullptr && return this->polarFSAccessKeySecret_ == nullptr && return this->polarFSInstanceId_ == nullptr; };
+        && this->polarFSAccessKeyId_ == nullptr && this->polarFSAccessKeySecret_ == nullptr && this->polarFSInstanceId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline AttachApplicationPolarFSRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // polarFSAccessKeyId Field Functions 
     bool hasPolarFSAccessKeyId() const { return this->polarFSAccessKeyId_ != nullptr;};
     void deletePolarFSAccessKeyId() { this->polarFSAccessKeyId_ = nullptr;};
-    inline string polarFSAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(polarFSAccessKeyId_, "") };
+    inline string getPolarFSAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(polarFSAccessKeyId_, "") };
     inline AttachApplicationPolarFSRequest& setPolarFSAccessKeyId(string polarFSAccessKeyId) { DARABONBA_PTR_SET_VALUE(polarFSAccessKeyId_, polarFSAccessKeyId) };
 
 
     // polarFSAccessKeySecret Field Functions 
     bool hasPolarFSAccessKeySecret() const { return this->polarFSAccessKeySecret_ != nullptr;};
     void deletePolarFSAccessKeySecret() { this->polarFSAccessKeySecret_ = nullptr;};
-    inline string polarFSAccessKeySecret() const { DARABONBA_PTR_GET_DEFAULT(polarFSAccessKeySecret_, "") };
+    inline string getPolarFSAccessKeySecret() const { DARABONBA_PTR_GET_DEFAULT(polarFSAccessKeySecret_, "") };
     inline AttachApplicationPolarFSRequest& setPolarFSAccessKeySecret(string polarFSAccessKeySecret) { DARABONBA_PTR_SET_VALUE(polarFSAccessKeySecret_, polarFSAccessKeySecret) };
 
 
     // polarFSInstanceId Field Functions 
     bool hasPolarFSInstanceId() const { return this->polarFSInstanceId_ != nullptr;};
     void deletePolarFSInstanceId() { this->polarFSInstanceId_ = nullptr;};
-    inline string polarFSInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarFSInstanceId_, "") };
+    inline string getPolarFSInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarFSInstanceId_, "") };
     inline AttachApplicationPolarFSRequest& setPolarFSInstanceId(string polarFSInstanceId) { DARABONBA_PTR_SET_VALUE(polarFSInstanceId_, polarFSInstanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
-    std::shared_ptr<string> polarFSAccessKeyId_ = nullptr;
-    std::shared_ptr<string> polarFSAccessKeySecret_ = nullptr;
+    shared_ptr<string> applicationId_ {};
+    shared_ptr<string> polarFSAccessKeyId_ {};
+    shared_ptr<string> polarFSAccessKeySecret_ {};
     // This parameter is required.
-    std::shared_ptr<string> polarFSInstanceId_ = nullptr;
+    shared_ptr<string> polarFSInstanceId_ {};
   };
 
   } // namespace Models

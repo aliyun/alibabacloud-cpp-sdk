@@ -33,27 +33,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->componentIdList_ == nullptr; };
+        && this->componentIdList_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline DescribeApplicationParametersRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // componentIdList Field Functions 
     bool hasComponentIdList() const { return this->componentIdList_ != nullptr;};
     void deleteComponentIdList() { this->componentIdList_ = nullptr;};
-    inline const vector<string> & componentIdList() const { DARABONBA_PTR_GET_CONST(componentIdList_, vector<string>) };
-    inline vector<string> componentIdList() { DARABONBA_PTR_GET(componentIdList_, vector<string>) };
+    inline const vector<string> & getComponentIdList() const { DARABONBA_PTR_GET_CONST(componentIdList_, vector<string>) };
+    inline vector<string> getComponentIdList() { DARABONBA_PTR_GET(componentIdList_, vector<string>) };
     inline DescribeApplicationParametersRequest& setComponentIdList(const vector<string> & componentIdList) { DARABONBA_PTR_SET_VALUE(componentIdList_, componentIdList) };
     inline DescribeApplicationParametersRequest& setComponentIdList(vector<string> && componentIdList) { DARABONBA_PTR_SET_RVALUE(componentIdList_, componentIdList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
-    std::shared_ptr<vector<string>> componentIdList_ = nullptr;
+    shared_ptr<string> applicationId_ {};
+    shared_ptr<vector<string>> componentIdList_ {};
   };
 
   } // namespace Models

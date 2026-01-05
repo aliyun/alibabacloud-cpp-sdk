@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEHISTORYTASKSSTATRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeHistoryTasksStatResponseBodyItems.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,28 +32,70 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Items : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      Items() = default ;
+      Items(const Items &) = default ;
+      Items(Items &&) = default ;
+      Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Items() = default ;
+      Items& operator=(const Items &) = default ;
+      Items& operator=(Items &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->status_ == nullptr
+        && this->totalCount_ == nullptr; };
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Items& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline Items& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      shared_ptr<string> status_ {};
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<DescribeHistoryTasksStatResponseBodyItems> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeHistoryTasksStatResponseBodyItems>) };
-    inline vector<DescribeHistoryTasksStatResponseBodyItems> items() { DARABONBA_PTR_GET(items_, vector<DescribeHistoryTasksStatResponseBodyItems>) };
-    inline DescribeHistoryTasksStatResponseBody& setItems(const vector<DescribeHistoryTasksStatResponseBodyItems> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
-    inline DescribeHistoryTasksStatResponseBody& setItems(vector<DescribeHistoryTasksStatResponseBodyItems> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+    inline const vector<DescribeHistoryTasksStatResponseBody::Items> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeHistoryTasksStatResponseBody::Items>) };
+    inline vector<DescribeHistoryTasksStatResponseBody::Items> getItems() { DARABONBA_PTR_GET(items_, vector<DescribeHistoryTasksStatResponseBody::Items>) };
+    inline DescribeHistoryTasksStatResponseBody& setItems(const vector<DescribeHistoryTasksStatResponseBody::Items> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline DescribeHistoryTasksStatResponseBody& setItems(vector<DescribeHistoryTasksStatResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeHistoryTasksStatResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<DescribeHistoryTasksStatResponseBodyItems>> items_ = nullptr;
+    shared_ptr<vector<DescribeHistoryTasksStatResponseBody::Items>> items_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

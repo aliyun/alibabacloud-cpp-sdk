@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->parameterName_ == nullptr && return this->parameterValue_ == nullptr && return this->parametersShrink_ == nullptr; };
+        && this->parameterName_ == nullptr && this->parameterValue_ == nullptr && this->parametersShrink_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline ModifyApplicationParameterShrinkRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // parameterName Field Functions 
     bool hasParameterName() const { return this->parameterName_ != nullptr;};
     void deleteParameterName() { this->parameterName_ = nullptr;};
-    inline string parameterName() const { DARABONBA_PTR_GET_DEFAULT(parameterName_, "") };
+    inline string getParameterName() const { DARABONBA_PTR_GET_DEFAULT(parameterName_, "") };
     inline ModifyApplicationParameterShrinkRequest& setParameterName(string parameterName) { DARABONBA_PTR_SET_VALUE(parameterName_, parameterName) };
 
 
     // parameterValue Field Functions 
     bool hasParameterValue() const { return this->parameterValue_ != nullptr;};
     void deleteParameterValue() { this->parameterValue_ = nullptr;};
-    inline string parameterValue() const { DARABONBA_PTR_GET_DEFAULT(parameterValue_, "") };
+    inline string getParameterValue() const { DARABONBA_PTR_GET_DEFAULT(parameterValue_, "") };
     inline ModifyApplicationParameterShrinkRequest& setParameterValue(string parameterValue) { DARABONBA_PTR_SET_VALUE(parameterValue_, parameterValue) };
 
 
     // parametersShrink Field Functions 
     bool hasParametersShrink() const { return this->parametersShrink_ != nullptr;};
     void deleteParametersShrink() { this->parametersShrink_ = nullptr;};
-    inline string parametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
+    inline string getParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
     inline ModifyApplicationParameterShrinkRequest& setParametersShrink(string parametersShrink) { DARABONBA_PTR_SET_VALUE(parametersShrink_, parametersShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
-    std::shared_ptr<string> parameterName_ = nullptr;
-    std::shared_ptr<string> parameterValue_ = nullptr;
-    std::shared_ptr<string> parametersShrink_ = nullptr;
+    shared_ptr<string> applicationId_ {};
+    shared_ptr<string> parameterName_ {};
+    shared_ptr<string> parameterValue_ {};
+    shared_ptr<string> parametersShrink_ {};
   };
 
   } // namespace Models

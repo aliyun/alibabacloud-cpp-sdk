@@ -54,117 +54,117 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->accountPrivilege_ == nullptr && return this->characterSetName_ == nullptr && return this->clientToken_ == nullptr && return this->collate_ == nullptr && return this->ctype_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->DBDescription_ == nullptr && return this->DBName_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->accountPrivilege_ == nullptr && this->characterSetName_ == nullptr && this->clientToken_ == nullptr && this->collate_ == nullptr && this->ctype_ == nullptr
+        && this->DBClusterId_ == nullptr && this->DBDescription_ == nullptr && this->DBName_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline CreateDatabaseZonalRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // accountPrivilege Field Functions 
     bool hasAccountPrivilege() const { return this->accountPrivilege_ != nullptr;};
     void deleteAccountPrivilege() { this->accountPrivilege_ = nullptr;};
-    inline string accountPrivilege() const { DARABONBA_PTR_GET_DEFAULT(accountPrivilege_, "") };
+    inline string getAccountPrivilege() const { DARABONBA_PTR_GET_DEFAULT(accountPrivilege_, "") };
     inline CreateDatabaseZonalRequest& setAccountPrivilege(string accountPrivilege) { DARABONBA_PTR_SET_VALUE(accountPrivilege_, accountPrivilege) };
 
 
     // characterSetName Field Functions 
     bool hasCharacterSetName() const { return this->characterSetName_ != nullptr;};
     void deleteCharacterSetName() { this->characterSetName_ = nullptr;};
-    inline string characterSetName() const { DARABONBA_PTR_GET_DEFAULT(characterSetName_, "") };
+    inline string getCharacterSetName() const { DARABONBA_PTR_GET_DEFAULT(characterSetName_, "") };
     inline CreateDatabaseZonalRequest& setCharacterSetName(string characterSetName) { DARABONBA_PTR_SET_VALUE(characterSetName_, characterSetName) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateDatabaseZonalRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // collate Field Functions 
     bool hasCollate() const { return this->collate_ != nullptr;};
     void deleteCollate() { this->collate_ = nullptr;};
-    inline string collate() const { DARABONBA_PTR_GET_DEFAULT(collate_, "") };
+    inline string getCollate() const { DARABONBA_PTR_GET_DEFAULT(collate_, "") };
     inline CreateDatabaseZonalRequest& setCollate(string collate) { DARABONBA_PTR_SET_VALUE(collate_, collate) };
 
 
     // ctype Field Functions 
     bool hasCtype() const { return this->ctype_ != nullptr;};
     void deleteCtype() { this->ctype_ = nullptr;};
-    inline string ctype() const { DARABONBA_PTR_GET_DEFAULT(ctype_, "") };
+    inline string getCtype() const { DARABONBA_PTR_GET_DEFAULT(ctype_, "") };
     inline CreateDatabaseZonalRequest& setCtype(string ctype) { DARABONBA_PTR_SET_VALUE(ctype_, ctype) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CreateDatabaseZonalRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // DBDescription Field Functions 
     bool hasDBDescription() const { return this->DBDescription_ != nullptr;};
     void deleteDBDescription() { this->DBDescription_ = nullptr;};
-    inline string DBDescription() const { DARABONBA_PTR_GET_DEFAULT(DBDescription_, "") };
+    inline string getDBDescription() const { DARABONBA_PTR_GET_DEFAULT(DBDescription_, "") };
     inline CreateDatabaseZonalRequest& setDBDescription(string DBDescription) { DARABONBA_PTR_SET_VALUE(DBDescription_, DBDescription) };
 
 
     // DBName Field Functions 
     bool hasDBName() const { return this->DBName_ != nullptr;};
     void deleteDBName() { this->DBName_ = nullptr;};
-    inline string DBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+    inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline CreateDatabaseZonalRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CreateDatabaseZonalRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateDatabaseZonalRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateDatabaseZonalRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateDatabaseZonalRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
   protected:
-    std::shared_ptr<string> accountName_ = nullptr;
-    std::shared_ptr<string> accountPrivilege_ = nullptr;
+    shared_ptr<string> accountName_ {};
+    shared_ptr<string> accountPrivilege_ {};
     // This parameter is required.
-    std::shared_ptr<string> characterSetName_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> collate_ = nullptr;
-    std::shared_ptr<string> ctype_ = nullptr;
+    shared_ptr<string> characterSetName_ {};
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> collate_ {};
+    shared_ptr<string> ctype_ {};
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<string> DBDescription_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> DBDescription_ {};
     // This parameter is required.
-    std::shared_ptr<string> DBName_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> DBName_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

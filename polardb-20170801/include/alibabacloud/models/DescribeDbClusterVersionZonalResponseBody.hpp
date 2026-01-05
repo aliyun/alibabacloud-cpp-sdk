@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDBCLUSTERVERSIONZONALRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList.hpp>
-#include <alibabacloud/models/DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -58,127 +56,251 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ProxyRevisionVersionList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ProxyRevisionVersionList& obj) { 
+        DARABONBA_PTR_TO_JSON(ReleaseNote, releaseNote_);
+        DARABONBA_PTR_TO_JSON(ReleaseType, releaseType_);
+        DARABONBA_PTR_TO_JSON(RevisionVersionCode, revisionVersionCode_);
+        DARABONBA_PTR_TO_JSON(RevisionVersionName, revisionVersionName_);
+      };
+      friend void from_json(const Darabonba::Json& j, ProxyRevisionVersionList& obj) { 
+        DARABONBA_PTR_FROM_JSON(ReleaseNote, releaseNote_);
+        DARABONBA_PTR_FROM_JSON(ReleaseType, releaseType_);
+        DARABONBA_PTR_FROM_JSON(RevisionVersionCode, revisionVersionCode_);
+        DARABONBA_PTR_FROM_JSON(RevisionVersionName, revisionVersionName_);
+      };
+      ProxyRevisionVersionList() = default ;
+      ProxyRevisionVersionList(const ProxyRevisionVersionList &) = default ;
+      ProxyRevisionVersionList(ProxyRevisionVersionList &&) = default ;
+      ProxyRevisionVersionList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ProxyRevisionVersionList() = default ;
+      ProxyRevisionVersionList& operator=(const ProxyRevisionVersionList &) = default ;
+      ProxyRevisionVersionList& operator=(ProxyRevisionVersionList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->releaseNote_ == nullptr
+        && this->releaseType_ == nullptr && this->revisionVersionCode_ == nullptr && this->revisionVersionName_ == nullptr; };
+      // releaseNote Field Functions 
+      bool hasReleaseNote() const { return this->releaseNote_ != nullptr;};
+      void deleteReleaseNote() { this->releaseNote_ = nullptr;};
+      inline string getReleaseNote() const { DARABONBA_PTR_GET_DEFAULT(releaseNote_, "") };
+      inline ProxyRevisionVersionList& setReleaseNote(string releaseNote) { DARABONBA_PTR_SET_VALUE(releaseNote_, releaseNote) };
+
+
+      // releaseType Field Functions 
+      bool hasReleaseType() const { return this->releaseType_ != nullptr;};
+      void deleteReleaseType() { this->releaseType_ = nullptr;};
+      inline string getReleaseType() const { DARABONBA_PTR_GET_DEFAULT(releaseType_, "") };
+      inline ProxyRevisionVersionList& setReleaseType(string releaseType) { DARABONBA_PTR_SET_VALUE(releaseType_, releaseType) };
+
+
+      // revisionVersionCode Field Functions 
+      bool hasRevisionVersionCode() const { return this->revisionVersionCode_ != nullptr;};
+      void deleteRevisionVersionCode() { this->revisionVersionCode_ = nullptr;};
+      inline string getRevisionVersionCode() const { DARABONBA_PTR_GET_DEFAULT(revisionVersionCode_, "") };
+      inline ProxyRevisionVersionList& setRevisionVersionCode(string revisionVersionCode) { DARABONBA_PTR_SET_VALUE(revisionVersionCode_, revisionVersionCode) };
+
+
+      // revisionVersionName Field Functions 
+      bool hasRevisionVersionName() const { return this->revisionVersionName_ != nullptr;};
+      void deleteRevisionVersionName() { this->revisionVersionName_ = nullptr;};
+      inline string getRevisionVersionName() const { DARABONBA_PTR_GET_DEFAULT(revisionVersionName_, "") };
+      inline ProxyRevisionVersionList& setRevisionVersionName(string revisionVersionName) { DARABONBA_PTR_SET_VALUE(revisionVersionName_, revisionVersionName) };
+
+
+    protected:
+      shared_ptr<string> releaseNote_ {};
+      shared_ptr<string> releaseType_ {};
+      shared_ptr<string> revisionVersionCode_ {};
+      shared_ptr<string> revisionVersionName_ {};
+    };
+
+    class DBRevisionVersionList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DBRevisionVersionList& obj) { 
+        DARABONBA_PTR_TO_JSON(ReleaseNote, releaseNote_);
+        DARABONBA_PTR_TO_JSON(ReleaseType, releaseType_);
+        DARABONBA_PTR_TO_JSON(RevisionVersionCode, revisionVersionCode_);
+        DARABONBA_PTR_TO_JSON(RevisionVersionName, revisionVersionName_);
+      };
+      friend void from_json(const Darabonba::Json& j, DBRevisionVersionList& obj) { 
+        DARABONBA_PTR_FROM_JSON(ReleaseNote, releaseNote_);
+        DARABONBA_PTR_FROM_JSON(ReleaseType, releaseType_);
+        DARABONBA_PTR_FROM_JSON(RevisionVersionCode, revisionVersionCode_);
+        DARABONBA_PTR_FROM_JSON(RevisionVersionName, revisionVersionName_);
+      };
+      DBRevisionVersionList() = default ;
+      DBRevisionVersionList(const DBRevisionVersionList &) = default ;
+      DBRevisionVersionList(DBRevisionVersionList &&) = default ;
+      DBRevisionVersionList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DBRevisionVersionList() = default ;
+      DBRevisionVersionList& operator=(const DBRevisionVersionList &) = default ;
+      DBRevisionVersionList& operator=(DBRevisionVersionList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->releaseNote_ == nullptr
+        && this->releaseType_ == nullptr && this->revisionVersionCode_ == nullptr && this->revisionVersionName_ == nullptr; };
+      // releaseNote Field Functions 
+      bool hasReleaseNote() const { return this->releaseNote_ != nullptr;};
+      void deleteReleaseNote() { this->releaseNote_ = nullptr;};
+      inline string getReleaseNote() const { DARABONBA_PTR_GET_DEFAULT(releaseNote_, "") };
+      inline DBRevisionVersionList& setReleaseNote(string releaseNote) { DARABONBA_PTR_SET_VALUE(releaseNote_, releaseNote) };
+
+
+      // releaseType Field Functions 
+      bool hasReleaseType() const { return this->releaseType_ != nullptr;};
+      void deleteReleaseType() { this->releaseType_ = nullptr;};
+      inline string getReleaseType() const { DARABONBA_PTR_GET_DEFAULT(releaseType_, "") };
+      inline DBRevisionVersionList& setReleaseType(string releaseType) { DARABONBA_PTR_SET_VALUE(releaseType_, releaseType) };
+
+
+      // revisionVersionCode Field Functions 
+      bool hasRevisionVersionCode() const { return this->revisionVersionCode_ != nullptr;};
+      void deleteRevisionVersionCode() { this->revisionVersionCode_ = nullptr;};
+      inline string getRevisionVersionCode() const { DARABONBA_PTR_GET_DEFAULT(revisionVersionCode_, "") };
+      inline DBRevisionVersionList& setRevisionVersionCode(string revisionVersionCode) { DARABONBA_PTR_SET_VALUE(revisionVersionCode_, revisionVersionCode) };
+
+
+      // revisionVersionName Field Functions 
+      bool hasRevisionVersionName() const { return this->revisionVersionName_ != nullptr;};
+      void deleteRevisionVersionName() { this->revisionVersionName_ = nullptr;};
+      inline string getRevisionVersionName() const { DARABONBA_PTR_GET_DEFAULT(revisionVersionName_, "") };
+      inline DBRevisionVersionList& setRevisionVersionName(string revisionVersionName) { DARABONBA_PTR_SET_VALUE(revisionVersionName_, revisionVersionName) };
+
+
+    protected:
+      shared_ptr<string> releaseNote_ {};
+      shared_ptr<string> releaseType_ {};
+      shared_ptr<string> revisionVersionCode_ {};
+      shared_ptr<string> revisionVersionName_ {};
+    };
+
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->DBLatestVersion_ == nullptr && return this->DBMinorVersion_ == nullptr && return this->DBRevisionVersion_ == nullptr && return this->DBRevisionVersionList_ == nullptr && return this->DBVersion_ == nullptr
-        && return this->DBVersionStatus_ == nullptr && return this->isLatestVersion_ == nullptr && return this->isProxyLatestVersion_ == nullptr && return this->proxyLatestVersion_ == nullptr && return this->proxyRevisionVersion_ == nullptr
-        && return this->proxyRevisionVersionList_ == nullptr && return this->proxyVersionStatus_ == nullptr && return this->requestId_ == nullptr; };
+        && this->DBLatestVersion_ == nullptr && this->DBMinorVersion_ == nullptr && this->DBRevisionVersion_ == nullptr && this->DBRevisionVersionList_ == nullptr && this->DBVersion_ == nullptr
+        && this->DBVersionStatus_ == nullptr && this->isLatestVersion_ == nullptr && this->isProxyLatestVersion_ == nullptr && this->proxyLatestVersion_ == nullptr && this->proxyRevisionVersion_ == nullptr
+        && this->proxyRevisionVersionList_ == nullptr && this->proxyVersionStatus_ == nullptr && this->requestId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // DBLatestVersion Field Functions 
     bool hasDBLatestVersion() const { return this->DBLatestVersion_ != nullptr;};
     void deleteDBLatestVersion() { this->DBLatestVersion_ = nullptr;};
-    inline string DBLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(DBLatestVersion_, "") };
+    inline string getDBLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(DBLatestVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setDBLatestVersion(string DBLatestVersion) { DARABONBA_PTR_SET_VALUE(DBLatestVersion_, DBLatestVersion) };
 
 
     // DBMinorVersion Field Functions 
     bool hasDBMinorVersion() const { return this->DBMinorVersion_ != nullptr;};
     void deleteDBMinorVersion() { this->DBMinorVersion_ = nullptr;};
-    inline string DBMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(DBMinorVersion_, "") };
+    inline string getDBMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(DBMinorVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setDBMinorVersion(string DBMinorVersion) { DARABONBA_PTR_SET_VALUE(DBMinorVersion_, DBMinorVersion) };
 
 
     // DBRevisionVersion Field Functions 
     bool hasDBRevisionVersion() const { return this->DBRevisionVersion_ != nullptr;};
     void deleteDBRevisionVersion() { this->DBRevisionVersion_ = nullptr;};
-    inline string DBRevisionVersion() const { DARABONBA_PTR_GET_DEFAULT(DBRevisionVersion_, "") };
+    inline string getDBRevisionVersion() const { DARABONBA_PTR_GET_DEFAULT(DBRevisionVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setDBRevisionVersion(string DBRevisionVersion) { DARABONBA_PTR_SET_VALUE(DBRevisionVersion_, DBRevisionVersion) };
 
 
     // DBRevisionVersionList Field Functions 
     bool hasDBRevisionVersionList() const { return this->DBRevisionVersionList_ != nullptr;};
     void deleteDBRevisionVersionList() { this->DBRevisionVersionList_ = nullptr;};
-    inline const vector<DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList> & DBRevisionVersionList() const { DARABONBA_PTR_GET_CONST(DBRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList>) };
-    inline vector<DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList> DBRevisionVersionList() { DARABONBA_PTR_GET(DBRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList>) };
-    inline DescribeDBClusterVersionZonalResponseBody& setDBRevisionVersionList(const vector<DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList> & DBRevisionVersionList) { DARABONBA_PTR_SET_VALUE(DBRevisionVersionList_, DBRevisionVersionList) };
-    inline DescribeDBClusterVersionZonalResponseBody& setDBRevisionVersionList(vector<DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList> && DBRevisionVersionList) { DARABONBA_PTR_SET_RVALUE(DBRevisionVersionList_, DBRevisionVersionList) };
+    inline const vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList> & getDBRevisionVersionList() const { DARABONBA_PTR_GET_CONST(DBRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList>) };
+    inline vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList> getDBRevisionVersionList() { DARABONBA_PTR_GET(DBRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList>) };
+    inline DescribeDBClusterVersionZonalResponseBody& setDBRevisionVersionList(const vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList> & dBRevisionVersionList) { DARABONBA_PTR_SET_VALUE(DBRevisionVersionList_, dBRevisionVersionList) };
+    inline DescribeDBClusterVersionZonalResponseBody& setDBRevisionVersionList(vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList> && dBRevisionVersionList) { DARABONBA_PTR_SET_RVALUE(DBRevisionVersionList_, dBRevisionVersionList) };
 
 
     // DBVersion Field Functions 
     bool hasDBVersion() const { return this->DBVersion_ != nullptr;};
     void deleteDBVersion() { this->DBVersion_ = nullptr;};
-    inline string DBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
+    inline string getDBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setDBVersion(string DBVersion) { DARABONBA_PTR_SET_VALUE(DBVersion_, DBVersion) };
 
 
     // DBVersionStatus Field Functions 
     bool hasDBVersionStatus() const { return this->DBVersionStatus_ != nullptr;};
     void deleteDBVersionStatus() { this->DBVersionStatus_ = nullptr;};
-    inline string DBVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(DBVersionStatus_, "") };
+    inline string getDBVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(DBVersionStatus_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setDBVersionStatus(string DBVersionStatus) { DARABONBA_PTR_SET_VALUE(DBVersionStatus_, DBVersionStatus) };
 
 
     // isLatestVersion Field Functions 
     bool hasIsLatestVersion() const { return this->isLatestVersion_ != nullptr;};
     void deleteIsLatestVersion() { this->isLatestVersion_ = nullptr;};
-    inline string isLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(isLatestVersion_, "") };
+    inline string getIsLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(isLatestVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setIsLatestVersion(string isLatestVersion) { DARABONBA_PTR_SET_VALUE(isLatestVersion_, isLatestVersion) };
 
 
     // isProxyLatestVersion Field Functions 
     bool hasIsProxyLatestVersion() const { return this->isProxyLatestVersion_ != nullptr;};
     void deleteIsProxyLatestVersion() { this->isProxyLatestVersion_ = nullptr;};
-    inline string isProxyLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(isProxyLatestVersion_, "") };
+    inline string getIsProxyLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(isProxyLatestVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setIsProxyLatestVersion(string isProxyLatestVersion) { DARABONBA_PTR_SET_VALUE(isProxyLatestVersion_, isProxyLatestVersion) };
 
 
     // proxyLatestVersion Field Functions 
     bool hasProxyLatestVersion() const { return this->proxyLatestVersion_ != nullptr;};
     void deleteProxyLatestVersion() { this->proxyLatestVersion_ = nullptr;};
-    inline string proxyLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(proxyLatestVersion_, "") };
+    inline string getProxyLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(proxyLatestVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setProxyLatestVersion(string proxyLatestVersion) { DARABONBA_PTR_SET_VALUE(proxyLatestVersion_, proxyLatestVersion) };
 
 
     // proxyRevisionVersion Field Functions 
     bool hasProxyRevisionVersion() const { return this->proxyRevisionVersion_ != nullptr;};
     void deleteProxyRevisionVersion() { this->proxyRevisionVersion_ = nullptr;};
-    inline string proxyRevisionVersion() const { DARABONBA_PTR_GET_DEFAULT(proxyRevisionVersion_, "") };
+    inline string getProxyRevisionVersion() const { DARABONBA_PTR_GET_DEFAULT(proxyRevisionVersion_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setProxyRevisionVersion(string proxyRevisionVersion) { DARABONBA_PTR_SET_VALUE(proxyRevisionVersion_, proxyRevisionVersion) };
 
 
     // proxyRevisionVersionList Field Functions 
     bool hasProxyRevisionVersionList() const { return this->proxyRevisionVersionList_ != nullptr;};
     void deleteProxyRevisionVersionList() { this->proxyRevisionVersionList_ = nullptr;};
-    inline const vector<DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList> & proxyRevisionVersionList() const { DARABONBA_PTR_GET_CONST(proxyRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList>) };
-    inline vector<DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList> proxyRevisionVersionList() { DARABONBA_PTR_GET(proxyRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList>) };
-    inline DescribeDBClusterVersionZonalResponseBody& setProxyRevisionVersionList(const vector<DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList> & proxyRevisionVersionList) { DARABONBA_PTR_SET_VALUE(proxyRevisionVersionList_, proxyRevisionVersionList) };
-    inline DescribeDBClusterVersionZonalResponseBody& setProxyRevisionVersionList(vector<DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList> && proxyRevisionVersionList) { DARABONBA_PTR_SET_RVALUE(proxyRevisionVersionList_, proxyRevisionVersionList) };
+    inline const vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList> & getProxyRevisionVersionList() const { DARABONBA_PTR_GET_CONST(proxyRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList>) };
+    inline vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList> getProxyRevisionVersionList() { DARABONBA_PTR_GET(proxyRevisionVersionList_, vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList>) };
+    inline DescribeDBClusterVersionZonalResponseBody& setProxyRevisionVersionList(const vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList> & proxyRevisionVersionList) { DARABONBA_PTR_SET_VALUE(proxyRevisionVersionList_, proxyRevisionVersionList) };
+    inline DescribeDBClusterVersionZonalResponseBody& setProxyRevisionVersionList(vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList> && proxyRevisionVersionList) { DARABONBA_PTR_SET_RVALUE(proxyRevisionVersionList_, proxyRevisionVersionList) };
 
 
     // proxyVersionStatus Field Functions 
     bool hasProxyVersionStatus() const { return this->proxyVersionStatus_ != nullptr;};
     void deleteProxyVersionStatus() { this->proxyVersionStatus_ = nullptr;};
-    inline string proxyVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(proxyVersionStatus_, "") };
+    inline string getProxyVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(proxyVersionStatus_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setProxyVersionStatus(string proxyVersionStatus) { DARABONBA_PTR_SET_VALUE(proxyVersionStatus_, proxyVersionStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBClusterVersionZonalResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<string> DBLatestVersion_ = nullptr;
-    std::shared_ptr<string> DBMinorVersion_ = nullptr;
-    std::shared_ptr<string> DBRevisionVersion_ = nullptr;
-    std::shared_ptr<vector<DescribeDBClusterVersionZonalResponseBodyDBRevisionVersionList>> DBRevisionVersionList_ = nullptr;
-    std::shared_ptr<string> DBVersion_ = nullptr;
-    std::shared_ptr<string> DBVersionStatus_ = nullptr;
-    std::shared_ptr<string> isLatestVersion_ = nullptr;
-    std::shared_ptr<string> isProxyLatestVersion_ = nullptr;
-    std::shared_ptr<string> proxyLatestVersion_ = nullptr;
-    std::shared_ptr<string> proxyRevisionVersion_ = nullptr;
-    std::shared_ptr<vector<DescribeDBClusterVersionZonalResponseBodyProxyRevisionVersionList>> proxyRevisionVersionList_ = nullptr;
-    std::shared_ptr<string> proxyVersionStatus_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> DBLatestVersion_ {};
+    shared_ptr<string> DBMinorVersion_ {};
+    shared_ptr<string> DBRevisionVersion_ {};
+    shared_ptr<vector<DescribeDBClusterVersionZonalResponseBody::DBRevisionVersionList>> DBRevisionVersionList_ {};
+    shared_ptr<string> DBVersion_ {};
+    shared_ptr<string> DBVersionStatus_ {};
+    shared_ptr<string> isLatestVersion_ {};
+    shared_ptr<string> isProxyLatestVersion_ {};
+    shared_ptr<string> proxyLatestVersion_ {};
+    shared_ptr<string> proxyRevisionVersion_ {};
+    shared_ptr<vector<DescribeDBClusterVersionZonalResponseBody::ProxyRevisionVersionList>> proxyRevisionVersionList_ {};
+    shared_ptr<string> proxyVersionStatus_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

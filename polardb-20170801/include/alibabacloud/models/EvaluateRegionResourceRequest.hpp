@@ -56,104 +56,104 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceConnType_ == nullptr
-        && return this->DBNodeClass_ == nullptr && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr && return this->dispenseMode_ == nullptr && return this->needMaxScaleLink_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->subDomain_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->DBNodeClass_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->dispenseMode_ == nullptr && this->needMaxScaleLink_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->subDomain_ == nullptr && this->zoneId_ == nullptr; };
     // DBInstanceConnType Field Functions 
     bool hasDBInstanceConnType() const { return this->DBInstanceConnType_ != nullptr;};
     void deleteDBInstanceConnType() { this->DBInstanceConnType_ = nullptr;};
-    inline string DBInstanceConnType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceConnType_, "") };
+    inline string getDBInstanceConnType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceConnType_, "") };
     inline EvaluateRegionResourceRequest& setDBInstanceConnType(string DBInstanceConnType) { DARABONBA_PTR_SET_VALUE(DBInstanceConnType_, DBInstanceConnType) };
 
 
     // DBNodeClass Field Functions 
     bool hasDBNodeClass() const { return this->DBNodeClass_ != nullptr;};
     void deleteDBNodeClass() { this->DBNodeClass_ = nullptr;};
-    inline string DBNodeClass() const { DARABONBA_PTR_GET_DEFAULT(DBNodeClass_, "") };
+    inline string getDBNodeClass() const { DARABONBA_PTR_GET_DEFAULT(DBNodeClass_, "") };
     inline EvaluateRegionResourceRequest& setDBNodeClass(string DBNodeClass) { DARABONBA_PTR_SET_VALUE(DBNodeClass_, DBNodeClass) };
 
 
     // DBType Field Functions 
     bool hasDBType() const { return this->DBType_ != nullptr;};
     void deleteDBType() { this->DBType_ = nullptr;};
-    inline string DBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
+    inline string getDBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
     inline EvaluateRegionResourceRequest& setDBType(string DBType) { DARABONBA_PTR_SET_VALUE(DBType_, DBType) };
 
 
     // DBVersion Field Functions 
     bool hasDBVersion() const { return this->DBVersion_ != nullptr;};
     void deleteDBVersion() { this->DBVersion_ = nullptr;};
-    inline string DBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
+    inline string getDBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
     inline EvaluateRegionResourceRequest& setDBVersion(string DBVersion) { DARABONBA_PTR_SET_VALUE(DBVersion_, DBVersion) };
 
 
     // dispenseMode Field Functions 
     bool hasDispenseMode() const { return this->dispenseMode_ != nullptr;};
     void deleteDispenseMode() { this->dispenseMode_ = nullptr;};
-    inline string dispenseMode() const { DARABONBA_PTR_GET_DEFAULT(dispenseMode_, "") };
+    inline string getDispenseMode() const { DARABONBA_PTR_GET_DEFAULT(dispenseMode_, "") };
     inline EvaluateRegionResourceRequest& setDispenseMode(string dispenseMode) { DARABONBA_PTR_SET_VALUE(dispenseMode_, dispenseMode) };
 
 
     // needMaxScaleLink Field Functions 
     bool hasNeedMaxScaleLink() const { return this->needMaxScaleLink_ != nullptr;};
     void deleteNeedMaxScaleLink() { this->needMaxScaleLink_ = nullptr;};
-    inline string needMaxScaleLink() const { DARABONBA_PTR_GET_DEFAULT(needMaxScaleLink_, "") };
+    inline string getNeedMaxScaleLink() const { DARABONBA_PTR_GET_DEFAULT(needMaxScaleLink_, "") };
     inline EvaluateRegionResourceRequest& setNeedMaxScaleLink(string needMaxScaleLink) { DARABONBA_PTR_SET_VALUE(needMaxScaleLink_, needMaxScaleLink) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline EvaluateRegionResourceRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline EvaluateRegionResourceRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline EvaluateRegionResourceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline EvaluateRegionResourceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline EvaluateRegionResourceRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline EvaluateRegionResourceRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // subDomain Field Functions 
     bool hasSubDomain() const { return this->subDomain_ != nullptr;};
     void deleteSubDomain() { this->subDomain_ = nullptr;};
-    inline string subDomain() const { DARABONBA_PTR_GET_DEFAULT(subDomain_, "") };
+    inline string getSubDomain() const { DARABONBA_PTR_GET_DEFAULT(subDomain_, "") };
     inline EvaluateRegionResourceRequest& setSubDomain(string subDomain) { DARABONBA_PTR_SET_VALUE(subDomain_, subDomain) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline EvaluateRegionResourceRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -163,7 +163,7 @@ namespace Models
     // *   **lvs**: Linux virtual server.
     // *   **proxy**: proxy server.
     // *   **dns**: domain name system.
-    std::shared_ptr<string> DBInstanceConnType_ = nullptr;
+    shared_ptr<string> DBInstanceConnType_ {};
     // The specifications of the node. For information about node specifications, see the following topics:
     // 
     // *   PolarDB for MySQL: [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html)
@@ -171,7 +171,7 @@ namespace Models
     // *   PolarDB for PostgreSQL: [Specifications of compute nodes](https://help.aliyun.com/document_detail/209380.html)
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBNodeClass_ = nullptr;
+    shared_ptr<string> DBNodeClass_ {};
     // The type of the database engine. Valid values:
     // 
     // *   **MySQL**
@@ -179,7 +179,7 @@ namespace Models
     // *   **Oracle**
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBType_ = nullptr;
+    shared_ptr<string> DBType_ {};
     // The version of the database engine
     // 
     // *   Valid values for the MySQL database engine:
@@ -196,39 +196,39 @@ namespace Models
     // *   Valid value for the Oracle database engine: **11**
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBVersion_ = nullptr;
+    shared_ptr<string> DBVersion_ {};
     // Specifies whether to return the zones in which the single-zone deployment method is supported. Default value: 0. Valid values:
     // 
     // *   **0**: no value returned
     // *   **1**: returns the zones.
-    std::shared_ptr<string> dispenseMode_ = nullptr;
+    shared_ptr<string> dispenseMode_ {};
     // Specifies whether to create Maxscale. Valid values:
     // 
     // *   **true** (default)
     // *   **false**
     // 
     // This parameter is required.
-    std::shared_ptr<string> needMaxScaleLink_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> needMaxScaleLink_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The subdomain. It is the child domain of the top-level domain name or parent domain. For example, if the parent domain name is cn-beijing, its child domain can be cn-beijing-i-aliyun.
-    std::shared_ptr<string> subDomain_ = nullptr;
+    shared_ptr<string> subDomain_ {};
     // The zone ID.
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available zones.
     // 
     // This parameter is required.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->filePathIds_ == nullptr && return this->polarFsInstanceId_ == nullptr; };
+        && this->filePathIds_ == nullptr && this->polarFsInstanceId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CancelPolarFsFileQuotaRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // filePathIds Field Functions 
     bool hasFilePathIds() const { return this->filePathIds_ != nullptr;};
     void deleteFilePathIds() { this->filePathIds_ = nullptr;};
-    inline string filePathIds() const { DARABONBA_PTR_GET_DEFAULT(filePathIds_, "") };
+    inline string getFilePathIds() const { DARABONBA_PTR_GET_DEFAULT(filePathIds_, "") };
     inline CancelPolarFsFileQuotaRequest& setFilePathIds(string filePathIds) { DARABONBA_PTR_SET_VALUE(filePathIds_, filePathIds) };
 
 
     // polarFsInstanceId Field Functions 
     bool hasPolarFsInstanceId() const { return this->polarFsInstanceId_ != nullptr;};
     void deletePolarFsInstanceId() { this->polarFsInstanceId_ = nullptr;};
-    inline string polarFsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarFsInstanceId_, "") };
+    inline string getPolarFsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarFsInstanceId_, "") };
     inline CancelPolarFsFileQuotaRequest& setPolarFsInstanceId(string polarFsInstanceId) { DARABONBA_PTR_SET_VALUE(polarFsInstanceId_, polarFsInstanceId) };
 
 
   protected:
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> filePathIds_ = nullptr;
+    shared_ptr<string> filePathIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> polarFsInstanceId_ = nullptr;
+    shared_ptr<string> polarFsInstanceId_ {};
   };
 
   } // namespace Models

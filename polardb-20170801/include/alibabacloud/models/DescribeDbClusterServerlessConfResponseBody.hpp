@@ -60,164 +60,164 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agileScaleMax_ == nullptr
-        && return this->allowShutDown_ == nullptr && return this->DBClusterId_ == nullptr && return this->requestId_ == nullptr && return this->scaleApRoNumMax_ == nullptr && return this->scaleApRoNumMin_ == nullptr
-        && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr && return this->scaleRoNumMax_ == nullptr && return this->scaleRoNumMin_ == nullptr && return this->secondsUntilAutoPause_ == nullptr
-        && return this->serverlessRuleCpuEnlargeThreshold_ == nullptr && return this->serverlessRuleCpuShrinkThreshold_ == nullptr && return this->serverlessRuleMode_ == nullptr && return this->switchs_ == nullptr && return this->traditionalScaleMaxThreshold_ == nullptr; };
+        && this->allowShutDown_ == nullptr && this->DBClusterId_ == nullptr && this->requestId_ == nullptr && this->scaleApRoNumMax_ == nullptr && this->scaleApRoNumMin_ == nullptr
+        && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->scaleRoNumMax_ == nullptr && this->scaleRoNumMin_ == nullptr && this->secondsUntilAutoPause_ == nullptr
+        && this->serverlessRuleCpuEnlargeThreshold_ == nullptr && this->serverlessRuleCpuShrinkThreshold_ == nullptr && this->serverlessRuleMode_ == nullptr && this->switchs_ == nullptr && this->traditionalScaleMaxThreshold_ == nullptr; };
     // agileScaleMax Field Functions 
     bool hasAgileScaleMax() const { return this->agileScaleMax_ != nullptr;};
     void deleteAgileScaleMax() { this->agileScaleMax_ = nullptr;};
-    inline string agileScaleMax() const { DARABONBA_PTR_GET_DEFAULT(agileScaleMax_, "") };
+    inline string getAgileScaleMax() const { DARABONBA_PTR_GET_DEFAULT(agileScaleMax_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setAgileScaleMax(string agileScaleMax) { DARABONBA_PTR_SET_VALUE(agileScaleMax_, agileScaleMax) };
 
 
     // allowShutDown Field Functions 
     bool hasAllowShutDown() const { return this->allowShutDown_ != nullptr;};
     void deleteAllowShutDown() { this->allowShutDown_ = nullptr;};
-    inline string allowShutDown() const { DARABONBA_PTR_GET_DEFAULT(allowShutDown_, "") };
+    inline string getAllowShutDown() const { DARABONBA_PTR_GET_DEFAULT(allowShutDown_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setAllowShutDown(string allowShutDown) { DARABONBA_PTR_SET_VALUE(allowShutDown_, allowShutDown) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // scaleApRoNumMax Field Functions 
     bool hasScaleApRoNumMax() const { return this->scaleApRoNumMax_ != nullptr;};
     void deleteScaleApRoNumMax() { this->scaleApRoNumMax_ = nullptr;};
-    inline string scaleApRoNumMax() const { DARABONBA_PTR_GET_DEFAULT(scaleApRoNumMax_, "") };
+    inline string getScaleApRoNumMax() const { DARABONBA_PTR_GET_DEFAULT(scaleApRoNumMax_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setScaleApRoNumMax(string scaleApRoNumMax) { DARABONBA_PTR_SET_VALUE(scaleApRoNumMax_, scaleApRoNumMax) };
 
 
     // scaleApRoNumMin Field Functions 
     bool hasScaleApRoNumMin() const { return this->scaleApRoNumMin_ != nullptr;};
     void deleteScaleApRoNumMin() { this->scaleApRoNumMin_ = nullptr;};
-    inline string scaleApRoNumMin() const { DARABONBA_PTR_GET_DEFAULT(scaleApRoNumMin_, "") };
+    inline string getScaleApRoNumMin() const { DARABONBA_PTR_GET_DEFAULT(scaleApRoNumMin_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setScaleApRoNumMin(string scaleApRoNumMin) { DARABONBA_PTR_SET_VALUE(scaleApRoNumMin_, scaleApRoNumMin) };
 
 
     // scaleMax Field Functions 
     bool hasScaleMax() const { return this->scaleMax_ != nullptr;};
     void deleteScaleMax() { this->scaleMax_ = nullptr;};
-    inline string scaleMax() const { DARABONBA_PTR_GET_DEFAULT(scaleMax_, "") };
+    inline string getScaleMax() const { DARABONBA_PTR_GET_DEFAULT(scaleMax_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setScaleMax(string scaleMax) { DARABONBA_PTR_SET_VALUE(scaleMax_, scaleMax) };
 
 
     // scaleMin Field Functions 
     bool hasScaleMin() const { return this->scaleMin_ != nullptr;};
     void deleteScaleMin() { this->scaleMin_ = nullptr;};
-    inline string scaleMin() const { DARABONBA_PTR_GET_DEFAULT(scaleMin_, "") };
+    inline string getScaleMin() const { DARABONBA_PTR_GET_DEFAULT(scaleMin_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setScaleMin(string scaleMin) { DARABONBA_PTR_SET_VALUE(scaleMin_, scaleMin) };
 
 
     // scaleRoNumMax Field Functions 
     bool hasScaleRoNumMax() const { return this->scaleRoNumMax_ != nullptr;};
     void deleteScaleRoNumMax() { this->scaleRoNumMax_ = nullptr;};
-    inline string scaleRoNumMax() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMax_, "") };
+    inline string getScaleRoNumMax() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMax_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setScaleRoNumMax(string scaleRoNumMax) { DARABONBA_PTR_SET_VALUE(scaleRoNumMax_, scaleRoNumMax) };
 
 
     // scaleRoNumMin Field Functions 
     bool hasScaleRoNumMin() const { return this->scaleRoNumMin_ != nullptr;};
     void deleteScaleRoNumMin() { this->scaleRoNumMin_ = nullptr;};
-    inline string scaleRoNumMin() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMin_, "") };
+    inline string getScaleRoNumMin() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMin_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setScaleRoNumMin(string scaleRoNumMin) { DARABONBA_PTR_SET_VALUE(scaleRoNumMin_, scaleRoNumMin) };
 
 
     // secondsUntilAutoPause Field Functions 
     bool hasSecondsUntilAutoPause() const { return this->secondsUntilAutoPause_ != nullptr;};
     void deleteSecondsUntilAutoPause() { this->secondsUntilAutoPause_ = nullptr;};
-    inline string secondsUntilAutoPause() const { DARABONBA_PTR_GET_DEFAULT(secondsUntilAutoPause_, "") };
+    inline string getSecondsUntilAutoPause() const { DARABONBA_PTR_GET_DEFAULT(secondsUntilAutoPause_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setSecondsUntilAutoPause(string secondsUntilAutoPause) { DARABONBA_PTR_SET_VALUE(secondsUntilAutoPause_, secondsUntilAutoPause) };
 
 
     // serverlessRuleCpuEnlargeThreshold Field Functions 
     bool hasServerlessRuleCpuEnlargeThreshold() const { return this->serverlessRuleCpuEnlargeThreshold_ != nullptr;};
     void deleteServerlessRuleCpuEnlargeThreshold() { this->serverlessRuleCpuEnlargeThreshold_ = nullptr;};
-    inline string serverlessRuleCpuEnlargeThreshold() const { DARABONBA_PTR_GET_DEFAULT(serverlessRuleCpuEnlargeThreshold_, "") };
+    inline string getServerlessRuleCpuEnlargeThreshold() const { DARABONBA_PTR_GET_DEFAULT(serverlessRuleCpuEnlargeThreshold_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setServerlessRuleCpuEnlargeThreshold(string serverlessRuleCpuEnlargeThreshold) { DARABONBA_PTR_SET_VALUE(serverlessRuleCpuEnlargeThreshold_, serverlessRuleCpuEnlargeThreshold) };
 
 
     // serverlessRuleCpuShrinkThreshold Field Functions 
     bool hasServerlessRuleCpuShrinkThreshold() const { return this->serverlessRuleCpuShrinkThreshold_ != nullptr;};
     void deleteServerlessRuleCpuShrinkThreshold() { this->serverlessRuleCpuShrinkThreshold_ = nullptr;};
-    inline string serverlessRuleCpuShrinkThreshold() const { DARABONBA_PTR_GET_DEFAULT(serverlessRuleCpuShrinkThreshold_, "") };
+    inline string getServerlessRuleCpuShrinkThreshold() const { DARABONBA_PTR_GET_DEFAULT(serverlessRuleCpuShrinkThreshold_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setServerlessRuleCpuShrinkThreshold(string serverlessRuleCpuShrinkThreshold) { DARABONBA_PTR_SET_VALUE(serverlessRuleCpuShrinkThreshold_, serverlessRuleCpuShrinkThreshold) };
 
 
     // serverlessRuleMode Field Functions 
     bool hasServerlessRuleMode() const { return this->serverlessRuleMode_ != nullptr;};
     void deleteServerlessRuleMode() { this->serverlessRuleMode_ = nullptr;};
-    inline string serverlessRuleMode() const { DARABONBA_PTR_GET_DEFAULT(serverlessRuleMode_, "") };
+    inline string getServerlessRuleMode() const { DARABONBA_PTR_GET_DEFAULT(serverlessRuleMode_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setServerlessRuleMode(string serverlessRuleMode) { DARABONBA_PTR_SET_VALUE(serverlessRuleMode_, serverlessRuleMode) };
 
 
     // switchs Field Functions 
     bool hasSwitchs() const { return this->switchs_ != nullptr;};
     void deleteSwitchs() { this->switchs_ = nullptr;};
-    inline string switchs() const { DARABONBA_PTR_GET_DEFAULT(switchs_, "") };
+    inline string getSwitchs() const { DARABONBA_PTR_GET_DEFAULT(switchs_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setSwitchs(string switchs) { DARABONBA_PTR_SET_VALUE(switchs_, switchs) };
 
 
     // traditionalScaleMaxThreshold Field Functions 
     bool hasTraditionalScaleMaxThreshold() const { return this->traditionalScaleMaxThreshold_ != nullptr;};
     void deleteTraditionalScaleMaxThreshold() { this->traditionalScaleMaxThreshold_ = nullptr;};
-    inline string traditionalScaleMaxThreshold() const { DARABONBA_PTR_GET_DEFAULT(traditionalScaleMaxThreshold_, "") };
+    inline string getTraditionalScaleMaxThreshold() const { DARABONBA_PTR_GET_DEFAULT(traditionalScaleMaxThreshold_, "") };
     inline DescribeDBClusterServerlessConfResponseBody& setTraditionalScaleMaxThreshold(string traditionalScaleMaxThreshold) { DARABONBA_PTR_SET_VALUE(traditionalScaleMaxThreshold_, traditionalScaleMaxThreshold) };
 
 
   protected:
-    std::shared_ptr<string> agileScaleMax_ = nullptr;
+    shared_ptr<string> agileScaleMax_ {};
     // Whether to enable idle shutdown. Values:
     // 
     // - **true**: Enable
     // 
     // - **false**: Disable (default)
-    std::shared_ptr<string> allowShutDown_ = nullptr;
+    shared_ptr<string> allowShutDown_ {};
     // Serverless cluster ID.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The maximum number of read-only column store nodes. Valid values: 0 to 15.
-    std::shared_ptr<string> scaleApRoNumMax_ = nullptr;
+    shared_ptr<string> scaleApRoNumMax_ {};
     // The minimum number of read-only column store nodes. Valid values: 0 to 15.
-    std::shared_ptr<string> scaleApRoNumMin_ = nullptr;
+    shared_ptr<string> scaleApRoNumMin_ {};
     // Maximum scaling limit for a single node. Range: 1 PCU~32 PCU.
-    std::shared_ptr<string> scaleMax_ = nullptr;
+    shared_ptr<string> scaleMax_ {};
     // Minimum scaling limit for a single node. Range: 1 PCU~31 PCU.
-    std::shared_ptr<string> scaleMin_ = nullptr;
+    shared_ptr<string> scaleMin_ {};
     // Maximum scaling limit for the number of read-only nodes. Range: 0~15.
-    std::shared_ptr<string> scaleRoNumMax_ = nullptr;
+    shared_ptr<string> scaleRoNumMax_ {};
     // Minimum scaling limit for the number of read-only nodes. Range: 0~15.
-    std::shared_ptr<string> scaleRoNumMin_ = nullptr;
+    shared_ptr<string> scaleRoNumMin_ {};
     // Detection duration for idle shutdown. Range: 300~86,400. Unit: seconds. The detection duration must be a multiple of 300 seconds.
-    std::shared_ptr<string> secondsUntilAutoPause_ = nullptr;
+    shared_ptr<string> secondsUntilAutoPause_ {};
     // CPU upscale threshold.
-    std::shared_ptr<string> serverlessRuleCpuEnlargeThreshold_ = nullptr;
+    shared_ptr<string> serverlessRuleCpuEnlargeThreshold_ {};
     // CPU downscale threshold.
-    std::shared_ptr<string> serverlessRuleCpuShrinkThreshold_ = nullptr;
+    shared_ptr<string> serverlessRuleCpuShrinkThreshold_ {};
     // Elasticity sensitivity. Values:
     // 
     // - normal: Standard
     // 
     // - flexible: Sensitive
-    std::shared_ptr<string> serverlessRuleMode_ = nullptr;
+    shared_ptr<string> serverlessRuleMode_ {};
     // Whether steady state is enabled. Values:
     // 
     // 1: Enabled
     // 
     // 0: Disabled
-    std::shared_ptr<string> switchs_ = nullptr;
-    std::shared_ptr<string> traditionalScaleMaxThreshold_ = nullptr;
+    shared_ptr<string> switchs_ {};
+    shared_ptr<string> traditionalScaleMaxThreshold_ {};
   };
 
   } // namespace Models

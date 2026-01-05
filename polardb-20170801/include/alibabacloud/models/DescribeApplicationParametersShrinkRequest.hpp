@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->componentIdListShrink_ == nullptr; };
+        && this->componentIdListShrink_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline DescribeApplicationParametersShrinkRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // componentIdListShrink Field Functions 
     bool hasComponentIdListShrink() const { return this->componentIdListShrink_ != nullptr;};
     void deleteComponentIdListShrink() { this->componentIdListShrink_ = nullptr;};
-    inline string componentIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(componentIdListShrink_, "") };
+    inline string getComponentIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(componentIdListShrink_, "") };
     inline DescribeApplicationParametersShrinkRequest& setComponentIdListShrink(string componentIdListShrink) { DARABONBA_PTR_SET_VALUE(componentIdListShrink_, componentIdListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
-    std::shared_ptr<string> componentIdListShrink_ = nullptr;
+    shared_ptr<string> applicationId_ {};
+    shared_ptr<string> componentIdListShrink_ {};
   };
 
   } // namespace Models

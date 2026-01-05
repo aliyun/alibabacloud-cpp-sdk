@@ -50,108 +50,108 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activateAt_ == nullptr
-        && return this->certContentB64_ == nullptr && return this->description_ == nullptr && return this->expireAt_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtModified_ == nullptr
-        && return this->id_ == nullptr && return this->macAddress_ == nullptr && return this->name_ == nullptr && return this->requestId_ == nullptr && return this->systemIdentifier_ == nullptr; };
+        && this->certContentB64_ == nullptr && this->description_ == nullptr && this->expireAt_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
+        && this->id_ == nullptr && this->macAddress_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->systemIdentifier_ == nullptr; };
     // activateAt Field Functions 
     bool hasActivateAt() const { return this->activateAt_ != nullptr;};
     void deleteActivateAt() { this->activateAt_ = nullptr;};
-    inline string activateAt() const { DARABONBA_PTR_GET_DEFAULT(activateAt_, "") };
+    inline string getActivateAt() const { DARABONBA_PTR_GET_DEFAULT(activateAt_, "") };
     inline CreateActivationCodeResponseBody& setActivateAt(string activateAt) { DARABONBA_PTR_SET_VALUE(activateAt_, activateAt) };
 
 
     // certContentB64 Field Functions 
     bool hasCertContentB64() const { return this->certContentB64_ != nullptr;};
     void deleteCertContentB64() { this->certContentB64_ = nullptr;};
-    inline string certContentB64() const { DARABONBA_PTR_GET_DEFAULT(certContentB64_, "") };
+    inline string getCertContentB64() const { DARABONBA_PTR_GET_DEFAULT(certContentB64_, "") };
     inline CreateActivationCodeResponseBody& setCertContentB64(string certContentB64) { DARABONBA_PTR_SET_VALUE(certContentB64_, certContentB64) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateActivationCodeResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // expireAt Field Functions 
     bool hasExpireAt() const { return this->expireAt_ != nullptr;};
     void deleteExpireAt() { this->expireAt_ = nullptr;};
-    inline string expireAt() const { DARABONBA_PTR_GET_DEFAULT(expireAt_, "") };
+    inline string getExpireAt() const { DARABONBA_PTR_GET_DEFAULT(expireAt_, "") };
     inline CreateActivationCodeResponseBody& setExpireAt(string expireAt) { DARABONBA_PTR_SET_VALUE(expireAt_, expireAt) };
 
 
     // gmtCreated Field Functions 
     bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
     void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
-    inline string gmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
+    inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
     inline CreateActivationCodeResponseBody& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline CreateActivationCodeResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int32_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0) };
+    inline int32_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0) };
     inline CreateActivationCodeResponseBody& setId(int32_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // macAddress Field Functions 
     bool hasMacAddress() const { return this->macAddress_ != nullptr;};
     void deleteMacAddress() { this->macAddress_ = nullptr;};
-    inline string macAddress() const { DARABONBA_PTR_GET_DEFAULT(macAddress_, "") };
+    inline string getMacAddress() const { DARABONBA_PTR_GET_DEFAULT(macAddress_, "") };
     inline CreateActivationCodeResponseBody& setMacAddress(string macAddress) { DARABONBA_PTR_SET_VALUE(macAddress_, macAddress) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateActivationCodeResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateActivationCodeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // systemIdentifier Field Functions 
     bool hasSystemIdentifier() const { return this->systemIdentifier_ != nullptr;};
     void deleteSystemIdentifier() { this->systemIdentifier_ = nullptr;};
-    inline string systemIdentifier() const { DARABONBA_PTR_GET_DEFAULT(systemIdentifier_, "") };
+    inline string getSystemIdentifier() const { DARABONBA_PTR_GET_DEFAULT(systemIdentifier_, "") };
     inline CreateActivationCodeResponseBody& setSystemIdentifier(string systemIdentifier) { DARABONBA_PTR_SET_VALUE(systemIdentifier_, systemIdentifier) };
 
 
   protected:
     // The time when the activation code takes effect.
-    std::shared_ptr<string> activateAt_ = nullptr;
+    shared_ptr<string> activateAt_ {};
     // The activation code in the base64 format. The activation code is decoded and stored into a file named license.lic. PolarDB can access and read the license.lic file upon startup to validate the license or perform related operations.
-    std::shared_ptr<string> certContentB64_ = nullptr;
+    shared_ptr<string> certContentB64_ {};
     // The description of the activation code.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The time when the activation code expires.
-    std::shared_ptr<string> expireAt_ = nullptr;
+    shared_ptr<string> expireAt_ {};
     // The time when the activation code was created.
-    std::shared_ptr<string> gmtCreated_ = nullptr;
+    shared_ptr<string> gmtCreated_ {};
     // The time when the activation code was last updated.
-    std::shared_ptr<string> gmtModified_ = nullptr;
+    shared_ptr<string> gmtModified_ {};
     // The activation code ID.
-    std::shared_ptr<int32_t> id_ = nullptr;
+    shared_ptr<int32_t> id_ {};
     // The MAC address.
-    std::shared_ptr<string> macAddress_ = nullptr;
+    shared_ptr<string> macAddress_ {};
     // The name of the activation code.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The system identifier of the database.
-    std::shared_ptr<string> systemIdentifier_ = nullptr;
+    shared_ptr<string> systemIdentifier_ {};
   };
 
   } // namespace Models

@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->keyList_ == nullptr && return this->requestId_ == nullptr; };
+        && this->keyList_ == nullptr && this->requestId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeUserEncryptionKeyListResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // keyList Field Functions 
     bool hasKeyList() const { return this->keyList_ != nullptr;};
     void deleteKeyList() { this->keyList_ = nullptr;};
-    inline const vector<string> & keyList() const { DARABONBA_PTR_GET_CONST(keyList_, vector<string>) };
-    inline vector<string> keyList() { DARABONBA_PTR_GET(keyList_, vector<string>) };
+    inline const vector<string> & getKeyList() const { DARABONBA_PTR_GET_CONST(keyList_, vector<string>) };
+    inline vector<string> getKeyList() { DARABONBA_PTR_GET(keyList_, vector<string>) };
     inline DescribeUserEncryptionKeyListResponseBody& setKeyList(const vector<string> & keyList) { DARABONBA_PTR_SET_VALUE(keyList_, keyList) };
     inline DescribeUserEncryptionKeyListResponseBody& setKeyList(vector<string> && keyList) { DARABONBA_PTR_SET_RVALUE(keyList_, keyList) };
 
@@ -55,17 +55,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeUserEncryptionKeyListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the cluster.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // Cluster key list.
-    std::shared_ptr<vector<string>> keyList_ = nullptr;
+    shared_ptr<vector<string>> keyList_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

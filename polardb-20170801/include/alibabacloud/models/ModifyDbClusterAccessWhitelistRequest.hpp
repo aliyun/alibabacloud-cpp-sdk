@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterIPArrayAttribute_ == nullptr
-        && return this->DBClusterIPArrayName_ == nullptr && return this->DBClusterId_ == nullptr && return this->modifyMode_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->securityIps_ == nullptr && return this->whiteListType_ == nullptr; };
+        && this->DBClusterIPArrayName_ == nullptr && this->DBClusterId_ == nullptr && this->modifyMode_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityIps_ == nullptr && this->whiteListType_ == nullptr; };
     // DBClusterIPArrayAttribute Field Functions 
     bool hasDBClusterIPArrayAttribute() const { return this->DBClusterIPArrayAttribute_ != nullptr;};
     void deleteDBClusterIPArrayAttribute() { this->DBClusterIPArrayAttribute_ = nullptr;};
-    inline string DBClusterIPArrayAttribute() const { DARABONBA_PTR_GET_DEFAULT(DBClusterIPArrayAttribute_, "") };
+    inline string getDBClusterIPArrayAttribute() const { DARABONBA_PTR_GET_DEFAULT(DBClusterIPArrayAttribute_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setDBClusterIPArrayAttribute(string DBClusterIPArrayAttribute) { DARABONBA_PTR_SET_VALUE(DBClusterIPArrayAttribute_, DBClusterIPArrayAttribute) };
 
 
     // DBClusterIPArrayName Field Functions 
     bool hasDBClusterIPArrayName() const { return this->DBClusterIPArrayName_ != nullptr;};
     void deleteDBClusterIPArrayName() { this->DBClusterIPArrayName_ = nullptr;};
-    inline string DBClusterIPArrayName() const { DARABONBA_PTR_GET_DEFAULT(DBClusterIPArrayName_, "") };
+    inline string getDBClusterIPArrayName() const { DARABONBA_PTR_GET_DEFAULT(DBClusterIPArrayName_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setDBClusterIPArrayName(string DBClusterIPArrayName) { DARABONBA_PTR_SET_VALUE(DBClusterIPArrayName_, DBClusterIPArrayName) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // modifyMode Field Functions 
     bool hasModifyMode() const { return this->modifyMode_ != nullptr;};
     void deleteModifyMode() { this->modifyMode_ = nullptr;};
-    inline string modifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
+    inline string getModifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setModifyMode(string modifyMode) { DARABONBA_PTR_SET_VALUE(modifyMode_, modifyMode) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyDBClusterAccessWhitelistRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyDBClusterAccessWhitelistRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityGroupIds Field Functions 
     bool hasSecurityGroupIds() const { return this->securityGroupIds_ != nullptr;};
     void deleteSecurityGroupIds() { this->securityGroupIds_ = nullptr;};
-    inline string securityGroupIds() const { DARABONBA_PTR_GET_DEFAULT(securityGroupIds_, "") };
+    inline string getSecurityGroupIds() const { DARABONBA_PTR_GET_DEFAULT(securityGroupIds_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setSecurityGroupIds(string securityGroupIds) { DARABONBA_PTR_SET_VALUE(securityGroupIds_, securityGroupIds) };
 
 
     // securityIps Field Functions 
     bool hasSecurityIps() const { return this->securityIps_ != nullptr;};
     void deleteSecurityIps() { this->securityIps_ = nullptr;};
-    inline string securityIps() const { DARABONBA_PTR_GET_DEFAULT(securityIps_, "") };
+    inline string getSecurityIps() const { DARABONBA_PTR_GET_DEFAULT(securityIps_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setSecurityIps(string securityIps) { DARABONBA_PTR_SET_VALUE(securityIps_, securityIps) };
 
 
     // whiteListType Field Functions 
     bool hasWhiteListType() const { return this->whiteListType_ != nullptr;};
     void deleteWhiteListType() { this->whiteListType_ = nullptr;};
-    inline string whiteListType() const { DARABONBA_PTR_GET_DEFAULT(whiteListType_, "") };
+    inline string getWhiteListType() const { DARABONBA_PTR_GET_DEFAULT(whiteListType_, "") };
     inline ModifyDBClusterAccessWhitelistRequest& setWhiteListType(string whiteListType) { DARABONBA_PTR_SET_VALUE(whiteListType_, whiteListType) };
 
 
@@ -134,7 +134,7 @@ namespace Models
     // 
     // > *   The IP whitelist group that has appeared in the console cannot be hidden.
     // > *   This parameter can be specified only when the **WhiteListType** parameter is set to **IP**.
-    std::shared_ptr<string> DBClusterIPArrayAttribute_ = nullptr;
+    shared_ptr<string> DBClusterIPArrayAttribute_ {};
     // The name of the IP whitelist group. The group name must be 2 to 120 characters in length and consists of lowercase letters and digits. It must start with a letter, and end with a letter or a digit.
     // 
     // *   If the specified whitelist group name does not exist, the whitelist group is created.
@@ -146,11 +146,11 @@ namespace Models
     // *   You can create a maximum of 50 IP whitelist groups for a cluster.
     // 
     // *   This parameter can be specified only when the **WhiteListType** parameter is set to **IP**.
-    std::shared_ptr<string> DBClusterIPArrayName_ = nullptr;
+    shared_ptr<string> DBClusterIPArrayName_ {};
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The method used to modify the IP whitelist. Valid values:
     // 
     // *   **Cover** (default): overwrites the original IP whitelist.
@@ -158,30 +158,30 @@ namespace Models
     // *   **Delete**: deletes IP addresses.
     // 
     // >  This parameter can be specified only when the **WhiteListType** parameter is set to **IP**.
-    std::shared_ptr<string> modifyMode_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> modifyMode_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the security group. Separate multiple security groups with commas (,).
     // 
     // > *   You can add a maximum of three security groups to a cluster.
     // > *   This parameter can be specified only when the **WhiteListType** parameter is set to **SecurityGroup**.
-    std::shared_ptr<string> securityGroupIds_ = nullptr;
+    shared_ptr<string> securityGroupIds_ {};
     // The IP addresses or Classless Inter-Domain Routing (CIDR) blocks in the IP whitelist group. You can add 1,000 IP addresses or CIDR blocks to all the IP whitelist groups. Separate multiple IP addresses with commas (,). The following two formats are supported:
     // 
     // *   IP addresses. Example: 10.23.12.24.
     // *   CIDR blocks. Example: 10.23.12.24/24. 24 indicates the length of the prefix of the CIDR block. The length is the range of 1 to 32.
     // 
     // >  This parameter can be specified only when the **WhiteListType** parameter is set to **IP**.
-    std::shared_ptr<string> securityIps_ = nullptr;
+    shared_ptr<string> securityIps_ {};
     // The type of the whitelist. Valid values:
     // 
     // *   **IP**: IP whitelist group.
     // *   **SecurityGroup**: security group.
     // 
     // Default value: **IP**.
-    std::shared_ptr<string> whiteListType_ = nullptr;
+    shared_ptr<string> whiteListType_ {};
   };
 
   } // namespace Models

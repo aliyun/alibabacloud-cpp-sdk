@@ -33,13 +33,13 @@ namespace Models
     // networkId Field Functions 
     bool hasNetworkId() const { return this->networkId_ != nullptr;};
     void deleteNetworkId() { this->networkId_ = nullptr;};
-    inline string networkId() const { DARABONBA_PTR_GET_DEFAULT(networkId_, "") };
+    inline string getNetworkId() const { DARABONBA_PTR_GET_DEFAULT(networkId_, "") };
     inline DeleteGlobalDataNetworkRequest& setNetworkId(string networkId) { DARABONBA_PTR_SET_VALUE(networkId_, networkId) };
 
 
   protected:
     // GDN ID
-    std::shared_ptr<string> networkId_ = nullptr;
+    shared_ptr<string> networkId_ {};
   };
 
   } // namespace Models

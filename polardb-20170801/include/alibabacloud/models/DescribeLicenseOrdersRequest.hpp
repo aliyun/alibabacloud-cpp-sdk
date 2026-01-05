@@ -48,83 +48,83 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunOrderId_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->packageType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->purchaseChannel_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->virtualOrder_ == nullptr; };
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->packageType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->purchaseChannel_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->virtualOrder_ == nullptr; };
     // aliyunOrderId Field Functions 
     bool hasAliyunOrderId() const { return this->aliyunOrderId_ != nullptr;};
     void deleteAliyunOrderId() { this->aliyunOrderId_ = nullptr;};
-    inline string aliyunOrderId() const { DARABONBA_PTR_GET_DEFAULT(aliyunOrderId_, "") };
+    inline string getAliyunOrderId() const { DARABONBA_PTR_GET_DEFAULT(aliyunOrderId_, "") };
     inline DescribeLicenseOrdersRequest& setAliyunOrderId(string aliyunOrderId) { DARABONBA_PTR_SET_VALUE(aliyunOrderId_, aliyunOrderId) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DescribeLicenseOrdersRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeLicenseOrdersRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // packageType Field Functions 
     bool hasPackageType() const { return this->packageType_ != nullptr;};
     void deletePackageType() { this->packageType_ = nullptr;};
-    inline string packageType() const { DARABONBA_PTR_GET_DEFAULT(packageType_, "") };
+    inline string getPackageType() const { DARABONBA_PTR_GET_DEFAULT(packageType_, "") };
     inline DescribeLicenseOrdersRequest& setPackageType(string packageType) { DARABONBA_PTR_SET_VALUE(packageType_, packageType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeLicenseOrdersRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeLicenseOrdersRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // purchaseChannel Field Functions 
     bool hasPurchaseChannel() const { return this->purchaseChannel_ != nullptr;};
     void deletePurchaseChannel() { this->purchaseChannel_ = nullptr;};
-    inline string purchaseChannel() const { DARABONBA_PTR_GET_DEFAULT(purchaseChannel_, "") };
+    inline string getPurchaseChannel() const { DARABONBA_PTR_GET_DEFAULT(purchaseChannel_, "") };
     inline DescribeLicenseOrdersRequest& setPurchaseChannel(string purchaseChannel) { DARABONBA_PTR_SET_VALUE(purchaseChannel_, purchaseChannel) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeLicenseOrdersRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeLicenseOrdersRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // virtualOrder Field Functions 
     bool hasVirtualOrder() const { return this->virtualOrder_ != nullptr;};
     void deleteVirtualOrder() { this->virtualOrder_ = nullptr;};
-    inline bool virtualOrder() const { DARABONBA_PTR_GET_DEFAULT(virtualOrder_, false) };
+    inline bool getVirtualOrder() const { DARABONBA_PTR_GET_DEFAULT(virtualOrder_, false) };
     inline DescribeLicenseOrdersRequest& setVirtualOrder(bool virtualOrder) { DARABONBA_PTR_SET_VALUE(virtualOrder_, virtualOrder) };
 
 
   protected:
     // The ID of the Alibaba Cloud order. The value can be the ID of a virtual order.
-    std::shared_ptr<string> aliyunOrderId_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> aliyunOrderId_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The plan type. Valid values:
     // 
     // *   single_node_subscribe: Single-node Edition (Subscription).
@@ -132,17 +132,17 @@ namespace Models
     // *   primary_backup_subscribe: HA Edition (Subscription).
     // *   primary_backup_long_term: HA Edition (Long-term).
     // *   pre_generation_long_term: Pre-generated (Long-term).
-    std::shared_ptr<string> packageType_ = nullptr;
+    shared_ptr<string> packageType_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The purchase channel. Valid values: aliyun_market and aliyun_public. aliyun_market specifies Alibaba Cloud Marketplace. aliyun_public specifies the PolarDB buy page.
-    std::shared_ptr<string> purchaseChannel_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> purchaseChannel_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to query only virtual orders.
-    std::shared_ptr<bool> virtualOrder_ = nullptr;
+    shared_ptr<bool> virtualOrder_ {};
   };
 
   } // namespace Models

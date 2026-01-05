@@ -34,40 +34,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->storageAutoScale_ == nullptr && return this->storageUpperBound_ == nullptr; };
+        && this->storageAutoScale_ == nullptr && this->storageUpperBound_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDasConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // storageAutoScale Field Functions 
     bool hasStorageAutoScale() const { return this->storageAutoScale_ != nullptr;};
     void deleteStorageAutoScale() { this->storageAutoScale_ = nullptr;};
-    inline string storageAutoScale() const { DARABONBA_PTR_GET_DEFAULT(storageAutoScale_, "") };
+    inline string getStorageAutoScale() const { DARABONBA_PTR_GET_DEFAULT(storageAutoScale_, "") };
     inline DescribeDasConfigResponseBody& setStorageAutoScale(string storageAutoScale) { DARABONBA_PTR_SET_VALUE(storageAutoScale_, storageAutoScale) };
 
 
     // storageUpperBound Field Functions 
     bool hasStorageUpperBound() const { return this->storageUpperBound_ != nullptr;};
     void deleteStorageUpperBound() { this->storageUpperBound_ = nullptr;};
-    inline int64_t storageUpperBound() const { DARABONBA_PTR_GET_DEFAULT(storageUpperBound_, 0L) };
+    inline int64_t getStorageUpperBound() const { DARABONBA_PTR_GET_DEFAULT(storageUpperBound_, 0L) };
     inline DescribeDasConfigResponseBody& setStorageUpperBound(int64_t storageUpperBound) { DARABONBA_PTR_SET_VALUE(storageUpperBound_, storageUpperBound) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Specifies whether to enable automatic storage scaling for the Standard Edition cluster. Valid values:
     // 
     // *   Enable
     // *   Disable
-    std::shared_ptr<string> storageAutoScale_ = nullptr;
+    shared_ptr<string> storageAutoScale_ {};
     // The maximum storage capacity that is allowed for storage automatic scaling of the Standard Edition cluster. Unit: GB.
     // 
     // >  This parameter is valid only when the StorageAutoScale parameter is set to Enable.
-    std::shared_ptr<int64_t> storageUpperBound_ = nullptr;
+    shared_ptr<int64_t> storageUpperBound_ {};
   };
 
   } // namespace Models

@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->componentId_ == nullptr && return this->modifyMode_ == nullptr && return this->securityGroups_ == nullptr && return this->securityIPArrayName_ == nullptr && return this->securityIPList_ == nullptr; };
+        && this->componentId_ == nullptr && this->modifyMode_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline ModifyApplicationWhitelistRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // componentId Field Functions 
     bool hasComponentId() const { return this->componentId_ != nullptr;};
     void deleteComponentId() { this->componentId_ = nullptr;};
-    inline string componentId() const { DARABONBA_PTR_GET_DEFAULT(componentId_, "") };
+    inline string getComponentId() const { DARABONBA_PTR_GET_DEFAULT(componentId_, "") };
     inline ModifyApplicationWhitelistRequest& setComponentId(string componentId) { DARABONBA_PTR_SET_VALUE(componentId_, componentId) };
 
 
     // modifyMode Field Functions 
     bool hasModifyMode() const { return this->modifyMode_ != nullptr;};
     void deleteModifyMode() { this->modifyMode_ = nullptr;};
-    inline string modifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
+    inline string getModifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
     inline ModifyApplicationWhitelistRequest& setModifyMode(string modifyMode) { DARABONBA_PTR_SET_VALUE(modifyMode_, modifyMode) };
 
 
     // securityGroups Field Functions 
     bool hasSecurityGroups() const { return this->securityGroups_ != nullptr;};
     void deleteSecurityGroups() { this->securityGroups_ = nullptr;};
-    inline string securityGroups() const { DARABONBA_PTR_GET_DEFAULT(securityGroups_, "") };
+    inline string getSecurityGroups() const { DARABONBA_PTR_GET_DEFAULT(securityGroups_, "") };
     inline ModifyApplicationWhitelistRequest& setSecurityGroups(string securityGroups) { DARABONBA_PTR_SET_VALUE(securityGroups_, securityGroups) };
 
 
     // securityIPArrayName Field Functions 
     bool hasSecurityIPArrayName() const { return this->securityIPArrayName_ != nullptr;};
     void deleteSecurityIPArrayName() { this->securityIPArrayName_ = nullptr;};
-    inline string securityIPArrayName() const { DARABONBA_PTR_GET_DEFAULT(securityIPArrayName_, "") };
+    inline string getSecurityIPArrayName() const { DARABONBA_PTR_GET_DEFAULT(securityIPArrayName_, "") };
     inline ModifyApplicationWhitelistRequest& setSecurityIPArrayName(string securityIPArrayName) { DARABONBA_PTR_SET_VALUE(securityIPArrayName_, securityIPArrayName) };
 
 
     // securityIPList Field Functions 
     bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
     void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
-    inline string securityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
+    inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
     inline ModifyApplicationWhitelistRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
-    std::shared_ptr<string> componentId_ = nullptr;
-    std::shared_ptr<string> modifyMode_ = nullptr;
-    std::shared_ptr<string> securityGroups_ = nullptr;
-    std::shared_ptr<string> securityIPArrayName_ = nullptr;
-    std::shared_ptr<string> securityIPList_ = nullptr;
+    shared_ptr<string> applicationId_ {};
+    shared_ptr<string> componentId_ {};
+    shared_ptr<string> modifyMode_ {};
+    shared_ptr<string> securityGroups_ {};
+    shared_ptr<string> securityIPArrayName_ {};
+    shared_ptr<string> securityIPList_ {};
   };
 
   } // namespace Models

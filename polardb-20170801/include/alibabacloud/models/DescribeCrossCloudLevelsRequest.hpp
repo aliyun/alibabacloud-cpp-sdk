@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBType_ == nullptr
-        && return this->DBVersion_ == nullptr && return this->projectId_ == nullptr && return this->storageType_ == nullptr; };
+        && this->DBVersion_ == nullptr && this->projectId_ == nullptr && this->storageType_ == nullptr; };
     // DBType Field Functions 
     bool hasDBType() const { return this->DBType_ != nullptr;};
     void deleteDBType() { this->DBType_ = nullptr;};
-    inline string DBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
+    inline string getDBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
     inline DescribeCrossCloudLevelsRequest& setDBType(string DBType) { DARABONBA_PTR_SET_VALUE(DBType_, DBType) };
 
 
     // DBVersion Field Functions 
     bool hasDBVersion() const { return this->DBVersion_ != nullptr;};
     void deleteDBVersion() { this->DBVersion_ = nullptr;};
-    inline string DBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
+    inline string getDBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
     inline DescribeCrossCloudLevelsRequest& setDBVersion(string DBVersion) { DARABONBA_PTR_SET_VALUE(DBVersion_, DBVersion) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline string projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+    inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
     inline DescribeCrossCloudLevelsRequest& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline DescribeCrossCloudLevelsRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> DBType_ = nullptr;
-    std::shared_ptr<string> DBVersion_ = nullptr;
+    shared_ptr<string> DBType_ {};
+    shared_ptr<string> DBVersion_ {};
     // This parameter is required.
-    std::shared_ptr<string> projectId_ = nullptr;
+    shared_ptr<string> projectId_ {};
     // This parameter is required.
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> storageType_ {};
   };
 
   } // namespace Models

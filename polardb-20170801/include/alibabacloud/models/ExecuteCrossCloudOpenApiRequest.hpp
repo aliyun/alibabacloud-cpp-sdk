@@ -33,12 +33,12 @@ namespace Models
     // proxyInfo Field Functions 
     bool hasProxyInfo() const { return this->proxyInfo_ != nullptr;};
     void deleteProxyInfo() { this->proxyInfo_ = nullptr;};
-    inline string proxyInfo() const { DARABONBA_PTR_GET_DEFAULT(proxyInfo_, "") };
+    inline string getProxyInfo() const { DARABONBA_PTR_GET_DEFAULT(proxyInfo_, "") };
     inline ExecuteCrossCloudOpenAPIRequest& setProxyInfo(string proxyInfo) { DARABONBA_PTR_SET_VALUE(proxyInfo_, proxyInfo) };
 
 
   protected:
-    std::shared_ptr<string> proxyInfo_ = nullptr;
+    shared_ptr<string> proxyInfo_ {};
   };
 
   } // namespace Models

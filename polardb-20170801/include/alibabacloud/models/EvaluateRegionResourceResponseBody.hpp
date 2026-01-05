@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceAvailable_ == nullptr
-        && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr && return this->requestId_ == nullptr; };
+        && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->requestId_ == nullptr; };
     // DBInstanceAvailable Field Functions 
     bool hasDBInstanceAvailable() const { return this->DBInstanceAvailable_ != nullptr;};
     void deleteDBInstanceAvailable() { this->DBInstanceAvailable_ = nullptr;};
-    inline string DBInstanceAvailable() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceAvailable_, "") };
+    inline string getDBInstanceAvailable() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceAvailable_, "") };
     inline EvaluateRegionResourceResponseBody& setDBInstanceAvailable(string DBInstanceAvailable) { DARABONBA_PTR_SET_VALUE(DBInstanceAvailable_, DBInstanceAvailable) };
 
 
     // DBType Field Functions 
     bool hasDBType() const { return this->DBType_ != nullptr;};
     void deleteDBType() { this->DBType_ = nullptr;};
-    inline string DBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
+    inline string getDBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
     inline EvaluateRegionResourceResponseBody& setDBType(string DBType) { DARABONBA_PTR_SET_VALUE(DBType_, DBType) };
 
 
     // DBVersion Field Functions 
     bool hasDBVersion() const { return this->DBVersion_ != nullptr;};
     void deleteDBVersion() { this->DBVersion_ = nullptr;};
-    inline string DBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
+    inline string getDBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
     inline EvaluateRegionResourceResponseBody& setDBVersion(string DBVersion) { DARABONBA_PTR_SET_VALUE(DBVersion_, DBVersion) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline EvaluateRegionResourceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -70,13 +70,13 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<string> DBInstanceAvailable_ = nullptr;
+    shared_ptr<string> DBInstanceAvailable_ {};
     // The type of the database engine. Valid values:
     // 
     // *   **MySQL**
     // *   **PostgreSQL**
     // *   **Oracle**
-    std::shared_ptr<string> DBType_ = nullptr;
+    shared_ptr<string> DBType_ {};
     // The version of the database engine
     // 
     // *   Valid values for the MySQL database engine:
@@ -91,9 +91,9 @@ namespace Models
     //     *   **14**
     // 
     // *   Valid value for the Oracle database engine: **11**
-    std::shared_ptr<string> DBVersion_ = nullptr;
+    shared_ptr<string> DBVersion_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

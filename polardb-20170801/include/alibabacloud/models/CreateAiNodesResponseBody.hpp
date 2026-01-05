@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->DBNodeIds_ == nullptr && return this->orderId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->DBNodeIds_ == nullptr && this->orderId_ == nullptr && this->requestId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CreateAINodesResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // DBNodeIds Field Functions 
     bool hasDBNodeIds() const { return this->DBNodeIds_ != nullptr;};
     void deleteDBNodeIds() { this->DBNodeIds_ = nullptr;};
-    inline const vector<string> & DBNodeIds() const { DARABONBA_PTR_GET_CONST(DBNodeIds_, vector<string>) };
-    inline vector<string> DBNodeIds() { DARABONBA_PTR_GET(DBNodeIds_, vector<string>) };
+    inline const vector<string> & getDBNodeIds() const { DARABONBA_PTR_GET_CONST(DBNodeIds_, vector<string>) };
+    inline vector<string> getDBNodeIds() { DARABONBA_PTR_GET(DBNodeIds_, vector<string>) };
     inline CreateAINodesResponseBody& setDBNodeIds(const vector<string> & DBNodeIds) { DARABONBA_PTR_SET_VALUE(DBNodeIds_, DBNodeIds) };
     inline CreateAINodesResponseBody& setDBNodeIds(vector<string> && DBNodeIds) { DARABONBA_PTR_SET_RVALUE(DBNodeIds_, DBNodeIds) };
 
@@ -57,22 +57,22 @@ namespace Models
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline CreateAINodesResponseBody& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateAINodesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<vector<string>> DBNodeIds_ = nullptr;
-    std::shared_ptr<string> orderId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<vector<string>> DBNodeIds_ {};
+    shared_ptr<string> orderId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

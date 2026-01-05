@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->defaultAlgo_ == nullptr && return this->enable_ == nullptr && return this->interfaceVersion_ == nullptr && return this->maskingAlgo_ == nullptr && return this->ruleConfig_ == nullptr
-        && return this->ruleName_ == nullptr && return this->ruleNameList_ == nullptr && return this->ruleVersion_ == nullptr; };
+        && this->defaultAlgo_ == nullptr && this->enable_ == nullptr && this->interfaceVersion_ == nullptr && this->maskingAlgo_ == nullptr && this->ruleConfig_ == nullptr
+        && this->ruleName_ == nullptr && this->ruleNameList_ == nullptr && this->ruleVersion_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyMaskingRulesRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // defaultAlgo Field Functions 
     bool hasDefaultAlgo() const { return this->defaultAlgo_ != nullptr;};
     void deleteDefaultAlgo() { this->defaultAlgo_ = nullptr;};
-    inline string defaultAlgo() const { DARABONBA_PTR_GET_DEFAULT(defaultAlgo_, "") };
+    inline string getDefaultAlgo() const { DARABONBA_PTR_GET_DEFAULT(defaultAlgo_, "") };
     inline ModifyMaskingRulesRequest& setDefaultAlgo(string defaultAlgo) { DARABONBA_PTR_SET_VALUE(defaultAlgo_, defaultAlgo) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline string enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
+    inline string getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, "") };
     inline ModifyMaskingRulesRequest& setEnable(string enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // interfaceVersion Field Functions 
     bool hasInterfaceVersion() const { return this->interfaceVersion_ != nullptr;};
     void deleteInterfaceVersion() { this->interfaceVersion_ = nullptr;};
-    inline string interfaceVersion() const { DARABONBA_PTR_GET_DEFAULT(interfaceVersion_, "") };
+    inline string getInterfaceVersion() const { DARABONBA_PTR_GET_DEFAULT(interfaceVersion_, "") };
     inline ModifyMaskingRulesRequest& setInterfaceVersion(string interfaceVersion) { DARABONBA_PTR_SET_VALUE(interfaceVersion_, interfaceVersion) };
 
 
     // maskingAlgo Field Functions 
     bool hasMaskingAlgo() const { return this->maskingAlgo_ != nullptr;};
     void deleteMaskingAlgo() { this->maskingAlgo_ = nullptr;};
-    inline string maskingAlgo() const { DARABONBA_PTR_GET_DEFAULT(maskingAlgo_, "") };
+    inline string getMaskingAlgo() const { DARABONBA_PTR_GET_DEFAULT(maskingAlgo_, "") };
     inline ModifyMaskingRulesRequest& setMaskingAlgo(string maskingAlgo) { DARABONBA_PTR_SET_VALUE(maskingAlgo_, maskingAlgo) };
 
 
     // ruleConfig Field Functions 
     bool hasRuleConfig() const { return this->ruleConfig_ != nullptr;};
     void deleteRuleConfig() { this->ruleConfig_ = nullptr;};
-    inline string ruleConfig() const { DARABONBA_PTR_GET_DEFAULT(ruleConfig_, "") };
+    inline string getRuleConfig() const { DARABONBA_PTR_GET_DEFAULT(ruleConfig_, "") };
     inline ModifyMaskingRulesRequest& setRuleConfig(string ruleConfig) { DARABONBA_PTR_SET_VALUE(ruleConfig_, ruleConfig) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline ModifyMaskingRulesRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleNameList Field Functions 
     bool hasRuleNameList() const { return this->ruleNameList_ != nullptr;};
     void deleteRuleNameList() { this->ruleNameList_ = nullptr;};
-    inline string ruleNameList() const { DARABONBA_PTR_GET_DEFAULT(ruleNameList_, "") };
+    inline string getRuleNameList() const { DARABONBA_PTR_GET_DEFAULT(ruleNameList_, "") };
     inline ModifyMaskingRulesRequest& setRuleNameList(string ruleNameList) { DARABONBA_PTR_SET_VALUE(ruleNameList_, ruleNameList) };
 
 
     // ruleVersion Field Functions 
     bool hasRuleVersion() const { return this->ruleVersion_ != nullptr;};
     void deleteRuleVersion() { this->ruleVersion_ = nullptr;};
-    inline string ruleVersion() const { DARABONBA_PTR_GET_DEFAULT(ruleVersion_, "") };
+    inline string getRuleVersion() const { DARABONBA_PTR_GET_DEFAULT(ruleVersion_, "") };
     inline ModifyMaskingRulesRequest& setRuleVersion(string ruleVersion) { DARABONBA_PTR_SET_VALUE(ruleVersion_, ruleVersion) };
 
 
@@ -117,17 +117,17 @@ namespace Models
     // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<string> defaultAlgo_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> defaultAlgo_ {};
     // Specifies whether to enable the specified masking rule. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // > This parameter is valid only when the `RuleNameList` parameter is specfied.
-    std::shared_ptr<string> enable_ = nullptr;
-    std::shared_ptr<string> interfaceVersion_ = nullptr;
-    std::shared_ptr<string> maskingAlgo_ = nullptr;
+    shared_ptr<string> enable_ {};
+    shared_ptr<string> interfaceVersion_ {};
+    shared_ptr<string> maskingAlgo_ {};
     // The parameter that is used to specify the masking rule that you want to modify and the value in the JSON format. All parameter values are of the string type. Example: `{"auto": {"databases": ["db1"], "tables": ["tb1"], "columns": ["c1,c2"] }, "description": "This rule will be applied to the columns c1 and c2 in table t1", "enabled": true, "applies_to": ["user"]}`. Where,
     // 
     // *   `"auto"`: specifies that the dynamic masking algorithm is supported. This parameter is required.
@@ -144,7 +144,7 @@ namespace Models
     // *   If you specify `RuleName`, `RuleConfig` parameter is required.
     // 
     // *   You need to select either `"applies_to"` or `"exempted"`.
-    std::shared_ptr<string> ruleConfig_ = nullptr;
+    shared_ptr<string> ruleConfig_ {};
     // The name of the data masking rule. You can specify only one rule name at a time.
     // 
     // > 
@@ -152,16 +152,16 @@ namespace Models
     // *   You can call the [DescribeMaskingRules](https://help.aliyun.com/document_detail/212573.html) operation to query the details of all masking rules for a specified cluster, such as the names of the masking rules.
     // 
     // *   If the rule name does not exist in the cluster, the system automatically creates a masking rule based on the name and the value of `RuleConfig`.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The list of masking rule names. You can specify one or more masking rules at a time. Separate the masking rule names with commas (,).
     // 
     // > You must specify either the `RuleName` or `RuleNameList` parameter.
-    std::shared_ptr<string> ruleNameList_ = nullptr;
+    shared_ptr<string> ruleNameList_ {};
     // The version of the masking rule. Default value: v1. Valid values:
     // 
     // *   v1
     // *   v2
-    std::shared_ptr<string> ruleVersion_ = nullptr;
+    shared_ptr<string> ruleVersion_ {};
   };
 
   } // namespace Models

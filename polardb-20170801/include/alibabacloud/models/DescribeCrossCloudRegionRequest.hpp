@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cloudProvider_ == nullptr
-        && return this->crossCloudRegionId_ == nullptr && return this->DBType_ == nullptr; };
+        && this->crossCloudRegionId_ == nullptr && this->DBType_ == nullptr; };
     // cloudProvider Field Functions 
     bool hasCloudProvider() const { return this->cloudProvider_ != nullptr;};
     void deleteCloudProvider() { this->cloudProvider_ = nullptr;};
-    inline string cloudProvider() const { DARABONBA_PTR_GET_DEFAULT(cloudProvider_, "") };
+    inline string getCloudProvider() const { DARABONBA_PTR_GET_DEFAULT(cloudProvider_, "") };
     inline DescribeCrossCloudRegionRequest& setCloudProvider(string cloudProvider) { DARABONBA_PTR_SET_VALUE(cloudProvider_, cloudProvider) };
 
 
     // crossCloudRegionId Field Functions 
     bool hasCrossCloudRegionId() const { return this->crossCloudRegionId_ != nullptr;};
     void deleteCrossCloudRegionId() { this->crossCloudRegionId_ = nullptr;};
-    inline string crossCloudRegionId() const { DARABONBA_PTR_GET_DEFAULT(crossCloudRegionId_, "") };
+    inline string getCrossCloudRegionId() const { DARABONBA_PTR_GET_DEFAULT(crossCloudRegionId_, "") };
     inline DescribeCrossCloudRegionRequest& setCrossCloudRegionId(string crossCloudRegionId) { DARABONBA_PTR_SET_VALUE(crossCloudRegionId_, crossCloudRegionId) };
 
 
     // DBType Field Functions 
     bool hasDBType() const { return this->DBType_ != nullptr;};
     void deleteDBType() { this->DBType_ = nullptr;};
-    inline string DBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
+    inline string getDBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
     inline DescribeCrossCloudRegionRequest& setDBType(string DBType) { DARABONBA_PTR_SET_VALUE(DBType_, DBType) };
 
 
   protected:
-    std::shared_ptr<string> cloudProvider_ = nullptr;
-    std::shared_ptr<string> crossCloudRegionId_ = nullptr;
-    std::shared_ptr<string> DBType_ = nullptr;
+    shared_ptr<string> cloudProvider_ {};
+    shared_ptr<string> crossCloudRegionId_ {};
+    shared_ptr<string> DBType_ {};
   };
 
   } // namespace Models

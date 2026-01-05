@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collectorStatus_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // collectorStatus Field Functions 
     bool hasCollectorStatus() const { return this->collectorStatus_ != nullptr;};
     void deleteCollectorStatus() { this->collectorStatus_ = nullptr;};
-    inline string collectorStatus() const { DARABONBA_PTR_GET_DEFAULT(collectorStatus_, "") };
+    inline string getCollectorStatus() const { DARABONBA_PTR_GET_DEFAULT(collectorStatus_, "") };
     inline DescribeDBClusterAuditLogCollectorResponseBody& setCollectorStatus(string collectorStatus) { DARABONBA_PTR_SET_VALUE(collectorStatus_, collectorStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBClusterAuditLogCollectorResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   Enable
     // *   Disabled
-    std::shared_ptr<string> collectorStatus_ = nullptr;
+    shared_ptr<string> collectorStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

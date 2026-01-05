@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->endpointId_ == nullptr && return this->netType_ == nullptr; };
+        && this->endpointId_ == nullptr && this->netType_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
-    inline string applicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
+    inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
     inline CreateApplicationEndpointAddressRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // endpointId Field Functions 
     bool hasEndpointId() const { return this->endpointId_ != nullptr;};
     void deleteEndpointId() { this->endpointId_ = nullptr;};
-    inline string endpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
+    inline string getEndpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
     inline CreateApplicationEndpointAddressRequest& setEndpointId(string endpointId) { DARABONBA_PTR_SET_VALUE(endpointId_, endpointId) };
 
 
     // netType Field Functions 
     bool hasNetType() const { return this->netType_ != nullptr;};
     void deleteNetType() { this->netType_ = nullptr;};
-    inline string netType() const { DARABONBA_PTR_GET_DEFAULT(netType_, "") };
+    inline string getNetType() const { DARABONBA_PTR_GET_DEFAULT(netType_, "") };
     inline CreateApplicationEndpointAddressRequest& setNetType(string netType) { DARABONBA_PTR_SET_VALUE(netType_, netType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> applicationId_ = nullptr;
+    shared_ptr<string> applicationId_ {};
     // This parameter is required.
-    std::shared_ptr<string> endpointId_ = nullptr;
+    shared_ptr<string> endpointId_ {};
     // This parameter is required.
-    std::shared_ptr<string> netType_ = nullptr;
+    shared_ptr<string> netType_ {};
   };
 
   } // namespace Models

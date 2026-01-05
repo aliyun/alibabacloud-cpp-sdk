@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->automaticRotation_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->encryptNewTables_ == nullptr && return this->encryptionKey_ == nullptr && return this->encryptionKeyStatus_ == nullptr && return this->requestId_ == nullptr
-        && return this->rotationInterval_ == nullptr && return this->TDERegion_ == nullptr && return this->TDEStatus_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->encryptNewTables_ == nullptr && this->encryptionKey_ == nullptr && this->encryptionKeyStatus_ == nullptr && this->requestId_ == nullptr
+        && this->rotationInterval_ == nullptr && this->TDERegion_ == nullptr && this->TDEStatus_ == nullptr; };
     // automaticRotation Field Functions 
     bool hasAutomaticRotation() const { return this->automaticRotation_ != nullptr;};
     void deleteAutomaticRotation() { this->automaticRotation_ = nullptr;};
-    inline string automaticRotation() const { DARABONBA_PTR_GET_DEFAULT(automaticRotation_, "") };
+    inline string getAutomaticRotation() const { DARABONBA_PTR_GET_DEFAULT(automaticRotation_, "") };
     inline DescribeDBClusterTDEResponseBody& setAutomaticRotation(string automaticRotation) { DARABONBA_PTR_SET_VALUE(automaticRotation_, automaticRotation) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeDBClusterTDEResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // encryptNewTables Field Functions 
     bool hasEncryptNewTables() const { return this->encryptNewTables_ != nullptr;};
     void deleteEncryptNewTables() { this->encryptNewTables_ = nullptr;};
-    inline string encryptNewTables() const { DARABONBA_PTR_GET_DEFAULT(encryptNewTables_, "") };
+    inline string getEncryptNewTables() const { DARABONBA_PTR_GET_DEFAULT(encryptNewTables_, "") };
     inline DescribeDBClusterTDEResponseBody& setEncryptNewTables(string encryptNewTables) { DARABONBA_PTR_SET_VALUE(encryptNewTables_, encryptNewTables) };
 
 
     // encryptionKey Field Functions 
     bool hasEncryptionKey() const { return this->encryptionKey_ != nullptr;};
     void deleteEncryptionKey() { this->encryptionKey_ = nullptr;};
-    inline string encryptionKey() const { DARABONBA_PTR_GET_DEFAULT(encryptionKey_, "") };
+    inline string getEncryptionKey() const { DARABONBA_PTR_GET_DEFAULT(encryptionKey_, "") };
     inline DescribeDBClusterTDEResponseBody& setEncryptionKey(string encryptionKey) { DARABONBA_PTR_SET_VALUE(encryptionKey_, encryptionKey) };
 
 
     // encryptionKeyStatus Field Functions 
     bool hasEncryptionKeyStatus() const { return this->encryptionKeyStatus_ != nullptr;};
     void deleteEncryptionKeyStatus() { this->encryptionKeyStatus_ = nullptr;};
-    inline string encryptionKeyStatus() const { DARABONBA_PTR_GET_DEFAULT(encryptionKeyStatus_, "") };
+    inline string getEncryptionKeyStatus() const { DARABONBA_PTR_GET_DEFAULT(encryptionKeyStatus_, "") };
     inline DescribeDBClusterTDEResponseBody& setEncryptionKeyStatus(string encryptionKeyStatus) { DARABONBA_PTR_SET_VALUE(encryptionKeyStatus_, encryptionKeyStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBClusterTDEResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rotationInterval Field Functions 
     bool hasRotationInterval() const { return this->rotationInterval_ != nullptr;};
     void deleteRotationInterval() { this->rotationInterval_ = nullptr;};
-    inline string rotationInterval() const { DARABONBA_PTR_GET_DEFAULT(rotationInterval_, "") };
+    inline string getRotationInterval() const { DARABONBA_PTR_GET_DEFAULT(rotationInterval_, "") };
     inline DescribeDBClusterTDEResponseBody& setRotationInterval(string rotationInterval) { DARABONBA_PTR_SET_VALUE(rotationInterval_, rotationInterval) };
 
 
     // TDERegion Field Functions 
     bool hasTDERegion() const { return this->TDERegion_ != nullptr;};
     void deleteTDERegion() { this->TDERegion_ = nullptr;};
-    inline string TDERegion() const { DARABONBA_PTR_GET_DEFAULT(TDERegion_, "") };
+    inline string getTDERegion() const { DARABONBA_PTR_GET_DEFAULT(TDERegion_, "") };
     inline DescribeDBClusterTDEResponseBody& setTDERegion(string TDERegion) { DARABONBA_PTR_SET_VALUE(TDERegion_, TDERegion) };
 
 
     // TDEStatus Field Functions 
     bool hasTDEStatus() const { return this->TDEStatus_ != nullptr;};
     void deleteTDEStatus() { this->TDEStatus_ = nullptr;};
-    inline string TDEStatus() const { DARABONBA_PTR_GET_DEFAULT(TDEStatus_, "") };
+    inline string getTDEStatus() const { DARABONBA_PTR_GET_DEFAULT(TDEStatus_, "") };
     inline DescribeDBClusterTDEResponseBody& setTDEStatus(string TDEStatus) { DARABONBA_PTR_SET_VALUE(TDEStatus_, TDEStatus) };
 
 
@@ -118,34 +118,34 @@ namespace Models
     // *   **Disabled**: Automatic key rotation is not allowed.
     // 
     // >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster.
-    std::shared_ptr<string> automaticRotation_ = nullptr;
+    shared_ptr<string> automaticRotation_ {};
     // The ID of the cluster.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // Indicates whether automatic encryption is enabled for new tables. Valid values:
     // 
     // *   **ON**
     // *   **OFF**
     // 
     // >  This parameter is returned only for a PolarDB for MySQL cluster.
-    std::shared_ptr<string> encryptNewTables_ = nullptr;
+    shared_ptr<string> encryptNewTables_ {};
     // The ID of the custom key.
-    std::shared_ptr<string> encryptionKey_ = nullptr;
-    std::shared_ptr<string> encryptionKeyStatus_ = nullptr;
+    shared_ptr<string> encryptionKey_ {};
+    shared_ptr<string> encryptionKeyStatus_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The automatic key rotation period configured in Key Management Service (KMS). If no automatic key rotation period is configured, 0s is returned. Unit: seconds.
     // 
     // For example, if the rotation period is set to 7 days, 604800s is returned.
     // 
     // >  This parameter is returned only for a PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) cluster whose AutomaticRotation parameter is set to Enabled.
-    std::shared_ptr<string> rotationInterval_ = nullptr;
+    shared_ptr<string> rotationInterval_ {};
     // The region where the TDE key resides.
-    std::shared_ptr<string> TDERegion_ = nullptr;
+    shared_ptr<string> TDERegion_ {};
     // Indicates whether TDE encryption is enabled. Valid values:
     // 
     // *   **Enabled**
     // *   **Disabled**
-    std::shared_ptr<string> TDEStatus_ = nullptr;
+    shared_ptr<string> TDEStatus_ {};
   };
 
   } // namespace Models

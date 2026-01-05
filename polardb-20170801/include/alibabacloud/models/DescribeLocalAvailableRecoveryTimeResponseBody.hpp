@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->recoveryBeginTime_ == nullptr && return this->recoveryEndTime_ == nullptr && return this->requestId_ == nullptr; };
+        && this->recoveryBeginTime_ == nullptr && this->recoveryEndTime_ == nullptr && this->requestId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeLocalAvailableRecoveryTimeResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // recoveryBeginTime Field Functions 
     bool hasRecoveryBeginTime() const { return this->recoveryBeginTime_ != nullptr;};
     void deleteRecoveryBeginTime() { this->recoveryBeginTime_ = nullptr;};
-    inline string recoveryBeginTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryBeginTime_, "") };
+    inline string getRecoveryBeginTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryBeginTime_, "") };
     inline DescribeLocalAvailableRecoveryTimeResponseBody& setRecoveryBeginTime(string recoveryBeginTime) { DARABONBA_PTR_SET_VALUE(recoveryBeginTime_, recoveryBeginTime) };
 
 
     // recoveryEndTime Field Functions 
     bool hasRecoveryEndTime() const { return this->recoveryEndTime_ != nullptr;};
     void deleteRecoveryEndTime() { this->recoveryEndTime_ = nullptr;};
-    inline string recoveryEndTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryEndTime_, "") };
+    inline string getRecoveryEndTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryEndTime_, "") };
     inline DescribeLocalAvailableRecoveryTimeResponseBody& setRecoveryEndTime(string recoveryEndTime) { DARABONBA_PTR_SET_VALUE(recoveryEndTime_, recoveryEndTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLocalAvailableRecoveryTimeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<string> recoveryBeginTime_ = nullptr;
-    std::shared_ptr<string> recoveryEndTime_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> recoveryBeginTime_ {};
+    shared_ptr<string> recoveryEndTime_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

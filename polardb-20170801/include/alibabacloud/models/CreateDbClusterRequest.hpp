@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEDBCLUSTERREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateDBClusterRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -155,460 +154,508 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // Tag key. If you need to add multiple tags to the target cluster at once, click **Add** to add a tag key.
+      // 
+      // > Up to 20 pairs of tags can be added each time, where `Tag.N.Key` corresponds to `Tag.N.Value`.
+      shared_ptr<string> key_ {};
+      // Tag value. If you need to add multiple tags to the target cluster at once, click **Add** to add tag values.
+      // 
+      // > Up to 20 pairs of tags can be added each time, where `Tag.N.Value` corresponds to `Tag.N.Key`.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->allowShutDown_ == nullptr
-        && return this->architecture_ == nullptr && return this->autoRenew_ == nullptr && return this->autoUseCoupon_ == nullptr && return this->backupRetentionPolicyOnClusterDeletion_ == nullptr && return this->burstingEnabled_ == nullptr
-        && return this->clientToken_ == nullptr && return this->cloneDataPoint_ == nullptr && return this->cloudProvider_ == nullptr && return this->clusterNetworkType_ == nullptr && return this->creationCategory_ == nullptr
-        && return this->creationOption_ == nullptr && return this->DBClusterDescription_ == nullptr && return this->DBMinorVersion_ == nullptr && return this->DBNodeClass_ == nullptr && return this->DBNodeNum_ == nullptr
-        && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr && return this->defaultTimeZone_ == nullptr && return this->ensRegionId_ == nullptr && return this->GDNId_ == nullptr
-        && return this->hotStandbyCluster_ == nullptr && return this->loosePolarLogBin_ == nullptr && return this->looseXEngine_ == nullptr && return this->looseXEngineUseMemoryPct_ == nullptr && return this->lowerCaseTableNames_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->parameterGroupId_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr
-        && return this->promotionCode_ == nullptr && return this->provisionedIops_ == nullptr && return this->proxyClass_ == nullptr && return this->proxyType_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr
-        && return this->scaleRoNumMax_ == nullptr && return this->scaleRoNumMin_ == nullptr && return this->securityIPList_ == nullptr && return this->serverlessType_ == nullptr && return this->sourceResourceId_ == nullptr
-        && return this->sourceUid_ == nullptr && return this->standbyAZ_ == nullptr && return this->storageAutoScale_ == nullptr && return this->storageEncryption_ == nullptr && return this->storageEncryptionKey_ == nullptr
-        && return this->storagePayType_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr && return this->storageUpperBound_ == nullptr && return this->strictConsistency_ == nullptr
-        && return this->TDEStatus_ == nullptr && return this->tag_ == nullptr && return this->targetMinorVersion_ == nullptr && return this->usedTime_ == nullptr && return this->VPCId_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->architecture_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->backupRetentionPolicyOnClusterDeletion_ == nullptr && this->burstingEnabled_ == nullptr
+        && this->clientToken_ == nullptr && this->cloneDataPoint_ == nullptr && this->cloudProvider_ == nullptr && this->clusterNetworkType_ == nullptr && this->creationCategory_ == nullptr
+        && this->creationOption_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBMinorVersion_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeNum_ == nullptr
+        && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->defaultTimeZone_ == nullptr && this->ensRegionId_ == nullptr && this->GDNId_ == nullptr
+        && this->hotStandbyCluster_ == nullptr && this->loosePolarLogBin_ == nullptr && this->looseXEngine_ == nullptr && this->looseXEngineUseMemoryPct_ == nullptr && this->lowerCaseTableNames_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parameterGroupId_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
+        && this->promotionCode_ == nullptr && this->provisionedIops_ == nullptr && this->proxyClass_ == nullptr && this->proxyType_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr
+        && this->scaleRoNumMax_ == nullptr && this->scaleRoNumMin_ == nullptr && this->securityIPList_ == nullptr && this->serverlessType_ == nullptr && this->sourceResourceId_ == nullptr
+        && this->sourceUid_ == nullptr && this->standbyAZ_ == nullptr && this->storageAutoScale_ == nullptr && this->storageEncryption_ == nullptr && this->storageEncryptionKey_ == nullptr
+        && this->storagePayType_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUpperBound_ == nullptr && this->strictConsistency_ == nullptr
+        && this->TDEStatus_ == nullptr && this->tag_ == nullptr && this->targetMinorVersion_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr
+        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // allowShutDown Field Functions 
     bool hasAllowShutDown() const { return this->allowShutDown_ != nullptr;};
     void deleteAllowShutDown() { this->allowShutDown_ = nullptr;};
-    inline string allowShutDown() const { DARABONBA_PTR_GET_DEFAULT(allowShutDown_, "") };
+    inline string getAllowShutDown() const { DARABONBA_PTR_GET_DEFAULT(allowShutDown_, "") };
     inline CreateDBClusterRequest& setAllowShutDown(string allowShutDown) { DARABONBA_PTR_SET_VALUE(allowShutDown_, allowShutDown) };
 
 
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};
-    inline string architecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
+    inline string getArchitecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
     inline CreateDBClusterRequest& setArchitecture(string architecture) { DARABONBA_PTR_SET_VALUE(architecture_, architecture) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateDBClusterRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // autoUseCoupon Field Functions 
     bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
-    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline CreateDBClusterRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
 
 
     // backupRetentionPolicyOnClusterDeletion Field Functions 
     bool hasBackupRetentionPolicyOnClusterDeletion() const { return this->backupRetentionPolicyOnClusterDeletion_ != nullptr;};
     void deleteBackupRetentionPolicyOnClusterDeletion() { this->backupRetentionPolicyOnClusterDeletion_ = nullptr;};
-    inline string backupRetentionPolicyOnClusterDeletion() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPolicyOnClusterDeletion_, "") };
+    inline string getBackupRetentionPolicyOnClusterDeletion() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPolicyOnClusterDeletion_, "") };
     inline CreateDBClusterRequest& setBackupRetentionPolicyOnClusterDeletion(string backupRetentionPolicyOnClusterDeletion) { DARABONBA_PTR_SET_VALUE(backupRetentionPolicyOnClusterDeletion_, backupRetentionPolicyOnClusterDeletion) };
 
 
     // burstingEnabled Field Functions 
     bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
     void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
-    inline string burstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, "") };
+    inline string getBurstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, "") };
     inline CreateDBClusterRequest& setBurstingEnabled(string burstingEnabled) { DARABONBA_PTR_SET_VALUE(burstingEnabled_, burstingEnabled) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateDBClusterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // cloneDataPoint Field Functions 
     bool hasCloneDataPoint() const { return this->cloneDataPoint_ != nullptr;};
     void deleteCloneDataPoint() { this->cloneDataPoint_ = nullptr;};
-    inline string cloneDataPoint() const { DARABONBA_PTR_GET_DEFAULT(cloneDataPoint_, "") };
+    inline string getCloneDataPoint() const { DARABONBA_PTR_GET_DEFAULT(cloneDataPoint_, "") };
     inline CreateDBClusterRequest& setCloneDataPoint(string cloneDataPoint) { DARABONBA_PTR_SET_VALUE(cloneDataPoint_, cloneDataPoint) };
 
 
     // cloudProvider Field Functions 
     bool hasCloudProvider() const { return this->cloudProvider_ != nullptr;};
     void deleteCloudProvider() { this->cloudProvider_ = nullptr;};
-    inline string cloudProvider() const { DARABONBA_PTR_GET_DEFAULT(cloudProvider_, "") };
+    inline string getCloudProvider() const { DARABONBA_PTR_GET_DEFAULT(cloudProvider_, "") };
     inline CreateDBClusterRequest& setCloudProvider(string cloudProvider) { DARABONBA_PTR_SET_VALUE(cloudProvider_, cloudProvider) };
 
 
     // clusterNetworkType Field Functions 
     bool hasClusterNetworkType() const { return this->clusterNetworkType_ != nullptr;};
     void deleteClusterNetworkType() { this->clusterNetworkType_ = nullptr;};
-    inline string clusterNetworkType() const { DARABONBA_PTR_GET_DEFAULT(clusterNetworkType_, "") };
+    inline string getClusterNetworkType() const { DARABONBA_PTR_GET_DEFAULT(clusterNetworkType_, "") };
     inline CreateDBClusterRequest& setClusterNetworkType(string clusterNetworkType) { DARABONBA_PTR_SET_VALUE(clusterNetworkType_, clusterNetworkType) };
 
 
     // creationCategory Field Functions 
     bool hasCreationCategory() const { return this->creationCategory_ != nullptr;};
     void deleteCreationCategory() { this->creationCategory_ = nullptr;};
-    inline string creationCategory() const { DARABONBA_PTR_GET_DEFAULT(creationCategory_, "") };
+    inline string getCreationCategory() const { DARABONBA_PTR_GET_DEFAULT(creationCategory_, "") };
     inline CreateDBClusterRequest& setCreationCategory(string creationCategory) { DARABONBA_PTR_SET_VALUE(creationCategory_, creationCategory) };
 
 
     // creationOption Field Functions 
     bool hasCreationOption() const { return this->creationOption_ != nullptr;};
     void deleteCreationOption() { this->creationOption_ = nullptr;};
-    inline string creationOption() const { DARABONBA_PTR_GET_DEFAULT(creationOption_, "") };
+    inline string getCreationOption() const { DARABONBA_PTR_GET_DEFAULT(creationOption_, "") };
     inline CreateDBClusterRequest& setCreationOption(string creationOption) { DARABONBA_PTR_SET_VALUE(creationOption_, creationOption) };
 
 
     // DBClusterDescription Field Functions 
     bool hasDBClusterDescription() const { return this->DBClusterDescription_ != nullptr;};
     void deleteDBClusterDescription() { this->DBClusterDescription_ = nullptr;};
-    inline string DBClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(DBClusterDescription_, "") };
+    inline string getDBClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(DBClusterDescription_, "") };
     inline CreateDBClusterRequest& setDBClusterDescription(string DBClusterDescription) { DARABONBA_PTR_SET_VALUE(DBClusterDescription_, DBClusterDescription) };
 
 
     // DBMinorVersion Field Functions 
     bool hasDBMinorVersion() const { return this->DBMinorVersion_ != nullptr;};
     void deleteDBMinorVersion() { this->DBMinorVersion_ = nullptr;};
-    inline string DBMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(DBMinorVersion_, "") };
+    inline string getDBMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(DBMinorVersion_, "") };
     inline CreateDBClusterRequest& setDBMinorVersion(string DBMinorVersion) { DARABONBA_PTR_SET_VALUE(DBMinorVersion_, DBMinorVersion) };
 
 
     // DBNodeClass Field Functions 
     bool hasDBNodeClass() const { return this->DBNodeClass_ != nullptr;};
     void deleteDBNodeClass() { this->DBNodeClass_ = nullptr;};
-    inline string DBNodeClass() const { DARABONBA_PTR_GET_DEFAULT(DBNodeClass_, "") };
+    inline string getDBNodeClass() const { DARABONBA_PTR_GET_DEFAULT(DBNodeClass_, "") };
     inline CreateDBClusterRequest& setDBNodeClass(string DBNodeClass) { DARABONBA_PTR_SET_VALUE(DBNodeClass_, DBNodeClass) };
 
 
     // DBNodeNum Field Functions 
     bool hasDBNodeNum() const { return this->DBNodeNum_ != nullptr;};
     void deleteDBNodeNum() { this->DBNodeNum_ = nullptr;};
-    inline int32_t DBNodeNum() const { DARABONBA_PTR_GET_DEFAULT(DBNodeNum_, 0) };
+    inline int32_t getDBNodeNum() const { DARABONBA_PTR_GET_DEFAULT(DBNodeNum_, 0) };
     inline CreateDBClusterRequest& setDBNodeNum(int32_t DBNodeNum) { DARABONBA_PTR_SET_VALUE(DBNodeNum_, DBNodeNum) };
 
 
     // DBType Field Functions 
     bool hasDBType() const { return this->DBType_ != nullptr;};
     void deleteDBType() { this->DBType_ = nullptr;};
-    inline string DBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
+    inline string getDBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
     inline CreateDBClusterRequest& setDBType(string DBType) { DARABONBA_PTR_SET_VALUE(DBType_, DBType) };
 
 
     // DBVersion Field Functions 
     bool hasDBVersion() const { return this->DBVersion_ != nullptr;};
     void deleteDBVersion() { this->DBVersion_ = nullptr;};
-    inline string DBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
+    inline string getDBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
     inline CreateDBClusterRequest& setDBVersion(string DBVersion) { DARABONBA_PTR_SET_VALUE(DBVersion_, DBVersion) };
 
 
     // defaultTimeZone Field Functions 
     bool hasDefaultTimeZone() const { return this->defaultTimeZone_ != nullptr;};
     void deleteDefaultTimeZone() { this->defaultTimeZone_ = nullptr;};
-    inline string defaultTimeZone() const { DARABONBA_PTR_GET_DEFAULT(defaultTimeZone_, "") };
+    inline string getDefaultTimeZone() const { DARABONBA_PTR_GET_DEFAULT(defaultTimeZone_, "") };
     inline CreateDBClusterRequest& setDefaultTimeZone(string defaultTimeZone) { DARABONBA_PTR_SET_VALUE(defaultTimeZone_, defaultTimeZone) };
 
 
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
-    inline string ensRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
+    inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline CreateDBClusterRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
     // GDNId Field Functions 
     bool hasGDNId() const { return this->GDNId_ != nullptr;};
     void deleteGDNId() { this->GDNId_ = nullptr;};
-    inline string GDNId() const { DARABONBA_PTR_GET_DEFAULT(GDNId_, "") };
+    inline string getGDNId() const { DARABONBA_PTR_GET_DEFAULT(GDNId_, "") };
     inline CreateDBClusterRequest& setGDNId(string GDNId) { DARABONBA_PTR_SET_VALUE(GDNId_, GDNId) };
 
 
     // hotStandbyCluster Field Functions 
     bool hasHotStandbyCluster() const { return this->hotStandbyCluster_ != nullptr;};
     void deleteHotStandbyCluster() { this->hotStandbyCluster_ = nullptr;};
-    inline string hotStandbyCluster() const { DARABONBA_PTR_GET_DEFAULT(hotStandbyCluster_, "") };
+    inline string getHotStandbyCluster() const { DARABONBA_PTR_GET_DEFAULT(hotStandbyCluster_, "") };
     inline CreateDBClusterRequest& setHotStandbyCluster(string hotStandbyCluster) { DARABONBA_PTR_SET_VALUE(hotStandbyCluster_, hotStandbyCluster) };
 
 
     // loosePolarLogBin Field Functions 
     bool hasLoosePolarLogBin() const { return this->loosePolarLogBin_ != nullptr;};
     void deleteLoosePolarLogBin() { this->loosePolarLogBin_ = nullptr;};
-    inline string loosePolarLogBin() const { DARABONBA_PTR_GET_DEFAULT(loosePolarLogBin_, "") };
+    inline string getLoosePolarLogBin() const { DARABONBA_PTR_GET_DEFAULT(loosePolarLogBin_, "") };
     inline CreateDBClusterRequest& setLoosePolarLogBin(string loosePolarLogBin) { DARABONBA_PTR_SET_VALUE(loosePolarLogBin_, loosePolarLogBin) };
 
 
     // looseXEngine Field Functions 
     bool hasLooseXEngine() const { return this->looseXEngine_ != nullptr;};
     void deleteLooseXEngine() { this->looseXEngine_ = nullptr;};
-    inline string looseXEngine() const { DARABONBA_PTR_GET_DEFAULT(looseXEngine_, "") };
+    inline string getLooseXEngine() const { DARABONBA_PTR_GET_DEFAULT(looseXEngine_, "") };
     inline CreateDBClusterRequest& setLooseXEngine(string looseXEngine) { DARABONBA_PTR_SET_VALUE(looseXEngine_, looseXEngine) };
 
 
     // looseXEngineUseMemoryPct Field Functions 
     bool hasLooseXEngineUseMemoryPct() const { return this->looseXEngineUseMemoryPct_ != nullptr;};
     void deleteLooseXEngineUseMemoryPct() { this->looseXEngineUseMemoryPct_ = nullptr;};
-    inline string looseXEngineUseMemoryPct() const { DARABONBA_PTR_GET_DEFAULT(looseXEngineUseMemoryPct_, "") };
+    inline string getLooseXEngineUseMemoryPct() const { DARABONBA_PTR_GET_DEFAULT(looseXEngineUseMemoryPct_, "") };
     inline CreateDBClusterRequest& setLooseXEngineUseMemoryPct(string looseXEngineUseMemoryPct) { DARABONBA_PTR_SET_VALUE(looseXEngineUseMemoryPct_, looseXEngineUseMemoryPct) };
 
 
     // lowerCaseTableNames Field Functions 
     bool hasLowerCaseTableNames() const { return this->lowerCaseTableNames_ != nullptr;};
     void deleteLowerCaseTableNames() { this->lowerCaseTableNames_ = nullptr;};
-    inline string lowerCaseTableNames() const { DARABONBA_PTR_GET_DEFAULT(lowerCaseTableNames_, "") };
+    inline string getLowerCaseTableNames() const { DARABONBA_PTR_GET_DEFAULT(lowerCaseTableNames_, "") };
     inline CreateDBClusterRequest& setLowerCaseTableNames(string lowerCaseTableNames) { DARABONBA_PTR_SET_VALUE(lowerCaseTableNames_, lowerCaseTableNames) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline CreateDBClusterRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateDBClusterRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // parameterGroupId Field Functions 
     bool hasParameterGroupId() const { return this->parameterGroupId_ != nullptr;};
     void deleteParameterGroupId() { this->parameterGroupId_ = nullptr;};
-    inline string parameterGroupId() const { DARABONBA_PTR_GET_DEFAULT(parameterGroupId_, "") };
+    inline string getParameterGroupId() const { DARABONBA_PTR_GET_DEFAULT(parameterGroupId_, "") };
     inline CreateDBClusterRequest& setParameterGroupId(string parameterGroupId) { DARABONBA_PTR_SET_VALUE(parameterGroupId_, parameterGroupId) };
 
 
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
-    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline CreateDBClusterRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline CreateDBClusterRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline CreateDBClusterRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // provisionedIops Field Functions 
     bool hasProvisionedIops() const { return this->provisionedIops_ != nullptr;};
     void deleteProvisionedIops() { this->provisionedIops_ = nullptr;};
-    inline int64_t provisionedIops() const { DARABONBA_PTR_GET_DEFAULT(provisionedIops_, 0L) };
+    inline int64_t getProvisionedIops() const { DARABONBA_PTR_GET_DEFAULT(provisionedIops_, 0L) };
     inline CreateDBClusterRequest& setProvisionedIops(int64_t provisionedIops) { DARABONBA_PTR_SET_VALUE(provisionedIops_, provisionedIops) };
 
 
     // proxyClass Field Functions 
     bool hasProxyClass() const { return this->proxyClass_ != nullptr;};
     void deleteProxyClass() { this->proxyClass_ = nullptr;};
-    inline string proxyClass() const { DARABONBA_PTR_GET_DEFAULT(proxyClass_, "") };
+    inline string getProxyClass() const { DARABONBA_PTR_GET_DEFAULT(proxyClass_, "") };
     inline CreateDBClusterRequest& setProxyClass(string proxyClass) { DARABONBA_PTR_SET_VALUE(proxyClass_, proxyClass) };
 
 
     // proxyType Field Functions 
     bool hasProxyType() const { return this->proxyType_ != nullptr;};
     void deleteProxyType() { this->proxyType_ = nullptr;};
-    inline string proxyType() const { DARABONBA_PTR_GET_DEFAULT(proxyType_, "") };
+    inline string getProxyType() const { DARABONBA_PTR_GET_DEFAULT(proxyType_, "") };
     inline CreateDBClusterRequest& setProxyType(string proxyType) { DARABONBA_PTR_SET_VALUE(proxyType_, proxyType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateDBClusterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateDBClusterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateDBClusterRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateDBClusterRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // scaleMax Field Functions 
     bool hasScaleMax() const { return this->scaleMax_ != nullptr;};
     void deleteScaleMax() { this->scaleMax_ = nullptr;};
-    inline string scaleMax() const { DARABONBA_PTR_GET_DEFAULT(scaleMax_, "") };
+    inline string getScaleMax() const { DARABONBA_PTR_GET_DEFAULT(scaleMax_, "") };
     inline CreateDBClusterRequest& setScaleMax(string scaleMax) { DARABONBA_PTR_SET_VALUE(scaleMax_, scaleMax) };
 
 
     // scaleMin Field Functions 
     bool hasScaleMin() const { return this->scaleMin_ != nullptr;};
     void deleteScaleMin() { this->scaleMin_ = nullptr;};
-    inline string scaleMin() const { DARABONBA_PTR_GET_DEFAULT(scaleMin_, "") };
+    inline string getScaleMin() const { DARABONBA_PTR_GET_DEFAULT(scaleMin_, "") };
     inline CreateDBClusterRequest& setScaleMin(string scaleMin) { DARABONBA_PTR_SET_VALUE(scaleMin_, scaleMin) };
 
 
     // scaleRoNumMax Field Functions 
     bool hasScaleRoNumMax() const { return this->scaleRoNumMax_ != nullptr;};
     void deleteScaleRoNumMax() { this->scaleRoNumMax_ = nullptr;};
-    inline string scaleRoNumMax() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMax_, "") };
+    inline string getScaleRoNumMax() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMax_, "") };
     inline CreateDBClusterRequest& setScaleRoNumMax(string scaleRoNumMax) { DARABONBA_PTR_SET_VALUE(scaleRoNumMax_, scaleRoNumMax) };
 
 
     // scaleRoNumMin Field Functions 
     bool hasScaleRoNumMin() const { return this->scaleRoNumMin_ != nullptr;};
     void deleteScaleRoNumMin() { this->scaleRoNumMin_ = nullptr;};
-    inline string scaleRoNumMin() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMin_, "") };
+    inline string getScaleRoNumMin() const { DARABONBA_PTR_GET_DEFAULT(scaleRoNumMin_, "") };
     inline CreateDBClusterRequest& setScaleRoNumMin(string scaleRoNumMin) { DARABONBA_PTR_SET_VALUE(scaleRoNumMin_, scaleRoNumMin) };
 
 
     // securityIPList Field Functions 
     bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
     void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
-    inline string securityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
+    inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
     inline CreateDBClusterRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
     // serverlessType Field Functions 
     bool hasServerlessType() const { return this->serverlessType_ != nullptr;};
     void deleteServerlessType() { this->serverlessType_ = nullptr;};
-    inline string serverlessType() const { DARABONBA_PTR_GET_DEFAULT(serverlessType_, "") };
+    inline string getServerlessType() const { DARABONBA_PTR_GET_DEFAULT(serverlessType_, "") };
     inline CreateDBClusterRequest& setServerlessType(string serverlessType) { DARABONBA_PTR_SET_VALUE(serverlessType_, serverlessType) };
 
 
     // sourceResourceId Field Functions 
     bool hasSourceResourceId() const { return this->sourceResourceId_ != nullptr;};
     void deleteSourceResourceId() { this->sourceResourceId_ = nullptr;};
-    inline string sourceResourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceResourceId_, "") };
+    inline string getSourceResourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceResourceId_, "") };
     inline CreateDBClusterRequest& setSourceResourceId(string sourceResourceId) { DARABONBA_PTR_SET_VALUE(sourceResourceId_, sourceResourceId) };
 
 
     // sourceUid Field Functions 
     bool hasSourceUid() const { return this->sourceUid_ != nullptr;};
     void deleteSourceUid() { this->sourceUid_ = nullptr;};
-    inline int64_t sourceUid() const { DARABONBA_PTR_GET_DEFAULT(sourceUid_, 0L) };
+    inline int64_t getSourceUid() const { DARABONBA_PTR_GET_DEFAULT(sourceUid_, 0L) };
     inline CreateDBClusterRequest& setSourceUid(int64_t sourceUid) { DARABONBA_PTR_SET_VALUE(sourceUid_, sourceUid) };
 
 
     // standbyAZ Field Functions 
     bool hasStandbyAZ() const { return this->standbyAZ_ != nullptr;};
     void deleteStandbyAZ() { this->standbyAZ_ = nullptr;};
-    inline string standbyAZ() const { DARABONBA_PTR_GET_DEFAULT(standbyAZ_, "") };
+    inline string getStandbyAZ() const { DARABONBA_PTR_GET_DEFAULT(standbyAZ_, "") };
     inline CreateDBClusterRequest& setStandbyAZ(string standbyAZ) { DARABONBA_PTR_SET_VALUE(standbyAZ_, standbyAZ) };
 
 
     // storageAutoScale Field Functions 
     bool hasStorageAutoScale() const { return this->storageAutoScale_ != nullptr;};
     void deleteStorageAutoScale() { this->storageAutoScale_ = nullptr;};
-    inline string storageAutoScale() const { DARABONBA_PTR_GET_DEFAULT(storageAutoScale_, "") };
+    inline string getStorageAutoScale() const { DARABONBA_PTR_GET_DEFAULT(storageAutoScale_, "") };
     inline CreateDBClusterRequest& setStorageAutoScale(string storageAutoScale) { DARABONBA_PTR_SET_VALUE(storageAutoScale_, storageAutoScale) };
 
 
     // storageEncryption Field Functions 
     bool hasStorageEncryption() const { return this->storageEncryption_ != nullptr;};
     void deleteStorageEncryption() { this->storageEncryption_ = nullptr;};
-    inline bool storageEncryption() const { DARABONBA_PTR_GET_DEFAULT(storageEncryption_, false) };
+    inline bool getStorageEncryption() const { DARABONBA_PTR_GET_DEFAULT(storageEncryption_, false) };
     inline CreateDBClusterRequest& setStorageEncryption(bool storageEncryption) { DARABONBA_PTR_SET_VALUE(storageEncryption_, storageEncryption) };
 
 
     // storageEncryptionKey Field Functions 
     bool hasStorageEncryptionKey() const { return this->storageEncryptionKey_ != nullptr;};
     void deleteStorageEncryptionKey() { this->storageEncryptionKey_ = nullptr;};
-    inline string storageEncryptionKey() const { DARABONBA_PTR_GET_DEFAULT(storageEncryptionKey_, "") };
+    inline string getStorageEncryptionKey() const { DARABONBA_PTR_GET_DEFAULT(storageEncryptionKey_, "") };
     inline CreateDBClusterRequest& setStorageEncryptionKey(string storageEncryptionKey) { DARABONBA_PTR_SET_VALUE(storageEncryptionKey_, storageEncryptionKey) };
 
 
     // storagePayType Field Functions 
     bool hasStoragePayType() const { return this->storagePayType_ != nullptr;};
     void deleteStoragePayType() { this->storagePayType_ = nullptr;};
-    inline string storagePayType() const { DARABONBA_PTR_GET_DEFAULT(storagePayType_, "") };
+    inline string getStoragePayType() const { DARABONBA_PTR_GET_DEFAULT(storagePayType_, "") };
     inline CreateDBClusterRequest& setStoragePayType(string storagePayType) { DARABONBA_PTR_SET_VALUE(storagePayType_, storagePayType) };
 
 
     // storageSpace Field Functions 
     bool hasStorageSpace() const { return this->storageSpace_ != nullptr;};
     void deleteStorageSpace() { this->storageSpace_ = nullptr;};
-    inline int64_t storageSpace() const { DARABONBA_PTR_GET_DEFAULT(storageSpace_, 0L) };
+    inline int64_t getStorageSpace() const { DARABONBA_PTR_GET_DEFAULT(storageSpace_, 0L) };
     inline CreateDBClusterRequest& setStorageSpace(int64_t storageSpace) { DARABONBA_PTR_SET_VALUE(storageSpace_, storageSpace) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline CreateDBClusterRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
     // storageUpperBound Field Functions 
     bool hasStorageUpperBound() const { return this->storageUpperBound_ != nullptr;};
     void deleteStorageUpperBound() { this->storageUpperBound_ = nullptr;};
-    inline int64_t storageUpperBound() const { DARABONBA_PTR_GET_DEFAULT(storageUpperBound_, 0L) };
+    inline int64_t getStorageUpperBound() const { DARABONBA_PTR_GET_DEFAULT(storageUpperBound_, 0L) };
     inline CreateDBClusterRequest& setStorageUpperBound(int64_t storageUpperBound) { DARABONBA_PTR_SET_VALUE(storageUpperBound_, storageUpperBound) };
 
 
     // strictConsistency Field Functions 
     bool hasStrictConsistency() const { return this->strictConsistency_ != nullptr;};
     void deleteStrictConsistency() { this->strictConsistency_ = nullptr;};
-    inline string strictConsistency() const { DARABONBA_PTR_GET_DEFAULT(strictConsistency_, "") };
+    inline string getStrictConsistency() const { DARABONBA_PTR_GET_DEFAULT(strictConsistency_, "") };
     inline CreateDBClusterRequest& setStrictConsistency(string strictConsistency) { DARABONBA_PTR_SET_VALUE(strictConsistency_, strictConsistency) };
 
 
     // TDEStatus Field Functions 
     bool hasTDEStatus() const { return this->TDEStatus_ != nullptr;};
     void deleteTDEStatus() { this->TDEStatus_ = nullptr;};
-    inline bool TDEStatus() const { DARABONBA_PTR_GET_DEFAULT(TDEStatus_, false) };
+    inline bool getTDEStatus() const { DARABONBA_PTR_GET_DEFAULT(TDEStatus_, false) };
     inline CreateDBClusterRequest& setTDEStatus(bool TDEStatus) { DARABONBA_PTR_SET_VALUE(TDEStatus_, TDEStatus) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateDBClusterRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateDBClusterRequestTag>) };
-    inline vector<CreateDBClusterRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateDBClusterRequestTag>) };
-    inline CreateDBClusterRequest& setTag(const vector<CreateDBClusterRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateDBClusterRequest& setTag(vector<CreateDBClusterRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateDBClusterRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateDBClusterRequest::Tag>) };
+    inline vector<CreateDBClusterRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateDBClusterRequest::Tag>) };
+    inline CreateDBClusterRequest& setTag(const vector<CreateDBClusterRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateDBClusterRequest& setTag(vector<CreateDBClusterRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // targetMinorVersion Field Functions 
     bool hasTargetMinorVersion() const { return this->targetMinorVersion_ != nullptr;};
     void deleteTargetMinorVersion() { this->targetMinorVersion_ = nullptr;};
-    inline string targetMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(targetMinorVersion_, "") };
+    inline string getTargetMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(targetMinorVersion_, "") };
     inline CreateDBClusterRequest& setTargetMinorVersion(string targetMinorVersion) { DARABONBA_PTR_SET_VALUE(targetMinorVersion_, targetMinorVersion) };
 
 
     // usedTime Field Functions 
     bool hasUsedTime() const { return this->usedTime_ != nullptr;};
     void deleteUsedTime() { this->usedTime_ = nullptr;};
-    inline string usedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, "") };
+    inline string getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, "") };
     inline CreateDBClusterRequest& setUsedTime(string usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
 
 
     // VPCId Field Functions 
     bool hasVPCId() const { return this->VPCId_ != nullptr;};
     void deleteVPCId() { this->VPCId_ = nullptr;};
-    inline string VPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
+    inline string getVPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
     inline CreateDBClusterRequest& setVPCId(string VPCId) { DARABONBA_PTR_SET_VALUE(VPCId_, VPCId) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateDBClusterRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline CreateDBClusterRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -620,11 +667,11 @@ namespace Models
     // - **false**: Disabled (default)
     // 
     // > Only supported by Serverless clusters.
-    std::shared_ptr<string> allowShutDown_ = nullptr;
+    shared_ptr<string> allowShutDown_ {};
     // CPU architecture. Available values include:
     // - X86
     // - ARM
-    std::shared_ptr<string> architecture_ = nullptr;
+    shared_ptr<string> architecture_ {};
     // Whether to enable auto-renewal, with available values as follows:
     // 
     // - **true**: Auto-renew.
@@ -633,8 +680,8 @@ namespace Models
     // The default is **false**.
     // 
     // > This parameter takes effect only when **PayType** is set to **Prepaid**.
-    std::shared_ptr<bool> autoRenew_ = nullptr;
-    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
+    shared_ptr<bool> autoRenew_ {};
+    shared_ptr<bool> autoUseCoupon_ {};
     // Backup retention policy upon cluster deletion, with valid values as follows:
     // * **ALL**: Permanently retain all backups.
     // * **LATEST**: Permanently retain the latest backup (automatically backed up before deletion).
@@ -643,10 +690,10 @@ namespace Models
     // By default, the value is set to **NONE**, indicating no backup sets are retained upon cluster deletion.
     // > This parameter applies only when **DBType** is **MySQL**.
     // > Serverless clusters do not support this parameter.
-    std::shared_ptr<string> backupRetentionPolicyOnClusterDeletion_ = nullptr;
-    std::shared_ptr<string> burstingEnabled_ = nullptr;
+    shared_ptr<string> backupRetentionPolicyOnClusterDeletion_ {};
+    shared_ptr<string> burstingEnabled_ {};
     // Used to ensure idempotency of the request. Generated by the client, ensuring uniqueness across different requests, case-sensitive, and not exceeding 64 ASCII characters.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The point in time to clone data, with the following options:
     // 
     // - **LATEST**: Data from the latest time point.
@@ -656,10 +703,10 @@ namespace Models
     // The default value is **LATEST**.
     // 
     // > If **CreationOption** is **CloneFromRDS**, this parameter can only be set to **LATEST**.
-    std::shared_ptr<string> cloneDataPoint_ = nullptr;
-    std::shared_ptr<string> cloudProvider_ = nullptr;
+    shared_ptr<string> cloneDataPoint_ {};
+    shared_ptr<string> cloudProvider_ {};
     // Cluster network type, currently only VPC is supported, with a fixed value of **VPC**.
-    std::shared_ptr<string> clusterNetworkType_ = nullptr;
+    shared_ptr<string> clusterNetworkType_ {};
     // Product series, with valid values as follows:
     // * **Normal**: Cluster Edition (default)
     // * **Basic**: Single-node
@@ -672,7 +719,7 @@ namespace Models
     // > * **MySQL** **5.6**, **5.7**, **8.0**, and **PostgreSQL** **14** support **SENormal**.
     // 
     // For more information about product series, see [Product Series](https://help.aliyun.com/document_detail/183258.html).
-    std::shared_ptr<string> creationCategory_ = nullptr;
+    shared_ptr<string> creationCategory_ {};
     // Creation method, with the following values supported:
     // 
     // * **Normal**: Creates a brand new PolarDB cluster. For console operations, refer to the following documents:
@@ -701,18 +748,18 @@ namespace Models
     // The default value is **Normal**.
     // 
     // > When **DBType** is **MySQL** and **DBVersion** is **8.0**, this parameter can also take the value **CreateGdnStandby**.
-    std::shared_ptr<string> creationOption_ = nullptr;
+    shared_ptr<string> creationOption_ {};
     // Cluster name, which must meet the following requirements:
     // * Cannot start with `http://` or `https://`.
     // * Length should be between 2 and 256 characters.
-    std::shared_ptr<string> DBClusterDescription_ = nullptr;
+    shared_ptr<string> DBClusterDescription_ {};
     // Database engine minor version number. Valid values include:
     // 
     // - **8.0.2**
     // - **8.0.1**
     // 
     // > This parameter takes effect only when **DBType** is **MySQL** and **DBVersion** is **8.0**.
-    std::shared_ptr<string> DBMinorVersion_ = nullptr;
+    shared_ptr<string> DBMinorVersion_ {};
     // Node specifications. For details, refer to the following documents:
     // 
     // - PolarDB MySQL Edition: [Compute Node Specifications](https://help.aliyun.com/document_detail/102542.html).
@@ -721,7 +768,7 @@ namespace Models
     // 
     // > - For a Serverless cluster in PolarDB MySQL, enter **polar.mysql.sl.small**.
     // <props="china">> - For a Serverless cluster in both PolarDB PostgreSQL (Oracle Compatible) and PolarDB PostgreSQL, enter **polar.pg.sl.small.c**.
-    std::shared_ptr<string> DBNodeClass_ = nullptr;
+    shared_ptr<string> DBNodeClass_ {};
     // The number of nodes. This parameter is supported for Standard Edition clusters. Valid values:
     // 
     // *   **1** (default): only one primary node.
@@ -732,7 +779,7 @@ namespace Models
     // *   By default, an Enterprise Edition cluster has two nodes and a Standard Edition cluster has one node.
     // 
     // *   This parameter is supported only for PolarDB for MySQL clusters.
-    std::shared_ptr<int32_t> DBNodeNum_ = nullptr;
+    shared_ptr<int32_t> DBNodeNum_ {};
     // Database engine type, with available values as follows:
     // 
     // - **MySQL**
@@ -740,7 +787,7 @@ namespace Models
     // - **Oracle**
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBType_ = nullptr;
+    shared_ptr<string> DBType_ {};
     // Database engine version number.
     // * For MySQL, the version numbers are as follows:
     //     * **5.6**
@@ -760,15 +807,15 @@ namespace Models
     //     * **14**
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBVersion_ = nullptr;
+    shared_ptr<string> DBVersion_ {};
     // Cluster timezone (UTC), with selectable values ranging from **-12:00** to **+13:00** at whole-hour intervals, e.g., **00:00**. The default value is **SYSTEM**, which matches the Region\\"s timezone.
     // > This parameter applies only when **DBType** is **MySQL**.
-    std::shared_ptr<string> defaultTimeZone_ = nullptr;
-    std::shared_ptr<string> ensRegionId_ = nullptr;
+    shared_ptr<string> defaultTimeZone_ {};
+    shared_ptr<string> ensRegionId_ {};
     // Global Database Network (GDN) ID.
     // 
     // > This parameter is required when **CreationOption** is **CreateGdnStandby**.
-    std::shared_ptr<string> GDNId_ = nullptr;
+    shared_ptr<string> GDNId_ {};
     // Specifies whether to enable the hot standby storage cluster feature. Valid values:
     // 
     // *   **ON** (default): enables the hot standby storage cluster feature.
@@ -776,49 +823,49 @@ namespace Models
     // *   **STANDBY**: enables the hot standby storage cluster feature for Standard Edition clusters.
     // 
     // >  The default value for Standard Edition clusters is **STANDBY**.
-    std::shared_ptr<string> hotStandbyCluster_ = nullptr;
+    shared_ptr<string> hotStandbyCluster_ {};
     // Enable Binlog feature, valid values are as follows:
     // - **ON**: Cluster enables the Binlog feature. - **OFF**: Cluster disables the Binlog feature. > This parameter takes effect only when the **DBType** parameter is set to **MySQL**.
-    std::shared_ptr<string> loosePolarLogBin_ = nullptr;
+    shared_ptr<string> loosePolarLogBin_ {};
     // Enable the X-Engine storage engine feature, with valid values as follows:
     // 
     // - **ON**: The cluster enables the X-Engine engine.
     // - **OFF**: The cluster disables the X-Engine engine.
     // > This parameter is effective only when **CreationOption** is not **CreateGdnStandby**, **DBType** is **MySQL**, and **DBVersion** is **8.0**. The memory specification of nodes that enable the X-Engine engine must be at least 8 GB.
-    std::shared_ptr<string> looseXEngine_ = nullptr;
+    shared_ptr<string> looseXEngine_ {};
     // Set the ratio for enabling the X-Engine storage engine, with a range of integers from 10 to 90.
     // > This parameter takes effect only when **LooseXEngine** is **ON**.
-    std::shared_ptr<string> looseXEngineUseMemoryPct_ = nullptr;
+    shared_ptr<string> looseXEngineUseMemoryPct_ {};
     // Whether table names are case-sensitive, with valid values as follows:
     // * **1**: Case-insensitive
     // * **0**: Case-sensitive
     // 
     // The default value is **1**.
     // > This parameter applies only when **DBType** is **MySQL**.
-    std::shared_ptr<string> lowerCaseTableNames_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> lowerCaseTableNames_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // Parameter template ID.
     // 
     // > You can view the list of parameter templates in the target region, including the parameter template ID, by calling the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) interface.
-    std::shared_ptr<string> parameterGroupId_ = nullptr;
+    shared_ptr<string> parameterGroupId_ {};
     // Payment type, with available values as follows:
     // 
     // - **Postpaid**: Pay-as-you-go.
     // - **Prepaid**: Subscription (monthly or yearly).
     // 
     // This parameter is required.
-    std::shared_ptr<string> payType_ = nullptr;
+    shared_ptr<string> payType_ {};
     // If the payment type is **Prepaid**, this parameter is required. It specifies whether the prepaid cluster is on a monthly or yearly basis.
     // 
     // - **Year**: Yearly subscription.
     // - **Month**: Monthly subscription.
-    std::shared_ptr<string> period_ = nullptr;
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> period_ {};
+    shared_ptr<string> promotionCode_ {};
     // <p id="p_wyg_t4a_glm">The provisioned read and write IOPS for ESSD AutoPL cloud disks. Possible values: 0 to min{50,000, 1000*capacity-Baseline Performance}.</p>
     // <p id="p_6de_jxy_k2g">Baseline Performance = min{1,800+50*capacity, 50000}.</p>
     // <note id="note_7kj_j0o_rgs">This parameter is supported only when StorageType is ESSDAUTOPL.</note>
-    std::shared_ptr<int64_t> provisionedIops_ = nullptr;
+    shared_ptr<int64_t> provisionedIops_ {};
     // Standard edition database proxy specifications. Values are as follows:
     // 
     // - **polar.maxscale.g2.medium.c**: 2 cores.
@@ -828,63 +875,63 @@ namespace Models
     // - **polar.maxscale.g2.3xlarge.c**: 24 cores.
     // - **polar.maxscale.g2.4xlarge.c**: 32 cores.
     // - **polar.maxscale.g2.8xlarge.c**: 64 cores.
-    std::shared_ptr<string> proxyClass_ = nullptr;
+    shared_ptr<string> proxyClass_ {};
     // Database proxy type, with values including:
     // - **EXCLUSIVE**: Enterprise Exclusive Edition
     // - **GENERAL**: Enterprise General Purpose Edition
     // > The proxy type must match the type of the cluster\\"s node specifications, i.e.,
     // >- If the node specification is general, the proxy type should be Enterprise General Purpose Edition;
     // >- If the node specification is dedicated, the proxy type should be Enterprise Exclusive Edition.
-    std::shared_ptr<string> proxyType_ = nullptr;
+    shared_ptr<string> proxyType_ {};
     // Region ID.
     // 
     // > You can view available regions through the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) interface.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // Maximum scaling limit for a single node. The value range is: 1 PCU~32 PCU.
     // 
     // > Only supported by Serverless clusters.
-    std::shared_ptr<string> scaleMax_ = nullptr;
+    shared_ptr<string> scaleMax_ {};
     // Minimum scaling limit for a single node. The value range is: 1 PCU~31 PCU.
     // 
     // > Only supported by Serverless clusters.
-    std::shared_ptr<string> scaleMin_ = nullptr;
+    shared_ptr<string> scaleMin_ {};
     // Maximum scaling limit for the number of read-only nodes. The value range is: 0~15.
     // 
     // > Only supported by Serverless clusters.
-    std::shared_ptr<string> scaleRoNumMax_ = nullptr;
+    shared_ptr<string> scaleRoNumMax_ {};
     // Minimum scaling limit for the number of read-only nodes. The value range is: 0~15.
     // 
     // > Only supported by Serverless clusters.
-    std::shared_ptr<string> scaleRoNumMin_ = nullptr;
+    shared_ptr<string> scaleRoNumMin_ {};
     // PolarDB cluster whitelist IP address.
     // > Supports configuring multiple whitelist IP addresses, with English commas separating multiple IP addresses.
-    std::shared_ptr<string> securityIPList_ = nullptr;
+    shared_ptr<string> securityIPList_ {};
     // Serverless type. The current value is fixed to **AgileServerless** (sensitive mode).
     // > This parameter is only supported by Serverless clusters.
-    std::shared_ptr<string> serverlessType_ = nullptr;
+    shared_ptr<string> serverlessType_ {};
     // Source RDS instance ID or source PolarDB cluster ID. This parameter is mandatory only when **CreationOption** is set to **MigrationFromRDS**, **CloneFromRDS**, **CloneFromPolarDB**, or **RecoverFromRecyclebin**.
     // * If **CreationOption** is **MigrationFromRDS** or **CloneFromRDS**, you need to input the source RDS instance ID. The source RDS instance version must be RDS MySQL 5.6, 5.7, or 8.0 High Availability edition.
     // 
     // * If **CreationOption** is **CloneFromPolarDB**, you need to input the source PolarDB cluster ID. The DBType of the cloned cluster will default to match the source cluster. For example, if the source cluster is MySQL 8.0, the cloned cluster must also have **DBType** set to **MySQL** and **DBVersion** to **8.0**.
     // 
     // * If **CreationOption** is **RecoverFromRecyclebin**, you need to input the released source PolarDB cluster ID. The DBType of the cluster being recovered from the recycle bin must match the source cluster. For example, if the source cluster was MySQL 8.0, the recovered cluster must also have **DBType** set to **MySQL** and **DBVersion** to **8.0**.
-    std::shared_ptr<string> sourceResourceId_ = nullptr;
-    std::shared_ptr<int64_t> sourceUid_ = nullptr;
+    shared_ptr<string> sourceResourceId_ {};
+    shared_ptr<int64_t> sourceUid_ {};
     // The availability zone where the hot standby cluster is stored. Applicable to the standard edition 3AZ scenario.
     // 
     // > This parameter takes effect only when multi-zone data strong consistency is enabled.
-    std::shared_ptr<string> standbyAZ_ = nullptr;
+    shared_ptr<string> standbyAZ_ {};
     // Whether to enable automatic storage expansion for standard edition clusters, with valid values as follows:
     // 
     // - Enable: Enables automatic storage expansion.
     // - Disable: Disables automatic storage expansion.
-    std::shared_ptr<string> storageAutoScale_ = nullptr;
+    shared_ptr<string> storageAutoScale_ {};
     // Specifies whether to enable disk encryption. Valid values:
     // 
     // *   **true**
@@ -893,7 +940,7 @@ namespace Models
     // >  This parameter takes effect only when **DBType** is set to **MySQL**.
     // 
     // >  This parameter takes effect only when **StorageType** is set to one of the Standard Edition storage types.
-    std::shared_ptr<bool> storageEncryption_ = nullptr;
+    shared_ptr<bool> storageEncryption_ {};
     // The ID of the custom key that is used for disk encryption in the region in which the instance resides. If this parameter is specified, disk encryption is automatically enabled and cannot be disabled afterwards. If you want to use the default service key for disk encryption, leave this parameter empty.
     // 
     // You can obtain the ID of the key in the KMS console or create a key.
@@ -901,12 +948,12 @@ namespace Models
     // >  This parameter takes effect only when **DBType** is set to **MySQL**.
     // 
     // >  This parameter takes effect only when **StorageType** is set to one of the Standard Edition storage types.
-    std::shared_ptr<string> storageEncryptionKey_ = nullptr;
+    shared_ptr<string> storageEncryptionKey_ {};
     // The storage billing type, with valid values as follows:
     // 
     // - Postpaid: Pay-as-you-go (hourly).
     // - Prepaid: Pay-per-use based on space (subscription).
-    std::shared_ptr<string> storagePayType_ = nullptr;
+    shared_ptr<string> storagePayType_ {};
     // The storage that is billed based on the subscription billing method. Unit: GB.
     // 
     // > 
@@ -914,7 +961,7 @@ namespace Models
     // *   Valid values for the subscription storage capacity of a PolarDB for MySQL Standard Edition cluster: 20 to 32000.
     // 
     // *   Valid values for the subscription storage capacity of a Standard Edition cluster that uses the ESSD AUTOPL storage type: 40 to 64000, in increments of 10.
-    std::shared_ptr<int64_t> storageSpace_ = nullptr;
+    shared_ptr<int64_t> storageSpace_ {};
     // Enterprise edition storage types include:
     // - **PSL5**
     // - **PSL4**
@@ -925,17 +972,17 @@ namespace Models
     // - **ESSDPL2**
     // - **ESSDPL3**
     // - **ESSDAUTOPL**
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> storageType_ {};
     // Set the upper limit for automatic storage expansion of standard edition clusters, in GB.
     // 
     // > The maximum value is 32000.
-    std::shared_ptr<int64_t> storageUpperBound_ = nullptr;
+    shared_ptr<int64_t> storageUpperBound_ {};
     // Whether the cluster has enabled strong data consistency across multiple zones. Values are as follows:
     // 
     // - **ON**: Indicates strong data consistency across multiple zones is enabled, applicable to the standard edition 3AZ scenario.
     // 
     // - **OFF**: Indicates strong data consistency across multiple zones is not enabled.
-    std::shared_ptr<string> strictConsistency_ = nullptr;
+    shared_ptr<string> strictConsistency_ {};
     // Enables TDE encryption. Valid values are as follows:
     // 
     // - **true**: Enabled.
@@ -944,24 +991,24 @@ namespace Models
     // > * This parameter takes effect only when **DBType** is **PostgreSQL** or **Oracle**.
     // > * You can call the [ModifyDBClusterTDE](https://help.aliyun.com/document_detail/167982.html) interface to enable TDE encryption for a PolarDB MySQL cluster.
     // > * Once the TDE feature is enabled, it cannot be disabled.
-    std::shared_ptr<bool> TDEStatus_ = nullptr;
+    shared_ptr<bool> TDEStatus_ {};
     // List of tags.
-    std::shared_ptr<vector<CreateDBClusterRequestTag>> tag_ = nullptr;
-    std::shared_ptr<string> targetMinorVersion_ = nullptr;
+    shared_ptr<vector<CreateDBClusterRequest::Tag>> tag_ {};
+    shared_ptr<string> targetMinorVersion_ {};
     // If the payment type is **Prepaid**, this parameter is required.
     // - When **Period** is **Month**, **UsedTime** should be an integer within `[1-9]`.
     // - When **Period** is **Year**, **UsedTime** should be an integer within `[1-3]`.
-    std::shared_ptr<string> usedTime_ = nullptr;
+    shared_ptr<string> usedTime_ {};
     // VPC ID.
-    std::shared_ptr<string> VPCId_ = nullptr;
+    shared_ptr<string> VPCId_ {};
     // Virtual switch ID.
     // 
     // > If VPCId has been selected, VSwitchId is mandatory.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // Availability Zone ID.
     // 
     // > You can view the available zones through the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) interface.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

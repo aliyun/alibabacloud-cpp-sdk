@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBECLASSLISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeClassListResponseBodyItems.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,38 +34,265 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Items : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(ClassCode, classCode_);
+        DARABONBA_PTR_TO_JSON(ClassGroup, classGroup_);
+        DARABONBA_PTR_TO_JSON(ClassTypeLevel, classTypeLevel_);
+        DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(EssdMaxStorageCapacity, essdMaxStorageCapacity_);
+        DARABONBA_PTR_TO_JSON(MaxConnections, maxConnections_);
+        DARABONBA_PTR_TO_JSON(MaxIOPS, maxIOPS_);
+        DARABONBA_PTR_TO_JSON(MaxStorageCapacity, maxStorageCapacity_);
+        DARABONBA_PTR_TO_JSON(MemoryClass, memoryClass_);
+        DARABONBA_PTR_TO_JSON(Pl1MaxIOPS, pl1MaxIOPS_);
+        DARABONBA_PTR_TO_JSON(Pl2MaxIOPS, pl2MaxIOPS_);
+        DARABONBA_PTR_TO_JSON(Pl3MaxIOPS, pl3MaxIOPS_);
+        DARABONBA_PTR_TO_JSON(PolarStoreMaxStorageCapacity, polarStoreMaxStorageCapacity_);
+        DARABONBA_PTR_TO_JSON(Psl4MaxIOPS, psl4MaxIOPS_);
+        DARABONBA_PTR_TO_JSON(Psl5MaxIOPS, psl5MaxIOPS_);
+        DARABONBA_PTR_TO_JSON(ReferenceExtPrice, referenceExtPrice_);
+        DARABONBA_PTR_TO_JSON(ReferencePrice, referencePrice_);
+      };
+      friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(ClassCode, classCode_);
+        DARABONBA_PTR_FROM_JSON(ClassGroup, classGroup_);
+        DARABONBA_PTR_FROM_JSON(ClassTypeLevel, classTypeLevel_);
+        DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(EssdMaxStorageCapacity, essdMaxStorageCapacity_);
+        DARABONBA_PTR_FROM_JSON(MaxConnections, maxConnections_);
+        DARABONBA_PTR_FROM_JSON(MaxIOPS, maxIOPS_);
+        DARABONBA_PTR_FROM_JSON(MaxStorageCapacity, maxStorageCapacity_);
+        DARABONBA_PTR_FROM_JSON(MemoryClass, memoryClass_);
+        DARABONBA_PTR_FROM_JSON(Pl1MaxIOPS, pl1MaxIOPS_);
+        DARABONBA_PTR_FROM_JSON(Pl2MaxIOPS, pl2MaxIOPS_);
+        DARABONBA_PTR_FROM_JSON(Pl3MaxIOPS, pl3MaxIOPS_);
+        DARABONBA_PTR_FROM_JSON(PolarStoreMaxStorageCapacity, polarStoreMaxStorageCapacity_);
+        DARABONBA_PTR_FROM_JSON(Psl4MaxIOPS, psl4MaxIOPS_);
+        DARABONBA_PTR_FROM_JSON(Psl5MaxIOPS, psl5MaxIOPS_);
+        DARABONBA_PTR_FROM_JSON(ReferenceExtPrice, referenceExtPrice_);
+        DARABONBA_PTR_FROM_JSON(ReferencePrice, referencePrice_);
+      };
+      Items() = default ;
+      Items(const Items &) = default ;
+      Items(Items &&) = default ;
+      Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Items() = default ;
+      Items& operator=(const Items &) = default ;
+      Items& operator=(Items &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->classCode_ == nullptr
+        && this->classGroup_ == nullptr && this->classTypeLevel_ == nullptr && this->cpu_ == nullptr && this->essdMaxStorageCapacity_ == nullptr && this->maxConnections_ == nullptr
+        && this->maxIOPS_ == nullptr && this->maxStorageCapacity_ == nullptr && this->memoryClass_ == nullptr && this->pl1MaxIOPS_ == nullptr && this->pl2MaxIOPS_ == nullptr
+        && this->pl3MaxIOPS_ == nullptr && this->polarStoreMaxStorageCapacity_ == nullptr && this->psl4MaxIOPS_ == nullptr && this->psl5MaxIOPS_ == nullptr && this->referenceExtPrice_ == nullptr
+        && this->referencePrice_ == nullptr; };
+      // classCode Field Functions 
+      bool hasClassCode() const { return this->classCode_ != nullptr;};
+      void deleteClassCode() { this->classCode_ = nullptr;};
+      inline string getClassCode() const { DARABONBA_PTR_GET_DEFAULT(classCode_, "") };
+      inline Items& setClassCode(string classCode) { DARABONBA_PTR_SET_VALUE(classCode_, classCode) };
+
+
+      // classGroup Field Functions 
+      bool hasClassGroup() const { return this->classGroup_ != nullptr;};
+      void deleteClassGroup() { this->classGroup_ = nullptr;};
+      inline string getClassGroup() const { DARABONBA_PTR_GET_DEFAULT(classGroup_, "") };
+      inline Items& setClassGroup(string classGroup) { DARABONBA_PTR_SET_VALUE(classGroup_, classGroup) };
+
+
+      // classTypeLevel Field Functions 
+      bool hasClassTypeLevel() const { return this->classTypeLevel_ != nullptr;};
+      void deleteClassTypeLevel() { this->classTypeLevel_ = nullptr;};
+      inline string getClassTypeLevel() const { DARABONBA_PTR_GET_DEFAULT(classTypeLevel_, "") };
+      inline Items& setClassTypeLevel(string classTypeLevel) { DARABONBA_PTR_SET_VALUE(classTypeLevel_, classTypeLevel) };
+
+
+      // cpu Field Functions 
+      bool hasCpu() const { return this->cpu_ != nullptr;};
+      void deleteCpu() { this->cpu_ = nullptr;};
+      inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
+      inline Items& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // essdMaxStorageCapacity Field Functions 
+      bool hasEssdMaxStorageCapacity() const { return this->essdMaxStorageCapacity_ != nullptr;};
+      void deleteEssdMaxStorageCapacity() { this->essdMaxStorageCapacity_ = nullptr;};
+      inline string getEssdMaxStorageCapacity() const { DARABONBA_PTR_GET_DEFAULT(essdMaxStorageCapacity_, "") };
+      inline Items& setEssdMaxStorageCapacity(string essdMaxStorageCapacity) { DARABONBA_PTR_SET_VALUE(essdMaxStorageCapacity_, essdMaxStorageCapacity) };
+
+
+      // maxConnections Field Functions 
+      bool hasMaxConnections() const { return this->maxConnections_ != nullptr;};
+      void deleteMaxConnections() { this->maxConnections_ = nullptr;};
+      inline string getMaxConnections() const { DARABONBA_PTR_GET_DEFAULT(maxConnections_, "") };
+      inline Items& setMaxConnections(string maxConnections) { DARABONBA_PTR_SET_VALUE(maxConnections_, maxConnections) };
+
+
+      // maxIOPS Field Functions 
+      bool hasMaxIOPS() const { return this->maxIOPS_ != nullptr;};
+      void deleteMaxIOPS() { this->maxIOPS_ = nullptr;};
+      inline string getMaxIOPS() const { DARABONBA_PTR_GET_DEFAULT(maxIOPS_, "") };
+      inline Items& setMaxIOPS(string maxIOPS) { DARABONBA_PTR_SET_VALUE(maxIOPS_, maxIOPS) };
+
+
+      // maxStorageCapacity Field Functions 
+      bool hasMaxStorageCapacity() const { return this->maxStorageCapacity_ != nullptr;};
+      void deleteMaxStorageCapacity() { this->maxStorageCapacity_ = nullptr;};
+      inline string getMaxStorageCapacity() const { DARABONBA_PTR_GET_DEFAULT(maxStorageCapacity_, "") };
+      inline Items& setMaxStorageCapacity(string maxStorageCapacity) { DARABONBA_PTR_SET_VALUE(maxStorageCapacity_, maxStorageCapacity) };
+
+
+      // memoryClass Field Functions 
+      bool hasMemoryClass() const { return this->memoryClass_ != nullptr;};
+      void deleteMemoryClass() { this->memoryClass_ = nullptr;};
+      inline string getMemoryClass() const { DARABONBA_PTR_GET_DEFAULT(memoryClass_, "") };
+      inline Items& setMemoryClass(string memoryClass) { DARABONBA_PTR_SET_VALUE(memoryClass_, memoryClass) };
+
+
+      // pl1MaxIOPS Field Functions 
+      bool hasPl1MaxIOPS() const { return this->pl1MaxIOPS_ != nullptr;};
+      void deletePl1MaxIOPS() { this->pl1MaxIOPS_ = nullptr;};
+      inline string getPl1MaxIOPS() const { DARABONBA_PTR_GET_DEFAULT(pl1MaxIOPS_, "") };
+      inline Items& setPl1MaxIOPS(string pl1MaxIOPS) { DARABONBA_PTR_SET_VALUE(pl1MaxIOPS_, pl1MaxIOPS) };
+
+
+      // pl2MaxIOPS Field Functions 
+      bool hasPl2MaxIOPS() const { return this->pl2MaxIOPS_ != nullptr;};
+      void deletePl2MaxIOPS() { this->pl2MaxIOPS_ = nullptr;};
+      inline string getPl2MaxIOPS() const { DARABONBA_PTR_GET_DEFAULT(pl2MaxIOPS_, "") };
+      inline Items& setPl2MaxIOPS(string pl2MaxIOPS) { DARABONBA_PTR_SET_VALUE(pl2MaxIOPS_, pl2MaxIOPS) };
+
+
+      // pl3MaxIOPS Field Functions 
+      bool hasPl3MaxIOPS() const { return this->pl3MaxIOPS_ != nullptr;};
+      void deletePl3MaxIOPS() { this->pl3MaxIOPS_ = nullptr;};
+      inline string getPl3MaxIOPS() const { DARABONBA_PTR_GET_DEFAULT(pl3MaxIOPS_, "") };
+      inline Items& setPl3MaxIOPS(string pl3MaxIOPS) { DARABONBA_PTR_SET_VALUE(pl3MaxIOPS_, pl3MaxIOPS) };
+
+
+      // polarStoreMaxStorageCapacity Field Functions 
+      bool hasPolarStoreMaxStorageCapacity() const { return this->polarStoreMaxStorageCapacity_ != nullptr;};
+      void deletePolarStoreMaxStorageCapacity() { this->polarStoreMaxStorageCapacity_ = nullptr;};
+      inline string getPolarStoreMaxStorageCapacity() const { DARABONBA_PTR_GET_DEFAULT(polarStoreMaxStorageCapacity_, "") };
+      inline Items& setPolarStoreMaxStorageCapacity(string polarStoreMaxStorageCapacity) { DARABONBA_PTR_SET_VALUE(polarStoreMaxStorageCapacity_, polarStoreMaxStorageCapacity) };
+
+
+      // psl4MaxIOPS Field Functions 
+      bool hasPsl4MaxIOPS() const { return this->psl4MaxIOPS_ != nullptr;};
+      void deletePsl4MaxIOPS() { this->psl4MaxIOPS_ = nullptr;};
+      inline string getPsl4MaxIOPS() const { DARABONBA_PTR_GET_DEFAULT(psl4MaxIOPS_, "") };
+      inline Items& setPsl4MaxIOPS(string psl4MaxIOPS) { DARABONBA_PTR_SET_VALUE(psl4MaxIOPS_, psl4MaxIOPS) };
+
+
+      // psl5MaxIOPS Field Functions 
+      bool hasPsl5MaxIOPS() const { return this->psl5MaxIOPS_ != nullptr;};
+      void deletePsl5MaxIOPS() { this->psl5MaxIOPS_ = nullptr;};
+      inline string getPsl5MaxIOPS() const { DARABONBA_PTR_GET_DEFAULT(psl5MaxIOPS_, "") };
+      inline Items& setPsl5MaxIOPS(string psl5MaxIOPS) { DARABONBA_PTR_SET_VALUE(psl5MaxIOPS_, psl5MaxIOPS) };
+
+
+      // referenceExtPrice Field Functions 
+      bool hasReferenceExtPrice() const { return this->referenceExtPrice_ != nullptr;};
+      void deleteReferenceExtPrice() { this->referenceExtPrice_ = nullptr;};
+      inline string getReferenceExtPrice() const { DARABONBA_PTR_GET_DEFAULT(referenceExtPrice_, "") };
+      inline Items& setReferenceExtPrice(string referenceExtPrice) { DARABONBA_PTR_SET_VALUE(referenceExtPrice_, referenceExtPrice) };
+
+
+      // referencePrice Field Functions 
+      bool hasReferencePrice() const { return this->referencePrice_ != nullptr;};
+      void deleteReferencePrice() { this->referencePrice_ = nullptr;};
+      inline string getReferencePrice() const { DARABONBA_PTR_GET_DEFAULT(referencePrice_, "") };
+      inline Items& setReferencePrice(string referencePrice) { DARABONBA_PTR_SET_VALUE(referencePrice_, referencePrice) };
+
+
+    protected:
+      // The specifications of the cluster.
+      shared_ptr<string> classCode_ {};
+      // The instance family of the cluster. Valid values:
+      // 
+      // *   Exclusive package: dedicated
+      // *   Exclusive physical machine: dedicated host
+      // *   Beginner: starter
+      // *   Historical specifications: historical
+      shared_ptr<string> classGroup_ {};
+      // The specification type of the cluster.
+      shared_ptr<string> classTypeLevel_ {};
+      // The number of vCPU cores. Unit: cores.
+      shared_ptr<string> cpu_ {};
+      // The maximum ESSD storage capacity. Unit: TB.
+      shared_ptr<string> essdMaxStorageCapacity_ {};
+      // The maximum number of concurrent connections in the cluster.
+      shared_ptr<string> maxConnections_ {};
+      // The maximum IOPS. Unit: operations per second.
+      shared_ptr<string> maxIOPS_ {};
+      // The maximum storage capacity. Unit: TB.
+      shared_ptr<string> maxStorageCapacity_ {};
+      // The memory size. Unit: GB.
+      shared_ptr<string> memoryClass_ {};
+      // The maximum IOPS of an enhanced SSD (ESSD) of performance level 1 (PL1). Unit: operations per second.
+      shared_ptr<string> pl1MaxIOPS_ {};
+      // The maximum IOPS of an ESSD of performance level 2 (PL2). Unit: operations per second.
+      shared_ptr<string> pl2MaxIOPS_ {};
+      // The maximum IOPS of an ESSD of performance level 3 (PL3). Unit: operations per second.
+      shared_ptr<string> pl3MaxIOPS_ {};
+      // The maximum PSL4/PSL5 storage capacity. Unit: TB.
+      shared_ptr<string> polarStoreMaxStorageCapacity_ {};
+      // The maximum Input/output operations per second (IOPS) for PolarStore Level 4 (PSL4). Unit: operations per second.
+      shared_ptr<string> psl4MaxIOPS_ {};
+      // The maximum IOPS for PolarStore Level 5 (PSL5). Unit: operations per second.
+      shared_ptr<string> psl5MaxIOPS_ {};
+      // The additional price.
+      // 
+      // Unit: cents (USD).
+      // 
+      // >- If you set MasterHa to cluster or single, the value of ReferenceExtPrice is the same as the value of ReferencePrice.
+      // >- If you set MasterHa to cluster or single, the value of ReferenceExtPrice is the price of the single-node cluster.
+      shared_ptr<string> referenceExtPrice_ {};
+      // The price.
+      // 
+      // Unit: cents (USD).
+      // 
+      // >- If you set CommodityCode to a commodity that uses the pay-as-you-go billing method, ReferencePrice indicates the hourly fee that you need to pay.
+      // >- If you set CommodityCode to a commodity that uses the subscription billing method, ReferencePrice indicates the monthly fee that you need to pay.
+      shared_ptr<string> referencePrice_ {};
+    };
+
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->regionId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->regionId_ == nullptr && this->requestId_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<DescribeClassListResponseBodyItems> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeClassListResponseBodyItems>) };
-    inline vector<DescribeClassListResponseBodyItems> items() { DARABONBA_PTR_GET(items_, vector<DescribeClassListResponseBodyItems>) };
-    inline DescribeClassListResponseBody& setItems(const vector<DescribeClassListResponseBodyItems> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
-    inline DescribeClassListResponseBody& setItems(vector<DescribeClassListResponseBodyItems> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+    inline const vector<DescribeClassListResponseBody::Items> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeClassListResponseBody::Items>) };
+    inline vector<DescribeClassListResponseBody::Items> getItems() { DARABONBA_PTR_GET(items_, vector<DescribeClassListResponseBody::Items>) };
+    inline DescribeClassListResponseBody& setItems(const vector<DescribeClassListResponseBody::Items> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline DescribeClassListResponseBody& setItems(vector<DescribeClassListResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeClassListResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeClassListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The cluster specifications.
-    std::shared_ptr<vector<DescribeClassListResponseBodyItems>> items_ = nullptr;
+    shared_ptr<vector<DescribeClassListResponseBody::Items>> items_ {};
     // The region ID of the cluster.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

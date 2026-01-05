@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoQuota_ == nullptr
-        && return this->resourcePackageId_ == nullptr; };
+        && this->resourcePackageId_ == nullptr; };
     // autoQuota Field Functions 
     bool hasAutoQuota() const { return this->autoQuota_ != nullptr;};
     void deleteAutoQuota() { this->autoQuota_ = nullptr;};
-    inline bool autoQuota() const { DARABONBA_PTR_GET_DEFAULT(autoQuota_, false) };
+    inline bool getAutoQuota() const { DARABONBA_PTR_GET_DEFAULT(autoQuota_, false) };
     inline ModifyResourcePackageRequest& setAutoQuota(bool autoQuota) { DARABONBA_PTR_SET_VALUE(autoQuota_, autoQuota) };
 
 
     // resourcePackageId Field Functions 
     bool hasResourcePackageId() const { return this->resourcePackageId_ != nullptr;};
     void deleteResourcePackageId() { this->resourcePackageId_ = nullptr;};
-    inline string resourcePackageId() const { DARABONBA_PTR_GET_DEFAULT(resourcePackageId_, "") };
+    inline string getResourcePackageId() const { DARABONBA_PTR_GET_DEFAULT(resourcePackageId_, "") };
     inline ModifyResourcePackageRequest& setResourcePackageId(string resourcePackageId) { DARABONBA_PTR_SET_VALUE(resourcePackageId_, resourcePackageId) };
 
 
   protected:
-    std::shared_ptr<bool> autoQuota_ = nullptr;
+    shared_ptr<bool> autoQuota_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourcePackageId_ = nullptr;
+    shared_ptr<string> resourcePackageId_ {};
   };
 
   } // namespace Models
