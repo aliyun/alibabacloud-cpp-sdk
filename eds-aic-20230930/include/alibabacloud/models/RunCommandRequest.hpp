@@ -39,33 +39,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentType_ == nullptr
-        && return this->commandContent_ == nullptr && return this->contentEncoding_ == nullptr && return this->instanceIds_ == nullptr && return this->timeout_ == nullptr; };
+        && this->commandContent_ == nullptr && this->contentEncoding_ == nullptr && this->instanceIds_ == nullptr && this->timeout_ == nullptr; };
     // agentType Field Functions 
     bool hasAgentType() const { return this->agentType_ != nullptr;};
     void deleteAgentType() { this->agentType_ = nullptr;};
-    inline string agentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
     inline RunCommandRequest& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
 
 
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};
-    inline string commandContent() const { DARABONBA_PTR_GET_DEFAULT(commandContent_, "") };
+    inline string getCommandContent() const { DARABONBA_PTR_GET_DEFAULT(commandContent_, "") };
     inline RunCommandRequest& setCommandContent(string commandContent) { DARABONBA_PTR_SET_VALUE(commandContent_, commandContent) };
 
 
     // contentEncoding Field Functions 
     bool hasContentEncoding() const { return this->contentEncoding_ != nullptr;};
     void deleteContentEncoding() { this->contentEncoding_ = nullptr;};
-    inline string contentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
+    inline string getContentEncoding() const { DARABONBA_PTR_GET_DEFAULT(contentEncoding_, "") };
     inline RunCommandRequest& setContentEncoding(string contentEncoding) { DARABONBA_PTR_SET_VALUE(contentEncoding_, contentEncoding) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline RunCommandRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline RunCommandRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -73,14 +73,14 @@ namespace Models
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int64_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
+    inline int64_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
     inline RunCommandRequest& setTimeout(int64_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
   protected:
-    std::shared_ptr<string> agentType_ = nullptr;
+    shared_ptr<string> agentType_ {};
     // The content of the command.
-    std::shared_ptr<string> commandContent_ = nullptr;
+    shared_ptr<string> commandContent_ {};
     // The encoding method of the command content (`CommandContent`). The value is not case-sensitive.
     // 
     // >  If you set the value to an invalid encoding method, the system will process the command content as `PlainText`.
@@ -89,11 +89,11 @@ namespace Models
     // 
     // *   Base64: encodes the command content in Base64.
     // *   PlainText (default): does not encode the command content. The command content is input as plain text.
-    std::shared_ptr<string> contentEncoding_ = nullptr;
+    shared_ptr<string> contentEncoding_ {};
     // The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The timeout period of the command execution. If the command execution exceeds the timeout period, it will be considered timed out. If you leave this parameter empty, it defaults to 60.
-    std::shared_ptr<int64_t> timeout_ = nullptr;
+    shared_ptr<int64_t> timeout_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // appIdList Field Functions 
     bool hasAppIdList() const { return this->appIdList_ != nullptr;};
     void deleteAppIdList() { this->appIdList_ = nullptr;};
-    inline const vector<string> & appIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
-    inline vector<string> appIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
+    inline const vector<string> & getAppIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
+    inline vector<string> getAppIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
     inline DeleteAppsRequest& setAppIdList(const vector<string> & appIdList) { DARABONBA_PTR_SET_VALUE(appIdList_, appIdList) };
     inline DeleteAppsRequest& setAppIdList(vector<string> && appIdList) { DARABONBA_PTR_SET_RVALUE(appIdList_, appIdList) };
 
 
   protected:
     // The IDs of the applications.
-    std::shared_ptr<vector<string>> appIdList_ = nullptr;
+    shared_ptr<vector<string>> appIdList_ {};
   };
 
   } // namespace Models

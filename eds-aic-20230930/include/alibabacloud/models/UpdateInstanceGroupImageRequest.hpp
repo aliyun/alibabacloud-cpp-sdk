@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->instanceGroupIds_ == nullptr; };
+        && this->instanceGroupIds_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline UpdateInstanceGroupImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // instanceGroupIds Field Functions 
     bool hasInstanceGroupIds() const { return this->instanceGroupIds_ != nullptr;};
     void deleteInstanceGroupIds() { this->instanceGroupIds_ = nullptr;};
-    inline const vector<string> & instanceGroupIds() const { DARABONBA_PTR_GET_CONST(instanceGroupIds_, vector<string>) };
-    inline vector<string> instanceGroupIds() { DARABONBA_PTR_GET(instanceGroupIds_, vector<string>) };
+    inline const vector<string> & getInstanceGroupIds() const { DARABONBA_PTR_GET_CONST(instanceGroupIds_, vector<string>) };
+    inline vector<string> getInstanceGroupIds() { DARABONBA_PTR_GET(instanceGroupIds_, vector<string>) };
     inline UpdateInstanceGroupImageRequest& setInstanceGroupIds(const vector<string> & instanceGroupIds) { DARABONBA_PTR_SET_VALUE(instanceGroupIds_, instanceGroupIds) };
     inline UpdateInstanceGroupImageRequest& setInstanceGroupIds(vector<string> && instanceGroupIds) { DARABONBA_PTR_SET_RVALUE(instanceGroupIds_, instanceGroupIds) };
 
@@ -54,11 +54,11 @@ namespace Models
     // The ID of the image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The IDs of the instance groups.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceGroupIds_ = nullptr;
+    shared_ptr<vector<string>> instanceGroupIds_ {};
   };
 
   } // namespace Models

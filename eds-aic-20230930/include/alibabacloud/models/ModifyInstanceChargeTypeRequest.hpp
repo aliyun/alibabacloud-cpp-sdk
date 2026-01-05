@@ -43,34 +43,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->instanceGroupIds_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
-        && return this->promotionId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->instanceGroupIds_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
+        && this->promotionId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline ModifyInstanceChargeTypeRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline ModifyInstanceChargeTypeRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline ModifyInstanceChargeTypeRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // instanceGroupIds Field Functions 
     bool hasInstanceGroupIds() const { return this->instanceGroupIds_ != nullptr;};
     void deleteInstanceGroupIds() { this->instanceGroupIds_ = nullptr;};
-    inline const vector<string> & instanceGroupIds() const { DARABONBA_PTR_GET_CONST(instanceGroupIds_, vector<string>) };
-    inline vector<string> instanceGroupIds() { DARABONBA_PTR_GET(instanceGroupIds_, vector<string>) };
+    inline const vector<string> & getInstanceGroupIds() const { DARABONBA_PTR_GET_CONST(instanceGroupIds_, vector<string>) };
+    inline vector<string> getInstanceGroupIds() { DARABONBA_PTR_GET(instanceGroupIds_, vector<string>) };
     inline ModifyInstanceChargeTypeRequest& setInstanceGroupIds(const vector<string> & instanceGroupIds) { DARABONBA_PTR_SET_VALUE(instanceGroupIds_, instanceGroupIds) };
     inline ModifyInstanceChargeTypeRequest& setInstanceGroupIds(vector<string> && instanceGroupIds) { DARABONBA_PTR_SET_RVALUE(instanceGroupIds_, instanceGroupIds) };
 
@@ -78,47 +78,47 @@ namespace Models
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline ModifyInstanceChargeTypeRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // periodUnit Field Functions 
     bool hasPeriodUnit() const { return this->periodUnit_ != nullptr;};
     void deletePeriodUnit() { this->periodUnit_ = nullptr;};
-    inline string periodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
+    inline string getPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
     inline ModifyInstanceChargeTypeRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
     // promotionId Field Functions 
     bool hasPromotionId() const { return this->promotionId_ != nullptr;};
     void deletePromotionId() { this->promotionId_ = nullptr;};
-    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
     inline ModifyInstanceChargeTypeRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
   protected:
     // Specifies whether to enable the auto-payment feature. Default value: false.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable the auto-renewal feature. Default value: false.
-    std::shared_ptr<bool> autoRenew_ = nullptr;
+    shared_ptr<bool> autoRenew_ {};
     // The billing method. Valid values:
     // 
     // >  Currently, this operation only allows you to change the billing method from **pay-as-you-go to subscription**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> chargeType_ = nullptr;
+    shared_ptr<string> chargeType_ {};
     // The IDs of the instance groups.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceGroupIds_ = nullptr;
+    shared_ptr<vector<string>> instanceGroupIds_ {};
     // The subscription duration. The unit is specified by PeriodUnit. Valid values: 1 Month, 2 Months, 3 Months, 6 Months, and 1 Year.
-    std::shared_ptr<int32_t> period_ = nullptr;
+    shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration. Valid values:
     // 
     // *   **Month**
     // *   **Year**
-    std::shared_ptr<string> periodUnit_ = nullptr;
-    std::shared_ptr<string> promotionId_ = nullptr;
+    shared_ptr<string> periodUnit_ {};
+    shared_ptr<string> promotionId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->distributeStatus_ == nullptr
-        && return this->progress_ == nullptr; };
+        && this->progress_ == nullptr; };
     // distributeStatus Field Functions 
     bool hasDistributeStatus() const { return this->distributeStatus_ != nullptr;};
     void deleteDistributeStatus() { this->distributeStatus_ = nullptr;};
-    inline string distributeStatus() const { DARABONBA_PTR_GET_DEFAULT(distributeStatus_, "") };
+    inline string getDistributeStatus() const { DARABONBA_PTR_GET_DEFAULT(distributeStatus_, "") };
     inline DataImageRegionDistributeMapValue& setDistributeStatus(string distributeStatus) { DARABONBA_PTR_SET_VALUE(distributeStatus_, distributeStatus) };
 
 
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline string progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, "") };
+    inline string getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, "") };
     inline DataImageRegionDistributeMapValue& setProgress(string progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
@@ -57,9 +57,9 @@ namespace Models
     // *   INIT: The task is being initialized.
     // *   CREATE_FAILED: The task failed to be created.
     // *   CREATING: The task is being created.
-    std::shared_ptr<string> distributeStatus_ = nullptr;
+    shared_ptr<string> distributeStatus_ {};
     // The distribution progress of the image.
-    std::shared_ptr<string> progress_ = nullptr;
+    shared_ptr<string> progress_ {};
   };
 
   } // namespace Models

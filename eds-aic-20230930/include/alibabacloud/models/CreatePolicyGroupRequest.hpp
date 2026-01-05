@@ -2,8 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEPOLICYGROUPREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEPOLICYGROUPREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreatePolicyGroupRequestNetRedirectPolicy.hpp>
-#include <alibabacloud/models/CreatePolicyGroupRequestWatermark.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -51,88 +50,348 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Watermark : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Watermark& obj) { 
+        DARABONBA_PTR_TO_JSON(WatermarkColor, watermarkColor_);
+        DARABONBA_PTR_TO_JSON(WatermarkCustomText, watermarkCustomText_);
+        DARABONBA_PTR_TO_JSON(WatermarkFontSize, watermarkFontSize_);
+        DARABONBA_PTR_TO_JSON(WatermarkSwitch, watermarkSwitch_);
+        DARABONBA_PTR_TO_JSON(WatermarkTransparencyValue, watermarkTransparencyValue_);
+        DARABONBA_PTR_TO_JSON(WatermarkTypes, watermarkTypes_);
+      };
+      friend void from_json(const Darabonba::Json& j, Watermark& obj) { 
+        DARABONBA_PTR_FROM_JSON(WatermarkColor, watermarkColor_);
+        DARABONBA_PTR_FROM_JSON(WatermarkCustomText, watermarkCustomText_);
+        DARABONBA_PTR_FROM_JSON(WatermarkFontSize, watermarkFontSize_);
+        DARABONBA_PTR_FROM_JSON(WatermarkSwitch, watermarkSwitch_);
+        DARABONBA_PTR_FROM_JSON(WatermarkTransparencyValue, watermarkTransparencyValue_);
+        DARABONBA_PTR_FROM_JSON(WatermarkTypes, watermarkTypes_);
+      };
+      Watermark() = default ;
+      Watermark(const Watermark &) = default ;
+      Watermark(Watermark &&) = default ;
+      Watermark(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Watermark() = default ;
+      Watermark& operator=(const Watermark &) = default ;
+      Watermark& operator=(Watermark &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->watermarkColor_ == nullptr
+        && this->watermarkCustomText_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkSwitch_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkTypes_ == nullptr; };
+      // watermarkColor Field Functions 
+      bool hasWatermarkColor() const { return this->watermarkColor_ != nullptr;};
+      void deleteWatermarkColor() { this->watermarkColor_ = nullptr;};
+      inline int32_t getWatermarkColor() const { DARABONBA_PTR_GET_DEFAULT(watermarkColor_, 0) };
+      inline Watermark& setWatermarkColor(int32_t watermarkColor) { DARABONBA_PTR_SET_VALUE(watermarkColor_, watermarkColor) };
+
+
+      // watermarkCustomText Field Functions 
+      bool hasWatermarkCustomText() const { return this->watermarkCustomText_ != nullptr;};
+      void deleteWatermarkCustomText() { this->watermarkCustomText_ = nullptr;};
+      inline string getWatermarkCustomText() const { DARABONBA_PTR_GET_DEFAULT(watermarkCustomText_, "") };
+      inline Watermark& setWatermarkCustomText(string watermarkCustomText) { DARABONBA_PTR_SET_VALUE(watermarkCustomText_, watermarkCustomText) };
+
+
+      // watermarkFontSize Field Functions 
+      bool hasWatermarkFontSize() const { return this->watermarkFontSize_ != nullptr;};
+      void deleteWatermarkFontSize() { this->watermarkFontSize_ = nullptr;};
+      inline int32_t getWatermarkFontSize() const { DARABONBA_PTR_GET_DEFAULT(watermarkFontSize_, 0) };
+      inline Watermark& setWatermarkFontSize(int32_t watermarkFontSize) { DARABONBA_PTR_SET_VALUE(watermarkFontSize_, watermarkFontSize) };
+
+
+      // watermarkSwitch Field Functions 
+      bool hasWatermarkSwitch() const { return this->watermarkSwitch_ != nullptr;};
+      void deleteWatermarkSwitch() { this->watermarkSwitch_ = nullptr;};
+      inline string getWatermarkSwitch() const { DARABONBA_PTR_GET_DEFAULT(watermarkSwitch_, "") };
+      inline Watermark& setWatermarkSwitch(string watermarkSwitch) { DARABONBA_PTR_SET_VALUE(watermarkSwitch_, watermarkSwitch) };
+
+
+      // watermarkTransparencyValue Field Functions 
+      bool hasWatermarkTransparencyValue() const { return this->watermarkTransparencyValue_ != nullptr;};
+      void deleteWatermarkTransparencyValue() { this->watermarkTransparencyValue_ = nullptr;};
+      inline int32_t getWatermarkTransparencyValue() const { DARABONBA_PTR_GET_DEFAULT(watermarkTransparencyValue_, 0) };
+      inline Watermark& setWatermarkTransparencyValue(int32_t watermarkTransparencyValue) { DARABONBA_PTR_SET_VALUE(watermarkTransparencyValue_, watermarkTransparencyValue) };
+
+
+      // watermarkTypes Field Functions 
+      bool hasWatermarkTypes() const { return this->watermarkTypes_ != nullptr;};
+      void deleteWatermarkTypes() { this->watermarkTypes_ = nullptr;};
+      inline const vector<string> & getWatermarkTypes() const { DARABONBA_PTR_GET_CONST(watermarkTypes_, vector<string>) };
+      inline vector<string> getWatermarkTypes() { DARABONBA_PTR_GET(watermarkTypes_, vector<string>) };
+      inline Watermark& setWatermarkTypes(const vector<string> & watermarkTypes) { DARABONBA_PTR_SET_VALUE(watermarkTypes_, watermarkTypes) };
+      inline Watermark& setWatermarkTypes(vector<string> && watermarkTypes) { DARABONBA_PTR_SET_RVALUE(watermarkTypes_, watermarkTypes) };
+
+
+    protected:
+      shared_ptr<int32_t> watermarkColor_ {};
+      shared_ptr<string> watermarkCustomText_ {};
+      shared_ptr<int32_t> watermarkFontSize_ {};
+      shared_ptr<string> watermarkSwitch_ {};
+      shared_ptr<int32_t> watermarkTransparencyValue_ {};
+      shared_ptr<vector<string>> watermarkTypes_ {};
+    };
+
+    class NetRedirectPolicy : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const NetRedirectPolicy& obj) { 
+        DARABONBA_PTR_TO_JSON(CustomProxy, customProxy_);
+        DARABONBA_PTR_TO_JSON(HostAddr, hostAddr_);
+        DARABONBA_PTR_TO_JSON(NetRedirect, netRedirect_);
+        DARABONBA_PTR_TO_JSON(Port, port_);
+        DARABONBA_PTR_TO_JSON(ProxyPassword, proxyPassword_);
+        DARABONBA_PTR_TO_JSON(ProxyType, proxyType_);
+        DARABONBA_PTR_TO_JSON(ProxyUserName, proxyUserName_);
+        DARABONBA_PTR_TO_JSON(Rules, rules_);
+      };
+      friend void from_json(const Darabonba::Json& j, NetRedirectPolicy& obj) { 
+        DARABONBA_PTR_FROM_JSON(CustomProxy, customProxy_);
+        DARABONBA_PTR_FROM_JSON(HostAddr, hostAddr_);
+        DARABONBA_PTR_FROM_JSON(NetRedirect, netRedirect_);
+        DARABONBA_PTR_FROM_JSON(Port, port_);
+        DARABONBA_PTR_FROM_JSON(ProxyPassword, proxyPassword_);
+        DARABONBA_PTR_FROM_JSON(ProxyType, proxyType_);
+        DARABONBA_PTR_FROM_JSON(ProxyUserName, proxyUserName_);
+        DARABONBA_PTR_FROM_JSON(Rules, rules_);
+      };
+      NetRedirectPolicy() = default ;
+      NetRedirectPolicy(const NetRedirectPolicy &) = default ;
+      NetRedirectPolicy(NetRedirectPolicy &&) = default ;
+      NetRedirectPolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~NetRedirectPolicy() = default ;
+      NetRedirectPolicy& operator=(const NetRedirectPolicy &) = default ;
+      NetRedirectPolicy& operator=(NetRedirectPolicy &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Rules : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Rules& obj) { 
+          DARABONBA_PTR_TO_JSON(RuleType, ruleType_);
+          DARABONBA_PTR_TO_JSON(Target, target_);
+        };
+        friend void from_json(const Darabonba::Json& j, Rules& obj) { 
+          DARABONBA_PTR_FROM_JSON(RuleType, ruleType_);
+          DARABONBA_PTR_FROM_JSON(Target, target_);
+        };
+        Rules() = default ;
+        Rules(const Rules &) = default ;
+        Rules(Rules &&) = default ;
+        Rules(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Rules() = default ;
+        Rules& operator=(const Rules &) = default ;
+        Rules& operator=(Rules &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->ruleType_ == nullptr
+        && this->target_ == nullptr; };
+        // ruleType Field Functions 
+        bool hasRuleType() const { return this->ruleType_ != nullptr;};
+        void deleteRuleType() { this->ruleType_ = nullptr;};
+        inline string getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+        inline Rules& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
+
+
+        // target Field Functions 
+        bool hasTarget() const { return this->target_ != nullptr;};
+        void deleteTarget() { this->target_ = nullptr;};
+        inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+        inline Rules& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
+
+
+      protected:
+        // The type of the rule.
+        // 
+        // Valid values:
+        // 
+        // *   prc: an application package name.
+        // *   domain: a domain name.
+        shared_ptr<string> ruleType_ {};
+        // The name of the application package or domain name.
+        shared_ptr<string> target_ {};
+      };
+
+      virtual bool empty() const override { return this->customProxy_ == nullptr
+        && this->hostAddr_ == nullptr && this->netRedirect_ == nullptr && this->port_ == nullptr && this->proxyPassword_ == nullptr && this->proxyType_ == nullptr
+        && this->proxyUserName_ == nullptr && this->rules_ == nullptr; };
+      // customProxy Field Functions 
+      bool hasCustomProxy() const { return this->customProxy_ != nullptr;};
+      void deleteCustomProxy() { this->customProxy_ = nullptr;};
+      inline string getCustomProxy() const { DARABONBA_PTR_GET_DEFAULT(customProxy_, "") };
+      inline NetRedirectPolicy& setCustomProxy(string customProxy) { DARABONBA_PTR_SET_VALUE(customProxy_, customProxy) };
+
+
+      // hostAddr Field Functions 
+      bool hasHostAddr() const { return this->hostAddr_ != nullptr;};
+      void deleteHostAddr() { this->hostAddr_ = nullptr;};
+      inline string getHostAddr() const { DARABONBA_PTR_GET_DEFAULT(hostAddr_, "") };
+      inline NetRedirectPolicy& setHostAddr(string hostAddr) { DARABONBA_PTR_SET_VALUE(hostAddr_, hostAddr) };
+
+
+      // netRedirect Field Functions 
+      bool hasNetRedirect() const { return this->netRedirect_ != nullptr;};
+      void deleteNetRedirect() { this->netRedirect_ = nullptr;};
+      inline string getNetRedirect() const { DARABONBA_PTR_GET_DEFAULT(netRedirect_, "") };
+      inline NetRedirectPolicy& setNetRedirect(string netRedirect) { DARABONBA_PTR_SET_VALUE(netRedirect_, netRedirect) };
+
+
+      // port Field Functions 
+      bool hasPort() const { return this->port_ != nullptr;};
+      void deletePort() { this->port_ = nullptr;};
+      inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+      inline NetRedirectPolicy& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+      // proxyPassword Field Functions 
+      bool hasProxyPassword() const { return this->proxyPassword_ != nullptr;};
+      void deleteProxyPassword() { this->proxyPassword_ = nullptr;};
+      inline string getProxyPassword() const { DARABONBA_PTR_GET_DEFAULT(proxyPassword_, "") };
+      inline NetRedirectPolicy& setProxyPassword(string proxyPassword) { DARABONBA_PTR_SET_VALUE(proxyPassword_, proxyPassword) };
+
+
+      // proxyType Field Functions 
+      bool hasProxyType() const { return this->proxyType_ != nullptr;};
+      void deleteProxyType() { this->proxyType_ = nullptr;};
+      inline string getProxyType() const { DARABONBA_PTR_GET_DEFAULT(proxyType_, "") };
+      inline NetRedirectPolicy& setProxyType(string proxyType) { DARABONBA_PTR_SET_VALUE(proxyType_, proxyType) };
+
+
+      // proxyUserName Field Functions 
+      bool hasProxyUserName() const { return this->proxyUserName_ != nullptr;};
+      void deleteProxyUserName() { this->proxyUserName_ = nullptr;};
+      inline string getProxyUserName() const { DARABONBA_PTR_GET_DEFAULT(proxyUserName_, "") };
+      inline NetRedirectPolicy& setProxyUserName(string proxyUserName) { DARABONBA_PTR_SET_VALUE(proxyUserName_, proxyUserName) };
+
+
+      // rules Field Functions 
+      bool hasRules() const { return this->rules_ != nullptr;};
+      void deleteRules() { this->rules_ = nullptr;};
+      inline const vector<NetRedirectPolicy::Rules> & getRules() const { DARABONBA_PTR_GET_CONST(rules_, vector<NetRedirectPolicy::Rules>) };
+      inline vector<NetRedirectPolicy::Rules> getRules() { DARABONBA_PTR_GET(rules_, vector<NetRedirectPolicy::Rules>) };
+      inline NetRedirectPolicy& setRules(const vector<NetRedirectPolicy::Rules> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
+      inline NetRedirectPolicy& setRules(vector<NetRedirectPolicy::Rules> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
+
+
+    protected:
+      // Specifies whether to manually configure a custom proxy.
+      // 
+      // Valid values:
+      // 
+      // *   off
+      // *   on
+      shared_ptr<string> customProxy_ {};
+      // The IPv4 address of the custom proxy.
+      shared_ptr<string> hostAddr_ {};
+      // Specifies whether to enable the network redirection feature.
+      // 
+      // Valid values:
+      // 
+      // *   off
+      // *   on
+      shared_ptr<string> netRedirect_ {};
+      // The port of the custom proxy. Valid values: 1 to 65535.
+      shared_ptr<string> port_ {};
+      // The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
+      shared_ptr<string> proxyPassword_ {};
+      // The type of the proxy protocol.
+      // 
+      // Valid values:
+      // 
+      // *   socks5.
+      shared_ptr<string> proxyType_ {};
+      // The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
+      shared_ptr<string> proxyUserName_ {};
+      // The proxy rules. You can create up to 100 proxy rules.
+      shared_ptr<vector<NetRedirectPolicy::Rules>> rules_ {};
+    };
+
     virtual bool empty() const override { return this->cameraRedirect_ == nullptr
-        && return this->clipboard_ == nullptr && return this->html5FileTransfer_ == nullptr && return this->localDrive_ == nullptr && return this->lockResolution_ == nullptr && return this->netRedirectPolicy_ == nullptr
-        && return this->policyGroupName_ == nullptr && return this->policyType_ == nullptr && return this->resolutionHeight_ == nullptr && return this->resolutionWidth_ == nullptr && return this->watermark_ == nullptr; };
+        && this->clipboard_ == nullptr && this->html5FileTransfer_ == nullptr && this->localDrive_ == nullptr && this->lockResolution_ == nullptr && this->netRedirectPolicy_ == nullptr
+        && this->policyGroupName_ == nullptr && this->policyType_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->watermark_ == nullptr; };
     // cameraRedirect Field Functions 
     bool hasCameraRedirect() const { return this->cameraRedirect_ != nullptr;};
     void deleteCameraRedirect() { this->cameraRedirect_ = nullptr;};
-    inline string cameraRedirect() const { DARABONBA_PTR_GET_DEFAULT(cameraRedirect_, "") };
+    inline string getCameraRedirect() const { DARABONBA_PTR_GET_DEFAULT(cameraRedirect_, "") };
     inline CreatePolicyGroupRequest& setCameraRedirect(string cameraRedirect) { DARABONBA_PTR_SET_VALUE(cameraRedirect_, cameraRedirect) };
 
 
     // clipboard Field Functions 
     bool hasClipboard() const { return this->clipboard_ != nullptr;};
     void deleteClipboard() { this->clipboard_ = nullptr;};
-    inline string clipboard() const { DARABONBA_PTR_GET_DEFAULT(clipboard_, "") };
+    inline string getClipboard() const { DARABONBA_PTR_GET_DEFAULT(clipboard_, "") };
     inline CreatePolicyGroupRequest& setClipboard(string clipboard) { DARABONBA_PTR_SET_VALUE(clipboard_, clipboard) };
 
 
     // html5FileTransfer Field Functions 
     bool hasHtml5FileTransfer() const { return this->html5FileTransfer_ != nullptr;};
     void deleteHtml5FileTransfer() { this->html5FileTransfer_ = nullptr;};
-    inline string html5FileTransfer() const { DARABONBA_PTR_GET_DEFAULT(html5FileTransfer_, "") };
+    inline string getHtml5FileTransfer() const { DARABONBA_PTR_GET_DEFAULT(html5FileTransfer_, "") };
     inline CreatePolicyGroupRequest& setHtml5FileTransfer(string html5FileTransfer) { DARABONBA_PTR_SET_VALUE(html5FileTransfer_, html5FileTransfer) };
 
 
     // localDrive Field Functions 
     bool hasLocalDrive() const { return this->localDrive_ != nullptr;};
     void deleteLocalDrive() { this->localDrive_ = nullptr;};
-    inline string localDrive() const { DARABONBA_PTR_GET_DEFAULT(localDrive_, "") };
+    inline string getLocalDrive() const { DARABONBA_PTR_GET_DEFAULT(localDrive_, "") };
     inline CreatePolicyGroupRequest& setLocalDrive(string localDrive) { DARABONBA_PTR_SET_VALUE(localDrive_, localDrive) };
 
 
     // lockResolution Field Functions 
     bool hasLockResolution() const { return this->lockResolution_ != nullptr;};
     void deleteLockResolution() { this->lockResolution_ = nullptr;};
-    inline string lockResolution() const { DARABONBA_PTR_GET_DEFAULT(lockResolution_, "") };
+    inline string getLockResolution() const { DARABONBA_PTR_GET_DEFAULT(lockResolution_, "") };
     inline CreatePolicyGroupRequest& setLockResolution(string lockResolution) { DARABONBA_PTR_SET_VALUE(lockResolution_, lockResolution) };
 
 
     // netRedirectPolicy Field Functions 
     bool hasNetRedirectPolicy() const { return this->netRedirectPolicy_ != nullptr;};
     void deleteNetRedirectPolicy() { this->netRedirectPolicy_ = nullptr;};
-    inline const CreatePolicyGroupRequestNetRedirectPolicy & netRedirectPolicy() const { DARABONBA_PTR_GET_CONST(netRedirectPolicy_, CreatePolicyGroupRequestNetRedirectPolicy) };
-    inline CreatePolicyGroupRequestNetRedirectPolicy netRedirectPolicy() { DARABONBA_PTR_GET(netRedirectPolicy_, CreatePolicyGroupRequestNetRedirectPolicy) };
-    inline CreatePolicyGroupRequest& setNetRedirectPolicy(const CreatePolicyGroupRequestNetRedirectPolicy & netRedirectPolicy) { DARABONBA_PTR_SET_VALUE(netRedirectPolicy_, netRedirectPolicy) };
-    inline CreatePolicyGroupRequest& setNetRedirectPolicy(CreatePolicyGroupRequestNetRedirectPolicy && netRedirectPolicy) { DARABONBA_PTR_SET_RVALUE(netRedirectPolicy_, netRedirectPolicy) };
+    inline const CreatePolicyGroupRequest::NetRedirectPolicy & getNetRedirectPolicy() const { DARABONBA_PTR_GET_CONST(netRedirectPolicy_, CreatePolicyGroupRequest::NetRedirectPolicy) };
+    inline CreatePolicyGroupRequest::NetRedirectPolicy getNetRedirectPolicy() { DARABONBA_PTR_GET(netRedirectPolicy_, CreatePolicyGroupRequest::NetRedirectPolicy) };
+    inline CreatePolicyGroupRequest& setNetRedirectPolicy(const CreatePolicyGroupRequest::NetRedirectPolicy & netRedirectPolicy) { DARABONBA_PTR_SET_VALUE(netRedirectPolicy_, netRedirectPolicy) };
+    inline CreatePolicyGroupRequest& setNetRedirectPolicy(CreatePolicyGroupRequest::NetRedirectPolicy && netRedirectPolicy) { DARABONBA_PTR_SET_RVALUE(netRedirectPolicy_, netRedirectPolicy) };
 
 
     // policyGroupName Field Functions 
     bool hasPolicyGroupName() const { return this->policyGroupName_ != nullptr;};
     void deletePolicyGroupName() { this->policyGroupName_ = nullptr;};
-    inline string policyGroupName() const { DARABONBA_PTR_GET_DEFAULT(policyGroupName_, "") };
+    inline string getPolicyGroupName() const { DARABONBA_PTR_GET_DEFAULT(policyGroupName_, "") };
     inline CreatePolicyGroupRequest& setPolicyGroupName(string policyGroupName) { DARABONBA_PTR_SET_VALUE(policyGroupName_, policyGroupName) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline CreatePolicyGroupRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
     // resolutionHeight Field Functions 
     bool hasResolutionHeight() const { return this->resolutionHeight_ != nullptr;};
     void deleteResolutionHeight() { this->resolutionHeight_ = nullptr;};
-    inline int32_t resolutionHeight() const { DARABONBA_PTR_GET_DEFAULT(resolutionHeight_, 0) };
+    inline int32_t getResolutionHeight() const { DARABONBA_PTR_GET_DEFAULT(resolutionHeight_, 0) };
     inline CreatePolicyGroupRequest& setResolutionHeight(int32_t resolutionHeight) { DARABONBA_PTR_SET_VALUE(resolutionHeight_, resolutionHeight) };
 
 
     // resolutionWidth Field Functions 
     bool hasResolutionWidth() const { return this->resolutionWidth_ != nullptr;};
     void deleteResolutionWidth() { this->resolutionWidth_ = nullptr;};
-    inline int32_t resolutionWidth() const { DARABONBA_PTR_GET_DEFAULT(resolutionWidth_, 0) };
+    inline int32_t getResolutionWidth() const { DARABONBA_PTR_GET_DEFAULT(resolutionWidth_, 0) };
     inline CreatePolicyGroupRequest& setResolutionWidth(int32_t resolutionWidth) { DARABONBA_PTR_SET_VALUE(resolutionWidth_, resolutionWidth) };
 
 
     // watermark Field Functions 
     bool hasWatermark() const { return this->watermark_ != nullptr;};
     void deleteWatermark() { this->watermark_ = nullptr;};
-    inline const CreatePolicyGroupRequestWatermark & watermark() const { DARABONBA_PTR_GET_CONST(watermark_, CreatePolicyGroupRequestWatermark) };
-    inline CreatePolicyGroupRequestWatermark watermark() { DARABONBA_PTR_GET(watermark_, CreatePolicyGroupRequestWatermark) };
-    inline CreatePolicyGroupRequest& setWatermark(const CreatePolicyGroupRequestWatermark & watermark) { DARABONBA_PTR_SET_VALUE(watermark_, watermark) };
-    inline CreatePolicyGroupRequest& setWatermark(CreatePolicyGroupRequestWatermark && watermark) { DARABONBA_PTR_SET_RVALUE(watermark_, watermark) };
+    inline const CreatePolicyGroupRequest::Watermark & getWatermark() const { DARABONBA_PTR_GET_CONST(watermark_, CreatePolicyGroupRequest::Watermark) };
+    inline CreatePolicyGroupRequest::Watermark getWatermark() { DARABONBA_PTR_GET(watermark_, CreatePolicyGroupRequest::Watermark) };
+    inline CreatePolicyGroupRequest& setWatermark(const CreatePolicyGroupRequest::Watermark & watermark) { DARABONBA_PTR_SET_VALUE(watermark_, watermark) };
+    inline CreatePolicyGroupRequest& setWatermark(CreatePolicyGroupRequest::Watermark && watermark) { DARABONBA_PTR_SET_RVALUE(watermark_, watermark) };
 
 
   protected:
@@ -142,7 +401,7 @@ namespace Models
     // 
     // *   off
     // *   on
-    std::shared_ptr<string> cameraRedirect_ = nullptr;
+    shared_ptr<string> cameraRedirect_ {};
     // The read/write permissions on the clipboard.
     // 
     // Valid values:
@@ -150,7 +409,7 @@ namespace Models
     // *   read: read-only.
     // *   readwrite: read and write.
     // *   off: read/write disabled.
-    std::shared_ptr<string> clipboard_ = nullptr;
+    shared_ptr<string> clipboard_ {};
     // The file transfer policy of the Alibaba Cloud Workspace web client.
     // 
     // Valid values:
@@ -159,7 +418,7 @@ namespace Models
     // *   download: Only file download is supported.
     // *   upload: Only file upload is supported.
     // *   off: File upload or download is forbidden.
-    std::shared_ptr<string> html5FileTransfer_ = nullptr;
+    shared_ptr<string> html5FileTransfer_ {};
     // The read/write permissions on the on-premises drive.
     // 
     // Valid values:
@@ -167,24 +426,24 @@ namespace Models
     // *   read: read-only.
     // *   readwrite: ready and write.
     // *   off: read/write disabled.
-    std::shared_ptr<string> localDrive_ = nullptr;
+    shared_ptr<string> localDrive_ {};
     // Specifies whether to lock the resolution.
     // 
     // Valid values:
     // 
     // *   off
     // *   on
-    std::shared_ptr<string> lockResolution_ = nullptr;
+    shared_ptr<string> lockResolution_ {};
     // The network redirection policy.
-    std::shared_ptr<CreatePolicyGroupRequestNetRedirectPolicy> netRedirectPolicy_ = nullptr;
+    shared_ptr<CreatePolicyGroupRequest::NetRedirectPolicy> netRedirectPolicy_ {};
     // The name of the policy.
-    std::shared_ptr<string> policyGroupName_ = nullptr;
-    std::shared_ptr<string> policyType_ = nullptr;
+    shared_ptr<string> policyGroupName_ {};
+    shared_ptr<string> policyType_ {};
     // The height of the resolution. Unit: pixels.
-    std::shared_ptr<int32_t> resolutionHeight_ = nullptr;
+    shared_ptr<int32_t> resolutionHeight_ {};
     // The width of the resolution. Unit: pixels.
-    std::shared_ptr<int32_t> resolutionWidth_ = nullptr;
-    std::shared_ptr<CreatePolicyGroupRequestWatermark> watermark_ = nullptr;
+    shared_ptr<int32_t> resolutionWidth_ {};
+    shared_ptr<CreatePolicyGroupRequest::Watermark> watermark_ {};
   };
 
   } // namespace Models

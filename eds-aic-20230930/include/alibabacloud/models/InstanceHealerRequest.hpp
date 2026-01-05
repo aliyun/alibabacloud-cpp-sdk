@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIdList_ == nullptr
-        && return this->strategy_ == nullptr && return this->timeout_ == nullptr; };
+        && this->strategy_ == nullptr && this->timeout_ == nullptr; };
     // instanceIdList Field Functions 
     bool hasInstanceIdList() const { return this->instanceIdList_ != nullptr;};
     void deleteInstanceIdList() { this->instanceIdList_ = nullptr;};
-    inline const vector<string> & instanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
-    inline vector<string> instanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
+    inline const vector<string> & getInstanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
+    inline vector<string> getInstanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
     inline InstanceHealerRequest& setInstanceIdList(const vector<string> & instanceIdList) { DARABONBA_PTR_SET_VALUE(instanceIdList_, instanceIdList) };
     inline InstanceHealerRequest& setInstanceIdList(vector<string> && instanceIdList) { DARABONBA_PTR_SET_RVALUE(instanceIdList_, instanceIdList) };
 
@@ -48,22 +48,22 @@ namespace Models
     // strategy Field Functions 
     bool hasStrategy() const { return this->strategy_ != nullptr;};
     void deleteStrategy() { this->strategy_ = nullptr;};
-    inline string strategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
+    inline string getStrategy() const { DARABONBA_PTR_GET_DEFAULT(strategy_, "") };
     inline InstanceHealerRequest& setStrategy(string strategy) { DARABONBA_PTR_SET_VALUE(strategy_, strategy) };
 
 
     // timeout Field Functions 
     bool hasTimeout() const { return this->timeout_ != nullptr;};
     void deleteTimeout() { this->timeout_ = nullptr;};
-    inline int64_t timeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
+    inline int64_t getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, 0L) };
     inline InstanceHealerRequest& setTimeout(int64_t timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceIdList_ = nullptr;
-    std::shared_ptr<string> strategy_ = nullptr;
-    std::shared_ptr<int64_t> timeout_ = nullptr;
+    shared_ptr<vector<string>> instanceIdList_ {};
+    shared_ptr<string> strategy_ {};
+    shared_ptr<int64_t> timeout_ {};
   };
 
   } // namespace Models

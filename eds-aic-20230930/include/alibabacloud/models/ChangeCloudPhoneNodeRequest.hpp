@@ -50,97 +50,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->displayConfig_ == nullptr && return this->downBandwidthLimit_ == nullptr && return this->instanceType_ == nullptr && return this->nodeId_ == nullptr && return this->phoneCount_ == nullptr
-        && return this->phoneDataVolume_ == nullptr && return this->promotionId_ == nullptr && return this->shareDataVolume_ == nullptr && return this->swapSize_ == nullptr && return this->upBandwidthLimit_ == nullptr; };
+        && this->displayConfig_ == nullptr && this->downBandwidthLimit_ == nullptr && this->instanceType_ == nullptr && this->nodeId_ == nullptr && this->phoneCount_ == nullptr
+        && this->phoneDataVolume_ == nullptr && this->promotionId_ == nullptr && this->shareDataVolume_ == nullptr && this->swapSize_ == nullptr && this->upBandwidthLimit_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline ChangeCloudPhoneNodeRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // displayConfig Field Functions 
     bool hasDisplayConfig() const { return this->displayConfig_ != nullptr;};
     void deleteDisplayConfig() { this->displayConfig_ = nullptr;};
-    inline string displayConfig() const { DARABONBA_PTR_GET_DEFAULT(displayConfig_, "") };
+    inline string getDisplayConfig() const { DARABONBA_PTR_GET_DEFAULT(displayConfig_, "") };
     inline ChangeCloudPhoneNodeRequest& setDisplayConfig(string displayConfig) { DARABONBA_PTR_SET_VALUE(displayConfig_, displayConfig) };
 
 
     // downBandwidthLimit Field Functions 
     bool hasDownBandwidthLimit() const { return this->downBandwidthLimit_ != nullptr;};
     void deleteDownBandwidthLimit() { this->downBandwidthLimit_ = nullptr;};
-    inline int32_t downBandwidthLimit() const { DARABONBA_PTR_GET_DEFAULT(downBandwidthLimit_, 0) };
+    inline int32_t getDownBandwidthLimit() const { DARABONBA_PTR_GET_DEFAULT(downBandwidthLimit_, 0) };
     inline ChangeCloudPhoneNodeRequest& setDownBandwidthLimit(int32_t downBandwidthLimit) { DARABONBA_PTR_SET_VALUE(downBandwidthLimit_, downBandwidthLimit) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline ChangeCloudPhoneNodeRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline ChangeCloudPhoneNodeRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // phoneCount Field Functions 
     bool hasPhoneCount() const { return this->phoneCount_ != nullptr;};
     void deletePhoneCount() { this->phoneCount_ = nullptr;};
-    inline int32_t phoneCount() const { DARABONBA_PTR_GET_DEFAULT(phoneCount_, 0) };
+    inline int32_t getPhoneCount() const { DARABONBA_PTR_GET_DEFAULT(phoneCount_, 0) };
     inline ChangeCloudPhoneNodeRequest& setPhoneCount(int32_t phoneCount) { DARABONBA_PTR_SET_VALUE(phoneCount_, phoneCount) };
 
 
     // phoneDataVolume Field Functions 
     bool hasPhoneDataVolume() const { return this->phoneDataVolume_ != nullptr;};
     void deletePhoneDataVolume() { this->phoneDataVolume_ = nullptr;};
-    inline int32_t phoneDataVolume() const { DARABONBA_PTR_GET_DEFAULT(phoneDataVolume_, 0) };
+    inline int32_t getPhoneDataVolume() const { DARABONBA_PTR_GET_DEFAULT(phoneDataVolume_, 0) };
     inline ChangeCloudPhoneNodeRequest& setPhoneDataVolume(int32_t phoneDataVolume) { DARABONBA_PTR_SET_VALUE(phoneDataVolume_, phoneDataVolume) };
 
 
     // promotionId Field Functions 
     bool hasPromotionId() const { return this->promotionId_ != nullptr;};
     void deletePromotionId() { this->promotionId_ = nullptr;};
-    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
     inline ChangeCloudPhoneNodeRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
     // shareDataVolume Field Functions 
     bool hasShareDataVolume() const { return this->shareDataVolume_ != nullptr;};
     void deleteShareDataVolume() { this->shareDataVolume_ = nullptr;};
-    inline int32_t shareDataVolume() const { DARABONBA_PTR_GET_DEFAULT(shareDataVolume_, 0) };
+    inline int32_t getShareDataVolume() const { DARABONBA_PTR_GET_DEFAULT(shareDataVolume_, 0) };
     inline ChangeCloudPhoneNodeRequest& setShareDataVolume(int32_t shareDataVolume) { DARABONBA_PTR_SET_VALUE(shareDataVolume_, shareDataVolume) };
 
 
     // swapSize Field Functions 
     bool hasSwapSize() const { return this->swapSize_ != nullptr;};
     void deleteSwapSize() { this->swapSize_ = nullptr;};
-    inline int32_t swapSize() const { DARABONBA_PTR_GET_DEFAULT(swapSize_, 0) };
+    inline int32_t getSwapSize() const { DARABONBA_PTR_GET_DEFAULT(swapSize_, 0) };
     inline ChangeCloudPhoneNodeRequest& setSwapSize(int32_t swapSize) { DARABONBA_PTR_SET_VALUE(swapSize_, swapSize) };
 
 
     // upBandwidthLimit Field Functions 
     bool hasUpBandwidthLimit() const { return this->upBandwidthLimit_ != nullptr;};
     void deleteUpBandwidthLimit() { this->upBandwidthLimit_ = nullptr;};
-    inline int32_t upBandwidthLimit() const { DARABONBA_PTR_GET_DEFAULT(upBandwidthLimit_, 0) };
+    inline int32_t getUpBandwidthLimit() const { DARABONBA_PTR_GET_DEFAULT(upBandwidthLimit_, 0) };
     inline ChangeCloudPhoneNodeRequest& setUpBandwidthLimit(int32_t upBandwidthLimit) { DARABONBA_PTR_SET_VALUE(upBandwidthLimit_, upBandwidthLimit) };
 
 
   protected:
-    std::shared_ptr<bool> autoPay_ = nullptr;
-    std::shared_ptr<string> displayConfig_ = nullptr;
-    std::shared_ptr<int32_t> downBandwidthLimit_ = nullptr;
-    std::shared_ptr<string> instanceType_ = nullptr;
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<int32_t> phoneCount_ = nullptr;
-    std::shared_ptr<int32_t> phoneDataVolume_ = nullptr;
-    std::shared_ptr<string> promotionId_ = nullptr;
-    std::shared_ptr<int32_t> shareDataVolume_ = nullptr;
-    std::shared_ptr<int32_t> swapSize_ = nullptr;
-    std::shared_ptr<int32_t> upBandwidthLimit_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
+    shared_ptr<string> displayConfig_ {};
+    shared_ptr<int32_t> downBandwidthLimit_ {};
+    shared_ptr<string> instanceType_ {};
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<int32_t> phoneCount_ {};
+    shared_ptr<int32_t> phoneDataVolume_ {};
+    shared_ptr<string> promotionId_ {};
+    shared_ptr<int32_t> shareDataVolume_ {};
+    shared_ptr<int32_t> swapSize_ {};
+    shared_ptr<int32_t> upBandwidthLimit_ {};
   };
 
   } // namespace Models

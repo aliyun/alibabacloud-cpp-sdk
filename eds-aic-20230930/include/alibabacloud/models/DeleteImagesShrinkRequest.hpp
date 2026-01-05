@@ -33,7 +33,7 @@ namespace Models
     // imageIdsShrink Field Functions 
     bool hasImageIdsShrink() const { return this->imageIdsShrink_ != nullptr;};
     void deleteImageIdsShrink() { this->imageIdsShrink_ = nullptr;};
-    inline string imageIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(imageIdsShrink_, "") };
+    inline string getImageIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(imageIdsShrink_, "") };
     inline DeleteImagesShrinkRequest& setImageIdsShrink(string imageIdsShrink) { DARABONBA_PTR_SET_VALUE(imageIdsShrink_, imageIdsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of the images.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageIdsShrink_ = nullptr;
+    shared_ptr<string> imageIdsShrink_ {};
   };
 
   } // namespace Models

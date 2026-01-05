@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIdList_ == nullptr
-        && return this->instanceGroupIdList_ == nullptr && return this->instanceIdList_ == nullptr; };
+        && this->instanceGroupIdList_ == nullptr && this->instanceIdList_ == nullptr; };
     // appIdList Field Functions 
     bool hasAppIdList() const { return this->appIdList_ != nullptr;};
     void deleteAppIdList() { this->appIdList_ = nullptr;};
-    inline const vector<string> & appIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
-    inline vector<string> appIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
+    inline const vector<string> & getAppIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
+    inline vector<string> getAppIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
     inline UninstallAppRequest& setAppIdList(const vector<string> & appIdList) { DARABONBA_PTR_SET_VALUE(appIdList_, appIdList) };
     inline UninstallAppRequest& setAppIdList(vector<string> && appIdList) { DARABONBA_PTR_SET_RVALUE(appIdList_, appIdList) };
 
@@ -48,8 +48,8 @@ namespace Models
     // instanceGroupIdList Field Functions 
     bool hasInstanceGroupIdList() const { return this->instanceGroupIdList_ != nullptr;};
     void deleteInstanceGroupIdList() { this->instanceGroupIdList_ = nullptr;};
-    inline const vector<string> & instanceGroupIdList() const { DARABONBA_PTR_GET_CONST(instanceGroupIdList_, vector<string>) };
-    inline vector<string> instanceGroupIdList() { DARABONBA_PTR_GET(instanceGroupIdList_, vector<string>) };
+    inline const vector<string> & getInstanceGroupIdList() const { DARABONBA_PTR_GET_CONST(instanceGroupIdList_, vector<string>) };
+    inline vector<string> getInstanceGroupIdList() { DARABONBA_PTR_GET(instanceGroupIdList_, vector<string>) };
     inline UninstallAppRequest& setInstanceGroupIdList(const vector<string> & instanceGroupIdList) { DARABONBA_PTR_SET_VALUE(instanceGroupIdList_, instanceGroupIdList) };
     inline UninstallAppRequest& setInstanceGroupIdList(vector<string> && instanceGroupIdList) { DARABONBA_PTR_SET_RVALUE(instanceGroupIdList_, instanceGroupIdList) };
 
@@ -57,19 +57,19 @@ namespace Models
     // instanceIdList Field Functions 
     bool hasInstanceIdList() const { return this->instanceIdList_ != nullptr;};
     void deleteInstanceIdList() { this->instanceIdList_ = nullptr;};
-    inline const vector<string> & instanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
-    inline vector<string> instanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
+    inline const vector<string> & getInstanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
+    inline vector<string> getInstanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
     inline UninstallAppRequest& setInstanceIdList(const vector<string> & instanceIdList) { DARABONBA_PTR_SET_VALUE(instanceIdList_, instanceIdList) };
     inline UninstallAppRequest& setInstanceIdList(vector<string> && instanceIdList) { DARABONBA_PTR_SET_RVALUE(instanceIdList_, instanceIdList) };
 
 
   protected:
     // The IDs of the apps.
-    std::shared_ptr<vector<string>> appIdList_ = nullptr;
+    shared_ptr<vector<string>> appIdList_ {};
     // The ID of the instance groups. If you specify this parameter, you cannot specify InstanceIdList.
-    std::shared_ptr<vector<string>> instanceGroupIdList_ = nullptr;
+    shared_ptr<vector<string>> instanceGroupIdList_ {};
     // The IDs of the cloud phone instances. If you specify this parameter, you cannot specify InstanceGroupIdList.
-    std::shared_ptr<vector<string>> instanceIdList_ = nullptr;
+    shared_ptr<vector<string>> instanceIdList_ {};
   };
 
   } // namespace Models

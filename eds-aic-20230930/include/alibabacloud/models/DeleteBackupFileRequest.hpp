@@ -34,15 +34,15 @@ namespace Models
     // backupFileIdList Field Functions 
     bool hasBackupFileIdList() const { return this->backupFileIdList_ != nullptr;};
     void deleteBackupFileIdList() { this->backupFileIdList_ = nullptr;};
-    inline const vector<string> & backupFileIdList() const { DARABONBA_PTR_GET_CONST(backupFileIdList_, vector<string>) };
-    inline vector<string> backupFileIdList() { DARABONBA_PTR_GET(backupFileIdList_, vector<string>) };
+    inline const vector<string> & getBackupFileIdList() const { DARABONBA_PTR_GET_CONST(backupFileIdList_, vector<string>) };
+    inline vector<string> getBackupFileIdList() { DARABONBA_PTR_GET(backupFileIdList_, vector<string>) };
     inline DeleteBackupFileRequest& setBackupFileIdList(const vector<string> & backupFileIdList) { DARABONBA_PTR_SET_VALUE(backupFileIdList_, backupFileIdList) };
     inline DeleteBackupFileRequest& setBackupFileIdList(vector<string> && backupFileIdList) { DARABONBA_PTR_SET_RVALUE(backupFileIdList_, backupFileIdList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> backupFileIdList_ = nullptr;
+    shared_ptr<vector<string>> backupFileIdList_ {};
   };
 
   } // namespace Models

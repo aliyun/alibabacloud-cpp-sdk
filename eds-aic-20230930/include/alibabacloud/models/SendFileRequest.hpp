@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && return this->autoInstall_ == nullptr && return this->sourceFilePath_ == nullptr && return this->targetFileName_ == nullptr && return this->uploadEndpoint_ == nullptr && return this->uploadType_ == nullptr
-        && return this->uploadUrl_ == nullptr; };
+        && this->autoInstall_ == nullptr && this->sourceFilePath_ == nullptr && this->targetFileName_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr
+        && this->uploadUrl_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
-    inline const vector<string> & androidInstanceIdList() const { DARABONBA_PTR_GET_CONST(androidInstanceIdList_, vector<string>) };
-    inline vector<string> androidInstanceIdList() { DARABONBA_PTR_GET(androidInstanceIdList_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIdList() const { DARABONBA_PTR_GET_CONST(androidInstanceIdList_, vector<string>) };
+    inline vector<string> getAndroidInstanceIdList() { DARABONBA_PTR_GET(androidInstanceIdList_, vector<string>) };
     inline SendFileRequest& setAndroidInstanceIdList(const vector<string> & androidInstanceIdList) { DARABONBA_PTR_SET_VALUE(androidInstanceIdList_, androidInstanceIdList) };
     inline SendFileRequest& setAndroidInstanceIdList(vector<string> && androidInstanceIdList) { DARABONBA_PTR_SET_RVALUE(androidInstanceIdList_, androidInstanceIdList) };
 
@@ -57,42 +57,42 @@ namespace Models
     // autoInstall Field Functions 
     bool hasAutoInstall() const { return this->autoInstall_ != nullptr;};
     void deleteAutoInstall() { this->autoInstall_ = nullptr;};
-    inline bool autoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, false) };
+    inline bool getAutoInstall() const { DARABONBA_PTR_GET_DEFAULT(autoInstall_, false) };
     inline SendFileRequest& setAutoInstall(bool autoInstall) { DARABONBA_PTR_SET_VALUE(autoInstall_, autoInstall) };
 
 
     // sourceFilePath Field Functions 
     bool hasSourceFilePath() const { return this->sourceFilePath_ != nullptr;};
     void deleteSourceFilePath() { this->sourceFilePath_ = nullptr;};
-    inline string sourceFilePath() const { DARABONBA_PTR_GET_DEFAULT(sourceFilePath_, "") };
+    inline string getSourceFilePath() const { DARABONBA_PTR_GET_DEFAULT(sourceFilePath_, "") };
     inline SendFileRequest& setSourceFilePath(string sourceFilePath) { DARABONBA_PTR_SET_VALUE(sourceFilePath_, sourceFilePath) };
 
 
     // targetFileName Field Functions 
     bool hasTargetFileName() const { return this->targetFileName_ != nullptr;};
     void deleteTargetFileName() { this->targetFileName_ = nullptr;};
-    inline string targetFileName() const { DARABONBA_PTR_GET_DEFAULT(targetFileName_, "") };
+    inline string getTargetFileName() const { DARABONBA_PTR_GET_DEFAULT(targetFileName_, "") };
     inline SendFileRequest& setTargetFileName(string targetFileName) { DARABONBA_PTR_SET_VALUE(targetFileName_, targetFileName) };
 
 
     // uploadEndpoint Field Functions 
     bool hasUploadEndpoint() const { return this->uploadEndpoint_ != nullptr;};
     void deleteUploadEndpoint() { this->uploadEndpoint_ = nullptr;};
-    inline string uploadEndpoint() const { DARABONBA_PTR_GET_DEFAULT(uploadEndpoint_, "") };
+    inline string getUploadEndpoint() const { DARABONBA_PTR_GET_DEFAULT(uploadEndpoint_, "") };
     inline SendFileRequest& setUploadEndpoint(string uploadEndpoint) { DARABONBA_PTR_SET_VALUE(uploadEndpoint_, uploadEndpoint) };
 
 
     // uploadType Field Functions 
     bool hasUploadType() const { return this->uploadType_ != nullptr;};
     void deleteUploadType() { this->uploadType_ = nullptr;};
-    inline string uploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, "") };
+    inline string getUploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, "") };
     inline SendFileRequest& setUploadType(string uploadType) { DARABONBA_PTR_SET_VALUE(uploadType_, uploadType) };
 
 
     // uploadUrl Field Functions 
     bool hasUploadUrl() const { return this->uploadUrl_ != nullptr;};
     void deleteUploadUrl() { this->uploadUrl_ = nullptr;};
-    inline string uploadUrl() const { DARABONBA_PTR_GET_DEFAULT(uploadUrl_, "") };
+    inline string getUploadUrl() const { DARABONBA_PTR_GET_DEFAULT(uploadUrl_, "") };
     inline SendFileRequest& setUploadUrl(string uploadUrl) { DARABONBA_PTR_SET_VALUE(uploadUrl_, uploadUrl) };
 
 
@@ -100,32 +100,32 @@ namespace Models
     // The IDs of the cloud phone instances.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> androidInstanceIdList_ = nullptr;
-    std::shared_ptr<bool> autoInstall_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIdList_ {};
+    shared_ptr<bool> autoInstall_ {};
     // The path to which you want to upload the pushed file in the cloud phone instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceFilePath_ = nullptr;
+    shared_ptr<string> sourceFilePath_ {};
     // The name of the file uploaded from the Object Storage Service (OSS) to the cloud phone instance.
     // 
     // >  If UploadType is set to OSS, you must specify TargetFileName. If TargetFileName is empty, the file uploaded from the OSS bucket to the cloud phone instance retains its original name. If TargetFileName is provided with a value, the uploaded file in the SourceFilePath directory uses the specified name (TargetFileName). If UploadType is set to DOWNLOAD_URL, TargetFileName does not take effect.
-    std::shared_ptr<string> targetFileName_ = nullptr;
+    shared_ptr<string> targetFileName_ {};
     // The endpoint of the OSS bucket in which the file is stored.
     // 
     // >  Set the value to an internal endpoint when the cloud phone instance and the OSS bucket are in the same region to improve transfer speed without incurring public traffic fees. Sample endpoint: `oss-cn-hangzhou-internal.aliyuncs.com`. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
-    std::shared_ptr<string> uploadEndpoint_ = nullptr;
+    shared_ptr<string> uploadEndpoint_ {};
     // The storage type of the file that you want to upload.
     // 
     // *   Set the value to OSS.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uploadType_ = nullptr;
+    shared_ptr<string> uploadType_ {};
     // The OSS URL of the file.
     // 
     // >  The OSS bucket name must start with "cloudphone-saved-bucket-", for example, "cloudphone-saved-bucket-example". You must also create an OSS directory to store the backup data. Set the value for UploadUrl in this format: oss://\\<BucketName>/\\<OSSDirectoryName>\\<FileName>.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uploadUrl_ = nullptr;
+    shared_ptr<string> uploadUrl_ {};
   };
 
   } // namespace Models

@@ -57,142 +57,142 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceId_ == nullptr
-        && return this->androidInstanceName_ == nullptr && return this->backupAll_ == nullptr && return this->backupFileId_ == nullptr && return this->backupFileName_ == nullptr && return this->description_ == nullptr
-        && return this->endTime_ == nullptr && return this->endUserId_ == nullptr && return this->instanceGroupId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
-        && return this->saleMode_ == nullptr && return this->startTime_ == nullptr && return this->statusList_ == nullptr; };
+        && this->androidInstanceName_ == nullptr && this->backupAll_ == nullptr && this->backupFileId_ == nullptr && this->backupFileName_ == nullptr && this->description_ == nullptr
+        && this->endTime_ == nullptr && this->endUserId_ == nullptr && this->instanceGroupId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->saleMode_ == nullptr && this->startTime_ == nullptr && this->statusList_ == nullptr; };
     // androidInstanceId Field Functions 
     bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
     void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};
-    inline string androidInstanceId() const { DARABONBA_PTR_GET_DEFAULT(androidInstanceId_, "") };
+    inline string getAndroidInstanceId() const { DARABONBA_PTR_GET_DEFAULT(androidInstanceId_, "") };
     inline DescribeBackupFilesRequest& setAndroidInstanceId(string androidInstanceId) { DARABONBA_PTR_SET_VALUE(androidInstanceId_, androidInstanceId) };
 
 
     // androidInstanceName Field Functions 
     bool hasAndroidInstanceName() const { return this->androidInstanceName_ != nullptr;};
     void deleteAndroidInstanceName() { this->androidInstanceName_ = nullptr;};
-    inline string androidInstanceName() const { DARABONBA_PTR_GET_DEFAULT(androidInstanceName_, "") };
+    inline string getAndroidInstanceName() const { DARABONBA_PTR_GET_DEFAULT(androidInstanceName_, "") };
     inline DescribeBackupFilesRequest& setAndroidInstanceName(string androidInstanceName) { DARABONBA_PTR_SET_VALUE(androidInstanceName_, androidInstanceName) };
 
 
     // backupAll Field Functions 
     bool hasBackupAll() const { return this->backupAll_ != nullptr;};
     void deleteBackupAll() { this->backupAll_ = nullptr;};
-    inline bool backupAll() const { DARABONBA_PTR_GET_DEFAULT(backupAll_, false) };
+    inline bool getBackupAll() const { DARABONBA_PTR_GET_DEFAULT(backupAll_, false) };
     inline DescribeBackupFilesRequest& setBackupAll(bool backupAll) { DARABONBA_PTR_SET_VALUE(backupAll_, backupAll) };
 
 
     // backupFileId Field Functions 
     bool hasBackupFileId() const { return this->backupFileId_ != nullptr;};
     void deleteBackupFileId() { this->backupFileId_ = nullptr;};
-    inline string backupFileId() const { DARABONBA_PTR_GET_DEFAULT(backupFileId_, "") };
+    inline string getBackupFileId() const { DARABONBA_PTR_GET_DEFAULT(backupFileId_, "") };
     inline DescribeBackupFilesRequest& setBackupFileId(string backupFileId) { DARABONBA_PTR_SET_VALUE(backupFileId_, backupFileId) };
 
 
     // backupFileName Field Functions 
     bool hasBackupFileName() const { return this->backupFileName_ != nullptr;};
     void deleteBackupFileName() { this->backupFileName_ = nullptr;};
-    inline string backupFileName() const { DARABONBA_PTR_GET_DEFAULT(backupFileName_, "") };
+    inline string getBackupFileName() const { DARABONBA_PTR_GET_DEFAULT(backupFileName_, "") };
     inline DescribeBackupFilesRequest& setBackupFileName(string backupFileName) { DARABONBA_PTR_SET_VALUE(backupFileName_, backupFileName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeBackupFilesRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeBackupFilesRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // endUserId Field Functions 
     bool hasEndUserId() const { return this->endUserId_ != nullptr;};
     void deleteEndUserId() { this->endUserId_ = nullptr;};
-    inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline DescribeBackupFilesRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // instanceGroupId Field Functions 
     bool hasInstanceGroupId() const { return this->instanceGroupId_ != nullptr;};
     void deleteInstanceGroupId() { this->instanceGroupId_ = nullptr;};
-    inline string instanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupId_, "") };
+    inline string getInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupId_, "") };
     inline DescribeBackupFilesRequest& setInstanceGroupId(string instanceGroupId) { DARABONBA_PTR_SET_VALUE(instanceGroupId_, instanceGroupId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline DescribeBackupFilesRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeBackupFilesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // saleMode Field Functions 
     bool hasSaleMode() const { return this->saleMode_ != nullptr;};
     void deleteSaleMode() { this->saleMode_ = nullptr;};
-    inline string saleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
+    inline string getSaleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
     inline DescribeBackupFilesRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeBackupFilesRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // statusList Field Functions 
     bool hasStatusList() const { return this->statusList_ != nullptr;};
     void deleteStatusList() { this->statusList_ = nullptr;};
-    inline const vector<string> & statusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
-    inline vector<string> statusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
+    inline const vector<string> & getStatusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
+    inline vector<string> getStatusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
     inline DescribeBackupFilesRequest& setStatusList(const vector<string> & statusList) { DARABONBA_PTR_SET_VALUE(statusList_, statusList) };
     inline DescribeBackupFilesRequest& setStatusList(vector<string> && statusList) { DARABONBA_PTR_SET_RVALUE(statusList_, statusList) };
 
 
   protected:
     // The ID of the instance.
-    std::shared_ptr<string> androidInstanceId_ = nullptr;
+    shared_ptr<string> androidInstanceId_ {};
     // The name of the instance. Fuzzy match is supported.
-    std::shared_ptr<string> androidInstanceName_ = nullptr;
+    shared_ptr<string> androidInstanceName_ {};
     // Specifies whether the whole instance is backed up.
     // 
     // Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> backupAll_ = nullptr;
+    shared_ptr<bool> backupAll_ {};
     // The ID of the backup file.
-    std::shared_ptr<string> backupFileId_ = nullptr;
+    shared_ptr<string> backupFileId_ {};
     // The name of the backup file. Fuzzy match is supported.
-    std::shared_ptr<string> backupFileName_ = nullptr;
+    shared_ptr<string> backupFileName_ {};
     // The description of the backup file. Fuzzy match is supported.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The end of the period for querying generated backup files.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The owner of the backup file.
-    std::shared_ptr<string> endUserId_ = nullptr;
+    shared_ptr<string> endUserId_ {};
     // The ID of the instance group.
-    std::shared_ptr<string> instanceGroupId_ = nullptr;
+    shared_ptr<string> instanceGroupId_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 10.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> saleMode_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> saleMode_ {};
     // The beginning of the period for querying generated backup files.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The status of the backup files.
-    std::shared_ptr<vector<string>> statusList_ = nullptr;
+    shared_ptr<vector<string>> statusList_ {};
   };
 
   } // namespace Models

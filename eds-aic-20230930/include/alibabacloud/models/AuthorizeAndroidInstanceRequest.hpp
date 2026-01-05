@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
-        && return this->authorizeUserId_ == nullptr && return this->unAuthorizeUserId_ == nullptr; };
+        && this->authorizeUserId_ == nullptr && this->unAuthorizeUserId_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
-    inline const vector<string> & androidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
-    inline vector<string> androidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
+    inline vector<string> getAndroidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
     inline AuthorizeAndroidInstanceRequest& setAndroidInstanceIds(const vector<string> & androidInstanceIds) { DARABONBA_PTR_SET_VALUE(androidInstanceIds_, androidInstanceIds) };
     inline AuthorizeAndroidInstanceRequest& setAndroidInstanceIds(vector<string> && androidInstanceIds) { DARABONBA_PTR_SET_RVALUE(androidInstanceIds_, androidInstanceIds) };
 
@@ -48,24 +48,24 @@ namespace Models
     // authorizeUserId Field Functions 
     bool hasAuthorizeUserId() const { return this->authorizeUserId_ != nullptr;};
     void deleteAuthorizeUserId() { this->authorizeUserId_ = nullptr;};
-    inline string authorizeUserId() const { DARABONBA_PTR_GET_DEFAULT(authorizeUserId_, "") };
+    inline string getAuthorizeUserId() const { DARABONBA_PTR_GET_DEFAULT(authorizeUserId_, "") };
     inline AuthorizeAndroidInstanceRequest& setAuthorizeUserId(string authorizeUserId) { DARABONBA_PTR_SET_VALUE(authorizeUserId_, authorizeUserId) };
 
 
     // unAuthorizeUserId Field Functions 
     bool hasUnAuthorizeUserId() const { return this->unAuthorizeUserId_ != nullptr;};
     void deleteUnAuthorizeUserId() { this->unAuthorizeUserId_ = nullptr;};
-    inline string unAuthorizeUserId() const { DARABONBA_PTR_GET_DEFAULT(unAuthorizeUserId_, "") };
+    inline string getUnAuthorizeUserId() const { DARABONBA_PTR_GET_DEFAULT(unAuthorizeUserId_, "") };
     inline AuthorizeAndroidInstanceRequest& setUnAuthorizeUserId(string unAuthorizeUserId) { DARABONBA_PTR_SET_VALUE(unAuthorizeUserId_, unAuthorizeUserId) };
 
 
   protected:
     // List of instance IDs.
-    std::shared_ptr<vector<string>> androidInstanceIds_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIds_ {};
     // User ID to be assigned.
-    std::shared_ptr<string> authorizeUserId_ = nullptr;
+    shared_ptr<string> authorizeUserId_ {};
     // User ID to be unassigned.
-    std::shared_ptr<string> unAuthorizeUserId_ = nullptr;
+    shared_ptr<string> unAuthorizeUserId_ {};
   };
 
   } // namespace Models

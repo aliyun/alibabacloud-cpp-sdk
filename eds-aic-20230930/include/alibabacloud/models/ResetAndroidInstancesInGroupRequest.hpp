@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
-        && return this->saleMode_ == nullptr && return this->settingResetType_ == nullptr; };
+        && this->saleMode_ == nullptr && this->settingResetType_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
-    inline const vector<string> & androidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
-    inline vector<string> androidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
+    inline vector<string> getAndroidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
     inline ResetAndroidInstancesInGroupRequest& setAndroidInstanceIds(const vector<string> & androidInstanceIds) { DARABONBA_PTR_SET_VALUE(androidInstanceIds_, androidInstanceIds) };
     inline ResetAndroidInstancesInGroupRequest& setAndroidInstanceIds(vector<string> && androidInstanceIds) { DARABONBA_PTR_SET_RVALUE(androidInstanceIds_, androidInstanceIds) };
 
@@ -48,22 +48,22 @@ namespace Models
     // saleMode Field Functions 
     bool hasSaleMode() const { return this->saleMode_ != nullptr;};
     void deleteSaleMode() { this->saleMode_ = nullptr;};
-    inline string saleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
+    inline string getSaleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
     inline ResetAndroidInstancesInGroupRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
     // settingResetType Field Functions 
     bool hasSettingResetType() const { return this->settingResetType_ != nullptr;};
     void deleteSettingResetType() { this->settingResetType_ = nullptr;};
-    inline int32_t settingResetType() const { DARABONBA_PTR_GET_DEFAULT(settingResetType_, 0) };
+    inline int32_t getSettingResetType() const { DARABONBA_PTR_GET_DEFAULT(settingResetType_, 0) };
     inline ResetAndroidInstancesInGroupRequest& setSettingResetType(int32_t settingResetType) { DARABONBA_PTR_SET_VALUE(settingResetType_, settingResetType) };
 
 
   protected:
     // The IDs of the cloud phone instances.
-    std::shared_ptr<vector<string>> androidInstanceIds_ = nullptr;
-    std::shared_ptr<string> saleMode_ = nullptr;
-    std::shared_ptr<int32_t> settingResetType_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIds_ {};
+    shared_ptr<string> saleMode_ {};
+    shared_ptr<int32_t> settingResetType_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageDescription_ == nullptr
-        && return this->imageFileURL_ == nullptr && return this->imageName_ == nullptr; };
+        && this->imageFileURL_ == nullptr && this->imageName_ == nullptr; };
     // imageDescription Field Functions 
     bool hasImageDescription() const { return this->imageDescription_ != nullptr;};
     void deleteImageDescription() { this->imageDescription_ = nullptr;};
-    inline string imageDescription() const { DARABONBA_PTR_GET_DEFAULT(imageDescription_, "") };
+    inline string getImageDescription() const { DARABONBA_PTR_GET_DEFAULT(imageDescription_, "") };
     inline ImportImageRequest& setImageDescription(string imageDescription) { DARABONBA_PTR_SET_VALUE(imageDescription_, imageDescription) };
 
 
     // imageFileURL Field Functions 
     bool hasImageFileURL() const { return this->imageFileURL_ != nullptr;};
     void deleteImageFileURL() { this->imageFileURL_ = nullptr;};
-    inline string imageFileURL() const { DARABONBA_PTR_GET_DEFAULT(imageFileURL_, "") };
+    inline string getImageFileURL() const { DARABONBA_PTR_GET_DEFAULT(imageFileURL_, "") };
     inline ImportImageRequest& setImageFileURL(string imageFileURL) { DARABONBA_PTR_SET_VALUE(imageFileURL_, imageFileURL) };
 
 
     // imageName Field Functions 
     bool hasImageName() const { return this->imageName_ != nullptr;};
     void deleteImageName() { this->imageName_ = nullptr;};
-    inline string imageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
+    inline string getImageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
     inline ImportImageRequest& setImageName(string imageName) { DARABONBA_PTR_SET_VALUE(imageName_, imageName) };
 
 
   protected:
-    std::shared_ptr<string> imageDescription_ = nullptr;
-    std::shared_ptr<string> imageFileURL_ = nullptr;
-    std::shared_ptr<string> imageName_ = nullptr;
+    shared_ptr<string> imageDescription_ {};
+    shared_ptr<string> imageFileURL_ {};
+    shared_ptr<string> imageName_ {};
   };
 
   } // namespace Models

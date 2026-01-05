@@ -34,15 +34,15 @@ namespace Models
     // keyPairIds Field Functions 
     bool hasKeyPairIds() const { return this->keyPairIds_ != nullptr;};
     void deleteKeyPairIds() { this->keyPairIds_ = nullptr;};
-    inline const vector<string> & keyPairIds() const { DARABONBA_PTR_GET_CONST(keyPairIds_, vector<string>) };
-    inline vector<string> keyPairIds() { DARABONBA_PTR_GET(keyPairIds_, vector<string>) };
+    inline const vector<string> & getKeyPairIds() const { DARABONBA_PTR_GET_CONST(keyPairIds_, vector<string>) };
+    inline vector<string> getKeyPairIds() { DARABONBA_PTR_GET(keyPairIds_, vector<string>) };
     inline DeleteKeyPairsRequest& setKeyPairIds(const vector<string> & keyPairIds) { DARABONBA_PTR_SET_VALUE(keyPairIds_, keyPairIds) };
     inline DeleteKeyPairsRequest& setKeyPairIds(vector<string> && keyPairIds) { DARABONBA_PTR_SET_RVALUE(keyPairIds_, keyPairIds) };
 
 
   protected:
     // The IDs of the ADB key pairs.
-    std::shared_ptr<vector<string>> keyPairIds_ = nullptr;
+    shared_ptr<vector<string>> keyPairIds_ {};
   };
 
   } // namespace Models

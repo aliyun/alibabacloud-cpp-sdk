@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
-        && return this->saleMode_ == nullptr; };
+        && this->saleMode_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
-    inline const vector<string> & androidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
-    inline vector<string> androidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
+    inline vector<string> getAndroidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
     inline StartAndroidInstanceRequest& setAndroidInstanceIds(const vector<string> & androidInstanceIds) { DARABONBA_PTR_SET_VALUE(androidInstanceIds_, androidInstanceIds) };
     inline StartAndroidInstanceRequest& setAndroidInstanceIds(vector<string> && androidInstanceIds) { DARABONBA_PTR_SET_RVALUE(androidInstanceIds_, androidInstanceIds) };
 
@@ -46,14 +46,14 @@ namespace Models
     // saleMode Field Functions 
     bool hasSaleMode() const { return this->saleMode_ != nullptr;};
     void deleteSaleMode() { this->saleMode_ = nullptr;};
-    inline string saleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
+    inline string getSaleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
     inline StartAndroidInstanceRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
   protected:
     // List of instances.
-    std::shared_ptr<vector<string>> androidInstanceIds_ = nullptr;
-    std::shared_ptr<string> saleMode_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIds_ {};
+    shared_ptr<string> saleMode_ {};
   };
 
   } // namespace Models

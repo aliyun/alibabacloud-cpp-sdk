@@ -34,14 +34,14 @@ namespace Models
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
-    inline const vector<string> & androidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
-    inline vector<string> androidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
+    inline vector<string> getAndroidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
     inline DescribeDisplayConfigRequest& setAndroidInstanceIds(const vector<string> & androidInstanceIds) { DARABONBA_PTR_SET_VALUE(androidInstanceIds_, androidInstanceIds) };
     inline DescribeDisplayConfigRequest& setAndroidInstanceIds(vector<string> && androidInstanceIds) { DARABONBA_PTR_SET_RVALUE(androidInstanceIds_, androidInstanceIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> androidInstanceIds_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIds_ {};
   };
 
   } // namespace Models

@@ -47,13 +47,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIdList_ == nullptr
-        && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->bizRegionId_ == nullptr && return this->installationStatus_ == nullptr && return this->MD5_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->status_ == nullptr; };
+        && this->appName_ == nullptr && this->appType_ == nullptr && this->bizRegionId_ == nullptr && this->installationStatus_ == nullptr && this->MD5_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->status_ == nullptr; };
     // appIdList Field Functions 
     bool hasAppIdList() const { return this->appIdList_ != nullptr;};
     void deleteAppIdList() { this->appIdList_ = nullptr;};
-    inline const vector<string> & appIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
-    inline vector<string> appIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
+    inline const vector<string> & getAppIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
+    inline vector<string> getAppIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
     inline DescribeAppsRequest& setAppIdList(const vector<string> & appIdList) { DARABONBA_PTR_SET_VALUE(appIdList_, appIdList) };
     inline DescribeAppsRequest& setAppIdList(vector<string> && appIdList) { DARABONBA_PTR_SET_RVALUE(appIdList_, appIdList) };
 
@@ -61,67 +61,67 @@ namespace Models
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline DescribeAppsRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline DescribeAppsRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
-    inline string bizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
+    inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline DescribeAppsRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
 
 
     // installationStatus Field Functions 
     bool hasInstallationStatus() const { return this->installationStatus_ != nullptr;};
     void deleteInstallationStatus() { this->installationStatus_ = nullptr;};
-    inline string installationStatus() const { DARABONBA_PTR_GET_DEFAULT(installationStatus_, "") };
+    inline string getInstallationStatus() const { DARABONBA_PTR_GET_DEFAULT(installationStatus_, "") };
     inline DescribeAppsRequest& setInstallationStatus(string installationStatus) { DARABONBA_PTR_SET_VALUE(installationStatus_, installationStatus) };
 
 
     // MD5 Field Functions 
     bool hasMD5() const { return this->MD5_ != nullptr;};
     void deleteMD5() { this->MD5_ = nullptr;};
-    inline string MD5() const { DARABONBA_PTR_GET_DEFAULT(MD5_, "") };
+    inline string getMD5() const { DARABONBA_PTR_GET_DEFAULT(MD5_, "") };
     inline DescribeAppsRequest& setMD5(string MD5) { DARABONBA_PTR_SET_VALUE(MD5_, MD5) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeAppsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeAppsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeAppsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The IDs of the applications.
-    std::shared_ptr<vector<string>> appIdList_ = nullptr;
+    shared_ptr<vector<string>> appIdList_ {};
     // The name of the application.
-    std::shared_ptr<string> appName_ = nullptr;
-    std::shared_ptr<string> appType_ = nullptr;
+    shared_ptr<string> appName_ {};
+    shared_ptr<string> appType_ {};
     // Region id.
-    std::shared_ptr<string> bizRegionId_ = nullptr;
+    shared_ptr<string> bizRegionId_ {};
     // The installation/uninstallation status of the application.
     // 
     // Valid values:
@@ -132,13 +132,13 @@ namespace Models
     // *   UNINSTALLED: The application is uninstalled.
     // *   INSTALLED: The application is installed.
     // *   UNINSTALLFAILED: The application failed to be uninstalled.
-    std::shared_ptr<string> installationStatus_ = nullptr;
+    shared_ptr<string> installationStatus_ {};
     // The value of MD5.
-    std::shared_ptr<string> MD5_ = nullptr;
+    shared_ptr<string> MD5_ {};
     // The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The status of the application.
     // 
     // Valid values:
@@ -146,7 +146,7 @@ namespace Models
     // *   FAILED: The application failed to be created.
     // *   NORMAL: The application is available.
     // *   CREATING: The application is being created.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

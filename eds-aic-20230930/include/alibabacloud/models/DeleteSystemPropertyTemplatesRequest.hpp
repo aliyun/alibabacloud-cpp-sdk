@@ -34,14 +34,14 @@ namespace Models
     // templateIds Field Functions 
     bool hasTemplateIds() const { return this->templateIds_ != nullptr;};
     void deleteTemplateIds() { this->templateIds_ = nullptr;};
-    inline const vector<string> & templateIds() const { DARABONBA_PTR_GET_CONST(templateIds_, vector<string>) };
-    inline vector<string> templateIds() { DARABONBA_PTR_GET(templateIds_, vector<string>) };
+    inline const vector<string> & getTemplateIds() const { DARABONBA_PTR_GET_CONST(templateIds_, vector<string>) };
+    inline vector<string> getTemplateIds() { DARABONBA_PTR_GET(templateIds_, vector<string>) };
     inline DeleteSystemPropertyTemplatesRequest& setTemplateIds(const vector<string> & templateIds) { DARABONBA_PTR_SET_VALUE(templateIds_, templateIds) };
     inline DeleteSystemPropertyTemplatesRequest& setTemplateIds(vector<string> && templateIds) { DARABONBA_PTR_SET_RVALUE(templateIds_, templateIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> templateIds_ = nullptr;
+    shared_ptr<vector<string>> templateIds_ {};
   };
 
   } // namespace Models

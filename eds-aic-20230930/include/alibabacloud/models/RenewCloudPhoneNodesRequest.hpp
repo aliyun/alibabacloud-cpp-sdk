@@ -41,26 +41,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->nodeIds_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->nodeIds_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline RenewCloudPhoneNodesRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline RenewCloudPhoneNodesRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // nodeIds Field Functions 
     bool hasNodeIds() const { return this->nodeIds_ != nullptr;};
     void deleteNodeIds() { this->nodeIds_ = nullptr;};
-    inline const vector<string> & nodeIds() const { DARABONBA_PTR_GET_CONST(nodeIds_, vector<string>) };
-    inline vector<string> nodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
+    inline const vector<string> & getNodeIds() const { DARABONBA_PTR_GET_CONST(nodeIds_, vector<string>) };
+    inline vector<string> getNodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
     inline RenewCloudPhoneNodesRequest& setNodeIds(const vector<string> & nodeIds) { DARABONBA_PTR_SET_VALUE(nodeIds_, nodeIds) };
     inline RenewCloudPhoneNodesRequest& setNodeIds(vector<string> && nodeIds) { DARABONBA_PTR_SET_RVALUE(nodeIds_, nodeIds) };
 
@@ -68,48 +68,48 @@ namespace Models
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline RenewCloudPhoneNodesRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // periodUnit Field Functions 
     bool hasPeriodUnit() const { return this->periodUnit_ != nullptr;};
     void deletePeriodUnit() { this->periodUnit_ = nullptr;};
-    inline string periodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
+    inline string getPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
     inline RenewCloudPhoneNodesRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
     // promotionId Field Functions 
     bool hasPromotionId() const { return this->promotionId_ != nullptr;};
     void deletePromotionId() { this->promotionId_ = nullptr;};
-    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
     inline RenewCloudPhoneNodesRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
   protected:
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable the auto-renewal feature.
     // 
     // Valid values:
     // 
     // *   true: enables the auto-renewal feature. In this case, the system automatically renews the instance upon expiration.
     // *   false (default): disables the auto-renewal feature. In this case, you need to manually renew the instance upon expiration.
-    std::shared_ptr<bool> autoRenew_ = nullptr;
+    shared_ptr<bool> autoRenew_ {};
     // The cloud phone matrix IDs.
-    std::shared_ptr<vector<string>> nodeIds_ = nullptr;
+    shared_ptr<vector<string>> nodeIds_ {};
     // The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
     // 
     // *   When `PeriodUnit` is set to **year**: 1.
     // *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
-    std::shared_ptr<int32_t> period_ = nullptr;
+    shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration.
     // 
     // Valid values:
     // 
     // *   Month (default)
     // *   Year
-    std::shared_ptr<string> periodUnit_ = nullptr;
-    std::shared_ptr<string> promotionId_ = nullptr;
+    shared_ptr<string> periodUnit_ {};
+    shared_ptr<string> promotionId_ {};
   };
 
   } // namespace Models

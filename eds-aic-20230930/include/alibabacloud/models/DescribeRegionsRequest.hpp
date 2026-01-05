@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceptLanguage_ == nullptr
-        && return this->saleMode_ == nullptr; };
+        && this->saleMode_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
-    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
     inline DescribeRegionsRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
 
 
     // saleMode Field Functions 
     bool hasSaleMode() const { return this->saleMode_ != nullptr;};
     void deleteSaleMode() { this->saleMode_ = nullptr;};
-    inline string saleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
+    inline string getSaleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
     inline DescribeRegionsRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
@@ -52,14 +52,14 @@ namespace Models
     // 
     // *   cn: Simplified Chinese
     // *   en: English
-    std::shared_ptr<string> acceptLanguage_ = nullptr;
+    shared_ptr<string> acceptLanguage_ {};
     // The sales mode.
     // 
     // Valid values:
     // 
     // *   Instance: the instance group mode. [Default]
     // *   Node: the matrix mode. [Whitelist required]
-    std::shared_ptr<string> saleMode_ = nullptr;
+    shared_ptr<string> saleMode_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CHECKRESOURCESTOCKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CheckResourceStockResponseBodyResourceStockModels.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,84 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceStockModels : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceStockModels& obj) { 
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(StockStatus, stockStatus_);
+        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceStockModels& obj) { 
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(StockStatus, stockStatus_);
+        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+      };
+      ResourceStockModels() = default ;
+      ResourceStockModels(const ResourceStockModels &) = default ;
+      ResourceStockModels(ResourceStockModels &&) = default ;
+      ResourceStockModels(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceStockModels() = default ;
+      ResourceStockModels& operator=(const ResourceStockModels &) = default ;
+      ResourceStockModels& operator=(ResourceStockModels &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->stockStatus_ == nullptr && this->zoneId_ == nullptr; };
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline ResourceStockModels& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // stockStatus Field Functions 
+      bool hasStockStatus() const { return this->stockStatus_ != nullptr;};
+      void deleteStockStatus() { this->stockStatus_ = nullptr;};
+      inline string getStockStatus() const { DARABONBA_PTR_GET_DEFAULT(stockStatus_, "") };
+      inline ResourceStockModels& setStockStatus(string stockStatus) { DARABONBA_PTR_SET_VALUE(stockStatus_, stockStatus) };
+
+
+      // zoneId Field Functions 
+      bool hasZoneId() const { return this->zoneId_ != nullptr;};
+      void deleteZoneId() { this->zoneId_ = nullptr;};
+      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+      inline ResourceStockModels& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+    protected:
+      // Region ID.
+      shared_ptr<string> regionId_ {};
+      // Inventory status of the instance group.
+      shared_ptr<string> stockStatus_ {};
+      // Zone ID.
+      shared_ptr<string> zoneId_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resourceStockModels_ == nullptr; };
+        && this->resourceStockModels_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckResourceStockResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceStockModels Field Functions 
     bool hasResourceStockModels() const { return this->resourceStockModels_ != nullptr;};
     void deleteResourceStockModels() { this->resourceStockModels_ = nullptr;};
-    inline const vector<CheckResourceStockResponseBodyResourceStockModels> & resourceStockModels() const { DARABONBA_PTR_GET_CONST(resourceStockModels_, vector<CheckResourceStockResponseBodyResourceStockModels>) };
-    inline vector<CheckResourceStockResponseBodyResourceStockModels> resourceStockModels() { DARABONBA_PTR_GET(resourceStockModels_, vector<CheckResourceStockResponseBodyResourceStockModels>) };
-    inline CheckResourceStockResponseBody& setResourceStockModels(const vector<CheckResourceStockResponseBodyResourceStockModels> & resourceStockModels) { DARABONBA_PTR_SET_VALUE(resourceStockModels_, resourceStockModels) };
-    inline CheckResourceStockResponseBody& setResourceStockModels(vector<CheckResourceStockResponseBodyResourceStockModels> && resourceStockModels) { DARABONBA_PTR_SET_RVALUE(resourceStockModels_, resourceStockModels) };
+    inline const vector<CheckResourceStockResponseBody::ResourceStockModels> & getResourceStockModels() const { DARABONBA_PTR_GET_CONST(resourceStockModels_, vector<CheckResourceStockResponseBody::ResourceStockModels>) };
+    inline vector<CheckResourceStockResponseBody::ResourceStockModels> getResourceStockModels() { DARABONBA_PTR_GET(resourceStockModels_, vector<CheckResourceStockResponseBody::ResourceStockModels>) };
+    inline CheckResourceStockResponseBody& setResourceStockModels(const vector<CheckResourceStockResponseBody::ResourceStockModels> & resourceStockModels) { DARABONBA_PTR_SET_VALUE(resourceStockModels_, resourceStockModels) };
+    inline CheckResourceStockResponseBody& setResourceStockModels(vector<CheckResourceStockResponseBody::ResourceStockModels> && resourceStockModels) { DARABONBA_PTR_SET_RVALUE(resourceStockModels_, resourceStockModels) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Details of resource inventory.
-    std::shared_ptr<vector<CheckResourceStockResponseBodyResourceStockModels>> resourceStockModels_ = nullptr;
+    shared_ptr<vector<CheckResourceStockResponseBody::ResourceStockModels>> resourceStockModels_ {};
   };
 
   } // namespace Models

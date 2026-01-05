@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline SetAdbSecureRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline SetAdbSecureRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -46,13 +46,13 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline SetAdbSecureRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The status of the ADB authentication feature.
     // 
     // Valid values:
@@ -61,7 +61,7 @@ namespace Models
     // *   1: The ADB authentication feature is enabled.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

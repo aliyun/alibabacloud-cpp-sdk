@@ -34,8 +34,8 @@ namespace Models
     // policyGroupIds Field Functions 
     bool hasPolicyGroupIds() const { return this->policyGroupIds_ != nullptr;};
     void deletePolicyGroupIds() { this->policyGroupIds_ = nullptr;};
-    inline const vector<string> & policyGroupIds() const { DARABONBA_PTR_GET_CONST(policyGroupIds_, vector<string>) };
-    inline vector<string> policyGroupIds() { DARABONBA_PTR_GET(policyGroupIds_, vector<string>) };
+    inline const vector<string> & getPolicyGroupIds() const { DARABONBA_PTR_GET_CONST(policyGroupIds_, vector<string>) };
+    inline vector<string> getPolicyGroupIds() { DARABONBA_PTR_GET(policyGroupIds_, vector<string>) };
     inline DeletePolicyGroupRequest& setPolicyGroupIds(const vector<string> & policyGroupIds) { DARABONBA_PTR_SET_VALUE(policyGroupIds_, policyGroupIds) };
     inline DeletePolicyGroupRequest& setPolicyGroupIds(vector<string> && policyGroupIds) { DARABONBA_PTR_SET_RVALUE(policyGroupIds_, policyGroupIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of the policies.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> policyGroupIds_ = nullptr;
+    shared_ptr<vector<string>> policyGroupIds_ {};
   };
 
   } // namespace Models

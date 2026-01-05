@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->instanceIdList_ == nullptr && return this->reset_ == nullptr; };
+        && this->instanceIdList_ == nullptr && this->reset_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline UpdateInstanceImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // instanceIdList Field Functions 
     bool hasInstanceIdList() const { return this->instanceIdList_ != nullptr;};
     void deleteInstanceIdList() { this->instanceIdList_ = nullptr;};
-    inline const vector<string> & instanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
-    inline vector<string> instanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
+    inline const vector<string> & getInstanceIdList() const { DARABONBA_PTR_GET_CONST(instanceIdList_, vector<string>) };
+    inline vector<string> getInstanceIdList() { DARABONBA_PTR_GET(instanceIdList_, vector<string>) };
     inline UpdateInstanceImageRequest& setInstanceIdList(const vector<string> & instanceIdList) { DARABONBA_PTR_SET_VALUE(instanceIdList_, instanceIdList) };
     inline UpdateInstanceImageRequest& setInstanceIdList(vector<string> && instanceIdList) { DARABONBA_PTR_SET_RVALUE(instanceIdList_, instanceIdList) };
 
@@ -55,14 +55,14 @@ namespace Models
     // reset Field Functions 
     bool hasReset() const { return this->reset_ != nullptr;};
     void deleteReset() { this->reset_ = nullptr;};
-    inline bool reset() const { DARABONBA_PTR_GET_DEFAULT(reset_, false) };
+    inline bool getReset() const { DARABONBA_PTR_GET_DEFAULT(reset_, false) };
     inline UpdateInstanceImageRequest& setReset(bool reset) { DARABONBA_PTR_SET_VALUE(reset_, reset) };
 
 
   protected:
-    std::shared_ptr<string> imageId_ = nullptr;
-    std::shared_ptr<vector<string>> instanceIdList_ = nullptr;
-    std::shared_ptr<bool> reset_ = nullptr;
+    shared_ptr<string> imageId_ {};
+    shared_ptr<vector<string>> instanceIdList_ {};
+    shared_ptr<bool> reset_ {};
   };
 
   } // namespace Models

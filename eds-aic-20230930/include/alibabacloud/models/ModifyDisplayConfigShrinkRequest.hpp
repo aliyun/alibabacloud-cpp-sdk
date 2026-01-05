@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
-        && return this->displayConfigShrink_ == nullptr; };
+        && this->displayConfigShrink_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
-    inline const vector<string> & androidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
-    inline vector<string> androidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
+    inline vector<string> getAndroidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
     inline ModifyDisplayConfigShrinkRequest& setAndroidInstanceIds(const vector<string> & androidInstanceIds) { DARABONBA_PTR_SET_VALUE(androidInstanceIds_, androidInstanceIds) };
     inline ModifyDisplayConfigShrinkRequest& setAndroidInstanceIds(vector<string> && androidInstanceIds) { DARABONBA_PTR_SET_RVALUE(androidInstanceIds_, androidInstanceIds) };
 
@@ -46,13 +46,13 @@ namespace Models
     // displayConfigShrink Field Functions 
     bool hasDisplayConfigShrink() const { return this->displayConfigShrink_ != nullptr;};
     void deleteDisplayConfigShrink() { this->displayConfigShrink_ = nullptr;};
-    inline string displayConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(displayConfigShrink_, "") };
+    inline string getDisplayConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(displayConfigShrink_, "") };
     inline ModifyDisplayConfigShrinkRequest& setDisplayConfigShrink(string displayConfigShrink) { DARABONBA_PTR_SET_VALUE(displayConfigShrink_, displayConfigShrink) };
 
 
   protected:
-    std::shared_ptr<vector<string>> androidInstanceIds_ = nullptr;
-    std::shared_ptr<string> displayConfigShrink_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIds_ {};
+    shared_ptr<string> displayConfigShrink_ {};
   };
 
   } // namespace Models

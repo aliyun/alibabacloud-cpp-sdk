@@ -34,15 +34,15 @@ namespace Models
     // nodeIds Field Functions 
     bool hasNodeIds() const { return this->nodeIds_ != nullptr;};
     void deleteNodeIds() { this->nodeIds_ = nullptr;};
-    inline const vector<string> & nodeIds() const { DARABONBA_PTR_GET_CONST(nodeIds_, vector<string>) };
-    inline vector<string> nodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
+    inline const vector<string> & getNodeIds() const { DARABONBA_PTR_GET_CONST(nodeIds_, vector<string>) };
+    inline vector<string> getNodeIds() { DARABONBA_PTR_GET(nodeIds_, vector<string>) };
     inline DeleteCloudPhoneNodesRequest& setNodeIds(const vector<string> & nodeIds) { DARABONBA_PTR_SET_VALUE(nodeIds_, nodeIds) };
     inline DeleteCloudPhoneNodesRequest& setNodeIds(vector<string> && nodeIds) { DARABONBA_PTR_SET_RVALUE(nodeIds_, nodeIds) };
 
 
   protected:
     // The cloud phone matrix IDs.
-    std::shared_ptr<vector<string>> nodeIds_ = nullptr;
+    shared_ptr<vector<string>> nodeIds_ {};
   };
 
   } // namespace Models

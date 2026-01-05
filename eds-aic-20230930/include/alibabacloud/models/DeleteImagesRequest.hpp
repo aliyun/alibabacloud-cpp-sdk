@@ -34,8 +34,8 @@ namespace Models
     // imageIds Field Functions 
     bool hasImageIds() const { return this->imageIds_ != nullptr;};
     void deleteImageIds() { this->imageIds_ = nullptr;};
-    inline const vector<string> & imageIds() const { DARABONBA_PTR_GET_CONST(imageIds_, vector<string>) };
-    inline vector<string> imageIds() { DARABONBA_PTR_GET(imageIds_, vector<string>) };
+    inline const vector<string> & getImageIds() const { DARABONBA_PTR_GET_CONST(imageIds_, vector<string>) };
+    inline vector<string> getImageIds() { DARABONBA_PTR_GET(imageIds_, vector<string>) };
     inline DeleteImagesRequest& setImageIds(const vector<string> & imageIds) { DARABONBA_PTR_SET_VALUE(imageIds_, imageIds) };
     inline DeleteImagesRequest& setImageIds(vector<string> && imageIds) { DARABONBA_PTR_SET_RVALUE(imageIds_, imageIds) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The IDs of the images.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> imageIds_ = nullptr;
+    shared_ptr<vector<string>> imageIds_ {};
   };
 
   } // namespace Models

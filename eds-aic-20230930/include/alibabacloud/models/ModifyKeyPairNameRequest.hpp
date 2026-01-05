@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyPairId_ == nullptr
-        && return this->newKeyPairName_ == nullptr; };
+        && this->newKeyPairName_ == nullptr; };
     // keyPairId Field Functions 
     bool hasKeyPairId() const { return this->keyPairId_ != nullptr;};
     void deleteKeyPairId() { this->keyPairId_ = nullptr;};
-    inline string keyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
+    inline string getKeyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
     inline ModifyKeyPairNameRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
 
 
     // newKeyPairName Field Functions 
     bool hasNewKeyPairName() const { return this->newKeyPairName_ != nullptr;};
     void deleteNewKeyPairName() { this->newKeyPairName_ = nullptr;};
-    inline string newKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(newKeyPairName_, "") };
+    inline string getNewKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(newKeyPairName_, "") };
     inline ModifyKeyPairNameRequest& setNewKeyPairName(string newKeyPairName) { DARABONBA_PTR_SET_VALUE(newKeyPairName_, newKeyPairName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the ADB key pair.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyPairId_ = nullptr;
+    shared_ptr<string> keyPairId_ {};
     // The name of the ADB key pair.
     // 
     // This parameter is required.
-    std::shared_ptr<string> newKeyPairName_ = nullptr;
+    shared_ptr<string> newKeyPairName_ {};
   };
 
   } // namespace Models

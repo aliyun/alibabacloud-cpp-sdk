@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATESCREENSHOTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateScreenshotResponseBodyTasks.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,83 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tasks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tasks& obj) { 
+        DARABONBA_PTR_TO_JSON(AndroidInstanceId, androidInstanceId_);
+        DARABONBA_PTR_TO_JSON(ScreenshotId, screenshotId_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tasks& obj) { 
+        DARABONBA_PTR_FROM_JSON(AndroidInstanceId, androidInstanceId_);
+        DARABONBA_PTR_FROM_JSON(ScreenshotId, screenshotId_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      };
+      Tasks() = default ;
+      Tasks(const Tasks &) = default ;
+      Tasks(Tasks &&) = default ;
+      Tasks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tasks() = default ;
+      Tasks& operator=(const Tasks &) = default ;
+      Tasks& operator=(Tasks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->androidInstanceId_ == nullptr
+        && this->screenshotId_ == nullptr && this->taskId_ == nullptr; };
+      // androidInstanceId Field Functions 
+      bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
+      void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};
+      inline string getAndroidInstanceId() const { DARABONBA_PTR_GET_DEFAULT(androidInstanceId_, "") };
+      inline Tasks& setAndroidInstanceId(string androidInstanceId) { DARABONBA_PTR_SET_VALUE(androidInstanceId_, androidInstanceId) };
+
+
+      // screenshotId Field Functions 
+      bool hasScreenshotId() const { return this->screenshotId_ != nullptr;};
+      void deleteScreenshotId() { this->screenshotId_ = nullptr;};
+      inline string getScreenshotId() const { DARABONBA_PTR_GET_DEFAULT(screenshotId_, "") };
+      inline Tasks& setScreenshotId(string screenshotId) { DARABONBA_PTR_SET_VALUE(screenshotId_, screenshotId) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+      inline Tasks& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+    protected:
+      // The ID of the cloud phone instance.
+      shared_ptr<string> androidInstanceId_ {};
+      shared_ptr<string> screenshotId_ {};
+      // The ID of the task. You can use the task ID with the DescribeTasks operation to get the download link for the screenshot.
+      shared_ptr<string> taskId_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->tasks_ == nullptr; };
+        && this->tasks_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateScreenshotResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // tasks Field Functions 
     bool hasTasks() const { return this->tasks_ != nullptr;};
     void deleteTasks() { this->tasks_ = nullptr;};
-    inline const vector<CreateScreenshotResponseBodyTasks> & tasks() const { DARABONBA_PTR_GET_CONST(tasks_, vector<CreateScreenshotResponseBodyTasks>) };
-    inline vector<CreateScreenshotResponseBodyTasks> tasks() { DARABONBA_PTR_GET(tasks_, vector<CreateScreenshotResponseBodyTasks>) };
-    inline CreateScreenshotResponseBody& setTasks(const vector<CreateScreenshotResponseBodyTasks> & tasks) { DARABONBA_PTR_SET_VALUE(tasks_, tasks) };
-    inline CreateScreenshotResponseBody& setTasks(vector<CreateScreenshotResponseBodyTasks> && tasks) { DARABONBA_PTR_SET_RVALUE(tasks_, tasks) };
+    inline const vector<CreateScreenshotResponseBody::Tasks> & getTasks() const { DARABONBA_PTR_GET_CONST(tasks_, vector<CreateScreenshotResponseBody::Tasks>) };
+    inline vector<CreateScreenshotResponseBody::Tasks> getTasks() { DARABONBA_PTR_GET(tasks_, vector<CreateScreenshotResponseBody::Tasks>) };
+    inline CreateScreenshotResponseBody& setTasks(const vector<CreateScreenshotResponseBody::Tasks> & tasks) { DARABONBA_PTR_SET_VALUE(tasks_, tasks) };
+    inline CreateScreenshotResponseBody& setTasks(vector<CreateScreenshotResponseBody::Tasks> && tasks) { DARABONBA_PTR_SET_RVALUE(tasks_, tasks) };
 
 
   protected:
     // The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The tasks.
-    std::shared_ptr<vector<CreateScreenshotResponseBodyTasks>> tasks_ = nullptr;
+    shared_ptr<vector<CreateScreenshotResponseBody::Tasks>> tasks_ {};
   };
 
   } // namespace Models

@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && return this->sourceFilePath_ == nullptr && return this->uploadEndpoint_ == nullptr && return this->uploadType_ == nullptr && return this->uploadUrl_ == nullptr; };
+        && this->sourceFilePath_ == nullptr && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr && this->uploadUrl_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
-    inline const vector<string> & androidInstanceIdList() const { DARABONBA_PTR_GET_CONST(androidInstanceIdList_, vector<string>) };
-    inline vector<string> androidInstanceIdList() { DARABONBA_PTR_GET(androidInstanceIdList_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIdList() const { DARABONBA_PTR_GET_CONST(androidInstanceIdList_, vector<string>) };
+    inline vector<string> getAndroidInstanceIdList() { DARABONBA_PTR_GET(androidInstanceIdList_, vector<string>) };
     inline FetchFileRequest& setAndroidInstanceIdList(const vector<string> & androidInstanceIdList) { DARABONBA_PTR_SET_VALUE(androidInstanceIdList_, androidInstanceIdList) };
     inline FetchFileRequest& setAndroidInstanceIdList(vector<string> && androidInstanceIdList) { DARABONBA_PTR_SET_RVALUE(androidInstanceIdList_, androidInstanceIdList) };
 
@@ -52,28 +52,28 @@ namespace Models
     // sourceFilePath Field Functions 
     bool hasSourceFilePath() const { return this->sourceFilePath_ != nullptr;};
     void deleteSourceFilePath() { this->sourceFilePath_ = nullptr;};
-    inline string sourceFilePath() const { DARABONBA_PTR_GET_DEFAULT(sourceFilePath_, "") };
+    inline string getSourceFilePath() const { DARABONBA_PTR_GET_DEFAULT(sourceFilePath_, "") };
     inline FetchFileRequest& setSourceFilePath(string sourceFilePath) { DARABONBA_PTR_SET_VALUE(sourceFilePath_, sourceFilePath) };
 
 
     // uploadEndpoint Field Functions 
     bool hasUploadEndpoint() const { return this->uploadEndpoint_ != nullptr;};
     void deleteUploadEndpoint() { this->uploadEndpoint_ = nullptr;};
-    inline string uploadEndpoint() const { DARABONBA_PTR_GET_DEFAULT(uploadEndpoint_, "") };
+    inline string getUploadEndpoint() const { DARABONBA_PTR_GET_DEFAULT(uploadEndpoint_, "") };
     inline FetchFileRequest& setUploadEndpoint(string uploadEndpoint) { DARABONBA_PTR_SET_VALUE(uploadEndpoint_, uploadEndpoint) };
 
 
     // uploadType Field Functions 
     bool hasUploadType() const { return this->uploadType_ != nullptr;};
     void deleteUploadType() { this->uploadType_ = nullptr;};
-    inline string uploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, "") };
+    inline string getUploadType() const { DARABONBA_PTR_GET_DEFAULT(uploadType_, "") };
     inline FetchFileRequest& setUploadType(string uploadType) { DARABONBA_PTR_SET_VALUE(uploadType_, uploadType) };
 
 
     // uploadUrl Field Functions 
     bool hasUploadUrl() const { return this->uploadUrl_ != nullptr;};
     void deleteUploadUrl() { this->uploadUrl_ = nullptr;};
-    inline string uploadUrl() const { DARABONBA_PTR_GET_DEFAULT(uploadUrl_, "") };
+    inline string getUploadUrl() const { DARABONBA_PTR_GET_DEFAULT(uploadUrl_, "") };
     inline FetchFileRequest& setUploadUrl(string uploadUrl) { DARABONBA_PTR_SET_VALUE(uploadUrl_, uploadUrl) };
 
 
@@ -81,29 +81,29 @@ namespace Models
     // The IDs of the cloud phone instances.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> androidInstanceIdList_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIdList_ {};
     // The path to the file that you want to pull from the cloud phone instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceFilePath_ = nullptr;
+    shared_ptr<string> sourceFilePath_ {};
     // The endpoint of the OSS bucket in which you want to store the pulled file.
     // 
     // >  Set the value to an internal endpoint when the cloud phone instance and the OSS bucket are in the same region to improve upload speed without incurring public traffic fees. Sample endpoint: `oss-cn-hangzhou-internal.aliyuncs.com`. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> uploadEndpoint_ = nullptr;
+    shared_ptr<string> uploadEndpoint_ {};
     // The type of the storage service.
     // 
     // >  Currently, only OSS is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uploadType_ = nullptr;
+    shared_ptr<string> uploadType_ {};
     // The OSS URL of the pulled file.
     // 
     // >  The OSS bucket name must start with "cloudphone-saved-bucket-", for example, "cloudphone-saved-bucket-example". You must also create an OSS directory to store the backup data. Set the value for UploadUrl in this format: oss://\\<BucketName>/\\<OSSDirectoryName>.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uploadUrl_ = nullptr;
+    shared_ptr<string> uploadUrl_ {};
   };
 
   } // namespace Models

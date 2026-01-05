@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceGroupId_ == nullptr
-        && return this->newInstanceGroupName_ == nullptr && return this->policyGroupId_ == nullptr && return this->streamMode_ == nullptr; };
+        && this->newInstanceGroupName_ == nullptr && this->policyGroupId_ == nullptr && this->streamMode_ == nullptr; };
     // instanceGroupId Field Functions 
     bool hasInstanceGroupId() const { return this->instanceGroupId_ != nullptr;};
     void deleteInstanceGroupId() { this->instanceGroupId_ = nullptr;};
-    inline string instanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupId_, "") };
+    inline string getInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupId_, "") };
     inline ModifyAndroidInstanceGroupRequest& setInstanceGroupId(string instanceGroupId) { DARABONBA_PTR_SET_VALUE(instanceGroupId_, instanceGroupId) };
 
 
     // newInstanceGroupName Field Functions 
     bool hasNewInstanceGroupName() const { return this->newInstanceGroupName_ != nullptr;};
     void deleteNewInstanceGroupName() { this->newInstanceGroupName_ = nullptr;};
-    inline string newInstanceGroupName() const { DARABONBA_PTR_GET_DEFAULT(newInstanceGroupName_, "") };
+    inline string getNewInstanceGroupName() const { DARABONBA_PTR_GET_DEFAULT(newInstanceGroupName_, "") };
     inline ModifyAndroidInstanceGroupRequest& setNewInstanceGroupName(string newInstanceGroupName) { DARABONBA_PTR_SET_VALUE(newInstanceGroupName_, newInstanceGroupName) };
 
 
     // policyGroupId Field Functions 
     bool hasPolicyGroupId() const { return this->policyGroupId_ != nullptr;};
     void deletePolicyGroupId() { this->policyGroupId_ = nullptr;};
-    inline string policyGroupId() const { DARABONBA_PTR_GET_DEFAULT(policyGroupId_, "") };
+    inline string getPolicyGroupId() const { DARABONBA_PTR_GET_DEFAULT(policyGroupId_, "") };
     inline ModifyAndroidInstanceGroupRequest& setPolicyGroupId(string policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
 
 
     // streamMode Field Functions 
     bool hasStreamMode() const { return this->streamMode_ != nullptr;};
     void deleteStreamMode() { this->streamMode_ = nullptr;};
-    inline int32_t streamMode() const { DARABONBA_PTR_GET_DEFAULT(streamMode_, 0) };
+    inline int32_t getStreamMode() const { DARABONBA_PTR_GET_DEFAULT(streamMode_, 0) };
     inline ModifyAndroidInstanceGroupRequest& setStreamMode(int32_t streamMode) { DARABONBA_PTR_SET_VALUE(streamMode_, streamMode) };
 
 
   protected:
     // The ID of the instance group.
-    std::shared_ptr<string> instanceGroupId_ = nullptr;
+    shared_ptr<string> instanceGroupId_ {};
     // The new name of the instance group.
     // 
     // > 
     // 
     // *   The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with http:// or https://.
-    std::shared_ptr<string> newInstanceGroupName_ = nullptr;
+    shared_ptr<string> newInstanceGroupName_ {};
     // The ID of the policy.
-    std::shared_ptr<string> policyGroupId_ = nullptr;
-    std::shared_ptr<int32_t> streamMode_ = nullptr;
+    shared_ptr<string> policyGroupId_ {};
+    shared_ptr<int32_t> streamMode_ {};
   };
 
   } // namespace Models

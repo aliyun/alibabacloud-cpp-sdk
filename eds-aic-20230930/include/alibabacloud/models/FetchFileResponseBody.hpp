@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_FETCHFILERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/FetchFileResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,38 +34,80 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AndroidInstanceId, androidInstanceId_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AndroidInstanceId, androidInstanceId_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->androidInstanceId_ == nullptr
+        && this->taskId_ == nullptr; };
+      // androidInstanceId Field Functions 
+      bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
+      void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};
+      inline string getAndroidInstanceId() const { DARABONBA_PTR_GET_DEFAULT(androidInstanceId_, "") };
+      inline Data& setAndroidInstanceId(string androidInstanceId) { DARABONBA_PTR_SET_VALUE(androidInstanceId_, androidInstanceId) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+      inline Data& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+    protected:
+      shared_ptr<string> androidInstanceId_ {};
+      shared_ptr<string> taskId_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr && return this->taskId_ == nullptr; };
+        && this->requestId_ == nullptr && this->taskId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<FetchFileResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<FetchFileResponseBodyData>) };
-    inline vector<FetchFileResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<FetchFileResponseBodyData>) };
-    inline FetchFileResponseBody& setData(const vector<FetchFileResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline FetchFileResponseBody& setData(vector<FetchFileResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<FetchFileResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<FetchFileResponseBody::Data>) };
+    inline vector<FetchFileResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<FetchFileResponseBody::Data>) };
+    inline FetchFileResponseBody& setData(const vector<FetchFileResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline FetchFileResponseBody& setData(vector<FetchFileResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline FetchFileResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline FetchFileResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // The objects that are returned.
-    std::shared_ptr<vector<FetchFileResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<FetchFileResponseBody::Data>> data_ {};
     // The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the batch task.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

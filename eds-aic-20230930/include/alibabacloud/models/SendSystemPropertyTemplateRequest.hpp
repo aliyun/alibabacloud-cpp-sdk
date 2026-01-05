@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIds_ == nullptr
-        && return this->templateId_ == nullptr && return this->templateIds_ == nullptr; };
+        && this->templateId_ == nullptr && this->templateIds_ == nullptr; };
     // androidInstanceIds Field Functions 
     bool hasAndroidInstanceIds() const { return this->androidInstanceIds_ != nullptr;};
     void deleteAndroidInstanceIds() { this->androidInstanceIds_ = nullptr;};
-    inline const vector<string> & androidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
-    inline vector<string> androidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIds() const { DARABONBA_PTR_GET_CONST(androidInstanceIds_, vector<string>) };
+    inline vector<string> getAndroidInstanceIds() { DARABONBA_PTR_GET(androidInstanceIds_, vector<string>) };
     inline SendSystemPropertyTemplateRequest& setAndroidInstanceIds(const vector<string> & androidInstanceIds) { DARABONBA_PTR_SET_VALUE(androidInstanceIds_, androidInstanceIds) };
     inline SendSystemPropertyTemplateRequest& setAndroidInstanceIds(vector<string> && androidInstanceIds) { DARABONBA_PTR_SET_RVALUE(androidInstanceIds_, androidInstanceIds) };
 
@@ -48,23 +48,23 @@ namespace Models
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline SendSystemPropertyTemplateRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateIds Field Functions 
     bool hasTemplateIds() const { return this->templateIds_ != nullptr;};
     void deleteTemplateIds() { this->templateIds_ = nullptr;};
-    inline const vector<string> & templateIds() const { DARABONBA_PTR_GET_CONST(templateIds_, vector<string>) };
-    inline vector<string> templateIds() { DARABONBA_PTR_GET(templateIds_, vector<string>) };
+    inline const vector<string> & getTemplateIds() const { DARABONBA_PTR_GET_CONST(templateIds_, vector<string>) };
+    inline vector<string> getTemplateIds() { DARABONBA_PTR_GET(templateIds_, vector<string>) };
     inline SendSystemPropertyTemplateRequest& setTemplateIds(const vector<string> & templateIds) { DARABONBA_PTR_SET_VALUE(templateIds_, templateIds) };
     inline SendSystemPropertyTemplateRequest& setTemplateIds(vector<string> && templateIds) { DARABONBA_PTR_SET_RVALUE(templateIds_, templateIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> androidInstanceIds_ = nullptr;
-    std::shared_ptr<string> templateId_ = nullptr;
-    std::shared_ptr<vector<string>> templateIds_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIds_ {};
+    shared_ptr<string> templateId_ {};
+    shared_ptr<vector<string>> templateIds_ {};
   };
 
   } // namespace Models

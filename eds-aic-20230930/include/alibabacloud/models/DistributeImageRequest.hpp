@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->distributeRegionList_ == nullptr
-        && return this->imageId_ == nullptr; };
+        && this->imageId_ == nullptr; };
     // distributeRegionList Field Functions 
     bool hasDistributeRegionList() const { return this->distributeRegionList_ != nullptr;};
     void deleteDistributeRegionList() { this->distributeRegionList_ = nullptr;};
-    inline const vector<string> & distributeRegionList() const { DARABONBA_PTR_GET_CONST(distributeRegionList_, vector<string>) };
-    inline vector<string> distributeRegionList() { DARABONBA_PTR_GET(distributeRegionList_, vector<string>) };
+    inline const vector<string> & getDistributeRegionList() const { DARABONBA_PTR_GET_CONST(distributeRegionList_, vector<string>) };
+    inline vector<string> getDistributeRegionList() { DARABONBA_PTR_GET(distributeRegionList_, vector<string>) };
     inline DistributeImageRequest& setDistributeRegionList(const vector<string> & distributeRegionList) { DARABONBA_PTR_SET_VALUE(distributeRegionList_, distributeRegionList) };
     inline DistributeImageRequest& setDistributeRegionList(vector<string> && distributeRegionList) { DARABONBA_PTR_SET_RVALUE(distributeRegionList_, distributeRegionList) };
 
@@ -46,7 +46,7 @@ namespace Models
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline DistributeImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The regions to which you want to distribute an image.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> distributeRegionList_ = nullptr;
+    shared_ptr<vector<string>> distributeRegionList_ {};
     // The ID of the image that you want to distribute.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
   };
 
   } // namespace Models

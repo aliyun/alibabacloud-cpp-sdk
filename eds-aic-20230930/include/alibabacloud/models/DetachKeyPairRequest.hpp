@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && return this->keyPairId_ == nullptr; };
+        && this->keyPairId_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline DetachKeyPairRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline DetachKeyPairRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -46,17 +46,17 @@ namespace Models
     // keyPairId Field Functions 
     bool hasKeyPairId() const { return this->keyPairId_ != nullptr;};
     void deleteKeyPairId() { this->keyPairId_ = nullptr;};
-    inline string keyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
+    inline string getKeyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
     inline DetachKeyPairRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
 
 
   protected:
     // The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The ID of the ADB key pair.
     // 
     // This parameter is required.
-    std::shared_ptr<string> keyPairId_ = nullptr;
+    shared_ptr<string> keyPairId_ {};
   };
 
   } // namespace Models

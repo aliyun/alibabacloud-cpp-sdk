@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && return this->ossBucketName_ == nullptr && return this->screenshotId_ == nullptr && return this->skipCheckPolicyConfig_ == nullptr; };
+        && this->ossBucketName_ == nullptr && this->screenshotId_ == nullptr && this->skipCheckPolicyConfig_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
-    inline const vector<string> & androidInstanceIdList() const { DARABONBA_PTR_GET_CONST(androidInstanceIdList_, vector<string>) };
-    inline vector<string> androidInstanceIdList() { DARABONBA_PTR_GET(androidInstanceIdList_, vector<string>) };
+    inline const vector<string> & getAndroidInstanceIdList() const { DARABONBA_PTR_GET_CONST(androidInstanceIdList_, vector<string>) };
+    inline vector<string> getAndroidInstanceIdList() { DARABONBA_PTR_GET(androidInstanceIdList_, vector<string>) };
     inline CreateScreenshotRequest& setAndroidInstanceIdList(const vector<string> & androidInstanceIdList) { DARABONBA_PTR_SET_VALUE(androidInstanceIdList_, androidInstanceIdList) };
     inline CreateScreenshotRequest& setAndroidInstanceIdList(vector<string> && androidInstanceIdList) { DARABONBA_PTR_SET_RVALUE(androidInstanceIdList_, androidInstanceIdList) };
 
@@ -50,21 +50,21 @@ namespace Models
     // ossBucketName Field Functions 
     bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
     void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
-    inline string ossBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
+    inline string getOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
     inline CreateScreenshotRequest& setOssBucketName(string ossBucketName) { DARABONBA_PTR_SET_VALUE(ossBucketName_, ossBucketName) };
 
 
     // screenshotId Field Functions 
     bool hasScreenshotId() const { return this->screenshotId_ != nullptr;};
     void deleteScreenshotId() { this->screenshotId_ = nullptr;};
-    inline string screenshotId() const { DARABONBA_PTR_GET_DEFAULT(screenshotId_, "") };
+    inline string getScreenshotId() const { DARABONBA_PTR_GET_DEFAULT(screenshotId_, "") };
     inline CreateScreenshotRequest& setScreenshotId(string screenshotId) { DARABONBA_PTR_SET_VALUE(screenshotId_, screenshotId) };
 
 
     // skipCheckPolicyConfig Field Functions 
     bool hasSkipCheckPolicyConfig() const { return this->skipCheckPolicyConfig_ != nullptr;};
     void deleteSkipCheckPolicyConfig() { this->skipCheckPolicyConfig_ = nullptr;};
-    inline string skipCheckPolicyConfig() const { DARABONBA_PTR_GET_DEFAULT(skipCheckPolicyConfig_, "") };
+    inline string getSkipCheckPolicyConfig() const { DARABONBA_PTR_GET_DEFAULT(skipCheckPolicyConfig_, "") };
     inline CreateScreenshotRequest& setSkipCheckPolicyConfig(string skipCheckPolicyConfig) { DARABONBA_PTR_SET_VALUE(skipCheckPolicyConfig_, skipCheckPolicyConfig) };
 
 
@@ -72,12 +72,12 @@ namespace Models
     // The IDs of the cloud phone instances. You can create multiple snapshots simultaneously.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> androidInstanceIdList_ = nullptr;
+    shared_ptr<vector<string>> androidInstanceIdList_ {};
     // The name of the OSS bucket. The name must start with "cloudphone-saved-bucket-". The OSS bucket and the cloud phone instance must be in the same region. If you leave this parameter empty, the system will create a default OSS bucket named “cloudphone-saved-bucket-{Region of the cloud phone instance}-{AliUid}.”
-    std::shared_ptr<string> ossBucketName_ = nullptr;
-    std::shared_ptr<string> screenshotId_ = nullptr;
+    shared_ptr<string> ossBucketName_ {};
+    shared_ptr<string> screenshotId_ {};
     // Specifies whether to bypass the snapshot policy control. Default value: false.
-    std::shared_ptr<string> skipCheckPolicyConfig_ = nullptr;
+    shared_ptr<string> skipCheckPolicyConfig_ {};
   };
 
   } // namespace Models

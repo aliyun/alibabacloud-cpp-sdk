@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->coordinatorUserId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->ownerUserId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->ownerUserId_ == nullptr; };
     // coordinatorUserId Field Functions 
     bool hasCoordinatorUserId() const { return this->coordinatorUserId_ != nullptr;};
     void deleteCoordinatorUserId() { this->coordinatorUserId_ = nullptr;};
-    inline string coordinatorUserId() const { DARABONBA_PTR_GET_DEFAULT(coordinatorUserId_, "") };
+    inline string getCoordinatorUserId() const { DARABONBA_PTR_GET_DEFAULT(coordinatorUserId_, "") };
     inline EndCoordinationRequest& setCoordinatorUserId(string coordinatorUserId) { DARABONBA_PTR_SET_VALUE(coordinatorUserId_, coordinatorUserId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline EndCoordinationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ownerUserId Field Functions 
     bool hasOwnerUserId() const { return this->ownerUserId_ != nullptr;};
     void deleteOwnerUserId() { this->ownerUserId_ = nullptr;};
-    inline string ownerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, "") };
+    inline string getOwnerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, "") };
     inline EndCoordinationRequest& setOwnerUserId(string ownerUserId) { DARABONBA_PTR_SET_VALUE(ownerUserId_, ownerUserId) };
 
 
   protected:
-    std::shared_ptr<string> coordinatorUserId_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> ownerUserId_ = nullptr;
+    shared_ptr<string> coordinatorUserId_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> ownerUserId_ {};
   };
 
   } // namespace Models

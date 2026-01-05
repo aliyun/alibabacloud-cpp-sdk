@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appName_ == nullptr && return this->description_ == nullptr && return this->iconUrl_ == nullptr; };
+        && this->appName_ == nullptr && this->description_ == nullptr && this->iconUrl_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline int32_t appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0) };
+    inline int32_t getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0) };
     inline ModifyAppRequest& setAppId(int32_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline ModifyAppRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyAppRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // iconUrl Field Functions 
     bool hasIconUrl() const { return this->iconUrl_ != nullptr;};
     void deleteIconUrl() { this->iconUrl_ = nullptr;};
-    inline string iconUrl() const { DARABONBA_PTR_GET_DEFAULT(iconUrl_, "") };
+    inline string getIconUrl() const { DARABONBA_PTR_GET_DEFAULT(iconUrl_, "") };
     inline ModifyAppRequest& setIconUrl(string iconUrl) { DARABONBA_PTR_SET_VALUE(iconUrl_, iconUrl) };
 
 
   protected:
     // The ID of the application.
-    std::shared_ptr<int32_t> appId_ = nullptr;
+    shared_ptr<int32_t> appId_ {};
     // The name of the application.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The description of the application.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The URL of the icon.
-    std::shared_ptr<string> iconUrl_ = nullptr;
+    shared_ptr<string> iconUrl_ {};
   };
 
   } // namespace Models

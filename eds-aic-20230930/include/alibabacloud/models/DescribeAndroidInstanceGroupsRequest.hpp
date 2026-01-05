@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEANDROIDINSTANCEGROUPSREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeAndroidInstanceGroupsRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -51,28 +50,70 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && return this->chargeType_ == nullptr && return this->instanceGroupIds_ == nullptr && return this->instanceGroupName_ == nullptr && return this->keyPairId_ == nullptr && return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->policyGroupId_ == nullptr && return this->saleMode_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
+        && this->chargeType_ == nullptr && this->instanceGroupIds_ == nullptr && this->instanceGroupName_ == nullptr && this->keyPairId_ == nullptr && this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->policyGroupId_ == nullptr && this->saleMode_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
-    inline string bizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
+    inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // instanceGroupIds Field Functions 
     bool hasInstanceGroupIds() const { return this->instanceGroupIds_ != nullptr;};
     void deleteInstanceGroupIds() { this->instanceGroupIds_ = nullptr;};
-    inline const vector<string> & instanceGroupIds() const { DARABONBA_PTR_GET_CONST(instanceGroupIds_, vector<string>) };
-    inline vector<string> instanceGroupIds() { DARABONBA_PTR_GET(instanceGroupIds_, vector<string>) };
+    inline const vector<string> & getInstanceGroupIds() const { DARABONBA_PTR_GET_CONST(instanceGroupIds_, vector<string>) };
+    inline vector<string> getInstanceGroupIds() { DARABONBA_PTR_GET(instanceGroupIds_, vector<string>) };
     inline DescribeAndroidInstanceGroupsRequest& setInstanceGroupIds(const vector<string> & instanceGroupIds) { DARABONBA_PTR_SET_VALUE(instanceGroupIds_, instanceGroupIds) };
     inline DescribeAndroidInstanceGroupsRequest& setInstanceGroupIds(vector<string> && instanceGroupIds) { DARABONBA_PTR_SET_RVALUE(instanceGroupIds_, instanceGroupIds) };
 
@@ -80,90 +121,90 @@ namespace Models
     // instanceGroupName Field Functions 
     bool hasInstanceGroupName() const { return this->instanceGroupName_ != nullptr;};
     void deleteInstanceGroupName() { this->instanceGroupName_ = nullptr;};
-    inline string instanceGroupName() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupName_, "") };
+    inline string getInstanceGroupName() const { DARABONBA_PTR_GET_DEFAULT(instanceGroupName_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setInstanceGroupName(string instanceGroupName) { DARABONBA_PTR_SET_VALUE(instanceGroupName_, instanceGroupName) };
 
 
     // keyPairId Field Functions 
     bool hasKeyPairId() const { return this->keyPairId_ != nullptr;};
     void deleteKeyPairId() { this->keyPairId_ = nullptr;};
-    inline string keyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
+    inline string getKeyPairId() const { DARABONBA_PTR_GET_DEFAULT(keyPairId_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setKeyPairId(string keyPairId) { DARABONBA_PTR_SET_VALUE(keyPairId_, keyPairId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeAndroidInstanceGroupsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // policyGroupId Field Functions 
     bool hasPolicyGroupId() const { return this->policyGroupId_ != nullptr;};
     void deletePolicyGroupId() { this->policyGroupId_ = nullptr;};
-    inline string policyGroupId() const { DARABONBA_PTR_GET_DEFAULT(policyGroupId_, "") };
+    inline string getPolicyGroupId() const { DARABONBA_PTR_GET_DEFAULT(policyGroupId_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setPolicyGroupId(string policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
 
 
     // saleMode Field Functions 
     bool hasSaleMode() const { return this->saleMode_ != nullptr;};
     void deleteSaleMode() { this->saleMode_ = nullptr;};
-    inline string saleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
+    inline string getSaleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeAndroidInstanceGroupsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<DescribeAndroidInstanceGroupsRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<DescribeAndroidInstanceGroupsRequestTags>) };
-    inline vector<DescribeAndroidInstanceGroupsRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<DescribeAndroidInstanceGroupsRequestTags>) };
-    inline DescribeAndroidInstanceGroupsRequest& setTags(const vector<DescribeAndroidInstanceGroupsRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline DescribeAndroidInstanceGroupsRequest& setTags(vector<DescribeAndroidInstanceGroupsRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<DescribeAndroidInstanceGroupsRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<DescribeAndroidInstanceGroupsRequest::Tags>) };
+    inline vector<DescribeAndroidInstanceGroupsRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<DescribeAndroidInstanceGroupsRequest::Tags>) };
+    inline DescribeAndroidInstanceGroupsRequest& setTags(const vector<DescribeAndroidInstanceGroupsRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeAndroidInstanceGroupsRequest& setTags(vector<DescribeAndroidInstanceGroupsRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
     // The ID of the region.
-    std::shared_ptr<string> bizRegionId_ = nullptr;
+    shared_ptr<string> bizRegionId_ {};
     // The billing method.
     // 
     // Valid values:
     // 
     // *   PrePaid: subscription
     // *   PostPaid: pay-as-you-go
-    std::shared_ptr<string> chargeType_ = nullptr;
+    shared_ptr<string> chargeType_ {};
     // The IDs of the instance groups.
-    std::shared_ptr<vector<string>> instanceGroupIds_ = nullptr;
+    shared_ptr<vector<string>> instanceGroupIds_ {};
     // The name of the instance group. Instance groups support fuzzy search by name.
-    std::shared_ptr<string> instanceGroupName_ = nullptr;
+    shared_ptr<string> instanceGroupName_ {};
     // The ID of the key pair.
-    std::shared_ptr<string> keyPairId_ = nullptr;
+    shared_ptr<string> keyPairId_ {};
     // The maximum number of entries per page. Value range: 0 to 100. Default value: 100.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the policy.
-    std::shared_ptr<string> policyGroupId_ = nullptr;
+    shared_ptr<string> policyGroupId_ {};
     // The purchase mode of cloud phone instances.
     // 
     // Valid values:
     // 
     // *   Instance (default): the instance group mode.
     // *   Node: the matrix mode [whitelisted].
-    std::shared_ptr<string> saleMode_ = nullptr;
+    shared_ptr<string> saleMode_ {};
     // The status of the instance group.
     // 
     // Valid values:
@@ -176,8 +217,8 @@ namespace Models
     // *   DELETED: The instance group is deleted.
     // *   UPDATING: The instance group is undergoing an image update.
     // *   CREATING: The instance group is being created.
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<vector<DescribeAndroidInstanceGroupsRequestTags>> tags_ = nullptr;
+    shared_ptr<string> status_ {};
+    shared_ptr<vector<DescribeAndroidInstanceGroupsRequest::Tags>> tags_ {};
   };
 
   } // namespace Models
