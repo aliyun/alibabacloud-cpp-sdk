@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->area_ == nullptr
-        && return this->dataProtocol_ == nullptr && return this->domainName_ == nullptr && return this->endTime_ == nullptr && return this->field_ == nullptr && return this->interval_ == nullptr
-        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->startTime_ == nullptr && return this->type_ == nullptr; };
+        && this->dataProtocol_ == nullptr && this->domainName_ == nullptr && this->endTime_ == nullptr && this->field_ == nullptr && this->interval_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->startTime_ == nullptr && this->type_ == nullptr; };
     // area Field Functions 
     bool hasArea() const { return this->area_ != nullptr;};
     void deleteArea() { this->area_ = nullptr;};
-    inline string area() const { DARABONBA_PTR_GET_DEFAULT(area_, "") };
+    inline string getArea() const { DARABONBA_PTR_GET_DEFAULT(area_, "") };
     inline DescribeDomainUsageDataRequest& setArea(string area) { DARABONBA_PTR_SET_VALUE(area_, area) };
 
 
     // dataProtocol Field Functions 
     bool hasDataProtocol() const { return this->dataProtocol_ != nullptr;};
     void deleteDataProtocol() { this->dataProtocol_ = nullptr;};
-    inline string dataProtocol() const { DARABONBA_PTR_GET_DEFAULT(dataProtocol_, "") };
+    inline string getDataProtocol() const { DARABONBA_PTR_GET_DEFAULT(dataProtocol_, "") };
     inline DescribeDomainUsageDataRequest& setDataProtocol(string dataProtocol) { DARABONBA_PTR_SET_VALUE(dataProtocol_, dataProtocol) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DescribeDomainUsageDataRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeDomainUsageDataRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // field Field Functions 
     bool hasField() const { return this->field_ != nullptr;};
     void deleteField() { this->field_ = nullptr;};
-    inline string field() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
+    inline string getField() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
     inline DescribeDomainUsageDataRequest& setField(string field) { DARABONBA_PTR_SET_VALUE(field_, field) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
-    inline string interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
+    inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
     inline DescribeDomainUsageDataRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeDomainUsageDataRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDomainUsageDataRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeDomainUsageDataRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeDomainUsageDataRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -135,25 +135,25 @@ namespace Models
     // *   **all**: all regions
     // 
     // >  If you do not specify this parameter, the default value CN is used. Alibaba Cloud supports the following countries and regions outside the Chinese mainland: - Asia Pacific 1: Hong Kong (China), Macao (China), Taiwan (China), Japan, and Southeast Asia excluding Vietnam and Indonesia. - Asia Pacific 2: Indonesia, South Korea, and Vietnam. - Asia Pacific 3: Australia and New Zealand. - North America: US and Canada. - South America: Brazil. Europe: Ukraine, UK, France, Netherlands, Spain, Italy, Sweden, and Germany. - Middle East and Africa: South Africa, Oman, UAE, and Kuwait.
-    std::shared_ptr<string> area_ = nullptr;
+    shared_ptr<string> area_ {};
     // The protocol of the data to query. Valid values:
     // 
     // *   **http**: HTTP
     // *   **https**: HTTPS
     // *   **quic**: QUIC
     // *   **all** (default): HTTP, HTTPS, and QUIC
-    std::shared_ptr<string> dataProtocol_ = nullptr;
+    shared_ptr<string> dataProtocol_ {};
     // The domain name.
     // 
     // *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
     // *   If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // The end time must be later than the start time. The maximum time range that you can specify is **31** days.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The category of the resource usage data to query. Valid values:
     // 
     // *   **bps**: streaming bandwidth
@@ -162,15 +162,15 @@ namespace Models
     // *   **req_bps**: stream ingest bandwidth if you set Type to push, or stream relay bandwidth if you set Type to push_proxy
     // 
     // This parameter is required.
-    std::shared_ptr<string> field_ = nullptr;
+    shared_ptr<string> field_ {};
     // The time interval between the data entries to return. Unit: seconds. Valid values: **300** (5 minutes), **3600** (1 hour), and **86400** (1 day).
-    std::shared_ptr<string> interval_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> interval_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The type of the resource usage data to query.
     // 
     // Valid values if you set **Field** to **bps** or **traf**:
@@ -183,7 +183,7 @@ namespace Models
     // 
     // *   **push**: stream ingest bandwidth or traffic
     // *   **push_proxy**: stream relay bandwidth or traffic
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

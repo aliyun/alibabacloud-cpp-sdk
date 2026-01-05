@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->extensionShrink_ == nullptr && return this->groupId_ == nullptr; };
+        && this->extensionShrink_ == nullptr && this->groupId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateMessageGroupShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // extensionShrink Field Functions 
     bool hasExtensionShrink() const { return this->extensionShrink_ != nullptr;};
     void deleteExtensionShrink() { this->extensionShrink_ = nullptr;};
-    inline string extensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
+    inline string getExtensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
     inline UpdateMessageGroupShrinkRequest& setExtensionShrink(string extensionShrink) { DARABONBA_PTR_SET_VALUE(extensionShrink_, extensionShrink) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline UpdateMessageGroupShrinkRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the interactive messaging application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The extended field.
-    std::shared_ptr<string> extensionShrink_ = nullptr;
+    shared_ptr<string> extensionShrink_ {};
     // The ID of the message group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
   };
 
   } // namespace Models

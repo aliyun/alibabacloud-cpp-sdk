@@ -42,72 +42,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callbackConfig_ == nullptr
-        && return this->domainName_ == nullptr && return this->inputStreamList_ == nullptr && return this->layoutId_ == nullptr && return this->outputConfig_ == nullptr && return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->domainName_ == nullptr && this->inputStreamList_ == nullptr && this->layoutId_ == nullptr && this->outputConfig_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr; };
     // callbackConfig Field Functions 
     bool hasCallbackConfig() const { return this->callbackConfig_ != nullptr;};
     void deleteCallbackConfig() { this->callbackConfig_ = nullptr;};
-    inline string callbackConfig() const { DARABONBA_PTR_GET_DEFAULT(callbackConfig_, "") };
+    inline string getCallbackConfig() const { DARABONBA_PTR_GET_DEFAULT(callbackConfig_, "") };
     inline CreateMixStreamRequest& setCallbackConfig(string callbackConfig) { DARABONBA_PTR_SET_VALUE(callbackConfig_, callbackConfig) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateMixStreamRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // inputStreamList Field Functions 
     bool hasInputStreamList() const { return this->inputStreamList_ != nullptr;};
     void deleteInputStreamList() { this->inputStreamList_ = nullptr;};
-    inline string inputStreamList() const { DARABONBA_PTR_GET_DEFAULT(inputStreamList_, "") };
+    inline string getInputStreamList() const { DARABONBA_PTR_GET_DEFAULT(inputStreamList_, "") };
     inline CreateMixStreamRequest& setInputStreamList(string inputStreamList) { DARABONBA_PTR_SET_VALUE(inputStreamList_, inputStreamList) };
 
 
     // layoutId Field Functions 
     bool hasLayoutId() const { return this->layoutId_ != nullptr;};
     void deleteLayoutId() { this->layoutId_ = nullptr;};
-    inline string layoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
+    inline string getLayoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
     inline CreateMixStreamRequest& setLayoutId(string layoutId) { DARABONBA_PTR_SET_VALUE(layoutId_, layoutId) };
 
 
     // outputConfig Field Functions 
     bool hasOutputConfig() const { return this->outputConfig_ != nullptr;};
     void deleteOutputConfig() { this->outputConfig_ = nullptr;};
-    inline string outputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
+    inline string getOutputConfig() const { DARABONBA_PTR_GET_DEFAULT(outputConfig_, "") };
     inline CreateMixStreamRequest& setOutputConfig(string outputConfig) { DARABONBA_PTR_SET_VALUE(outputConfig_, outputConfig) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateMixStreamRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateMixStreamRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The callback URL. The value is a JSON array. If a callback event is triggered, ApsaraVideo Live sends an HTTP POST request to the URL. The content is included in the HTTP request body.
-    std::shared_ptr<string> callbackConfig_ = nullptr;
+    shared_ptr<string> callbackConfig_ {};
     // The main streaming domain.
     // 
     // >  Only domain names that reside in the China (Shanghai) and China (Beijing) regions are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The input streams. The value is a JSON array.
     // 
     // For more information, see **InputStreamConfig**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputStreamList_ = nullptr;
+    shared_ptr<string> inputStreamList_ {};
     // The ID of the layout. Valid values:
     // 
     // *   **MixStreamLayout-1-1**
@@ -122,15 +122,15 @@ namespace Models
     // >  For more information, see [Preset layouts for stream mixing](https://help.aliyun.com/document_detail/199361.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> layoutId_ = nullptr;
+    shared_ptr<string> layoutId_ {};
     // The configuration of the output stream. The value is a JSON string.
     // 
     // For more information, see **OutputConfig**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputConfig_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> outputConfig_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

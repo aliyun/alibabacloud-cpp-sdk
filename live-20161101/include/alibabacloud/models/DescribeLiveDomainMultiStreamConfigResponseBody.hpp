@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->switch_ == nullptr; };
+        && this->switch_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLiveDomainMultiStreamConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // switch Field Functions 
     bool hasSwitch() const { return this->switch_ != nullptr;};
     void deleteSwitch() { this->switch_ = nullptr;};
-    inline string _switch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
+    inline string getSwitch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
     inline DescribeLiveDomainMultiStreamConfigResponseBody& setSwitch(string _switch) { DARABONBA_PTR_SET_VALUE(switch_, _switch) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the dual-stream disaster recovery feature is enabled. Valid values:
     // 
     // *   **on**: enabled
     // *   **off**: disabled
-    std::shared_ptr<string> switch_ = nullptr;
+    shared_ptr<string> switch_ {};
   };
 
   } // namespace Models

@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->bizType_ == nullptr && return this->domainName_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->ossObject_ == nullptr
-        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->streamName_ == nullptr; };
+        && this->bizType_ == nullptr && this->domainName_ == nullptr && this->ossBucket_ == nullptr && this->ossEndpoint_ == nullptr && this->ossObject_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->streamName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline AddLiveAudioAuditConfigRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline AddLiveAudioAuditConfigRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline AddLiveAudioAuditConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // ossBucket Field Functions 
     bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
     void deleteOssBucket() { this->ossBucket_ = nullptr;};
-    inline string ossBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+    inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
     inline AddLiveAudioAuditConfigRequest& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
 
 
     // ossEndpoint Field Functions 
     bool hasOssEndpoint() const { return this->ossEndpoint_ != nullptr;};
     void deleteOssEndpoint() { this->ossEndpoint_ = nullptr;};
-    inline string ossEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
+    inline string getOssEndpoint() const { DARABONBA_PTR_GET_DEFAULT(ossEndpoint_, "") };
     inline AddLiveAudioAuditConfigRequest& setOssEndpoint(string ossEndpoint) { DARABONBA_PTR_SET_VALUE(ossEndpoint_, ossEndpoint) };
 
 
     // ossObject Field Functions 
     bool hasOssObject() const { return this->ossObject_ != nullptr;};
     void deleteOssObject() { this->ossObject_ = nullptr;};
-    inline string ossObject() const { DARABONBA_PTR_GET_DEFAULT(ossObject_, "") };
+    inline string getOssObject() const { DARABONBA_PTR_GET_DEFAULT(ossObject_, "") };
     inline AddLiveAudioAuditConfigRequest& setOssObject(string ossObject) { DARABONBA_PTR_SET_VALUE(ossObject_, ossObject) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AddLiveAudioAuditConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddLiveAudioAuditConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline AddLiveAudioAuditConfigRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
@@ -115,25 +115,25 @@ namespace Models
     // The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name in the ingest URL. Otherwise, the configuration does not take effect. The application name is case-sensitive.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The business type. You can specify a model. The default value is the domain name.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The name of the OSS bucket in which the recording is stored.
-    std::shared_ptr<string> ossBucket_ = nullptr;
+    shared_ptr<string> ossBucket_ {};
     // The endpoint of OSS.
-    std::shared_ptr<string> ossEndpoint_ = nullptr;
+    shared_ptr<string> ossEndpoint_ {};
     // The name of the recording stored in OSS.
-    std::shared_ptr<string> ossObject_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> ossObject_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the live stream. The value of this parameter must be the same as the stream name in the ingest URL. Otherwise, the configuration does not take effect. The stream name is case-sensitive.
     // 
     // This parameter is required.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
   };
 
   } // namespace Models

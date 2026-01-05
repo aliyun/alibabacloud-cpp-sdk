@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->requestId_ == nullptr && return this->retCode_ == nullptr && return this->tasks_ == nullptr; };
+        && this->requestId_ == nullptr && this->retCode_ == nullptr && this->tasks_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline QueryRtcAsrTasksResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryRtcAsrTasksResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // retCode Field Functions 
     bool hasRetCode() const { return this->retCode_ != nullptr;};
     void deleteRetCode() { this->retCode_ = nullptr;};
-    inline int64_t retCode() const { DARABONBA_PTR_GET_DEFAULT(retCode_, 0L) };
+    inline int64_t getRetCode() const { DARABONBA_PTR_GET_DEFAULT(retCode_, 0L) };
     inline QueryRtcAsrTasksResponseBody& setRetCode(int64_t retCode) { DARABONBA_PTR_SET_VALUE(retCode_, retCode) };
 
 
     // tasks Field Functions 
     bool hasTasks() const { return this->tasks_ != nullptr;};
     void deleteTasks() { this->tasks_ = nullptr;};
-    inline     const Darabonba::Json & tasks() const { DARABONBA_GET(tasks_) };
-    Darabonba::Json & tasks() { DARABONBA_GET(tasks_) };
+    inline     const Darabonba::Json & getTasks() const { DARABONBA_GET(tasks_) };
+    Darabonba::Json & getTasks() { DARABONBA_GET(tasks_) };
     inline QueryRtcAsrTasksResponseBody& setTasks(const Darabonba::Json & tasks) { DARABONBA_SET_VALUE(tasks_, tasks) };
-    inline QueryRtcAsrTasksResponseBody& setTasks(Darabonba::Json & tasks) { DARABONBA_SET_RVALUE(tasks_, tasks) };
+    inline QueryRtcAsrTasksResponseBody& setTasks(Darabonba::Json && tasks) { DARABONBA_SET_RVALUE(tasks_, tasks) };
 
 
   protected:
     // The result of the request. If success is returned, the request was successful. If an error message is returned, the request failed.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The HTTP status code. HTTP status code 2000 indicates that the request was successful. Other HTTP status codes indicate that the request failed.
-    std::shared_ptr<int64_t> retCode_ = nullptr;
+    shared_ptr<int64_t> retCode_ {};
     // The results returned for the tasks.
-    Darabonba::Json tasks_ = nullptr;
+    Darabonba::Json tasks_ {};
   };
 
   } // namespace Models

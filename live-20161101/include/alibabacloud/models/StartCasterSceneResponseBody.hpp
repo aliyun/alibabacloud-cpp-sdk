@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->streamUrl_ == nullptr; };
+        && this->streamUrl_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartCasterSceneResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // streamUrl Field Functions 
     bool hasStreamUrl() const { return this->streamUrl_ != nullptr;};
     void deleteStreamUrl() { this->streamUrl_ = nullptr;};
-    inline string streamUrl() const { DARABONBA_PTR_GET_DEFAULT(streamUrl_, "") };
+    inline string getStreamUrl() const { DARABONBA_PTR_GET_DEFAULT(streamUrl_, "") };
     inline StartCasterSceneResponseBody& setStreamUrl(string streamUrl) { DARABONBA_PTR_SET_VALUE(streamUrl_, streamUrl) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The streaming URL of the scene. It is used for playback, but not for stream relay.
-    std::shared_ptr<string> streamUrl_ = nullptr;
+    shared_ptr<string> streamUrl_ {};
   };
 
   } // namespace Models

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->casterId_ == nullptr
-        && return this->ownerId_ == nullptr && return this->programConfig_ == nullptr && return this->programId_ == nullptr && return this->programItems_ == nullptr && return this->regionId_ == nullptr; };
+        && this->ownerId_ == nullptr && this->programConfig_ == nullptr && this->programId_ == nullptr && this->programItems_ == nullptr && this->regionId_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};
-    inline string casterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
+    inline string getCasterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
     inline AddPlaylistItemsRequest& setCasterId(string casterId) { DARABONBA_PTR_SET_VALUE(casterId_, casterId) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AddPlaylistItemsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // programConfig Field Functions 
     bool hasProgramConfig() const { return this->programConfig_ != nullptr;};
     void deleteProgramConfig() { this->programConfig_ = nullptr;};
-    inline string programConfig() const { DARABONBA_PTR_GET_DEFAULT(programConfig_, "") };
+    inline string getProgramConfig() const { DARABONBA_PTR_GET_DEFAULT(programConfig_, "") };
     inline AddPlaylistItemsRequest& setProgramConfig(string programConfig) { DARABONBA_PTR_SET_VALUE(programConfig_, programConfig) };
 
 
     // programId Field Functions 
     bool hasProgramId() const { return this->programId_ != nullptr;};
     void deleteProgramId() { this->programId_ = nullptr;};
-    inline string programId() const { DARABONBA_PTR_GET_DEFAULT(programId_, "") };
+    inline string getProgramId() const { DARABONBA_PTR_GET_DEFAULT(programId_, "") };
     inline AddPlaylistItemsRequest& setProgramId(string programId) { DARABONBA_PTR_SET_VALUE(programId_, programId) };
 
 
     // programItems Field Functions 
     bool hasProgramItems() const { return this->programItems_ != nullptr;};
     void deleteProgramItems() { this->programItems_ = nullptr;};
-    inline string programItems() const { DARABONBA_PTR_GET_DEFAULT(programItems_, "") };
+    inline string getProgramItems() const { DARABONBA_PTR_GET_DEFAULT(programItems_, "") };
     inline AddPlaylistItemsRequest& setProgramItems(string programItems) { DARABONBA_PTR_SET_VALUE(programItems_, programItems) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddPlaylistItemsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -99,17 +99,17 @@ namespace Models
     // *   **programEffect**: 1.
     // 
     // This parameter is required.
-    std::shared_ptr<string> casterId_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> casterId_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The configurations of the episode list. If the episode list is added to the production studio for the first time, specify this parameter to pass in the initial configurations. For more information, see the **ProgramConfig** section of this topic.
-    std::shared_ptr<string> programConfig_ = nullptr;
+    shared_ptr<string> programConfig_ {};
     // The ID of the episode list. If you do not specify this parameter, an episode list is created by default.
-    std::shared_ptr<string> programId_ = nullptr;
+    shared_ptr<string> programId_ {};
     // The episodes that you want to add to the production studio. The value is a JSON string. For more information, see the **InputProgramItem** section of this topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> programItems_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> programItems_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

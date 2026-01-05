@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appConfigShrink_ == nullptr
-        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->extensionShrink_ == nullptr; };
+        && this->appId_ == nullptr && this->appName_ == nullptr && this->extensionShrink_ == nullptr; };
     // appConfigShrink Field Functions 
     bool hasAppConfigShrink() const { return this->appConfigShrink_ != nullptr;};
     void deleteAppConfigShrink() { this->appConfigShrink_ = nullptr;};
-    inline string appConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(appConfigShrink_, "") };
+    inline string getAppConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(appConfigShrink_, "") };
     inline UpdateMessageAppShrinkRequest& setAppConfigShrink(string appConfigShrink) { DARABONBA_PTR_SET_VALUE(appConfigShrink_, appConfigShrink) };
 
 
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateMessageAppShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateMessageAppShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // extensionShrink Field Functions 
     bool hasExtensionShrink() const { return this->extensionShrink_ != nullptr;};
     void deleteExtensionShrink() { this->extensionShrink_ = nullptr;};
-    inline string extensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
+    inline string getExtensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
     inline UpdateMessageAppShrinkRequest& setExtensionShrink(string extensionShrink) { DARABONBA_PTR_SET_VALUE(extensionShrink_, extensionShrink) };
 
 
   protected:
     // The configurations of the application.
-    std::shared_ptr<string> appConfigShrink_ = nullptr;
+    shared_ptr<string> appConfigShrink_ {};
     // The ID of the interactive messaging application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The name of the interactive messaging application.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The extended field.
-    std::shared_ptr<string> extensionShrink_ = nullptr;
+    shared_ptr<string> extensionShrink_ {};
   };
 
   } // namespace Models

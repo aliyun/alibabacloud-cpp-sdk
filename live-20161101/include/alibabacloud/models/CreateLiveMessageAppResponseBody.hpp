@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appKey_ == nullptr && return this->appSign_ == nullptr && return this->dataCenter_ == nullptr && return this->requestId_ == nullptr; };
+        && this->appKey_ == nullptr && this->appSign_ == nullptr && this->dataCenter_ == nullptr && this->requestId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateLiveMessageAppResponseBody& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline string appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
+    inline string getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
     inline CreateLiveMessageAppResponseBody& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // appSign Field Functions 
     bool hasAppSign() const { return this->appSign_ != nullptr;};
     void deleteAppSign() { this->appSign_ = nullptr;};
-    inline string appSign() const { DARABONBA_PTR_GET_DEFAULT(appSign_, "") };
+    inline string getAppSign() const { DARABONBA_PTR_GET_DEFAULT(appSign_, "") };
     inline CreateLiveMessageAppResponseBody& setAppSign(string appSign) { DARABONBA_PTR_SET_VALUE(appSign_, appSign) };
 
 
     // dataCenter Field Functions 
     bool hasDataCenter() const { return this->dataCenter_ != nullptr;};
     void deleteDataCenter() { this->dataCenter_ = nullptr;};
-    inline string dataCenter() const { DARABONBA_PTR_GET_DEFAULT(dataCenter_, "") };
+    inline string getDataCenter() const { DARABONBA_PTR_GET_DEFAULT(dataCenter_, "") };
     inline CreateLiveMessageAppResponseBody& setDataCenter(string dataCenter) { DARABONBA_PTR_SET_VALUE(dataCenter_, dataCenter) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateLiveMessageAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The application ID. The ID is used in subsequent operations, such as joining a group.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The AppKey for authentication of this application.
-    std::shared_ptr<string> appKey_ = nullptr;
+    shared_ptr<string> appKey_ {};
     // The application signature. The signature is required when you use the interactive messaging SDK.
-    std::shared_ptr<string> appSign_ = nullptr;
+    shared_ptr<string> appSign_ {};
     // The data center in which the interactive messaging application was created.
-    std::shared_ptr<string> dataCenter_ = nullptr;
+    shared_ptr<string> dataCenter_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

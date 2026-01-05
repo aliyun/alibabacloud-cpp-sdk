@@ -34,31 +34,31 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->casterId_ == nullptr
-        && return this->editingTasksInfo_ == nullptr && return this->requestId_ == nullptr; };
+        && this->editingTasksInfo_ == nullptr && this->requestId_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};
-    inline string casterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
+    inline string getCasterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
     inline GetEditingJobInfoResponseBody& setCasterId(string casterId) { DARABONBA_PTR_SET_VALUE(casterId_, casterId) };
 
 
     // editingTasksInfo Field Functions 
     bool hasEditingTasksInfo() const { return this->editingTasksInfo_ != nullptr;};
     void deleteEditingTasksInfo() { this->editingTasksInfo_ = nullptr;};
-    inline string editingTasksInfo() const { DARABONBA_PTR_GET_DEFAULT(editingTasksInfo_, "") };
+    inline string getEditingTasksInfo() const { DARABONBA_PTR_GET_DEFAULT(editingTasksInfo_, "") };
     inline GetEditingJobInfoResponseBody& setEditingTasksInfo(string editingTasksInfo) { DARABONBA_PTR_SET_VALUE(editingTasksInfo_, editingTasksInfo) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetEditingJobInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the production studio.
-    std::shared_ptr<string> casterId_ = nullptr;
+    shared_ptr<string> casterId_ {};
     // The information about editing tasks. The following fields are returned for each editing task:
     // 
     // *   **OutputVodId**: the ID of the output video-on-demand (VOD) file.
@@ -66,9 +66,9 @@ namespace Models
     // *   **StorageLocation**: the storage location in ApsaraVideo VOD.
     // *   **FileName**: the name of the file that is edited.
     // *   **ShowId**: the ID of the episode.
-    std::shared_ptr<string> editingTasksInfo_ = nullptr;
+    shared_ptr<string> editingTasksInfo_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

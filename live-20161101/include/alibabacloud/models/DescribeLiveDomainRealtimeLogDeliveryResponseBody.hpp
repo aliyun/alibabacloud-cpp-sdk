@@ -38,56 +38,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logstore_ == nullptr
-        && return this->project_ == nullptr && return this->region_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->project_ == nullptr && this->region_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // logstore Field Functions 
     bool hasLogstore() const { return this->logstore_ != nullptr;};
     void deleteLogstore() { this->logstore_ = nullptr;};
-    inline string logstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
+    inline string getLogstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
     inline DescribeLiveDomainRealtimeLogDeliveryResponseBody& setLogstore(string logstore) { DARABONBA_PTR_SET_VALUE(logstore_, logstore) };
 
 
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
-    inline string project() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+    inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
     inline DescribeLiveDomainRealtimeLogDeliveryResponseBody& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeLiveDomainRealtimeLogDeliveryResponseBody& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLiveDomainRealtimeLogDeliveryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeLiveDomainRealtimeLogDeliveryResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The name of the Logstore to which log entries are delivered.
-    std::shared_ptr<string> logstore_ = nullptr;
+    shared_ptr<string> logstore_ {};
     // The name of the Log Service project that is used for real-time log delivery.
-    std::shared_ptr<string> project_ = nullptr;
+    shared_ptr<string> project_ {};
     // The ID of the region where the Log Service project is deployed.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of real-time log delivery. Valid values:
     // 
     // *   online: Real-time log delivery is enabled.
     // *   offline: Real-time log delivery is disabled.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

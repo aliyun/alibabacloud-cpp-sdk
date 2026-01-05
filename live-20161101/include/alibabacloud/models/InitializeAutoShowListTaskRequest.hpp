@@ -44,67 +44,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callBackUrl_ == nullptr
-        && return this->casterConfig_ == nullptr && return this->domainName_ == nullptr && return this->endTime_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceIds_ == nullptr && return this->startTime_ == nullptr; };
+        && this->casterConfig_ == nullptr && this->domainName_ == nullptr && this->endTime_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceIds_ == nullptr && this->startTime_ == nullptr; };
     // callBackUrl Field Functions 
     bool hasCallBackUrl() const { return this->callBackUrl_ != nullptr;};
     void deleteCallBackUrl() { this->callBackUrl_ = nullptr;};
-    inline string callBackUrl() const { DARABONBA_PTR_GET_DEFAULT(callBackUrl_, "") };
+    inline string getCallBackUrl() const { DARABONBA_PTR_GET_DEFAULT(callBackUrl_, "") };
     inline InitializeAutoShowListTaskRequest& setCallBackUrl(string callBackUrl) { DARABONBA_PTR_SET_VALUE(callBackUrl_, callBackUrl) };
 
 
     // casterConfig Field Functions 
     bool hasCasterConfig() const { return this->casterConfig_ != nullptr;};
     void deleteCasterConfig() { this->casterConfig_ = nullptr;};
-    inline string casterConfig() const { DARABONBA_PTR_GET_DEFAULT(casterConfig_, "") };
+    inline string getCasterConfig() const { DARABONBA_PTR_GET_DEFAULT(casterConfig_, "") };
     inline InitializeAutoShowListTaskRequest& setCasterConfig(string casterConfig) { DARABONBA_PTR_SET_VALUE(casterConfig_, casterConfig) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline InitializeAutoShowListTaskRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline InitializeAutoShowListTaskRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline InitializeAutoShowListTaskRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline InitializeAutoShowListTaskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceIds Field Functions 
     bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
     void deleteResourceIds() { this->resourceIds_ = nullptr;};
-    inline string resourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
+    inline string getResourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
     inline InitializeAutoShowListTaskRequest& setResourceIds(string resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline InitializeAutoShowListTaskRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // The callback URL.
-    std::shared_ptr<string> callBackUrl_ = nullptr;
+    shared_ptr<string> callBackUrl_ {};
     // The configurations of the production studio. The following configurations are involved:
     // 
     // *   CasterTemplate: required. The output resolution.
@@ -113,27 +113,27 @@ namespace Models
     // >  Set the value to a JSON string. Use upper camel case for fields of the string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> casterConfig_ = nullptr;
+    shared_ptr<string> casterConfig_ {};
     // The output streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The end timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The IDs of on-demand media asset files in the playlist. Only on-demand video files are supported. You can specify up to three video files in the playlist. The video files in the playlist are automatically played in sequence. The playback stops at the point in time specified by the EndTime parameter.
     // 
     // > 
     // 
     // *   You can obtain the ID of a video file in the ApsaraVideo Live console or by calling an API operation. For more information, see [Media asset management](https://help.aliyun.com/document_detail/86057.html) or [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html). - If the video files are all played before the time specified by EndTime, the final frame of the final video file is played until the time specified by EndTime arrives.
-    std::shared_ptr<string> resourceIds_ = nullptr;
+    shared_ptr<string> resourceIds_ {};
     // The start timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

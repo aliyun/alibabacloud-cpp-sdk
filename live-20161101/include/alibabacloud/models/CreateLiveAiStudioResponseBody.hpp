@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->studioId_ == nullptr; };
+        && this->studioId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateLiveAIStudioResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // studioId Field Functions 
     bool hasStudioId() const { return this->studioId_ != nullptr;};
     void deleteStudioId() { this->studioId_ = nullptr;};
-    inline string studioId() const { DARABONBA_PTR_GET_DEFAULT(studioId_, "") };
+    inline string getStudioId() const { DARABONBA_PTR_GET_DEFAULT(studioId_, "") };
     inline CreateLiveAIStudioResponseBody& setStudioId(string studioId) { DARABONBA_PTR_SET_VALUE(studioId_, studioId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the virtual studio template.
-    std::shared_ptr<string> studioId_ = nullptr;
+    shared_ptr<string> studioId_ {};
   };
 
   } // namespace Models

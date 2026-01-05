@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->beginTs_ == nullptr && return this->endTs_ == nullptr && return this->metricType_ == nullptr && return this->os_ == nullptr && return this->terminalType_ == nullptr; };
+        && this->beginTs_ == nullptr && this->endTs_ == nullptr && this->metricType_ == nullptr && this->os_ == nullptr && this->terminalType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeLiveInteractionMetricDataRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // beginTs Field Functions 
     bool hasBeginTs() const { return this->beginTs_ != nullptr;};
     void deleteBeginTs() { this->beginTs_ = nullptr;};
-    inline int64_t beginTs() const { DARABONBA_PTR_GET_DEFAULT(beginTs_, 0L) };
+    inline int64_t getBeginTs() const { DARABONBA_PTR_GET_DEFAULT(beginTs_, 0L) };
     inline DescribeLiveInteractionMetricDataRequest& setBeginTs(int64_t beginTs) { DARABONBA_PTR_SET_VALUE(beginTs_, beginTs) };
 
 
     // endTs Field Functions 
     bool hasEndTs() const { return this->endTs_ != nullptr;};
     void deleteEndTs() { this->endTs_ = nullptr;};
-    inline int64_t endTs() const { DARABONBA_PTR_GET_DEFAULT(endTs_, 0L) };
+    inline int64_t getEndTs() const { DARABONBA_PTR_GET_DEFAULT(endTs_, 0L) };
     inline DescribeLiveInteractionMetricDataRequest& setEndTs(int64_t endTs) { DARABONBA_PTR_SET_VALUE(endTs_, endTs) };
 
 
     // metricType Field Functions 
     bool hasMetricType() const { return this->metricType_ != nullptr;};
     void deleteMetricType() { this->metricType_ = nullptr;};
-    inline string metricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
+    inline string getMetricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
     inline DescribeLiveInteractionMetricDataRequest& setMetricType(string metricType) { DARABONBA_PTR_SET_VALUE(metricType_, metricType) };
 
 
     // os Field Functions 
     bool hasOs() const { return this->os_ != nullptr;};
     void deleteOs() { this->os_ = nullptr;};
-    inline string os() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
+    inline string getOs() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
     inline DescribeLiveInteractionMetricDataRequest& setOs(string os) { DARABONBA_PTR_SET_VALUE(os_, os) };
 
 
     // terminalType Field Functions 
     bool hasTerminalType() const { return this->terminalType_ != nullptr;};
     void deleteTerminalType() { this->terminalType_ = nullptr;};
-    inline string terminalType() const { DARABONBA_PTR_GET_DEFAULT(terminalType_, "") };
+    inline string getTerminalType() const { DARABONBA_PTR_GET_DEFAULT(terminalType_, "") };
     inline DescribeLiveInteractionMetricDataRequest& setTerminalType(string terminalType) { DARABONBA_PTR_SET_VALUE(terminalType_, terminalType) };
 
 
@@ -87,15 +87,15 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> beginTs_ = nullptr;
+    shared_ptr<int64_t> beginTs_ {};
     // The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTs_ = nullptr;
+    shared_ptr<int64_t> endTs_ {};
     // The metric. Valid values:
     // 
     // *   JoinChannelSucRate: the success rate of joining a channel within 5 seconds.
@@ -104,11 +104,11 @@ namespace Models
     // *   FirstFrameCost: the time to first frame.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metricType_ = nullptr;
+    shared_ptr<string> metricType_ {};
     // The operating system. Valid values: iOS and Android.
-    std::shared_ptr<string> os_ = nullptr;
+    shared_ptr<string> os_ {};
     // The terminal type. Valid values: web and mobile.
-    std::shared_ptr<string> terminalType_ = nullptr;
+    shared_ptr<string> terminalType_ {};
   };
 
   } // namespace Models

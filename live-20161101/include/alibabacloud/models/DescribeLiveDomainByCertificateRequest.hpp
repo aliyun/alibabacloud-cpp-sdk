@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr && return this->SSLPub_ == nullptr && return this->SSLStatus_ == nullptr; };
+        && this->regionId_ == nullptr && this->SSLPub_ == nullptr && this->SSLStatus_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeLiveDomainByCertificateRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeLiveDomainByCertificateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // SSLPub Field Functions 
     bool hasSSLPub() const { return this->SSLPub_ != nullptr;};
     void deleteSSLPub() { this->SSLPub_ = nullptr;};
-    inline string SSLPub() const { DARABONBA_PTR_GET_DEFAULT(SSLPub_, "") };
+    inline string getSSLPub() const { DARABONBA_PTR_GET_DEFAULT(SSLPub_, "") };
     inline DescribeLiveDomainByCertificateRequest& setSSLPub(string SSLPub) { DARABONBA_PTR_SET_VALUE(SSLPub_, SSLPub) };
 
 
     // SSLStatus Field Functions 
     bool hasSSLStatus() const { return this->SSLStatus_ != nullptr;};
     void deleteSSLStatus() { this->SSLStatus_ = nullptr;};
-    inline bool SSLStatus() const { DARABONBA_PTR_GET_DEFAULT(SSLStatus_, false) };
+    inline bool getSSLStatus() const { DARABONBA_PTR_GET_DEFAULT(SSLStatus_, false) };
     inline DescribeLiveDomainByCertificateRequest& setSSLStatus(bool SSLStatus) { DARABONBA_PTR_SET_VALUE(SSLStatus_, SSLStatus) };
 
 
   protected:
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The public key of the SSL certificate. You must Base64-encode the public key before you invoke the encodeURIComponent function to encode a URI component. The public key must be in the PEM format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> SSLPub_ = nullptr;
+    shared_ptr<string> SSLPub_ {};
     // Specifies whether to return only domain names with HTTPS enabled or disabled.
     // 
     // *   **true**: returns only domain names with HTTPS enabled.
     // *   **false**: The rule is disabled.
-    std::shared_ptr<bool> SSLStatus_ = nullptr;
+    shared_ptr<bool> SSLStatus_ {};
   };
 
   } // namespace Models

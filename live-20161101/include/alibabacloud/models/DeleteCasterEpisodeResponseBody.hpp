@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->casterId_ == nullptr
-        && return this->episodeId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->episodeId_ == nullptr && this->requestId_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};
-    inline string casterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
+    inline string getCasterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
     inline DeleteCasterEpisodeResponseBody& setCasterId(string casterId) { DARABONBA_PTR_SET_VALUE(casterId_, casterId) };
 
 
     // episodeId Field Functions 
     bool hasEpisodeId() const { return this->episodeId_ != nullptr;};
     void deleteEpisodeId() { this->episodeId_ = nullptr;};
-    inline string episodeId() const { DARABONBA_PTR_GET_DEFAULT(episodeId_, "") };
+    inline string getEpisodeId() const { DARABONBA_PTR_GET_DEFAULT(episodeId_, "") };
     inline DeleteCasterEpisodeResponseBody& setEpisodeId(string episodeId) { DARABONBA_PTR_SET_VALUE(episodeId_, episodeId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteCasterEpisodeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the production studio. You can specify the ID as a parameter in the request to modify the episode in the production studio.
-    std::shared_ptr<string> casterId_ = nullptr;
+    shared_ptr<string> casterId_ {};
     // The ID of the episode. You can specify the ID as a parameter in the request to modify the episode in the production studio.
-    std::shared_ptr<string> episodeId_ = nullptr;
+    shared_ptr<string> episodeId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

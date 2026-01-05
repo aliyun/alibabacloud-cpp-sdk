@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->rtmpAddress_ == nullptr; };
+        && this->rtmpAddress_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateRoomRealTimeStreamAddressResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rtmpAddress Field Functions 
     bool hasRtmpAddress() const { return this->rtmpAddress_ != nullptr;};
     void deleteRtmpAddress() { this->rtmpAddress_ = nullptr;};
-    inline string rtmpAddress() const { DARABONBA_PTR_GET_DEFAULT(rtmpAddress_, "") };
+    inline string getRtmpAddress() const { DARABONBA_PTR_GET_DEFAULT(rtmpAddress_, "") };
     inline CreateRoomRealTimeStreamAddressResponseBody& setRtmpAddress(string rtmpAddress) { DARABONBA_PTR_SET_VALUE(rtmpAddress_, rtmpAddress) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The RTMP ingest URL.
-    std::shared_ptr<string> rtmpAddress_ = nullptr;
+    shared_ptr<string> rtmpAddress_ {};
   };
 
   } // namespace Models

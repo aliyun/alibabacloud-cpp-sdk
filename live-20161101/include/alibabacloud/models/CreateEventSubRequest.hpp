@@ -39,33 +39,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->callbackUrl_ == nullptr && return this->channelId_ == nullptr && return this->events_ == nullptr && return this->users_ == nullptr; };
+        && this->callbackUrl_ == nullptr && this->channelId_ == nullptr && this->events_ == nullptr && this->users_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateEventSubRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
-    inline string callbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
+    inline string getCallbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
     inline CreateEventSubRequest& setCallbackUrl(string callbackUrl) { DARABONBA_PTR_SET_VALUE(callbackUrl_, callbackUrl) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline CreateEventSubRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // events Field Functions 
     bool hasEvents() const { return this->events_ != nullptr;};
     void deleteEvents() { this->events_ = nullptr;};
-    inline const vector<string> & events() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
-    inline vector<string> events() { DARABONBA_PTR_GET(events_, vector<string>) };
+    inline const vector<string> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
+    inline vector<string> getEvents() { DARABONBA_PTR_GET(events_, vector<string>) };
     inline CreateEventSubRequest& setEvents(const vector<string> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
     inline CreateEventSubRequest& setEvents(vector<string> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
 
@@ -73,8 +73,8 @@ namespace Models
     // users Field Functions 
     bool hasUsers() const { return this->users_ != nullptr;};
     void deleteUsers() { this->users_ = nullptr;};
-    inline const vector<string> & users() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
-    inline vector<string> users() { DARABONBA_PTR_GET(users_, vector<string>) };
+    inline const vector<string> & getUsers() const { DARABONBA_PTR_GET_CONST(users_, vector<string>) };
+    inline vector<string> getUsers() { DARABONBA_PTR_GET(users_, vector<string>) };
     inline CreateEventSubRequest& setUsers(const vector<string> & users) { DARABONBA_PTR_SET_VALUE(users_, users) };
     inline CreateEventSubRequest& setUsers(vector<string> && users) { DARABONBA_PTR_SET_RVALUE(users_, users) };
 
@@ -83,11 +83,11 @@ namespace Models
     // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The callback URL. For more information about the content of the messages that are sent to the callback URL, see the Callback section in this topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> callbackUrl_ = nullptr;
+    shared_ptr<string> callbackUrl_ {};
     // The channel ID. You can call the [ListEventSub](https://help.aliyun.com/document_detail/2628135.html) operation to query the channel ID.
     // 
     // > 
@@ -97,17 +97,17 @@ namespace Models
     // *   If you set this parameter to \\* or do not specify this parameter, all channels are subscribed to.
     // 
     // *   Each application ID allows only one all-channel subscription.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
     // Subscribe to events.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> events_ = nullptr;
+    shared_ptr<vector<string>> events_ {};
     // The user whose events you want to subscribe to. If you leave this parameter empty, the events of all users in the channel are subscribed to, including the events of the streamer and viewers. Specify this parameter in the following format:
     // 
     //     Users.1=****
     //     Users.2=****
     //     ......
-    std::shared_ptr<vector<string>> users_ = nullptr;
+    shared_ptr<vector<string>> users_ {};
   };
 
   } // namespace Models

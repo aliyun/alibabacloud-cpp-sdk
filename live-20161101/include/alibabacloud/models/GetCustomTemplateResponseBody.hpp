@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customTemplate_ == nullptr
-        && return this->requestId_ == nullptr && return this->template_ == nullptr; };
+        && this->requestId_ == nullptr && this->template_ == nullptr; };
     // customTemplate Field Functions 
     bool hasCustomTemplate() const { return this->customTemplate_ != nullptr;};
     void deleteCustomTemplate() { this->customTemplate_ = nullptr;};
-    inline string customTemplate() const { DARABONBA_PTR_GET_DEFAULT(customTemplate_, "") };
+    inline string getCustomTemplate() const { DARABONBA_PTR_GET_DEFAULT(customTemplate_, "") };
     inline GetCustomTemplateResponseBody& setCustomTemplate(string customTemplate) { DARABONBA_PTR_SET_VALUE(customTemplate_, customTemplate) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCustomTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline GetCustomTemplateResponseBody& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
   protected:
     // The configurations of the template.
-    std::shared_ptr<string> customTemplate_ = nullptr;
+    shared_ptr<string> customTemplate_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The name of the template.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->domain_ == nullptr && return this->optimalMode_ == nullptr && return this->ownerId_ == nullptr && return this->streamName_ == nullptr; };
+        && this->domain_ == nullptr && this->optimalMode_ == nullptr && this->ownerId_ == nullptr && this->streamName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline SetLiveDomainMultiStreamOptimalModeRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline SetLiveDomainMultiStreamOptimalModeRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // optimalMode Field Functions 
     bool hasOptimalMode() const { return this->optimalMode_ != nullptr;};
     void deleteOptimalMode() { this->optimalMode_ = nullptr;};
-    inline string optimalMode() const { DARABONBA_PTR_GET_DEFAULT(optimalMode_, "") };
+    inline string getOptimalMode() const { DARABONBA_PTR_GET_DEFAULT(optimalMode_, "") };
     inline SetLiveDomainMultiStreamOptimalModeRequest& setOptimalMode(string optimalMode) { DARABONBA_PTR_SET_VALUE(optimalMode_, optimalMode) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline SetLiveDomainMultiStreamOptimalModeRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline SetLiveDomainMultiStreamOptimalModeRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
@@ -78,23 +78,23 @@ namespace Models
     // The application name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // Specifies whether to enable the auto mode of dual-stream disaster recovery. Valid values:
     // 
     // *   **on**: enables the auto mode.
     // *   **off**: disables the auto mode.
     // 
     // This parameter is required.
-    std::shared_ptr<string> optimalMode_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> optimalMode_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The name of the live stream.
     // 
     // This parameter is required.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
   };
 
   } // namespace Models

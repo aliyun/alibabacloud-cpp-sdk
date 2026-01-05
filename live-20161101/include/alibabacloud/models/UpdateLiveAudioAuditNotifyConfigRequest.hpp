@@ -38,45 +38,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callback_ == nullptr
-        && return this->callbackTemplate_ == nullptr && return this->domainName_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->callbackTemplate_ == nullptr && this->domainName_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr; };
     // callback Field Functions 
     bool hasCallback() const { return this->callback_ != nullptr;};
     void deleteCallback() { this->callback_ = nullptr;};
-    inline string callback() const { DARABONBA_PTR_GET_DEFAULT(callback_, "") };
+    inline string getCallback() const { DARABONBA_PTR_GET_DEFAULT(callback_, "") };
     inline UpdateLiveAudioAuditNotifyConfigRequest& setCallback(string callback) { DARABONBA_PTR_SET_VALUE(callback_, callback) };
 
 
     // callbackTemplate Field Functions 
     bool hasCallbackTemplate() const { return this->callbackTemplate_ != nullptr;};
     void deleteCallbackTemplate() { this->callbackTemplate_ = nullptr;};
-    inline string callbackTemplate() const { DARABONBA_PTR_GET_DEFAULT(callbackTemplate_, "") };
+    inline string getCallbackTemplate() const { DARABONBA_PTR_GET_DEFAULT(callbackTemplate_, "") };
     inline UpdateLiveAudioAuditNotifyConfigRequest& setCallbackTemplate(string callbackTemplate) { DARABONBA_PTR_SET_VALUE(callbackTemplate_, callbackTemplate) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline UpdateLiveAudioAuditNotifyConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateLiveAudioAuditNotifyConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateLiveAudioAuditNotifyConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The callback URL. This URL is used to receive callback notifications about violations in audio.
-    std::shared_ptr<string> callback_ = nullptr;
+    shared_ptr<string> callback_ {};
     // The callback template. Configure the following fields:
     // 
     // *   **{DomainName}**: the streaming domain.
@@ -84,13 +84,13 @@ namespace Models
     // *   **{StreamName}**: the name of the live stream.
     // *   **{Timestamp}**: the time when the callback is returned. The value of this field is a UNIX timestamp. Unit: seconds.
     // *   **{Result}**: the moderation results.
-    std::shared_ptr<string> callbackTemplate_ = nullptr;
+    shared_ptr<string> callbackTemplate_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

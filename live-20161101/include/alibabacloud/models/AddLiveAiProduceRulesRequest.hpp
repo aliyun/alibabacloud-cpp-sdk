@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->app_ == nullptr
-        && return this->description_ == nullptr && return this->domain_ == nullptr && return this->isLazy_ == nullptr && return this->liveTemplate_ == nullptr && return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr && return this->studioName_ == nullptr && return this->subtitleName_ == nullptr && return this->suffix_ == nullptr; };
+        && this->description_ == nullptr && this->domain_ == nullptr && this->isLazy_ == nullptr && this->liveTemplate_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->studioName_ == nullptr && this->subtitleName_ == nullptr && this->suffix_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
-    inline string app() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
+    inline string getApp() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
     inline AddLiveAIProduceRulesRequest& setApp(string app) { DARABONBA_PTR_SET_VALUE(app_, app) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AddLiveAIProduceRulesRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline AddLiveAIProduceRulesRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // isLazy Field Functions 
     bool hasIsLazy() const { return this->isLazy_ != nullptr;};
     void deleteIsLazy() { this->isLazy_ = nullptr;};
-    inline bool isLazy() const { DARABONBA_PTR_GET_DEFAULT(isLazy_, false) };
+    inline bool getIsLazy() const { DARABONBA_PTR_GET_DEFAULT(isLazy_, false) };
     inline AddLiveAIProduceRulesRequest& setIsLazy(bool isLazy) { DARABONBA_PTR_SET_VALUE(isLazy_, isLazy) };
 
 
     // liveTemplate Field Functions 
     bool hasLiveTemplate() const { return this->liveTemplate_ != nullptr;};
     void deleteLiveTemplate() { this->liveTemplate_ = nullptr;};
-    inline string liveTemplate() const { DARABONBA_PTR_GET_DEFAULT(liveTemplate_, "") };
+    inline string getLiveTemplate() const { DARABONBA_PTR_GET_DEFAULT(liveTemplate_, "") };
     inline AddLiveAIProduceRulesRequest& setLiveTemplate(string liveTemplate) { DARABONBA_PTR_SET_VALUE(liveTemplate_, liveTemplate) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AddLiveAIProduceRulesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddLiveAIProduceRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // studioName Field Functions 
     bool hasStudioName() const { return this->studioName_ != nullptr;};
     void deleteStudioName() { this->studioName_ = nullptr;};
-    inline string studioName() const { DARABONBA_PTR_GET_DEFAULT(studioName_, "") };
+    inline string getStudioName() const { DARABONBA_PTR_GET_DEFAULT(studioName_, "") };
     inline AddLiveAIProduceRulesRequest& setStudioName(string studioName) { DARABONBA_PTR_SET_VALUE(studioName_, studioName) };
 
 
     // subtitleName Field Functions 
     bool hasSubtitleName() const { return this->subtitleName_ != nullptr;};
     void deleteSubtitleName() { this->subtitleName_ = nullptr;};
-    inline string subtitleName() const { DARABONBA_PTR_GET_DEFAULT(subtitleName_, "") };
+    inline string getSubtitleName() const { DARABONBA_PTR_GET_DEFAULT(subtitleName_, "") };
     inline AddLiveAIProduceRulesRequest& setSubtitleName(string subtitleName) { DARABONBA_PTR_SET_VALUE(subtitleName_, subtitleName) };
 
 
     // suffix Field Functions 
     bool hasSuffix() const { return this->suffix_ != nullptr;};
     void deleteSuffix() { this->suffix_ = nullptr;};
-    inline string suffix() const { DARABONBA_PTR_GET_DEFAULT(suffix_, "") };
+    inline string getSuffix() const { DARABONBA_PTR_GET_DEFAULT(suffix_, "") };
     inline AddLiveAIProduceRulesRequest& setSuffix(string suffix) { DARABONBA_PTR_SET_VALUE(suffix_, suffix) };
 
 
@@ -124,18 +124,18 @@ namespace Models
     // The name of the application to which the live stream belongs. The name can be up to 256 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must be the same as the application name in the ingest URL. Otherwise, the rule does not take effect.
     // 
     // This parameter is required.
-    std::shared_ptr<string> app_ = nullptr;
+    shared_ptr<string> app_ {};
     // The description of the subtitle rule. The description can be up to 128 characters in length and can contain letters, digits, and special characters.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // Specifies whether to trigger the subtitle rule when stream pulling starts. Valid values:
     // 
     // *   true: generates live subtitles when stream pulling starts and stops generating live subtitles when no stream is pulled for 5 minutes. When stream pulling restarts, live subtitles are generated again.
     // *   false: generates live subtitles when stream ingest starts, regardless of whether stream pulling starts.
-    std::shared_ptr<bool> isLazy_ = nullptr;
+    shared_ptr<bool> isLazy_ {};
     // The specification of the output subtitles. Valid values:
     // 
     // *   `lp_ld`: landscape low definition 360p (640×360)
@@ -148,15 +148,15 @@ namespace Models
     // *   `lp_ud_v`: portrait ultra-high definition 1080p (1080×1920)
     // 
     // This parameter is required.
-    std::shared_ptr<string> liveTemplate_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> liveTemplate_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the virtual background template.
-    std::shared_ptr<string> studioName_ = nullptr;
+    shared_ptr<string> studioName_ {};
     // The name of the subtitle template.
-    std::shared_ptr<string> subtitleName_ = nullptr;
+    shared_ptr<string> subtitleName_ {};
     // The suffix to match.
-    std::shared_ptr<string> suffix_ = nullptr;
+    shared_ptr<string> suffix_ {};
   };
 
   } // namespace Models

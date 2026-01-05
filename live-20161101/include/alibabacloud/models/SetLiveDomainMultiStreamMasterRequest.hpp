@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->domain_ == nullptr && return this->ownerId_ == nullptr && return this->streamName_ == nullptr && return this->upstreamSequence_ == nullptr; };
+        && this->domain_ == nullptr && this->ownerId_ == nullptr && this->streamName_ == nullptr && this->upstreamSequence_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline SetLiveDomainMultiStreamMasterRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline SetLiveDomainMultiStreamMasterRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline SetLiveDomainMultiStreamMasterRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline SetLiveDomainMultiStreamMasterRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
     // upstreamSequence Field Functions 
     bool hasUpstreamSequence() const { return this->upstreamSequence_ != nullptr;};
     void deleteUpstreamSequence() { this->upstreamSequence_ = nullptr;};
-    inline string upstreamSequence() const { DARABONBA_PTR_GET_DEFAULT(upstreamSequence_, "") };
+    inline string getUpstreamSequence() const { DARABONBA_PTR_GET_DEFAULT(upstreamSequence_, "") };
     inline SetLiveDomainMultiStreamMasterRequest& setUpstreamSequence(string upstreamSequence) { DARABONBA_PTR_SET_VALUE(upstreamSequence_, upstreamSequence) };
 
 
@@ -78,20 +78,20 @@ namespace Models
     // The name of the application to which the live stream belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> domain_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The name of the live stream.
     // 
     // This parameter is required.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
     // The unique identifier of the stream ingest.
     // 
     // This parameter is required.
-    std::shared_ptr<string> upstreamSequence_ = nullptr;
+    shared_ptr<string> upstreamSequence_ {};
   };
 
   } // namespace Models

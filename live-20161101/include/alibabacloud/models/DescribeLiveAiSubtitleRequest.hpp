@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isDefault_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->subtitleId_ == nullptr
-        && return this->subtitleName_ == nullptr; };
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->subtitleId_ == nullptr
+        && this->subtitleName_ == nullptr; };
     // isDefault Field Functions 
     bool hasIsDefault() const { return this->isDefault_ != nullptr;};
     void deleteIsDefault() { this->isDefault_ = nullptr;};
-    inline bool isDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
+    inline bool getIsDefault() const { DARABONBA_PTR_GET_DEFAULT(isDefault_, false) };
     inline DescribeLiveAISubtitleRequest& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeLiveAISubtitleRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline DescribeLiveAISubtitleRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeLiveAISubtitleRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeLiveAISubtitleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // subtitleId Field Functions 
     bool hasSubtitleId() const { return this->subtitleId_ != nullptr;};
     void deleteSubtitleId() { this->subtitleId_ = nullptr;};
-    inline string subtitleId() const { DARABONBA_PTR_GET_DEFAULT(subtitleId_, "") };
+    inline string getSubtitleId() const { DARABONBA_PTR_GET_DEFAULT(subtitleId_, "") };
     inline DescribeLiveAISubtitleRequest& setSubtitleId(string subtitleId) { DARABONBA_PTR_SET_VALUE(subtitleId_, subtitleId) };
 
 
     // subtitleName Field Functions 
     bool hasSubtitleName() const { return this->subtitleName_ != nullptr;};
     void deleteSubtitleName() { this->subtitleName_ = nullptr;};
-    inline string subtitleName() const { DARABONBA_PTR_GET_DEFAULT(subtitleName_, "") };
+    inline string getSubtitleName() const { DARABONBA_PTR_GET_DEFAULT(subtitleName_, "") };
     inline DescribeLiveAISubtitleRequest& setSubtitleName(string subtitleName) { DARABONBA_PTR_SET_VALUE(subtitleName_, subtitleName) };
 
 
@@ -103,17 +103,17 @@ namespace Models
     //     **
     // 
     //     **Note **The default template includes the built-in parameter configurations. You can specify the copyFrom parameter when you call the AddLiveAISubtitle operation to use the default template.
-    std::shared_ptr<bool> isDefault_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<bool> isDefault_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The page number. Valid values: [1,100].
-    std::shared_ptr<string> pageNumber_ = nullptr;
+    shared_ptr<string> pageNumber_ {};
     // The number of entries per page. Valid values: [1,100].
-    std::shared_ptr<string> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> pageSize_ {};
+    shared_ptr<string> regionId_ {};
     // The ID of the subtitle template.
-    std::shared_ptr<string> subtitleId_ = nullptr;
+    shared_ptr<string> subtitleId_ {};
     // The name of the subtitle template. The name can contain only digits, letters, and hyphens (-). The name cannot start with a hyphen.
-    std::shared_ptr<string> subtitleName_ = nullptr;
+    shared_ptr<string> subtitleName_ {};
   };
 
   } // namespace Models

@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->app_ == nullptr
-        && return this->callbackUrl_ == nullptr && return this->dingTalkWebHookUrl_ == nullptr && return this->domain_ == nullptr && return this->inputList_ == nullptr && return this->monitorConfig_ == nullptr
-        && return this->monitorName_ == nullptr && return this->outputTemplate_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->stream_ == nullptr; };
+        && this->callbackUrl_ == nullptr && this->dingTalkWebHookUrl_ == nullptr && this->domain_ == nullptr && this->inputList_ == nullptr && this->monitorConfig_ == nullptr
+        && this->monitorName_ == nullptr && this->outputTemplate_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->stream_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
-    inline string app() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
+    inline string getApp() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
     inline CreateLiveStreamMonitorRequest& setApp(string app) { DARABONBA_PTR_SET_VALUE(app_, app) };
 
 
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
-    inline string callbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
+    inline string getCallbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
     inline CreateLiveStreamMonitorRequest& setCallbackUrl(string callbackUrl) { DARABONBA_PTR_SET_VALUE(callbackUrl_, callbackUrl) };
 
 
     // dingTalkWebHookUrl Field Functions 
     bool hasDingTalkWebHookUrl() const { return this->dingTalkWebHookUrl_ != nullptr;};
     void deleteDingTalkWebHookUrl() { this->dingTalkWebHookUrl_ = nullptr;};
-    inline string dingTalkWebHookUrl() const { DARABONBA_PTR_GET_DEFAULT(dingTalkWebHookUrl_, "") };
+    inline string getDingTalkWebHookUrl() const { DARABONBA_PTR_GET_DEFAULT(dingTalkWebHookUrl_, "") };
     inline CreateLiveStreamMonitorRequest& setDingTalkWebHookUrl(string dingTalkWebHookUrl) { DARABONBA_PTR_SET_VALUE(dingTalkWebHookUrl_, dingTalkWebHookUrl) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline CreateLiveStreamMonitorRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // inputList Field Functions 
     bool hasInputList() const { return this->inputList_ != nullptr;};
     void deleteInputList() { this->inputList_ = nullptr;};
-    inline string inputList() const { DARABONBA_PTR_GET_DEFAULT(inputList_, "") };
+    inline string getInputList() const { DARABONBA_PTR_GET_DEFAULT(inputList_, "") };
     inline CreateLiveStreamMonitorRequest& setInputList(string inputList) { DARABONBA_PTR_SET_VALUE(inputList_, inputList) };
 
 
     // monitorConfig Field Functions 
     bool hasMonitorConfig() const { return this->monitorConfig_ != nullptr;};
     void deleteMonitorConfig() { this->monitorConfig_ = nullptr;};
-    inline string monitorConfig() const { DARABONBA_PTR_GET_DEFAULT(monitorConfig_, "") };
+    inline string getMonitorConfig() const { DARABONBA_PTR_GET_DEFAULT(monitorConfig_, "") };
     inline CreateLiveStreamMonitorRequest& setMonitorConfig(string monitorConfig) { DARABONBA_PTR_SET_VALUE(monitorConfig_, monitorConfig) };
 
 
     // monitorName Field Functions 
     bool hasMonitorName() const { return this->monitorName_ != nullptr;};
     void deleteMonitorName() { this->monitorName_ = nullptr;};
-    inline string monitorName() const { DARABONBA_PTR_GET_DEFAULT(monitorName_, "") };
+    inline string getMonitorName() const { DARABONBA_PTR_GET_DEFAULT(monitorName_, "") };
     inline CreateLiveStreamMonitorRequest& setMonitorName(string monitorName) { DARABONBA_PTR_SET_VALUE(monitorName_, monitorName) };
 
 
     // outputTemplate Field Functions 
     bool hasOutputTemplate() const { return this->outputTemplate_ != nullptr;};
     void deleteOutputTemplate() { this->outputTemplate_ = nullptr;};
-    inline string outputTemplate() const { DARABONBA_PTR_GET_DEFAULT(outputTemplate_, "") };
+    inline string getOutputTemplate() const { DARABONBA_PTR_GET_DEFAULT(outputTemplate_, "") };
     inline CreateLiveStreamMonitorRequest& setOutputTemplate(string outputTemplate) { DARABONBA_PTR_SET_VALUE(outputTemplate_, outputTemplate) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateLiveStreamMonitorRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateLiveStreamMonitorRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // stream Field Functions 
     bool hasStream() const { return this->stream_ != nullptr;};
     void deleteStream() { this->stream_ = nullptr;};
-    inline string stream() const { DARABONBA_PTR_GET_DEFAULT(stream_, "") };
+    inline string getStream() const { DARABONBA_PTR_GET_DEFAULT(stream_, "") };
     inline CreateLiveStreamMonitorRequest& setStream(string stream) { DARABONBA_PTR_SET_VALUE(stream_, stream) };
 
 
@@ -133,26 +133,26 @@ namespace Models
     // The name of the application that plays the output streams of the monitoring session.
     // 
     // You can specify a name. If you do not specify a name, the system uses **monitor** as the name of the application.
-    std::shared_ptr<string> app_ = nullptr;
+    shared_ptr<string> app_ {};
     // Supports input of callback addresses in HTTP(S) format.
-    std::shared_ptr<string> callbackUrl_ = nullptr;
+    shared_ptr<string> callbackUrl_ {};
     // DingTalk alert monitoring sends alert notifications through a DingTalk group robot. Please set up the DingTalk group robot first and enter the HTTP(S) address of the robot here. For more details, see [Custom Robot Access](https://open.dingtalk.com/document/robots/custom-robot-access).
     // > Configure the custom keyword for the DingTalk group robot as \\"alert\\", otherwise, messages will not be received.
-    std::shared_ptr<string> dingTalkWebHookUrl_ = nullptr;
+    shared_ptr<string> dingTalkWebHookUrl_ {};
     // The endpoint of the monitoring session.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The list of input streams to monitor. For more information, see the following **InputConfig** table.
     // 
     // This parameter is required.
-    std::shared_ptr<string> inputList_ = nullptr;
+    shared_ptr<string> inputList_ {};
     // Alarm threshold setting for monitoring, in JSON format. For more details, please refer to the table below for MonitorConfig.
-    std::shared_ptr<string> monitorConfig_ = nullptr;
+    shared_ptr<string> monitorConfig_ {};
     // The name of the monitoring session.
     // 
     // This parameter is required.
-    std::shared_ptr<string> monitorName_ = nullptr;
+    shared_ptr<string> monitorName_ {};
     // The output template of the monitoring session. Valid values:
     // 
     // *   **lp_ld**: low definition.
@@ -161,11 +161,11 @@ namespace Models
     // *   **lp_ud**: ultra high definition.
     // 
     // This parameter is required.
-    std::shared_ptr<string> outputTemplate_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> outputTemplate_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the output stream of the monitoring session. If you do not specify a name, the system generates a name at random.
-    std::shared_ptr<string> stream_ = nullptr;
+    shared_ptr<string> stream_ {};
   };
 
   } // namespace Models

@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->monitorId_ == nullptr
-        && return this->orderRule_ == nullptr && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->orderRule_ == nullptr && this->ownerId_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
+        && this->status_ == nullptr; };
     // monitorId Field Functions 
     bool hasMonitorId() const { return this->monitorId_ != nullptr;};
     void deleteMonitorId() { this->monitorId_ = nullptr;};
-    inline string monitorId() const { DARABONBA_PTR_GET_DEFAULT(monitorId_, "") };
+    inline string getMonitorId() const { DARABONBA_PTR_GET_DEFAULT(monitorId_, "") };
     inline DescribeLiveStreamMonitorListRequest& setMonitorId(string monitorId) { DARABONBA_PTR_SET_VALUE(monitorId_, monitorId) };
 
 
     // orderRule Field Functions 
     bool hasOrderRule() const { return this->orderRule_ != nullptr;};
     void deleteOrderRule() { this->orderRule_ = nullptr;};
-    inline int32_t orderRule() const { DARABONBA_PTR_GET_DEFAULT(orderRule_, 0) };
+    inline int32_t getOrderRule() const { DARABONBA_PTR_GET_DEFAULT(orderRule_, 0) };
     inline DescribeLiveStreamMonitorListRequest& setOrderRule(int32_t orderRule) { DARABONBA_PTR_SET_VALUE(orderRule_, orderRule) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeLiveStreamMonitorListRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline DescribeLiveStreamMonitorListRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeLiveStreamMonitorListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeLiveStreamMonitorListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline DescribeLiveStreamMonitorListRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -97,24 +97,24 @@ namespace Models
     // The ID of the monitoring session.
     // 
     // >  You can obtain the monitoring session ID from the response parameter MonitorId of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation. If you leave this parameter empty, the data of all monitoring sessions is returned.
-    std::shared_ptr<string> monitorId_ = nullptr;
+    shared_ptr<string> monitorId_ {};
     // The sorting order of monitoring sessions. Valid values:
     // 
     // *   0: Monitoring sessions are sorted by status.
     // *   1: Monitoring sessions are sorted by start time in descending order.
     // *   2: Monitoring sessions are sorted by start time in ascending order.
-    std::shared_ptr<int32_t> orderRule_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int32_t> orderRule_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
+    shared_ptr<int32_t> pageNum_ {};
     // The number of monitoring sessions to return per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> regionId_ {};
     // The status of the monitoring session. Valid values:
     // 
     // *   1: Monitoring
     // *   0: Unmonitored
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

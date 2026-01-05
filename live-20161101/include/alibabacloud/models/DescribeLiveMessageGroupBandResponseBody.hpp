@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bannedUserList_ == nullptr
-        && return this->groupId_ == nullptr && return this->isbannedAll_ == nullptr && return this->requestId_ == nullptr && return this->unbannedUserList_ == nullptr; };
+        && this->groupId_ == nullptr && this->isbannedAll_ == nullptr && this->requestId_ == nullptr && this->unbannedUserList_ == nullptr; };
     // bannedUserList Field Functions 
     bool hasBannedUserList() const { return this->bannedUserList_ != nullptr;};
     void deleteBannedUserList() { this->bannedUserList_ = nullptr;};
-    inline const vector<string> & bannedUserList() const { DARABONBA_PTR_GET_CONST(bannedUserList_, vector<string>) };
-    inline vector<string> bannedUserList() { DARABONBA_PTR_GET(bannedUserList_, vector<string>) };
+    inline const vector<string> & getBannedUserList() const { DARABONBA_PTR_GET_CONST(bannedUserList_, vector<string>) };
+    inline vector<string> getBannedUserList() { DARABONBA_PTR_GET(bannedUserList_, vector<string>) };
     inline DescribeLiveMessageGroupBandResponseBody& setBannedUserList(const vector<string> & bannedUserList) { DARABONBA_PTR_SET_VALUE(bannedUserList_, bannedUserList) };
     inline DescribeLiveMessageGroupBandResponseBody& setBannedUserList(vector<string> && bannedUserList) { DARABONBA_PTR_SET_RVALUE(bannedUserList_, bannedUserList) };
 
@@ -52,44 +52,44 @@ namespace Models
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DescribeLiveMessageGroupBandResponseBody& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // isbannedAll Field Functions 
     bool hasIsbannedAll() const { return this->isbannedAll_ != nullptr;};
     void deleteIsbannedAll() { this->isbannedAll_ = nullptr;};
-    inline bool isbannedAll() const { DARABONBA_PTR_GET_DEFAULT(isbannedAll_, false) };
+    inline bool getIsbannedAll() const { DARABONBA_PTR_GET_DEFAULT(isbannedAll_, false) };
     inline DescribeLiveMessageGroupBandResponseBody& setIsbannedAll(bool isbannedAll) { DARABONBA_PTR_SET_VALUE(isbannedAll_, isbannedAll) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLiveMessageGroupBandResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // unbannedUserList Field Functions 
     bool hasUnbannedUserList() const { return this->unbannedUserList_ != nullptr;};
     void deleteUnbannedUserList() { this->unbannedUserList_ = nullptr;};
-    inline const vector<string> & unbannedUserList() const { DARABONBA_PTR_GET_CONST(unbannedUserList_, vector<string>) };
-    inline vector<string> unbannedUserList() { DARABONBA_PTR_GET(unbannedUserList_, vector<string>) };
+    inline const vector<string> & getUnbannedUserList() const { DARABONBA_PTR_GET_CONST(unbannedUserList_, vector<string>) };
+    inline vector<string> getUnbannedUserList() { DARABONBA_PTR_GET(unbannedUserList_, vector<string>) };
     inline DescribeLiveMessageGroupBandResponseBody& setUnbannedUserList(const vector<string> & unbannedUserList) { DARABONBA_PTR_SET_VALUE(unbannedUserList_, unbannedUserList) };
     inline DescribeLiveMessageGroupBandResponseBody& setUnbannedUserList(vector<string> && unbannedUserList) { DARABONBA_PTR_SET_RVALUE(unbannedUserList_, unbannedUserList) };
 
 
   protected:
     // The list of users that were muted separately, but not by muting the entire group.
-    std::shared_ptr<vector<string>> bannedUserList_ = nullptr;
+    shared_ptr<vector<string>> bannedUserList_ {};
     // The group ID.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // Indicates whether all users in the interactive messaging group are muted.
-    std::shared_ptr<bool> isbannedAll_ = nullptr;
+    shared_ptr<bool> isbannedAll_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The list of users who were not muted when the entire group was muted.
-    std::shared_ptr<vector<string>> unbannedUserList_ = nullptr;
+    shared_ptr<vector<string>> unbannedUserList_ {};
   };
 
   } // namespace Models

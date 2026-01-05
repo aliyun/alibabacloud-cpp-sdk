@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->showId_ == nullptr; };
+        && this->showId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline PlayChoosenShowResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // showId Field Functions 
     bool hasShowId() const { return this->showId_ != nullptr;};
     void deleteShowId() { this->showId_ = nullptr;};
-    inline string showId() const { DARABONBA_PTR_GET_DEFAULT(showId_, "") };
+    inline string getShowId() const { DARABONBA_PTR_GET_DEFAULT(showId_, "") };
     inline PlayChoosenShowResponseBody& setShowId(string showId) { DARABONBA_PTR_SET_VALUE(showId_, showId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the episode.
-    std::shared_ptr<string> showId_ = nullptr;
+    shared_ptr<string> showId_ {};
   };
 
   } // namespace Models

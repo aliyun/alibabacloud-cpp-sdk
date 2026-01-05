@@ -6360,6 +6360,27 @@ namespace Live20161101
       Models::DescribeLiveStreamsTotalCountResponse describeLiveStreamsTotalCount(const Models::DescribeLiveStreamsTotalCountRequest &request);
 
       /**
+       * @summary Queries the tags of domain names.
+       *
+       * @description You can call this operation up to 10 times per second per account.
+       *
+       * @param request DescribeLiveTagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLiveTagResourcesResponse
+       */
+      Models::DescribeLiveTagResourcesResponse describeLiveTagResourcesWithOptions(const Models::DescribeLiveTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the tags of domain names.
+       *
+       * @description You can call this operation up to 10 times per second per account.
+       *
+       * @param request DescribeLiveTagResourcesRequest
+       * @return DescribeLiveTagResourcesResponse
+       */
+      Models::DescribeLiveTagResourcesResponse describeLiveTagResources(const Models::DescribeLiveTagResourcesRequest &request);
+
+      /**
        * @summary Queries the top domain names ranked by traffic.
        *
        * @description *   If you do not specify the StartTime or EndTime parameter, data of the current month is queried by default. To query data within a specific time range, you must specify both the StartTime and EndTime parameters.

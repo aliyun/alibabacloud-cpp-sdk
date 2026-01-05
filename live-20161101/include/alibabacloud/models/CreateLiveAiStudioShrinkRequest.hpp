@@ -58,127 +58,127 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backgroundResourceId_ == nullptr
-        && return this->backgroundResourceUrl_ == nullptr && return this->backgroundType_ == nullptr && return this->description_ == nullptr && return this->height_ == nullptr && return this->mattingLayoutShrink_ == nullptr
-        && return this->mattingType_ == nullptr && return this->mediaLayoutShrink_ == nullptr && return this->mediaResourceId_ == nullptr && return this->mediaResourceUrl_ == nullptr && return this->mediaType_ == nullptr
-        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->studioName_ == nullptr && return this->width_ == nullptr; };
+        && this->backgroundResourceUrl_ == nullptr && this->backgroundType_ == nullptr && this->description_ == nullptr && this->height_ == nullptr && this->mattingLayoutShrink_ == nullptr
+        && this->mattingType_ == nullptr && this->mediaLayoutShrink_ == nullptr && this->mediaResourceId_ == nullptr && this->mediaResourceUrl_ == nullptr && this->mediaType_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->studioName_ == nullptr && this->width_ == nullptr; };
     // backgroundResourceId Field Functions 
     bool hasBackgroundResourceId() const { return this->backgroundResourceId_ != nullptr;};
     void deleteBackgroundResourceId() { this->backgroundResourceId_ = nullptr;};
-    inline string backgroundResourceId() const { DARABONBA_PTR_GET_DEFAULT(backgroundResourceId_, "") };
+    inline string getBackgroundResourceId() const { DARABONBA_PTR_GET_DEFAULT(backgroundResourceId_, "") };
     inline CreateLiveAIStudioShrinkRequest& setBackgroundResourceId(string backgroundResourceId) { DARABONBA_PTR_SET_VALUE(backgroundResourceId_, backgroundResourceId) };
 
 
     // backgroundResourceUrl Field Functions 
     bool hasBackgroundResourceUrl() const { return this->backgroundResourceUrl_ != nullptr;};
     void deleteBackgroundResourceUrl() { this->backgroundResourceUrl_ = nullptr;};
-    inline string backgroundResourceUrl() const { DARABONBA_PTR_GET_DEFAULT(backgroundResourceUrl_, "") };
+    inline string getBackgroundResourceUrl() const { DARABONBA_PTR_GET_DEFAULT(backgroundResourceUrl_, "") };
     inline CreateLiveAIStudioShrinkRequest& setBackgroundResourceUrl(string backgroundResourceUrl) { DARABONBA_PTR_SET_VALUE(backgroundResourceUrl_, backgroundResourceUrl) };
 
 
     // backgroundType Field Functions 
     bool hasBackgroundType() const { return this->backgroundType_ != nullptr;};
     void deleteBackgroundType() { this->backgroundType_ = nullptr;};
-    inline string backgroundType() const { DARABONBA_PTR_GET_DEFAULT(backgroundType_, "") };
+    inline string getBackgroundType() const { DARABONBA_PTR_GET_DEFAULT(backgroundType_, "") };
     inline CreateLiveAIStudioShrinkRequest& setBackgroundType(string backgroundType) { DARABONBA_PTR_SET_VALUE(backgroundType_, backgroundType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateLiveAIStudioShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};
-    inline int32_t height() const { DARABONBA_PTR_GET_DEFAULT(height_, 0) };
+    inline int32_t getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0) };
     inline CreateLiveAIStudioShrinkRequest& setHeight(int32_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
 
 
     // mattingLayoutShrink Field Functions 
     bool hasMattingLayoutShrink() const { return this->mattingLayoutShrink_ != nullptr;};
     void deleteMattingLayoutShrink() { this->mattingLayoutShrink_ = nullptr;};
-    inline string mattingLayoutShrink() const { DARABONBA_PTR_GET_DEFAULT(mattingLayoutShrink_, "") };
+    inline string getMattingLayoutShrink() const { DARABONBA_PTR_GET_DEFAULT(mattingLayoutShrink_, "") };
     inline CreateLiveAIStudioShrinkRequest& setMattingLayoutShrink(string mattingLayoutShrink) { DARABONBA_PTR_SET_VALUE(mattingLayoutShrink_, mattingLayoutShrink) };
 
 
     // mattingType Field Functions 
     bool hasMattingType() const { return this->mattingType_ != nullptr;};
     void deleteMattingType() { this->mattingType_ = nullptr;};
-    inline string mattingType() const { DARABONBA_PTR_GET_DEFAULT(mattingType_, "") };
+    inline string getMattingType() const { DARABONBA_PTR_GET_DEFAULT(mattingType_, "") };
     inline CreateLiveAIStudioShrinkRequest& setMattingType(string mattingType) { DARABONBA_PTR_SET_VALUE(mattingType_, mattingType) };
 
 
     // mediaLayoutShrink Field Functions 
     bool hasMediaLayoutShrink() const { return this->mediaLayoutShrink_ != nullptr;};
     void deleteMediaLayoutShrink() { this->mediaLayoutShrink_ = nullptr;};
-    inline string mediaLayoutShrink() const { DARABONBA_PTR_GET_DEFAULT(mediaLayoutShrink_, "") };
+    inline string getMediaLayoutShrink() const { DARABONBA_PTR_GET_DEFAULT(mediaLayoutShrink_, "") };
     inline CreateLiveAIStudioShrinkRequest& setMediaLayoutShrink(string mediaLayoutShrink) { DARABONBA_PTR_SET_VALUE(mediaLayoutShrink_, mediaLayoutShrink) };
 
 
     // mediaResourceId Field Functions 
     bool hasMediaResourceId() const { return this->mediaResourceId_ != nullptr;};
     void deleteMediaResourceId() { this->mediaResourceId_ = nullptr;};
-    inline string mediaResourceId() const { DARABONBA_PTR_GET_DEFAULT(mediaResourceId_, "") };
+    inline string getMediaResourceId() const { DARABONBA_PTR_GET_DEFAULT(mediaResourceId_, "") };
     inline CreateLiveAIStudioShrinkRequest& setMediaResourceId(string mediaResourceId) { DARABONBA_PTR_SET_VALUE(mediaResourceId_, mediaResourceId) };
 
 
     // mediaResourceUrl Field Functions 
     bool hasMediaResourceUrl() const { return this->mediaResourceUrl_ != nullptr;};
     void deleteMediaResourceUrl() { this->mediaResourceUrl_ = nullptr;};
-    inline string mediaResourceUrl() const { DARABONBA_PTR_GET_DEFAULT(mediaResourceUrl_, "") };
+    inline string getMediaResourceUrl() const { DARABONBA_PTR_GET_DEFAULT(mediaResourceUrl_, "") };
     inline CreateLiveAIStudioShrinkRequest& setMediaResourceUrl(string mediaResourceUrl) { DARABONBA_PTR_SET_VALUE(mediaResourceUrl_, mediaResourceUrl) };
 
 
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
-    inline string mediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
+    inline string getMediaType() const { DARABONBA_PTR_GET_DEFAULT(mediaType_, "") };
     inline CreateLiveAIStudioShrinkRequest& setMediaType(string mediaType) { DARABONBA_PTR_SET_VALUE(mediaType_, mediaType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateLiveAIStudioShrinkRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateLiveAIStudioShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // studioName Field Functions 
     bool hasStudioName() const { return this->studioName_ != nullptr;};
     void deleteStudioName() { this->studioName_ = nullptr;};
-    inline string studioName() const { DARABONBA_PTR_GET_DEFAULT(studioName_, "") };
+    inline string getStudioName() const { DARABONBA_PTR_GET_DEFAULT(studioName_, "") };
     inline CreateLiveAIStudioShrinkRequest& setStudioName(string studioName) { DARABONBA_PTR_SET_VALUE(studioName_, studioName) };
 
 
     // width Field Functions 
     bool hasWidth() const { return this->width_ != nullptr;};
     void deleteWidth() { this->width_ = nullptr;};
-    inline int32_t width() const { DARABONBA_PTR_GET_DEFAULT(width_, 0) };
+    inline int32_t getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0) };
     inline CreateLiveAIStudioShrinkRequest& setWidth(int32_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
 
 
   protected:
     // The ID of the background material in ApsaraVideo VOD. You can obtain the ID from the ApsaraVideo VOD console.
-    std::shared_ptr<string> backgroundResourceId_ = nullptr;
+    shared_ptr<string> backgroundResourceId_ {};
     // The URL of the background material. Specify either this parameter or the BackgroundResourceId parameter.
-    std::shared_ptr<string> backgroundResourceUrl_ = nullptr;
+    shared_ptr<string> backgroundResourceUrl_ {};
     // The type of the background material. Valid values:
     // 
     // *   VOD: a video in ApsaraVideo VOD
     // *   PIC: an image
     // *   LIVE: a live stream
-    std::shared_ptr<string> backgroundType_ = nullptr;
+    shared_ptr<string> backgroundType_ {};
     // The custom description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The preview height. Unit: pixels.
     // 
     // The following preview specifications (width × height) are supported:
@@ -191,11 +191,11 @@ namespace Models
     // *   Portrait high definition 720p (720×1280)
     // *   Landscape ultra-high definition 1080p (1920×1080)
     // *   Portrait ultra-high definition 1080p (1080×1920)
-    std::shared_ptr<int32_t> height_ = nullptr;
+    shared_ptr<int32_t> height_ {};
     // The layout information of the chroma-keyed material.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mattingLayoutShrink_ = nullptr;
+    shared_ptr<string> mattingLayoutShrink_ {};
     // The type of chroma key. Valid values:
     // 
     // *   green: green-screen chroma key
@@ -203,27 +203,27 @@ namespace Models
     // *   complex: background replacement
     // 
     // This parameter is required.
-    std::shared_ptr<string> mattingType_ = nullptr;
+    shared_ptr<string> mattingType_ {};
     // The layout information of the multimedia material.
-    std::shared_ptr<string> mediaLayoutShrink_ = nullptr;
+    shared_ptr<string> mediaLayoutShrink_ {};
     // The ID of the multimedia material in ApsaraVideo VOD. You can obtain the ID from the ApsaraVideo VOD console.
-    std::shared_ptr<string> mediaResourceId_ = nullptr;
+    shared_ptr<string> mediaResourceId_ {};
     // The URL of the multimedia material. Specify either this parameter or the MediaResourceId parameter.
-    std::shared_ptr<string> mediaResourceUrl_ = nullptr;
+    shared_ptr<string> mediaResourceUrl_ {};
     // The type of the multimedia material. Valid values:
     // 
     // *   VOD: a video in ApsaraVideo VOD
     // *   PIC: an image
     // *   LIVE: a live stream
-    std::shared_ptr<string> mediaType_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> mediaType_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the virtual studio template. The name must be unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> studioName_ = nullptr;
+    shared_ptr<string> studioName_ {};
     // The preview width. Unit: pixels.
-    std::shared_ptr<int32_t> width_ = nullptr;
+    shared_ptr<int32_t> width_ {};
   };
 
   } // namespace Models

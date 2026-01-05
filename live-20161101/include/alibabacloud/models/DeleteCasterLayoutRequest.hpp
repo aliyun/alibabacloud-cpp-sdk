@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->casterId_ == nullptr
-        && return this->layoutId_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->layoutId_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};
-    inline string casterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
+    inline string getCasterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
     inline DeleteCasterLayoutRequest& setCasterId(string casterId) { DARABONBA_PTR_SET_VALUE(casterId_, casterId) };
 
 
     // layoutId Field Functions 
     bool hasLayoutId() const { return this->layoutId_ != nullptr;};
     void deleteLayoutId() { this->layoutId_ = nullptr;};
-    inline string layoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
+    inline string getLayoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
     inline DeleteCasterLayoutRequest& setLayoutId(string layoutId) { DARABONBA_PTR_SET_VALUE(layoutId_, layoutId) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DeleteCasterLayoutRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteCasterLayoutRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -74,13 +74,13 @@ namespace Models
     // >  You can find the ID of the production studio in the Instance ID/Name column.
     // 
     // This parameter is required.
-    std::shared_ptr<string> casterId_ = nullptr;
+    shared_ptr<string> casterId_ {};
     // The ID of the layout. If the layout was added by calling the [AddCasterLayout](https://help.aliyun.com/document_detail/60249.html) operation, check the value of the response parameter LayoutId to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> layoutId_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> layoutId_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

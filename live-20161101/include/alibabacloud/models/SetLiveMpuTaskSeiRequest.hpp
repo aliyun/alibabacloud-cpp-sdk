@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->customSei_ == nullptr && return this->taskId_ == nullptr; };
+        && this->customSei_ == nullptr && this->taskId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline SetLiveMpuTaskSeiRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // customSei Field Functions 
     bool hasCustomSei() const { return this->customSei_ != nullptr;};
     void deleteCustomSei() { this->customSei_ = nullptr;};
-    inline string customSei() const { DARABONBA_PTR_GET_DEFAULT(customSei_, "") };
+    inline string getCustomSei() const { DARABONBA_PTR_GET_DEFAULT(customSei_, "") };
     inline SetLiveMpuTaskSeiRequest& setCustomSei(string customSei) { DARABONBA_PTR_SET_VALUE(customSei_, customSei) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline SetLiveMpuTaskSeiRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
@@ -62,19 +62,19 @@ namespace Models
     // >  The ID can be up to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The custom SEI.
     // 
     // >  The value is a JSON string that can be up to 4,096 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customSei_ = nullptr;
+    shared_ptr<string> customSei_ {};
     // The task ID.
     // 
     // >  The ID can be up to 55 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

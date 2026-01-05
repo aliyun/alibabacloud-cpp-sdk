@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->subscribeId_ == nullptr; };
+        && this->subscribeId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DeleteEventSubRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // subscribeId Field Functions 
     bool hasSubscribeId() const { return this->subscribeId_ != nullptr;};
     void deleteSubscribeId() { this->subscribeId_ = nullptr;};
-    inline string subscribeId() const { DARABONBA_PTR_GET_DEFAULT(subscribeId_, "") };
+    inline string getSubscribeId() const { DARABONBA_PTR_GET_DEFAULT(subscribeId_, "") };
     inline DeleteEventSubRequest& setSubscribeId(string subscribeId) { DARABONBA_PTR_SET_VALUE(subscribeId_, subscribeId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The subscription ID. You can obtain the ID from the response to the [CreateEventSub](https://help.aliyun.com/document_detail/2848209.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> subscribeId_ = nullptr;
+    shared_ptr<string> subscribeId_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->subscribeId_ == nullptr; };
+        && this->subscribeId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateEventSubResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // subscribeId Field Functions 
     bool hasSubscribeId() const { return this->subscribeId_ != nullptr;};
     void deleteSubscribeId() { this->subscribeId_ = nullptr;};
-    inline string subscribeId() const { DARABONBA_PTR_GET_DEFAULT(subscribeId_, "") };
+    inline string getSubscribeId() const { DARABONBA_PTR_GET_DEFAULT(subscribeId_, "") };
     inline CreateEventSubResponseBody& setSubscribeId(string subscribeId) { DARABONBA_PTR_SET_VALUE(subscribeId_, subscribeId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The subscription ID.
-    std::shared_ptr<string> subscribeId_ = nullptr;
+    shared_ptr<string> subscribeId_ {};
   };
 
   } // namespace Models

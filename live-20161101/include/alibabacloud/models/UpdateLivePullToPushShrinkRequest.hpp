@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callbackUrl_ == nullptr
-        && return this->endTime_ == nullptr && return this->fileIndex_ == nullptr && return this->offset_ == nullptr && return this->ownerId_ == nullptr && return this->region_ == nullptr
-        && return this->regionId_ == nullptr && return this->repeatNumber_ == nullptr && return this->sourceUrlsShrink_ == nullptr && return this->startTime_ == nullptr && return this->taskId_ == nullptr; };
+        && this->endTime_ == nullptr && this->fileIndex_ == nullptr && this->offset_ == nullptr && this->ownerId_ == nullptr && this->region_ == nullptr
+        && this->regionId_ == nullptr && this->repeatNumber_ == nullptr && this->sourceUrlsShrink_ == nullptr && this->startTime_ == nullptr && this->taskId_ == nullptr; };
     // callbackUrl Field Functions 
     bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
     void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
-    inline string callbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
+    inline string getCallbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
     inline UpdateLivePullToPushShrinkRequest& setCallbackUrl(string callbackUrl) { DARABONBA_PTR_SET_VALUE(callbackUrl_, callbackUrl) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline UpdateLivePullToPushShrinkRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // fileIndex Field Functions 
     bool hasFileIndex() const { return this->fileIndex_ != nullptr;};
     void deleteFileIndex() { this->fileIndex_ = nullptr;};
-    inline int32_t fileIndex() const { DARABONBA_PTR_GET_DEFAULT(fileIndex_, 0) };
+    inline int32_t getFileIndex() const { DARABONBA_PTR_GET_DEFAULT(fileIndex_, 0) };
     inline UpdateLivePullToPushShrinkRequest& setFileIndex(int32_t fileIndex) { DARABONBA_PTR_SET_VALUE(fileIndex_, fileIndex) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline int32_t offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
+    inline int32_t getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
     inline UpdateLivePullToPushShrinkRequest& setOffset(int32_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateLivePullToPushShrinkRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline UpdateLivePullToPushShrinkRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateLivePullToPushShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // repeatNumber Field Functions 
     bool hasRepeatNumber() const { return this->repeatNumber_ != nullptr;};
     void deleteRepeatNumber() { this->repeatNumber_ = nullptr;};
-    inline int32_t repeatNumber() const { DARABONBA_PTR_GET_DEFAULT(repeatNumber_, 0) };
+    inline int32_t getRepeatNumber() const { DARABONBA_PTR_GET_DEFAULT(repeatNumber_, 0) };
     inline UpdateLivePullToPushShrinkRequest& setRepeatNumber(int32_t repeatNumber) { DARABONBA_PTR_SET_VALUE(repeatNumber_, repeatNumber) };
 
 
     // sourceUrlsShrink Field Functions 
     bool hasSourceUrlsShrink() const { return this->sourceUrlsShrink_ != nullptr;};
     void deleteSourceUrlsShrink() { this->sourceUrlsShrink_ = nullptr;};
-    inline string sourceUrlsShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceUrlsShrink_, "") };
+    inline string getSourceUrlsShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceUrlsShrink_, "") };
     inline UpdateLivePullToPushShrinkRequest& setSourceUrlsShrink(string sourceUrlsShrink) { DARABONBA_PTR_SET_VALUE(sourceUrlsShrink_, sourceUrlsShrink) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline UpdateLivePullToPushShrinkRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline UpdateLivePullToPushShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
@@ -141,7 +141,7 @@ namespace Models
     // *   If you do not specify this parameter, no callbacks are returned for events related to the task.
     // 
     // *   The update takes effect for subsequent events that occur.
-    std::shared_ptr<string> callbackUrl_ = nullptr;
+    shared_ptr<string> callbackUrl_ {};
     // The end time of the task.
     // 
     // > 
@@ -155,11 +155,11 @@ namespace Models
     // *   The end time must be later than the current time.
     // 
     // *   If the task has ended, the update does not take effect.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The file index. Default value: 0.
     // 
     // >  You can modify this parameter only if the task is stopped. The update takes effect after you restart the task.
-    std::shared_ptr<int32_t> fileIndex_ = nullptr;
+    shared_ptr<int32_t> fileIndex_ {};
     // The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
     // 
     // > 
@@ -171,8 +171,8 @@ namespace Models
     // *   The update takes effect only for the first video in a video list.
     // 
     // *   You can modify this parameter only if the task is stopped. The update takes effect immediately.
-    std::shared_ptr<int32_t> offset_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int32_t> offset_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region where the task is started. Valid values:
     // 
     // *   ap-southeast-1: Singapore
@@ -181,8 +181,8 @@ namespace Models
     // *   cn-shanghai: China (Shanghai)
     // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<string> regionId_ {};
     // The number of playbacks after the first playback is complete. Valid values:
     // 
     // *   0 (default): specifies that the video list is played only once.
@@ -194,7 +194,7 @@ namespace Models
     // *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
     // 
     // *   The update can take effect immediately.
-    std::shared_ptr<int32_t> repeatNumber_ = nullptr;
+    shared_ptr<int32_t> repeatNumber_ {};
     // The source URLs.
     // 
     // > 
@@ -212,7 +212,7 @@ namespace Models
     // *   If the source is a live stream, the update takes effect immediately. If the source is a list of video resources from ApsaraVideo VOD or a third party, the update does not take effect until the playback of the current video ends. After the update takes effect, the video list starts to play from the beginning.
     // 
     // *   You can modify this parameter only if the task is stopped. The update takes effect immediately.
-    std::shared_ptr<string> sourceUrlsShrink_ = nullptr;
+    shared_ptr<string> sourceUrlsShrink_ {};
     // The start time of the task.
     // 
     // > 
@@ -222,11 +222,11 @@ namespace Models
     // *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
     // 
     // *   If the task has already started, the update does not take effect.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The task ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

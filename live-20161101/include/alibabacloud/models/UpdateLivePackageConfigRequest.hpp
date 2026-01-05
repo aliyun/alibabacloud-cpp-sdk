@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->domainName_ == nullptr && return this->ignoreTranscode_ == nullptr && return this->ownerId_ == nullptr && return this->partDuration_ == nullptr && return this->protocol_ == nullptr
-        && return this->regionId_ == nullptr && return this->segmentDuration_ == nullptr && return this->segmentNum_ == nullptr && return this->streamName_ == nullptr; };
+        && this->domainName_ == nullptr && this->ignoreTranscode_ == nullptr && this->ownerId_ == nullptr && this->partDuration_ == nullptr && this->protocol_ == nullptr
+        && this->regionId_ == nullptr && this->segmentDuration_ == nullptr && this->segmentNum_ == nullptr && this->streamName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline UpdateLivePackageConfigRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline UpdateLivePackageConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // ignoreTranscode Field Functions 
     bool hasIgnoreTranscode() const { return this->ignoreTranscode_ != nullptr;};
     void deleteIgnoreTranscode() { this->ignoreTranscode_ = nullptr;};
-    inline bool ignoreTranscode() const { DARABONBA_PTR_GET_DEFAULT(ignoreTranscode_, false) };
+    inline bool getIgnoreTranscode() const { DARABONBA_PTR_GET_DEFAULT(ignoreTranscode_, false) };
     inline UpdateLivePackageConfigRequest& setIgnoreTranscode(bool ignoreTranscode) { DARABONBA_PTR_SET_VALUE(ignoreTranscode_, ignoreTranscode) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateLivePackageConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // partDuration Field Functions 
     bool hasPartDuration() const { return this->partDuration_ != nullptr;};
     void deletePartDuration() { this->partDuration_ = nullptr;};
-    inline int32_t partDuration() const { DARABONBA_PTR_GET_DEFAULT(partDuration_, 0) };
+    inline int32_t getPartDuration() const { DARABONBA_PTR_GET_DEFAULT(partDuration_, 0) };
     inline UpdateLivePackageConfigRequest& setPartDuration(int32_t partDuration) { DARABONBA_PTR_SET_VALUE(partDuration_, partDuration) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline UpdateLivePackageConfigRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateLivePackageConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // segmentDuration Field Functions 
     bool hasSegmentDuration() const { return this->segmentDuration_ != nullptr;};
     void deleteSegmentDuration() { this->segmentDuration_ = nullptr;};
-    inline int32_t segmentDuration() const { DARABONBA_PTR_GET_DEFAULT(segmentDuration_, 0) };
+    inline int32_t getSegmentDuration() const { DARABONBA_PTR_GET_DEFAULT(segmentDuration_, 0) };
     inline UpdateLivePackageConfigRequest& setSegmentDuration(int32_t segmentDuration) { DARABONBA_PTR_SET_VALUE(segmentDuration_, segmentDuration) };
 
 
     // segmentNum Field Functions 
     bool hasSegmentNum() const { return this->segmentNum_ != nullptr;};
     void deleteSegmentNum() { this->segmentNum_ = nullptr;};
-    inline int32_t segmentNum() const { DARABONBA_PTR_GET_DEFAULT(segmentNum_, 0) };
+    inline int32_t getSegmentNum() const { DARABONBA_PTR_GET_DEFAULT(segmentNum_, 0) };
     inline UpdateLivePackageConfigRequest& setSegmentNum(int32_t segmentNum) { DARABONBA_PTR_SET_VALUE(segmentNum_, segmentNum) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline UpdateLivePackageConfigRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
@@ -124,24 +124,24 @@ namespace Models
     // The application name. The value of this parameter must be the same as the application name that is specified in the ingest URL. Otherwise, the configuration does not take effect. The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name cannot start with a hyphen (-) or underscore (_). You can also specify an asterisk (\\*) as the value to match all applications.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // Specifies whether to ignore the transcoded stream. Valid values:
     // 
     // *   **true** (default)
     // *   **false**
-    std::shared_ptr<bool> ignoreTranscode_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<bool> ignoreTranscode_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The part length. Unit: milliseconds.
     // 
     // >  This parameter is required if Protocol is set to LLHLS_TS or LLHLS_CMAF.
     // 
     // *   If the value of SegmentDuration is 1, the valid values of this parameter are 100 to 500.
     // *   If the value of SegmentDuration is 2, the valid values of this parameter are 100 to 1000.
-    std::shared_ptr<int32_t> partDuration_ = nullptr;
+    shared_ptr<int32_t> partDuration_ {};
     // The streaming protocol and encapsulation format. Valid values:
     // 
     // *   **HLS_CMAF**
@@ -151,23 +151,23 @@ namespace Models
     // *   **HLSDASH_CMAF**
     // 
     // This parameter is required.
-    std::shared_ptr<string> protocol_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> protocol_ {};
+    shared_ptr<string> regionId_ {};
     // The segment length. Unit: seconds.
     // 
     // *   If Protocol is set to HLS_CMAF, the valid values of this parameter are 1 to 10.
     // *   If Protocol is set to LLHLS_TS or LLHLS_CMAF, the valid values of this parameter are 1 to 2.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> segmentDuration_ = nullptr;
+    shared_ptr<int32_t> segmentDuration_ {};
     // The number of segments. Valid values: 3 to 10.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> segmentNum_ = nullptr;
+    shared_ptr<int32_t> segmentNum_ {};
     // The stream name. The value of this parameter must be the same as the stream name that is specified in the ingest URL. Otherwise, the configuration does not take effect. The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name cannot start with a hyphen (-) or underscore (_). You can also specify an asterisk (\\*) as the value to match all streams.
     // 
     // This parameter is required.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
   };
 
   } // namespace Models

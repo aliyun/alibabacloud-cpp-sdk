@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->app_ == nullptr
-        && return this->domain_ == nullptr && return this->encryptParameters_ == nullptr && return this->lazy_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
-        && return this->template_ == nullptr; };
+        && this->domain_ == nullptr && this->encryptParameters_ == nullptr && this->lazy_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
+        && this->template_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
-    inline string app() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
+    inline string getApp() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
     inline AddLiveStreamTranscodeRequest& setApp(string app) { DARABONBA_PTR_SET_VALUE(app_, app) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline AddLiveStreamTranscodeRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // encryptParameters Field Functions 
     bool hasEncryptParameters() const { return this->encryptParameters_ != nullptr;};
     void deleteEncryptParameters() { this->encryptParameters_ = nullptr;};
-    inline string encryptParameters() const { DARABONBA_PTR_GET_DEFAULT(encryptParameters_, "") };
+    inline string getEncryptParameters() const { DARABONBA_PTR_GET_DEFAULT(encryptParameters_, "") };
     inline AddLiveStreamTranscodeRequest& setEncryptParameters(string encryptParameters) { DARABONBA_PTR_SET_VALUE(encryptParameters_, encryptParameters) };
 
 
     // lazy Field Functions 
     bool hasLazy() const { return this->lazy_ != nullptr;};
     void deleteLazy() { this->lazy_ = nullptr;};
-    inline string lazy() const { DARABONBA_PTR_GET_DEFAULT(lazy_, "") };
+    inline string getLazy() const { DARABONBA_PTR_GET_DEFAULT(lazy_, "") };
     inline AddLiveStreamTranscodeRequest& setLazy(string lazy) { DARABONBA_PTR_SET_VALUE(lazy_, lazy) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline AddLiveStreamTranscodeRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AddLiveStreamTranscodeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline string _template() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
+    inline string getTemplate() const { DARABONBA_PTR_GET_DEFAULT(template_, "") };
     inline AddLiveStreamTranscodeRequest& setTemplate(string _template) { DARABONBA_PTR_SET_VALUE(template_, _template) };
 
 
@@ -102,21 +102,21 @@ namespace Models
     // >  If you configure a transcoding template for which App is set to an asterisk (\\*), the transcoding template is used only if no transcoding template for which App is set to the same value as AppName in the ingest URL exists.
     // 
     // This parameter is required.
-    std::shared_ptr<string> app_ = nullptr;
+    shared_ptr<string> app_ {};
     // The name of the main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The encryption configuration. The value is a JSON string. The following fields are included in the syntax:
     // 
     // *   EncryptType: the type of the encryption. Set the value to **aliyun**.
     // *   KmsKeyID: the ID of the CMK in KMS.
     // *   KmsKeyExpireInterval: the validity period of the CMK. Valid values: **60 to 3600**. Unit: seconds.
-    std::shared_ptr<string> encryptParameters_ = nullptr;
+    shared_ptr<string> encryptParameters_ {};
     // Specifies whether to use the load-on-demand mechanism for transcoding. Default value: **yes**.
-    std::shared_ptr<string> lazy_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> lazy_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The transcoding template. Valid values:
     // 
     // *   Standard transcoding template:
@@ -134,7 +134,7 @@ namespace Models
     //     *   **ud**: ultra-high definition
     // 
     // This parameter is required.
-    std::shared_ptr<string> template_ = nullptr;
+    shared_ptr<string> template_ {};
   };
 
   } // namespace Models

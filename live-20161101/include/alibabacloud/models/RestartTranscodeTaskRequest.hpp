@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->app_ == nullptr
-        && return this->pushDomain_ == nullptr && return this->securityToken_ == nullptr && return this->streamName_ == nullptr && return this->transcodingTemplate_ == nullptr; };
+        && this->pushDomain_ == nullptr && this->securityToken_ == nullptr && this->streamName_ == nullptr && this->transcodingTemplate_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};
-    inline string app() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
+    inline string getApp() const { DARABONBA_PTR_GET_DEFAULT(app_, "") };
     inline RestartTranscodeTaskRequest& setApp(string app) { DARABONBA_PTR_SET_VALUE(app_, app) };
 
 
     // pushDomain Field Functions 
     bool hasPushDomain() const { return this->pushDomain_ != nullptr;};
     void deletePushDomain() { this->pushDomain_ = nullptr;};
-    inline string pushDomain() const { DARABONBA_PTR_GET_DEFAULT(pushDomain_, "") };
+    inline string getPushDomain() const { DARABONBA_PTR_GET_DEFAULT(pushDomain_, "") };
     inline RestartTranscodeTaskRequest& setPushDomain(string pushDomain) { DARABONBA_PTR_SET_VALUE(pushDomain_, pushDomain) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline RestartTranscodeTaskRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline RestartTranscodeTaskRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
     // transcodingTemplate Field Functions 
     bool hasTranscodingTemplate() const { return this->transcodingTemplate_ != nullptr;};
     void deleteTranscodingTemplate() { this->transcodingTemplate_ = nullptr;};
-    inline string transcodingTemplate() const { DARABONBA_PTR_GET_DEFAULT(transcodingTemplate_, "") };
+    inline string getTranscodingTemplate() const { DARABONBA_PTR_GET_DEFAULT(transcodingTemplate_, "") };
     inline RestartTranscodeTaskRequest& setTranscodingTemplate(string transcodingTemplate) { DARABONBA_PTR_SET_VALUE(transcodingTemplate_, transcodingTemplate) };
 
 
   protected:
-    std::shared_ptr<string> app_ = nullptr;
-    std::shared_ptr<string> pushDomain_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
-    std::shared_ptr<string> streamName_ = nullptr;
-    std::shared_ptr<string> transcodingTemplate_ = nullptr;
+    shared_ptr<string> app_ {};
+    shared_ptr<string> pushDomain_ {};
+    shared_ptr<string> securityToken_ {};
+    shared_ptr<string> streamName_ {};
+    shared_ptr<string> transcodingTemplate_ {};
   };
 
   } // namespace Models

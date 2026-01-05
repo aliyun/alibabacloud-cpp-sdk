@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mixLayoutParamsShrink_ == nullptr
-        && return this->subscribeParamsShrink_ == nullptr && return this->taskId_ == nullptr; };
+        && this->subscribeParamsShrink_ == nullptr && this->taskId_ == nullptr; };
     // mixLayoutParamsShrink Field Functions 
     bool hasMixLayoutParamsShrink() const { return this->mixLayoutParamsShrink_ != nullptr;};
     void deleteMixLayoutParamsShrink() { this->mixLayoutParamsShrink_ = nullptr;};
-    inline string mixLayoutParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(mixLayoutParamsShrink_, "") };
+    inline string getMixLayoutParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(mixLayoutParamsShrink_, "") };
     inline UpdateRtcCloudRecordingShrinkRequest& setMixLayoutParamsShrink(string mixLayoutParamsShrink) { DARABONBA_PTR_SET_VALUE(mixLayoutParamsShrink_, mixLayoutParamsShrink) };
 
 
     // subscribeParamsShrink Field Functions 
     bool hasSubscribeParamsShrink() const { return this->subscribeParamsShrink_ != nullptr;};
     void deleteSubscribeParamsShrink() { this->subscribeParamsShrink_ = nullptr;};
-    inline string subscribeParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(subscribeParamsShrink_, "") };
+    inline string getSubscribeParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(subscribeParamsShrink_, "") };
     inline UpdateRtcCloudRecordingShrinkRequest& setSubscribeParamsShrink(string subscribeParamsShrink) { DARABONBA_PTR_SET_VALUE(subscribeParamsShrink_, subscribeParamsShrink) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline UpdateRtcCloudRecordingShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<string> mixLayoutParamsShrink_ = nullptr;
+    shared_ptr<string> mixLayoutParamsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> subscribeParamsShrink_ = nullptr;
+    shared_ptr<string> subscribeParamsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

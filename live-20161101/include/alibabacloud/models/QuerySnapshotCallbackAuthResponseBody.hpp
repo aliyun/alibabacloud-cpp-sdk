@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callbackAuthKey_ == nullptr
-        && return this->callbackReqAuth_ == nullptr && return this->domainName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->callbackReqAuth_ == nullptr && this->domainName_ == nullptr && this->requestId_ == nullptr; };
     // callbackAuthKey Field Functions 
     bool hasCallbackAuthKey() const { return this->callbackAuthKey_ != nullptr;};
     void deleteCallbackAuthKey() { this->callbackAuthKey_ = nullptr;};
-    inline string callbackAuthKey() const { DARABONBA_PTR_GET_DEFAULT(callbackAuthKey_, "") };
+    inline string getCallbackAuthKey() const { DARABONBA_PTR_GET_DEFAULT(callbackAuthKey_, "") };
     inline QuerySnapshotCallbackAuthResponseBody& setCallbackAuthKey(string callbackAuthKey) { DARABONBA_PTR_SET_VALUE(callbackAuthKey_, callbackAuthKey) };
 
 
     // callbackReqAuth Field Functions 
     bool hasCallbackReqAuth() const { return this->callbackReqAuth_ != nullptr;};
     void deleteCallbackReqAuth() { this->callbackReqAuth_ = nullptr;};
-    inline string callbackReqAuth() const { DARABONBA_PTR_GET_DEFAULT(callbackReqAuth_, "") };
+    inline string getCallbackReqAuth() const { DARABONBA_PTR_GET_DEFAULT(callbackReqAuth_, "") };
     inline QuerySnapshotCallbackAuthResponseBody& setCallbackReqAuth(string callbackReqAuth) { DARABONBA_PTR_SET_VALUE(callbackReqAuth_, callbackReqAuth) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline QuerySnapshotCallbackAuthResponseBody& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QuerySnapshotCallbackAuthResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The callback authentication key.
-    std::shared_ptr<string> callbackAuthKey_ = nullptr;
+    shared_ptr<string> callbackAuthKey_ {};
     // Indicates whether callback authentication is enabled. Valid values:
     // 
     // *   **yes**: Callback authentication is enabled.
     // *   **no**: Callback authentication is disabled.
-    std::shared_ptr<string> callbackReqAuth_ = nullptr;
+    shared_ptr<string> callbackReqAuth_ {};
     // The main streaming domain.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

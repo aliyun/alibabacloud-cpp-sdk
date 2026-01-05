@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->creatorId_ == nullptr && return this->extension_ == nullptr; };
+        && this->creatorId_ == nullptr && this->extension_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateMessageGroupRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};
-    inline string creatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
+    inline string getCreatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
     inline CreateMessageGroupRequest& setCreatorId(string creatorId) { DARABONBA_PTR_SET_VALUE(creatorId_, creatorId) };
 
 
     // extension Field Functions 
     bool hasExtension() const { return this->extension_ != nullptr;};
     void deleteExtension() { this->extension_ = nullptr;};
-    inline const map<string, string> & extension() const { DARABONBA_PTR_GET_CONST(extension_, map<string, string>) };
-    inline map<string, string> extension() { DARABONBA_PTR_GET(extension_, map<string, string>) };
+    inline const map<string, string> & getExtension() const { DARABONBA_PTR_GET_CONST(extension_, map<string, string>) };
+    inline map<string, string> getExtension() { DARABONBA_PTR_GET(extension_, map<string, string>) };
     inline CreateMessageGroupRequest& setExtension(const map<string, string> & extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
     inline CreateMessageGroupRequest& setExtension(map<string, string> && extension) { DARABONBA_PTR_SET_RVALUE(extension_, extension) };
 
@@ -63,13 +63,13 @@ namespace Models
     // The ID of the interactive messaging application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the creator. The ID can be up to 36 characters in length and can contain only letters and digits.
     // 
     // This parameter is required.
-    std::shared_ptr<string> creatorId_ = nullptr;
+    shared_ptr<string> creatorId_ {};
     // The extended field.
-    std::shared_ptr<map<string, string>> extension_ = nullptr;
+    shared_ptr<map<string, string>> extension_ {};
   };
 
   } // namespace Models

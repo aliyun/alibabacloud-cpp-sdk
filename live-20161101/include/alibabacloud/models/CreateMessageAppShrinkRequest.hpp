@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appConfigShrink_ == nullptr
-        && return this->appName_ == nullptr && return this->extensionShrink_ == nullptr; };
+        && this->appName_ == nullptr && this->extensionShrink_ == nullptr; };
     // appConfigShrink Field Functions 
     bool hasAppConfigShrink() const { return this->appConfigShrink_ != nullptr;};
     void deleteAppConfigShrink() { this->appConfigShrink_ = nullptr;};
-    inline string appConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(appConfigShrink_, "") };
+    inline string getAppConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(appConfigShrink_, "") };
     inline CreateMessageAppShrinkRequest& setAppConfigShrink(string appConfigShrink) { DARABONBA_PTR_SET_VALUE(appConfigShrink_, appConfigShrink) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline CreateMessageAppShrinkRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // extensionShrink Field Functions 
     bool hasExtensionShrink() const { return this->extensionShrink_ != nullptr;};
     void deleteExtensionShrink() { this->extensionShrink_ = nullptr;};
-    inline string extensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
+    inline string getExtensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
     inline CreateMessageAppShrinkRequest& setExtensionShrink(string extensionShrink) { DARABONBA_PTR_SET_VALUE(extensionShrink_, extensionShrink) };
 
 
   protected:
     // The configurations of the application.
-    std::shared_ptr<string> appConfigShrink_ = nullptr;
+    shared_ptr<string> appConfigShrink_ {};
     // The name of the interactive message application. The name must be 2 to 16 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The extended fields.
-    std::shared_ptr<string> extensionShrink_ = nullptr;
+    shared_ptr<string> extensionShrink_ {};
   };
 
   } // namespace Models

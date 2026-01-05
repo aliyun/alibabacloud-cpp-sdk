@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->notifyAuthKey_ == nullptr && return this->notifyReqAuth_ == nullptr && return this->notifyUrl_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->notifyAuthKey_ == nullptr && this->notifyReqAuth_ == nullptr && this->notifyUrl_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline UpdateLiveSnapshotNotifyConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // notifyAuthKey Field Functions 
     bool hasNotifyAuthKey() const { return this->notifyAuthKey_ != nullptr;};
     void deleteNotifyAuthKey() { this->notifyAuthKey_ = nullptr;};
-    inline string notifyAuthKey() const { DARABONBA_PTR_GET_DEFAULT(notifyAuthKey_, "") };
+    inline string getNotifyAuthKey() const { DARABONBA_PTR_GET_DEFAULT(notifyAuthKey_, "") };
     inline UpdateLiveSnapshotNotifyConfigRequest& setNotifyAuthKey(string notifyAuthKey) { DARABONBA_PTR_SET_VALUE(notifyAuthKey_, notifyAuthKey) };
 
 
     // notifyReqAuth Field Functions 
     bool hasNotifyReqAuth() const { return this->notifyReqAuth_ != nullptr;};
     void deleteNotifyReqAuth() { this->notifyReqAuth_ = nullptr;};
-    inline string notifyReqAuth() const { DARABONBA_PTR_GET_DEFAULT(notifyReqAuth_, "") };
+    inline string getNotifyReqAuth() const { DARABONBA_PTR_GET_DEFAULT(notifyReqAuth_, "") };
     inline UpdateLiveSnapshotNotifyConfigRequest& setNotifyReqAuth(string notifyReqAuth) { DARABONBA_PTR_SET_VALUE(notifyReqAuth_, notifyReqAuth) };
 
 
     // notifyUrl Field Functions 
     bool hasNotifyUrl() const { return this->notifyUrl_ != nullptr;};
     void deleteNotifyUrl() { this->notifyUrl_ = nullptr;};
-    inline string notifyUrl() const { DARABONBA_PTR_GET_DEFAULT(notifyUrl_, "") };
+    inline string getNotifyUrl() const { DARABONBA_PTR_GET_DEFAULT(notifyUrl_, "") };
     inline UpdateLiveSnapshotNotifyConfigRequest& setNotifyUrl(string notifyUrl) { DARABONBA_PTR_SET_VALUE(notifyUrl_, notifyUrl) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateLiveSnapshotNotifyConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateLiveSnapshotNotifyConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -87,22 +87,22 @@ namespace Models
     // The main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The callback authentication key. The key can be 16 to 32 characters in length and can contain only letters and digits.
     // 
     // >  This parameter is required if you set the NotifyReqAuth parameter to **yes**.
-    std::shared_ptr<string> notifyAuthKey_ = nullptr;
+    shared_ptr<string> notifyAuthKey_ {};
     // Specifies whether to enable callback authentication. Valid values:
     // 
     // *   **yes**: enables callback authentication
     // *   **no**: disables callback authentication
     // 
     // >  Default value: **no**. If you set this parameter to **yes**, the NotifyAuthKey parameter is required.
-    std::shared_ptr<string> notifyReqAuth_ = nullptr;
+    shared_ptr<string> notifyReqAuth_ {};
     // The callback URL. Specify a valid URL that is up to 500 characters in length.
-    std::shared_ptr<string> notifyUrl_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> notifyUrl_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

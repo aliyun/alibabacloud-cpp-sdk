@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->broadCastType_ == nullptr && return this->count_ == nullptr && return this->groupId_ == nullptr && return this->operatorUserId_ == nullptr; };
+        && this->broadCastType_ == nullptr && this->count_ == nullptr && this->groupId_ == nullptr && this->operatorUserId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline SendLikeRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // broadCastType Field Functions 
     bool hasBroadCastType() const { return this->broadCastType_ != nullptr;};
     void deleteBroadCastType() { this->broadCastType_ = nullptr;};
-    inline int32_t broadCastType() const { DARABONBA_PTR_GET_DEFAULT(broadCastType_, 0) };
+    inline int32_t getBroadCastType() const { DARABONBA_PTR_GET_DEFAULT(broadCastType_, 0) };
     inline SendLikeRequest& setBroadCastType(int32_t broadCastType) { DARABONBA_PTR_SET_VALUE(broadCastType_, broadCastType) };
 
 
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline string count() const { DARABONBA_PTR_GET_DEFAULT(count_, "") };
+    inline string getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, "") };
     inline SendLikeRequest& setCount(string count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline SendLikeRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // operatorUserId Field Functions 
     bool hasOperatorUserId() const { return this->operatorUserId_ != nullptr;};
     void deleteOperatorUserId() { this->operatorUserId_ = nullptr;};
-    inline string operatorUserId() const { DARABONBA_PTR_GET_DEFAULT(operatorUserId_, "") };
+    inline string getOperatorUserId() const { DARABONBA_PTR_GET_DEFAULT(operatorUserId_, "") };
     inline SendLikeRequest& setOperatorUserId(string operatorUserId) { DARABONBA_PTR_SET_VALUE(operatorUserId_, operatorUserId) };
 
 
@@ -78,23 +78,23 @@ namespace Models
     // The ID of the interactive messaging application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The mode in which system messages are broadcasted. Valid values:
     // 
     // *   0: specifies that system messages are not broadcasted. This is the default value.
     // *   1: specifies that system messages are broadcasted to specified users.
     // *   2: specifies that system messages are broadcasted to the message group.
-    std::shared_ptr<int32_t> broadCastType_ = nullptr;
+    shared_ptr<int32_t> broadCastType_ {};
     // The number of likes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> count_ = nullptr;
+    shared_ptr<string> count_ {};
     // The ID of the message group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The ID of the user who performs the operation.
-    std::shared_ptr<string> operatorUserId_ = nullptr;
+    shared_ptr<string> operatorUserId_ {};
   };
 
   } // namespace Models

@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->streamIds_ == nullptr
-        && return this->tag_ == nullptr && return this->unixTimestamp_ == nullptr; };
+        && this->tag_ == nullptr && this->unixTimestamp_ == nullptr; };
     // streamIds Field Functions 
     bool hasStreamIds() const { return this->streamIds_ != nullptr;};
     void deleteStreamIds() { this->streamIds_ = nullptr;};
-    inline const vector<string> & streamIds() const { DARABONBA_PTR_GET_CONST(streamIds_, vector<string>) };
-    inline vector<string> streamIds() { DARABONBA_PTR_GET(streamIds_, vector<string>) };
+    inline const vector<string> & getStreamIds() const { DARABONBA_PTR_GET_CONST(streamIds_, vector<string>) };
+    inline vector<string> getStreamIds() { DARABONBA_PTR_GET(streamIds_, vector<string>) };
     inline PutRecordStorageLifeCycleRequest& setStreamIds(const vector<string> & streamIds) { DARABONBA_PTR_SET_VALUE(streamIds_, streamIds) };
     inline PutRecordStorageLifeCycleRequest& setStreamIds(vector<string> && streamIds) { DARABONBA_PTR_SET_RVALUE(streamIds_, streamIds) };
 
@@ -48,24 +48,24 @@ namespace Models
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline string tag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
     inline PutRecordStorageLifeCycleRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
 
 
     // unixTimestamp Field Functions 
     bool hasUnixTimestamp() const { return this->unixTimestamp_ != nullptr;};
     void deleteUnixTimestamp() { this->unixTimestamp_ = nullptr;};
-    inline int64_t unixTimestamp() const { DARABONBA_PTR_GET_DEFAULT(unixTimestamp_, 0L) };
+    inline int64_t getUnixTimestamp() const { DARABONBA_PTR_GET_DEFAULT(unixTimestamp_, 0L) };
     inline PutRecordStorageLifeCycleRequest& setUnixTimestamp(int64_t unixTimestamp) { DARABONBA_PTR_SET_VALUE(unixTimestamp_, unixTimestamp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> streamIds_ = nullptr;
+    shared_ptr<vector<string>> streamIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> tag_ = nullptr;
+    shared_ptr<string> tag_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> unixTimestamp_ = nullptr;
+    shared_ptr<int64_t> unixTimestamp_ {};
   };
 
   } // namespace Models

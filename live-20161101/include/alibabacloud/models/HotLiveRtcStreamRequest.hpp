@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->audioMsid_ == nullptr && return this->connectionTimeout_ == nullptr && return this->domainName_ == nullptr && return this->mediaTimeout_ == nullptr && return this->ownerId_ == nullptr
-        && return this->regionCode_ == nullptr && return this->regionId_ == nullptr && return this->streamName_ == nullptr && return this->videoMsid_ == nullptr; };
+        && this->audioMsid_ == nullptr && this->connectionTimeout_ == nullptr && this->domainName_ == nullptr && this->mediaTimeout_ == nullptr && this->ownerId_ == nullptr
+        && this->regionCode_ == nullptr && this->regionId_ == nullptr && this->streamName_ == nullptr && this->videoMsid_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline HotLiveRtcStreamRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // audioMsid Field Functions 
     bool hasAudioMsid() const { return this->audioMsid_ != nullptr;};
     void deleteAudioMsid() { this->audioMsid_ = nullptr;};
-    inline string audioMsid() const { DARABONBA_PTR_GET_DEFAULT(audioMsid_, "") };
+    inline string getAudioMsid() const { DARABONBA_PTR_GET_DEFAULT(audioMsid_, "") };
     inline HotLiveRtcStreamRequest& setAudioMsid(string audioMsid) { DARABONBA_PTR_SET_VALUE(audioMsid_, audioMsid) };
 
 
     // connectionTimeout Field Functions 
     bool hasConnectionTimeout() const { return this->connectionTimeout_ != nullptr;};
     void deleteConnectionTimeout() { this->connectionTimeout_ = nullptr;};
-    inline string connectionTimeout() const { DARABONBA_PTR_GET_DEFAULT(connectionTimeout_, "") };
+    inline string getConnectionTimeout() const { DARABONBA_PTR_GET_DEFAULT(connectionTimeout_, "") };
     inline HotLiveRtcStreamRequest& setConnectionTimeout(string connectionTimeout) { DARABONBA_PTR_SET_VALUE(connectionTimeout_, connectionTimeout) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline HotLiveRtcStreamRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // mediaTimeout Field Functions 
     bool hasMediaTimeout() const { return this->mediaTimeout_ != nullptr;};
     void deleteMediaTimeout() { this->mediaTimeout_ = nullptr;};
-    inline string mediaTimeout() const { DARABONBA_PTR_GET_DEFAULT(mediaTimeout_, "") };
+    inline string getMediaTimeout() const { DARABONBA_PTR_GET_DEFAULT(mediaTimeout_, "") };
     inline HotLiveRtcStreamRequest& setMediaTimeout(string mediaTimeout) { DARABONBA_PTR_SET_VALUE(mediaTimeout_, mediaTimeout) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline HotLiveRtcStreamRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionCode Field Functions 
     bool hasRegionCode() const { return this->regionCode_ != nullptr;};
     void deleteRegionCode() { this->regionCode_ = nullptr;};
-    inline string regionCode() const { DARABONBA_PTR_GET_DEFAULT(regionCode_, "") };
+    inline string getRegionCode() const { DARABONBA_PTR_GET_DEFAULT(regionCode_, "") };
     inline HotLiveRtcStreamRequest& setRegionCode(string regionCode) { DARABONBA_PTR_SET_VALUE(regionCode_, regionCode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline HotLiveRtcStreamRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline HotLiveRtcStreamRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
     // videoMsid Field Functions 
     bool hasVideoMsid() const { return this->videoMsid_ != nullptr;};
     void deleteVideoMsid() { this->videoMsid_ = nullptr;};
-    inline string videoMsid() const { DARABONBA_PTR_GET_DEFAULT(videoMsid_, "") };
+    inline string getVideoMsid() const { DARABONBA_PTR_GET_DEFAULT(videoMsid_, "") };
     inline HotLiveRtcStreamRequest& setVideoMsid(string videoMsid) { DARABONBA_PTR_SET_VALUE(videoMsid_, videoMsid) };
 
 
@@ -124,35 +124,35 @@ namespace Models
     // The name of the application to which the live stream belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The audio MSID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> audioMsid_ = nullptr;
+    shared_ptr<string> audioMsid_ {};
     // The duration for which the prefetch connection is maintained. Unit: milliseconds. Default value: 0, which specifies that the prefetch connection is always maintained.
-    std::shared_ptr<string> connectionTimeout_ = nullptr;
+    shared_ptr<string> connectionTimeout_ {};
     // The streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The custom period after which a timeout event is triggered. Unit: milliseconds.
-    std::shared_ptr<string> mediaTimeout_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> mediaTimeout_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The code of the region in which the live stream is prefetched. For more information, see the following tables that list available region codes.
     // 
     // >  Region codes include provincial codes for China and country codes for all countries.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionCode_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionCode_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the live stream that you want to prefetch.
     // 
     // This parameter is required.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
     // The video MSID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> videoMsid_ = nullptr;
+    shared_ptr<string> videoMsid_ {};
   };
 
   } // namespace Models

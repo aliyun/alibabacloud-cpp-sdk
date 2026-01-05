@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->interactiveUserList_ == nullptr
-        && return this->interactiveUserNumber_ == nullptr && return this->isChannelExists_ == nullptr && return this->liveUserList_ == nullptr && return this->liveUserNumber_ == nullptr && return this->requestId_ == nullptr
-        && return this->timestamp_ == nullptr; };
+        && this->interactiveUserNumber_ == nullptr && this->isChannelExists_ == nullptr && this->liveUserList_ == nullptr && this->liveUserNumber_ == nullptr && this->requestId_ == nullptr
+        && this->timestamp_ == nullptr; };
     // interactiveUserList Field Functions 
     bool hasInteractiveUserList() const { return this->interactiveUserList_ != nullptr;};
     void deleteInteractiveUserList() { this->interactiveUserList_ = nullptr;};
-    inline const vector<string> & interactiveUserList() const { DARABONBA_PTR_GET_CONST(interactiveUserList_, vector<string>) };
-    inline vector<string> interactiveUserList() { DARABONBA_PTR_GET(interactiveUserList_, vector<string>) };
+    inline const vector<string> & getInteractiveUserList() const { DARABONBA_PTR_GET_CONST(interactiveUserList_, vector<string>) };
+    inline vector<string> getInteractiveUserList() { DARABONBA_PTR_GET(interactiveUserList_, vector<string>) };
     inline DescribeChannelUsersResponseBody& setInteractiveUserList(const vector<string> & interactiveUserList) { DARABONBA_PTR_SET_VALUE(interactiveUserList_, interactiveUserList) };
     inline DescribeChannelUsersResponseBody& setInteractiveUserList(vector<string> && interactiveUserList) { DARABONBA_PTR_SET_RVALUE(interactiveUserList_, interactiveUserList) };
 
@@ -57,22 +57,22 @@ namespace Models
     // interactiveUserNumber Field Functions 
     bool hasInteractiveUserNumber() const { return this->interactiveUserNumber_ != nullptr;};
     void deleteInteractiveUserNumber() { this->interactiveUserNumber_ = nullptr;};
-    inline int32_t interactiveUserNumber() const { DARABONBA_PTR_GET_DEFAULT(interactiveUserNumber_, 0) };
+    inline int32_t getInteractiveUserNumber() const { DARABONBA_PTR_GET_DEFAULT(interactiveUserNumber_, 0) };
     inline DescribeChannelUsersResponseBody& setInteractiveUserNumber(int32_t interactiveUserNumber) { DARABONBA_PTR_SET_VALUE(interactiveUserNumber_, interactiveUserNumber) };
 
 
     // isChannelExists Field Functions 
     bool hasIsChannelExists() const { return this->isChannelExists_ != nullptr;};
     void deleteIsChannelExists() { this->isChannelExists_ = nullptr;};
-    inline bool isChannelExists() const { DARABONBA_PTR_GET_DEFAULT(isChannelExists_, false) };
+    inline bool getIsChannelExists() const { DARABONBA_PTR_GET_DEFAULT(isChannelExists_, false) };
     inline DescribeChannelUsersResponseBody& setIsChannelExists(bool isChannelExists) { DARABONBA_PTR_SET_VALUE(isChannelExists_, isChannelExists) };
 
 
     // liveUserList Field Functions 
     bool hasLiveUserList() const { return this->liveUserList_ != nullptr;};
     void deleteLiveUserList() { this->liveUserList_ = nullptr;};
-    inline const vector<string> & liveUserList() const { DARABONBA_PTR_GET_CONST(liveUserList_, vector<string>) };
-    inline vector<string> liveUserList() { DARABONBA_PTR_GET(liveUserList_, vector<string>) };
+    inline const vector<string> & getLiveUserList() const { DARABONBA_PTR_GET_CONST(liveUserList_, vector<string>) };
+    inline vector<string> getLiveUserList() { DARABONBA_PTR_GET(liveUserList_, vector<string>) };
     inline DescribeChannelUsersResponseBody& setLiveUserList(const vector<string> & liveUserList) { DARABONBA_PTR_SET_VALUE(liveUserList_, liveUserList) };
     inline DescribeChannelUsersResponseBody& setLiveUserList(vector<string> && liveUserList) { DARABONBA_PTR_SET_RVALUE(liveUserList_, liveUserList) };
 
@@ -80,44 +80,44 @@ namespace Models
     // liveUserNumber Field Functions 
     bool hasLiveUserNumber() const { return this->liveUserNumber_ != nullptr;};
     void deleteLiveUserNumber() { this->liveUserNumber_ = nullptr;};
-    inline int32_t liveUserNumber() const { DARABONBA_PTR_GET_DEFAULT(liveUserNumber_, 0) };
+    inline int32_t getLiveUserNumber() const { DARABONBA_PTR_GET_DEFAULT(liveUserNumber_, 0) };
     inline DescribeChannelUsersResponseBody& setLiveUserNumber(int32_t liveUserNumber) { DARABONBA_PTR_SET_VALUE(liveUserNumber_, liveUserNumber) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeChannelUsersResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // timestamp Field Functions 
     bool hasTimestamp() const { return this->timestamp_ != nullptr;};
     void deleteTimestamp() { this->timestamp_ = nullptr;};
-    inline int64_t timestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+    inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
     inline DescribeChannelUsersResponseBody& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
   protected:
     // The list of streamers/co-streamers.
-    std::shared_ptr<vector<string>> interactiveUserList_ = nullptr;
+    shared_ptr<vector<string>> interactiveUserList_ {};
     // The number of co-streamers.
-    std::shared_ptr<int32_t> interactiveUserNumber_ = nullptr;
+    shared_ptr<int32_t> interactiveUserNumber_ {};
     // Indicates whether the channel exists. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // > After all users leave the channel, the system requires a few seconds to clear the cache. If you call the operation during this period, the value of this parameter is true, and the value of InteractiveUserNumber and LiveUserNumber is 0.
-    std::shared_ptr<bool> isChannelExists_ = nullptr;
+    shared_ptr<bool> isChannelExists_ {};
     // The list of viewers.
-    std::shared_ptr<vector<string>> liveUserList_ = nullptr;
+    shared_ptr<vector<string>> liveUserList_ {};
     // The number of viewers.
-    std::shared_ptr<int32_t> liveUserNumber_ = nullptr;
+    shared_ptr<int32_t> liveUserNumber_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The UTC timestamp when the response is returned.
-    std::shared_ptr<int64_t> timestamp_ = nullptr;
+    shared_ptr<int64_t> timestamp_ {};
   };
 
   } // namespace Models

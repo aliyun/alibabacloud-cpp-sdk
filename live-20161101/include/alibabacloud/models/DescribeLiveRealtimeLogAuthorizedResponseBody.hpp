@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizedStatus_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // authorizedStatus Field Functions 
     bool hasAuthorizedStatus() const { return this->authorizedStatus_ != nullptr;};
     void deleteAuthorizedStatus() { this->authorizedStatus_ = nullptr;};
-    inline string authorizedStatus() const { DARABONBA_PTR_GET_DEFAULT(authorizedStatus_, "") };
+    inline string getAuthorizedStatus() const { DARABONBA_PTR_GET_DEFAULT(authorizedStatus_, "") };
     inline DescribeLiveRealtimeLogAuthorizedResponseBody& setAuthorizedStatus(string authorizedStatus) { DARABONBA_PTR_SET_VALUE(authorizedStatus_, authorizedStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLiveRealtimeLogAuthorizedResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The authorization status. **true**: authorized **false**: not authorized
-    std::shared_ptr<string> authorizedStatus_ = nullptr;
+    shared_ptr<string> authorizedStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

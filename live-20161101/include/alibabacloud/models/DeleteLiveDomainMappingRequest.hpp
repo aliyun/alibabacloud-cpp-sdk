@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->pullDomain_ == nullptr && return this->pushDomain_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->pullDomain_ == nullptr && this->pushDomain_ == nullptr && this->securityToken_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DeleteLiveDomainMappingRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pullDomain Field Functions 
     bool hasPullDomain() const { return this->pullDomain_ != nullptr;};
     void deletePullDomain() { this->pullDomain_ = nullptr;};
-    inline string pullDomain() const { DARABONBA_PTR_GET_DEFAULT(pullDomain_, "") };
+    inline string getPullDomain() const { DARABONBA_PTR_GET_DEFAULT(pullDomain_, "") };
     inline DeleteLiveDomainMappingRequest& setPullDomain(string pullDomain) { DARABONBA_PTR_SET_VALUE(pullDomain_, pullDomain) };
 
 
     // pushDomain Field Functions 
     bool hasPushDomain() const { return this->pushDomain_ != nullptr;};
     void deletePushDomain() { this->pushDomain_ = nullptr;};
-    inline string pushDomain() const { DARABONBA_PTR_GET_DEFAULT(pushDomain_, "") };
+    inline string getPushDomain() const { DARABONBA_PTR_GET_DEFAULT(pushDomain_, "") };
     inline DeleteLiveDomainMappingRequest& setPushDomain(string pushDomain) { DARABONBA_PTR_SET_VALUE(pushDomain_, pushDomain) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DeleteLiveDomainMappingRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<int64_t> ownerId_ {};
     // The streaming domain. The type of the domain name is **liveVideo**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pullDomain_ = nullptr;
+    shared_ptr<string> pullDomain_ {};
     // The ingest domain. The type of the domain name is **liveEdge**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pushDomain_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> pushDomain_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

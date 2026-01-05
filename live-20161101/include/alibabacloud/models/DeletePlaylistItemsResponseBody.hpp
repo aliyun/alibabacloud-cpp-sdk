@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->programId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // programId Field Functions 
     bool hasProgramId() const { return this->programId_ != nullptr;};
     void deleteProgramId() { this->programId_ = nullptr;};
-    inline string programId() const { DARABONBA_PTR_GET_DEFAULT(programId_, "") };
+    inline string getProgramId() const { DARABONBA_PTR_GET_DEFAULT(programId_, "") };
     inline DeletePlaylistItemsResponseBody& setProgramId(string programId) { DARABONBA_PTR_SET_VALUE(programId_, programId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeletePlaylistItemsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to query the episodes in the episode list, edit the episode list, delete the episode list, query the information about the episode list, or stop the episode list.
-    std::shared_ptr<string> programId_ = nullptr;
+    shared_ptr<string> programId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

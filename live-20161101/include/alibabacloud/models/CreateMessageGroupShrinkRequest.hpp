@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->creatorId_ == nullptr && return this->extensionShrink_ == nullptr; };
+        && this->creatorId_ == nullptr && this->extensionShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline CreateMessageGroupShrinkRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};
-    inline string creatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
+    inline string getCreatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
     inline CreateMessageGroupShrinkRequest& setCreatorId(string creatorId) { DARABONBA_PTR_SET_VALUE(creatorId_, creatorId) };
 
 
     // extensionShrink Field Functions 
     bool hasExtensionShrink() const { return this->extensionShrink_ != nullptr;};
     void deleteExtensionShrink() { this->extensionShrink_ = nullptr;};
-    inline string extensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
+    inline string getExtensionShrink() const { DARABONBA_PTR_GET_DEFAULT(extensionShrink_, "") };
     inline CreateMessageGroupShrinkRequest& setExtensionShrink(string extensionShrink) { DARABONBA_PTR_SET_VALUE(extensionShrink_, extensionShrink) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the interactive messaging application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the creator. The ID can be up to 36 characters in length and can contain only letters and digits.
     // 
     // This parameter is required.
-    std::shared_ptr<string> creatorId_ = nullptr;
+    shared_ptr<string> creatorId_ {};
     // The extended field.
-    std::shared_ptr<string> extensionShrink_ = nullptr;
+    shared_ptr<string> extensionShrink_ {};
   };
 
   } // namespace Models

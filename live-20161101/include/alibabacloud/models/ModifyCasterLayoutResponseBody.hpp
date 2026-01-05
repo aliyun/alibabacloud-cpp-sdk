@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->layoutId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // layoutId Field Functions 
     bool hasLayoutId() const { return this->layoutId_ != nullptr;};
     void deleteLayoutId() { this->layoutId_ = nullptr;};
-    inline string layoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
+    inline string getLayoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
     inline ModifyCasterLayoutResponseBody& setLayoutId(string layoutId) { DARABONBA_PTR_SET_VALUE(layoutId_, layoutId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyCasterLayoutResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the layout. You can use this ID to query information about the layout.
-    std::shared_ptr<string> layoutId_ = nullptr;
+    shared_ptr<string> layoutId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

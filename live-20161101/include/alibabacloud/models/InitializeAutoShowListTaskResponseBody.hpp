@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->casterId_ == nullptr
-        && return this->requestId_ == nullptr && return this->streamList_ == nullptr; };
+        && this->requestId_ == nullptr && this->streamList_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};
-    inline string casterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
+    inline string getCasterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
     inline InitializeAutoShowListTaskResponseBody& setCasterId(string casterId) { DARABONBA_PTR_SET_VALUE(casterId_, casterId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline InitializeAutoShowListTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // streamList Field Functions 
     bool hasStreamList() const { return this->streamList_ != nullptr;};
     void deleteStreamList() { this->streamList_ = nullptr;};
-    inline string streamList() const { DARABONBA_PTR_GET_DEFAULT(streamList_, "") };
+    inline string getStreamList() const { DARABONBA_PTR_GET_DEFAULT(streamList_, "") };
     inline InitializeAutoShowListTaskResponseBody& setStreamList(string streamList) { DARABONBA_PTR_SET_VALUE(streamList_, streamList) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the production studio.
     // 
     // >  The value of this parameter can be used as the value of a request parameter to query the streaming URL of the production studio, start the production studio, add video resources to the production studio, add a production studio layout, query production studio layouts, add a production studio component, and add a production studio playlist.
-    std::shared_ptr<string> casterId_ = nullptr;
+    shared_ptr<string> casterId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The list of output video streams.
     // 
     // *   videoFormat: the format of the streaming URL.
     // *   outputStreamUrl: the source URL.
     // *   transcodeConfig: the output resolution specified for video transcoding of the source URL.
-    std::shared_ptr<string> streamList_ = nullptr;
+    shared_ptr<string> streamList_ {};
   };
 
   } // namespace Models

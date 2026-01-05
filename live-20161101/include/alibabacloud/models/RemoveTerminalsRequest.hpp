@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->channelId_ == nullptr && return this->terminalIds_ == nullptr; };
+        && this->channelId_ == nullptr && this->terminalIds_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline RemoveTerminalsRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline RemoveTerminalsRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // terminalIds Field Functions 
     bool hasTerminalIds() const { return this->terminalIds_ != nullptr;};
     void deleteTerminalIds() { this->terminalIds_ = nullptr;};
-    inline const vector<string> & terminalIds() const { DARABONBA_PTR_GET_CONST(terminalIds_, vector<string>) };
-    inline vector<string> terminalIds() { DARABONBA_PTR_GET(terminalIds_, vector<string>) };
+    inline const vector<string> & getTerminalIds() const { DARABONBA_PTR_GET_CONST(terminalIds_, vector<string>) };
+    inline vector<string> getTerminalIds() { DARABONBA_PTR_GET(terminalIds_, vector<string>) };
     inline RemoveTerminalsRequest& setTerminalIds(const vector<string> & terminalIds) { DARABONBA_PTR_SET_VALUE(terminalIds_, terminalIds) };
     inline RemoveTerminalsRequest& setTerminalIds(vector<string> && terminalIds) { DARABONBA_PTR_SET_RVALUE(terminalIds_, terminalIds) };
 
@@ -63,15 +63,15 @@ namespace Models
     // The ID of the application. You can specify only one application ID in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the channel. You can specify only one channel ID in each request.
     // 
     // This parameter is required.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
     // The IDs of the users that you want to remove.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> terminalIds_ = nullptr;
+    shared_ptr<vector<string>> terminalIds_ {};
   };
 
   } // namespace Models

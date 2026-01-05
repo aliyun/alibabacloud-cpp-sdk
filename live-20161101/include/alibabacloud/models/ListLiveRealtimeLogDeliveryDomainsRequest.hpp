@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logstore_ == nullptr
-        && return this->ownerId_ == nullptr && return this->project_ == nullptr && return this->region_ == nullptr && return this->regionId_ == nullptr; };
+        && this->ownerId_ == nullptr && this->project_ == nullptr && this->region_ == nullptr && this->regionId_ == nullptr; };
     // logstore Field Functions 
     bool hasLogstore() const { return this->logstore_ != nullptr;};
     void deleteLogstore() { this->logstore_ = nullptr;};
-    inline string logstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
+    inline string getLogstore() const { DARABONBA_PTR_GET_DEFAULT(logstore_, "") };
     inline ListLiveRealtimeLogDeliveryDomainsRequest& setLogstore(string logstore) { DARABONBA_PTR_SET_VALUE(logstore_, logstore) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListLiveRealtimeLogDeliveryDomainsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
-    inline string project() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+    inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
     inline ListLiveRealtimeLogDeliveryDomainsRequest& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ListLiveRealtimeLogDeliveryDomainsRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListLiveRealtimeLogDeliveryDomainsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -78,17 +78,17 @@ namespace Models
     // The name of the Logstore to which log entries are delivered.
     // 
     // This parameter is required.
-    std::shared_ptr<string> logstore_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> logstore_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The name of the Log Service project that is used for real-time log delivery.
     // 
     // This parameter is required.
-    std::shared_ptr<string> project_ = nullptr;
+    shared_ptr<string> project_ {};
     // The ID of the region where the Log Service project is deployed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

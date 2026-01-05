@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->casterId_ == nullptr
-        && return this->componentId_ == nullptr && return this->layoutId_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->sceneId_ == nullptr; };
+        && this->componentId_ == nullptr && this->layoutId_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->sceneId_ == nullptr; };
     // casterId Field Functions 
     bool hasCasterId() const { return this->casterId_ != nullptr;};
     void deleteCasterId() { this->casterId_ = nullptr;};
-    inline string casterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
+    inline string getCasterId() const { DARABONBA_PTR_GET_DEFAULT(casterId_, "") };
     inline UpdateCasterSceneConfigRequest& setCasterId(string casterId) { DARABONBA_PTR_SET_VALUE(casterId_, casterId) };
 
 
     // componentId Field Functions 
     bool hasComponentId() const { return this->componentId_ != nullptr;};
     void deleteComponentId() { this->componentId_ = nullptr;};
-    inline const vector<string> & componentId() const { DARABONBA_PTR_GET_CONST(componentId_, vector<string>) };
-    inline vector<string> componentId() { DARABONBA_PTR_GET(componentId_, vector<string>) };
+    inline const vector<string> & getComponentId() const { DARABONBA_PTR_GET_CONST(componentId_, vector<string>) };
+    inline vector<string> getComponentId() { DARABONBA_PTR_GET(componentId_, vector<string>) };
     inline UpdateCasterSceneConfigRequest& setComponentId(const vector<string> & componentId) { DARABONBA_PTR_SET_VALUE(componentId_, componentId) };
     inline UpdateCasterSceneConfigRequest& setComponentId(vector<string> && componentId) { DARABONBA_PTR_SET_RVALUE(componentId_, componentId) };
 
@@ -61,28 +61,28 @@ namespace Models
     // layoutId Field Functions 
     bool hasLayoutId() const { return this->layoutId_ != nullptr;};
     void deleteLayoutId() { this->layoutId_ = nullptr;};
-    inline string layoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
+    inline string getLayoutId() const { DARABONBA_PTR_GET_DEFAULT(layoutId_, "") };
     inline UpdateCasterSceneConfigRequest& setLayoutId(string layoutId) { DARABONBA_PTR_SET_VALUE(layoutId_, layoutId) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateCasterSceneConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateCasterSceneConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // sceneId Field Functions 
     bool hasSceneId() const { return this->sceneId_ != nullptr;};
     void deleteSceneId() { this->sceneId_ = nullptr;};
-    inline string sceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
     inline UpdateCasterSceneConfigRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
 
 
@@ -95,23 +95,23 @@ namespace Models
     // >  You can find the ID of the production studio in the Instance ID/Name column.
     // 
     // This parameter is required.
-    std::shared_ptr<string> casterId_ = nullptr;
+    shared_ptr<string> casterId_ {};
     // The IDs of the components. Components in the scene are listed from the bottom to the top in an array.
     // 
     // >  N indicates a sequence number. Examples:\\
     // ComponentId.1 indicates the ID of the first component.\\
     // ComponentId.2 indicates the ID of the second component.
-    std::shared_ptr<vector<string>> componentId_ = nullptr;
+    shared_ptr<vector<string>> componentId_ {};
     // The ID of the layout. If you call the [DescribeCasterLayouts](https://help.aliyun.com/document_detail/2848028.html) operation to query the layouts of the production studio, check the value of the response parameter LayoutId to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> layoutId_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> layoutId_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The ID of the scene.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sceneId_ = nullptr;
+    shared_ptr<string> sceneId_ {};
   };
 
   } // namespace Models

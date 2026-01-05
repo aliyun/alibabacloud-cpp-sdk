@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr && return this->subtitleId_ == nullptr && return this->subtitleName_ == nullptr; };
+        && this->regionId_ == nullptr && this->subtitleId_ == nullptr && this->subtitleName_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DeleteLiveAISubtitleRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteLiveAISubtitleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // subtitleId Field Functions 
     bool hasSubtitleId() const { return this->subtitleId_ != nullptr;};
     void deleteSubtitleId() { this->subtitleId_ = nullptr;};
-    inline string subtitleId() const { DARABONBA_PTR_GET_DEFAULT(subtitleId_, "") };
+    inline string getSubtitleId() const { DARABONBA_PTR_GET_DEFAULT(subtitleId_, "") };
     inline DeleteLiveAISubtitleRequest& setSubtitleId(string subtitleId) { DARABONBA_PTR_SET_VALUE(subtitleId_, subtitleId) };
 
 
     // subtitleName Field Functions 
     bool hasSubtitleName() const { return this->subtitleName_ != nullptr;};
     void deleteSubtitleName() { this->subtitleName_ = nullptr;};
-    inline string subtitleName() const { DARABONBA_PTR_GET_DEFAULT(subtitleName_, "") };
+    inline string getSubtitleName() const { DARABONBA_PTR_GET_DEFAULT(subtitleName_, "") };
     inline DeleteLiveAISubtitleRequest& setSubtitleName(string subtitleName) { DARABONBA_PTR_SET_VALUE(subtitleName_, subtitleName) };
 
 
   protected:
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The ID of the subtitle template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> subtitleId_ = nullptr;
+    shared_ptr<string> subtitleId_ {};
     // The name of the subtitle template. The name can contain only digits, letters, and hyphens (-). The name cannot start with a hyphen.
-    std::shared_ptr<string> subtitleName_ = nullptr;
+    shared_ptr<string> subtitleName_ {};
   };
 
   } // namespace Models

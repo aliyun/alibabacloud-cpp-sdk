@@ -34,41 +34,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->streamState_ == nullptr && return this->type_ == nullptr; };
+        && this->streamState_ == nullptr && this->type_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLiveStreamStateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // streamState Field Functions 
     bool hasStreamState() const { return this->streamState_ != nullptr;};
     void deleteStreamState() { this->streamState_ = nullptr;};
-    inline string streamState() const { DARABONBA_PTR_GET_DEFAULT(streamState_, "") };
+    inline string getStreamState() const { DARABONBA_PTR_GET_DEFAULT(streamState_, "") };
     inline DescribeLiveStreamStateResponseBody& setStreamState(string streamState) { DARABONBA_PTR_SET_VALUE(streamState_, streamState) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeLiveStreamStateResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the stream. Valid values:
     // 
     // *   online: The stream is being ingested.
     // *   offline: The stream is offline. This may be caused by failed or completed stream ingest. For the specific reason, check the stream ingest callback. This operation does not provide detailed information.
-    std::shared_ptr<string> streamState_ = nullptr;
+    shared_ptr<string> streamState_ {};
     // The mode of the stream. Valid values:
     // 
     // *   push: stream ingest
     // *   pull: triggered stream pulling
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

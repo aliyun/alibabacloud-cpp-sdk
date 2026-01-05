@@ -43,34 +43,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->domainName_ == nullptr && return this->ownerId_ == nullptr && return this->recordId_ == nullptr && return this->regionId_ == nullptr && return this->removeFile_ == nullptr
-        && return this->streamName_ == nullptr; };
+        && this->domainName_ == nullptr && this->ownerId_ == nullptr && this->recordId_ == nullptr && this->regionId_ == nullptr && this->removeFile_ == nullptr
+        && this->streamName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline DeleteLiveStreamRecordIndexFilesRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline DeleteLiveStreamRecordIndexFilesRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DeleteLiveStreamRecordIndexFilesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
-    inline const vector<string> & recordId() const { DARABONBA_PTR_GET_CONST(recordId_, vector<string>) };
-    inline vector<string> recordId() { DARABONBA_PTR_GET(recordId_, vector<string>) };
+    inline const vector<string> & getRecordId() const { DARABONBA_PTR_GET_CONST(recordId_, vector<string>) };
+    inline vector<string> getRecordId() { DARABONBA_PTR_GET(recordId_, vector<string>) };
     inline DeleteLiveStreamRecordIndexFilesRequest& setRecordId(const vector<string> & recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
     inline DeleteLiveStreamRecordIndexFilesRequest& setRecordId(vector<string> && recordId) { DARABONBA_PTR_SET_RVALUE(recordId_, recordId) };
 
@@ -78,21 +78,21 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteLiveStreamRecordIndexFilesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // removeFile Field Functions 
     bool hasRemoveFile() const { return this->removeFile_ != nullptr;};
     void deleteRemoveFile() { this->removeFile_ = nullptr;};
-    inline string removeFile() const { DARABONBA_PTR_GET_DEFAULT(removeFile_, "") };
+    inline string getRemoveFile() const { DARABONBA_PTR_GET_DEFAULT(removeFile_, "") };
     inline DeleteLiveStreamRecordIndexFilesRequest& setRemoveFile(string removeFile) { DARABONBA_PTR_SET_VALUE(removeFile_, removeFile) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline DeleteLiveStreamRecordIndexFilesRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
@@ -100,28 +100,28 @@ namespace Models
     // The name of the application to which the live stream belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The name of the main streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The index file IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> recordId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<vector<string>> recordId_ {};
+    shared_ptr<string> regionId_ {};
     // Specifies whether to delete the corresponding file in Object Storage Service (OSS) synchronously. Valid values:
     // 
     // *   **true**: The corresponding file in OSS is deleted.
     // *   **false**: The corresponding file in OSS is not deleted.
     // 
     // This parameter is required.
-    std::shared_ptr<string> removeFile_ = nullptr;
+    shared_ptr<string> removeFile_ {};
     // The name of the live stream.
     // 
     // This parameter is required.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
   };
 
   } // namespace Models

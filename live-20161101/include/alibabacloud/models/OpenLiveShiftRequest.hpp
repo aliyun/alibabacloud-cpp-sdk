@@ -44,86 +44,86 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->domainName_ == nullptr && return this->duration_ == nullptr && return this->ignoreTranscode_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
-        && return this->streamName_ == nullptr && return this->vision_ == nullptr; };
+        && this->domainName_ == nullptr && this->duration_ == nullptr && this->ignoreTranscode_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
+        && this->streamName_ == nullptr && this->vision_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
-    inline string appName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
+    inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
     inline OpenLiveShiftRequest& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline OpenLiveShiftRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline OpenLiveShiftRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // ignoreTranscode Field Functions 
     bool hasIgnoreTranscode() const { return this->ignoreTranscode_ != nullptr;};
     void deleteIgnoreTranscode() { this->ignoreTranscode_ = nullptr;};
-    inline bool ignoreTranscode() const { DARABONBA_PTR_GET_DEFAULT(ignoreTranscode_, false) };
+    inline bool getIgnoreTranscode() const { DARABONBA_PTR_GET_DEFAULT(ignoreTranscode_, false) };
     inline OpenLiveShiftRequest& setIgnoreTranscode(bool ignoreTranscode) { DARABONBA_PTR_SET_VALUE(ignoreTranscode_, ignoreTranscode) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline OpenLiveShiftRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline OpenLiveShiftRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
-    inline string streamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
+    inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline OpenLiveShiftRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
 
 
     // vision Field Functions 
     bool hasVision() const { return this->vision_ != nullptr;};
     void deleteVision() { this->vision_ = nullptr;};
-    inline int32_t vision() const { DARABONBA_PTR_GET_DEFAULT(vision_, 0) };
+    inline int32_t getVision() const { DARABONBA_PTR_GET_DEFAULT(vision_, 0) };
     inline OpenLiveShiftRequest& setVision(int32_t vision) { DARABONBA_PTR_SET_VALUE(vision_, vision) };
 
 
   protected:
     // The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications under the domain name. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
-    std::shared_ptr<string> appName_ = nullptr;
+    shared_ptr<string> appName_ {};
     // The streaming domain.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The length of a TS segment for HTTP Live Streaming (HLS). Unit: seconds.
-    std::shared_ptr<int32_t> duration_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
     // Specifies whether to disable time shifting for the transcoded stream. Valid values:
     // 
     // *   **true**: disables time shifting for the transcoded stream.
     // *   **false**: enables time shifting for the transcoded stream.
     // 
     // Default value: true.
-    std::shared_ptr<bool> ignoreTranscode_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<bool> ignoreTranscode_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> regionId_ {};
     // The name of the live stream. You can specify an asterisk (\\*) as the value to match all streams in the application. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
-    std::shared_ptr<string> streamName_ = nullptr;
+    shared_ptr<string> streamName_ {};
     // The duration for which data is retained. Default value: 7. Unit: day.
-    std::shared_ptr<int32_t> vision_ = nullptr;
+    shared_ptr<int32_t> vision_ {};
   };
 
   } // namespace Models
