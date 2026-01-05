@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceGroupId_ == nullptr
-        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->service_ == nullptr; };
+        && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->service_ == nullptr; };
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ChangeResourceGroupRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline ChangeResourceGroupRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ChangeResourceGroupRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // service Field Functions 
     bool hasService() const { return this->service_ != nullptr;};
     void deleteService() { this->service_ = nullptr;};
-    inline string service() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
+    inline string getService() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
     inline ChangeResourceGroupRequest& setService(string service) { DARABONBA_PTR_SET_VALUE(service_, service) };
 
 
   protected:
     // Target resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Resource ID
-    std::shared_ptr<string> resourceId_ = nullptr;
+    shared_ptr<string> resourceId_ {};
     // Resource type
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // Service name, fixed value apig
-    std::shared_ptr<string> service_ = nullptr;
+    shared_ptr<string> service_ {};
   };
 
   } // namespace Models

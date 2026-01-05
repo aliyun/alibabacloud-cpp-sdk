@@ -42,59 +42,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attachResourceId_ == nullptr
-        && return this->attachResourceType_ == nullptr && return this->direction_ == nullptr && return this->gatewayId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->attachResourceType_ == nullptr && this->direction_ == nullptr && this->gatewayId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->type_ == nullptr; };
     // attachResourceId Field Functions 
     bool hasAttachResourceId() const { return this->attachResourceId_ != nullptr;};
     void deleteAttachResourceId() { this->attachResourceId_ = nullptr;};
-    inline string attachResourceId() const { DARABONBA_PTR_GET_DEFAULT(attachResourceId_, "") };
+    inline string getAttachResourceId() const { DARABONBA_PTR_GET_DEFAULT(attachResourceId_, "") };
     inline ListPolicyClassesRequest& setAttachResourceId(string attachResourceId) { DARABONBA_PTR_SET_VALUE(attachResourceId_, attachResourceId) };
 
 
     // attachResourceType Field Functions 
     bool hasAttachResourceType() const { return this->attachResourceType_ != nullptr;};
     void deleteAttachResourceType() { this->attachResourceType_ = nullptr;};
-    inline string attachResourceType() const { DARABONBA_PTR_GET_DEFAULT(attachResourceType_, "") };
+    inline string getAttachResourceType() const { DARABONBA_PTR_GET_DEFAULT(attachResourceType_, "") };
     inline ListPolicyClassesRequest& setAttachResourceType(string attachResourceType) { DARABONBA_PTR_SET_VALUE(attachResourceType_, attachResourceType) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline ListPolicyClassesRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline ListPolicyClassesRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListPolicyClassesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListPolicyClassesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListPolicyClassesRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> attachResourceId_ = nullptr;
+    shared_ptr<string> attachResourceId_ {};
     // Types of attachment points supported by the policy.
     // 
     // - HttpApi: HttpApi.
@@ -104,19 +104,19 @@ namespace Models
     // - GatewayServicePort: Gateway service port.
     // - Domain: Gateway domain.
     // - Gateway: Gateway.
-    std::shared_ptr<string> attachResourceType_ = nullptr;
+    shared_ptr<string> attachResourceType_ {};
     // Direction of the policy.
     // - Outbound: OutBound.
     // - Inbound: InBound.
     // - Both directions: Both.
-    std::shared_ptr<string> direction_ = nullptr;
-    std::shared_ptr<string> gatewayId_ = nullptr;
+    shared_ptr<string> direction_ {};
+    shared_ptr<string> gatewayId_ {};
     // Page number, default is 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Page size
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Type of the policy template.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->kmsInstanceId_ == nullptr
-        && return this->kmsKeyId_ == nullptr; };
+        && this->kmsKeyId_ == nullptr; };
     // kmsInstanceId Field Functions 
     bool hasKmsInstanceId() const { return this->kmsInstanceId_ != nullptr;};
     void deleteKmsInstanceId() { this->kmsInstanceId_ = nullptr;};
-    inline string kmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
+    inline string getKmsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(kmsInstanceId_, "") };
     inline KMSConfig& setKmsInstanceId(string kmsInstanceId) { DARABONBA_PTR_SET_VALUE(kmsInstanceId_, kmsInstanceId) };
 
 
     // kmsKeyId Field Functions 
     bool hasKmsKeyId() const { return this->kmsKeyId_ != nullptr;};
     void deleteKmsKeyId() { this->kmsKeyId_ = nullptr;};
-    inline string kmsKeyId() const { DARABONBA_PTR_GET_DEFAULT(kmsKeyId_, "") };
+    inline string getKmsKeyId() const { DARABONBA_PTR_GET_DEFAULT(kmsKeyId_, "") };
     inline KMSConfig& setKmsKeyId(string kmsKeyId) { DARABONBA_PTR_SET_VALUE(kmsKeyId_, kmsKeyId) };
 
 
   protected:
-    std::shared_ptr<string> kmsInstanceId_ = nullptr;
-    std::shared_ptr<string> kmsKeyId_ = nullptr;
+    shared_ptr<string> kmsInstanceId_ {};
+    shared_ptr<string> kmsKeyId_ {};
   };
 
   } // namespace Models

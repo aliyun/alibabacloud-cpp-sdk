@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->key_ == nullptr
-        && return this->operator_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
+        && this->operator_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline HttpApiBackendMatchCondition& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};
-    inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline HttpApiBackendMatchCondition& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline HttpApiBackendMatchCondition& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline string value() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
     inline HttpApiBackendMatchCondition& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
 
 
   protected:
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<string> operator_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<string> value_ = nullptr;
+    shared_ptr<string> key_ {};
+    shared_ptr<string> operator_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<string> value_ {};
   };
 
   } // namespace Models

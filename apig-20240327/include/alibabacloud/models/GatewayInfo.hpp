@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GATEWAYINFO_HPP_
 #define ALIBABACLOUD_MODELS_GATEWAYINFO_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GatewayInfoVpcInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,43 +35,85 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class VpcInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const VpcInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
+      };
+      friend void from_json(const Darabonba::Json& j, VpcInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
+      };
+      VpcInfo() = default ;
+      VpcInfo(const VpcInfo &) = default ;
+      VpcInfo(VpcInfo &&) = default ;
+      VpcInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~VpcInfo() = default ;
+      VpcInfo& operator=(const VpcInfo &) = default ;
+      VpcInfo& operator=(VpcInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->vpcId_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline VpcInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // vpcId Field Functions 
+      bool hasVpcId() const { return this->vpcId_ != nullptr;};
+      void deleteVpcId() { this->vpcId_ = nullptr;};
+      inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+      inline VpcInfo& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+    protected:
+      shared_ptr<string> name_ {};
+      shared_ptr<string> vpcId_ {};
+    };
+
     virtual bool empty() const override { return this->engineVersion_ == nullptr
-        && return this->gatewayId_ == nullptr && return this->name_ == nullptr && return this->vpcInfo_ == nullptr; };
+        && this->gatewayId_ == nullptr && this->name_ == nullptr && this->vpcInfo_ == nullptr; };
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
-    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline GatewayInfo& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline GatewayInfo& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GatewayInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // vpcInfo Field Functions 
     bool hasVpcInfo() const { return this->vpcInfo_ != nullptr;};
     void deleteVpcInfo() { this->vpcInfo_ = nullptr;};
-    inline const GatewayInfoVpcInfo & vpcInfo() const { DARABONBA_PTR_GET_CONST(vpcInfo_, GatewayInfoVpcInfo) };
-    inline GatewayInfoVpcInfo vpcInfo() { DARABONBA_PTR_GET(vpcInfo_, GatewayInfoVpcInfo) };
-    inline GatewayInfo& setVpcInfo(const GatewayInfoVpcInfo & vpcInfo) { DARABONBA_PTR_SET_VALUE(vpcInfo_, vpcInfo) };
-    inline GatewayInfo& setVpcInfo(GatewayInfoVpcInfo && vpcInfo) { DARABONBA_PTR_SET_RVALUE(vpcInfo_, vpcInfo) };
+    inline const GatewayInfo::VpcInfo & getVpcInfo() const { DARABONBA_PTR_GET_CONST(vpcInfo_, GatewayInfo::VpcInfo) };
+    inline GatewayInfo::VpcInfo getVpcInfo() { DARABONBA_PTR_GET(vpcInfo_, GatewayInfo::VpcInfo) };
+    inline GatewayInfo& setVpcInfo(const GatewayInfo::VpcInfo & vpcInfo) { DARABONBA_PTR_SET_VALUE(vpcInfo_, vpcInfo) };
+    inline GatewayInfo& setVpcInfo(GatewayInfo::VpcInfo && vpcInfo) { DARABONBA_PTR_SET_RVALUE(vpcInfo_, vpcInfo) };
 
 
   protected:
-    std::shared_ptr<string> engineVersion_ = nullptr;
-    std::shared_ptr<string> gatewayId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<GatewayInfoVpcInfo> vpcInfo_ = nullptr;
+    shared_ptr<string> engineVersion_ {};
+    shared_ptr<string> gatewayId_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<GatewayInfo::VpcInfo> vpcInfo_ {};
   };
 
   } // namespace Models

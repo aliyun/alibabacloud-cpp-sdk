@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetHttpApiOperationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const HttpApiOperationInfo & data() const { DARABONBA_PTR_GET_CONST(data_, HttpApiOperationInfo) };
-    inline HttpApiOperationInfo data() { DARABONBA_PTR_GET(data_, HttpApiOperationInfo) };
+    inline const HttpApiOperationInfo & getData() const { DARABONBA_PTR_GET_CONST(data_, HttpApiOperationInfo) };
+    inline HttpApiOperationInfo getData() { DARABONBA_PTR_GET(data_, HttpApiOperationInfo) };
     inline GetHttpApiOperationResponseBody& setData(const HttpApiOperationInfo & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline GetHttpApiOperationResponseBody& setData(HttpApiOperationInfo && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -57,26 +57,26 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetHttpApiOperationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetHttpApiOperationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Response status code.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Operation information.
-    std::shared_ptr<HttpApiOperationInfo> data_ = nullptr;
+    shared_ptr<HttpApiOperationInfo> data_ {};
     // Response message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // consumerAuthorizationRuleIds Field Functions 
     bool hasConsumerAuthorizationRuleIds() const { return this->consumerAuthorizationRuleIds_ != nullptr;};
     void deleteConsumerAuthorizationRuleIds() { this->consumerAuthorizationRuleIds_ = nullptr;};
-    inline string consumerAuthorizationRuleIds() const { DARABONBA_PTR_GET_DEFAULT(consumerAuthorizationRuleIds_, "") };
+    inline string getConsumerAuthorizationRuleIds() const { DARABONBA_PTR_GET_DEFAULT(consumerAuthorizationRuleIds_, "") };
     inline BatchDeleteConsumerAuthorizationRuleRequest& setConsumerAuthorizationRuleIds(string consumerAuthorizationRuleIds) { DARABONBA_PTR_SET_VALUE(consumerAuthorizationRuleIds_, consumerAuthorizationRuleIds) };
 
 
   protected:
     // The rule IDs.
-    std::shared_ptr<string> consumerAuthorizationRuleIds_ = nullptr;
+    shared_ptr<string> consumerAuthorizationRuleIds_ {};
   };
 
   } // namespace Models

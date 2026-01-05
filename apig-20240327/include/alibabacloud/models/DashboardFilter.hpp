@@ -33,12 +33,12 @@ namespace Models
     // routeName Field Functions 
     bool hasRouteName() const { return this->routeName_ != nullptr;};
     void deleteRouteName() { this->routeName_ = nullptr;};
-    inline string routeName() const { DARABONBA_PTR_GET_DEFAULT(routeName_, "") };
+    inline string getRouteName() const { DARABONBA_PTR_GET_DEFAULT(routeName_, "") };
     inline DashboardFilter& setRouteName(string routeName) { DARABONBA_PTR_SET_VALUE(routeName_, routeName) };
 
 
   protected:
-    std::shared_ptr<string> routeName_ = nullptr;
+    shared_ptr<string> routeName_ {};
   };
 
   } // namespace Models

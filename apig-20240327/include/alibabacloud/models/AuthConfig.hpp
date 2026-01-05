@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authMode_ == nullptr
-        && return this->authType_ == nullptr; };
+        && this->authType_ == nullptr; };
     // authMode Field Functions 
     bool hasAuthMode() const { return this->authMode_ != nullptr;};
     void deleteAuthMode() { this->authMode_ = nullptr;};
-    inline string authMode() const { DARABONBA_PTR_GET_DEFAULT(authMode_, "") };
+    inline string getAuthMode() const { DARABONBA_PTR_GET_DEFAULT(authMode_, "") };
     inline AuthConfig& setAuthMode(string authMode) { DARABONBA_PTR_SET_VALUE(authMode_, authMode) };
 
 
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};
-    inline string authType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+    inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
     inline AuthConfig& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
 
 
   protected:
-    std::shared_ptr<string> authMode_ = nullptr;
-    std::shared_ptr<string> authType_ = nullptr;
+    shared_ptr<string> authMode_ {};
+    shared_ptr<string> authType_ {};
   };
 
   } // namespace Models

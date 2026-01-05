@@ -33,12 +33,12 @@ namespace Models
     // existed Field Functions 
     bool hasExisted() const { return this->existed_ != nullptr;};
     void deleteExisted() { this->existed_ = nullptr;};
-    inline bool existed() const { DARABONBA_PTR_GET_DEFAULT(existed_, false) };
+    inline bool getExisted() const { DARABONBA_PTR_GET_DEFAULT(existed_, false) };
     inline CheckServiceLinkedRoleResult& setExisted(bool existed) { DARABONBA_PTR_SET_VALUE(existed_, existed) };
 
 
   protected:
-    std::shared_ptr<bool> existed_ = nullptr;
+    shared_ptr<bool> existed_ {};
   };
 
   } // namespace Models

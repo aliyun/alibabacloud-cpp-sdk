@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gatewayIds_ == nullptr
-        && return this->pluginClassId_ == nullptr; };
+        && this->pluginClassId_ == nullptr; };
     // gatewayIds Field Functions 
     bool hasGatewayIds() const { return this->gatewayIds_ != nullptr;};
     void deleteGatewayIds() { this->gatewayIds_ = nullptr;};
-    inline const vector<string> & gatewayIds() const { DARABONBA_PTR_GET_CONST(gatewayIds_, vector<string>) };
-    inline vector<string> gatewayIds() { DARABONBA_PTR_GET(gatewayIds_, vector<string>) };
+    inline const vector<string> & getGatewayIds() const { DARABONBA_PTR_GET_CONST(gatewayIds_, vector<string>) };
+    inline vector<string> getGatewayIds() { DARABONBA_PTR_GET(gatewayIds_, vector<string>) };
     inline InstallPluginRequest& setGatewayIds(const vector<string> & gatewayIds) { DARABONBA_PTR_SET_VALUE(gatewayIds_, gatewayIds) };
     inline InstallPluginRequest& setGatewayIds(vector<string> && gatewayIds) { DARABONBA_PTR_SET_RVALUE(gatewayIds_, gatewayIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // pluginClassId Field Functions 
     bool hasPluginClassId() const { return this->pluginClassId_ != nullptr;};
     void deletePluginClassId() { this->pluginClassId_ = nullptr;};
-    inline string pluginClassId() const { DARABONBA_PTR_GET_DEFAULT(pluginClassId_, "") };
+    inline string getPluginClassId() const { DARABONBA_PTR_GET_DEFAULT(pluginClassId_, "") };
     inline InstallPluginRequest& setPluginClassId(string pluginClassId) { DARABONBA_PTR_SET_VALUE(pluginClassId_, pluginClassId) };
 
 
   protected:
     // The list of gateway IDs.
-    std::shared_ptr<vector<string>> gatewayIds_ = nullptr;
+    shared_ptr<vector<string>> gatewayIds_ {};
     // The plug-in type ID.
-    std::shared_ptr<string> pluginClassId_ = nullptr;
+    shared_ptr<string> pluginClassId_ {};
   };
 
   } // namespace Models

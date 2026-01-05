@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consumerId_ == nullptr
-        && return this->enable_ == nullptr && return this->name_ == nullptr; };
+        && this->enable_ == nullptr && this->name_ == nullptr; };
     // consumerId Field Functions 
     bool hasConsumerId() const { return this->consumerId_ != nullptr;};
     void deleteConsumerId() { this->consumerId_ = nullptr;};
-    inline string consumerId() const { DARABONBA_PTR_GET_DEFAULT(consumerId_, "") };
+    inline string getConsumerId() const { DARABONBA_PTR_GET_DEFAULT(consumerId_, "") };
     inline ConsumerInfo& setConsumerId(string consumerId) { DARABONBA_PTR_SET_VALUE(consumerId_, consumerId) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline ConsumerInfo& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ConsumerInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> consumerId_ = nullptr;
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> consumerId_ {};
+    shared_ptr<bool> enable_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

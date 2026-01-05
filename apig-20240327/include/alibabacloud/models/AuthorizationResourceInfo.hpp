@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->environmentId_ == nullptr
-        && return this->parentResourceId_ == nullptr && return this->resourceId_ == nullptr; };
+        && this->parentResourceId_ == nullptr && this->resourceId_ == nullptr; };
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline AuthorizationResourceInfo& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // parentResourceId Field Functions 
     bool hasParentResourceId() const { return this->parentResourceId_ != nullptr;};
     void deleteParentResourceId() { this->parentResourceId_ = nullptr;};
-    inline string parentResourceId() const { DARABONBA_PTR_GET_DEFAULT(parentResourceId_, "") };
+    inline string getParentResourceId() const { DARABONBA_PTR_GET_DEFAULT(parentResourceId_, "") };
     inline AuthorizationResourceInfo& setParentResourceId(string parentResourceId) { DARABONBA_PTR_SET_VALUE(parentResourceId_, parentResourceId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline AuthorizationResourceInfo& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
   protected:
-    std::shared_ptr<string> environmentId_ = nullptr;
-    std::shared_ptr<string> parentResourceId_ = nullptr;
-    std::shared_ptr<string> resourceId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
+    shared_ptr<string> parentResourceId_ {};
+    shared_ptr<string> resourceId_ {};
   };
 
   } // namespace Models

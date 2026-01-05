@@ -33,13 +33,13 @@ namespace Models
     // withStatistics Field Functions 
     bool hasWithStatistics() const { return this->withStatistics_ != nullptr;};
     void deleteWithStatistics() { this->withStatistics_ = nullptr;};
-    inline bool withStatistics() const { DARABONBA_PTR_GET_DEFAULT(withStatistics_, false) };
+    inline bool getWithStatistics() const { DARABONBA_PTR_GET_DEFAULT(withStatistics_, false) };
     inline GetDomainRequest& setWithStatistics(bool withStatistics) { DARABONBA_PTR_SET_VALUE(withStatistics_, withStatistics) };
 
 
   protected:
     // Specifies whether to return online resource information.
-    std::shared_ptr<bool> withStatistics_ = nullptr;
+    shared_ptr<bool> withStatistics_ {};
   };
 
   } // namespace Models

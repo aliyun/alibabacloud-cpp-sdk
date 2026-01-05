@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && return this->responseCode_ == nullptr && return this->responseContent_ == nullptr; };
+        && this->responseCode_ == nullptr && this->responseContent_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline HttpApiMockContract& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // responseCode Field Functions 
     bool hasResponseCode() const { return this->responseCode_ != nullptr;};
     void deleteResponseCode() { this->responseCode_ = nullptr;};
-    inline int32_t responseCode() const { DARABONBA_PTR_GET_DEFAULT(responseCode_, 0) };
+    inline int32_t getResponseCode() const { DARABONBA_PTR_GET_DEFAULT(responseCode_, 0) };
     inline HttpApiMockContract& setResponseCode(int32_t responseCode) { DARABONBA_PTR_SET_VALUE(responseCode_, responseCode) };
 
 
     // responseContent Field Functions 
     bool hasResponseContent() const { return this->responseContent_ != nullptr;};
     void deleteResponseContent() { this->responseContent_ = nullptr;};
-    inline string responseContent() const { DARABONBA_PTR_GET_DEFAULT(responseContent_, "") };
+    inline string getResponseContent() const { DARABONBA_PTR_GET_DEFAULT(responseContent_, "") };
     inline HttpApiMockContract& setResponseContent(string responseContent) { DARABONBA_PTR_SET_VALUE(responseContent_, responseContent) };
 
 
   protected:
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<int32_t> responseCode_ = nullptr;
-    std::shared_ptr<string> responseContent_ = nullptr;
+    shared_ptr<bool> enable_ {};
+    shared_ptr<int32_t> responseCode_ {};
+    shared_ptr<string> responseContent_ {};
   };
 
   } // namespace Models

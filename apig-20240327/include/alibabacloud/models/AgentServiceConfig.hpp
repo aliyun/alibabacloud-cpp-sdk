@@ -2,8 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_AGENTSERVICECONFIG_HPP_
 #define ALIBABACLOUD_MODELS_AGENTSERVICECONFIG_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AgentServiceConfigDashScopeConfig.hpp>
-#include <alibabacloud/models/AgentServiceConfigDifyConfig.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -42,45 +40,162 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DifyConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DifyConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
+        DARABONBA_PTR_TO_JSON(botType, botType_);
+      };
+      friend void from_json(const Darabonba::Json& j, DifyConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
+        DARABONBA_PTR_FROM_JSON(botType, botType_);
+      };
+      DifyConfig() = default ;
+      DifyConfig(const DifyConfig &) = default ;
+      DifyConfig(DifyConfig &&) = default ;
+      DifyConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DifyConfig() = default ;
+      DifyConfig& operator=(const DifyConfig &) = default ;
+      DifyConfig& operator=(DifyConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->apiKey_ == nullptr
+        && this->botType_ == nullptr; };
+      // apiKey Field Functions 
+      bool hasApiKey() const { return this->apiKey_ != nullptr;};
+      void deleteApiKey() { this->apiKey_ = nullptr;};
+      inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+      inline DifyConfig& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+      // botType Field Functions 
+      bool hasBotType() const { return this->botType_ != nullptr;};
+      void deleteBotType() { this->botType_ = nullptr;};
+      inline string getBotType() const { DARABONBA_PTR_GET_DEFAULT(botType_, "") };
+      inline DifyConfig& setBotType(string botType) { DARABONBA_PTR_SET_VALUE(botType_, botType) };
+
+
+    protected:
+      shared_ptr<string> apiKey_ {};
+      shared_ptr<string> botType_ {};
+    };
+
+    class DashScopeConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DashScopeConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(appCredentials, appCredentials_);
+      };
+      friend void from_json(const Darabonba::Json& j, DashScopeConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(appCredentials, appCredentials_);
+      };
+      DashScopeConfig() = default ;
+      DashScopeConfig(const DashScopeConfig &) = default ;
+      DashScopeConfig(DashScopeConfig &&) = default ;
+      DashScopeConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DashScopeConfig() = default ;
+      DashScopeConfig& operator=(const DashScopeConfig &) = default ;
+      DashScopeConfig& operator=(DashScopeConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AppCredentials : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AppCredentials& obj) { 
+          DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
+          DARABONBA_PTR_TO_JSON(appId, appId_);
+        };
+        friend void from_json(const Darabonba::Json& j, AppCredentials& obj) { 
+          DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
+          DARABONBA_PTR_FROM_JSON(appId, appId_);
+        };
+        AppCredentials() = default ;
+        AppCredentials(const AppCredentials &) = default ;
+        AppCredentials(AppCredentials &&) = default ;
+        AppCredentials(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AppCredentials() = default ;
+        AppCredentials& operator=(const AppCredentials &) = default ;
+        AppCredentials& operator=(AppCredentials &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->apiKey_ == nullptr
+        && this->appId_ == nullptr; };
+        // apiKey Field Functions 
+        bool hasApiKey() const { return this->apiKey_ != nullptr;};
+        void deleteApiKey() { this->apiKey_ = nullptr;};
+        inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+        inline AppCredentials& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+        // appId Field Functions 
+        bool hasAppId() const { return this->appId_ != nullptr;};
+        void deleteAppId() { this->appId_ = nullptr;};
+        inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+        inline AppCredentials& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+      protected:
+        shared_ptr<string> apiKey_ {};
+        shared_ptr<string> appId_ {};
+      };
+
+      virtual bool empty() const override { return this->appCredentials_ == nullptr; };
+      // appCredentials Field Functions 
+      bool hasAppCredentials() const { return this->appCredentials_ != nullptr;};
+      void deleteAppCredentials() { this->appCredentials_ = nullptr;};
+      inline const vector<DashScopeConfig::AppCredentials> & getAppCredentials() const { DARABONBA_PTR_GET_CONST(appCredentials_, vector<DashScopeConfig::AppCredentials>) };
+      inline vector<DashScopeConfig::AppCredentials> getAppCredentials() { DARABONBA_PTR_GET(appCredentials_, vector<DashScopeConfig::AppCredentials>) };
+      inline DashScopeConfig& setAppCredentials(const vector<DashScopeConfig::AppCredentials> & appCredentials) { DARABONBA_PTR_SET_VALUE(appCredentials_, appCredentials) };
+      inline DashScopeConfig& setAppCredentials(vector<DashScopeConfig::AppCredentials> && appCredentials) { DARABONBA_PTR_SET_RVALUE(appCredentials_, appCredentials) };
+
+
+    protected:
+      shared_ptr<vector<DashScopeConfig::AppCredentials>> appCredentials_ {};
+    };
+
     virtual bool empty() const override { return this->address_ == nullptr
-        && return this->dashScopeConfig_ == nullptr && return this->difyConfig_ == nullptr && return this->enableHealthCheck_ == nullptr && return this->protocols_ == nullptr && return this->provider_ == nullptr; };
+        && this->dashScopeConfig_ == nullptr && this->difyConfig_ == nullptr && this->enableHealthCheck_ == nullptr && this->protocols_ == nullptr && this->provider_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
-    inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline AgentServiceConfig& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
 
 
     // dashScopeConfig Field Functions 
     bool hasDashScopeConfig() const { return this->dashScopeConfig_ != nullptr;};
     void deleteDashScopeConfig() { this->dashScopeConfig_ = nullptr;};
-    inline const AgentServiceConfigDashScopeConfig & dashScopeConfig() const { DARABONBA_PTR_GET_CONST(dashScopeConfig_, AgentServiceConfigDashScopeConfig) };
-    inline AgentServiceConfigDashScopeConfig dashScopeConfig() { DARABONBA_PTR_GET(dashScopeConfig_, AgentServiceConfigDashScopeConfig) };
-    inline AgentServiceConfig& setDashScopeConfig(const AgentServiceConfigDashScopeConfig & dashScopeConfig) { DARABONBA_PTR_SET_VALUE(dashScopeConfig_, dashScopeConfig) };
-    inline AgentServiceConfig& setDashScopeConfig(AgentServiceConfigDashScopeConfig && dashScopeConfig) { DARABONBA_PTR_SET_RVALUE(dashScopeConfig_, dashScopeConfig) };
+    inline const AgentServiceConfig::DashScopeConfig & getDashScopeConfig() const { DARABONBA_PTR_GET_CONST(dashScopeConfig_, AgentServiceConfig::DashScopeConfig) };
+    inline AgentServiceConfig::DashScopeConfig getDashScopeConfig() { DARABONBA_PTR_GET(dashScopeConfig_, AgentServiceConfig::DashScopeConfig) };
+    inline AgentServiceConfig& setDashScopeConfig(const AgentServiceConfig::DashScopeConfig & dashScopeConfig) { DARABONBA_PTR_SET_VALUE(dashScopeConfig_, dashScopeConfig) };
+    inline AgentServiceConfig& setDashScopeConfig(AgentServiceConfig::DashScopeConfig && dashScopeConfig) { DARABONBA_PTR_SET_RVALUE(dashScopeConfig_, dashScopeConfig) };
 
 
     // difyConfig Field Functions 
     bool hasDifyConfig() const { return this->difyConfig_ != nullptr;};
     void deleteDifyConfig() { this->difyConfig_ = nullptr;};
-    inline const AgentServiceConfigDifyConfig & difyConfig() const { DARABONBA_PTR_GET_CONST(difyConfig_, AgentServiceConfigDifyConfig) };
-    inline AgentServiceConfigDifyConfig difyConfig() { DARABONBA_PTR_GET(difyConfig_, AgentServiceConfigDifyConfig) };
-    inline AgentServiceConfig& setDifyConfig(const AgentServiceConfigDifyConfig & difyConfig) { DARABONBA_PTR_SET_VALUE(difyConfig_, difyConfig) };
-    inline AgentServiceConfig& setDifyConfig(AgentServiceConfigDifyConfig && difyConfig) { DARABONBA_PTR_SET_RVALUE(difyConfig_, difyConfig) };
+    inline const AgentServiceConfig::DifyConfig & getDifyConfig() const { DARABONBA_PTR_GET_CONST(difyConfig_, AgentServiceConfig::DifyConfig) };
+    inline AgentServiceConfig::DifyConfig getDifyConfig() { DARABONBA_PTR_GET(difyConfig_, AgentServiceConfig::DifyConfig) };
+    inline AgentServiceConfig& setDifyConfig(const AgentServiceConfig::DifyConfig & difyConfig) { DARABONBA_PTR_SET_VALUE(difyConfig_, difyConfig) };
+    inline AgentServiceConfig& setDifyConfig(AgentServiceConfig::DifyConfig && difyConfig) { DARABONBA_PTR_SET_RVALUE(difyConfig_, difyConfig) };
 
 
     // enableHealthCheck Field Functions 
     bool hasEnableHealthCheck() const { return this->enableHealthCheck_ != nullptr;};
     void deleteEnableHealthCheck() { this->enableHealthCheck_ = nullptr;};
-    inline bool enableHealthCheck() const { DARABONBA_PTR_GET_DEFAULT(enableHealthCheck_, false) };
+    inline bool getEnableHealthCheck() const { DARABONBA_PTR_GET_DEFAULT(enableHealthCheck_, false) };
     inline AgentServiceConfig& setEnableHealthCheck(bool enableHealthCheck) { DARABONBA_PTR_SET_VALUE(enableHealthCheck_, enableHealthCheck) };
 
 
     // protocols Field Functions 
     bool hasProtocols() const { return this->protocols_ != nullptr;};
     void deleteProtocols() { this->protocols_ = nullptr;};
-    inline const vector<string> & protocols() const { DARABONBA_PTR_GET_CONST(protocols_, vector<string>) };
-    inline vector<string> protocols() { DARABONBA_PTR_GET(protocols_, vector<string>) };
+    inline const vector<string> & getProtocols() const { DARABONBA_PTR_GET_CONST(protocols_, vector<string>) };
+    inline vector<string> getProtocols() { DARABONBA_PTR_GET(protocols_, vector<string>) };
     inline AgentServiceConfig& setProtocols(const vector<string> & protocols) { DARABONBA_PTR_SET_VALUE(protocols_, protocols) };
     inline AgentServiceConfig& setProtocols(vector<string> && protocols) { DARABONBA_PTR_SET_RVALUE(protocols_, protocols) };
 
@@ -88,19 +203,19 @@ namespace Models
     // provider Field Functions 
     bool hasProvider() const { return this->provider_ != nullptr;};
     void deleteProvider() { this->provider_ = nullptr;};
-    inline string provider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+    inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
     inline AgentServiceConfig& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> address_ = nullptr;
-    std::shared_ptr<AgentServiceConfigDashScopeConfig> dashScopeConfig_ = nullptr;
-    std::shared_ptr<AgentServiceConfigDifyConfig> difyConfig_ = nullptr;
-    std::shared_ptr<bool> enableHealthCheck_ = nullptr;
-    std::shared_ptr<vector<string>> protocols_ = nullptr;
+    shared_ptr<string> address_ {};
+    shared_ptr<AgentServiceConfig::DashScopeConfig> dashScopeConfig_ {};
+    shared_ptr<AgentServiceConfig::DifyConfig> difyConfig_ {};
+    shared_ptr<bool> enableHealthCheck_ {};
+    shared_ptr<vector<string>> protocols_ {};
     // This parameter is required.
-    std::shared_ptr<string> provider_ = nullptr;
+    shared_ptr<string> provider_ {};
   };
 
   } // namespace Models

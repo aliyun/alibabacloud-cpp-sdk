@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arn_ == nullptr
-        && return this->assumeRolePolicyDocument_ == nullptr && return this->createDate_ == nullptr && return this->description_ == nullptr && return this->isServiceLinkedRole_ == nullptr && return this->roleId_ == nullptr
-        && return this->roleName_ == nullptr && return this->rolePrincipalName_ == nullptr; };
+        && this->assumeRolePolicyDocument_ == nullptr && this->createDate_ == nullptr && this->description_ == nullptr && this->isServiceLinkedRole_ == nullptr && this->roleId_ == nullptr
+        && this->roleName_ == nullptr && this->rolePrincipalName_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
-    inline string arn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
+    inline string getArn() const { DARABONBA_PTR_GET_DEFAULT(arn_, "") };
     inline ServiceLinkedRole& setArn(string arn) { DARABONBA_PTR_SET_VALUE(arn_, arn) };
 
 
     // assumeRolePolicyDocument Field Functions 
     bool hasAssumeRolePolicyDocument() const { return this->assumeRolePolicyDocument_ != nullptr;};
     void deleteAssumeRolePolicyDocument() { this->assumeRolePolicyDocument_ = nullptr;};
-    inline string assumeRolePolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(assumeRolePolicyDocument_, "") };
+    inline string getAssumeRolePolicyDocument() const { DARABONBA_PTR_GET_DEFAULT(assumeRolePolicyDocument_, "") };
     inline ServiceLinkedRole& setAssumeRolePolicyDocument(string assumeRolePolicyDocument) { DARABONBA_PTR_SET_VALUE(assumeRolePolicyDocument_, assumeRolePolicyDocument) };
 
 
     // createDate Field Functions 
     bool hasCreateDate() const { return this->createDate_ != nullptr;};
     void deleteCreateDate() { this->createDate_ = nullptr;};
-    inline string createDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
+    inline string getCreateDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
     inline ServiceLinkedRole& setCreateDate(string createDate) { DARABONBA_PTR_SET_VALUE(createDate_, createDate) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ServiceLinkedRole& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // isServiceLinkedRole Field Functions 
     bool hasIsServiceLinkedRole() const { return this->isServiceLinkedRole_ != nullptr;};
     void deleteIsServiceLinkedRole() { this->isServiceLinkedRole_ = nullptr;};
-    inline bool isServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(isServiceLinkedRole_, false) };
+    inline bool getIsServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(isServiceLinkedRole_, false) };
     inline ServiceLinkedRole& setIsServiceLinkedRole(bool isServiceLinkedRole) { DARABONBA_PTR_SET_VALUE(isServiceLinkedRole_, isServiceLinkedRole) };
 
 
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline string roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
+    inline string getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
     inline ServiceLinkedRole& setRoleId(string roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline ServiceLinkedRole& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
     // rolePrincipalName Field Functions 
     bool hasRolePrincipalName() const { return this->rolePrincipalName_ != nullptr;};
     void deleteRolePrincipalName() { this->rolePrincipalName_ = nullptr;};
-    inline string rolePrincipalName() const { DARABONBA_PTR_GET_DEFAULT(rolePrincipalName_, "") };
+    inline string getRolePrincipalName() const { DARABONBA_PTR_GET_DEFAULT(rolePrincipalName_, "") };
     inline ServiceLinkedRole& setRolePrincipalName(string rolePrincipalName) { DARABONBA_PTR_SET_VALUE(rolePrincipalName_, rolePrincipalName) };
 
 
   protected:
-    std::shared_ptr<string> arn_ = nullptr;
-    std::shared_ptr<string> assumeRolePolicyDocument_ = nullptr;
-    std::shared_ptr<string> createDate_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<bool> isServiceLinkedRole_ = nullptr;
-    std::shared_ptr<string> roleId_ = nullptr;
-    std::shared_ptr<string> roleName_ = nullptr;
-    std::shared_ptr<string> rolePrincipalName_ = nullptr;
+    shared_ptr<string> arn_ {};
+    shared_ptr<string> assumeRolePolicyDocument_ {};
+    shared_ptr<string> createDate_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<bool> isServiceLinkedRole_ {};
+    shared_ptr<string> roleId_ {};
+    shared_ptr<string> roleName_ {};
+    shared_ptr<string> rolePrincipalName_ {};
   };
 
   } // namespace Models

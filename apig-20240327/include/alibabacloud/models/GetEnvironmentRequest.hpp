@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->withStatistics_ == nullptr
-        && return this->withVpcInfo_ == nullptr; };
+        && this->withVpcInfo_ == nullptr; };
     // withStatistics Field Functions 
     bool hasWithStatistics() const { return this->withStatistics_ != nullptr;};
     void deleteWithStatistics() { this->withStatistics_ = nullptr;};
-    inline bool withStatistics() const { DARABONBA_PTR_GET_DEFAULT(withStatistics_, false) };
+    inline bool getWithStatistics() const { DARABONBA_PTR_GET_DEFAULT(withStatistics_, false) };
     inline GetEnvironmentRequest& setWithStatistics(bool withStatistics) { DARABONBA_PTR_SET_VALUE(withStatistics_, withStatistics) };
 
 
     // withVpcInfo Field Functions 
     bool hasWithVpcInfo() const { return this->withVpcInfo_ != nullptr;};
     void deleteWithVpcInfo() { this->withVpcInfo_ = nullptr;};
-    inline bool withVpcInfo() const { DARABONBA_PTR_GET_DEFAULT(withVpcInfo_, false) };
+    inline bool getWithVpcInfo() const { DARABONBA_PTR_GET_DEFAULT(withVpcInfo_, false) };
     inline GetEnvironmentRequest& setWithVpcInfo(bool withVpcInfo) { DARABONBA_PTR_SET_VALUE(withVpcInfo_, withVpcInfo) };
 
 
   protected:
     // Indicates whether to return online resource info.
-    std::shared_ptr<bool> withStatistics_ = nullptr;
+    shared_ptr<bool> withStatistics_ {};
     // Option for vpc info.
-    std::shared_ptr<bool> withVpcInfo_ = nullptr;
+    shared_ptr<bool> withVpcInfo_ {};
   };
 
   } // namespace Models

@@ -46,13 +46,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->akSkIdentityConfigs_ == nullptr
-        && return this->apikeyIdentityConfig_ == nullptr && return this->description_ == nullptr && return this->enable_ == nullptr && return this->gatewayType_ == nullptr && return this->jwtIdentityConfig_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->apikeyIdentityConfig_ == nullptr && this->description_ == nullptr && this->enable_ == nullptr && this->gatewayType_ == nullptr && this->jwtIdentityConfig_ == nullptr
+        && this->name_ == nullptr; };
     // akSkIdentityConfigs Field Functions 
     bool hasAkSkIdentityConfigs() const { return this->akSkIdentityConfigs_ != nullptr;};
     void deleteAkSkIdentityConfigs() { this->akSkIdentityConfigs_ = nullptr;};
-    inline const vector<AkSkIdentityConfig> & akSkIdentityConfigs() const { DARABONBA_PTR_GET_CONST(akSkIdentityConfigs_, vector<AkSkIdentityConfig>) };
-    inline vector<AkSkIdentityConfig> akSkIdentityConfigs() { DARABONBA_PTR_GET(akSkIdentityConfigs_, vector<AkSkIdentityConfig>) };
+    inline const vector<AkSkIdentityConfig> & getAkSkIdentityConfigs() const { DARABONBA_PTR_GET_CONST(akSkIdentityConfigs_, vector<AkSkIdentityConfig>) };
+    inline vector<AkSkIdentityConfig> getAkSkIdentityConfigs() { DARABONBA_PTR_GET(akSkIdentityConfigs_, vector<AkSkIdentityConfig>) };
     inline CreateConsumerRequest& setAkSkIdentityConfigs(const vector<AkSkIdentityConfig> & akSkIdentityConfigs) { DARABONBA_PTR_SET_VALUE(akSkIdentityConfigs_, akSkIdentityConfigs) };
     inline CreateConsumerRequest& setAkSkIdentityConfigs(vector<AkSkIdentityConfig> && akSkIdentityConfigs) { DARABONBA_PTR_SET_RVALUE(akSkIdentityConfigs_, akSkIdentityConfigs) };
 
@@ -60,8 +60,8 @@ namespace Models
     // apikeyIdentityConfig Field Functions 
     bool hasApikeyIdentityConfig() const { return this->apikeyIdentityConfig_ != nullptr;};
     void deleteApikeyIdentityConfig() { this->apikeyIdentityConfig_ = nullptr;};
-    inline const ApiKeyIdentityConfig & apikeyIdentityConfig() const { DARABONBA_PTR_GET_CONST(apikeyIdentityConfig_, ApiKeyIdentityConfig) };
-    inline ApiKeyIdentityConfig apikeyIdentityConfig() { DARABONBA_PTR_GET(apikeyIdentityConfig_, ApiKeyIdentityConfig) };
+    inline const ApiKeyIdentityConfig & getApikeyIdentityConfig() const { DARABONBA_PTR_GET_CONST(apikeyIdentityConfig_, ApiKeyIdentityConfig) };
+    inline ApiKeyIdentityConfig getApikeyIdentityConfig() { DARABONBA_PTR_GET(apikeyIdentityConfig_, ApiKeyIdentityConfig) };
     inline CreateConsumerRequest& setApikeyIdentityConfig(const ApiKeyIdentityConfig & apikeyIdentityConfig) { DARABONBA_PTR_SET_VALUE(apikeyIdentityConfig_, apikeyIdentityConfig) };
     inline CreateConsumerRequest& setApikeyIdentityConfig(ApiKeyIdentityConfig && apikeyIdentityConfig) { DARABONBA_PTR_SET_RVALUE(apikeyIdentityConfig_, apikeyIdentityConfig) };
 
@@ -69,29 +69,29 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateConsumerRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline CreateConsumerRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // gatewayType Field Functions 
     bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
     void deleteGatewayType() { this->gatewayType_ = nullptr;};
-    inline string gatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
     inline CreateConsumerRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
     // jwtIdentityConfig Field Functions 
     bool hasJwtIdentityConfig() const { return this->jwtIdentityConfig_ != nullptr;};
     void deleteJwtIdentityConfig() { this->jwtIdentityConfig_ = nullptr;};
-    inline const JwtIdentityConfig & jwtIdentityConfig() const { DARABONBA_PTR_GET_CONST(jwtIdentityConfig_, JwtIdentityConfig) };
-    inline JwtIdentityConfig jwtIdentityConfig() { DARABONBA_PTR_GET(jwtIdentityConfig_, JwtIdentityConfig) };
+    inline const JwtIdentityConfig & getJwtIdentityConfig() const { DARABONBA_PTR_GET_CONST(jwtIdentityConfig_, JwtIdentityConfig) };
+    inline JwtIdentityConfig getJwtIdentityConfig() { DARABONBA_PTR_GET(jwtIdentityConfig_, JwtIdentityConfig) };
     inline CreateConsumerRequest& setJwtIdentityConfig(const JwtIdentityConfig & jwtIdentityConfig) { DARABONBA_PTR_SET_VALUE(jwtIdentityConfig_, jwtIdentityConfig) };
     inline CreateConsumerRequest& setJwtIdentityConfig(JwtIdentityConfig && jwtIdentityConfig) { DARABONBA_PTR_SET_RVALUE(jwtIdentityConfig_, jwtIdentityConfig) };
 
@@ -99,25 +99,25 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateConsumerRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The list of AK/SK identity configurations.
-    std::shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ = nullptr;
+    shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
     // The configuration for the API key authentication method.
-    std::shared_ptr<ApiKeyIdentityConfig> apikeyIdentityConfig_ = nullptr;
+    shared_ptr<ApiKeyIdentityConfig> apikeyIdentityConfig_ {};
     // The description of the consumer.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Indicates if enabled.
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // The type of the gateway.
-    std::shared_ptr<string> gatewayType_ = nullptr;
+    shared_ptr<string> gatewayType_ {};
     // The configuration of the JWT identity.
-    std::shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ = nullptr;
+    shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};
     // The name of the consumer.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

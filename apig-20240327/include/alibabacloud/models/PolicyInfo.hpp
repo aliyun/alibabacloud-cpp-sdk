@@ -50,13 +50,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attachments_ == nullptr
-        && return this->classAlias_ == nullptr && return this->className_ == nullptr && return this->config_ == nullptr && return this->direction_ == nullptr && return this->executePriority_ == nullptr
-        && return this->executeStage_ == nullptr && return this->name_ == nullptr && return this->policyId_ == nullptr && return this->type_ == nullptr; };
+        && this->classAlias_ == nullptr && this->className_ == nullptr && this->config_ == nullptr && this->direction_ == nullptr && this->executePriority_ == nullptr
+        && this->executeStage_ == nullptr && this->name_ == nullptr && this->policyId_ == nullptr && this->type_ == nullptr; };
     // attachments Field Functions 
     bool hasAttachments() const { return this->attachments_ != nullptr;};
     void deleteAttachments() { this->attachments_ = nullptr;};
-    inline const vector<Attachment> & attachments() const { DARABONBA_PTR_GET_CONST(attachments_, vector<Attachment>) };
-    inline vector<Attachment> attachments() { DARABONBA_PTR_GET(attachments_, vector<Attachment>) };
+    inline const vector<Attachment> & getAttachments() const { DARABONBA_PTR_GET_CONST(attachments_, vector<Attachment>) };
+    inline vector<Attachment> getAttachments() { DARABONBA_PTR_GET(attachments_, vector<Attachment>) };
     inline PolicyInfo& setAttachments(const vector<Attachment> & attachments) { DARABONBA_PTR_SET_VALUE(attachments_, attachments) };
     inline PolicyInfo& setAttachments(vector<Attachment> && attachments) { DARABONBA_PTR_SET_RVALUE(attachments_, attachments) };
 
@@ -64,77 +64,77 @@ namespace Models
     // classAlias Field Functions 
     bool hasClassAlias() const { return this->classAlias_ != nullptr;};
     void deleteClassAlias() { this->classAlias_ = nullptr;};
-    inline string classAlias() const { DARABONBA_PTR_GET_DEFAULT(classAlias_, "") };
+    inline string getClassAlias() const { DARABONBA_PTR_GET_DEFAULT(classAlias_, "") };
     inline PolicyInfo& setClassAlias(string classAlias) { DARABONBA_PTR_SET_VALUE(classAlias_, classAlias) };
 
 
     // className Field Functions 
     bool hasClassName() const { return this->className_ != nullptr;};
     void deleteClassName() { this->className_ = nullptr;};
-    inline string className() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
+    inline string getClassName() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
     inline PolicyInfo& setClassName(string className) { DARABONBA_PTR_SET_VALUE(className_, className) };
 
 
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline PolicyInfo& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline PolicyInfo& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // executePriority Field Functions 
     bool hasExecutePriority() const { return this->executePriority_ != nullptr;};
     void deleteExecutePriority() { this->executePriority_ = nullptr;};
-    inline string executePriority() const { DARABONBA_PTR_GET_DEFAULT(executePriority_, "") };
+    inline string getExecutePriority() const { DARABONBA_PTR_GET_DEFAULT(executePriority_, "") };
     inline PolicyInfo& setExecutePriority(string executePriority) { DARABONBA_PTR_SET_VALUE(executePriority_, executePriority) };
 
 
     // executeStage Field Functions 
     bool hasExecuteStage() const { return this->executeStage_ != nullptr;};
     void deleteExecuteStage() { this->executeStage_ = nullptr;};
-    inline string executeStage() const { DARABONBA_PTR_GET_DEFAULT(executeStage_, "") };
+    inline string getExecuteStage() const { DARABONBA_PTR_GET_DEFAULT(executeStage_, "") };
     inline PolicyInfo& setExecuteStage(string executeStage) { DARABONBA_PTR_SET_VALUE(executeStage_, executeStage) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline PolicyInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline PolicyInfo& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline PolicyInfo& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<vector<Attachment>> attachments_ = nullptr;
-    std::shared_ptr<string> classAlias_ = nullptr;
-    std::shared_ptr<string> className_ = nullptr;
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<string> direction_ = nullptr;
-    std::shared_ptr<string> executePriority_ = nullptr;
-    std::shared_ptr<string> executeStage_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> policyId_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<vector<Attachment>> attachments_ {};
+    shared_ptr<string> classAlias_ {};
+    shared_ptr<string> className_ {};
+    shared_ptr<string> config_ {};
+    shared_ptr<string> direction_ {};
+    shared_ptr<string> executePriority_ {};
+    shared_ptr<string> executeStage_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> policyId_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

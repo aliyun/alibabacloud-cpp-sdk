@@ -33,12 +33,12 @@ namespace Models
     // gatewayType Field Functions 
     bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
     void deleteGatewayType() { this->gatewayType_ = nullptr;};
-    inline string gatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
     inline GetResourceOverviewRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
   protected:
-    std::shared_ptr<string> gatewayType_ = nullptr;
+    shared_ptr<string> gatewayType_ {};
   };
 
   } // namespace Models

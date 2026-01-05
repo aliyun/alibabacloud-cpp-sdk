@@ -46,90 +46,90 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attachResourceId_ == nullptr
-        && return this->attachResourceType_ == nullptr && return this->attachResourceTypes_ == nullptr && return this->environmentId_ == nullptr && return this->gatewayId_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->pluginId_ == nullptr && return this->withParentResource_ == nullptr; };
+        && this->attachResourceType_ == nullptr && this->attachResourceTypes_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->pluginId_ == nullptr && this->withParentResource_ == nullptr; };
     // attachResourceId Field Functions 
     bool hasAttachResourceId() const { return this->attachResourceId_ != nullptr;};
     void deleteAttachResourceId() { this->attachResourceId_ = nullptr;};
-    inline string attachResourceId() const { DARABONBA_PTR_GET_DEFAULT(attachResourceId_, "") };
+    inline string getAttachResourceId() const { DARABONBA_PTR_GET_DEFAULT(attachResourceId_, "") };
     inline ListPluginAttachmentsRequest& setAttachResourceId(string attachResourceId) { DARABONBA_PTR_SET_VALUE(attachResourceId_, attachResourceId) };
 
 
     // attachResourceType Field Functions 
     bool hasAttachResourceType() const { return this->attachResourceType_ != nullptr;};
     void deleteAttachResourceType() { this->attachResourceType_ = nullptr;};
-    inline string attachResourceType() const { DARABONBA_PTR_GET_DEFAULT(attachResourceType_, "") };
+    inline string getAttachResourceType() const { DARABONBA_PTR_GET_DEFAULT(attachResourceType_, "") };
     inline ListPluginAttachmentsRequest& setAttachResourceType(string attachResourceType) { DARABONBA_PTR_SET_VALUE(attachResourceType_, attachResourceType) };
 
 
     // attachResourceTypes Field Functions 
     bool hasAttachResourceTypes() const { return this->attachResourceTypes_ != nullptr;};
     void deleteAttachResourceTypes() { this->attachResourceTypes_ = nullptr;};
-    inline string attachResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(attachResourceTypes_, "") };
+    inline string getAttachResourceTypes() const { DARABONBA_PTR_GET_DEFAULT(attachResourceTypes_, "") };
     inline ListPluginAttachmentsRequest& setAttachResourceTypes(string attachResourceTypes) { DARABONBA_PTR_SET_VALUE(attachResourceTypes_, attachResourceTypes) };
 
 
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline ListPluginAttachmentsRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline ListPluginAttachmentsRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListPluginAttachmentsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListPluginAttachmentsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // pluginId Field Functions 
     bool hasPluginId() const { return this->pluginId_ != nullptr;};
     void deletePluginId() { this->pluginId_ = nullptr;};
-    inline string pluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
+    inline string getPluginId() const { DARABONBA_PTR_GET_DEFAULT(pluginId_, "") };
     inline ListPluginAttachmentsRequest& setPluginId(string pluginId) { DARABONBA_PTR_SET_VALUE(pluginId_, pluginId) };
 
 
     // withParentResource Field Functions 
     bool hasWithParentResource() const { return this->withParentResource_ != nullptr;};
     void deleteWithParentResource() { this->withParentResource_ = nullptr;};
-    inline bool withParentResource() const { DARABONBA_PTR_GET_DEFAULT(withParentResource_, false) };
+    inline bool getWithParentResource() const { DARABONBA_PTR_GET_DEFAULT(withParentResource_, false) };
     inline ListPluginAttachmentsRequest& setWithParentResource(bool withParentResource) { DARABONBA_PTR_SET_VALUE(withParentResource_, withParentResource) };
 
 
   protected:
     // The resource attachment ID.
-    std::shared_ptr<string> attachResourceId_ = nullptr;
+    shared_ptr<string> attachResourceId_ {};
     // The resource attachment type (not yet in use).
-    std::shared_ptr<string> attachResourceType_ = nullptr;
+    shared_ptr<string> attachResourceType_ {};
     // The resource attachment types, separated by commas.
-    std::shared_ptr<string> attachResourceTypes_ = nullptr;
+    shared_ptr<string> attachResourceTypes_ {};
     // The environment ID.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
     // The gateway ID.
-    std::shared_ptr<string> gatewayId_ = nullptr;
+    shared_ptr<string> gatewayId_ {};
     // The page number to return. Pages start from 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The plug-in ID.
-    std::shared_ptr<string> pluginId_ = nullptr;
+    shared_ptr<string> pluginId_ {};
     // Specifies whether to return parent resource attachments.
-    std::shared_ptr<bool> withParentResource_ = nullptr;
+    shared_ptr<bool> withParentResource_ {};
   };
 
   } // namespace Models

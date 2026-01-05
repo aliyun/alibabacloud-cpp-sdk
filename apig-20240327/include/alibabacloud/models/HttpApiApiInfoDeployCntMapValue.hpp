@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deployedCnt_ == nullptr
-        && return this->cnt_ == nullptr; };
+        && this->cnt_ == nullptr; };
     // deployedCnt Field Functions 
     bool hasDeployedCnt() const { return this->deployedCnt_ != nullptr;};
     void deleteDeployedCnt() { this->deployedCnt_ = nullptr;};
-    inline int64_t deployedCnt() const { DARABONBA_PTR_GET_DEFAULT(deployedCnt_, 0L) };
+    inline int64_t getDeployedCnt() const { DARABONBA_PTR_GET_DEFAULT(deployedCnt_, 0L) };
     inline HttpApiApiInfoDeployCntMapValue& setDeployedCnt(int64_t deployedCnt) { DARABONBA_PTR_SET_VALUE(deployedCnt_, deployedCnt) };
 
 
     // cnt Field Functions 
     bool hasCnt() const { return this->cnt_ != nullptr;};
     void deleteCnt() { this->cnt_ = nullptr;};
-    inline int64_t cnt() const { DARABONBA_PTR_GET_DEFAULT(cnt_, 0L) };
+    inline int64_t getCnt() const { DARABONBA_PTR_GET_DEFAULT(cnt_, 0L) };
     inline HttpApiApiInfoDeployCntMapValue& setCnt(int64_t cnt) { DARABONBA_PTR_SET_VALUE(cnt_, cnt) };
 
 
   protected:
-    std::shared_ptr<int64_t> deployedCnt_ = nullptr;
-    std::shared_ptr<int64_t> cnt_ = nullptr;
+    shared_ptr<int64_t> deployedCnt_ {};
+    shared_ptr<int64_t> cnt_ {};
   };
 
   } // namespace Models

@@ -34,15 +34,15 @@ namespace Models
     // operation Field Functions 
     bool hasOperation() const { return this->operation_ != nullptr;};
     void deleteOperation() { this->operation_ = nullptr;};
-    inline const HttpApiOperation & operation() const { DARABONBA_PTR_GET_CONST(operation_, HttpApiOperation) };
-    inline HttpApiOperation operation() { DARABONBA_PTR_GET(operation_, HttpApiOperation) };
+    inline const HttpApiOperation & getOperation() const { DARABONBA_PTR_GET_CONST(operation_, HttpApiOperation) };
+    inline HttpApiOperation getOperation() { DARABONBA_PTR_GET(operation_, HttpApiOperation) };
     inline UpdateHttpApiOperationRequest& setOperation(const HttpApiOperation & operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
     inline UpdateHttpApiOperationRequest& setOperation(HttpApiOperation && operation) { DARABONBA_PTR_SET_RVALUE(operation_, operation) };
 
 
   protected:
     // operation definition.
-    std::shared_ptr<HttpApiOperation> operation_ = nullptr;
+    shared_ptr<HttpApiOperation> operation_ {};
   };
 
   } // namespace Models

@@ -44,80 +44,80 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliasLike_ == nullptr
-        && return this->gatewayId_ == nullptr && return this->gatewayNameLike_ == nullptr && return this->gatewayType_ == nullptr && return this->nameLike_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->gatewayId_ == nullptr && this->gatewayNameLike_ == nullptr && this->gatewayType_ == nullptr && this->nameLike_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr; };
     // aliasLike Field Functions 
     bool hasAliasLike() const { return this->aliasLike_ != nullptr;};
     void deleteAliasLike() { this->aliasLike_ = nullptr;};
-    inline string aliasLike() const { DARABONBA_PTR_GET_DEFAULT(aliasLike_, "") };
+    inline string getAliasLike() const { DARABONBA_PTR_GET_DEFAULT(aliasLike_, "") };
     inline ListEnvironmentsRequest& setAliasLike(string aliasLike) { DARABONBA_PTR_SET_VALUE(aliasLike_, aliasLike) };
 
 
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline ListEnvironmentsRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // gatewayNameLike Field Functions 
     bool hasGatewayNameLike() const { return this->gatewayNameLike_ != nullptr;};
     void deleteGatewayNameLike() { this->gatewayNameLike_ = nullptr;};
-    inline string gatewayNameLike() const { DARABONBA_PTR_GET_DEFAULT(gatewayNameLike_, "") };
+    inline string getGatewayNameLike() const { DARABONBA_PTR_GET_DEFAULT(gatewayNameLike_, "") };
     inline ListEnvironmentsRequest& setGatewayNameLike(string gatewayNameLike) { DARABONBA_PTR_SET_VALUE(gatewayNameLike_, gatewayNameLike) };
 
 
     // gatewayType Field Functions 
     bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
     void deleteGatewayType() { this->gatewayType_ = nullptr;};
-    inline string gatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
     inline ListEnvironmentsRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
     // nameLike Field Functions 
     bool hasNameLike() const { return this->nameLike_ != nullptr;};
     void deleteNameLike() { this->nameLike_ = nullptr;};
-    inline string nameLike() const { DARABONBA_PTR_GET_DEFAULT(nameLike_, "") };
+    inline string getNameLike() const { DARABONBA_PTR_GET_DEFAULT(nameLike_, "") };
     inline ListEnvironmentsRequest& setNameLike(string nameLike) { DARABONBA_PTR_SET_VALUE(nameLike_, nameLike) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListEnvironmentsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListEnvironmentsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListEnvironmentsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
     // Environment alias, fuzzy search.
-    std::shared_ptr<string> aliasLike_ = nullptr;
+    shared_ptr<string> aliasLike_ {};
     // Gateway ID, exact search.
-    std::shared_ptr<string> gatewayId_ = nullptr;
+    shared_ptr<string> gatewayId_ {};
     // Gateway name, fuzzy search.
-    std::shared_ptr<string> gatewayNameLike_ = nullptr;
-    std::shared_ptr<string> gatewayType_ = nullptr;
+    shared_ptr<string> gatewayNameLike_ {};
+    shared_ptr<string> gatewayType_ {};
     // Environment name, fuzzy search.
-    std::shared_ptr<string> nameLike_ = nullptr;
+    shared_ptr<string> nameLike_ {};
     // Page number, default is 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // Page size, default is 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // Resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

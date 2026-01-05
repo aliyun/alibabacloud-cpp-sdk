@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attachResourceIds_ == nullptr
-        && return this->enable_ == nullptr && return this->pluginConfig_ == nullptr; };
+        && this->enable_ == nullptr && this->pluginConfig_ == nullptr; };
     // attachResourceIds Field Functions 
     bool hasAttachResourceIds() const { return this->attachResourceIds_ != nullptr;};
     void deleteAttachResourceIds() { this->attachResourceIds_ = nullptr;};
-    inline const vector<string> & attachResourceIds() const { DARABONBA_PTR_GET_CONST(attachResourceIds_, vector<string>) };
-    inline vector<string> attachResourceIds() { DARABONBA_PTR_GET(attachResourceIds_, vector<string>) };
+    inline const vector<string> & getAttachResourceIds() const { DARABONBA_PTR_GET_CONST(attachResourceIds_, vector<string>) };
+    inline vector<string> getAttachResourceIds() { DARABONBA_PTR_GET(attachResourceIds_, vector<string>) };
     inline UpdatePluginAttachmentRequest& setAttachResourceIds(const vector<string> & attachResourceIds) { DARABONBA_PTR_SET_VALUE(attachResourceIds_, attachResourceIds) };
     inline UpdatePluginAttachmentRequest& setAttachResourceIds(vector<string> && attachResourceIds) { DARABONBA_PTR_SET_RVALUE(attachResourceIds_, attachResourceIds) };
 
@@ -48,24 +48,24 @@ namespace Models
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline UpdatePluginAttachmentRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // pluginConfig Field Functions 
     bool hasPluginConfig() const { return this->pluginConfig_ != nullptr;};
     void deletePluginConfig() { this->pluginConfig_ = nullptr;};
-    inline string pluginConfig() const { DARABONBA_PTR_GET_DEFAULT(pluginConfig_, "") };
+    inline string getPluginConfig() const { DARABONBA_PTR_GET_DEFAULT(pluginConfig_, "") };
     inline UpdatePluginAttachmentRequest& setPluginConfig(string pluginConfig) { DARABONBA_PTR_SET_VALUE(pluginConfig_, pluginConfig) };
 
 
   protected:
     // The IDs of the resources to which the plug-in is attached.
-    std::shared_ptr<vector<string>> attachResourceIds_ = nullptr;
+    shared_ptr<vector<string>> attachResourceIds_ {};
     // Specifies whether to enable the plug-in.
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // The Base64-encoded configurations of the plug-in.
-    std::shared_ptr<string> pluginConfig_ = nullptr;
+    shared_ptr<string> pluginConfig_ {};
   };
 
   } // namespace Models

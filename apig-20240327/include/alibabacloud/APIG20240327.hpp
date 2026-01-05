@@ -1035,6 +1035,24 @@ namespace APIG20240327
       Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
 
       /**
+       * @summary 查询消费者授权规则列表
+       *
+       * @param request ListConsumerAuthorizationRulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListConsumerAuthorizationRulesResponse
+       */
+      Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRulesWithOptions(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询消费者授权规则列表
+       *
+       * @param request ListConsumerAuthorizationRulesRequest
+       * @return ListConsumerAuthorizationRulesResponse
+       */
+      Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRules(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request);
+
+      /**
        * @summary Queries a list of consumers.
        *
        * @param request ListConsumersRequest
@@ -1221,6 +1239,24 @@ namespace APIG20240327
       Models::ListPluginAttachmentsResponse listPluginAttachments(const Models::ListPluginAttachmentsRequest &request);
 
       /**
+       * @summary ListPluginClasses
+       *
+       * @param request ListPluginClassesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPluginClassesResponse
+       */
+      Models::ListPluginClassesResponse listPluginClassesWithOptions(const Models::ListPluginClassesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListPluginClasses
+       *
+       * @param request ListPluginClassesRequest
+       * @return ListPluginClassesResponse
+       */
+      Models::ListPluginClassesResponse listPluginClasses(const Models::ListPluginClassesRequest &request);
+
+      /**
        * @summary Queries plug-ins.
        *
        * @param request ListPluginsRequest
@@ -1377,7 +1413,7 @@ namespace APIG20240327
       Models::RestartGatewayResponse restartGateway(const string &gatewayId);
 
       /**
-       * @summary 同步外部MCP server
+       * @summary Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
        *
        * @param request SyncMCPServersRequest
        * @param headers map
@@ -1387,7 +1423,7 @@ namespace APIG20240327
       Models::SyncMCPServersResponse syncMCPServersWithOptions(const Models::SyncMCPServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步外部MCP server
+       * @summary Synchronizes Nacos Model Context Protocol (MCP) server configurations to Cloud-native API Gateway.
        *
        * @param request SyncMCPServersRequest
        * @return SyncMCPServersResponse

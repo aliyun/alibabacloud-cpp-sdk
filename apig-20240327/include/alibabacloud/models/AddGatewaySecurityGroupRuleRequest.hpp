@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->portRanges_ == nullptr && return this->securityGroupId_ == nullptr; };
+        && this->portRanges_ == nullptr && this->securityGroupId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AddGatewaySecurityGroupRuleRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // portRanges Field Functions 
     bool hasPortRanges() const { return this->portRanges_ != nullptr;};
     void deletePortRanges() { this->portRanges_ = nullptr;};
-    inline const vector<string> & portRanges() const { DARABONBA_PTR_GET_CONST(portRanges_, vector<string>) };
-    inline vector<string> portRanges() { DARABONBA_PTR_GET(portRanges_, vector<string>) };
+    inline const vector<string> & getPortRanges() const { DARABONBA_PTR_GET_CONST(portRanges_, vector<string>) };
+    inline vector<string> getPortRanges() { DARABONBA_PTR_GET(portRanges_, vector<string>) };
     inline AddGatewaySecurityGroupRuleRequest& setPortRanges(const vector<string> & portRanges) { DARABONBA_PTR_SET_VALUE(portRanges_, portRanges) };
     inline AddGatewaySecurityGroupRuleRequest& setPortRanges(vector<string> && portRanges) { DARABONBA_PTR_SET_RVALUE(portRanges_, portRanges) };
 
@@ -55,17 +55,17 @@ namespace Models
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline AddGatewaySecurityGroupRuleRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
   protected:
     // Description of the security group rule.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Port ranges.
-    std::shared_ptr<vector<string>> portRanges_ = nullptr;
+    shared_ptr<vector<string>> portRanges_ {};
     // Security group ID.
-    std::shared_ptr<string> securityGroupId_ = nullptr;
+    shared_ptr<string> securityGroupId_ {};
   };
 
   } // namespace Models

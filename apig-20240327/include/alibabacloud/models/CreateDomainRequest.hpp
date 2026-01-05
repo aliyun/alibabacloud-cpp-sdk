@@ -55,84 +55,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caCertIdentifier_ == nullptr
-        && return this->certIdentifier_ == nullptr && return this->clientCACert_ == nullptr && return this->forceHttps_ == nullptr && return this->gatewayType_ == nullptr && return this->http2Option_ == nullptr
-        && return this->mTLSEnabled_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tlsCipherSuitesConfig_ == nullptr
-        && return this->tlsMax_ == nullptr && return this->tlsMin_ == nullptr; };
+        && this->certIdentifier_ == nullptr && this->clientCACert_ == nullptr && this->forceHttps_ == nullptr && this->gatewayType_ == nullptr && this->http2Option_ == nullptr
+        && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr
+        && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr; };
     // caCertIdentifier Field Functions 
     bool hasCaCertIdentifier() const { return this->caCertIdentifier_ != nullptr;};
     void deleteCaCertIdentifier() { this->caCertIdentifier_ = nullptr;};
-    inline string caCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(caCertIdentifier_, "") };
+    inline string getCaCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(caCertIdentifier_, "") };
     inline CreateDomainRequest& setCaCertIdentifier(string caCertIdentifier) { DARABONBA_PTR_SET_VALUE(caCertIdentifier_, caCertIdentifier) };
 
 
     // certIdentifier Field Functions 
     bool hasCertIdentifier() const { return this->certIdentifier_ != nullptr;};
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
-    inline string certIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
+    inline string getCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
     inline CreateDomainRequest& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
 
 
     // clientCACert Field Functions 
     bool hasClientCACert() const { return this->clientCACert_ != nullptr;};
     void deleteClientCACert() { this->clientCACert_ = nullptr;};
-    inline string clientCACert() const { DARABONBA_PTR_GET_DEFAULT(clientCACert_, "") };
+    inline string getClientCACert() const { DARABONBA_PTR_GET_DEFAULT(clientCACert_, "") };
     inline CreateDomainRequest& setClientCACert(string clientCACert) { DARABONBA_PTR_SET_VALUE(clientCACert_, clientCACert) };
 
 
     // forceHttps Field Functions 
     bool hasForceHttps() const { return this->forceHttps_ != nullptr;};
     void deleteForceHttps() { this->forceHttps_ = nullptr;};
-    inline bool forceHttps() const { DARABONBA_PTR_GET_DEFAULT(forceHttps_, false) };
+    inline bool getForceHttps() const { DARABONBA_PTR_GET_DEFAULT(forceHttps_, false) };
     inline CreateDomainRequest& setForceHttps(bool forceHttps) { DARABONBA_PTR_SET_VALUE(forceHttps_, forceHttps) };
 
 
     // gatewayType Field Functions 
     bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
     void deleteGatewayType() { this->gatewayType_ = nullptr;};
-    inline string gatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
     inline CreateDomainRequest& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
     // http2Option Field Functions 
     bool hasHttp2Option() const { return this->http2Option_ != nullptr;};
     void deleteHttp2Option() { this->http2Option_ = nullptr;};
-    inline string http2Option() const { DARABONBA_PTR_GET_DEFAULT(http2Option_, "") };
+    inline string getHttp2Option() const { DARABONBA_PTR_GET_DEFAULT(http2Option_, "") };
     inline CreateDomainRequest& setHttp2Option(string http2Option) { DARABONBA_PTR_SET_VALUE(http2Option_, http2Option) };
 
 
     // mTLSEnabled Field Functions 
     bool hasMTLSEnabled() const { return this->mTLSEnabled_ != nullptr;};
     void deleteMTLSEnabled() { this->mTLSEnabled_ = nullptr;};
-    inline bool mTLSEnabled() const { DARABONBA_PTR_GET_DEFAULT(mTLSEnabled_, false) };
+    inline bool getMTLSEnabled() const { DARABONBA_PTR_GET_DEFAULT(mTLSEnabled_, false) };
     inline CreateDomainRequest& setMTLSEnabled(bool mTLSEnabled) { DARABONBA_PTR_SET_VALUE(mTLSEnabled_, mTLSEnabled) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateDomainRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline CreateDomainRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateDomainRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // tlsCipherSuitesConfig Field Functions 
     bool hasTlsCipherSuitesConfig() const { return this->tlsCipherSuitesConfig_ != nullptr;};
     void deleteTlsCipherSuitesConfig() { this->tlsCipherSuitesConfig_ = nullptr;};
-    inline const TlsCipherSuitesConfig & tlsCipherSuitesConfig() const { DARABONBA_PTR_GET_CONST(tlsCipherSuitesConfig_, TlsCipherSuitesConfig) };
-    inline TlsCipherSuitesConfig tlsCipherSuitesConfig() { DARABONBA_PTR_GET(tlsCipherSuitesConfig_, TlsCipherSuitesConfig) };
+    inline const TlsCipherSuitesConfig & getTlsCipherSuitesConfig() const { DARABONBA_PTR_GET_CONST(tlsCipherSuitesConfig_, TlsCipherSuitesConfig) };
+    inline TlsCipherSuitesConfig getTlsCipherSuitesConfig() { DARABONBA_PTR_GET(tlsCipherSuitesConfig_, TlsCipherSuitesConfig) };
     inline CreateDomainRequest& setTlsCipherSuitesConfig(const TlsCipherSuitesConfig & tlsCipherSuitesConfig) { DARABONBA_PTR_SET_VALUE(tlsCipherSuitesConfig_, tlsCipherSuitesConfig) };
     inline CreateDomainRequest& setTlsCipherSuitesConfig(TlsCipherSuitesConfig && tlsCipherSuitesConfig) { DARABONBA_PTR_SET_RVALUE(tlsCipherSuitesConfig_, tlsCipherSuitesConfig) };
 
@@ -140,27 +140,27 @@ namespace Models
     // tlsMax Field Functions 
     bool hasTlsMax() const { return this->tlsMax_ != nullptr;};
     void deleteTlsMax() { this->tlsMax_ = nullptr;};
-    inline string tlsMax() const { DARABONBA_PTR_GET_DEFAULT(tlsMax_, "") };
+    inline string getTlsMax() const { DARABONBA_PTR_GET_DEFAULT(tlsMax_, "") };
     inline CreateDomainRequest& setTlsMax(string tlsMax) { DARABONBA_PTR_SET_VALUE(tlsMax_, tlsMax) };
 
 
     // tlsMin Field Functions 
     bool hasTlsMin() const { return this->tlsMin_ != nullptr;};
     void deleteTlsMin() { this->tlsMin_ = nullptr;};
-    inline string tlsMin() const { DARABONBA_PTR_GET_DEFAULT(tlsMin_, "") };
+    inline string getTlsMin() const { DARABONBA_PTR_GET_DEFAULT(tlsMin_, "") };
     inline CreateDomainRequest& setTlsMin(string tlsMin) { DARABONBA_PTR_SET_VALUE(tlsMin_, tlsMin) };
 
 
   protected:
     // The CA certificate ID.
-    std::shared_ptr<string> caCertIdentifier_ = nullptr;
+    shared_ptr<string> caCertIdentifier_ {};
     // The certificate ID.
-    std::shared_ptr<string> certIdentifier_ = nullptr;
+    shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
-    std::shared_ptr<string> clientCACert_ = nullptr;
+    shared_ptr<string> clientCACert_ {};
     // Specifies whether to enable forcible HTTPS redirection.
-    std::shared_ptr<bool> forceHttps_ = nullptr;
-    std::shared_ptr<string> gatewayType_ = nullptr;
+    shared_ptr<bool> forceHttps_ {};
+    shared_ptr<string> gatewayType_ {};
     // The HTTP/2 configuration.
     // 
     // Valid values:
@@ -168,28 +168,28 @@ namespace Models
     // *   GlobalConfig
     // *   Close
     // *   Open
-    std::shared_ptr<string> http2Option_ = nullptr;
+    shared_ptr<string> http2Option_ {};
     // Specifies whether to enable mutual authentication.
-    std::shared_ptr<bool> mTLSEnabled_ = nullptr;
+    shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The protocol type supported by the domain name.
     // 
     // *   HTTP: Only HTTP is supported.
     // *   HTTPS: Only HTTPS is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> protocol_ {};
     // The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The cipher suite configuration.
-    std::shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ = nullptr;
+    shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
     // The maximum version of the TLS protocol. Up to TLS 1.3 is supported.
-    std::shared_ptr<string> tlsMax_ = nullptr;
+    shared_ptr<string> tlsMax_ {};
     // The minimum version of the TLS protocol. Down to TLS 1.0 is supported.
-    std::shared_ptr<string> tlsMin_ = nullptr;
+    shared_ptr<string> tlsMin_ {};
   };
 
   } // namespace Models

@@ -40,52 +40,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attachResourceId_ == nullptr
-        && return this->attachResourceType_ == nullptr && return this->environmentId_ == nullptr && return this->gatewayId_ == nullptr && return this->withAttachments_ == nullptr && return this->withSystemPolicy_ == nullptr; };
+        && this->attachResourceType_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->withAttachments_ == nullptr && this->withSystemPolicy_ == nullptr; };
     // attachResourceId Field Functions 
     bool hasAttachResourceId() const { return this->attachResourceId_ != nullptr;};
     void deleteAttachResourceId() { this->attachResourceId_ = nullptr;};
-    inline string attachResourceId() const { DARABONBA_PTR_GET_DEFAULT(attachResourceId_, "") };
+    inline string getAttachResourceId() const { DARABONBA_PTR_GET_DEFAULT(attachResourceId_, "") };
     inline ListPoliciesRequest& setAttachResourceId(string attachResourceId) { DARABONBA_PTR_SET_VALUE(attachResourceId_, attachResourceId) };
 
 
     // attachResourceType Field Functions 
     bool hasAttachResourceType() const { return this->attachResourceType_ != nullptr;};
     void deleteAttachResourceType() { this->attachResourceType_ = nullptr;};
-    inline string attachResourceType() const { DARABONBA_PTR_GET_DEFAULT(attachResourceType_, "") };
+    inline string getAttachResourceType() const { DARABONBA_PTR_GET_DEFAULT(attachResourceType_, "") };
     inline ListPoliciesRequest& setAttachResourceType(string attachResourceType) { DARABONBA_PTR_SET_VALUE(attachResourceType_, attachResourceType) };
 
 
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline ListPoliciesRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline ListPoliciesRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // withAttachments Field Functions 
     bool hasWithAttachments() const { return this->withAttachments_ != nullptr;};
     void deleteWithAttachments() { this->withAttachments_ = nullptr;};
-    inline bool withAttachments() const { DARABONBA_PTR_GET_DEFAULT(withAttachments_, false) };
+    inline bool getWithAttachments() const { DARABONBA_PTR_GET_DEFAULT(withAttachments_, false) };
     inline ListPoliciesRequest& setWithAttachments(bool withAttachments) { DARABONBA_PTR_SET_VALUE(withAttachments_, withAttachments) };
 
 
     // withSystemPolicy Field Functions 
     bool hasWithSystemPolicy() const { return this->withSystemPolicy_ != nullptr;};
     void deleteWithSystemPolicy() { this->withSystemPolicy_ = nullptr;};
-    inline bool withSystemPolicy() const { DARABONBA_PTR_GET_DEFAULT(withSystemPolicy_, false) };
+    inline bool getWithSystemPolicy() const { DARABONBA_PTR_GET_DEFAULT(withSystemPolicy_, false) };
     inline ListPoliciesRequest& setWithSystemPolicy(bool withSystemPolicy) { DARABONBA_PTR_SET_VALUE(withSystemPolicy_, withSystemPolicy) };
 
 
   protected:
     // The attachment point ID.
-    std::shared_ptr<string> attachResourceId_ = nullptr;
+    shared_ptr<string> attachResourceId_ {};
     // The types of attachment points supported by the policy. Valid values: 
     // 
     // - HttpApi
@@ -95,15 +95,15 @@ namespace Models
     // - GatewayServicePort
     // - Domain
     // - Gateway
-    std::shared_ptr<string> attachResourceType_ = nullptr;
+    shared_ptr<string> attachResourceType_ {};
     // The environment ID.
-    std::shared_ptr<string> environmentId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
     // The gateway ID.
-    std::shared_ptr<string> gatewayId_ = nullptr;
+    shared_ptr<string> gatewayId_ {};
     // Specifies whether to return attachment information.
-    std::shared_ptr<bool> withAttachments_ = nullptr;
+    shared_ptr<bool> withAttachments_ {};
     // Specifies whether it is a system policy.
-    std::shared_ptr<bool> withSystemPolicy_ = nullptr;
+    shared_ptr<bool> withSystemPolicy_ {};
   };
 
   } // namespace Models

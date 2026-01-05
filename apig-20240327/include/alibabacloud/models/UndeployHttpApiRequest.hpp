@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->environmentId_ == nullptr
-        && return this->gatewayId_ == nullptr && return this->operationId_ == nullptr && return this->routeId_ == nullptr; };
+        && this->gatewayId_ == nullptr && this->operationId_ == nullptr && this->routeId_ == nullptr; };
     // environmentId Field Functions 
     bool hasEnvironmentId() const { return this->environmentId_ != nullptr;};
     void deleteEnvironmentId() { this->environmentId_ = nullptr;};
-    inline string environmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
+    inline string getEnvironmentId() const { DARABONBA_PTR_GET_DEFAULT(environmentId_, "") };
     inline UndeployHttpApiRequest& setEnvironmentId(string environmentId) { DARABONBA_PTR_SET_VALUE(environmentId_, environmentId) };
 
 
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline UndeployHttpApiRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // operationId Field Functions 
     bool hasOperationId() const { return this->operationId_ != nullptr;};
     void deleteOperationId() { this->operationId_ = nullptr;};
-    inline string operationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+    inline string getOperationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
     inline UndeployHttpApiRequest& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
 
 
     // routeId Field Functions 
     bool hasRouteId() const { return this->routeId_ != nullptr;};
     void deleteRouteId() { this->routeId_ = nullptr;};
-    inline string routeId() const { DARABONBA_PTR_GET_DEFAULT(routeId_, "") };
+    inline string getRouteId() const { DARABONBA_PTR_GET_DEFAULT(routeId_, "") };
     inline UndeployHttpApiRequest& setRouteId(string routeId) { DARABONBA_PTR_SET_VALUE(routeId_, routeId) };
 
 
   protected:
     // The environment ID.
-    std::shared_ptr<string> environmentId_ = nullptr;
-    std::shared_ptr<string> gatewayId_ = nullptr;
-    std::shared_ptr<string> operationId_ = nullptr;
+    shared_ptr<string> environmentId_ {};
+    shared_ptr<string> gatewayId_ {};
+    shared_ptr<string> operationId_ {};
     // The route ID. You must specify this parameter when you unpublish the route of an HTTP API.
-    std::shared_ptr<string> routeId_ = nullptr;
+    shared_ptr<string> routeId_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->className_ == nullptr
-        && return this->config_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr; };
+        && this->config_ == nullptr && this->description_ == nullptr && this->name_ == nullptr; };
     // className Field Functions 
     bool hasClassName() const { return this->className_ != nullptr;};
     void deleteClassName() { this->className_ = nullptr;};
-    inline string className() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
+    inline string getClassName() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
     inline CreatePolicyRequest& setClassName(string className) { DARABONBA_PTR_SET_VALUE(className_, className) };
 
 
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline CreatePolicyRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreatePolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreatePolicyRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // Policy type, including RateLimit, ConcurrencyLimit, CircuitBreaker, HttpRewrite, HeaderModify, Cors, Authentication, FlowCopy, Timeout, Retry, IpAccessControl, DirectResponse, Redirect, Fallback, ServiceTls, ServiceLb, ServicePortTls, Waf, JWTAuth, OIDCAuth, ExternalZAuth, AiProxy, ModelRouter, AiStatistics, AiSecurityGuard, AiFallback, ModelMapper, AiTokenRateLimit, AiCache, DynamicRoute
     // 
     // This parameter is required.
-    std::shared_ptr<string> className_ = nullptr;
+    shared_ptr<string> className_ {};
     // Policy configuration
     // 
     // This parameter is required.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // Policy description
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Policy name
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

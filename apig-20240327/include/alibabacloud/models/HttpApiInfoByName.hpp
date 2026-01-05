@@ -40,50 +40,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gatewayId_ == nullptr
-        && return this->name_ == nullptr && return this->type_ == nullptr && return this->versionEnabled_ == nullptr && return this->versionedHttpApis_ == nullptr; };
+        && this->name_ == nullptr && this->type_ == nullptr && this->versionEnabled_ == nullptr && this->versionedHttpApis_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
-    inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
+    inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline HttpApiInfoByName& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline HttpApiInfoByName& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline HttpApiInfoByName& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // versionEnabled Field Functions 
     bool hasVersionEnabled() const { return this->versionEnabled_ != nullptr;};
     void deleteVersionEnabled() { this->versionEnabled_ = nullptr;};
-    inline bool versionEnabled() const { DARABONBA_PTR_GET_DEFAULT(versionEnabled_, false) };
+    inline bool getVersionEnabled() const { DARABONBA_PTR_GET_DEFAULT(versionEnabled_, false) };
     inline HttpApiInfoByName& setVersionEnabled(bool versionEnabled) { DARABONBA_PTR_SET_VALUE(versionEnabled_, versionEnabled) };
 
 
     // versionedHttpApis Field Functions 
     bool hasVersionedHttpApis() const { return this->versionedHttpApis_ != nullptr;};
     void deleteVersionedHttpApis() { this->versionedHttpApis_ = nullptr;};
-    inline const vector<HttpApiApiInfo> & versionedHttpApis() const { DARABONBA_PTR_GET_CONST(versionedHttpApis_, vector<HttpApiApiInfo>) };
-    inline vector<HttpApiApiInfo> versionedHttpApis() { DARABONBA_PTR_GET(versionedHttpApis_, vector<HttpApiApiInfo>) };
+    inline const vector<HttpApiApiInfo> & getVersionedHttpApis() const { DARABONBA_PTR_GET_CONST(versionedHttpApis_, vector<HttpApiApiInfo>) };
+    inline vector<HttpApiApiInfo> getVersionedHttpApis() { DARABONBA_PTR_GET(versionedHttpApis_, vector<HttpApiApiInfo>) };
     inline HttpApiInfoByName& setVersionedHttpApis(const vector<HttpApiApiInfo> & versionedHttpApis) { DARABONBA_PTR_SET_VALUE(versionedHttpApis_, versionedHttpApis) };
     inline HttpApiInfoByName& setVersionedHttpApis(vector<HttpApiApiInfo> && versionedHttpApis) { DARABONBA_PTR_SET_RVALUE(versionedHttpApis_, versionedHttpApis) };
 
 
   protected:
-    std::shared_ptr<string> gatewayId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<bool> versionEnabled_ = nullptr;
-    std::shared_ptr<vector<HttpApiApiInfo>> versionedHttpApis_ = nullptr;
+    shared_ptr<string> gatewayId_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> type_ {};
+    shared_ptr<bool> versionEnabled_ {};
+    shared_ptr<vector<HttpApiApiInfo>> versionedHttpApis_ {};
   };
 
   } // namespace Models

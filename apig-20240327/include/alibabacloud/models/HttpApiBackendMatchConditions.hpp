@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conditions_ == nullptr
-        && return this->default_ == nullptr; };
+        && this->default_ == nullptr; };
     // conditions Field Functions 
     bool hasConditions() const { return this->conditions_ != nullptr;};
     void deleteConditions() { this->conditions_ = nullptr;};
-    inline const vector<HttpApiBackendMatchCondition> & conditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<HttpApiBackendMatchCondition>) };
-    inline vector<HttpApiBackendMatchCondition> conditions() { DARABONBA_PTR_GET(conditions_, vector<HttpApiBackendMatchCondition>) };
+    inline const vector<HttpApiBackendMatchCondition> & getConditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<HttpApiBackendMatchCondition>) };
+    inline vector<HttpApiBackendMatchCondition> getConditions() { DARABONBA_PTR_GET(conditions_, vector<HttpApiBackendMatchCondition>) };
     inline HttpApiBackendMatchConditions& setConditions(const vector<HttpApiBackendMatchCondition> & conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
     inline HttpApiBackendMatchConditions& setConditions(vector<HttpApiBackendMatchCondition> && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
 
@@ -47,13 +47,13 @@ namespace Models
     // default Field Functions 
     bool hasDefault() const { return this->default_ != nullptr;};
     void deleteDefault() { this->default_ = nullptr;};
-    inline bool _default() const { DARABONBA_PTR_GET_DEFAULT(default_, false) };
+    inline bool getDefault() const { DARABONBA_PTR_GET_DEFAULT(default_, false) };
     inline HttpApiBackendMatchConditions& setDefault(bool _default) { DARABONBA_PTR_SET_VALUE(default_, _default) };
 
 
   protected:
-    std::shared_ptr<vector<HttpApiBackendMatchCondition>> conditions_ = nullptr;
-    std::shared_ptr<bool> default_ = nullptr;
+    shared_ptr<vector<HttpApiBackendMatchCondition>> conditions_ {};
+    shared_ptr<bool> default_ {};
   };
 
   } // namespace Models

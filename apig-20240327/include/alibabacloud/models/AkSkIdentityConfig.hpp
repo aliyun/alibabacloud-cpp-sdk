@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ak_ == nullptr
-        && return this->generateMode_ == nullptr && return this->sk_ == nullptr && return this->type_ == nullptr; };
+        && this->generateMode_ == nullptr && this->sk_ == nullptr && this->type_ == nullptr; };
     // ak Field Functions 
     bool hasAk() const { return this->ak_ != nullptr;};
     void deleteAk() { this->ak_ = nullptr;};
-    inline string ak() const { DARABONBA_PTR_GET_DEFAULT(ak_, "") };
+    inline string getAk() const { DARABONBA_PTR_GET_DEFAULT(ak_, "") };
     inline AkSkIdentityConfig& setAk(string ak) { DARABONBA_PTR_SET_VALUE(ak_, ak) };
 
 
     // generateMode Field Functions 
     bool hasGenerateMode() const { return this->generateMode_ != nullptr;};
     void deleteGenerateMode() { this->generateMode_ = nullptr;};
-    inline string generateMode() const { DARABONBA_PTR_GET_DEFAULT(generateMode_, "") };
+    inline string getGenerateMode() const { DARABONBA_PTR_GET_DEFAULT(generateMode_, "") };
     inline AkSkIdentityConfig& setGenerateMode(string generateMode) { DARABONBA_PTR_SET_VALUE(generateMode_, generateMode) };
 
 
     // sk Field Functions 
     bool hasSk() const { return this->sk_ != nullptr;};
     void deleteSk() { this->sk_ = nullptr;};
-    inline string sk() const { DARABONBA_PTR_GET_DEFAULT(sk_, "") };
+    inline string getSk() const { DARABONBA_PTR_GET_DEFAULT(sk_, "") };
     inline AkSkIdentityConfig& setSk(string sk) { DARABONBA_PTR_SET_VALUE(sk_, sk) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline AkSkIdentityConfig& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> ak_ = nullptr;
-    std::shared_ptr<string> generateMode_ = nullptr;
-    std::shared_ptr<string> sk_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> ak_ {};
+    shared_ptr<string> generateMode_ {};
+    shared_ptr<string> sk_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

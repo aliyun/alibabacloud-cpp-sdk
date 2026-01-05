@@ -33,13 +33,13 @@ namespace Models
     // cascadingDelete Field Functions 
     bool hasCascadingDelete() const { return this->cascadingDelete_ != nullptr;};
     void deleteCascadingDelete() { this->cascadingDelete_ = nullptr;};
-    inline bool cascadingDelete() const { DARABONBA_PTR_GET_DEFAULT(cascadingDelete_, false) };
+    inline bool getCascadingDelete() const { DARABONBA_PTR_GET_DEFAULT(cascadingDelete_, false) };
     inline DeleteGatewaySecurityGroupRuleRequest& setCascadingDelete(bool cascadingDelete) { DARABONBA_PTR_SET_VALUE(cascadingDelete_, cascadingDelete) };
 
 
   protected:
     // Whether to cascade delete the security group rules.
-    std::shared_ptr<bool> cascadingDelete_ = nullptr;
+    shared_ptr<bool> cascadingDelete_ {};
   };
 
   } // namespace Models

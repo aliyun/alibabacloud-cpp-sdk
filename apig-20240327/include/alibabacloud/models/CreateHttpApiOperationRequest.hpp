@@ -35,15 +35,15 @@ namespace Models
     // operations Field Functions 
     bool hasOperations() const { return this->operations_ != nullptr;};
     void deleteOperations() { this->operations_ = nullptr;};
-    inline const vector<HttpApiOperation> & operations() const { DARABONBA_PTR_GET_CONST(operations_, vector<HttpApiOperation>) };
-    inline vector<HttpApiOperation> operations() { DARABONBA_PTR_GET(operations_, vector<HttpApiOperation>) };
+    inline const vector<HttpApiOperation> & getOperations() const { DARABONBA_PTR_GET_CONST(operations_, vector<HttpApiOperation>) };
+    inline vector<HttpApiOperation> getOperations() { DARABONBA_PTR_GET(operations_, vector<HttpApiOperation>) };
     inline CreateHttpApiOperationRequest& setOperations(const vector<HttpApiOperation> & operations) { DARABONBA_PTR_SET_VALUE(operations_, operations) };
     inline CreateHttpApiOperationRequest& setOperations(vector<HttpApiOperation> && operations) { DARABONBA_PTR_SET_RVALUE(operations_, operations) };
 
 
   protected:
     // List of operation definitions.
-    std::shared_ptr<vector<HttpApiOperation>> operations_ = nullptr;
+    shared_ptr<vector<HttpApiOperation>> operations_ {};
   };
 
   } // namespace Models
