@@ -56,104 +56,104 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->ownerUserId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceDomain_ == nullptr
-        && return this->resourceFunction_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceInstanceName_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->resourceName_ == nullptr
-        && return this->resourceProduct_ == nullptr && return this->resourceRegionId_ == nullptr && return this->resourceRouteName_ == nullptr; };
+        && this->ownerUserId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceDomain_ == nullptr
+        && this->resourceFunction_ == nullptr && this->resourceInstanceId_ == nullptr && this->resourceInstanceName_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resourceName_ == nullptr
+        && this->resourceProduct_ == nullptr && this->resourceRegionId_ == nullptr && this->resourceRouteName_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeCloudResourcesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ownerUserId Field Functions 
     bool hasOwnerUserId() const { return this->ownerUserId_ != nullptr;};
     void deleteOwnerUserId() { this->ownerUserId_ = nullptr;};
-    inline string ownerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, "") };
+    inline string getOwnerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, "") };
     inline DescribeCloudResourcesRequest& setOwnerUserId(string ownerUserId) { DARABONBA_PTR_SET_VALUE(ownerUserId_, ownerUserId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline DescribeCloudResourcesRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline DescribeCloudResourcesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeCloudResourcesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceDomain Field Functions 
     bool hasResourceDomain() const { return this->resourceDomain_ != nullptr;};
     void deleteResourceDomain() { this->resourceDomain_ = nullptr;};
-    inline string resourceDomain() const { DARABONBA_PTR_GET_DEFAULT(resourceDomain_, "") };
+    inline string getResourceDomain() const { DARABONBA_PTR_GET_DEFAULT(resourceDomain_, "") };
     inline DescribeCloudResourcesRequest& setResourceDomain(string resourceDomain) { DARABONBA_PTR_SET_VALUE(resourceDomain_, resourceDomain) };
 
 
     // resourceFunction Field Functions 
     bool hasResourceFunction() const { return this->resourceFunction_ != nullptr;};
     void deleteResourceFunction() { this->resourceFunction_ = nullptr;};
-    inline string resourceFunction() const { DARABONBA_PTR_GET_DEFAULT(resourceFunction_, "") };
+    inline string getResourceFunction() const { DARABONBA_PTR_GET_DEFAULT(resourceFunction_, "") };
     inline DescribeCloudResourcesRequest& setResourceFunction(string resourceFunction) { DARABONBA_PTR_SET_VALUE(resourceFunction_, resourceFunction) };
 
 
     // resourceInstanceId Field Functions 
     bool hasResourceInstanceId() const { return this->resourceInstanceId_ != nullptr;};
     void deleteResourceInstanceId() { this->resourceInstanceId_ = nullptr;};
-    inline string resourceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(resourceInstanceId_, "") };
+    inline string getResourceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(resourceInstanceId_, "") };
     inline DescribeCloudResourcesRequest& setResourceInstanceId(string resourceInstanceId) { DARABONBA_PTR_SET_VALUE(resourceInstanceId_, resourceInstanceId) };
 
 
     // resourceInstanceName Field Functions 
     bool hasResourceInstanceName() const { return this->resourceInstanceName_ != nullptr;};
     void deleteResourceInstanceName() { this->resourceInstanceName_ = nullptr;};
-    inline string resourceInstanceName() const { DARABONBA_PTR_GET_DEFAULT(resourceInstanceName_, "") };
+    inline string getResourceInstanceName() const { DARABONBA_PTR_GET_DEFAULT(resourceInstanceName_, "") };
     inline DescribeCloudResourcesRequest& setResourceInstanceName(string resourceInstanceName) { DARABONBA_PTR_SET_VALUE(resourceInstanceName_, resourceInstanceName) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline DescribeCloudResourcesRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // resourceName Field Functions 
     bool hasResourceName() const { return this->resourceName_ != nullptr;};
     void deleteResourceName() { this->resourceName_ = nullptr;};
-    inline string resourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+    inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
     inline DescribeCloudResourcesRequest& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
     // resourceProduct Field Functions 
     bool hasResourceProduct() const { return this->resourceProduct_ != nullptr;};
     void deleteResourceProduct() { this->resourceProduct_ = nullptr;};
-    inline string resourceProduct() const { DARABONBA_PTR_GET_DEFAULT(resourceProduct_, "") };
+    inline string getResourceProduct() const { DARABONBA_PTR_GET_DEFAULT(resourceProduct_, "") };
     inline DescribeCloudResourcesRequest& setResourceProduct(string resourceProduct) { DARABONBA_PTR_SET_VALUE(resourceProduct_, resourceProduct) };
 
 
     // resourceRegionId Field Functions 
     bool hasResourceRegionId() const { return this->resourceRegionId_ != nullptr;};
     void deleteResourceRegionId() { this->resourceRegionId_ = nullptr;};
-    inline string resourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
+    inline string getResourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
     inline DescribeCloudResourcesRequest& setResourceRegionId(string resourceRegionId) { DARABONBA_PTR_SET_VALUE(resourceRegionId_, resourceRegionId) };
 
 
     // resourceRouteName Field Functions 
     bool hasResourceRouteName() const { return this->resourceRouteName_ != nullptr;};
     void deleteResourceRouteName() { this->resourceRouteName_ = nullptr;};
-    inline string resourceRouteName() const { DARABONBA_PTR_GET_DEFAULT(resourceRouteName_, "") };
+    inline string getResourceRouteName() const { DARABONBA_PTR_GET_DEFAULT(resourceRouteName_, "") };
     inline DescribeCloudResourcesRequest& setResourceRouteName(string resourceRouteName) { DARABONBA_PTR_SET_VALUE(resourceRouteName_, resourceRouteName) };
 
 
@@ -163,30 +163,30 @@ namespace Models
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the Alibaba Cloud account to which the resource belongs.
-    std::shared_ptr<string> ownerUserId_ = nullptr;
+    shared_ptr<string> ownerUserId_ {};
     // The page number. Default value: **1**.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: **10**.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The domain name. You can use this parameter if you set ResourceProduct to fc or sae.
-    std::shared_ptr<string> resourceDomain_ = nullptr;
+    shared_ptr<string> resourceDomain_ {};
     // The function name. You can use this parameter if you set ResourceProduct to fc.
-    std::shared_ptr<string> resourceFunction_ = nullptr;
+    shared_ptr<string> resourceFunction_ {};
     // The ID of the resource.
-    std::shared_ptr<string> resourceInstanceId_ = nullptr;
+    shared_ptr<string> resourceInstanceId_ {};
     // The name of the instance that is added to WAF.
-    std::shared_ptr<string> resourceInstanceName_ = nullptr;
+    shared_ptr<string> resourceInstanceName_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The name of the resource.
-    std::shared_ptr<string> resourceName_ = nullptr;
+    shared_ptr<string> resourceName_ {};
     // The cloud service to which the resource belongs. If you do not specify this parameter, the system automatically returns the Application Load Balancer (ALB), Microservices Engine (MSE), Function Compute, and Serverless App Engine (SAE) resources that are added to WAF. Valid values:
     // 
     // *   **alb**: ALB.
@@ -199,13 +199,13 @@ namespace Models
     // *   **nlb**: Network Load Balancer (NLB).
     // 
     // >  Different cloud services are available in different regions. The specified cloud service must be available in the specified region.
-    std::shared_ptr<string> resourceProduct_ = nullptr;
+    shared_ptr<string> resourceProduct_ {};
     // The region ID of the resource. For information about region IDs, see the following table.
     // 
     // >  Different cloud services are available in different regions. The specified cloud service must be available in the specified region.
-    std::shared_ptr<string> resourceRegionId_ = nullptr;
+    shared_ptr<string> resourceRegionId_ {};
     // The route name. You can use this parameter if you set ResourceProduct to mse.
-    std::shared_ptr<string> resourceRouteName_ = nullptr;
+    shared_ptr<string> resourceRouteName_ {};
   };
 
   } // namespace Models

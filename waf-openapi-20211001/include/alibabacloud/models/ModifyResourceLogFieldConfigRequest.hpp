@@ -44,77 +44,77 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deliveryType_ == nullptr
-        && return this->extendConfig_ == nullptr && return this->fieldList_ == nullptr && return this->instanceId_ == nullptr && return this->logDeliveryStrategy_ == nullptr && return this->regionId_ == nullptr
-        && return this->resource_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->extendConfig_ == nullptr && this->fieldList_ == nullptr && this->instanceId_ == nullptr && this->logDeliveryStrategy_ == nullptr && this->regionId_ == nullptr
+        && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // deliveryType Field Functions 
     bool hasDeliveryType() const { return this->deliveryType_ != nullptr;};
     void deleteDeliveryType() { this->deliveryType_ = nullptr;};
-    inline string deliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
+    inline string getDeliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
     inline ModifyResourceLogFieldConfigRequest& setDeliveryType(string deliveryType) { DARABONBA_PTR_SET_VALUE(deliveryType_, deliveryType) };
 
 
     // extendConfig Field Functions 
     bool hasExtendConfig() const { return this->extendConfig_ != nullptr;};
     void deleteExtendConfig() { this->extendConfig_ = nullptr;};
-    inline string extendConfig() const { DARABONBA_PTR_GET_DEFAULT(extendConfig_, "") };
+    inline string getExtendConfig() const { DARABONBA_PTR_GET_DEFAULT(extendConfig_, "") };
     inline ModifyResourceLogFieldConfigRequest& setExtendConfig(string extendConfig) { DARABONBA_PTR_SET_VALUE(extendConfig_, extendConfig) };
 
 
     // fieldList Field Functions 
     bool hasFieldList() const { return this->fieldList_ != nullptr;};
     void deleteFieldList() { this->fieldList_ = nullptr;};
-    inline string fieldList() const { DARABONBA_PTR_GET_DEFAULT(fieldList_, "") };
+    inline string getFieldList() const { DARABONBA_PTR_GET_DEFAULT(fieldList_, "") };
     inline ModifyResourceLogFieldConfigRequest& setFieldList(string fieldList) { DARABONBA_PTR_SET_VALUE(fieldList_, fieldList) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyResourceLogFieldConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // logDeliveryStrategy Field Functions 
     bool hasLogDeliveryStrategy() const { return this->logDeliveryStrategy_ != nullptr;};
     void deleteLogDeliveryStrategy() { this->logDeliveryStrategy_ = nullptr;};
-    inline string logDeliveryStrategy() const { DARABONBA_PTR_GET_DEFAULT(logDeliveryStrategy_, "") };
+    inline string getLogDeliveryStrategy() const { DARABONBA_PTR_GET_DEFAULT(logDeliveryStrategy_, "") };
     inline ModifyResourceLogFieldConfigRequest& setLogDeliveryStrategy(string logDeliveryStrategy) { DARABONBA_PTR_SET_VALUE(logDeliveryStrategy_, logDeliveryStrategy) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyResourceLogFieldConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
-    inline string resource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+    inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
     inline ModifyResourceLogFieldConfigRequest& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyResourceLogFieldConfigRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> deliveryType_ = nullptr;
-    std::shared_ptr<string> extendConfig_ = nullptr;
+    shared_ptr<string> deliveryType_ {};
+    shared_ptr<string> extendConfig_ {};
     // This parameter is required.
-    std::shared_ptr<string> fieldList_ = nullptr;
+    shared_ptr<string> fieldList_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> logDeliveryStrategy_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> logDeliveryStrategy_ {};
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> resource_ = nullptr;
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resource_ {};
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

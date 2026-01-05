@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deliveryDetail_ == nullptr
-        && return this->deliveryName_ == nullptr && return this->deliveryType_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->deliveryName_ == nullptr && this->deliveryType_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // deliveryDetail Field Functions 
     bool hasDeliveryDetail() const { return this->deliveryDetail_ != nullptr;};
     void deleteDeliveryDetail() { this->deliveryDetail_ = nullptr;};
-    inline string deliveryDetail() const { DARABONBA_PTR_GET_DEFAULT(deliveryDetail_, "") };
+    inline string getDeliveryDetail() const { DARABONBA_PTR_GET_DEFAULT(deliveryDetail_, "") };
     inline CreateLogDeliveryConfigRequest& setDeliveryDetail(string deliveryDetail) { DARABONBA_PTR_SET_VALUE(deliveryDetail_, deliveryDetail) };
 
 
     // deliveryName Field Functions 
     bool hasDeliveryName() const { return this->deliveryName_ != nullptr;};
     void deleteDeliveryName() { this->deliveryName_ = nullptr;};
-    inline string deliveryName() const { DARABONBA_PTR_GET_DEFAULT(deliveryName_, "") };
+    inline string getDeliveryName() const { DARABONBA_PTR_GET_DEFAULT(deliveryName_, "") };
     inline CreateLogDeliveryConfigRequest& setDeliveryName(string deliveryName) { DARABONBA_PTR_SET_VALUE(deliveryName_, deliveryName) };
 
 
     // deliveryType Field Functions 
     bool hasDeliveryType() const { return this->deliveryType_ != nullptr;};
     void deleteDeliveryType() { this->deliveryType_ = nullptr;};
-    inline string deliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
+    inline string getDeliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
     inline CreateLogDeliveryConfigRequest& setDeliveryType(string deliveryType) { DARABONBA_PTR_SET_VALUE(deliveryType_, deliveryType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateLogDeliveryConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateLogDeliveryConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline CreateLogDeliveryConfigRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
@@ -89,31 +89,31 @@ namespace Models
     // >  The parameters vary based on the type of the **log delivery configuration** specified by **DeliveryType**. For more information, see **Parameter description for log delivery configuration**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deliveryDetail_ = nullptr;
+    shared_ptr<string> deliveryDetail_ {};
     // The name of the log delivery configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deliveryName_ = nullptr;
+    shared_ptr<string> deliveryName_ {};
     // The type of the log delivery configuration. Valid values:
     // 
     // *   **syslog**: Logs are delivered to a syslog service.
     // *   **kafka**: Logs are delivered to a Kafka service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deliveryType_ = nullptr;
+    shared_ptr<string> deliveryType_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID of the WAF instance. Valid values:
     // 
     // *   **cn-hangzhou**: the Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

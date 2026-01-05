@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apisecStatus_ == nullptr
-        && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroups_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->resources_ == nullptr; };
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceGroups_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resources_ == nullptr; };
     // apisecStatus Field Functions 
     bool hasApisecStatus() const { return this->apisecStatus_ != nullptr;};
     void deleteApisecStatus() { this->apisecStatus_ = nullptr;};
-    inline int32_t apisecStatus() const { DARABONBA_PTR_GET_DEFAULT(apisecStatus_, 0) };
+    inline int32_t getApisecStatus() const { DARABONBA_PTR_GET_DEFAULT(apisecStatus_, 0) };
     inline ModifyApisecStatusRequest& setApisecStatus(int32_t apisecStatus) { DARABONBA_PTR_SET_VALUE(apisecStatus_, apisecStatus) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyApisecStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyApisecStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroups Field Functions 
     bool hasResourceGroups() const { return this->resourceGroups_ != nullptr;};
     void deleteResourceGroups() { this->resourceGroups_ = nullptr;};
-    inline string resourceGroups() const { DARABONBA_PTR_GET_DEFAULT(resourceGroups_, "") };
+    inline string getResourceGroups() const { DARABONBA_PTR_GET_DEFAULT(resourceGroups_, "") };
     inline ModifyApisecStatusRequest& setResourceGroups(string resourceGroups) { DARABONBA_PTR_SET_VALUE(resourceGroups_, resourceGroups) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyApisecStatusRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline string resources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
+    inline string getResources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
     inline ModifyApisecStatusRequest& setResources(string resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
 
 
@@ -90,24 +90,24 @@ namespace Models
     // *   **0**: disabled
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> apisecStatus_ = nullptr;
+    shared_ptr<int32_t> apisecStatus_ {};
     // The ID of the WAF instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: Chinese mainland
     // *   **ap-southeast-1**: outside the Chinese mainland
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the protected object group to which the protected object belongs.
-    std::shared_ptr<string> resourceGroups_ = nullptr;
+    shared_ptr<string> resourceGroups_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The name of the protected object.
-    std::shared_ptr<string> resources_ = nullptr;
+    shared_ptr<string> resources_ {};
   };
 
   } // namespace Models

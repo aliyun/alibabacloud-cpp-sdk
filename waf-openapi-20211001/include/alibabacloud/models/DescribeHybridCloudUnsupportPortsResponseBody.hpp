@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->httpPorts_ == nullptr
-        && return this->httpsPorts_ == nullptr && return this->requestId_ == nullptr; };
+        && this->httpsPorts_ == nullptr && this->requestId_ == nullptr; };
     // httpPorts Field Functions 
     bool hasHttpPorts() const { return this->httpPorts_ != nullptr;};
     void deleteHttpPorts() { this->httpPorts_ = nullptr;};
-    inline string httpPorts() const { DARABONBA_PTR_GET_DEFAULT(httpPorts_, "") };
+    inline string getHttpPorts() const { DARABONBA_PTR_GET_DEFAULT(httpPorts_, "") };
     inline DescribeHybridCloudUnsupportPortsResponseBody& setHttpPorts(string httpPorts) { DARABONBA_PTR_SET_VALUE(httpPorts_, httpPorts) };
 
 
     // httpsPorts Field Functions 
     bool hasHttpsPorts() const { return this->httpsPorts_ != nullptr;};
     void deleteHttpsPorts() { this->httpsPorts_ = nullptr;};
-    inline string httpsPorts() const { DARABONBA_PTR_GET_DEFAULT(httpsPorts_, "") };
+    inline string getHttpsPorts() const { DARABONBA_PTR_GET_DEFAULT(httpsPorts_, "") };
     inline DescribeHybridCloudUnsupportPortsResponseBody& setHttpsPorts(string httpsPorts) { DARABONBA_PTR_SET_VALUE(httpsPorts_, httpsPorts) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeHybridCloudUnsupportPortsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
-    std::shared_ptr<string> httpPorts_ = nullptr;
+    shared_ptr<string> httpPorts_ {};
     // The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
-    std::shared_ptr<string> httpsPorts_ = nullptr;
+    shared_ptr<string> httpsPorts_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

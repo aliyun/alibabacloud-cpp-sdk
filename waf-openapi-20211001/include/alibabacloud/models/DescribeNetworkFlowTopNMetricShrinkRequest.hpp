@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterShrink_ == nullptr
-        && return this->instanceId_ == nullptr && return this->limit_ == nullptr && return this->metric_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->limit_ == nullptr && this->metric_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
-    inline string filterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
+    inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
     inline DescribeNetworkFlowTopNMetricShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeNetworkFlowTopNMetricShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int64_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
+    inline int64_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0L) };
     inline DescribeNetworkFlowTopNMetricShrinkRequest& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // metric Field Functions 
     bool hasMetric() const { return this->metric_ != nullptr;};
     void deleteMetric() { this->metric_ = nullptr;};
-    inline string metric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
+    inline string getMetric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
     inline DescribeNetworkFlowTopNMetricShrinkRequest& setMetric(string metric) { DARABONBA_PTR_SET_VALUE(metric_, metric) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeNetworkFlowTopNMetricShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline DescribeNetworkFlowTopNMetricShrinkRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
@@ -87,17 +87,17 @@ namespace Models
     // An array of filter conditions. Multiple filter parameters use AND logic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> filterShrink_ = nullptr;
+    shared_ptr<string> filterShrink_ {};
     // The Web Application Firewall (WAF) instance ID.
     // 
     // >  Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to retrieve the WAF instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // Returns up to 10 data entries, sorted in descending order.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> limit_ = nullptr;
+    shared_ptr<int64_t> limit_ {};
     // Specifies the data type to be returned. Valid values:
     // 
     // *   real_client_ip: The top N requests, sorted in descending order by source IP address, aggregated from all the current user\\"s WAF requests.
@@ -111,14 +111,14 @@ namespace Models
     //     {"Key":"upstream_status","OpValue":"eq","Values":"200"}
     // 
     // This parameter is required.
-    std::shared_ptr<string> metric_ = nullptr;
+    shared_ptr<string> metric_ {};
     // The region ID of the WAF instance. Valid values:
     // 
     // *   **cn-hangzhou**: The Chinese mainland.
     // *   **ap-southeast-1**: Outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

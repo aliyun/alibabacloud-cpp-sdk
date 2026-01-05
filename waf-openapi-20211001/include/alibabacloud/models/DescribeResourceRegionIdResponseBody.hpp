@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resourceRegionIds_ == nullptr; };
+        && this->resourceRegionIds_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeResourceRegionIdResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceRegionIds Field Functions 
     bool hasResourceRegionIds() const { return this->resourceRegionIds_ != nullptr;};
     void deleteResourceRegionIds() { this->resourceRegionIds_ = nullptr;};
-    inline const vector<string> & resourceRegionIds() const { DARABONBA_PTR_GET_CONST(resourceRegionIds_, vector<string>) };
-    inline vector<string> resourceRegionIds() { DARABONBA_PTR_GET(resourceRegionIds_, vector<string>) };
+    inline const vector<string> & getResourceRegionIds() const { DARABONBA_PTR_GET_CONST(resourceRegionIds_, vector<string>) };
+    inline vector<string> getResourceRegionIds() { DARABONBA_PTR_GET(resourceRegionIds_, vector<string>) };
     inline DescribeResourceRegionIdResponseBody& setResourceRegionIds(const vector<string> & resourceRegionIds) { DARABONBA_PTR_SET_VALUE(resourceRegionIds_, resourceRegionIds) };
     inline DescribeResourceRegionIdResponseBody& setResourceRegionIds(vector<string> && resourceRegionIds) { DARABONBA_PTR_SET_RVALUE(resourceRegionIds_, resourceRegionIds) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode.
-    std::shared_ptr<vector<string>> resourceRegionIds_ = nullptr;
+    shared_ptr<vector<string>> resourceRegionIds_ {};
   };
 
   } // namespace Models

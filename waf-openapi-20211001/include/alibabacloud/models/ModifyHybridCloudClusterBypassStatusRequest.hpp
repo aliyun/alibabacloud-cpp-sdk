@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterResourceId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->ruleStatus_ == nullptr; };
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->ruleStatus_ == nullptr; };
     // clusterResourceId Field Functions 
     bool hasClusterResourceId() const { return this->clusterResourceId_ != nullptr;};
     void deleteClusterResourceId() { this->clusterResourceId_ = nullptr;};
-    inline string clusterResourceId() const { DARABONBA_PTR_GET_DEFAULT(clusterResourceId_, "") };
+    inline string getClusterResourceId() const { DARABONBA_PTR_GET_DEFAULT(clusterResourceId_, "") };
     inline ModifyHybridCloudClusterBypassStatusRequest& setClusterResourceId(string clusterResourceId) { DARABONBA_PTR_SET_VALUE(clusterResourceId_, clusterResourceId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyHybridCloudClusterBypassStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyHybridCloudClusterBypassStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyHybridCloudClusterBypassStatusRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // ruleStatus Field Functions 
     bool hasRuleStatus() const { return this->ruleStatus_ != nullptr;};
     void deleteRuleStatus() { this->ruleStatus_ = nullptr;};
-    inline string ruleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
+    inline string getRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
     inline ModifyHybridCloudClusterBypassStatusRequest& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
 
 
@@ -78,7 +78,7 @@ namespace Models
     // The ID of the hybrid cloud cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterResourceId_ = nullptr;
+    shared_ptr<string> clusterResourceId_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // **
@@ -86,21 +86,21 @@ namespace Models
     // **You can call the **DescribeInstanceInfo[ operation to obtain the ID of the WAF instance.](https://help.aliyun.com/document_detail/140857.html)
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID of the WAF instance. Valid values:
     // 
     // *   **cn-hangzhou**: Chinese mainland
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The status of manual bypass. Valid values:
     // 
     // *   **on**: enabled.
     // *   **off**: disabled. This is the default value.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleStatus_ = nullptr;
+    shared_ptr<string> ruleStatus_ {};
   };
 
   } // namespace Models

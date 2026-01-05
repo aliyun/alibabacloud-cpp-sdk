@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->instanceId_ == nullptr && return this->protocol_ == nullptr && return this->verifyType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->protocol_ == nullptr && this->verifyType_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline VerifyDomainOwnerRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline VerifyDomainOwnerRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline VerifyDomainOwnerRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // verifyType Field Functions 
     bool hasVerifyType() const { return this->verifyType_ != nullptr;};
     void deleteVerifyType() { this->verifyType_ = nullptr;};
-    inline string verifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
+    inline string getVerifyType() const { DARABONBA_PTR_GET_DEFAULT(verifyType_, "") };
     inline VerifyDomainOwnerRequest& setVerifyType(string verifyType) { DARABONBA_PTR_SET_VALUE(verifyType_, verifyType) };
 
 
@@ -71,25 +71,25 @@ namespace Models
     // You can specify this parameter to check whether a domain name is added to WAF. Fuzzy match is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> domainName_ = nullptr;
+    shared_ptr<string> domainName_ {};
     // The ID of the WAF instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The protocol type that is used for file verification. Specify this parameter when you set VerifyType to fileCheck. Valid values:
     // 
     // *   **HTTP**
     // *   **HTTPS**
-    std::shared_ptr<string> protocol_ = nullptr;
+    shared_ptr<string> protocol_ {};
     // The verification method. Valid values:
     // 
     // *   **dnsCheck**: DNS verification
     // *   **fileCheck**: file verification
     // 
     // This parameter is required.
-    std::shared_ptr<string> verifyType_ = nullptr;
+    shared_ptr<string> verifyType_ {};
   };
 
   } // namespace Models

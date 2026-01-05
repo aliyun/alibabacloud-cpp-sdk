@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pauseStatus_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // pauseStatus Field Functions 
     bool hasPauseStatus() const { return this->pauseStatus_ != nullptr;};
     void deletePauseStatus() { this->pauseStatus_ = nullptr;};
-    inline int32_t pauseStatus() const { DARABONBA_PTR_GET_DEFAULT(pauseStatus_, 0) };
+    inline int32_t getPauseStatus() const { DARABONBA_PTR_GET_DEFAULT(pauseStatus_, 0) };
     inline DescribePauseProtectionStatusResponseBody& setPauseStatus(int32_t pauseStatus) { DARABONBA_PTR_SET_VALUE(pauseStatus_, pauseStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePauseProtectionStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **0**: indicates that WAF protection is not paused. This is the default value.
     // *   **1**: indicates that WAF protection is paused.
-    std::shared_ptr<int32_t> pauseStatus_ = nullptr;
+    shared_ptr<int32_t> pauseStatus_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -42,85 +42,85 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defenseType_ == nullptr
-        && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->ruleId_ == nullptr && return this->ruleStatus_ == nullptr
-        && return this->templateId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->ruleId_ == nullptr && this->ruleStatus_ == nullptr
+        && this->templateId_ == nullptr; };
     // defenseType Field Functions 
     bool hasDefenseType() const { return this->defenseType_ != nullptr;};
     void deleteDefenseType() { this->defenseType_ = nullptr;};
-    inline string defenseType() const { DARABONBA_PTR_GET_DEFAULT(defenseType_, "") };
+    inline string getDefenseType() const { DARABONBA_PTR_GET_DEFAULT(defenseType_, "") };
     inline ModifyDefenseRuleStatusRequest& setDefenseType(string defenseType) { DARABONBA_PTR_SET_VALUE(defenseType_, defenseType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyDefenseRuleStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDefenseRuleStatusRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyDefenseRuleStatusRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
-    inline int64_t ruleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
+    inline int64_t getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, 0L) };
     inline ModifyDefenseRuleStatusRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
     // ruleStatus Field Functions 
     bool hasRuleStatus() const { return this->ruleStatus_ != nullptr;};
     void deleteRuleStatus() { this->ruleStatus_ = nullptr;};
-    inline int32_t ruleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, 0) };
+    inline int32_t getRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, 0) };
     inline ModifyDefenseRuleStatusRequest& setRuleStatus(int32_t ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline int64_t templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+    inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
     inline ModifyDefenseRuleStatusRequest& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
   protected:
-    std::shared_ptr<string> defenseType_ = nullptr;
+    shared_ptr<string> defenseType_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region where the WAF instance resides. Valid values:
     // 
     // *   **cn-hangzhou:** the Chinese mainland.
     // *   **ap-southeast-1:** outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The ID of the protection rule whose status you want to change.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> ruleId_ = nullptr;
+    shared_ptr<int64_t> ruleId_ {};
     // The new status of the protection rule. Valid values:
     // 
     // *   **0:** disabled.
     // *   **1:** enabled.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ruleStatus_ = nullptr;
+    shared_ptr<int32_t> ruleStatus_ {};
     // The ID of the protection rule template to which the protection rule whose status you want to change belongs.
-    std::shared_ptr<int64_t> templateId_ = nullptr;
+    shared_ptr<int64_t> templateId_ {};
   };
 
   } // namespace Models

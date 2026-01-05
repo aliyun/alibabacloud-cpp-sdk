@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deliveryName_ == nullptr
-        && return this->deliveryType_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->deliveryType_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // deliveryName Field Functions 
     bool hasDeliveryName() const { return this->deliveryName_ != nullptr;};
     void deleteDeliveryName() { this->deliveryName_ = nullptr;};
-    inline string deliveryName() const { DARABONBA_PTR_GET_DEFAULT(deliveryName_, "") };
+    inline string getDeliveryName() const { DARABONBA_PTR_GET_DEFAULT(deliveryName_, "") };
     inline ModifyResourceLogDeliveryStatusResponseBody& setDeliveryName(string deliveryName) { DARABONBA_PTR_SET_VALUE(deliveryName_, deliveryName) };
 
 
     // deliveryType Field Functions 
     bool hasDeliveryType() const { return this->deliveryType_ != nullptr;};
     void deleteDeliveryType() { this->deliveryType_ = nullptr;};
-    inline string deliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
+    inline string getDeliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
     inline ModifyResourceLogDeliveryStatusResponseBody& setDeliveryType(string deliveryType) { DARABONBA_PTR_SET_VALUE(deliveryType_, deliveryType) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyResourceLogDeliveryStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline bool status() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
+    inline bool getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
     inline ModifyResourceLogDeliveryStatusResponseBody& setStatus(bool status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> deliveryName_ = nullptr;
-    std::shared_ptr<string> deliveryType_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> status_ = nullptr;
+    shared_ptr<string> deliveryName_ {};
+    shared_ptr<string> deliveryType_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> status_ {};
   };
 
   } // namespace Models

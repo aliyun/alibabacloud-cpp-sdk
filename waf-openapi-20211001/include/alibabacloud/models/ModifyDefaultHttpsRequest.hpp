@@ -45,27 +45,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certId_ == nullptr
-        && return this->cipherSuite_ == nullptr && return this->customCiphers_ == nullptr && return this->enableTLSv3_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceManagerResourceGroupId_ == nullptr && return this->TLSVersion_ == nullptr; };
+        && this->cipherSuite_ == nullptr && this->customCiphers_ == nullptr && this->enableTLSv3_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceManagerResourceGroupId_ == nullptr && this->TLSVersion_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
-    inline string certId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
+    inline string getCertId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
     inline ModifyDefaultHttpsRequest& setCertId(string certId) { DARABONBA_PTR_SET_VALUE(certId_, certId) };
 
 
     // cipherSuite Field Functions 
     bool hasCipherSuite() const { return this->cipherSuite_ != nullptr;};
     void deleteCipherSuite() { this->cipherSuite_ = nullptr;};
-    inline int32_t cipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, 0) };
+    inline int32_t getCipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, 0) };
     inline ModifyDefaultHttpsRequest& setCipherSuite(int32_t cipherSuite) { DARABONBA_PTR_SET_VALUE(cipherSuite_, cipherSuite) };
 
 
     // customCiphers Field Functions 
     bool hasCustomCiphers() const { return this->customCiphers_ != nullptr;};
     void deleteCustomCiphers() { this->customCiphers_ = nullptr;};
-    inline const vector<string> & customCiphers() const { DARABONBA_PTR_GET_CONST(customCiphers_, vector<string>) };
-    inline vector<string> customCiphers() { DARABONBA_PTR_GET(customCiphers_, vector<string>) };
+    inline const vector<string> & getCustomCiphers() const { DARABONBA_PTR_GET_CONST(customCiphers_, vector<string>) };
+    inline vector<string> getCustomCiphers() { DARABONBA_PTR_GET(customCiphers_, vector<string>) };
     inline ModifyDefaultHttpsRequest& setCustomCiphers(const vector<string> & customCiphers) { DARABONBA_PTR_SET_VALUE(customCiphers_, customCiphers) };
     inline ModifyDefaultHttpsRequest& setCustomCiphers(vector<string> && customCiphers) { DARABONBA_PTR_SET_RVALUE(customCiphers_, customCiphers) };
 
@@ -73,35 +73,35 @@ namespace Models
     // enableTLSv3 Field Functions 
     bool hasEnableTLSv3() const { return this->enableTLSv3_ != nullptr;};
     void deleteEnableTLSv3() { this->enableTLSv3_ = nullptr;};
-    inline bool enableTLSv3() const { DARABONBA_PTR_GET_DEFAULT(enableTLSv3_, false) };
+    inline bool getEnableTLSv3() const { DARABONBA_PTR_GET_DEFAULT(enableTLSv3_, false) };
     inline ModifyDefaultHttpsRequest& setEnableTLSv3(bool enableTLSv3) { DARABONBA_PTR_SET_VALUE(enableTLSv3_, enableTLSv3) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyDefaultHttpsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDefaultHttpsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyDefaultHttpsRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // TLSVersion Field Functions 
     bool hasTLSVersion() const { return this->TLSVersion_ != nullptr;};
     void deleteTLSVersion() { this->TLSVersion_ = nullptr;};
-    inline string TLSVersion() const { DARABONBA_PTR_GET_DEFAULT(TLSVersion_, "") };
+    inline string getTLSVersion() const { DARABONBA_PTR_GET_DEFAULT(TLSVersion_, "") };
     inline ModifyDefaultHttpsRequest& setTLSVersion(string TLSVersion) { DARABONBA_PTR_SET_VALUE(TLSVersion_, TLSVersion) };
 
 
@@ -109,33 +109,33 @@ namespace Models
     // The ID of the certificate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> certId_ = nullptr;
+    shared_ptr<string> certId_ {};
     // The type of the cipher suites. Valid values:
     // 
     // *   **1**: all cipher suites.
     // *   **2**: strong cipher suites.
     // *   **99**: custom cipher suites.
-    std::shared_ptr<int32_t> cipherSuite_ = nullptr;
+    shared_ptr<int32_t> cipherSuite_ {};
     // The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
-    std::shared_ptr<vector<string>> customCiphers_ = nullptr;
+    shared_ptr<vector<string>> customCiphers_ {};
     // Specifies whether to support TLS 1.3. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> enableTLSv3_ = nullptr;
+    shared_ptr<bool> enableTLSv3_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: the Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // 阿里云资源组ID。
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The version of the TLS protocol. Valid values:
     // 
     // *   **tlsv1**
@@ -143,7 +143,7 @@ namespace Models
     // *   **tlsv1.2**
     // 
     // This parameter is required.
-    std::shared_ptr<string> TLSVersion_ = nullptr;
+    shared_ptr<string> TLSVersion_ {};
   };
 
   } // namespace Models

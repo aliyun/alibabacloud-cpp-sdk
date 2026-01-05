@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->http_ == nullptr
-        && return this->https_ == nullptr && return this->requestId_ == nullptr; };
+        && this->https_ == nullptr && this->requestId_ == nullptr; };
     // http Field Functions 
     bool hasHttp() const { return this->http_ != nullptr;};
     void deleteHttp() { this->http_ = nullptr;};
-    inline const vector<int32_t> & http() const { DARABONBA_PTR_GET_CONST(http_, vector<int32_t>) };
-    inline vector<int32_t> http() { DARABONBA_PTR_GET(http_, vector<int32_t>) };
+    inline const vector<int32_t> & getHttp() const { DARABONBA_PTR_GET_CONST(http_, vector<int32_t>) };
+    inline vector<int32_t> getHttp() { DARABONBA_PTR_GET(http_, vector<int32_t>) };
     inline DescribeCloudResourceAccessedPortsResponseBody& setHttp(const vector<int32_t> & http) { DARABONBA_PTR_SET_VALUE(http_, http) };
     inline DescribeCloudResourceAccessedPortsResponseBody& setHttp(vector<int32_t> && http) { DARABONBA_PTR_SET_RVALUE(http_, http) };
 
@@ -48,8 +48,8 @@ namespace Models
     // https Field Functions 
     bool hasHttps() const { return this->https_ != nullptr;};
     void deleteHttps() { this->https_ = nullptr;};
-    inline const vector<int32_t> & https() const { DARABONBA_PTR_GET_CONST(https_, vector<int32_t>) };
-    inline vector<int32_t> https() { DARABONBA_PTR_GET(https_, vector<int32_t>) };
+    inline const vector<int32_t> & getHttps() const { DARABONBA_PTR_GET_CONST(https_, vector<int32_t>) };
+    inline vector<int32_t> getHttps() { DARABONBA_PTR_GET(https_, vector<int32_t>) };
     inline DescribeCloudResourceAccessedPortsResponseBody& setHttps(const vector<int32_t> & https) { DARABONBA_PTR_SET_VALUE(https_, https) };
     inline DescribeCloudResourceAccessedPortsResponseBody& setHttps(vector<int32_t> && https) { DARABONBA_PTR_SET_RVALUE(https_, https) };
 
@@ -57,17 +57,17 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCloudResourceAccessedPortsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The HTTP ports.
-    std::shared_ptr<vector<int32_t>> http_ = nullptr;
+    shared_ptr<vector<int32_t>> http_ {};
     // The HTTPS ports.
-    std::shared_ptr<vector<int32_t>> https_ = nullptr;
+    shared_ptr<vector<int32_t>> https_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

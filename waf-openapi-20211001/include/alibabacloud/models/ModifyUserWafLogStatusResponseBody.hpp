@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logStoreName_ == nullptr
-        && return this->projectName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->projectName_ == nullptr && this->requestId_ == nullptr; };
     // logStoreName Field Functions 
     bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
     void deleteLogStoreName() { this->logStoreName_ = nullptr;};
-    inline string logStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
+    inline string getLogStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
     inline ModifyUserWafLogStatusResponseBody& setLogStoreName(string logStoreName) { DARABONBA_PTR_SET_VALUE(logStoreName_, logStoreName) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline bool projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, false) };
+    inline bool getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, false) };
     inline ModifyUserWafLogStatusResponseBody& setProjectName(bool projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyUserWafLogStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> logStoreName_ = nullptr;
-    std::shared_ptr<bool> projectName_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> logStoreName_ {};
+    shared_ptr<bool> projectName_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

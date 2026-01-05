@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->memberAccountIds_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->memberAccountIds_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->sourceIp_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateMemberAccountsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // memberAccountIds Field Functions 
     bool hasMemberAccountIds() const { return this->memberAccountIds_ != nullptr;};
     void deleteMemberAccountIds() { this->memberAccountIds_ = nullptr;};
-    inline const vector<string> & memberAccountIds() const { DARABONBA_PTR_GET_CONST(memberAccountIds_, vector<string>) };
-    inline vector<string> memberAccountIds() { DARABONBA_PTR_GET(memberAccountIds_, vector<string>) };
+    inline const vector<string> & getMemberAccountIds() const { DARABONBA_PTR_GET_CONST(memberAccountIds_, vector<string>) };
+    inline vector<string> getMemberAccountIds() { DARABONBA_PTR_GET(memberAccountIds_, vector<string>) };
     inline CreateMemberAccountsRequest& setMemberAccountIds(const vector<string> & memberAccountIds) { DARABONBA_PTR_SET_VALUE(memberAccountIds_, memberAccountIds) };
     inline CreateMemberAccountsRequest& setMemberAccountIds(vector<string> && memberAccountIds) { DARABONBA_PTR_SET_RVALUE(memberAccountIds_, memberAccountIds) };
 
@@ -59,21 +59,21 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateMemberAccountsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline CreateMemberAccountsRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline CreateMemberAccountsRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -83,20 +83,20 @@ namespace Models
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The Alibaba Cloud account IDs of the members that you want to add. You can add up to 10 members at the same time.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> memberAccountIds_ = nullptr;
+    shared_ptr<vector<string>> memberAccountIds_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The source IP address of the request. The system automatically obtains the value of this parameter.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

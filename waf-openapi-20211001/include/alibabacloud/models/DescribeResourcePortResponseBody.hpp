@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resourcePorts_ == nullptr; };
+        && this->resourcePorts_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeResourcePortResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourcePorts Field Functions 
     bool hasResourcePorts() const { return this->resourcePorts_ != nullptr;};
     void deleteResourcePorts() { this->resourcePorts_ = nullptr;};
-    inline const vector<string> & resourcePorts() const { DARABONBA_PTR_GET_CONST(resourcePorts_, vector<string>) };
-    inline vector<string> resourcePorts() { DARABONBA_PTR_GET(resourcePorts_, vector<string>) };
+    inline const vector<string> & getResourcePorts() const { DARABONBA_PTR_GET_CONST(resourcePorts_, vector<string>) };
+    inline vector<string> getResourcePorts() { DARABONBA_PTR_GET(resourcePorts_, vector<string>) };
     inline DescribeResourcePortResponseBody& setResourcePorts(const vector<string> & resourcePorts) { DARABONBA_PTR_SET_VALUE(resourcePorts_, resourcePorts) };
     inline DescribeResourcePortResponseBody& setResourcePorts(vector<string> && resourcePorts) { DARABONBA_PTR_SET_RVALUE(resourcePorts_, resourcePorts) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // An array of HTTP and HTTPS listener ports that are added to the WAF instance.
-    std::shared_ptr<vector<string>> resourcePorts_ = nullptr;
+    shared_ptr<vector<string>> resourcePorts_ {};
   };
 
   } // namespace Models

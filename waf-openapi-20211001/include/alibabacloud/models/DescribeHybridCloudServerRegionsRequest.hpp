@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->regionCode_ == nullptr && return this->regionId_ == nullptr && return this->regionType_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->regionCode_ == nullptr && this->regionId_ == nullptr && this->regionType_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeHybridCloudServerRegionsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionCode Field Functions 
     bool hasRegionCode() const { return this->regionCode_ != nullptr;};
     void deleteRegionCode() { this->regionCode_ = nullptr;};
-    inline string regionCode() const { DARABONBA_PTR_GET_DEFAULT(regionCode_, "") };
+    inline string getRegionCode() const { DARABONBA_PTR_GET_DEFAULT(regionCode_, "") };
     inline DescribeHybridCloudServerRegionsRequest& setRegionCode(string regionCode) { DARABONBA_PTR_SET_VALUE(regionCode_, regionCode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeHybridCloudServerRegionsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // regionType Field Functions 
     bool hasRegionType() const { return this->regionType_ != nullptr;};
     void deleteRegionType() { this->regionType_ = nullptr;};
-    inline string regionType() const { DARABONBA_PTR_GET_DEFAULT(regionType_, "") };
+    inline string getRegionType() const { DARABONBA_PTR_GET_DEFAULT(regionType_, "") };
     inline DescribeHybridCloudServerRegionsRequest& setRegionType(string regionType) { DARABONBA_PTR_SET_VALUE(regionType_, regionType) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline DescribeHybridCloudServerRegionsRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
@@ -80,16 +80,16 @@ namespace Models
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The code of the region.
     // 
     // >  This parameter is required if you set RegionType to region. The value is the code of the city.
-    std::shared_ptr<string> regionCode_ = nullptr;
+    shared_ptr<string> regionCode_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The type of the region. Valid values:
     // 
     // *   **operator**: the ISP.
@@ -97,9 +97,9 @@ namespace Models
     // *   **region**: the city.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionType_ = nullptr;
+    shared_ptr<string> regionType_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

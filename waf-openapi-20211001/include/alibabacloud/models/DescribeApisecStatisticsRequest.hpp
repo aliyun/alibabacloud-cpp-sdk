@@ -45,62 +45,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->startTime_ == nullptr
-        && return this->type_ == nullptr && return this->userStatusList_ == nullptr; };
+        && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->startTime_ == nullptr
+        && this->type_ == nullptr && this->userStatusList_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeApisecStatisticsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline DescribeApisecStatisticsRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeApisecStatisticsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeApisecStatisticsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline DescribeApisecStatisticsRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline DescribeApisecStatisticsRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline DescribeApisecStatisticsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // userStatusList Field Functions 
     bool hasUserStatusList() const { return this->userStatusList_ != nullptr;};
     void deleteUserStatusList() { this->userStatusList_ = nullptr;};
-    inline const vector<string> & userStatusList() const { DARABONBA_PTR_GET_CONST(userStatusList_, vector<string>) };
-    inline vector<string> userStatusList() { DARABONBA_PTR_GET(userStatusList_, vector<string>) };
+    inline const vector<string> & getUserStatusList() const { DARABONBA_PTR_GET_CONST(userStatusList_, vector<string>) };
+    inline vector<string> getUserStatusList() { DARABONBA_PTR_GET(userStatusList_, vector<string>) };
     inline DescribeApisecStatisticsRequest& setUserStatusList(const vector<string> & userStatusList) { DARABONBA_PTR_SET_VALUE(userStatusList_, userStatusList) };
     inline DescribeApisecStatisticsRequest& setUserStatusList(vector<string> && userStatusList) { DARABONBA_PTR_SET_RVALUE(userStatusList_, userStatusList) };
 
@@ -109,29 +109,29 @@ namespace Models
     // The ID of the hybrid cloud cluster.
     // 
     // >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<int64_t> endTime_ {};
     // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
     // * **cn-hangzhou**: Chinese mainland
     // * **ap-southeast-1**: outside the Chinese mainland
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID of the WAF instance. Valid values:
     // 
     // *   **cn-hangzhou**: Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
+    shared_ptr<int64_t> startTime_ {};
     // The type of the statistics. Valid values:
     // 
     // *   **risk**: risk-related statistics.
     // *   **event**: event-related statistics.
-    std::shared_ptr<string> type_ = nullptr;
-    std::shared_ptr<vector<string>> userStatusList_ = nullptr;
+    shared_ptr<string> type_ {};
+    shared_ptr<vector<string>> userStatusList_ {};
   };
 
   } // namespace Models

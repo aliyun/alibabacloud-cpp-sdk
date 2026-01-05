@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configKey_ == nullptr
-        && return this->configValue_ == nullptr && return this->defenseScene_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->configValue_ == nullptr && this->defenseScene_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // configKey Field Functions 
     bool hasConfigKey() const { return this->configKey_ != nullptr;};
     void deleteConfigKey() { this->configKey_ = nullptr;};
-    inline string configKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
+    inline string getConfigKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
     inline ModifyDefenseSceneConfigRequest& setConfigKey(string configKey) { DARABONBA_PTR_SET_VALUE(configKey_, configKey) };
 
 
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
-    inline string configValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
+    inline string getConfigValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
     inline ModifyDefenseSceneConfigRequest& setConfigValue(string configValue) { DARABONBA_PTR_SET_VALUE(configValue_, configValue) };
 
 
     // defenseScene Field Functions 
     bool hasDefenseScene() const { return this->defenseScene_ != nullptr;};
     void deleteDefenseScene() { this->defenseScene_ = nullptr;};
-    inline string defenseScene() const { DARABONBA_PTR_GET_DEFAULT(defenseScene_, "") };
+    inline string getDefenseScene() const { DARABONBA_PTR_GET_DEFAULT(defenseScene_, "") };
     inline ModifyDefenseSceneConfigRequest& setDefenseScene(string defenseScene) { DARABONBA_PTR_SET_VALUE(defenseScene_, defenseScene) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyDefenseSceneConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDefenseSceneConfigRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyDefenseSceneConfigRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> configKey_ = nullptr;
+    shared_ptr<string> configKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> configValue_ = nullptr;
+    shared_ptr<string> configValue_ {};
     // This parameter is required.
-    std::shared_ptr<string> defenseScene_ = nullptr;
+    shared_ptr<string> defenseScene_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

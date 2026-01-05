@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resource_ == nullptr; };
+        && this->resource_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDefenseResourceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
-    inline string resource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+    inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
     inline CreateDefenseResourceResponseBody& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> resource_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> resource_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->protectableCount_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // protectableCount Field Functions 
     bool hasProtectableCount() const { return this->protectableCount_ != nullptr;};
     void deleteProtectableCount() { this->protectableCount_ = nullptr;};
-    inline int32_t protectableCount() const { DARABONBA_PTR_GET_DEFAULT(protectableCount_, 0) };
+    inline int32_t getProtectableCount() const { DARABONBA_PTR_GET_DEFAULT(protectableCount_, 0) };
     inline DescribeHybridCloudProtectableCountResponseBody& setProtectableCount(int32_t protectableCount) { DARABONBA_PTR_SET_VALUE(protectableCount_, protectableCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeHybridCloudProtectableCountResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of protection nodes that can be added to the hybrid cloud cluster.
-    std::shared_ptr<int32_t> protectableCount_ = nullptr;
+    shared_ptr<int32_t> protectableCount_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

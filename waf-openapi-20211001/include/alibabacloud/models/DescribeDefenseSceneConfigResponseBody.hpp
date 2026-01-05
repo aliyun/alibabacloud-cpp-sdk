@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configValue_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
-    inline string configValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
+    inline string getConfigValue() const { DARABONBA_PTR_GET_DEFAULT(configValue_, "") };
     inline DescribeDefenseSceneConfigResponseBody& setConfigValue(string configValue) { DARABONBA_PTR_SET_VALUE(configValue_, configValue) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDefenseSceneConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> configValue_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> configValue_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

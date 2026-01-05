@@ -40,69 +40,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certContent_ == nullptr
-        && return this->certKey_ == nullptr && return this->certName_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->certKey_ == nullptr && this->certName_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // certContent Field Functions 
     bool hasCertContent() const { return this->certContent_ != nullptr;};
     void deleteCertContent() { this->certContent_ = nullptr;};
-    inline string certContent() const { DARABONBA_PTR_GET_DEFAULT(certContent_, "") };
+    inline string getCertContent() const { DARABONBA_PTR_GET_DEFAULT(certContent_, "") };
     inline CreateCertsRequest& setCertContent(string certContent) { DARABONBA_PTR_SET_VALUE(certContent_, certContent) };
 
 
     // certKey Field Functions 
     bool hasCertKey() const { return this->certKey_ != nullptr;};
     void deleteCertKey() { this->certKey_ = nullptr;};
-    inline string certKey() const { DARABONBA_PTR_GET_DEFAULT(certKey_, "") };
+    inline string getCertKey() const { DARABONBA_PTR_GET_DEFAULT(certKey_, "") };
     inline CreateCertsRequest& setCertKey(string certKey) { DARABONBA_PTR_SET_VALUE(certKey_, certKey) };
 
 
     // certName Field Functions 
     bool hasCertName() const { return this->certName_ != nullptr;};
     void deleteCertName() { this->certName_ = nullptr;};
-    inline string certName() const { DARABONBA_PTR_GET_DEFAULT(certName_, "") };
+    inline string getCertName() const { DARABONBA_PTR_GET_DEFAULT(certName_, "") };
     inline CreateCertsRequest& setCertName(string certName) { DARABONBA_PTR_SET_VALUE(certName_, certName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateCertsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateCertsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline CreateCertsRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
   protected:
     // The content of the certificate.
-    std::shared_ptr<string> certContent_ = nullptr;
+    shared_ptr<string> certContent_ {};
     // The private key that corresponds to the certificate.
-    std::shared_ptr<string> certKey_ = nullptr;
+    shared_ptr<string> certKey_ {};
     // The name of the certificate.
-    std::shared_ptr<string> certName_ = nullptr;
+    shared_ptr<string> certName_ {};
     // The ID of the WAF instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

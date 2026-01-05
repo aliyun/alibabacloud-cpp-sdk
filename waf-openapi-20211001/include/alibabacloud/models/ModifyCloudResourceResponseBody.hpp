@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cloudResource_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // cloudResource Field Functions 
     bool hasCloudResource() const { return this->cloudResource_ != nullptr;};
     void deleteCloudResource() { this->cloudResource_ = nullptr;};
-    inline string cloudResource() const { DARABONBA_PTR_GET_DEFAULT(cloudResource_, "") };
+    inline string getCloudResource() const { DARABONBA_PTR_GET_DEFAULT(cloudResource_, "") };
     inline ModifyCloudResourceResponseBody& setCloudResource(string cloudResource) { DARABONBA_PTR_SET_VALUE(cloudResource_, cloudResource) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyCloudResourceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the resource that is added to WAF.
-    std::shared_ptr<string> cloudResource_ = nullptr;
+    shared_ptr<string> cloudResource_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

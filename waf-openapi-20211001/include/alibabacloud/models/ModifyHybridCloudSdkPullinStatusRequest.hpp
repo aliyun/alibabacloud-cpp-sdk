@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->mid_ == nullptr && return this->pullinStatus_ == nullptr; };
+        && this->mid_ == nullptr && this->pullinStatus_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyHybridCloudSdkPullinStatusRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mid Field Functions 
     bool hasMid() const { return this->mid_ != nullptr;};
     void deleteMid() { this->mid_ = nullptr;};
-    inline string mid() const { DARABONBA_PTR_GET_DEFAULT(mid_, "") };
+    inline string getMid() const { DARABONBA_PTR_GET_DEFAULT(mid_, "") };
     inline ModifyHybridCloudSdkPullinStatusRequest& setMid(string mid) { DARABONBA_PTR_SET_VALUE(mid_, mid) };
 
 
     // pullinStatus Field Functions 
     bool hasPullinStatus() const { return this->pullinStatus_ != nullptr;};
     void deletePullinStatus() { this->pullinStatus_ = nullptr;};
-    inline string pullinStatus() const { DARABONBA_PTR_GET_DEFAULT(pullinStatus_, "") };
+    inline string getPullinStatus() const { DARABONBA_PTR_GET_DEFAULT(pullinStatus_, "") };
     inline ModifyHybridCloudSdkPullinStatusRequest& setPullinStatus(string pullinStatus) { DARABONBA_PTR_SET_VALUE(pullinStatus_, pullinStatus) };
 
 
@@ -62,18 +62,18 @@ namespace Models
     // >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the SDK.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mid_ = nullptr;
+    shared_ptr<string> mid_ {};
     // The status of traffic redirection. Valid values:
     // 
     // *   **on**
     // *   **off**
     // 
     // This parameter is required.
-    std::shared_ptr<string> pullinStatus_ = nullptr;
+    shared_ptr<string> pullinStatus_ {};
   };
 
   } // namespace Models

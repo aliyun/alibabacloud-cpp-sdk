@@ -44,76 +44,76 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fourthKey_ == nullptr
-        && return this->instanceId_ == nullptr && return this->primaryKey_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->secondaryKey_ == nullptr
-        && return this->templateId_ == nullptr && return this->thirdKey_ == nullptr; };
+        && this->instanceId_ == nullptr && this->primaryKey_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->secondaryKey_ == nullptr
+        && this->templateId_ == nullptr && this->thirdKey_ == nullptr; };
     // fourthKey Field Functions 
     bool hasFourthKey() const { return this->fourthKey_ != nullptr;};
     void deleteFourthKey() { this->fourthKey_ = nullptr;};
-    inline string fourthKey() const { DARABONBA_PTR_GET_DEFAULT(fourthKey_, "") };
+    inline string getFourthKey() const { DARABONBA_PTR_GET_DEFAULT(fourthKey_, "") };
     inline DescribeDefenseRuleStatisticsRequest& setFourthKey(string fourthKey) { DARABONBA_PTR_SET_VALUE(fourthKey_, fourthKey) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeDefenseRuleStatisticsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // primaryKey Field Functions 
     bool hasPrimaryKey() const { return this->primaryKey_ != nullptr;};
     void deletePrimaryKey() { this->primaryKey_ = nullptr;};
-    inline string primaryKey() const { DARABONBA_PTR_GET_DEFAULT(primaryKey_, "") };
+    inline string getPrimaryKey() const { DARABONBA_PTR_GET_DEFAULT(primaryKey_, "") };
     inline DescribeDefenseRuleStatisticsRequest& setPrimaryKey(string primaryKey) { DARABONBA_PTR_SET_VALUE(primaryKey_, primaryKey) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDefenseRuleStatisticsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline DescribeDefenseRuleStatisticsRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // secondaryKey Field Functions 
     bool hasSecondaryKey() const { return this->secondaryKey_ != nullptr;};
     void deleteSecondaryKey() { this->secondaryKey_ = nullptr;};
-    inline string secondaryKey() const { DARABONBA_PTR_GET_DEFAULT(secondaryKey_, "") };
+    inline string getSecondaryKey() const { DARABONBA_PTR_GET_DEFAULT(secondaryKey_, "") };
     inline DescribeDefenseRuleStatisticsRequest& setSecondaryKey(string secondaryKey) { DARABONBA_PTR_SET_VALUE(secondaryKey_, secondaryKey) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline int64_t templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+    inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
     inline DescribeDefenseRuleStatisticsRequest& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // thirdKey Field Functions 
     bool hasThirdKey() const { return this->thirdKey_ != nullptr;};
     void deleteThirdKey() { this->thirdKey_ = nullptr;};
-    inline string thirdKey() const { DARABONBA_PTR_GET_DEFAULT(thirdKey_, "") };
+    inline string getThirdKey() const { DARABONBA_PTR_GET_DEFAULT(thirdKey_, "") };
     inline DescribeDefenseRuleStatisticsRequest& setThirdKey(string thirdKey) { DARABONBA_PTR_SET_VALUE(thirdKey_, thirdKey) };
 
 
   protected:
-    std::shared_ptr<string> fourthKey_ = nullptr;
+    shared_ptr<string> fourthKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> primaryKey_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
-    std::shared_ptr<string> secondaryKey_ = nullptr;
+    shared_ptr<string> primaryKey_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
+    shared_ptr<string> secondaryKey_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> templateId_ = nullptr;
-    std::shared_ptr<string> thirdKey_ = nullptr;
+    shared_ptr<int64_t> templateId_ {};
+    shared_ptr<string> thirdKey_ {};
   };
 
   } // namespace Models

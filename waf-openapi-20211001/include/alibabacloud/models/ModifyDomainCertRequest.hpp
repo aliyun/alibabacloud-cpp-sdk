@@ -45,27 +45,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certId_ == nullptr
-        && return this->cipherSuite_ == nullptr && return this->customCiphers_ == nullptr && return this->domain_ == nullptr && return this->enableTLSv3_ == nullptr && return this->instanceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->TLSVersion_ == nullptr; };
+        && this->cipherSuite_ == nullptr && this->customCiphers_ == nullptr && this->domain_ == nullptr && this->enableTLSv3_ == nullptr && this->instanceId_ == nullptr
+        && this->regionId_ == nullptr && this->TLSVersion_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
-    inline string certId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
+    inline string getCertId() const { DARABONBA_PTR_GET_DEFAULT(certId_, "") };
     inline ModifyDomainCertRequest& setCertId(string certId) { DARABONBA_PTR_SET_VALUE(certId_, certId) };
 
 
     // cipherSuite Field Functions 
     bool hasCipherSuite() const { return this->cipherSuite_ != nullptr;};
     void deleteCipherSuite() { this->cipherSuite_ = nullptr;};
-    inline string cipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, "") };
+    inline string getCipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, "") };
     inline ModifyDomainCertRequest& setCipherSuite(string cipherSuite) { DARABONBA_PTR_SET_VALUE(cipherSuite_, cipherSuite) };
 
 
     // customCiphers Field Functions 
     bool hasCustomCiphers() const { return this->customCiphers_ != nullptr;};
     void deleteCustomCiphers() { this->customCiphers_ = nullptr;};
-    inline const vector<string> & customCiphers() const { DARABONBA_PTR_GET_CONST(customCiphers_, vector<string>) };
-    inline vector<string> customCiphers() { DARABONBA_PTR_GET(customCiphers_, vector<string>) };
+    inline const vector<string> & getCustomCiphers() const { DARABONBA_PTR_GET_CONST(customCiphers_, vector<string>) };
+    inline vector<string> getCustomCiphers() { DARABONBA_PTR_GET(customCiphers_, vector<string>) };
     inline ModifyDomainCertRequest& setCustomCiphers(const vector<string> & customCiphers) { DARABONBA_PTR_SET_VALUE(customCiphers_, customCiphers) };
     inline ModifyDomainCertRequest& setCustomCiphers(vector<string> && customCiphers) { DARABONBA_PTR_SET_RVALUE(customCiphers_, customCiphers) };
 
@@ -73,51 +73,51 @@ namespace Models
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyDomainCertRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // enableTLSv3 Field Functions 
     bool hasEnableTLSv3() const { return this->enableTLSv3_ != nullptr;};
     void deleteEnableTLSv3() { this->enableTLSv3_ = nullptr;};
-    inline bool enableTLSv3() const { DARABONBA_PTR_GET_DEFAULT(enableTLSv3_, false) };
+    inline bool getEnableTLSv3() const { DARABONBA_PTR_GET_DEFAULT(enableTLSv3_, false) };
     inline ModifyDomainCertRequest& setEnableTLSv3(bool enableTLSv3) { DARABONBA_PTR_SET_VALUE(enableTLSv3_, enableTLSv3) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyDomainCertRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDomainCertRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // TLSVersion Field Functions 
     bool hasTLSVersion() const { return this->TLSVersion_ != nullptr;};
     void deleteTLSVersion() { this->TLSVersion_ = nullptr;};
-    inline string TLSVersion() const { DARABONBA_PTR_GET_DEFAULT(TLSVersion_, "") };
+    inline string getTLSVersion() const { DARABONBA_PTR_GET_DEFAULT(TLSVersion_, "") };
     inline ModifyDomainCertRequest& setTLSVersion(string TLSVersion) { DARABONBA_PTR_SET_VALUE(TLSVersion_, TLSVersion) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> certId_ = nullptr;
-    std::shared_ptr<string> cipherSuite_ = nullptr;
-    std::shared_ptr<vector<string>> customCiphers_ = nullptr;
+    shared_ptr<string> certId_ {};
+    shared_ptr<string> cipherSuite_ {};
+    shared_ptr<vector<string>> customCiphers_ {};
     // This parameter is required.
-    std::shared_ptr<string> domain_ = nullptr;
-    std::shared_ptr<bool> enableTLSv3_ = nullptr;
+    shared_ptr<string> domain_ {};
+    shared_ptr<bool> enableTLSv3_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> TLSVersion_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> TLSVersion_ {};
   };
 
   } // namespace Models

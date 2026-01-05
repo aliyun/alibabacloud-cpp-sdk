@@ -40,72 +40,72 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cloudResourceId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->listenShrink_ == nullptr && return this->redirectShrink_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->listenShrink_ == nullptr && this->redirectShrink_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // cloudResourceId Field Functions 
     bool hasCloudResourceId() const { return this->cloudResourceId_ != nullptr;};
     void deleteCloudResourceId() { this->cloudResourceId_ = nullptr;};
-    inline string cloudResourceId() const { DARABONBA_PTR_GET_DEFAULT(cloudResourceId_, "") };
+    inline string getCloudResourceId() const { DARABONBA_PTR_GET_DEFAULT(cloudResourceId_, "") };
     inline ModifyCloudResourceShrinkRequest& setCloudResourceId(string cloudResourceId) { DARABONBA_PTR_SET_VALUE(cloudResourceId_, cloudResourceId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyCloudResourceShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // listenShrink Field Functions 
     bool hasListenShrink() const { return this->listenShrink_ != nullptr;};
     void deleteListenShrink() { this->listenShrink_ = nullptr;};
-    inline string listenShrink() const { DARABONBA_PTR_GET_DEFAULT(listenShrink_, "") };
+    inline string getListenShrink() const { DARABONBA_PTR_GET_DEFAULT(listenShrink_, "") };
     inline ModifyCloudResourceShrinkRequest& setListenShrink(string listenShrink) { DARABONBA_PTR_SET_VALUE(listenShrink_, listenShrink) };
 
 
     // redirectShrink Field Functions 
     bool hasRedirectShrink() const { return this->redirectShrink_ != nullptr;};
     void deleteRedirectShrink() { this->redirectShrink_ = nullptr;};
-    inline string redirectShrink() const { DARABONBA_PTR_GET_DEFAULT(redirectShrink_, "") };
+    inline string getRedirectShrink() const { DARABONBA_PTR_GET_DEFAULT(redirectShrink_, "") };
     inline ModifyCloudResourceShrinkRequest& setRedirectShrink(string redirectShrink) { DARABONBA_PTR_SET_VALUE(redirectShrink_, redirectShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyCloudResourceShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyCloudResourceShrinkRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
   protected:
-    std::shared_ptr<string> cloudResourceId_ = nullptr;
+    shared_ptr<string> cloudResourceId_ {};
     // The ID of the WAF instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The listener configurations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listenShrink_ = nullptr;
+    shared_ptr<string> listenShrink_ {};
     // The forwarding configurations.
-    std::shared_ptr<string> redirectShrink_ = nullptr;
+    shared_ptr<string> redirectShrink_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: the Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

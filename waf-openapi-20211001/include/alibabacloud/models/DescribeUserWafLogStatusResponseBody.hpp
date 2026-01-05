@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logRegionId_ == nullptr
-        && return this->logStatus_ == nullptr && return this->requestId_ == nullptr && return this->statusUpdateTime_ == nullptr; };
+        && this->logStatus_ == nullptr && this->requestId_ == nullptr && this->statusUpdateTime_ == nullptr; };
     // logRegionId Field Functions 
     bool hasLogRegionId() const { return this->logRegionId_ != nullptr;};
     void deleteLogRegionId() { this->logRegionId_ = nullptr;};
-    inline string logRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
+    inline string getLogRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
     inline DescribeUserWafLogStatusResponseBody& setLogRegionId(string logRegionId) { DARABONBA_PTR_SET_VALUE(logRegionId_, logRegionId) };
 
 
     // logStatus Field Functions 
     bool hasLogStatus() const { return this->logStatus_ != nullptr;};
     void deleteLogStatus() { this->logStatus_ = nullptr;};
-    inline string logStatus() const { DARABONBA_PTR_GET_DEFAULT(logStatus_, "") };
+    inline string getLogStatus() const { DARABONBA_PTR_GET_DEFAULT(logStatus_, "") };
     inline DescribeUserWafLogStatusResponseBody& setLogStatus(string logStatus) { DARABONBA_PTR_SET_VALUE(logStatus_, logStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeUserWafLogStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // statusUpdateTime Field Functions 
     bool hasStatusUpdateTime() const { return this->statusUpdateTime_ != nullptr;};
     void deleteStatusUpdateTime() { this->statusUpdateTime_ = nullptr;};
-    inline int64_t statusUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(statusUpdateTime_, 0L) };
+    inline int64_t getStatusUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(statusUpdateTime_, 0L) };
     inline DescribeUserWafLogStatusResponseBody& setStatusUpdateTime(int64_t statusUpdateTime) { DARABONBA_PTR_SET_VALUE(statusUpdateTime_, statusUpdateTime) };
 
 
@@ -88,7 +88,7 @@ namespace Models
     // *   **cn-shenzhen-finance**: China South 1 Finance.
     // 
     // >  The China East 1 Finance, China East 2 Finance, and China South 1 Finance regions are available only for Alibaba Finance Cloud users. Alibaba Finance Cloud users are also limited to storing logs within these specific regions.
-    std::shared_ptr<string> logRegionId_ = nullptr;
+    shared_ptr<string> logRegionId_ {};
     // The status of WAF logs.
     // 
     // *   **initializing**
@@ -96,11 +96,11 @@ namespace Models
     // *   **normal**
     // *   **releasing**
     // *   **release_failed**
-    std::shared_ptr<string> logStatus_ = nullptr;
+    shared_ptr<string> logStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The time when the log status was modified. Unit: milliseconds.
-    std::shared_ptr<int64_t> statusUpdateTime_ = nullptr;
+    shared_ptr<int64_t> statusUpdateTime_ {};
   };
 
   } // namespace Models

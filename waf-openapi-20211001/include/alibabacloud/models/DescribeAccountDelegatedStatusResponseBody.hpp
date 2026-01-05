@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->accountName_ == nullptr && return this->delegatedStatus_ == nullptr && return this->requestId_ == nullptr; };
+        && this->accountName_ == nullptr && this->delegatedStatus_ == nullptr && this->requestId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline DescribeAccountDelegatedStatusResponseBody& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline DescribeAccountDelegatedStatusResponseBody& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // delegatedStatus Field Functions 
     bool hasDelegatedStatus() const { return this->delegatedStatus_ != nullptr;};
     void deleteDelegatedStatus() { this->delegatedStatus_ = nullptr;};
-    inline bool delegatedStatus() const { DARABONBA_PTR_GET_DEFAULT(delegatedStatus_, false) };
+    inline bool getDelegatedStatus() const { DARABONBA_PTR_GET_DEFAULT(delegatedStatus_, false) };
     inline DescribeAccountDelegatedStatusResponseBody& setDelegatedStatus(bool delegatedStatus) { DARABONBA_PTR_SET_VALUE(delegatedStatus_, delegatedStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAccountDelegatedStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the Alibaba Cloud account.
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<string> accountId_ {};
     // The name of the Alibaba Cloud account. This parameter is returned only if the account is the delegated administrator account.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // Indicates whether the Alibaba Cloud account is the delegated administrator account of the WAF instance.
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> delegatedStatus_ = nullptr;
+    shared_ptr<bool> delegatedStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->supportRegions_ == nullptr; };
+        && this->supportRegions_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeResourceSupportRegionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // supportRegions Field Functions 
     bool hasSupportRegions() const { return this->supportRegions_ != nullptr;};
     void deleteSupportRegions() { this->supportRegions_ = nullptr;};
-    inline const vector<string> & supportRegions() const { DARABONBA_PTR_GET_CONST(supportRegions_, vector<string>) };
-    inline vector<string> supportRegions() { DARABONBA_PTR_GET(supportRegions_, vector<string>) };
+    inline const vector<string> & getSupportRegions() const { DARABONBA_PTR_GET_CONST(supportRegions_, vector<string>) };
+    inline vector<string> getSupportRegions() { DARABONBA_PTR_GET(supportRegions_, vector<string>) };
     inline DescribeResourceSupportRegionsResponseBody& setSupportRegions(const vector<string> & supportRegions) { DARABONBA_PTR_SET_VALUE(supportRegions_, supportRegions) };
     inline DescribeResourceSupportRegionsResponseBody& setSupportRegions(vector<string> && supportRegions) { DARABONBA_PTR_SET_RVALUE(supportRegions_, supportRegions) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // An array of region IDs of the CLB and ECS instances that are added to WAF in cloud native mode.
-    std::shared_ptr<vector<string>> supportRegions_ = nullptr;
+    shared_ptr<vector<string>> supportRegions_ {};
   };
 
   } // namespace Models

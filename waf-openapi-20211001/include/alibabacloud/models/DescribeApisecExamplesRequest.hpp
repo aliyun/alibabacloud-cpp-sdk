@@ -51,69 +51,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abnormalTag_ == nullptr
-        && return this->apiId_ == nullptr && return this->clusterId_ == nullptr && return this->exampleType_ == nullptr && return this->instanceId_ == nullptr && return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->requestSensitiveTypeList_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->responseSensitiveTypeList_ == nullptr; };
+        && this->apiId_ == nullptr && this->clusterId_ == nullptr && this->exampleType_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->requestSensitiveTypeList_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->responseSensitiveTypeList_ == nullptr; };
     // abnormalTag Field Functions 
     bool hasAbnormalTag() const { return this->abnormalTag_ != nullptr;};
     void deleteAbnormalTag() { this->abnormalTag_ = nullptr;};
-    inline string abnormalTag() const { DARABONBA_PTR_GET_DEFAULT(abnormalTag_, "") };
+    inline string getAbnormalTag() const { DARABONBA_PTR_GET_DEFAULT(abnormalTag_, "") };
     inline DescribeApisecExamplesRequest& setAbnormalTag(string abnormalTag) { DARABONBA_PTR_SET_VALUE(abnormalTag_, abnormalTag) };
 
 
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline DescribeApisecExamplesRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeApisecExamplesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // exampleType Field Functions 
     bool hasExampleType() const { return this->exampleType_ != nullptr;};
     void deleteExampleType() { this->exampleType_ = nullptr;};
-    inline string exampleType() const { DARABONBA_PTR_GET_DEFAULT(exampleType_, "") };
+    inline string getExampleType() const { DARABONBA_PTR_GET_DEFAULT(exampleType_, "") };
     inline DescribeApisecExamplesRequest& setExampleType(string exampleType) { DARABONBA_PTR_SET_VALUE(exampleType_, exampleType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeApisecExamplesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeApisecExamplesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeApisecExamplesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeApisecExamplesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestSensitiveTypeList Field Functions 
     bool hasRequestSensitiveTypeList() const { return this->requestSensitiveTypeList_ != nullptr;};
     void deleteRequestSensitiveTypeList() { this->requestSensitiveTypeList_ = nullptr;};
-    inline const vector<string> & requestSensitiveTypeList() const { DARABONBA_PTR_GET_CONST(requestSensitiveTypeList_, vector<string>) };
-    inline vector<string> requestSensitiveTypeList() { DARABONBA_PTR_GET(requestSensitiveTypeList_, vector<string>) };
+    inline const vector<string> & getRequestSensitiveTypeList() const { DARABONBA_PTR_GET_CONST(requestSensitiveTypeList_, vector<string>) };
+    inline vector<string> getRequestSensitiveTypeList() { DARABONBA_PTR_GET(requestSensitiveTypeList_, vector<string>) };
     inline DescribeApisecExamplesRequest& setRequestSensitiveTypeList(const vector<string> & requestSensitiveTypeList) { DARABONBA_PTR_SET_VALUE(requestSensitiveTypeList_, requestSensitiveTypeList) };
     inline DescribeApisecExamplesRequest& setRequestSensitiveTypeList(vector<string> && requestSensitiveTypeList) { DARABONBA_PTR_SET_RVALUE(requestSensitiveTypeList_, requestSensitiveTypeList) };
 
@@ -121,33 +121,33 @@ namespace Models
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline DescribeApisecExamplesRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // responseSensitiveTypeList Field Functions 
     bool hasResponseSensitiveTypeList() const { return this->responseSensitiveTypeList_ != nullptr;};
     void deleteResponseSensitiveTypeList() { this->responseSensitiveTypeList_ = nullptr;};
-    inline const vector<string> & responseSensitiveTypeList() const { DARABONBA_PTR_GET_CONST(responseSensitiveTypeList_, vector<string>) };
-    inline vector<string> responseSensitiveTypeList() { DARABONBA_PTR_GET(responseSensitiveTypeList_, vector<string>) };
+    inline const vector<string> & getResponseSensitiveTypeList() const { DARABONBA_PTR_GET_CONST(responseSensitiveTypeList_, vector<string>) };
+    inline vector<string> getResponseSensitiveTypeList() { DARABONBA_PTR_GET(responseSensitiveTypeList_, vector<string>) };
     inline DescribeApisecExamplesRequest& setResponseSensitiveTypeList(const vector<string> & responseSensitiveTypeList) { DARABONBA_PTR_SET_VALUE(responseSensitiveTypeList_, responseSensitiveTypeList) };
     inline DescribeApisecExamplesRequest& setResponseSensitiveTypeList(vector<string> && responseSensitiveTypeList) { DARABONBA_PTR_SET_RVALUE(responseSensitiveTypeList_, responseSensitiveTypeList) };
 
 
   protected:
-    std::shared_ptr<string> abnormalTag_ = nullptr;
+    shared_ptr<string> abnormalTag_ {};
     // This parameter is required.
-    std::shared_ptr<string> apiId_ = nullptr;
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<string> exampleType_ = nullptr;
+    shared_ptr<string> apiId_ {};
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<string> exampleType_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<vector<string>> requestSensitiveTypeList_ = nullptr;
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
-    std::shared_ptr<vector<string>> responseSensitiveTypeList_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<vector<string>> requestSensitiveTypeList_ {};
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
+    shared_ptr<vector<string>> responseSensitiveTypeList_ {};
   };
 
   } // namespace Models

@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addList_ == nullptr
-        && return this->delList_ == nullptr && return this->deliveryType_ == nullptr && return this->extendConfig_ == nullptr && return this->fieldList_ == nullptr && return this->logDeliveryStrategy_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->delList_ == nullptr && this->deliveryType_ == nullptr && this->extendConfig_ == nullptr && this->fieldList_ == nullptr && this->logDeliveryStrategy_ == nullptr
+        && this->requestId_ == nullptr; };
     // addList Field Functions 
     bool hasAddList() const { return this->addList_ != nullptr;};
     void deleteAddList() { this->addList_ = nullptr;};
-    inline string addList() const { DARABONBA_PTR_GET_DEFAULT(addList_, "") };
+    inline string getAddList() const { DARABONBA_PTR_GET_DEFAULT(addList_, "") };
     inline DescribeResourceLogFieldConfigResponseBody& setAddList(string addList) { DARABONBA_PTR_SET_VALUE(addList_, addList) };
 
 
     // delList Field Functions 
     bool hasDelList() const { return this->delList_ != nullptr;};
     void deleteDelList() { this->delList_ = nullptr;};
-    inline string delList() const { DARABONBA_PTR_GET_DEFAULT(delList_, "") };
+    inline string getDelList() const { DARABONBA_PTR_GET_DEFAULT(delList_, "") };
     inline DescribeResourceLogFieldConfigResponseBody& setDelList(string delList) { DARABONBA_PTR_SET_VALUE(delList_, delList) };
 
 
     // deliveryType Field Functions 
     bool hasDeliveryType() const { return this->deliveryType_ != nullptr;};
     void deleteDeliveryType() { this->deliveryType_ = nullptr;};
-    inline string deliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
+    inline string getDeliveryType() const { DARABONBA_PTR_GET_DEFAULT(deliveryType_, "") };
     inline DescribeResourceLogFieldConfigResponseBody& setDeliveryType(string deliveryType) { DARABONBA_PTR_SET_VALUE(deliveryType_, deliveryType) };
 
 
     // extendConfig Field Functions 
     bool hasExtendConfig() const { return this->extendConfig_ != nullptr;};
     void deleteExtendConfig() { this->extendConfig_ = nullptr;};
-    inline string extendConfig() const { DARABONBA_PTR_GET_DEFAULT(extendConfig_, "") };
+    inline string getExtendConfig() const { DARABONBA_PTR_GET_DEFAULT(extendConfig_, "") };
     inline DescribeResourceLogFieldConfigResponseBody& setExtendConfig(string extendConfig) { DARABONBA_PTR_SET_VALUE(extendConfig_, extendConfig) };
 
 
     // fieldList Field Functions 
     bool hasFieldList() const { return this->fieldList_ != nullptr;};
     void deleteFieldList() { this->fieldList_ = nullptr;};
-    inline string fieldList() const { DARABONBA_PTR_GET_DEFAULT(fieldList_, "") };
+    inline string getFieldList() const { DARABONBA_PTR_GET_DEFAULT(fieldList_, "") };
     inline DescribeResourceLogFieldConfigResponseBody& setFieldList(string fieldList) { DARABONBA_PTR_SET_VALUE(fieldList_, fieldList) };
 
 
     // logDeliveryStrategy Field Functions 
     bool hasLogDeliveryStrategy() const { return this->logDeliveryStrategy_ != nullptr;};
     void deleteLogDeliveryStrategy() { this->logDeliveryStrategy_ = nullptr;};
-    inline string logDeliveryStrategy() const { DARABONBA_PTR_GET_DEFAULT(logDeliveryStrategy_, "") };
+    inline string getLogDeliveryStrategy() const { DARABONBA_PTR_GET_DEFAULT(logDeliveryStrategy_, "") };
     inline DescribeResourceLogFieldConfigResponseBody& setLogDeliveryStrategy(string logDeliveryStrategy) { DARABONBA_PTR_SET_VALUE(logDeliveryStrategy_, logDeliveryStrategy) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeResourceLogFieldConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> addList_ = nullptr;
-    std::shared_ptr<string> delList_ = nullptr;
-    std::shared_ptr<string> deliveryType_ = nullptr;
-    std::shared_ptr<string> extendConfig_ = nullptr;
-    std::shared_ptr<string> fieldList_ = nullptr;
-    std::shared_ptr<string> logDeliveryStrategy_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> addList_ {};
+    shared_ptr<string> delList_ {};
+    shared_ptr<string> deliveryType_ {};
+    shared_ptr<string> extendConfig_ {};
+    shared_ptr<string> fieldList_ {};
+    shared_ptr<string> logDeliveryStrategy_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

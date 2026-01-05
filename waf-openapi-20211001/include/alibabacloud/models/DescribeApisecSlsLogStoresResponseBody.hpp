@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logStores_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // logStores Field Functions 
     bool hasLogStores() const { return this->logStores_ != nullptr;};
     void deleteLogStores() { this->logStores_ = nullptr;};
-    inline const vector<string> & logStores() const { DARABONBA_PTR_GET_CONST(logStores_, vector<string>) };
-    inline vector<string> logStores() { DARABONBA_PTR_GET(logStores_, vector<string>) };
+    inline const vector<string> & getLogStores() const { DARABONBA_PTR_GET_CONST(logStores_, vector<string>) };
+    inline vector<string> getLogStores() { DARABONBA_PTR_GET(logStores_, vector<string>) };
     inline DescribeApisecSlsLogStoresResponseBody& setLogStores(const vector<string> & logStores) { DARABONBA_PTR_SET_VALUE(logStores_, logStores) };
     inline DescribeApisecSlsLogStoresResponseBody& setLogStores(vector<string> && logStores) { DARABONBA_PTR_SET_RVALUE(logStores_, logStores) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeApisecSlsLogStoresResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The names of the Logstores in Simple Log Service.
-    std::shared_ptr<vector<string>> logStores_ = nullptr;
+    shared_ptr<vector<string>> logStores_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

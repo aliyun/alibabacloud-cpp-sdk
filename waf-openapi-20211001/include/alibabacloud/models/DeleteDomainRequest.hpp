@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessType_ == nullptr
-        && return this->domain_ == nullptr && return this->domainId_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->domain_ == nullptr && this->domainId_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
-    inline string accessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
+    inline string getAccessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
     inline DeleteDomainRequest& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DeleteDomainRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // domainId Field Functions 
     bool hasDomainId() const { return this->domainId_ != nullptr;};
     void deleteDomainId() { this->domainId_ = nullptr;};
-    inline string domainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
+    inline string getDomainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
     inline DeleteDomainRequest& setDomainId(string domainId) { DARABONBA_PTR_SET_VALUE(domainId_, domainId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteDomainRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDomainRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -79,24 +79,24 @@ namespace Models
     // 
     // *   **share:** CNAME record mode. This is the default value.
     // *   **hybrid_cloud_cname:** hybrid cloud reverse proxy mode.
-    std::shared_ptr<string> accessType_ = nullptr;
+    shared_ptr<string> accessType_ {};
     // The domain name that you want to delete.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The ID of the domain name.
-    std::shared_ptr<string> domainId_ = nullptr;
+    shared_ptr<string> domainId_ {};
     // The ID of the WAF instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region where the WAF instance resides. Valid values:
     // 
     // *   **cn-hangzhou:** the Chinese mainland.
     // *   **ap-southeast-1:** outside the Chinese mainland.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

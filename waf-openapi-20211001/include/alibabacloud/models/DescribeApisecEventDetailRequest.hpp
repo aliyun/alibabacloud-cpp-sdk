@@ -42,67 +42,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->detailType_ == nullptr && return this->eventId_ == nullptr && return this->eventScope_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->detailType_ == nullptr && this->eventId_ == nullptr && this->eventScope_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceManagerResourceGroupId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeApisecEventDetailRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // detailType Field Functions 
     bool hasDetailType() const { return this->detailType_ != nullptr;};
     void deleteDetailType() { this->detailType_ = nullptr;};
-    inline string detailType() const { DARABONBA_PTR_GET_DEFAULT(detailType_, "") };
+    inline string getDetailType() const { DARABONBA_PTR_GET_DEFAULT(detailType_, "") };
     inline DescribeApisecEventDetailRequest& setDetailType(string detailType) { DARABONBA_PTR_SET_VALUE(detailType_, detailType) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline string eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
+    inline string getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
     inline DescribeApisecEventDetailRequest& setEventId(string eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // eventScope Field Functions 
     bool hasEventScope() const { return this->eventScope_ != nullptr;};
     void deleteEventScope() { this->eventScope_ = nullptr;};
-    inline string eventScope() const { DARABONBA_PTR_GET_DEFAULT(eventScope_, "") };
+    inline string getEventScope() const { DARABONBA_PTR_GET_DEFAULT(eventScope_, "") };
     inline DescribeApisecEventDetailRequest& setEventScope(string eventScope) { DARABONBA_PTR_SET_VALUE(eventScope_, eventScope) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeApisecEventDetailRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeApisecEventDetailRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline DescribeApisecEventDetailRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
   protected:
-    std::shared_ptr<string> clusterId_ = nullptr;
-    std::shared_ptr<string> detailType_ = nullptr;
+    shared_ptr<string> clusterId_ {};
+    shared_ptr<string> detailType_ {};
     // This parameter is required.
-    std::shared_ptr<string> eventId_ = nullptr;
-    std::shared_ptr<string> eventScope_ = nullptr;
+    shared_ptr<string> eventId_ {};
+    shared_ptr<string> eventScope_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 
   } // namespace Models

@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->usedPorts_ == nullptr; };
+        && this->usedPorts_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDomainUsedPortsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // usedPorts Field Functions 
     bool hasUsedPorts() const { return this->usedPorts_ != nullptr;};
     void deleteUsedPorts() { this->usedPorts_ = nullptr;};
-    inline const vector<int32_t> & usedPorts() const { DARABONBA_PTR_GET_CONST(usedPorts_, vector<int32_t>) };
-    inline vector<int32_t> usedPorts() { DARABONBA_PTR_GET(usedPorts_, vector<int32_t>) };
+    inline const vector<int32_t> & getUsedPorts() const { DARABONBA_PTR_GET_CONST(usedPorts_, vector<int32_t>) };
+    inline vector<int32_t> getUsedPorts() { DARABONBA_PTR_GET(usedPorts_, vector<int32_t>) };
     inline DescribeDomainUsedPortsResponseBody& setUsedPorts(const vector<int32_t> & usedPorts) { DARABONBA_PTR_SET_VALUE(usedPorts_, usedPorts) };
     inline DescribeDomainUsedPortsResponseBody& setUsedPorts(vector<int32_t> && usedPorts) { DARABONBA_PTR_SET_RVALUE(usedPorts_, usedPorts) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<int32_t>> usedPorts_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<int32_t>> usedPorts_ {};
   };
 
   } // namespace Models

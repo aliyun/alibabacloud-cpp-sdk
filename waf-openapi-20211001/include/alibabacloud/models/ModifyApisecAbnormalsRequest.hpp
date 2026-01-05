@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abnormalIds_ == nullptr
-        && return this->clusterId_ == nullptr && return this->instanceId_ == nullptr && return this->note_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
-        && return this->userStatus_ == nullptr; };
+        && this->clusterId_ == nullptr && this->instanceId_ == nullptr && this->note_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
+        && this->userStatus_ == nullptr; };
     // abnormalIds Field Functions 
     bool hasAbnormalIds() const { return this->abnormalIds_ != nullptr;};
     void deleteAbnormalIds() { this->abnormalIds_ = nullptr;};
-    inline const vector<string> & abnormalIds() const { DARABONBA_PTR_GET_CONST(abnormalIds_, vector<string>) };
-    inline vector<string> abnormalIds() { DARABONBA_PTR_GET(abnormalIds_, vector<string>) };
+    inline const vector<string> & getAbnormalIds() const { DARABONBA_PTR_GET_CONST(abnormalIds_, vector<string>) };
+    inline vector<string> getAbnormalIds() { DARABONBA_PTR_GET(abnormalIds_, vector<string>) };
     inline ModifyApisecAbnormalsRequest& setAbnormalIds(const vector<string> & abnormalIds) { DARABONBA_PTR_SET_VALUE(abnormalIds_, abnormalIds) };
     inline ModifyApisecAbnormalsRequest& setAbnormalIds(vector<string> && abnormalIds) { DARABONBA_PTR_SET_RVALUE(abnormalIds_, abnormalIds) };
 
@@ -57,42 +57,42 @@ namespace Models
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ModifyApisecAbnormalsRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyApisecAbnormalsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // note Field Functions 
     bool hasNote() const { return this->note_ != nullptr;};
     void deleteNote() { this->note_ = nullptr;};
-    inline string note() const { DARABONBA_PTR_GET_DEFAULT(note_, "") };
+    inline string getNote() const { DARABONBA_PTR_GET_DEFAULT(note_, "") };
     inline ModifyApisecAbnormalsRequest& setNote(string note) { DARABONBA_PTR_SET_VALUE(note_, note) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyApisecAbnormalsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceManagerResourceGroupId Field Functions 
     bool hasResourceManagerResourceGroupId() const { return this->resourceManagerResourceGroupId_ != nullptr;};
     void deleteResourceManagerResourceGroupId() { this->resourceManagerResourceGroupId_ = nullptr;};
-    inline string resourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
+    inline string getResourceManagerResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceManagerResourceGroupId_, "") };
     inline ModifyApisecAbnormalsRequest& setResourceManagerResourceGroupId(string resourceManagerResourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceManagerResourceGroupId_, resourceManagerResourceGroupId) };
 
 
     // userStatus Field Functions 
     bool hasUserStatus() const { return this->userStatus_ != nullptr;};
     void deleteUserStatus() { this->userStatus_ = nullptr;};
-    inline string userStatus() const { DARABONBA_PTR_GET_DEFAULT(userStatus_, "") };
+    inline string getUserStatus() const { DARABONBA_PTR_GET_DEFAULT(userStatus_, "") };
     inline ModifyApisecAbnormalsRequest& setUserStatus(string userStatus) { DARABONBA_PTR_SET_VALUE(userStatus_, userStatus) };
 
 
@@ -100,26 +100,26 @@ namespace Models
     // The risk IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> abnormalIds_ = nullptr;
+    shared_ptr<vector<string>> abnormalIds_ {};
     // The ID of the hybrid cloud cluster.
     // 
     // >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The description.
-    std::shared_ptr<string> note_ = nullptr;
+    shared_ptr<string> note_ {};
     // The region in which the WAF instance is deployed. Valid values:
     // 
     // *   **cn-hangzhou**: the Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
-    std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
+    shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The risk status. Valid values:
     // 
     // *   **toBeConfirmed**
@@ -129,7 +129,7 @@ namespace Models
     // *   **ignored**
     // 
     // This parameter is required.
-    std::shared_ptr<string> userStatus_ = nullptr;
+    shared_ptr<string> userStatus_ {};
   };
 
   } // namespace Models

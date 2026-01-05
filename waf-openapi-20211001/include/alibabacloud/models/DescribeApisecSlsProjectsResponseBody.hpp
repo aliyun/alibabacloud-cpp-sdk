@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projects_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // projects Field Functions 
     bool hasProjects() const { return this->projects_ != nullptr;};
     void deleteProjects() { this->projects_ = nullptr;};
-    inline const vector<string> & projects() const { DARABONBA_PTR_GET_CONST(projects_, vector<string>) };
-    inline vector<string> projects() { DARABONBA_PTR_GET(projects_, vector<string>) };
+    inline const vector<string> & getProjects() const { DARABONBA_PTR_GET_CONST(projects_, vector<string>) };
+    inline vector<string> getProjects() { DARABONBA_PTR_GET(projects_, vector<string>) };
     inline DescribeApisecSlsProjectsResponseBody& setProjects(const vector<string> & projects) { DARABONBA_PTR_SET_VALUE(projects_, projects) };
     inline DescribeApisecSlsProjectsResponseBody& setProjects(vector<string> && projects) { DARABONBA_PTR_SET_RVALUE(projects_, projects) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeApisecSlsProjectsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The names of the projects in Simple Log Service.
-    std::shared_ptr<vector<string>> projects_ = nullptr;
+    shared_ptr<vector<string>> projects_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
