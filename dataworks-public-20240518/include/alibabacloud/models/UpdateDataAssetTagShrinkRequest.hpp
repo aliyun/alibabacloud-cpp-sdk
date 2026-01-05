@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->key_ == nullptr && return this->managersShrink_ == nullptr && return this->valuesShrink_ == nullptr; };
+        && this->key_ == nullptr && this->managersShrink_ == nullptr && this->valuesShrink_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateDataAssetTagShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline UpdateDataAssetTagShrinkRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // managersShrink Field Functions 
     bool hasManagersShrink() const { return this->managersShrink_ != nullptr;};
     void deleteManagersShrink() { this->managersShrink_ = nullptr;};
-    inline string managersShrink() const { DARABONBA_PTR_GET_DEFAULT(managersShrink_, "") };
+    inline string getManagersShrink() const { DARABONBA_PTR_GET_DEFAULT(managersShrink_, "") };
     inline UpdateDataAssetTagShrinkRequest& setManagersShrink(string managersShrink) { DARABONBA_PTR_SET_VALUE(managersShrink_, managersShrink) };
 
 
     // valuesShrink Field Functions 
     bool hasValuesShrink() const { return this->valuesShrink_ != nullptr;};
     void deleteValuesShrink() { this->valuesShrink_ = nullptr;};
-    inline string valuesShrink() const { DARABONBA_PTR_GET_DEFAULT(valuesShrink_, "") };
+    inline string getValuesShrink() const { DARABONBA_PTR_GET_DEFAULT(valuesShrink_, "") };
     inline UpdateDataAssetTagShrinkRequest& setValuesShrink(string valuesShrink) { DARABONBA_PTR_SET_VALUE(valuesShrink_, valuesShrink) };
 
 
   protected:
     // The description of the tag.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The tag key.
     // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // The tag administrators.
-    std::shared_ptr<string> managersShrink_ = nullptr;
+    shared_ptr<string> managersShrink_ {};
     // The tag values.
-    std::shared_ptr<string> valuesShrink_ = nullptr;
+    shared_ptr<string> valuesShrink_ {};
   };
 
   } // namespace Models

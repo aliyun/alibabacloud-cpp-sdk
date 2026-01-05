@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->log_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // log Field Functions 
     bool hasLog() const { return this->log_ != nullptr;};
     void deleteLog() { this->log_ = nullptr;};
-    inline string log() const { DARABONBA_PTR_GET_DEFAULT(log_, "") };
+    inline string getLog() const { DARABONBA_PTR_GET_DEFAULT(log_, "") };
     inline GetDIJobLogResponseBody& setLog(string log) { DARABONBA_PTR_SET_VALUE(log_, log) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDIJobLogResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The log.
-    std::shared_ptr<string> log_ = nullptr;
+    shared_ptr<string> log_ {};
     // The request ID. You can use the ID to query logs and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

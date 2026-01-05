@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->envType_ == nullptr
-        && return this->id_ == nullptr; };
+        && this->id_ == nullptr; };
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline GetWorkflowRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GetWorkflowRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // 
     // *   Prod: production environment
     // *   Dev: development environment
-    std::shared_ptr<string> envType_ = nullptr;
+    shared_ptr<string> envType_ {};
     // The workflow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
   };
 
   } // namespace Models

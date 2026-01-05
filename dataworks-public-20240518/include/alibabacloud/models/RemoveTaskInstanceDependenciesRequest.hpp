@@ -35,39 +35,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->id_ == nullptr && return this->upstreamTaskInstanceIds_ == nullptr; };
+        && this->id_ == nullptr && this->upstreamTaskInstanceIds_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline RemoveTaskInstanceDependenciesRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline RemoveTaskInstanceDependenciesRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // upstreamTaskInstanceIds Field Functions 
     bool hasUpstreamTaskInstanceIds() const { return this->upstreamTaskInstanceIds_ != nullptr;};
     void deleteUpstreamTaskInstanceIds() { this->upstreamTaskInstanceIds_ = nullptr;};
-    inline const vector<int64_t> & upstreamTaskInstanceIds() const { DARABONBA_PTR_GET_CONST(upstreamTaskInstanceIds_, vector<int64_t>) };
-    inline vector<int64_t> upstreamTaskInstanceIds() { DARABONBA_PTR_GET(upstreamTaskInstanceIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getUpstreamTaskInstanceIds() const { DARABONBA_PTR_GET_CONST(upstreamTaskInstanceIds_, vector<int64_t>) };
+    inline vector<int64_t> getUpstreamTaskInstanceIds() { DARABONBA_PTR_GET(upstreamTaskInstanceIds_, vector<int64_t>) };
     inline RemoveTaskInstanceDependenciesRequest& setUpstreamTaskInstanceIds(const vector<int64_t> & upstreamTaskInstanceIds) { DARABONBA_PTR_SET_VALUE(upstreamTaskInstanceIds_, upstreamTaskInstanceIds) };
     inline RemoveTaskInstanceDependenciesRequest& setUpstreamTaskInstanceIds(vector<int64_t> && upstreamTaskInstanceIds) { DARABONBA_PTR_SET_RVALUE(upstreamTaskInstanceIds_, upstreamTaskInstanceIds) };
 
 
   protected:
     // The remarks.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The IDs of ancestor instances of the instance
-    std::shared_ptr<vector<int64_t>> upstreamTaskInstanceIds_ = nullptr;
+    shared_ptr<vector<int64_t>> upstreamTaskInstanceIds_ {};
   };
 
   } // namespace Models

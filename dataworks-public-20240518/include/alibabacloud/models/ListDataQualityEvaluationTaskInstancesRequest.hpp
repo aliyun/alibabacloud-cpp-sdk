@@ -50,108 +50,108 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizdateFrom_ == nullptr
-        && return this->bizdateTo_ == nullptr && return this->createTimeFrom_ == nullptr && return this->createTimeTo_ == nullptr && return this->dataQualityEvaluationTaskId_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->tableGuid_ == nullptr && return this->triggerClient_ == nullptr && return this->triggerClientId_ == nullptr; };
+        && this->bizdateTo_ == nullptr && this->createTimeFrom_ == nullptr && this->createTimeTo_ == nullptr && this->dataQualityEvaluationTaskId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->tableGuid_ == nullptr && this->triggerClient_ == nullptr && this->triggerClientId_ == nullptr; };
     // bizdateFrom Field Functions 
     bool hasBizdateFrom() const { return this->bizdateFrom_ != nullptr;};
     void deleteBizdateFrom() { this->bizdateFrom_ = nullptr;};
-    inline string bizdateFrom() const { DARABONBA_PTR_GET_DEFAULT(bizdateFrom_, "") };
+    inline string getBizdateFrom() const { DARABONBA_PTR_GET_DEFAULT(bizdateFrom_, "") };
     inline ListDataQualityEvaluationTaskInstancesRequest& setBizdateFrom(string bizdateFrom) { DARABONBA_PTR_SET_VALUE(bizdateFrom_, bizdateFrom) };
 
 
     // bizdateTo Field Functions 
     bool hasBizdateTo() const { return this->bizdateTo_ != nullptr;};
     void deleteBizdateTo() { this->bizdateTo_ = nullptr;};
-    inline string bizdateTo() const { DARABONBA_PTR_GET_DEFAULT(bizdateTo_, "") };
+    inline string getBizdateTo() const { DARABONBA_PTR_GET_DEFAULT(bizdateTo_, "") };
     inline ListDataQualityEvaluationTaskInstancesRequest& setBizdateTo(string bizdateTo) { DARABONBA_PTR_SET_VALUE(bizdateTo_, bizdateTo) };
 
 
     // createTimeFrom Field Functions 
     bool hasCreateTimeFrom() const { return this->createTimeFrom_ != nullptr;};
     void deleteCreateTimeFrom() { this->createTimeFrom_ = nullptr;};
-    inline int64_t createTimeFrom() const { DARABONBA_PTR_GET_DEFAULT(createTimeFrom_, 0L) };
+    inline int64_t getCreateTimeFrom() const { DARABONBA_PTR_GET_DEFAULT(createTimeFrom_, 0L) };
     inline ListDataQualityEvaluationTaskInstancesRequest& setCreateTimeFrom(int64_t createTimeFrom) { DARABONBA_PTR_SET_VALUE(createTimeFrom_, createTimeFrom) };
 
 
     // createTimeTo Field Functions 
     bool hasCreateTimeTo() const { return this->createTimeTo_ != nullptr;};
     void deleteCreateTimeTo() { this->createTimeTo_ = nullptr;};
-    inline int64_t createTimeTo() const { DARABONBA_PTR_GET_DEFAULT(createTimeTo_, 0L) };
+    inline int64_t getCreateTimeTo() const { DARABONBA_PTR_GET_DEFAULT(createTimeTo_, 0L) };
     inline ListDataQualityEvaluationTaskInstancesRequest& setCreateTimeTo(int64_t createTimeTo) { DARABONBA_PTR_SET_VALUE(createTimeTo_, createTimeTo) };
 
 
     // dataQualityEvaluationTaskId Field Functions 
     bool hasDataQualityEvaluationTaskId() const { return this->dataQualityEvaluationTaskId_ != nullptr;};
     void deleteDataQualityEvaluationTaskId() { this->dataQualityEvaluationTaskId_ = nullptr;};
-    inline int64_t dataQualityEvaluationTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataQualityEvaluationTaskId_, 0L) };
+    inline int64_t getDataQualityEvaluationTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataQualityEvaluationTaskId_, 0L) };
     inline ListDataQualityEvaluationTaskInstancesRequest& setDataQualityEvaluationTaskId(int64_t dataQualityEvaluationTaskId) { DARABONBA_PTR_SET_VALUE(dataQualityEvaluationTaskId_, dataQualityEvaluationTaskId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListDataQualityEvaluationTaskInstancesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListDataQualityEvaluationTaskInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ListDataQualityEvaluationTaskInstancesRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
-    inline string tableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
     inline ListDataQualityEvaluationTaskInstancesRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
 
 
     // triggerClient Field Functions 
     bool hasTriggerClient() const { return this->triggerClient_ != nullptr;};
     void deleteTriggerClient() { this->triggerClient_ = nullptr;};
-    inline string triggerClient() const { DARABONBA_PTR_GET_DEFAULT(triggerClient_, "") };
+    inline string getTriggerClient() const { DARABONBA_PTR_GET_DEFAULT(triggerClient_, "") };
     inline ListDataQualityEvaluationTaskInstancesRequest& setTriggerClient(string triggerClient) { DARABONBA_PTR_SET_VALUE(triggerClient_, triggerClient) };
 
 
     // triggerClientId Field Functions 
     bool hasTriggerClientId() const { return this->triggerClientId_ != nullptr;};
     void deleteTriggerClientId() { this->triggerClientId_ = nullptr;};
-    inline string triggerClientId() const { DARABONBA_PTR_GET_DEFAULT(triggerClientId_, "") };
+    inline string getTriggerClientId() const { DARABONBA_PTR_GET_DEFAULT(triggerClientId_, "") };
     inline ListDataQualityEvaluationTaskInstancesRequest& setTriggerClientId(string triggerClientId) { DARABONBA_PTR_SET_VALUE(triggerClientId_, triggerClientId) };
 
 
   protected:
     // The start time of the data quality monitoring task.
-    std::shared_ptr<string> bizdateFrom_ = nullptr;
+    shared_ptr<string> bizdateFrom_ {};
     // The end time of the data quality monitoring task.
-    std::shared_ptr<string> bizdateTo_ = nullptr;
+    shared_ptr<string> bizdateTo_ {};
     // The earliest start time at which the instances are generated.
-    std::shared_ptr<int64_t> createTimeFrom_ = nullptr;
+    shared_ptr<int64_t> createTimeFrom_ {};
     // The latest start time at which the instances are generated.
-    std::shared_ptr<int64_t> createTimeTo_ = nullptr;
+    shared_ptr<int64_t> createTimeTo_ {};
     // The ID of the data quality monitoring task.
-    std::shared_ptr<int64_t> dataQualityEvaluationTaskId_ = nullptr;
+    shared_ptr<int64_t> dataQualityEvaluationTaskId_ {};
     // The page number. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The ID of the table in Data Map.
-    std::shared_ptr<string> tableGuid_ = nullptr;
+    shared_ptr<string> tableGuid_ {};
     // The name of the trigger module of the instance.
-    std::shared_ptr<string> triggerClient_ = nullptr;
+    shared_ptr<string> triggerClient_ {};
     // The ID of the instance that is generated by the task.
-    std::shared_ptr<string> triggerClientId_ = nullptr;
+    shared_ptr<string> triggerClientId_ {};
   };
 
   } // namespace Models

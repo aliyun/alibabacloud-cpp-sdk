@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->idsShrink_ == nullptr; };
+        && this->idsShrink_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline StopWorkflowInstancesShrinkRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // idsShrink Field Functions 
     bool hasIdsShrink() const { return this->idsShrink_ != nullptr;};
     void deleteIdsShrink() { this->idsShrink_ = nullptr;};
-    inline string idsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
+    inline string getIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
     inline StopWorkflowInstancesShrinkRequest& setIdsShrink(string idsShrink) { DARABONBA_PTR_SET_VALUE(idsShrink_, idsShrink) };
 
 
   protected:
     // The remarks.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // The workflow instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> idsShrink_ = nullptr;
+    shared_ptr<string> idsShrink_ {};
   };
 
   } // namespace Models

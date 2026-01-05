@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DIJobId_ == nullptr
-        && return this->id_ == nullptr && return this->projectId_ == nullptr; };
+        && this->id_ == nullptr && this->projectId_ == nullptr; };
     // DIJobId Field Functions 
     bool hasDIJobId() const { return this->DIJobId_ != nullptr;};
     void deleteDIJobId() { this->DIJobId_ = nullptr;};
-    inline int64_t DIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
+    inline int64_t getDIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
     inline DeleteDIJobRequest& setDIJobId(int64_t DIJobId) { DARABONBA_PTR_SET_VALUE(DIJobId_, DIJobId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline DeleteDIJobRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline DeleteDIJobRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
   protected:
     // This parameter is deprecated. Use the Id parameter instead.
-    std::shared_ptr<int64_t> DIJobId_ = nullptr;
+    shared_ptr<int64_t> DIJobId_ {};
     // The ID of the synchronization task.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The DataWorks workspace ID.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

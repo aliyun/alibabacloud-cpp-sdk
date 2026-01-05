@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->messageId_ == nullptr
-        && return this->projectId_ == nullptr; };
+        && this->projectId_ == nullptr; };
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
     inline GetIDEEventDetailRequest& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline GetIDEEventDetailRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The message ID in DataWorks OpenEvent. You can obtain the ID from a received message when an extension point event is triggered.
     // 
     // This parameter is required.
-    std::shared_ptr<string> messageId_ = nullptr;
+    shared_ptr<string> messageId_ {};
     // The DataWorks workspace ID. You can obtain the ID from the message.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

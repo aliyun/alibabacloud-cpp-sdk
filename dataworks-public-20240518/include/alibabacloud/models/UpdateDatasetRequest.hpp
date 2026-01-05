@@ -36,41 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->readme_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->readme_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline UpdateDatasetRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateDatasetRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateDatasetRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // readme Field Functions 
     bool hasReadme() const { return this->readme_ != nullptr;};
     void deleteReadme() { this->readme_ = nullptr;};
-    inline string readme() const { DARABONBA_PTR_GET_DEFAULT(readme_, "") };
+    inline string getReadme() const { DARABONBA_PTR_GET_DEFAULT(readme_, "") };
     inline UpdateDatasetRequest& setReadme(string readme) { DARABONBA_PTR_SET_VALUE(readme_, readme) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
+    // The dataset description. Length not exceeding 1024.
+    shared_ptr<string> comment_ {};
+    // The dataset ID. Only DataWorks datasets are supported for update.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> readme_ = nullptr;
+    shared_ptr<string> id_ {};
+    // The dataset name. A non-empty string, length not exceeding 128.
+    shared_ptr<string> name_ {};
+    // The user guide, supports Markdown formatted rich text.
+    shared_ptr<string> readme_ {};
   };
 
   } // namespace Models

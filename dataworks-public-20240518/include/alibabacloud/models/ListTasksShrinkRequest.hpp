@@ -54,124 +54,124 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->idsShrink_ == nullptr
-        && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectEnv_ == nullptr
-        && return this->projectId_ == nullptr && return this->runtimeResource_ == nullptr && return this->sortBy_ == nullptr && return this->taskType_ == nullptr && return this->triggerRecurrence_ == nullptr
-        && return this->triggerType_ == nullptr && return this->workflowId_ == nullptr; };
+        && this->name_ == nullptr && this->owner_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectEnv_ == nullptr
+        && this->projectId_ == nullptr && this->runtimeResource_ == nullptr && this->sortBy_ == nullptr && this->taskType_ == nullptr && this->triggerRecurrence_ == nullptr
+        && this->triggerType_ == nullptr && this->workflowId_ == nullptr; };
     // idsShrink Field Functions 
     bool hasIdsShrink() const { return this->idsShrink_ != nullptr;};
     void deleteIdsShrink() { this->idsShrink_ = nullptr;};
-    inline string idsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
+    inline string getIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(idsShrink_, "") };
     inline ListTasksShrinkRequest& setIdsShrink(string idsShrink) { DARABONBA_PTR_SET_VALUE(idsShrink_, idsShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListTasksShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline ListTasksShrinkRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListTasksShrinkRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListTasksShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectEnv Field Functions 
     bool hasProjectEnv() const { return this->projectEnv_ != nullptr;};
     void deleteProjectEnv() { this->projectEnv_ = nullptr;};
-    inline string projectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
+    inline string getProjectEnv() const { DARABONBA_PTR_GET_DEFAULT(projectEnv_, "") };
     inline ListTasksShrinkRequest& setProjectEnv(string projectEnv) { DARABONBA_PTR_SET_VALUE(projectEnv_, projectEnv) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ListTasksShrinkRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // runtimeResource Field Functions 
     bool hasRuntimeResource() const { return this->runtimeResource_ != nullptr;};
     void deleteRuntimeResource() { this->runtimeResource_ = nullptr;};
-    inline string runtimeResource() const { DARABONBA_PTR_GET_DEFAULT(runtimeResource_, "") };
+    inline string getRuntimeResource() const { DARABONBA_PTR_GET_DEFAULT(runtimeResource_, "") };
     inline ListTasksShrinkRequest& setRuntimeResource(string runtimeResource) { DARABONBA_PTR_SET_VALUE(runtimeResource_, runtimeResource) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListTasksShrinkRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline ListTasksShrinkRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
     // triggerRecurrence Field Functions 
     bool hasTriggerRecurrence() const { return this->triggerRecurrence_ != nullptr;};
     void deleteTriggerRecurrence() { this->triggerRecurrence_ = nullptr;};
-    inline string triggerRecurrence() const { DARABONBA_PTR_GET_DEFAULT(triggerRecurrence_, "") };
+    inline string getTriggerRecurrence() const { DARABONBA_PTR_GET_DEFAULT(triggerRecurrence_, "") };
     inline ListTasksShrinkRequest& setTriggerRecurrence(string triggerRecurrence) { DARABONBA_PTR_SET_VALUE(triggerRecurrence_, triggerRecurrence) };
 
 
     // triggerType Field Functions 
     bool hasTriggerType() const { return this->triggerType_ != nullptr;};
     void deleteTriggerType() { this->triggerType_ = nullptr;};
-    inline string triggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
+    inline string getTriggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
     inline ListTasksShrinkRequest& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
     // workflowId Field Functions 
     bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
     void deleteWorkflowId() { this->workflowId_ = nullptr;};
-    inline int64_t workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, 0L) };
+    inline int64_t getWorkflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, 0L) };
     inline ListTasksShrinkRequest& setWorkflowId(int64_t workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
 
 
   protected:
     // The ID of the task.
-    std::shared_ptr<string> idsShrink_ = nullptr;
+    shared_ptr<string> idsShrink_ {};
     // The name of the task. Fuzzy match is supported.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The account ID of the task owner.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The page number. Pages start from page 1. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The environment of the workspace.
+    shared_ptr<int32_t> pageSize_ {};
+    // The workspace environment.
     // 
     // Valid values:
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
-    std::shared_ptr<string> projectEnv_ = nullptr;
+    // *   Prod
+    // *   Dev
+    shared_ptr<string> projectEnv_ {};
     // The workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The information about the resource group. Set this parameter to the ID of a resource group for scheduling.
-    std::shared_ptr<string> runtimeResource_ = nullptr;
+    shared_ptr<string> runtimeResource_ {};
     // The field that is used to sort tasks. This parameter is configured in the format of "Sorting field Sorting order". You can set the sorting order to Desc or Asc. If you do not specify the sorting order, Asc is used by default. Valid values:
     // 
     // *   `ModifyTime (Desc/Asc)`
@@ -181,7 +181,7 @@ namespace Models
     // *   `Id (Desc/Asc)`
     // 
     //     Default value: `Id Desc`.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The type of the task. Valid values:
     // 
     // *   ODPS_SQL
@@ -204,24 +204,24 @@ namespace Models
     // *   HOLOGRES_SQL
     // *   HOLOGRES_SYNC_DDL
     // *   HOLOGRES_SYNC_DATA
-    std::shared_ptr<string> taskType_ = nullptr;
-    // The running mode of the task after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+    shared_ptr<string> taskType_ {};
+    // The run mode when triggered. Valid only if TriggerType is Scheduler.
     // 
     // Valid values:
     // 
     // *   Pause
     // *   Skip
     // *   Normal
-    std::shared_ptr<string> triggerRecurrence_ = nullptr;
+    shared_ptr<string> triggerRecurrence_ {};
     // The trigger type.
     // 
     // Valid values:
     // 
-    // *   Scheduler: scheduling cycle-based trigger
-    // *   Manual: manual trigger
-    std::shared_ptr<string> triggerType_ = nullptr;
+    // *   Scheduler: Triggered by schedule.
+    // *   Manual: Triggered manually.
+    shared_ptr<string> triggerType_ {};
     // The ID of the workflow to which the task belongs.
-    std::shared_ptr<int64_t> workflowId_ = nullptr;
+    shared_ptr<int64_t> workflowId_ {};
   };
 
   } // namespace Models

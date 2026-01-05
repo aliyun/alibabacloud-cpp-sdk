@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->parentId_ == nullptr && return this->type_ == nullptr; };
+        && this->name_ == nullptr && this->parentId_ == nullptr && this->type_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateMetaCollectionRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateMetaCollectionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
-    inline string parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
     inline CreateMetaCollectionRequest& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateMetaCollectionRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The collection description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the collection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The parent collection ID.
-    std::shared_ptr<string> parentId_ = nullptr;
+    shared_ptr<string> parentId_ {};
     // The collection name.
     // 
     // *   Category
@@ -81,7 +81,7 @@ namespace Models
     // *   AlbumCategory: Album subcategory.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

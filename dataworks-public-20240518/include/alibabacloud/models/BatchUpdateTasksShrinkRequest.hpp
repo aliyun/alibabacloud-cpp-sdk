@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->tasksShrink_ == nullptr; };
+        && this->tasksShrink_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline BatchUpdateTasksShrinkRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // tasksShrink Field Functions 
     bool hasTasksShrink() const { return this->tasksShrink_ != nullptr;};
     void deleteTasksShrink() { this->tasksShrink_ = nullptr;};
-    inline string tasksShrink() const { DARABONBA_PTR_GET_DEFAULT(tasksShrink_, "") };
+    inline string getTasksShrink() const { DARABONBA_PTR_GET_DEFAULT(tasksShrink_, "") };
     inline BatchUpdateTasksShrinkRequest& setTasksShrink(string tasksShrink) { DARABONBA_PTR_SET_VALUE(tasksShrink_, tasksShrink) };
 
 
   protected:
     // The remarks.
-    std::shared_ptr<string> comment_ = nullptr;
+    shared_ptr<string> comment_ {};
     // The list of tasks.
-    std::shared_ptr<string> tasksShrink_ = nullptr;
+    shared_ptr<string> tasksShrink_ {};
   };
 
   } // namespace Models

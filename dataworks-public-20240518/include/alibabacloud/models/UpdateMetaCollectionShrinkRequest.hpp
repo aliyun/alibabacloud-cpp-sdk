@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->administratorsShrink_ == nullptr
-        && return this->description_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr; };
+        && this->description_ == nullptr && this->id_ == nullptr && this->name_ == nullptr; };
     // administratorsShrink Field Functions 
     bool hasAdministratorsShrink() const { return this->administratorsShrink_ != nullptr;};
     void deleteAdministratorsShrink() { this->administratorsShrink_ = nullptr;};
-    inline string administratorsShrink() const { DARABONBA_PTR_GET_DEFAULT(administratorsShrink_, "") };
+    inline string getAdministratorsShrink() const { DARABONBA_PTR_GET_DEFAULT(administratorsShrink_, "") };
     inline UpdateMetaCollectionShrinkRequest& setAdministratorsShrink(string administratorsShrink) { DARABONBA_PTR_SET_VALUE(administratorsShrink_, administratorsShrink) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateMetaCollectionShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateMetaCollectionShrinkRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateMetaCollectionShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The collection administrator IDs. This parameter is available only for data albums. The administrator must be an account within the same tenant.
-    std::shared_ptr<string> administratorsShrink_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> administratorsShrink_ {};
+    shared_ptr<string> description_ {};
     // The collection ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> id_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

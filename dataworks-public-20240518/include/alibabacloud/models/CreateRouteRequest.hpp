@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationCidr_ == nullptr
-        && return this->networkId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->networkId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // destinationCidr Field Functions 
     bool hasDestinationCidr() const { return this->destinationCidr_ != nullptr;};
     void deleteDestinationCidr() { this->destinationCidr_ = nullptr;};
-    inline string destinationCidr() const { DARABONBA_PTR_GET_DEFAULT(destinationCidr_, "") };
+    inline string getDestinationCidr() const { DARABONBA_PTR_GET_DEFAULT(destinationCidr_, "") };
     inline CreateRouteRequest& setDestinationCidr(string destinationCidr) { DARABONBA_PTR_SET_VALUE(destinationCidr_, destinationCidr) };
 
 
     // networkId Field Functions 
     bool hasNetworkId() const { return this->networkId_ != nullptr;};
     void deleteNetworkId() { this->networkId_ = nullptr;};
-    inline int64_t networkId() const { DARABONBA_PTR_GET_DEFAULT(networkId_, 0L) };
+    inline int64_t getNetworkId() const { DARABONBA_PTR_GET_DEFAULT(networkId_, 0L) };
     inline CreateRouteRequest& setNetworkId(int64_t networkId) { DARABONBA_PTR_SET_VALUE(networkId_, networkId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateRouteRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The CIDR blocks of the destination-based route.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destinationCidr_ = nullptr;
+    shared_ptr<string> destinationCidr_ {};
     // The network ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> networkId_ = nullptr;
+    shared_ptr<int64_t> networkId_ {};
     // Unique identifier of the serverless resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

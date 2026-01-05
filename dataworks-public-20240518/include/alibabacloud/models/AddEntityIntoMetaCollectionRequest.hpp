@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->metaCollectionId_ == nullptr && return this->remark_ == nullptr; };
+        && this->metaCollectionId_ == nullptr && this->remark_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline AddEntityIntoMetaCollectionRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // metaCollectionId Field Functions 
     bool hasMetaCollectionId() const { return this->metaCollectionId_ != nullptr;};
     void deleteMetaCollectionId() { this->metaCollectionId_ = nullptr;};
-    inline string metaCollectionId() const { DARABONBA_PTR_GET_DEFAULT(metaCollectionId_, "") };
+    inline string getMetaCollectionId() const { DARABONBA_PTR_GET_DEFAULT(metaCollectionId_, "") };
     inline AddEntityIntoMetaCollectionRequest& setMetaCollectionId(string metaCollectionId) { DARABONBA_PTR_SET_VALUE(metaCollectionId_, metaCollectionId) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline AddEntityIntoMetaCollectionRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The entity ID. Currently, only table entities are supported. You can call the ListTables operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The collection ID. You can refer to the return result of the ListMetaCollections operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metaCollectionId_ = nullptr;
+    shared_ptr<string> metaCollectionId_ {};
     // Remarks added when adding the entity to a collection. This parameter is currently valid only for album collections.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->key_ == nullptr
-        && return this->valuesShrink_ == nullptr; };
+        && this->valuesShrink_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline DeleteDataAssetTagShrinkRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // valuesShrink Field Functions 
     bool hasValuesShrink() const { return this->valuesShrink_ != nullptr;};
     void deleteValuesShrink() { this->valuesShrink_ = nullptr;};
-    inline string valuesShrink() const { DARABONBA_PTR_GET_DEFAULT(valuesShrink_, "") };
+    inline string getValuesShrink() const { DARABONBA_PTR_GET_DEFAULT(valuesShrink_, "") };
     inline DeleteDataAssetTagShrinkRequest& setValuesShrink(string valuesShrink) { DARABONBA_PTR_SET_VALUE(valuesShrink_, valuesShrink) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The tag key.
     // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // The tag values.
-    std::shared_ptr<string> valuesShrink_ = nullptr;
+    shared_ptr<string> valuesShrink_ {};
   };
 
   } // namespace Models

@@ -48,98 +48,98 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->administrator_ == nullptr
-        && return this->createUser_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->parentId_ == nullptr && return this->sortBy_ == nullptr && return this->type_ == nullptr; };
+        && this->createUser_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->parentId_ == nullptr && this->sortBy_ == nullptr && this->type_ == nullptr; };
     // administrator Field Functions 
     bool hasAdministrator() const { return this->administrator_ != nullptr;};
     void deleteAdministrator() { this->administrator_ = nullptr;};
-    inline string administrator() const { DARABONBA_PTR_GET_DEFAULT(administrator_, "") };
+    inline string getAdministrator() const { DARABONBA_PTR_GET_DEFAULT(administrator_, "") };
     inline ListMetaCollectionsRequest& setAdministrator(string administrator) { DARABONBA_PTR_SET_VALUE(administrator_, administrator) };
 
 
     // createUser Field Functions 
     bool hasCreateUser() const { return this->createUser_ != nullptr;};
     void deleteCreateUser() { this->createUser_ = nullptr;};
-    inline string createUser() const { DARABONBA_PTR_GET_DEFAULT(createUser_, "") };
+    inline string getCreateUser() const { DARABONBA_PTR_GET_DEFAULT(createUser_, "") };
     inline ListMetaCollectionsRequest& setCreateUser(string createUser) { DARABONBA_PTR_SET_VALUE(createUser_, createUser) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ListMetaCollectionsRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListMetaCollectionsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListMetaCollectionsRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListMetaCollectionsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListMetaCollectionsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
-    inline string parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
+    inline string getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, "") };
     inline ListMetaCollectionsRequest& setParentId(string parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListMetaCollectionsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListMetaCollectionsRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The administrator ID. Valid only for album types. Default: The current user ID.
-    std::shared_ptr<string> administrator_ = nullptr;
+    shared_ptr<string> administrator_ {};
     // The creator user ID. Valid only for album types. Default: The current user ID.
-    std::shared_ptr<string> createUser_ = nullptr;
+    shared_ptr<string> createUser_ {};
     // The collection description. Supports fuzzy matching.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The collection name. Supports fuzzy matching.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The sort order. Valid values:
     // 
     // *   Asc (default): Ascending order
     // *   Desc
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // The page number. Default: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default: 10. Maximum: 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The ID of the parent collection.
-    std::shared_ptr<string> parentId_ = nullptr;
+    shared_ptr<string> parentId_ {};
     // The sort field. Valid values:
     // 
     // *   Id (default)
@@ -147,7 +147,7 @@ namespace Models
     // *   CreateUser: Creator ID
     // *   CreateTime: Creation time
     // *   ModifyTime: Modification time
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The collection type. Valid values:
     // 
     // *   Category
@@ -155,7 +155,7 @@ namespace Models
     // *   AlbumCategory: Album subcategory
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

@@ -32,25 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->id_ == nullptr; };
+        && this->id_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline UpdateDatasetVersionRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateDatasetVersionRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
+    // The dataset version description. Maximum length: 1024 characters.
+    shared_ptr<string> comment_ {};
+    // The dataset version ID. Only DataWorks datasets can be updated.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
   };
 
   } // namespace Models

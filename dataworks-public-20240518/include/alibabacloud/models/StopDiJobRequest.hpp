@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DIJobId_ == nullptr
-        && return this->id_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->id_ == nullptr && this->instanceId_ == nullptr; };
     // DIJobId Field Functions 
     bool hasDIJobId() const { return this->DIJobId_ != nullptr;};
     void deleteDIJobId() { this->DIJobId_ = nullptr;};
-    inline int64_t DIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
+    inline int64_t getDIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
     inline StopDIJobRequest& setDIJobId(int64_t DIJobId) { DARABONBA_PTR_SET_VALUE(DIJobId_, DIJobId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline StopDIJobRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline int64_t instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, 0L) };
+    inline int64_t getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, 0L) };
     inline StopDIJobRequest& setInstanceId(int64_t instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is deprecated and is replaced by the Id parameter.
-    std::shared_ptr<int64_t> DIJobId_ = nullptr;
+    shared_ptr<int64_t> DIJobId_ {};
     // The ID of the synchronization task.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The instance ID.
-    std::shared_ptr<int64_t> instanceId_ = nullptr;
+    shared_ptr<int64_t> instanceId_ {};
   };
 
   } // namespace Models

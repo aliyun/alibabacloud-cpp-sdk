@@ -34,14 +34,15 @@ namespace Models
     // identifyCredential Field Functions 
     bool hasIdentifyCredential() const { return this->identifyCredential_ != nullptr;};
     void deleteIdentifyCredential() { this->identifyCredential_ = nullptr;};
-    inline const IdentifyCredential & identifyCredential() const { DARABONBA_PTR_GET_CONST(identifyCredential_, IdentifyCredential) };
-    inline IdentifyCredential identifyCredential() { DARABONBA_PTR_GET(identifyCredential_, IdentifyCredential) };
+    inline const IdentifyCredential & getIdentifyCredential() const { DARABONBA_PTR_GET_CONST(identifyCredential_, IdentifyCredential) };
+    inline IdentifyCredential getIdentifyCredential() { DARABONBA_PTR_GET(identifyCredential_, IdentifyCredential) };
     inline CreateIdentifyCredentialRequest& setIdentifyCredential(const IdentifyCredential & identifyCredential) { DARABONBA_PTR_SET_VALUE(identifyCredential_, identifyCredential) };
     inline CreateIdentifyCredentialRequest& setIdentifyCredential(IdentifyCredential && identifyCredential) { DARABONBA_PTR_SET_RVALUE(identifyCredential_, identifyCredential) };
 
 
   protected:
-    std::shared_ptr<IdentifyCredential> identifyCredential_ = nullptr;
+    // The user credential object.
+    shared_ptr<IdentifyCredential> identifyCredential_ {};
   };
 
   } // namespace Models

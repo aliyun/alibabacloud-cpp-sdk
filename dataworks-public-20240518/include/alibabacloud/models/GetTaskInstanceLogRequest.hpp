@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->runNumber_ == nullptr; };
+        && this->runNumber_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline GetTaskInstanceLogRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // runNumber Field Functions 
     bool hasRunNumber() const { return this->runNumber_ != nullptr;};
     void deleteRunNumber() { this->runNumber_ = nullptr;};
-    inline int32_t runNumber() const { DARABONBA_PTR_GET_DEFAULT(runNumber_, 0) };
+    inline int32_t getRunNumber() const { DARABONBA_PTR_GET_DEFAULT(runNumber_, 0) };
     inline GetTaskInstanceLogRequest& setRunNumber(int32_t runNumber) { DARABONBA_PTR_SET_VALUE(runNumber_, runNumber) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The sequence number of an instance run. Minimum value: 1. By default, the latest run is used.
-    std::shared_ptr<int32_t> runNumber_ = nullptr;
+    shared_ptr<int32_t> runNumber_ {};
   };
 
   } // namespace Models

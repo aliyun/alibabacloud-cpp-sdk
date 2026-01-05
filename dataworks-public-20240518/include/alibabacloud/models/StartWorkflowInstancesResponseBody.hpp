@@ -34,28 +34,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->successInfo_ == nullptr; };
+        && this->successInfo_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartWorkflowInstancesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // successInfo Field Functions 
     bool hasSuccessInfo() const { return this->successInfo_ != nullptr;};
     void deleteSuccessInfo() { this->successInfo_ = nullptr;};
-    inline const map<string, SuccessInfoValue> & successInfo() const { DARABONBA_PTR_GET_CONST(successInfo_, map<string, SuccessInfoValue>) };
-    inline map<string, SuccessInfoValue> successInfo() { DARABONBA_PTR_GET(successInfo_, map<string, SuccessInfoValue>) };
+    inline const map<string, SuccessInfoValue> & getSuccessInfo() const { DARABONBA_PTR_GET_CONST(successInfo_, map<string, SuccessInfoValue>) };
+    inline map<string, SuccessInfoValue> getSuccessInfo() { DARABONBA_PTR_GET(successInfo_, map<string, SuccessInfoValue>) };
     inline StartWorkflowInstancesResponseBody& setSuccessInfo(const map<string, SuccessInfoValue> & successInfo) { DARABONBA_PTR_SET_VALUE(successInfo_, successInfo) };
     inline StartWorkflowInstancesResponseBody& setSuccessInfo(map<string, SuccessInfoValue> && successInfo) { DARABONBA_PTR_SET_RVALUE(successInfo_, successInfo) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The result of the batch operation, which is in the MAP structure. The workflow instance ID serves as a key, and the result serves as a value.
-    std::shared_ptr<map<string, SuccessInfoValue>> successInfo_ = nullptr;
+    shared_ptr<map<string, SuccessInfoValue>> successInfo_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->success_ == nullptr
-        && return this->message_ == nullptr; };
+        && this->message_ == nullptr; };
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline SuccessInfoValue& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline SuccessInfoValue& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
   protected:
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // The error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
   };
 
   } // namespace Models

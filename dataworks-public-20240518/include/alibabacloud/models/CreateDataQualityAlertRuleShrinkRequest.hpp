@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->condition_ == nullptr
-        && return this->notificationShrink_ == nullptr && return this->projectId_ == nullptr && return this->targetShrink_ == nullptr; };
+        && this->notificationShrink_ == nullptr && this->projectId_ == nullptr && this->targetShrink_ == nullptr; };
     // condition Field Functions 
     bool hasCondition() const { return this->condition_ != nullptr;};
     void deleteCondition() { this->condition_ = nullptr;};
-    inline string condition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
+    inline string getCondition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
     inline CreateDataQualityAlertRuleShrinkRequest& setCondition(string condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
 
 
     // notificationShrink Field Functions 
     bool hasNotificationShrink() const { return this->notificationShrink_ != nullptr;};
     void deleteNotificationShrink() { this->notificationShrink_ = nullptr;};
-    inline string notificationShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationShrink_, "") };
+    inline string getNotificationShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationShrink_, "") };
     inline CreateDataQualityAlertRuleShrinkRequest& setNotificationShrink(string notificationShrink) { DARABONBA_PTR_SET_VALUE(notificationShrink_, notificationShrink) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateDataQualityAlertRuleShrinkRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // targetShrink Field Functions 
     bool hasTargetShrink() const { return this->targetShrink_ != nullptr;};
     void deleteTargetShrink() { this->targetShrink_ = nullptr;};
-    inline string targetShrink() const { DARABONBA_PTR_GET_DEFAULT(targetShrink_, "") };
+    inline string getTargetShrink() const { DARABONBA_PTR_GET_DEFAULT(targetShrink_, "") };
     inline CreateDataQualityAlertRuleShrinkRequest& setTargetShrink(string targetShrink) { DARABONBA_PTR_SET_VALUE(targetShrink_, targetShrink) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The alert condition of the data quality monitoring rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> condition_ = nullptr;
+    shared_ptr<string> condition_ {};
     // The list of alert channels.
     // 
     // This parameter is required.
-    std::shared_ptr<string> notificationShrink_ = nullptr;
+    shared_ptr<string> notificationShrink_ {};
     // The project ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The monitored target of the data quality monitoring rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetShrink_ = nullptr;
+    shared_ptr<string> targetShrink_ {};
   };
 
   } // namespace Models

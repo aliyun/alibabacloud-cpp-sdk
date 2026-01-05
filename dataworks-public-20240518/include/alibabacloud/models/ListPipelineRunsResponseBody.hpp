@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTPIPELINERUNSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTPIPELINERUNSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListPipelineRunsResponseBodyPagingInfo.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +32,349 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class PagingInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const PagingInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(PipelineRuns, pipelineRuns_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, PagingInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+        DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(PipelineRuns, pipelineRuns_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      PagingInfo() = default ;
+      PagingInfo(const PagingInfo &) = default ;
+      PagingInfo(PagingInfo &&) = default ;
+      PagingInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~PagingInfo() = default ;
+      PagingInfo& operator=(const PagingInfo &) = default ;
+      PagingInfo& operator=(PagingInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class PipelineRuns : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PipelineRuns& obj) { 
+          DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(Creator, creator_);
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(Message, message_);
+          DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
+          DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+          DARABONBA_PTR_TO_JSON(Stages, stages_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, PipelineRuns& obj) { 
+          DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(Creator, creator_);
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(Message, message_);
+          DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
+          DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+          DARABONBA_PTR_FROM_JSON(Stages, stages_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        PipelineRuns() = default ;
+        PipelineRuns(const PipelineRuns &) = default ;
+        PipelineRuns(PipelineRuns &&) = default ;
+        PipelineRuns(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PipelineRuns() = default ;
+        PipelineRuns& operator=(const PipelineRuns &) = default ;
+        PipelineRuns& operator=(PipelineRuns &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Stages : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Stages& obj) { 
+            DARABONBA_PTR_TO_JSON(Code, code_);
+            DARABONBA_PTR_TO_JSON(Description, description_);
+            DARABONBA_ANY_TO_JSON(Detail, detail_);
+            DARABONBA_PTR_TO_JSON(Message, message_);
+            DARABONBA_PTR_TO_JSON(Name, name_);
+            DARABONBA_PTR_TO_JSON(Status, status_);
+            DARABONBA_PTR_TO_JSON(Step, step_);
+            DARABONBA_PTR_TO_JSON(Type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, Stages& obj) { 
+            DARABONBA_PTR_FROM_JSON(Code, code_);
+            DARABONBA_PTR_FROM_JSON(Description, description_);
+            DARABONBA_ANY_FROM_JSON(Detail, detail_);
+            DARABONBA_PTR_FROM_JSON(Message, message_);
+            DARABONBA_PTR_FROM_JSON(Name, name_);
+            DARABONBA_PTR_FROM_JSON(Status, status_);
+            DARABONBA_PTR_FROM_JSON(Step, step_);
+            DARABONBA_PTR_FROM_JSON(Type, type_);
+          };
+          Stages() = default ;
+          Stages(const Stages &) = default ;
+          Stages(Stages &&) = default ;
+          Stages(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Stages() = default ;
+          Stages& operator=(const Stages &) = default ;
+          Stages& operator=(Stages &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->code_ == nullptr
+        && this->description_ == nullptr && this->detail_ == nullptr && this->message_ == nullptr && this->name_ == nullptr && this->status_ == nullptr
+        && this->step_ == nullptr && this->type_ == nullptr; };
+          // code Field Functions 
+          bool hasCode() const { return this->code_ != nullptr;};
+          void deleteCode() { this->code_ = nullptr;};
+          inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+          inline Stages& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+          // description Field Functions 
+          bool hasDescription() const { return this->description_ != nullptr;};
+          void deleteDescription() { this->description_ = nullptr;};
+          inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+          inline Stages& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+          // detail Field Functions 
+          bool hasDetail() const { return this->detail_ != nullptr;};
+          void deleteDetail() { this->detail_ = nullptr;};
+          inline           const Darabonba::Json & getDetail() const { DARABONBA_GET(detail_) };
+          Darabonba::Json & getDetail() { DARABONBA_GET(detail_) };
+          inline Stages& setDetail(const Darabonba::Json & detail) { DARABONBA_SET_VALUE(detail_, detail) };
+          inline Stages& setDetail(Darabonba::Json && detail) { DARABONBA_SET_RVALUE(detail_, detail) };
+
+
+          // message Field Functions 
+          bool hasMessage() const { return this->message_ != nullptr;};
+          void deleteMessage() { this->message_ = nullptr;};
+          inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+          inline Stages& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline Stages& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+          // status Field Functions 
+          bool hasStatus() const { return this->status_ != nullptr;};
+          void deleteStatus() { this->status_ = nullptr;};
+          inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+          inline Stages& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+          // step Field Functions 
+          bool hasStep() const { return this->step_ != nullptr;};
+          void deleteStep() { this->step_ = nullptr;};
+          inline int32_t getStep() const { DARABONBA_PTR_GET_DEFAULT(step_, 0) };
+          inline Stages& setStep(int32_t step) { DARABONBA_PTR_SET_VALUE(step_, step) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline Stages& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          // The code of the stage.
+          shared_ptr<string> code_ {};
+          // The description of the stage.
+          shared_ptr<string> description_ {};
+          // The additional information about the stage.
+          Darabonba::Json detail_ {};
+          // The error message returned during the stage.
+          shared_ptr<string> message_ {};
+          // The name of the stage.
+          shared_ptr<string> name_ {};
+          // The status of the stage.
+          // 
+          // Valid values:
+          // 
+          // *   Init
+          // *   Running
+          // *   Success
+          // *   Fail
+          // *   Termination
+          // *   Cancel
+          shared_ptr<string> status_ {};
+          // The step number of the stage.
+          shared_ptr<int32_t> step_ {};
+          // The type of the stage. This parameter indicates the operation type in the stage.
+          // 
+          // Valid values:
+          // 
+          // *   Deploy
+          // *   Check
+          // *   Offline
+          // *   Build
+          // *   Delete
+          shared_ptr<string> type_ {};
+        };
+
+        virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->creator_ == nullptr && this->id_ == nullptr && this->message_ == nullptr && this->modifyTime_ == nullptr && this->projectId_ == nullptr
+        && this->stages_ == nullptr && this->status_ == nullptr; };
+        // createTime Field Functions 
+        bool hasCreateTime() const { return this->createTime_ != nullptr;};
+        void deleteCreateTime() { this->createTime_ = nullptr;};
+        inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+        inline PipelineRuns& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+        // creator Field Functions 
+        bool hasCreator() const { return this->creator_ != nullptr;};
+        void deleteCreator() { this->creator_ = nullptr;};
+        inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+        inline PipelineRuns& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline PipelineRuns& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // message Field Functions 
+        bool hasMessage() const { return this->message_ != nullptr;};
+        void deleteMessage() { this->message_ = nullptr;};
+        inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+        inline PipelineRuns& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+        // modifyTime Field Functions 
+        bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
+        void deleteModifyTime() { this->modifyTime_ = nullptr;};
+        inline int64_t getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, 0L) };
+        inline PipelineRuns& setModifyTime(int64_t modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
+
+
+        // projectId Field Functions 
+        bool hasProjectId() const { return this->projectId_ != nullptr;};
+        void deleteProjectId() { this->projectId_ = nullptr;};
+        inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+        inline PipelineRuns& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
+        // stages Field Functions 
+        bool hasStages() const { return this->stages_ != nullptr;};
+        void deleteStages() { this->stages_ = nullptr;};
+        inline const vector<PipelineRuns::Stages> & getStages() const { DARABONBA_PTR_GET_CONST(stages_, vector<PipelineRuns::Stages>) };
+        inline vector<PipelineRuns::Stages> getStages() { DARABONBA_PTR_GET(stages_, vector<PipelineRuns::Stages>) };
+        inline PipelineRuns& setStages(const vector<PipelineRuns::Stages> & stages) { DARABONBA_PTR_SET_VALUE(stages_, stages) };
+        inline PipelineRuns& setStages(vector<PipelineRuns::Stages> && stages) { DARABONBA_PTR_SET_RVALUE(stages_, stages) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline PipelineRuns& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // The time when the process was created. This value is a UNIX timestamp.
+        shared_ptr<int64_t> createTime_ {};
+        // The creator of the process.
+        shared_ptr<string> creator_ {};
+        // The process ID.
+        shared_ptr<string> id_ {};
+        // The error message returned during the stage.
+        shared_ptr<string> message_ {};
+        // The time when the process was modified. This value is a UNIX timestamp.
+        shared_ptr<int64_t> modifyTime_ {};
+        // The DataWorks workspace ID.
+        shared_ptr<int64_t> projectId_ {};
+        // The stages of the process.
+        shared_ptr<vector<PipelineRuns::Stages>> stages_ {};
+        // The status of the process.
+        // 
+        // Valid values:
+        // 
+        // *   Init
+        // *   Running
+        // *   Success
+        // *   Fail
+        // *   Termination
+        // *   Cancel
+        shared_ptr<string> status_ {};
+      };
+
+      virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->pipelineRuns_ == nullptr && this->totalCount_ == nullptr; };
+      // pageNumber Field Functions 
+      bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+      void deletePageNumber() { this->pageNumber_ = nullptr;};
+      inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+      inline PagingInfo& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+      // pageSize Field Functions 
+      bool hasPageSize() const { return this->pageSize_ != nullptr;};
+      void deletePageSize() { this->pageSize_ = nullptr;};
+      inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+      inline PagingInfo& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // pipelineRuns Field Functions 
+      bool hasPipelineRuns() const { return this->pipelineRuns_ != nullptr;};
+      void deletePipelineRuns() { this->pipelineRuns_ = nullptr;};
+      inline const vector<PagingInfo::PipelineRuns> & getPipelineRuns() const { DARABONBA_PTR_GET_CONST(pipelineRuns_, vector<PagingInfo::PipelineRuns>) };
+      inline vector<PagingInfo::PipelineRuns> getPipelineRuns() { DARABONBA_PTR_GET(pipelineRuns_, vector<PagingInfo::PipelineRuns>) };
+      inline PagingInfo& setPipelineRuns(const vector<PagingInfo::PipelineRuns> & pipelineRuns) { DARABONBA_PTR_SET_VALUE(pipelineRuns_, pipelineRuns) };
+      inline PagingInfo& setPipelineRuns(vector<PagingInfo::PipelineRuns> && pipelineRuns) { DARABONBA_PTR_SET_RVALUE(pipelineRuns_, pipelineRuns) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline PagingInfo& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      // The page number.
+      shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
+      shared_ptr<int32_t> pageSize_ {};
+      // The processes.
+      shared_ptr<vector<PagingInfo::PipelineRuns>> pipelineRuns_ {};
+      // The total number of entries returned.
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
     virtual bool empty() const override { return this->pagingInfo_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // pagingInfo Field Functions 
     bool hasPagingInfo() const { return this->pagingInfo_ != nullptr;};
     void deletePagingInfo() { this->pagingInfo_ = nullptr;};
-    inline const ListPipelineRunsResponseBodyPagingInfo & pagingInfo() const { DARABONBA_PTR_GET_CONST(pagingInfo_, ListPipelineRunsResponseBodyPagingInfo) };
-    inline ListPipelineRunsResponseBodyPagingInfo pagingInfo() { DARABONBA_PTR_GET(pagingInfo_, ListPipelineRunsResponseBodyPagingInfo) };
-    inline ListPipelineRunsResponseBody& setPagingInfo(const ListPipelineRunsResponseBodyPagingInfo & pagingInfo) { DARABONBA_PTR_SET_VALUE(pagingInfo_, pagingInfo) };
-    inline ListPipelineRunsResponseBody& setPagingInfo(ListPipelineRunsResponseBodyPagingInfo && pagingInfo) { DARABONBA_PTR_SET_RVALUE(pagingInfo_, pagingInfo) };
+    inline const ListPipelineRunsResponseBody::PagingInfo & getPagingInfo() const { DARABONBA_PTR_GET_CONST(pagingInfo_, ListPipelineRunsResponseBody::PagingInfo) };
+    inline ListPipelineRunsResponseBody::PagingInfo getPagingInfo() { DARABONBA_PTR_GET(pagingInfo_, ListPipelineRunsResponseBody::PagingInfo) };
+    inline ListPipelineRunsResponseBody& setPagingInfo(const ListPipelineRunsResponseBody::PagingInfo & pagingInfo) { DARABONBA_PTR_SET_VALUE(pagingInfo_, pagingInfo) };
+    inline ListPipelineRunsResponseBody& setPagingInfo(ListPipelineRunsResponseBody::PagingInfo && pagingInfo) { DARABONBA_PTR_SET_RVALUE(pagingInfo_, pagingInfo) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListPipelineRunsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The pagination information.
-    std::shared_ptr<ListPipelineRunsResponseBodyPagingInfo> pagingInfo_ = nullptr;
+    shared_ptr<ListPipelineRunsResponseBody::PagingInfo> pagingInfo_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

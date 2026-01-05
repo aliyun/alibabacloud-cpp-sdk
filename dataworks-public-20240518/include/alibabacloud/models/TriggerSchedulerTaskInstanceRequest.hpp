@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->envType_ == nullptr
-        && return this->taskId_ == nullptr && return this->triggerTime_ == nullptr; };
+        && this->taskId_ == nullptr && this->triggerTime_ == nullptr; };
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline TriggerSchedulerTaskInstanceRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline TriggerSchedulerTaskInstanceRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // triggerTime Field Functions 
     bool hasTriggerTime() const { return this->triggerTime_ != nullptr;};
     void deleteTriggerTime() { this->triggerTime_ = nullptr;};
-    inline int64_t triggerTime() const { DARABONBA_PTR_GET_DEFAULT(triggerTime_, 0L) };
+    inline int64_t getTriggerTime() const { DARABONBA_PTR_GET_DEFAULT(triggerTime_, 0L) };
     inline TriggerSchedulerTaskInstanceRequest& setTriggerTime(int64_t triggerTime) { DARABONBA_PTR_SET_VALUE(triggerTime_, triggerTime) };
 
 
@@ -61,15 +61,15 @@ namespace Models
     // 
     // *   Prod: production environment
     // *   Dev: development environment
-    std::shared_ptr<string> envType_ = nullptr;
+    shared_ptr<string> envType_ {};
     // The task ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
     // The time defined by the HTTP Trigger node. This value is a UNIX timestamp.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> triggerTime_ = nullptr;
+    shared_ptr<int64_t> triggerTime_ {};
   };
 
   } // namespace Models

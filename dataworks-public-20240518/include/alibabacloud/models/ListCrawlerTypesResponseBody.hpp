@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crawlerTypes_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->requestId_ == nullptr && this->success_ == nullptr; };
     // crawlerTypes Field Functions 
     bool hasCrawlerTypes() const { return this->crawlerTypes_ != nullptr;};
     void deleteCrawlerTypes() { this->crawlerTypes_ = nullptr;};
-    inline const vector<CrawlerType> & crawlerTypes() const { DARABONBA_PTR_GET_CONST(crawlerTypes_, vector<CrawlerType>) };
-    inline vector<CrawlerType> crawlerTypes() { DARABONBA_PTR_GET(crawlerTypes_, vector<CrawlerType>) };
+    inline const vector<CrawlerType> & getCrawlerTypes() const { DARABONBA_PTR_GET_CONST(crawlerTypes_, vector<CrawlerType>) };
+    inline vector<CrawlerType> getCrawlerTypes() { DARABONBA_PTR_GET(crawlerTypes_, vector<CrawlerType>) };
     inline ListCrawlerTypesResponseBody& setCrawlerTypes(const vector<CrawlerType> & crawlerTypes) { DARABONBA_PTR_SET_VALUE(crawlerTypes_, crawlerTypes) };
     inline ListCrawlerTypesResponseBody& setCrawlerTypes(vector<CrawlerType> && crawlerTypes) { DARABONBA_PTR_SET_RVALUE(crawlerTypes_, crawlerTypes) };
 
@@ -49,24 +49,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListCrawlerTypesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListCrawlerTypesResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The list of metadata crawler types.
-    std::shared_ptr<vector<CrawlerType>> crawlerTypes_ = nullptr;
+    shared_ptr<vector<CrawlerType>> crawlerTypes_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

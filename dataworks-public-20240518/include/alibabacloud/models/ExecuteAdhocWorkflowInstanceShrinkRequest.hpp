@@ -40,73 +40,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizDate_ == nullptr
-        && return this->envType_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->projectId_ == nullptr && return this->tasksShrink_ == nullptr; };
+        && this->envType_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr && this->projectId_ == nullptr && this->tasksShrink_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
-    inline int64_t bizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, 0L) };
+    inline int64_t getBizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, 0L) };
     inline ExecuteAdhocWorkflowInstanceShrinkRequest& setBizDate(int64_t bizDate) { DARABONBA_PTR_SET_VALUE(bizDate_, bizDate) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline ExecuteAdhocWorkflowInstanceShrinkRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ExecuteAdhocWorkflowInstanceShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline ExecuteAdhocWorkflowInstanceShrinkRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ExecuteAdhocWorkflowInstanceShrinkRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // tasksShrink Field Functions 
     bool hasTasksShrink() const { return this->tasksShrink_ != nullptr;};
     void deleteTasksShrink() { this->tasksShrink_ = nullptr;};
-    inline string tasksShrink() const { DARABONBA_PTR_GET_DEFAULT(tasksShrink_, "") };
+    inline string getTasksShrink() const { DARABONBA_PTR_GET_DEFAULT(tasksShrink_, "") };
     inline ExecuteAdhocWorkflowInstanceShrinkRequest& setTasksShrink(string tasksShrink) { DARABONBA_PTR_SET_VALUE(tasksShrink_, tasksShrink) };
 
 
   protected:
     // The data timestamp.
-    std::shared_ptr<int64_t> bizDate_ = nullptr;
+    shared_ptr<int64_t> bizDate_ {};
     // The environment of the workspace. Valid values:
     // 
     // *   Prod: production environment
     // *   Dev: development environment
-    std::shared_ptr<string> envType_ = nullptr;
+    shared_ptr<string> envType_ {};
     // The name of the workflow instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The account ID of the owner.
     // 
     // This parameter is required.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The tasks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tasksShrink_ = nullptr;
+    shared_ptr<string> tasksShrink_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificateFile_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->projectId_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->projectId_ == nullptr; };
     // certificateFile Field Functions 
     bool hasCertificateFile() const { return this->certificateFile_ != nullptr;};
     void deleteCertificateFile() { this->certificateFile_ = nullptr;};
-    inline string certificateFile() const { DARABONBA_PTR_GET_DEFAULT(certificateFile_, "") };
+    inline string getCertificateFile() const { DARABONBA_PTR_GET_DEFAULT(certificateFile_, "") };
     inline ImportCertificateRequest& setCertificateFile(string certificateFile) { DARABONBA_PTR_SET_VALUE(certificateFile_, certificateFile) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ImportCertificateRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ImportCertificateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ImportCertificateRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The certificate file to upload. Upload method: Upload the file by creating an InputStream.
     // 
     // This parameter is required.
-    std::shared_ptr<string> certificateFile_ = nullptr;
+    shared_ptr<string> certificateFile_ {};
     // The description of the task.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The certificate file name. In a project workspace, certificate file names must be unique.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the workspace to which the certificate file belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

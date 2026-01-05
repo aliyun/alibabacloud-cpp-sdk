@@ -53,49 +53,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessId_ == nullptr
-        && return this->changeType_ == nullptr && return this->commitFrom_ == nullptr && return this->commitTo_ == nullptr && return this->commitUserId_ == nullptr && return this->fileIds_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr
-        && return this->solutionId_ == nullptr; };
+        && this->changeType_ == nullptr && this->commitFrom_ == nullptr && this->commitTo_ == nullptr && this->commitUserId_ == nullptr && this->fileIds_ == nullptr
+        && this->fileName_ == nullptr && this->fileType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
+        && this->solutionId_ == nullptr; };
     // businessId Field Functions 
     bool hasBusinessId() const { return this->businessId_ != nullptr;};
     void deleteBusinessId() { this->businessId_ = nullptr;};
-    inline int64_t businessId() const { DARABONBA_PTR_GET_DEFAULT(businessId_, 0L) };
+    inline int64_t getBusinessId() const { DARABONBA_PTR_GET_DEFAULT(businessId_, 0L) };
     inline ListDeploymentPackageFilesRequest& setBusinessId(int64_t businessId) { DARABONBA_PTR_SET_VALUE(businessId_, businessId) };
 
 
     // changeType Field Functions 
     bool hasChangeType() const { return this->changeType_ != nullptr;};
     void deleteChangeType() { this->changeType_ = nullptr;};
-    inline int32_t changeType() const { DARABONBA_PTR_GET_DEFAULT(changeType_, 0) };
+    inline int32_t getChangeType() const { DARABONBA_PTR_GET_DEFAULT(changeType_, 0) };
     inline ListDeploymentPackageFilesRequest& setChangeType(int32_t changeType) { DARABONBA_PTR_SET_VALUE(changeType_, changeType) };
 
 
     // commitFrom Field Functions 
     bool hasCommitFrom() const { return this->commitFrom_ != nullptr;};
     void deleteCommitFrom() { this->commitFrom_ = nullptr;};
-    inline string commitFrom() const { DARABONBA_PTR_GET_DEFAULT(commitFrom_, "") };
+    inline string getCommitFrom() const { DARABONBA_PTR_GET_DEFAULT(commitFrom_, "") };
     inline ListDeploymentPackageFilesRequest& setCommitFrom(string commitFrom) { DARABONBA_PTR_SET_VALUE(commitFrom_, commitFrom) };
 
 
     // commitTo Field Functions 
     bool hasCommitTo() const { return this->commitTo_ != nullptr;};
     void deleteCommitTo() { this->commitTo_ = nullptr;};
-    inline string commitTo() const { DARABONBA_PTR_GET_DEFAULT(commitTo_, "") };
+    inline string getCommitTo() const { DARABONBA_PTR_GET_DEFAULT(commitTo_, "") };
     inline ListDeploymentPackageFilesRequest& setCommitTo(string commitTo) { DARABONBA_PTR_SET_VALUE(commitTo_, commitTo) };
 
 
     // commitUserId Field Functions 
     bool hasCommitUserId() const { return this->commitUserId_ != nullptr;};
     void deleteCommitUserId() { this->commitUserId_ = nullptr;};
-    inline string commitUserId() const { DARABONBA_PTR_GET_DEFAULT(commitUserId_, "") };
+    inline string getCommitUserId() const { DARABONBA_PTR_GET_DEFAULT(commitUserId_, "") };
     inline ListDeploymentPackageFilesRequest& setCommitUserId(string commitUserId) { DARABONBA_PTR_SET_VALUE(commitUserId_, commitUserId) };
 
 
     // fileIds Field Functions 
     bool hasFileIds() const { return this->fileIds_ != nullptr;};
     void deleteFileIds() { this->fileIds_ = nullptr;};
-    inline const vector<string> & fileIds() const { DARABONBA_PTR_GET_CONST(fileIds_, vector<string>) };
-    inline vector<string> fileIds() { DARABONBA_PTR_GET(fileIds_, vector<string>) };
+    inline const vector<string> & getFileIds() const { DARABONBA_PTR_GET_CONST(fileIds_, vector<string>) };
+    inline vector<string> getFileIds() { DARABONBA_PTR_GET(fileIds_, vector<string>) };
     inline ListDeploymentPackageFilesRequest& setFileIds(const vector<string> & fileIds) { DARABONBA_PTR_SET_VALUE(fileIds_, fileIds) };
     inline ListDeploymentPackageFilesRequest& setFileIds(vector<string> && fileIds) { DARABONBA_PTR_SET_RVALUE(fileIds_, fileIds) };
 
@@ -103,78 +103,78 @@ namespace Models
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline ListDeploymentPackageFilesRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline int32_t fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, 0) };
+    inline int32_t getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, 0) };
     inline ListDeploymentPackageFilesRequest& setFileType(int32_t fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListDeploymentPackageFilesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListDeploymentPackageFilesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ListDeploymentPackageFilesRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // solutionId Field Functions 
     bool hasSolutionId() const { return this->solutionId_ != nullptr;};
     void deleteSolutionId() { this->solutionId_ = nullptr;};
-    inline int64_t solutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, 0L) };
+    inline int64_t getSolutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, 0L) };
     inline ListDeploymentPackageFilesRequest& setSolutionId(int64_t solutionId) { DARABONBA_PTR_SET_VALUE(solutionId_, solutionId) };
 
 
   protected:
     // The workflow ID. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the workflow ID by name.
-    std::shared_ptr<int64_t> businessId_ = nullptr;
+    shared_ptr<int64_t> businessId_ {};
     // The change type. Valid values:
     // 
     // *   0: addition
     // *   1: update
     // *   2: deletion
-    std::shared_ptr<int32_t> changeType_ = nullptr;
+    shared_ptr<int32_t> changeType_ {};
     // The start date for committing. Specify the date in the yyyy-MM-dd format.
-    std::shared_ptr<string> commitFrom_ = nullptr;
+    shared_ptr<string> commitFrom_ {};
     // The end date (included) for committing. Specify the date in the yyyy-MM-dd format.
-    std::shared_ptr<string> commitTo_ = nullptr;
+    shared_ptr<string> commitTo_ {};
     // The ID of the user who commits the file.
-    std::shared_ptr<string> commitUserId_ = nullptr;
+    shared_ptr<string> commitUserId_ {};
     // The IDs of the files to be queried.
-    std::shared_ptr<vector<string>> fileIds_ = nullptr;
+    shared_ptr<vector<string>> fileIds_ {};
     // The name of the file.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The type of the code for the file.
     // 
     // The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html). You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the type of the code for the file.
-    std::shared_ptr<int32_t> fileType_ = nullptr;
+    shared_ptr<int32_t> fileType_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The solution ID.
-    std::shared_ptr<int64_t> solutionId_ = nullptr;
+    shared_ptr<int64_t> solutionId_ {};
   };
 
   } // namespace Models

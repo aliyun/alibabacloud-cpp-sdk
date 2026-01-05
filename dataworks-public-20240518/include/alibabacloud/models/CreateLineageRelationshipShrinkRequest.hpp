@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dstEntityShrink_ == nullptr
-        && return this->srcEntityShrink_ == nullptr && return this->taskShrink_ == nullptr; };
+        && this->srcEntityShrink_ == nullptr && this->taskShrink_ == nullptr; };
     // dstEntityShrink Field Functions 
     bool hasDstEntityShrink() const { return this->dstEntityShrink_ != nullptr;};
     void deleteDstEntityShrink() { this->dstEntityShrink_ = nullptr;};
-    inline string dstEntityShrink() const { DARABONBA_PTR_GET_DEFAULT(dstEntityShrink_, "") };
+    inline string getDstEntityShrink() const { DARABONBA_PTR_GET_DEFAULT(dstEntityShrink_, "") };
     inline CreateLineageRelationshipShrinkRequest& setDstEntityShrink(string dstEntityShrink) { DARABONBA_PTR_SET_VALUE(dstEntityShrink_, dstEntityShrink) };
 
 
     // srcEntityShrink Field Functions 
     bool hasSrcEntityShrink() const { return this->srcEntityShrink_ != nullptr;};
     void deleteSrcEntityShrink() { this->srcEntityShrink_ = nullptr;};
-    inline string srcEntityShrink() const { DARABONBA_PTR_GET_DEFAULT(srcEntityShrink_, "") };
+    inline string getSrcEntityShrink() const { DARABONBA_PTR_GET_DEFAULT(srcEntityShrink_, "") };
     inline CreateLineageRelationshipShrinkRequest& setSrcEntityShrink(string srcEntityShrink) { DARABONBA_PTR_SET_VALUE(srcEntityShrink_, srcEntityShrink) };
 
 
     // taskShrink Field Functions 
     bool hasTaskShrink() const { return this->taskShrink_ != nullptr;};
     void deleteTaskShrink() { this->taskShrink_ = nullptr;};
-    inline string taskShrink() const { DARABONBA_PTR_GET_DEFAULT(taskShrink_, "") };
+    inline string getTaskShrink() const { DARABONBA_PTR_GET_DEFAULT(taskShrink_, "") };
     inline CreateLineageRelationshipShrinkRequest& setTaskShrink(string taskShrink) { DARABONBA_PTR_SET_VALUE(taskShrink_, taskShrink) };
 
 
   protected:
     // The destination entity.
-    std::shared_ptr<string> dstEntityShrink_ = nullptr;
+    shared_ptr<string> dstEntityShrink_ {};
     // The source entity.
-    std::shared_ptr<string> srcEntityShrink_ = nullptr;
+    shared_ptr<string> srcEntityShrink_ {};
     // The task information.
-    std::shared_ptr<string> taskShrink_ = nullptr;
+    shared_ptr<string> taskShrink_ {};
   };
 
   } // namespace Models

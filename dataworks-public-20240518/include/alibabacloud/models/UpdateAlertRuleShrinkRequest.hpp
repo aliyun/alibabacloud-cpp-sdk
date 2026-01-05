@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->notificationShrink_ == nullptr && return this->owner_ == nullptr && return this->triggerConditionShrink_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->notificationShrink_ == nullptr && this->owner_ == nullptr && this->triggerConditionShrink_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline UpdateAlertRuleShrinkRequest& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateAlertRuleShrinkRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateAlertRuleShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // notificationShrink Field Functions 
     bool hasNotificationShrink() const { return this->notificationShrink_ != nullptr;};
     void deleteNotificationShrink() { this->notificationShrink_ = nullptr;};
-    inline string notificationShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationShrink_, "") };
+    inline string getNotificationShrink() const { DARABONBA_PTR_GET_DEFAULT(notificationShrink_, "") };
     inline UpdateAlertRuleShrinkRequest& setNotificationShrink(string notificationShrink) { DARABONBA_PTR_SET_VALUE(notificationShrink_, notificationShrink) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline UpdateAlertRuleShrinkRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // triggerConditionShrink Field Functions 
     bool hasTriggerConditionShrink() const { return this->triggerConditionShrink_ != nullptr;};
     void deleteTriggerConditionShrink() { this->triggerConditionShrink_ = nullptr;};
-    inline string triggerConditionShrink() const { DARABONBA_PTR_GET_DEFAULT(triggerConditionShrink_, "") };
+    inline string getTriggerConditionShrink() const { DARABONBA_PTR_GET_DEFAULT(triggerConditionShrink_, "") };
     inline UpdateAlertRuleShrinkRequest& setTriggerConditionShrink(string triggerConditionShrink) { DARABONBA_PTR_SET_VALUE(triggerConditionShrink_, triggerConditionShrink) };
 
 
   protected:
     // Specifies whether to enable the rule.
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<bool> enabled_ {};
     // The rule ID.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The name of the rule.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The configuration for the alert notification.
-    std::shared_ptr<string> notificationShrink_ = nullptr;
+    shared_ptr<string> notificationShrink_ {};
     // The ID of the Alibaba Cloud account used by the owner of the rule.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The alert triggering condition.
-    std::shared_ptr<string> triggerConditionShrink_ = nullptr;
+    shared_ptr<string> triggerConditionShrink_ {};
   };
 
   } // namespace Models

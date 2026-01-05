@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->database_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->requestId_ == nullptr && this->success_ == nullptr; };
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
-    inline const Database & database() const { DARABONBA_PTR_GET_CONST(database_, Database) };
-    inline Database database() { DARABONBA_PTR_GET(database_, Database) };
+    inline const Database & getDatabase() const { DARABONBA_PTR_GET_CONST(database_, Database) };
+    inline Database getDatabase() { DARABONBA_PTR_GET(database_, Database) };
     inline GetDatabaseResponseBody& setDatabase(const Database & database) { DARABONBA_PTR_SET_VALUE(database_, database) };
     inline GetDatabaseResponseBody& setDatabase(Database && database) { DARABONBA_PTR_SET_RVALUE(database_, database) };
 
@@ -48,24 +48,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDatabaseResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetDatabaseResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The database details.
-    std::shared_ptr<Database> database_ = nullptr;
+    shared_ptr<Database> database_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

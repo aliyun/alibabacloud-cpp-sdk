@@ -33,12 +33,13 @@ namespace Models
     // identifyCredentialShrink Field Functions 
     bool hasIdentifyCredentialShrink() const { return this->identifyCredentialShrink_ != nullptr;};
     void deleteIdentifyCredentialShrink() { this->identifyCredentialShrink_ = nullptr;};
-    inline string identifyCredentialShrink() const { DARABONBA_PTR_GET_DEFAULT(identifyCredentialShrink_, "") };
+    inline string getIdentifyCredentialShrink() const { DARABONBA_PTR_GET_DEFAULT(identifyCredentialShrink_, "") };
     inline CreateIdentifyCredentialShrinkRequest& setIdentifyCredentialShrink(string identifyCredentialShrink) { DARABONBA_PTR_SET_VALUE(identifyCredentialShrink_, identifyCredentialShrink) };
 
 
   protected:
-    std::shared_ptr<string> identifyCredentialShrink_ = nullptr;
+    // The user credential object.
+    shared_ptr<string> identifyCredentialShrink_ {};
   };
 
   } // namespace Models

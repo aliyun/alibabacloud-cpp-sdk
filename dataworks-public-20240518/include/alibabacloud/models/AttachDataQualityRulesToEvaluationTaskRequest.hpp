@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataQualityEvaluationTaskId_ == nullptr
-        && return this->dataQualityRuleIds_ == nullptr && return this->projectId_ == nullptr; };
+        && this->dataQualityRuleIds_ == nullptr && this->projectId_ == nullptr; };
     // dataQualityEvaluationTaskId Field Functions 
     bool hasDataQualityEvaluationTaskId() const { return this->dataQualityEvaluationTaskId_ != nullptr;};
     void deleteDataQualityEvaluationTaskId() { this->dataQualityEvaluationTaskId_ = nullptr;};
-    inline int64_t dataQualityEvaluationTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataQualityEvaluationTaskId_, 0L) };
+    inline int64_t getDataQualityEvaluationTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataQualityEvaluationTaskId_, 0L) };
     inline AttachDataQualityRulesToEvaluationTaskRequest& setDataQualityEvaluationTaskId(int64_t dataQualityEvaluationTaskId) { DARABONBA_PTR_SET_VALUE(dataQualityEvaluationTaskId_, dataQualityEvaluationTaskId) };
 
 
     // dataQualityRuleIds Field Functions 
     bool hasDataQualityRuleIds() const { return this->dataQualityRuleIds_ != nullptr;};
     void deleteDataQualityRuleIds() { this->dataQualityRuleIds_ = nullptr;};
-    inline const vector<int64_t> & dataQualityRuleIds() const { DARABONBA_PTR_GET_CONST(dataQualityRuleIds_, vector<int64_t>) };
-    inline vector<int64_t> dataQualityRuleIds() { DARABONBA_PTR_GET(dataQualityRuleIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getDataQualityRuleIds() const { DARABONBA_PTR_GET_CONST(dataQualityRuleIds_, vector<int64_t>) };
+    inline vector<int64_t> getDataQualityRuleIds() { DARABONBA_PTR_GET(dataQualityRuleIds_, vector<int64_t>) };
     inline AttachDataQualityRulesToEvaluationTaskRequest& setDataQualityRuleIds(const vector<int64_t> & dataQualityRuleIds) { DARABONBA_PTR_SET_VALUE(dataQualityRuleIds_, dataQualityRuleIds) };
     inline AttachDataQualityRulesToEvaluationTaskRequest& setDataQualityRuleIds(vector<int64_t> && dataQualityRuleIds) { DARABONBA_PTR_SET_RVALUE(dataQualityRuleIds_, dataQualityRuleIds) };
 
@@ -55,7 +55,7 @@ namespace Models
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline AttachDataQualityRulesToEvaluationTaskRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -63,15 +63,15 @@ namespace Models
     // The ID of the data quality monitoring task that is associated with the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dataQualityEvaluationTaskId_ = nullptr;
+    shared_ptr<int64_t> dataQualityEvaluationTaskId_ {};
     // The IDs of the monitoring rules.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> dataQualityRuleIds_ = nullptr;
+    shared_ptr<vector<int64_t>> dataQualityRuleIds_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

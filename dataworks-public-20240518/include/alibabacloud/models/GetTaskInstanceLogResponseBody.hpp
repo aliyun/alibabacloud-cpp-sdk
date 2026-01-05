@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->taskInstanceLog_ == nullptr; };
+        && this->taskInstanceLog_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTaskInstanceLogResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskInstanceLog Field Functions 
     bool hasTaskInstanceLog() const { return this->taskInstanceLog_ != nullptr;};
     void deleteTaskInstanceLog() { this->taskInstanceLog_ = nullptr;};
-    inline string taskInstanceLog() const { DARABONBA_PTR_GET_DEFAULT(taskInstanceLog_, "") };
+    inline string getTaskInstanceLog() const { DARABONBA_PTR_GET_DEFAULT(taskInstanceLog_, "") };
     inline GetTaskInstanceLogResponseBody& setTaskInstanceLog(string taskInstanceLog) { DARABONBA_PTR_SET_VALUE(taskInstanceLog_, taskInstanceLog) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The run log of the instance.
-    std::shared_ptr<string> taskInstanceLog_ = nullptr;
+    shared_ptr<string> taskInstanceLog_ {};
   };
 
   } // namespace Models

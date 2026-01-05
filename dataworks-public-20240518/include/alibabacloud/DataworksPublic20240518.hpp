@@ -23,7 +23,9 @@ namespace DataworksPublic20240518
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
+       * @summary Terminates the specified deployment process. This operation changes the status of the process to Terminated but does not delete the process. You can still query the process.
+       *
+       * @description >  This operation may not be available in earlier versions of the SDK. In this case, use the AbolishDeployment operation. The parameters for AbolishDeployment are the same as those described in this topic.
        *
        * @param request AbolishPipelineRunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,7 +34,9 @@ namespace DataworksPublic20240518
       Models::AbolishPipelineRunResponse abolishPipelineRunWithOptions(const Models::AbolishPipelineRunRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
+       * @summary Terminates the specified deployment process. This operation changes the status of the process to Terminated but does not delete the process. You can still query the process.
+       *
+       * @description >  This operation may not be available in earlier versions of the SDK. In this case, use the AbolishDeployment operation. The parameters for AbolishDeployment are the same as those described in this topic.
        *
        * @param request AbolishPipelineRunRequest
        * @return AbolishPipelineRunResponse
@@ -476,7 +480,7 @@ namespace DataworksPublic20240518
       Models::CreateDataSourceSharedRuleResponse createDataSourceSharedRule(const Models::CreateDataSourceSharedRuleRequest &request);
 
       /**
-       * @summary 创建数据集
+       * @summary Creates a dataset. This operation is supported only in workspaces that the user has joined. Currently, only DataWorks datasets are supported. The maximum number of datasets allowed per tenant is 2,000.
        *
        * @param tmpReq CreateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -485,7 +489,7 @@ namespace DataworksPublic20240518
       Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据集
+       * @summary Creates a dataset. This operation is supported only in workspaces that the user has joined. Currently, only DataWorks datasets are supported. The maximum number of datasets allowed per tenant is 2,000.
        *
        * @param request CreateDatasetRequest
        * @return CreateDatasetResponse
@@ -493,7 +497,7 @@ namespace DataworksPublic20240518
       Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
-       * @summary 创建数据集版本
+       * @summary Creates a dataset version. Currently supports DataWorks datasets only, with a maximum of 20 versions.
        *
        * @param tmpReq CreateDatasetVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -502,7 +506,7 @@ namespace DataworksPublic20240518
       Models::CreateDatasetVersionResponse createDatasetVersionWithOptions(const Models::CreateDatasetVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据集版本
+       * @summary Creates a dataset version. Currently supports DataWorks datasets only, with a maximum of 20 versions.
        *
        * @param request CreateDatasetVersionRequest
        * @return CreateDatasetVersionResponse
@@ -557,7 +561,9 @@ namespace DataworksPublic20240518
       Models::CreateFunctionResponse createFunction(const Models::CreateFunctionRequest &request);
 
       /**
-       * @summary 创建身份凭证
+       * @summary Creates an identity credential.
+       *
+       * @description >  This operation does not support batch processing. If multiple publishing entities are specified in the parameters, only the first one will be processed; the others will be ignored.
        *
        * @param tmpReq CreateIdentifyCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -566,7 +572,9 @@ namespace DataworksPublic20240518
       Models::CreateIdentifyCredentialResponse createIdentifyCredentialWithOptions(const Models::CreateIdentifyCredentialRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建身份凭证
+       * @summary Creates an identity credential.
+       *
+       * @description >  This operation does not support batch processing. If multiple publishing entities are specified in the parameters, only the first one will be processed; the others will be ignored.
        *
        * @param request CreateIdentifyCredentialRequest
        * @return CreateIdentifyCredentialResponse
@@ -650,9 +658,10 @@ namespace DataworksPublic20240518
       Models::CreateNodeResponse createNode(const Models::CreateNodeRequest &request);
 
       /**
-       * @summary Creates a process for deploying or undeploying an entity in Data Studio.
+       * @summary Creates a deployment process for entities in the Data Studio (new version).
        *
-       * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+       * @description >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
+       * >  This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters for CreateDeployment are the same as those described in this topic.
        *
        * @param tmpReq CreatePipelineRunRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -661,9 +670,10 @@ namespace DataworksPublic20240518
       Models::CreatePipelineRunResponse createPipelineRunWithOptions(const Models::CreatePipelineRunRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a process for deploying or undeploying an entity in Data Studio.
+       * @summary Creates a deployment process for entities in the Data Studio (new version).
        *
-       * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+       * @description >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
+       * >  This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters for CreateDeployment are the same as those described in this topic.
        *
        * @param request CreatePipelineRunRequest
        * @return CreatePipelineRunResponse
@@ -922,6 +932,10 @@ namespace DataworksPublic20240518
       /**
        * @summary 验证用
        *
+       * @description 1.  This API operation is available for all DataWorks editions.
+       * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+       * 3.  Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
+       *
        * @param request DeleteComputeResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteComputeResourceResponse
@@ -930,6 +944,10 @@ namespace DataworksPublic20240518
 
       /**
        * @summary 验证用
+       *
+       * @description 1.  This API operation is available for all DataWorks editions.
+       * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+       * 3.  Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
        *
        * @param request DeleteComputeResourceRequest
        * @return DeleteComputeResourceResponse
@@ -1166,7 +1184,7 @@ namespace DataworksPublic20240518
       Models::DeleteDataSourceSharedRuleResponse deleteDataSourceSharedRule(const Models::DeleteDataSourceSharedRuleRequest &request);
 
       /**
-       * @summary 删除数据集
+       * @summary Delete a dataset. Only DataWorks datasets are supported. This operation cascades to delete all associated dataset versions. Requires dataset creator or workspace administrator permissions.
        *
        * @param request DeleteDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1175,7 +1193,7 @@ namespace DataworksPublic20240518
       Models::DeleteDatasetResponse deleteDatasetWithOptions(const Models::DeleteDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据集
+       * @summary Delete a dataset. Only DataWorks datasets are supported. This operation cascades to delete all associated dataset versions. Requires dataset creator or workspace administrator permissions.
        *
        * @param request DeleteDatasetRequest
        * @return DeleteDatasetResponse
@@ -1183,7 +1201,7 @@ namespace DataworksPublic20240518
       Models::DeleteDatasetResponse deleteDataset(const Models::DeleteDatasetRequest &request);
 
       /**
-       * @summary 删除数据集版本
+       * @summary Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
        *
        * @param request DeleteDatasetVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1192,7 +1210,7 @@ namespace DataworksPublic20240518
       Models::DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(const Models::DeleteDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据集版本
+       * @summary Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
        *
        * @param request DeleteDatasetVersionRequest
        * @return DeleteDatasetVersionResponse
@@ -2033,7 +2051,7 @@ namespace DataworksPublic20240518
       Models::GetDatasetResponse getDataset(const Models::GetDatasetRequest &request);
 
       /**
-       * @summary 获取数据集版本
+       * @summary Gets information for a given dataset version.
        *
        * @param request GetDatasetVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2042,7 +2060,7 @@ namespace DataworksPublic20240518
       Models::GetDatasetVersionResponse getDatasetVersionWithOptions(const Models::GetDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据集版本
+       * @summary Gets information for a given dataset version.
        *
        * @param request GetDatasetVersionRequest
        * @return GetDatasetVersionResponse
@@ -3167,7 +3185,7 @@ namespace DataworksPublic20240518
       Models::ListDatabasesResponse listDatabases(const Models::ListDatabasesRequest &request);
 
       /**
-       * @summary 获取数据集版本列表
+       * @summary Retrieves the version list for a given dataset.
        *
        * @param request ListDatasetVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3176,7 +3194,7 @@ namespace DataworksPublic20240518
       Models::ListDatasetVersionsResponse listDatasetVersionsWithOptions(const Models::ListDatasetVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据集版本列表
+       * @summary Retrieves the version list for a given dataset.
        *
        * @param request ListDatasetVersionsRequest
        * @return ListDatasetVersionsResponse
@@ -3184,7 +3202,7 @@ namespace DataworksPublic20240518
       Models::ListDatasetVersionsResponse listDatasetVersions(const Models::ListDatasetVersionsRequest &request);
 
       /**
-       * @summary 获取数据集列表
+       * @summary Queries a list of datasets. Currently, DataWorks datasets and PAI datasets are supported.
        *
        * @param tmpReq ListDatasetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3193,7 +3211,7 @@ namespace DataworksPublic20240518
       Models::ListDatasetsResponse listDatasetsWithOptions(const Models::ListDatasetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据集列表
+       * @summary Queries a list of datasets. Currently, DataWorks datasets and PAI datasets are supported.
        *
        * @param request ListDatasetsRequest
        * @return ListDatasetsResponse
@@ -3363,7 +3381,7 @@ namespace DataworksPublic20240518
       Models::ListLineageRelationshipsResponse listLineageRelationships(const Models::ListLineageRelationshipsRequest &request);
 
       /**
-       * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
+       * @summary 查询实体血缘
        *
        * @param request ListLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3372,7 +3390,7 @@ namespace DataworksPublic20240518
       Models::ListLineagesResponse listLineagesWithOptions(const Models::ListLineagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
+       * @summary 查询实体血缘
        *
        * @param request ListLineagesRequest
        * @return ListLineagesResponse
@@ -3940,7 +3958,7 @@ namespace DataworksPublic20240518
       Models::MoveWorkflowDefinitionResponse moveWorkflowDefinition(const Models::MoveWorkflowDefinitionRequest &request);
 
       /**
-       * @summary 预览数据集版本内容
+       * @summary Previews the content of a specified dataset version. Currently only text file preview is supported for OSS-type datasets. Supported MIME types 1. application/json 2. application/xml 3. text/html 4. text/plain 5. application/octet-stream
        *
        * @param request PreviewDatasetVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3949,7 +3967,7 @@ namespace DataworksPublic20240518
       Models::PreviewDatasetVersionResponse previewDatasetVersionWithOptions(const Models::PreviewDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 预览数据集版本内容
+       * @summary Previews the content of a specified dataset version. Currently only text file preview is supported for OSS-type datasets. Supported MIME types 1. application/json 2. application/xml 3. text/html 4. text/plain 5. application/octet-stream
        *
        * @param request PreviewDatasetVersionRequest
        * @return PreviewDatasetVersionResponse
@@ -4680,7 +4698,7 @@ namespace DataworksPublic20240518
       Models::UpdateDataSourceResponse updateDataSource(const Models::UpdateDataSourceRequest &request);
 
       /**
-       * @summary 更新数据集
+       * @summary Updates dataset information. Only DataWorks datasets are supported. The operator must be the creator of the dataset or the administrator of the workspace where the dataset is located.
        *
        * @param request UpdateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4689,7 +4707,7 @@ namespace DataworksPublic20240518
       Models::UpdateDatasetResponse updateDatasetWithOptions(const Models::UpdateDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据集
+       * @summary Updates dataset information. Only DataWorks datasets are supported. The operator must be the creator of the dataset or the administrator of the workspace where the dataset is located.
        *
        * @param request UpdateDatasetRequest
        * @return UpdateDatasetResponse
@@ -4697,7 +4715,7 @@ namespace DataworksPublic20240518
       Models::UpdateDatasetResponse updateDataset(const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary 更新数据集版本信息
+       * @summary Updates dataset version information. Only DataWorks datasets are supported. Requires dataset creator or workspace administrator permissions.
        *
        * @param request UpdateDatasetVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4706,7 +4724,7 @@ namespace DataworksPublic20240518
       Models::UpdateDatasetVersionResponse updateDatasetVersionWithOptions(const Models::UpdateDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据集版本信息
+       * @summary Updates dataset version information. Only DataWorks datasets are supported. Requires dataset creator or workspace administrator permissions.
        *
        * @param request UpdateDatasetVersionRequest
        * @return UpdateDatasetVersionResponse

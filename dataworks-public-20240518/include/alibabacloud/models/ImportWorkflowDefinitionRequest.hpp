@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projectId_ == nullptr
-        && return this->spec_ == nullptr; };
+        && this->spec_ == nullptr; };
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline ImportWorkflowDefinitionRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline ImportWorkflowDefinitionRequest& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
@@ -53,11 +53,17 @@ namespace Models
     // You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
-    // The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+    shared_ptr<int64_t> projectId_ {};
+    // The FlowSpec information for this workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+    // 
+    // > How to quickly obtain a FlowSpec template?
+    // 
+    // *   Open a workflow in Data Studio, then click "Show Spec" in the top-right corner to retrieve the FlowSpec description for the current workflow. You can use this FlowSpec description to quickly build a template that meets your requirements.
+    // 
+    // > This interface supports creating both the workflow and its internal nodes simultaneously. Therefore, please pay close attention to the ID specified in the FlowSpec. If the provided ID already exists, the operation will be treated as an update. A create operation is performed only if the ID is omitted or does not exist.
     // 
     // This parameter is required.
-    std::shared_ptr<string> spec_ = nullptr;
+    shared_ptr<string> spec_ {};
   };
 
   } // namespace Models

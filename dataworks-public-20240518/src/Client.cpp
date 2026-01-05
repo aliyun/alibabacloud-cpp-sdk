@@ -31,29 +31,62 @@ AlibabaCloud::DataworksPublic20240518::Client::Client(AlibabaCloud::OpenApi::Uti
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"ap-northeast-1" , "dataworks.ap-northeast-1.aliyuncs.com"},
-    {"ap-south-1" , "dataworks.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2-pop" , "dataworks.aliyuncs.com"},
+    {"ap-south-1" , "dataworks.aliyuncs.com"},
     {"ap-southeast-1" , "dataworks.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-2" , "dataworks.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-2" , "dataworks.aliyuncs.com"},
     {"ap-southeast-3" , "dataworks.ap-southeast-3.aliyuncs.com"},
     {"ap-southeast-5" , "dataworks.ap-southeast-5.aliyuncs.com"},
     {"cn-beijing" , "dataworks.cn-beijing.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "dataworks.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing-finance-pop" , "dataworks.aliyuncs.com"},
+    {"cn-beijing-gov-1" , "dataworks.aliyuncs.com"},
+    {"cn-beijing-nu16-b01" , "dataworks.aliyuncs.com"},
     {"cn-chengdu" , "dataworks.cn-chengdu.aliyuncs.com"},
+    {"cn-edge-1" , "dataworks.aliyuncs.com"},
+    {"cn-fujian" , "dataworks.aliyuncs.com"},
+    {"cn-haidian-cm12-c01" , "dataworks.aliyuncs.com"},
     {"cn-hangzhou" , "dataworks.cn-hangzhou.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01" , "dataworks.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "dataworks.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1" , "dataworks.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1" , "dataworks.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2" , "dataworks.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3" , "dataworks.aliyuncs.com"},
+    {"cn-hangzhou-test-306" , "dataworks.aliyuncs.com"},
     {"cn-hongkong" , "dataworks.cn-hongkong.aliyuncs.com"},
+    {"cn-hongkong-finance-pop" , "dataworks.aliyuncs.com"},
     {"cn-huhehaote" , "dataworks.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1" , "dataworks.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "dataworks.cn-north-2-gov-1.aliyuncs.com"},
     {"cn-qingdao" , "dataworks.aliyuncs.com"},
+    {"cn-qingdao-nebula" , "dataworks.aliyuncs.com"},
     {"cn-shanghai" , "dataworks.cn-shanghai.aliyuncs.com"},
+    {"cn-shanghai-et15-b01" , "dataworks.aliyuncs.com"},
+    {"cn-shanghai-et2-b01" , "dataworks.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "dataworks.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai-inner" , "dataworks.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1" , "dataworks.aliyuncs.com"},
     {"cn-shenzhen" , "dataworks.cn-shenzhen.aliyuncs.com"},
-    {"cn-zhangjiakou" , "dataworks.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "dataworks.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen-inner" , "dataworks.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01" , "dataworks.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01" , "dataworks.aliyuncs.com"},
+    {"cn-wuhan" , "dataworks.aliyuncs.com"},
+    {"cn-wulanchabu" , "dataworks.cn-wulanchabu.aliyuncs.com"},
+    {"cn-yushanfang" , "dataworks.aliyuncs.com"},
+    {"cn-zhangbei" , "dataworks.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01" , "dataworks.aliyuncs.com"},
+    {"cn-zhangjiakou" , "dataworks.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01" , "dataworks.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1" , "dataworks.aliyuncs.com"},
     {"eu-central-1" , "dataworks.eu-central-1.aliyuncs.com"},
     {"eu-west-1" , "dataworks.eu-west-1.aliyuncs.com"},
+    {"eu-west-1-oxs" , "dataworks.aliyuncs.com"},
     {"me-east-1" , "dataworks.me-east-1.aliyuncs.com"},
+    {"rus-west-1-pop" , "dataworks.aliyuncs.com"},
     {"us-east-1" , "dataworks.us-east-1.aliyuncs.com"},
-    {"us-west-1" , "dataworks.us-west-1.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "dataworks.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "dataworks.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "dataworks.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "dataworks.aliyuncs.com"}
+    {"us-west-1" , "dataworks.us-west-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dataworks-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -62,19 +95,19 @@ AlibabaCloud::DataworksPublic20240518::Client::Client(AlibabaCloud::OpenApi::Uti
 
 Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
   Darabonba::RuntimeOptions runtime_(json({
-    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
-    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
-    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
-    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
-    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
-    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
-    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
-    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
-    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
-    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
-    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getKey(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getCa(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getReadTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getConnectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getHttpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getNoProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.getSocks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.getMaxIdleConns(), _maxIdleConns))},
     {"retryOptions", _retryOptions},
-    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.getIgnoreSSL(), false))},
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
@@ -104,7 +137,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
-      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
       _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
@@ -157,7 +190,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
+ * @summary Terminates the specified deployment process. This operation changes the status of the process to Terminated but does not delete the process. You can still query the process.
+ *
+ * @description >  This operation may not be available in earlier versions of the SDK. In this case, use the AbolishDeployment operation. The parameters for AbolishDeployment are the same as those described in this topic.
  *
  * @param request AbolishPipelineRunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -167,11 +202,11 @@ AbolishPipelineRunResponse Client::abolishPipelineRunWithOptions(const AbolishPi
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -192,7 +227,9 @@ AbolishPipelineRunResponse Client::abolishPipelineRunWithOptions(const AbolishPi
 }
 
 /**
- * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
+ * @summary Terminates the specified deployment process. This operation changes the status of the process to Terminated but does not delete the process. You can still query the process.
+ *
+ * @description >  This operation may not be available in earlier versions of the SDK. In this case, use the AbolishDeployment operation. The parameters for AbolishDeployment are the same as those described in this topic.
  *
  * @param request AbolishPipelineRunRequest
  * @return AbolishPipelineRunResponse
@@ -213,15 +250,15 @@ AddEntityIntoMetaCollectionResponse Client::addEntityIntoMetaCollectionWithOptio
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasMetaCollectionId()) {
-    query["MetaCollectionId"] = request.metaCollectionId();
+    query["MetaCollectionId"] = request.getMetaCollectionId();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -267,11 +304,11 @@ AssociateProjectToResourceGroupResponse Client::associateProjectToResourceGroupW
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -318,20 +355,20 @@ AttachDataQualityRulesToEvaluationTaskResponse Client::attachDataQualityRulesToE
   AttachDataQualityRulesToEvaluationTaskShrinkRequest request = AttachDataQualityRulesToEvaluationTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataQualityRuleIds()) {
-    request.setDataQualityRuleIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRuleIds(), "DataQualityRuleIds", "json"));
+    request.setDataQualityRuleIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataQualityRuleIds(), "DataQualityRuleIds", "json"));
   }
 
   json body = {};
   if (!!request.hasDataQualityEvaluationTaskId()) {
-    body["DataQualityEvaluationTaskId"] = request.dataQualityEvaluationTaskId();
+    body["DataQualityEvaluationTaskId"] = request.getDataQualityEvaluationTaskId();
   }
 
   if (!!request.hasDataQualityRuleIdsShrink()) {
-    body["DataQualityRuleIds"] = request.dataQualityRuleIdsShrink();
+    body["DataQualityRuleIds"] = request.getDataQualityRuleIdsShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -376,16 +413,16 @@ BatchUpdateTasksResponse Client::batchUpdateTasksWithOptions(const BatchUpdateTa
   BatchUpdateTasksShrinkRequest request = BatchUpdateTasksShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTasks()) {
-    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tasks(), "Tasks", "json"));
+    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTasks(), "Tasks", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasTasksShrink()) {
-    body["Tasks"] = request.tasksShrink();
+    body["Tasks"] = request.getTasksShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -433,11 +470,11 @@ CloneDataSourceResponse Client::cloneDataSourceWithOptions(const CloneDataSource
   request.validate();
   json query = {};
   if (!!request.hasCloneDataSourceName()) {
-    query["CloneDataSourceName"] = request.cloneDataSourceName();
+    query["CloneDataSourceName"] = request.getCloneDataSourceName();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -484,32 +521,32 @@ CreateAlertRuleResponse Client::createAlertRuleWithOptions(const CreateAlertRule
   CreateAlertRuleShrinkRequest request = CreateAlertRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNotification()) {
-    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notification(), "Notification", "json"));
+    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotification(), "Notification", "json"));
   }
 
   if (!!tmpReq.hasTriggerCondition()) {
-    request.setTriggerConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.triggerCondition(), "TriggerCondition", "json"));
+    request.setTriggerConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTriggerCondition(), "TriggerCondition", "json"));
   }
 
   json query = {};
   if (!!request.hasEnabled()) {
-    query["Enabled"] = request.enabled();
+    query["Enabled"] = request.getEnabled();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNotificationShrink()) {
-    query["Notification"] = request.notificationShrink();
+    query["Notification"] = request.getNotificationShrink();
   }
 
   if (!!request.hasOwner()) {
-    query["Owner"] = request.owner();
+    query["Owner"] = request.getOwner();
   }
 
   if (!!request.hasTriggerConditionShrink()) {
-    query["TriggerCondition"] = request.triggerConditionShrink();
+    query["TriggerCondition"] = request.getTriggerConditionShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -549,27 +586,27 @@ CreateBusinessResponse Client::createBusinessWithOptions(const CreateBusinessReq
   request.validate();
   json body = {};
   if (!!request.hasBusinessName()) {
-    body["BusinessName"] = request.businessName();
+    body["BusinessName"] = request.getBusinessName();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasUseType()) {
-    body["UseType"] = request.useType();
+    body["UseType"] = request.getUseType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -609,15 +646,15 @@ CreateComponentResponse Client::createComponentWithOptions(const CreateComponent
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -659,27 +696,27 @@ CreateComputeResourceResponse Client::createComputeResourceWithOptions(const Cre
   request.validate();
   json query = {};
   if (!!request.hasConnectionProperties()) {
-    query["ConnectionProperties"] = request.connectionProperties();
+    query["ConnectionProperties"] = request.getConnectionProperties();
   }
 
   if (!!request.hasConnectionPropertiesMode()) {
-    query["ConnectionPropertiesMode"] = request.connectionPropertiesMode();
+    query["ConnectionPropertiesMode"] = request.getConnectionPropertiesMode();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -722,11 +759,11 @@ CreateDIAlarmRuleResponse Client::createDIAlarmRuleWithOptions(const CreateDIAla
   CreateDIAlarmRuleShrinkRequest request = CreateDIAlarmRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNotificationSettings()) {
-    request.setNotificationSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notificationSettings(), "NotificationSettings", "json"));
+    request.setNotificationSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotificationSettings(), "NotificationSettings", "json"));
   }
 
   if (!!tmpReq.hasTriggerConditions()) {
-    request.setTriggerConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.triggerConditions(), "TriggerConditions", "json"));
+    request.setTriggerConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTriggerConditions(), "TriggerConditions", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -773,85 +810,85 @@ CreateDIJobResponse Client::createDIJobWithOptions(const CreateDIJobRequest &tmp
   CreateDIJobShrinkRequest request = CreateDIJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDestinationDataSourceSettings()) {
-    request.setDestinationDataSourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.destinationDataSourceSettings(), "DestinationDataSourceSettings", "json"));
+    request.setDestinationDataSourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDestinationDataSourceSettings(), "DestinationDataSourceSettings", "json"));
   }
 
   if (!!tmpReq.hasJobSettings()) {
-    request.setJobSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobSettings(), "JobSettings", "json"));
+    request.setJobSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobSettings(), "JobSettings", "json"));
   }
 
   if (!!tmpReq.hasResourceSettings()) {
-    request.setResourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSettings(), "ResourceSettings", "json"));
+    request.setResourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSettings(), "ResourceSettings", "json"));
   }
 
   if (!!tmpReq.hasSourceDataSourceSettings()) {
-    request.setSourceDataSourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceDataSourceSettings(), "SourceDataSourceSettings", "json"));
+    request.setSourceDataSourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceDataSourceSettings(), "SourceDataSourceSettings", "json"));
   }
 
   if (!!tmpReq.hasTableMappings()) {
-    request.setTableMappingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableMappings(), "TableMappings", "json"));
+    request.setTableMappingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableMappings(), "TableMappings", "json"));
   }
 
   if (!!tmpReq.hasTransformationRules()) {
-    request.setTransformationRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.transformationRules(), "TransformationRules", "json"));
+    request.setTransformationRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransformationRules(), "TransformationRules", "json"));
   }
 
   json query = {};
   if (!!request.hasDestinationDataSourceType()) {
-    query["DestinationDataSourceType"] = request.destinationDataSourceType();
+    query["DestinationDataSourceType"] = request.getDestinationDataSourceType();
   }
 
   if (!!request.hasJobName()) {
-    query["JobName"] = request.jobName();
+    query["JobName"] = request.getJobName();
   }
 
   if (!!request.hasJobType()) {
-    query["JobType"] = request.jobType();
+    query["JobType"] = request.getJobType();
   }
 
   if (!!request.hasMigrationType()) {
-    query["MigrationType"] = request.migrationType();
+    query["MigrationType"] = request.getMigrationType();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSourceDataSourceType()) {
-    query["SourceDataSourceType"] = request.sourceDataSourceType();
+    query["SourceDataSourceType"] = request.getSourceDataSourceType();
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDestinationDataSourceSettingsShrink()) {
-    body["DestinationDataSourceSettings"] = request.destinationDataSourceSettingsShrink();
+    body["DestinationDataSourceSettings"] = request.getDestinationDataSourceSettingsShrink();
   }
 
   if (!!request.hasJobSettingsShrink()) {
-    body["JobSettings"] = request.jobSettingsShrink();
+    body["JobSettings"] = request.getJobSettingsShrink();
   }
 
   if (!!request.hasResourceSettingsShrink()) {
-    body["ResourceSettings"] = request.resourceSettingsShrink();
+    body["ResourceSettings"] = request.getResourceSettingsShrink();
   }
 
   if (!!request.hasSourceDataSourceSettingsShrink()) {
-    body["SourceDataSourceSettings"] = request.sourceDataSourceSettingsShrink();
+    body["SourceDataSourceSettings"] = request.getSourceDataSourceSettingsShrink();
   }
 
   if (!!request.hasTableMappingsShrink()) {
-    body["TableMappings"] = request.tableMappingsShrink();
+    body["TableMappings"] = request.getTableMappingsShrink();
   }
 
   if (!!request.hasTransformationRulesShrink()) {
-    body["TransformationRules"] = request.transformationRulesShrink();
+    body["TransformationRules"] = request.getTransformationRulesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -900,32 +937,32 @@ CreateDataAssetTagResponse Client::createDataAssetTagWithOptions(const CreateDat
   CreateDataAssetTagShrinkRequest request = CreateDataAssetTagShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasManagers()) {
-    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.managers(), "Managers", "json"));
+    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getManagers(), "Managers", "json"));
   }
 
   if (!!tmpReq.hasValues()) {
-    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.values(), "Values", "json"));
+    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValues(), "Values", "json"));
   }
 
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasManagersShrink()) {
-    query["Managers"] = request.managersShrink();
+    query["Managers"] = request.getManagersShrink();
   }
 
   if (!!request.hasValueType()) {
-    query["ValueType"] = request.valueType();
+    query["ValueType"] = request.getValueType();
   }
 
   if (!!request.hasValuesShrink()) {
-    query["Values"] = request.valuesShrink();
+    query["Values"] = request.getValuesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -972,28 +1009,28 @@ CreateDataQualityAlertRuleResponse Client::createDataQualityAlertRuleWithOptions
   CreateDataQualityAlertRuleShrinkRequest request = CreateDataQualityAlertRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNotification()) {
-    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notification(), "Notification", "json"));
+    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotification(), "Notification", "json"));
   }
 
   if (!!tmpReq.hasTarget()) {
-    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.target(), "Target", "json"));
+    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTarget(), "Target", "json"));
   }
 
   json body = {};
   if (!!request.hasCondition()) {
-    body["Condition"] = request.condition();
+    body["Condition"] = request.getCondition();
   }
 
   if (!!request.hasNotificationShrink()) {
-    body["Notification"] = request.notificationShrink();
+    body["Notification"] = request.getNotificationShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTargetShrink()) {
-    body["Target"] = request.targetShrink();
+    body["Target"] = request.getTargetShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1040,64 +1077,64 @@ CreateDataQualityEvaluationTaskResponse Client::createDataQualityEvaluationTaskW
   CreateDataQualityEvaluationTaskShrinkRequest request = CreateDataQualityEvaluationTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataQualityRules()) {
-    request.setDataQualityRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRules(), "DataQualityRules", "json"));
+    request.setDataQualityRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataQualityRules(), "DataQualityRules", "json"));
   }
 
   if (!!tmpReq.hasHooks()) {
-    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hooks(), "Hooks", "json"));
+    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHooks(), "Hooks", "json"));
   }
 
   if (!!tmpReq.hasNotifications()) {
-    request.setNotificationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifications(), "Notifications", "json"));
+    request.setNotificationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotifications(), "Notifications", "json"));
   }
 
   if (!!tmpReq.hasTarget()) {
-    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.target(), "Target", "json"));
+    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTarget(), "Target", "json"));
   }
 
   if (!!tmpReq.hasTrigger()) {
-    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.trigger(), "Trigger", "json"));
+    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTrigger(), "Trigger", "json"));
   }
 
   json body = {};
   if (!!request.hasDataQualityRulesShrink()) {
-    body["DataQualityRules"] = request.dataQualityRulesShrink();
+    body["DataQualityRules"] = request.getDataQualityRulesShrink();
   }
 
   if (!!request.hasDataSourceId()) {
-    body["DataSourceId"] = request.dataSourceId();
+    body["DataSourceId"] = request.getDataSourceId();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasHooksShrink()) {
-    body["Hooks"] = request.hooksShrink();
+    body["Hooks"] = request.getHooksShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNotificationsShrink()) {
-    body["Notifications"] = request.notificationsShrink();
+    body["Notifications"] = request.getNotificationsShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeConf()) {
-    body["RuntimeConf"] = request.runtimeConf();
+    body["RuntimeConf"] = request.getRuntimeConf();
   }
 
   if (!!request.hasTargetShrink()) {
-    body["Target"] = request.targetShrink();
+    body["Target"] = request.getTargetShrink();
   }
 
   if (!!request.hasTriggerShrink()) {
-    body["Trigger"] = request.triggerShrink();
+    body["Trigger"] = request.getTriggerShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1142,24 +1179,24 @@ CreateDataQualityEvaluationTaskInstanceResponse Client::createDataQualityEvaluat
   CreateDataQualityEvaluationTaskInstanceShrinkRequest request = CreateDataQualityEvaluationTaskInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRuntimeResource()) {
-    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource(), "RuntimeResource", "json"));
+    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRuntimeResource(), "RuntimeResource", "json"));
   }
 
   json body = {};
   if (!!request.hasDataQualityEvaluationTaskId()) {
-    body["DataQualityEvaluationTaskId"] = request.dataQualityEvaluationTaskId();
+    body["DataQualityEvaluationTaskId"] = request.getDataQualityEvaluationTaskId();
   }
 
   if (!!request.hasParameters()) {
-    body["Parameters"] = request.parameters();
+    body["Parameters"] = request.getParameters();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeResourceShrink()) {
-    body["RuntimeResource"] = request.runtimeResourceShrink();
+    body["RuntimeResource"] = request.getRuntimeResourceShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1202,60 +1239,60 @@ CreateDataQualityRuleResponse Client::createDataQualityRuleWithOptions(const Cre
   CreateDataQualityRuleShrinkRequest request = CreateDataQualityRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCheckingConfig()) {
-    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig(), "CheckingConfig", "json"));
+    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckingConfig(), "CheckingConfig", "json"));
   }
 
   if (!!tmpReq.hasErrorHandlers()) {
-    request.setErrorHandlersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.errorHandlers(), "ErrorHandlers", "json"));
+    request.setErrorHandlersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getErrorHandlers(), "ErrorHandlers", "json"));
   }
 
   if (!!tmpReq.hasSamplingConfig()) {
-    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig(), "SamplingConfig", "json"));
+    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSamplingConfig(), "SamplingConfig", "json"));
   }
 
   if (!!tmpReq.hasTarget()) {
-    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.target(), "Target", "json"));
+    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTarget(), "Target", "json"));
   }
 
   json body = {};
   if (!!request.hasCheckingConfigShrink()) {
-    body["CheckingConfig"] = request.checkingConfigShrink();
+    body["CheckingConfig"] = request.getCheckingConfigShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnabled()) {
-    body["Enabled"] = request.enabled();
+    body["Enabled"] = request.getEnabled();
   }
 
   if (!!request.hasErrorHandlersShrink()) {
-    body["ErrorHandlers"] = request.errorHandlersShrink();
+    body["ErrorHandlers"] = request.getErrorHandlersShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSamplingConfigShrink()) {
-    body["SamplingConfig"] = request.samplingConfigShrink();
+    body["SamplingConfig"] = request.getSamplingConfigShrink();
   }
 
   if (!!request.hasSeverity()) {
-    body["Severity"] = request.severity();
+    body["Severity"] = request.getSeverity();
   }
 
   if (!!request.hasTargetShrink()) {
-    body["Target"] = request.targetShrink();
+    body["Target"] = request.getTargetShrink();
   }
 
   if (!!request.hasTemplateCode()) {
-    body["TemplateCode"] = request.templateCode();
+    body["TemplateCode"] = request.getTemplateCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1298,36 +1335,36 @@ CreateDataQualityRuleTemplateResponse Client::createDataQualityRuleTemplateWithO
   CreateDataQualityRuleTemplateShrinkRequest request = CreateDataQualityRuleTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCheckingConfig()) {
-    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig(), "CheckingConfig", "json"));
+    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckingConfig(), "CheckingConfig", "json"));
   }
 
   if (!!tmpReq.hasSamplingConfig()) {
-    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig(), "SamplingConfig", "json"));
+    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSamplingConfig(), "SamplingConfig", "json"));
   }
 
   json body = {};
   if (!!request.hasCheckingConfigShrink()) {
-    body["CheckingConfig"] = request.checkingConfigShrink();
+    body["CheckingConfig"] = request.getCheckingConfigShrink();
   }
 
   if (!!request.hasDirectoryPath()) {
-    body["DirectoryPath"] = request.directoryPath();
+    body["DirectoryPath"] = request.getDirectoryPath();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSamplingConfigShrink()) {
-    body["SamplingConfig"] = request.samplingConfigShrink();
+    body["SamplingConfig"] = request.getSamplingConfigShrink();
   }
 
   if (!!request.hasVisibleScope()) {
-    body["VisibleScope"] = request.visibleScope();
+    body["VisibleScope"] = request.getVisibleScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1372,68 +1409,68 @@ CreateDataQualityScanResponse Client::createDataQualityScanWithOptions(const Cre
   CreateDataQualityScanShrinkRequest request = CreateDataQualityScanShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasComputeResource()) {
-    request.setComputeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.computeResource(), "ComputeResource", "json"));
+    request.setComputeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getComputeResource(), "ComputeResource", "json"));
   }
 
   if (!!tmpReq.hasHooks()) {
-    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hooks(), "Hooks", "json"));
+    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHooks(), "Hooks", "json"));
   }
 
   if (!!tmpReq.hasParameters()) {
-    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parameters(), "Parameters", "json"));
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
   }
 
   if (!!tmpReq.hasRuntimeResource()) {
-    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource(), "RuntimeResource", "json"));
+    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRuntimeResource(), "RuntimeResource", "json"));
   }
 
   if (!!tmpReq.hasTrigger()) {
-    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.trigger(), "Trigger", "json"));
+    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTrigger(), "Trigger", "json"));
   }
 
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasComputeResourceShrink()) {
-    body["ComputeResource"] = request.computeResourceShrink();
+    body["ComputeResource"] = request.getComputeResourceShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasHooksShrink()) {
-    body["Hooks"] = request.hooksShrink();
+    body["Hooks"] = request.getHooksShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasParametersShrink()) {
-    body["Parameters"] = request.parametersShrink();
+    body["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeResourceShrink()) {
-    body["RuntimeResource"] = request.runtimeResourceShrink();
+    body["RuntimeResource"] = request.getRuntimeResourceShrink();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   if (!!request.hasTriggerShrink()) {
-    body["Trigger"] = request.triggerShrink();
+    body["Trigger"] = request.getTriggerShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1480,28 +1517,28 @@ CreateDataQualityScanRunResponse Client::createDataQualityScanRunWithOptions(con
   CreateDataQualityScanRunShrinkRequest request = CreateDataQualityScanRunShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasParameters()) {
-    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parameters(), "Parameters", "json"));
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
   }
 
   if (!!tmpReq.hasRuntimeResource()) {
-    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource(), "RuntimeResource", "json"));
+    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRuntimeResource(), "RuntimeResource", "json"));
   }
 
   json body = {};
   if (!!request.hasDataQualityScanId()) {
-    body["DataQualityScanId"] = request.dataQualityScanId();
+    body["DataQualityScanId"] = request.getDataQualityScanId();
   }
 
   if (!!request.hasParametersShrink()) {
-    body["Parameters"] = request.parametersShrink();
+    body["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeResourceShrink()) {
-    body["RuntimeResource"] = request.runtimeResourceShrink();
+    body["RuntimeResource"] = request.getRuntimeResourceShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1547,15 +1584,15 @@ CreateDataQualityTemplateResponse Client::createDataQualityTemplateWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1603,27 +1640,27 @@ CreateDataSourceResponse Client::createDataSourceWithOptions(const CreateDataSou
   request.validate();
   json query = {};
   if (!!request.hasConnectionProperties()) {
-    query["ConnectionProperties"] = request.connectionProperties();
+    query["ConnectionProperties"] = request.getConnectionProperties();
   }
 
   if (!!request.hasConnectionPropertiesMode()) {
-    query["ConnectionPropertiesMode"] = request.connectionPropertiesMode();
+    query["ConnectionPropertiesMode"] = request.getConnectionPropertiesMode();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1673,19 +1710,19 @@ CreateDataSourceSharedRuleResponse Client::createDataSourceSharedRuleWithOptions
   request.validate();
   json query = {};
   if (!!request.hasDataSourceId()) {
-    query["DataSourceId"] = request.dataSourceId();
+    query["DataSourceId"] = request.getDataSourceId();
   }
 
   if (!!request.hasEnvType()) {
-    query["EnvType"] = request.envType();
+    query["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasSharedUser()) {
-    query["SharedUser"] = request.sharedUser();
+    query["SharedUser"] = request.getSharedUser();
   }
 
   if (!!request.hasTargetProjectId()) {
-    query["TargetProjectId"] = request.targetProjectId();
+    query["TargetProjectId"] = request.getTargetProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1721,7 +1758,7 @@ CreateDataSourceSharedRuleResponse Client::createDataSourceSharedRule(const Crea
 }
 
 /**
- * @summary 创建数据集
+ * @summary Creates a dataset. This operation is supported only in workspaces that the user has joined. Currently, only DataWorks datasets are supported. The maximum number of datasets allowed per tenant is 2,000.
  *
  * @param tmpReq CreateDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1732,36 +1769,36 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
   CreateDatasetShrinkRequest request = CreateDatasetShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInitVersion()) {
-    request.setInitVersionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.initVersion(), "InitVersion", "json"));
+    request.setInitVersionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInitVersion(), "InitVersion", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasDataType()) {
-    body["DataType"] = request.dataType();
+    body["DataType"] = request.getDataType();
   }
 
   if (!!request.hasInitVersionShrink()) {
-    body["InitVersion"] = request.initVersionShrink();
+    body["InitVersion"] = request.getInitVersionShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOrigin()) {
-    body["Origin"] = request.origin();
+    body["Origin"] = request.getOrigin();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasStorageType()) {
-    body["StorageType"] = request.storageType();
+    body["StorageType"] = request.getStorageType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1782,7 +1819,7 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
 }
 
 /**
- * @summary 创建数据集
+ * @summary Creates a dataset. This operation is supported only in workspaces that the user has joined. Currently, only DataWorks datasets are supported. The maximum number of datasets allowed per tenant is 2,000.
  *
  * @param request CreateDatasetRequest
  * @return CreateDatasetResponse
@@ -1793,7 +1830,7 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
- * @summary 创建数据集版本
+ * @summary Creates a dataset version. Currently supports DataWorks datasets only, with a maximum of 20 versions.
  *
  * @param tmpReq CreateDatasetVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1804,28 +1841,28 @@ CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const Creat
   CreateDatasetVersionShrinkRequest request = CreateDatasetVersionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasImportInfo()) {
-    request.setImportInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.importInfo(), "ImportInfo", "json"));
+    request.setImportInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImportInfo(), "ImportInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasDatasetId()) {
-    body["DatasetId"] = request.datasetId();
+    body["DatasetId"] = request.getDatasetId();
   }
 
   if (!!request.hasImportInfoShrink()) {
-    body["ImportInfo"] = request.importInfoShrink();
+    body["ImportInfo"] = request.getImportInfoShrink();
   }
 
   if (!!request.hasMountPath()) {
-    body["MountPath"] = request.mountPath();
+    body["MountPath"] = request.getMountPath();
   }
 
   if (!!request.hasUrl()) {
-    body["Url"] = request.url();
+    body["Url"] = request.getUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1846,7 +1883,7 @@ CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const Creat
 }
 
 /**
- * @summary 创建数据集版本
+ * @summary Creates a dataset version. Currently supports DataWorks datasets only, with a maximum of 20 versions.
  *
  * @param request CreateDatasetVersionRequest
  * @return CreateDatasetVersionResponse
@@ -1865,139 +1902,139 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasAdvancedSettings()) {
-    body["AdvancedSettings"] = request.advancedSettings();
+    body["AdvancedSettings"] = request.getAdvancedSettings();
   }
 
   if (!!request.hasApplyScheduleImmediately()) {
-    body["ApplyScheduleImmediately"] = request.applyScheduleImmediately();
+    body["ApplyScheduleImmediately"] = request.getApplyScheduleImmediately();
   }
 
   if (!!request.hasAutoParsing()) {
-    body["AutoParsing"] = request.autoParsing();
+    body["AutoParsing"] = request.getAutoParsing();
   }
 
   if (!!request.hasAutoRerunIntervalMillis()) {
-    body["AutoRerunIntervalMillis"] = request.autoRerunIntervalMillis();
+    body["AutoRerunIntervalMillis"] = request.getAutoRerunIntervalMillis();
   }
 
   if (!!request.hasAutoRerunTimes()) {
-    body["AutoRerunTimes"] = request.autoRerunTimes();
+    body["AutoRerunTimes"] = request.getAutoRerunTimes();
   }
 
   if (!!request.hasConnectionName()) {
-    body["ConnectionName"] = request.connectionName();
+    body["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasCreateFolderIfNotExists()) {
-    body["CreateFolderIfNotExists"] = request.createFolderIfNotExists();
+    body["CreateFolderIfNotExists"] = request.getCreateFolderIfNotExists();
   }
 
   if (!!request.hasCronExpress()) {
-    body["CronExpress"] = request.cronExpress();
+    body["CronExpress"] = request.getCronExpress();
   }
 
   if (!!request.hasCycleType()) {
-    body["CycleType"] = request.cycleType();
+    body["CycleType"] = request.getCycleType();
   }
 
   if (!!request.hasDependentNodeIdList()) {
-    body["DependentNodeIdList"] = request.dependentNodeIdList();
+    body["DependentNodeIdList"] = request.getDependentNodeIdList();
   }
 
   if (!!request.hasDependentType()) {
-    body["DependentType"] = request.dependentType();
+    body["DependentType"] = request.getDependentType();
   }
 
   if (!!request.hasEndEffectDate()) {
-    body["EndEffectDate"] = request.endEffectDate();
+    body["EndEffectDate"] = request.getEndEffectDate();
   }
 
   if (!!request.hasFileDescription()) {
-    body["FileDescription"] = request.fileDescription();
+    body["FileDescription"] = request.getFileDescription();
   }
 
   if (!!request.hasFileFolderPath()) {
-    body["FileFolderPath"] = request.fileFolderPath();
+    body["FileFolderPath"] = request.getFileFolderPath();
   }
 
   if (!!request.hasFileName()) {
-    body["FileName"] = request.fileName();
+    body["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileType()) {
-    body["FileType"] = request.fileType();
+    body["FileType"] = request.getFileType();
   }
 
   if (!!request.hasIgnoreParentSkipRunningProperty()) {
-    body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty();
+    body["IgnoreParentSkipRunningProperty"] = request.getIgnoreParentSkipRunningProperty();
   }
 
   if (!!request.hasImageId()) {
-    body["ImageId"] = request.imageId();
+    body["ImageId"] = request.getImageId();
   }
 
   if (!!request.hasInputList()) {
-    body["InputList"] = request.inputList();
+    body["InputList"] = request.getInputList();
   }
 
   if (!!request.hasInputParameters()) {
-    body["InputParameters"] = request.inputParameters();
+    body["InputParameters"] = request.getInputParameters();
   }
 
   if (!!request.hasOutputParameters()) {
-    body["OutputParameters"] = request.outputParameters();
+    body["OutputParameters"] = request.getOutputParameters();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasParaValue()) {
-    body["ParaValue"] = request.paraValue();
+    body["ParaValue"] = request.getParaValue();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasRerunMode()) {
-    body["RerunMode"] = request.rerunMode();
+    body["RerunMode"] = request.getRerunMode();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceGroupIdentifier()) {
-    body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier();
+    body["ResourceGroupIdentifier"] = request.getResourceGroupIdentifier();
   }
 
   if (!!request.hasSchedulerType()) {
-    body["SchedulerType"] = request.schedulerType();
+    body["SchedulerType"] = request.getSchedulerType();
   }
 
   if (!!request.hasStartEffectDate()) {
-    body["StartEffectDate"] = request.startEffectDate();
+    body["StartEffectDate"] = request.getStartEffectDate();
   }
 
   if (!!request.hasStartImmediately()) {
-    body["StartImmediately"] = request.startImmediately();
+    body["StartImmediately"] = request.getStartImmediately();
   }
 
   if (!!request.hasStop()) {
-    body["Stop"] = request.stop();
+    body["Stop"] = request.getStop();
   }
 
   if (!!request.hasTimeout()) {
-    body["Timeout"] = request.timeout();
+    body["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2035,15 +2072,15 @@ CreateFolderResponse Client::createFolderWithOptions(const CreateFolderRequest &
   request.validate();
   json body = {};
   if (!!request.hasFolderPath()) {
-    body["FolderPath"] = request.folderPath();
+    body["FolderPath"] = request.getFolderPath();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2085,11 +2122,11 @@ CreateFunctionResponse Client::createFunctionWithOptions(const CreateFunctionReq
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2123,7 +2160,9 @@ CreateFunctionResponse Client::createFunction(const CreateFunctionRequest &reque
 }
 
 /**
- * @summary 创建身份凭证
+ * @summary Creates an identity credential.
+ *
+ * @description >  This operation does not support batch processing. If multiple publishing entities are specified in the parameters, only the first one will be processed; the others will be ignored.
  *
  * @param tmpReq CreateIdentifyCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2134,12 +2173,12 @@ CreateIdentifyCredentialResponse Client::createIdentifyCredentialWithOptions(con
   CreateIdentifyCredentialShrinkRequest request = CreateIdentifyCredentialShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIdentifyCredential()) {
-    request.setIdentifyCredentialShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.identifyCredential(), "IdentifyCredential", "json"));
+    request.setIdentifyCredentialShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIdentifyCredential(), "IdentifyCredential", "json"));
   }
 
   json body = {};
   if (!!request.hasIdentifyCredentialShrink()) {
-    body["IdentifyCredential"] = request.identifyCredentialShrink();
+    body["IdentifyCredential"] = request.getIdentifyCredentialShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2160,7 +2199,9 @@ CreateIdentifyCredentialResponse Client::createIdentifyCredentialWithOptions(con
 }
 
 /**
- * @summary 创建身份凭证
+ * @summary Creates an identity credential.
+ *
+ * @description >  This operation does not support batch processing. If multiple publishing entities are specified in the parameters, only the first one will be processed; the others will be ignored.
  *
  * @param request CreateIdentifyCredentialRequest
  * @return CreateIdentifyCredentialResponse
@@ -2182,28 +2223,28 @@ CreateLineageRelationshipResponse Client::createLineageRelationshipWithOptions(c
   CreateLineageRelationshipShrinkRequest request = CreateLineageRelationshipShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDstEntity()) {
-    request.setDstEntityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dstEntity(), "DstEntity", "json"));
+    request.setDstEntityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDstEntity(), "DstEntity", "json"));
   }
 
   if (!!tmpReq.hasSrcEntity()) {
-    request.setSrcEntityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.srcEntity(), "SrcEntity", "json"));
+    request.setSrcEntityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSrcEntity(), "SrcEntity", "json"));
   }
 
   if (!!tmpReq.hasTask()) {
-    request.setTaskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.task(), "Task", "json"));
+    request.setTaskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTask(), "Task", "json"));
   }
 
   json query = {};
   if (!!request.hasDstEntityShrink()) {
-    query["DstEntity"] = request.dstEntityShrink();
+    query["DstEntity"] = request.getDstEntityShrink();
   }
 
   if (!!request.hasSrcEntityShrink()) {
-    query["SrcEntity"] = request.srcEntityShrink();
+    query["SrcEntity"] = request.getSrcEntityShrink();
   }
 
   if (!!request.hasTaskShrink()) {
-    query["Task"] = request.taskShrink();
+    query["Task"] = request.getTaskShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2245,19 +2286,19 @@ CreateMetaCollectionResponse Client::createMetaCollectionWithOptions(const Creat
   request.validate();
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasParentId()) {
-    query["ParentId"] = request.parentId();
+    query["ParentId"] = request.getParentId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2301,19 +2342,19 @@ CreateNetworkResponse Client::createNetworkWithOptions(const CreateNetworkReques
   request.validate();
   json body = {};
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasVswitchId()) {
-    body["VswitchId"] = request.vswitchId();
+    body["VswitchId"] = request.getVswitchId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2359,19 +2400,19 @@ CreateNodeResponse Client::createNodeWithOptions(const CreateNodeRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasContainerId()) {
-    body["ContainerId"] = request.containerId();
+    body["ContainerId"] = request.getContainerId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasScene()) {
-    body["Scene"] = request.scene();
+    body["Scene"] = request.getScene();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2405,9 +2446,10 @@ CreateNodeResponse Client::createNode(const CreateNodeRequest &request) {
 }
 
 /**
- * @summary Creates a process for deploying or undeploying an entity in Data Studio.
+ * @summary Creates a deployment process for entities in the Data Studio (new version).
  *
- * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+ * @description >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
+ * >  This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters for CreateDeployment are the same as those described in this topic.
  *
  * @param tmpReq CreatePipelineRunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2418,24 +2460,24 @@ CreatePipelineRunResponse Client::createPipelineRunWithOptions(const CreatePipel
   CreatePipelineRunShrinkRequest request = CreatePipelineRunShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasObjectIds()) {
-    request.setObjectIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.objectIds(), "ObjectIds", "json"));
+    request.setObjectIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getObjectIds(), "ObjectIds", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasObjectIdsShrink()) {
-    body["ObjectIds"] = request.objectIdsShrink();
+    body["ObjectIds"] = request.getObjectIdsShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2456,9 +2498,10 @@ CreatePipelineRunResponse Client::createPipelineRunWithOptions(const CreatePipel
 }
 
 /**
- * @summary Creates a process for deploying or undeploying an entity in Data Studio.
+ * @summary Creates a deployment process for entities in the Data Studio (new version).
  *
- * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+ * @description >  Batch operations are not currently supported. If you specify multiple entities in the parameters, only the first entity takes effect, and the rest are ignored.
+ * >  This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters for CreateDeployment are the same as those described in this topic.
  *
  * @param request CreatePipelineRunRequest
  * @return CreatePipelineRunResponse
@@ -2480,40 +2523,40 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
   CreateProjectShrinkRequest request = CreateProjectShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAliyunResourceTags()) {
-    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.aliyunResourceTags(), "AliyunResourceTags", "json"));
+    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAliyunResourceTags(), "AliyunResourceTags", "json"));
   }
 
   json body = {};
   if (!!request.hasAliyunResourceGroupId()) {
-    body["AliyunResourceGroupId"] = request.aliyunResourceGroupId();
+    body["AliyunResourceGroupId"] = request.getAliyunResourceGroupId();
   }
 
   if (!!request.hasAliyunResourceTagsShrink()) {
-    body["AliyunResourceTags"] = request.aliyunResourceTagsShrink();
+    body["AliyunResourceTags"] = request.getAliyunResourceTagsShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDevEnvironmentEnabled()) {
-    body["DevEnvironmentEnabled"] = request.devEnvironmentEnabled();
+    body["DevEnvironmentEnabled"] = request.getDevEnvironmentEnabled();
   }
 
   if (!!request.hasDevRoleDisabled()) {
-    body["DevRoleDisabled"] = request.devRoleDisabled();
+    body["DevRoleDisabled"] = request.getDevRoleDisabled();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPaiTaskEnabled()) {
-    body["PaiTaskEnabled"] = request.paiTaskEnabled();
+    body["PaiTaskEnabled"] = request.getPaiTaskEnabled();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2558,20 +2601,20 @@ CreateProjectMemberResponse Client::createProjectMemberWithOptions(const CreateP
   CreateProjectMemberShrinkRequest request = CreateProjectMemberShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoleCodes()) {
-    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roleCodes(), "RoleCodes", "json"));
+    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoleCodes(), "RoleCodes", "json"));
   }
 
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRoleCodesShrink()) {
-    body["RoleCodes"] = request.roleCodesShrink();
+    body["RoleCodes"] = request.getRoleCodesShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2617,15 +2660,15 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasResourceFile()) {
-    body["ResourceFile"] = request.resourceFile();
+    body["ResourceFile"] = request.getResourceFile();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2668,10 +2711,10 @@ CreateResourceResponse Client::createResourceAdvance(const CreateResourceAdvance
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -2724,7 +2767,7 @@ CreateResourceResponse Client::createResourceAdvance(const CreateResourceAdvance
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.resourceFileObject()},
+      {"content" , request.getResourceFileObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -2755,51 +2798,51 @@ CreateResourceFileResponse Client::createResourceFileWithOptions(const CreateRes
   request.validate();
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasFileDescription()) {
-    body["FileDescription"] = request.fileDescription();
+    body["FileDescription"] = request.getFileDescription();
   }
 
   if (!!request.hasFileFolderPath()) {
-    body["FileFolderPath"] = request.fileFolderPath();
+    body["FileFolderPath"] = request.getFileFolderPath();
   }
 
   if (!!request.hasFileName()) {
-    body["FileName"] = request.fileName();
+    body["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileType()) {
-    body["FileType"] = request.fileType();
+    body["FileType"] = request.getFileType();
   }
 
   if (!!request.hasOriginResourceName()) {
-    body["OriginResourceName"] = request.originResourceName();
+    body["OriginResourceName"] = request.getOriginResourceName();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRegisterToCalcEngine()) {
-    body["RegisterToCalcEngine"] = request.registerToCalcEngine();
+    body["RegisterToCalcEngine"] = request.getRegisterToCalcEngine();
   }
 
   if (!!request.hasResourceFile()) {
-    body["ResourceFile"] = request.resourceFile();
+    body["ResourceFile"] = request.getResourceFile();
   }
 
   if (!!request.hasStorageURL()) {
-    body["StorageURL"] = request.storageURL();
+    body["StorageURL"] = request.getStorageURL();
   }
 
   if (!!request.hasUploadMode()) {
-    body["UploadMode"] = request.uploadMode();
+    body["UploadMode"] = request.getUploadMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2840,10 +2883,10 @@ CreateResourceFileResponse Client::createResourceFileAdvance(const CreateResourc
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -2896,7 +2939,7 @@ CreateResourceFileResponse Client::createResourceFileAdvance(const CreateResourc
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.resourceFileObject()},
+      {"content" , request.getResourceFileObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -2931,56 +2974,56 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
   CreateResourceGroupShrinkRequest request = CreateResourceGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAliyunResourceTags()) {
-    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.aliyunResourceTags(), "AliyunResourceTags", "json"));
+    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAliyunResourceTags(), "AliyunResourceTags", "json"));
   }
 
   json body = {};
   if (!!request.hasAliyunResourceGroupId()) {
-    body["AliyunResourceGroupId"] = request.aliyunResourceGroupId();
+    body["AliyunResourceGroupId"] = request.getAliyunResourceGroupId();
   }
 
   if (!!request.hasAliyunResourceTagsShrink()) {
-    body["AliyunResourceTags"] = request.aliyunResourceTagsShrink();
+    body["AliyunResourceTags"] = request.getAliyunResourceTagsShrink();
   }
 
   if (!!request.hasAutoRenewEnabled()) {
-    body["AutoRenewEnabled"] = request.autoRenewEnabled();
+    body["AutoRenewEnabled"] = request.getAutoRenewEnabled();
   }
 
   if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.clientToken();
+    body["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPaymentDuration()) {
-    body["PaymentDuration"] = request.paymentDuration();
+    body["PaymentDuration"] = request.getPaymentDuration();
   }
 
   if (!!request.hasPaymentDurationUnit()) {
-    body["PaymentDurationUnit"] = request.paymentDurationUnit();
+    body["PaymentDurationUnit"] = request.getPaymentDurationUnit();
   }
 
   if (!!request.hasPaymentType()) {
-    body["PaymentType"] = request.paymentType();
+    body["PaymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasVswitchId()) {
-    body["VswitchId"] = request.vswitchId();
+    body["VswitchId"] = request.getVswitchId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3027,15 +3070,15 @@ CreateRouteResponse Client::createRouteWithOptions(const CreateRouteRequest &req
   request.validate();
   json body = {};
   if (!!request.hasDestinationCidr()) {
-    body["DestinationCidr"] = request.destinationCidr();
+    body["DestinationCidr"] = request.getDestinationCidr();
   }
 
   if (!!request.hasNetworkId()) {
-    body["NetworkId"] = request.networkId();
+    body["NetworkId"] = request.getNetworkId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3077,55 +3120,55 @@ CreateUdfFileResponse Client::createUdfFileWithOptions(const CreateUdfFileReques
   request.validate();
   json body = {};
   if (!!request.hasClassName()) {
-    body["ClassName"] = request.className();
+    body["ClassName"] = request.getClassName();
   }
 
   if (!!request.hasCmdDescription()) {
-    body["CmdDescription"] = request.cmdDescription();
+    body["CmdDescription"] = request.getCmdDescription();
   }
 
   if (!!request.hasCreateFolderIfNotExists()) {
-    body["CreateFolderIfNotExists"] = request.createFolderIfNotExists();
+    body["CreateFolderIfNotExists"] = request.getCreateFolderIfNotExists();
   }
 
   if (!!request.hasExample()) {
-    body["Example"] = request.example();
+    body["Example"] = request.getExample();
   }
 
   if (!!request.hasFileFolderPath()) {
-    body["FileFolderPath"] = request.fileFolderPath();
+    body["FileFolderPath"] = request.getFileFolderPath();
   }
 
   if (!!request.hasFileName()) {
-    body["FileName"] = request.fileName();
+    body["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFunctionType()) {
-    body["FunctionType"] = request.functionType();
+    body["FunctionType"] = request.getFunctionType();
   }
 
   if (!!request.hasParameterDescription()) {
-    body["ParameterDescription"] = request.parameterDescription();
+    body["ParameterDescription"] = request.getParameterDescription();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasResources()) {
-    body["Resources"] = request.resources();
+    body["Resources"] = request.getResources();
   }
 
   if (!!request.hasReturnValue()) {
-    body["ReturnValue"] = request.returnValue();
+    body["ReturnValue"] = request.getReturnValue();
   }
 
   if (!!request.hasUdfDescription()) {
-    body["UdfDescription"] = request.udfDescription();
+    body["UdfDescription"] = request.getUdfDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3167,11 +3210,11 @@ CreateWorkflowDefinitionResponse Client::createWorkflowDefinitionWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3216,68 +3259,68 @@ CreateWorkflowInstancesResponse Client::createWorkflowInstancesWithOptions(const
   CreateWorkflowInstancesShrinkRequest request = CreateWorkflowInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDefaultRunProperties()) {
-    request.setDefaultRunPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.defaultRunProperties(), "DefaultRunProperties", "json"));
+    request.setDefaultRunPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultRunProperties(), "DefaultRunProperties", "json"));
   }
 
   if (!!tmpReq.hasPeriods()) {
-    request.setPeriodsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.periods(), "Periods", "json"));
+    request.setPeriodsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPeriods(), "Periods", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   json body = {};
   if (!!request.hasAutoStartEnabled()) {
-    body["AutoStartEnabled"] = request.autoStartEnabled();
+    body["AutoStartEnabled"] = request.getAutoStartEnabled();
   }
 
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasDefaultRunPropertiesShrink()) {
-    body["DefaultRunProperties"] = request.defaultRunPropertiesShrink();
+    body["DefaultRunProperties"] = request.getDefaultRunPropertiesShrink();
   }
 
   if (!!request.hasEnvType()) {
-    body["EnvType"] = request.envType();
+    body["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPeriodsShrink()) {
-    body["Periods"] = request.periodsShrink();
+    body["Periods"] = request.getPeriodsShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTagCreationPolicy()) {
-    body["TagCreationPolicy"] = request.tagCreationPolicy();
+    body["TagCreationPolicy"] = request.getTagCreationPolicy();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["Tags"] = request.tagsShrink();
+    body["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskParameters()) {
-    body["TaskParameters"] = request.taskParameters();
+    body["TaskParameters"] = request.getTaskParameters();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   if (!!request.hasWorkflowParameters()) {
-    body["WorkflowParameters"] = request.workflowParameters();
+    body["WorkflowParameters"] = request.getWorkflowParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3319,7 +3362,7 @@ DeleteAlertRuleResponse Client::deleteAlertRuleWithOptions(const DeleteAlertRule
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3359,15 +3402,15 @@ DeleteBusinessResponse Client::deleteBusinessWithOptions(const DeleteBusinessReq
   request.validate();
   json body = {};
   if (!!request.hasBusinessId()) {
-    body["BusinessId"] = request.businessId();
+    body["BusinessId"] = request.getBusinessId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3410,11 +3453,11 @@ DeleteCertificateResponse Client::deleteCertificateWithOptions(const DeleteCerti
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3461,11 +3504,11 @@ DeleteComponentResponse Client::deleteComponentWithOptions(const DeleteComponent
   request.validate();
   json body = {};
   if (!!request.hasComponentId()) {
-    body["ComponentId"] = request.componentId();
+    body["ComponentId"] = request.getComponentId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3501,6 +3544,10 @@ DeleteComponentResponse Client::deleteComponent(const DeleteComponentRequest &re
 /**
  * @summary 验证用
  *
+ * @description 1.  This API operation is available for all DataWorks editions.
+ * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+ * 3.  Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
+ *
  * @param request DeleteComputeResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteComputeResourceResponse
@@ -3509,11 +3556,11 @@ DeleteComputeResourceResponse Client::deleteComputeResourceWithOptions(const Del
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3535,6 +3582,10 @@ DeleteComputeResourceResponse Client::deleteComputeResourceWithOptions(const Del
 
 /**
  * @summary 验证用
+ *
+ * @description 1.  This API operation is available for all DataWorks editions.
+ * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+ * 3.  Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
  *
  * @param request DeleteComputeResourceRequest
  * @return DeleteComputeResourceResponse
@@ -3638,16 +3689,16 @@ DeleteDataAssetTagResponse Client::deleteDataAssetTagWithOptions(const DeleteDat
   DeleteDataAssetTagShrinkRequest request = DeleteDataAssetTagShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasValues()) {
-    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.values(), "Values", "json"));
+    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValues(), "Values", "json"));
   }
 
   json query = {};
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasValuesShrink()) {
-    query["Values"] = request.valuesShrink();
+    query["Values"] = request.getValuesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3693,7 +3744,7 @@ DeleteDataQualityAlertRuleResponse Client::deleteDataQualityAlertRuleWithOptions
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3737,11 +3788,11 @@ DeleteDataQualityEvaluationTaskResponse Client::deleteDataQualityEvaluationTaskW
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3783,11 +3834,11 @@ DeleteDataQualityRuleResponse Client::deleteDataQualityRuleWithOptions(const Del
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3829,11 +3880,11 @@ DeleteDataQualityRuleTemplateResponse Client::deleteDataQualityRuleTemplateWithO
   request.validate();
   json query = {};
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3877,11 +3928,11 @@ DeleteDataQualityScanResponse Client::deleteDataQualityScanWithOptions(const Del
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3930,7 +3981,7 @@ DeleteDataQualityTemplateResponse Client::deleteDataQualityTemplateWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4027,7 +4078,7 @@ DeleteDataSourceSharedRuleResponse Client::deleteDataSourceSharedRuleWithOptions
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4063,7 +4114,7 @@ DeleteDataSourceSharedRuleResponse Client::deleteDataSourceSharedRule(const Dele
 }
 
 /**
- * @summary 删除数据集
+ * @summary Delete a dataset. Only DataWorks datasets are supported. This operation cascades to delete all associated dataset versions. Requires dataset creator or workspace administrator permissions.
  *
  * @param request DeleteDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4073,7 +4124,7 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetReques
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4094,7 +4145,7 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetReques
 }
 
 /**
- * @summary 删除数据集
+ * @summary Delete a dataset. Only DataWorks datasets are supported. This operation cascades to delete all associated dataset versions. Requires dataset creator or workspace administrator permissions.
  *
  * @param request DeleteDatasetRequest
  * @return DeleteDatasetResponse
@@ -4105,7 +4156,7 @@ DeleteDatasetResponse Client::deleteDataset(const DeleteDatasetRequest &request)
 }
 
 /**
- * @summary 删除数据集版本
+ * @summary Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
  *
  * @param request DeleteDatasetVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4115,7 +4166,7 @@ DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4136,7 +4187,7 @@ DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const Delet
 }
 
 /**
- * @summary 删除数据集版本
+ * @summary Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
  *
  * @param request DeleteDatasetVersionRequest
  * @return DeleteDatasetVersionResponse
@@ -4155,15 +4206,15 @@ DeleteFileResponse Client::deleteFileWithOptions(const DeleteFileRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4201,15 +4252,15 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const DeleteFolderRequest &
   request.validate();
   json body = {};
   if (!!request.hasFolderId()) {
-    body["FolderId"] = request.folderId();
+    body["FolderId"] = request.getFolderId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4251,11 +4302,11 @@ DeleteFunctionResponse Client::deleteFunctionWithOptions(const DeleteFunctionReq
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4299,7 +4350,7 @@ DeleteLineageRelationshipResponse Client::deleteLineageRelationshipWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4341,7 +4392,7 @@ DeleteMetaCollectionResponse Client::deleteMetaCollectionWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4385,7 +4436,7 @@ DeleteNetworkResponse Client::deleteNetworkWithOptions(const DeleteNetworkReques
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4431,11 +4482,11 @@ DeleteNodeResponse Client::deleteNodeWithOptions(const DeleteNodeRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4481,7 +4532,7 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const DeleteProjectReques
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4527,11 +4578,11 @@ DeleteProjectMemberResponse Client::deleteProjectMemberWithOptions(const DeleteP
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4577,11 +4628,11 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const DeleteResourceReq
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4628,7 +4679,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const DeleteR
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4675,7 +4726,7 @@ DeleteRouteResponse Client::deleteRouteWithOptions(const DeleteRouteRequest &req
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4721,11 +4772,11 @@ DeleteTaskResponse Client::deleteTaskWithOptions(const DeleteTaskRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectEnv()) {
-    query["ProjectEnv"] = request.projectEnv();
+    query["ProjectEnv"] = request.getProjectEnv();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4771,16 +4822,16 @@ DeleteWorkflowResponse Client::deleteWorkflowWithOptions(const DeleteWorkflowReq
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   json body = {};
   if (!!request.hasClientUniqueCode()) {
-    body["ClientUniqueCode"] = request.clientUniqueCode();
+    body["ClientUniqueCode"] = request.getClientUniqueCode();
   }
 
   if (!!request.hasEnvType()) {
-    body["EnvType"] = request.envType();
+    body["EnvType"] = request.getEnvType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4827,11 +4878,11 @@ DeleteWorkflowDefinitionResponse Client::deleteWorkflowDefinitionWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4873,23 +4924,23 @@ DeployFileResponse Client::deployFileWithOptions(const DeployFileRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasNodeId()) {
-    body["NodeId"] = request.nodeId();
+    body["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4930,20 +4981,20 @@ DetachDataQualityRulesFromEvaluationTaskResponse Client::detachDataQualityRulesF
   DetachDataQualityRulesFromEvaluationTaskShrinkRequest request = DetachDataQualityRulesFromEvaluationTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataQualityRuleIds()) {
-    request.setDataQualityRuleIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRuleIds(), "DataQualityRuleIds", "json"));
+    request.setDataQualityRuleIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataQualityRuleIds(), "DataQualityRuleIds", "json"));
   }
 
   json body = {};
   if (!!request.hasDataQualityEvaluationTaskId()) {
-    body["DataQualityEvaluationTaskId"] = request.dataQualityEvaluationTaskId();
+    body["DataQualityEvaluationTaskId"] = request.getDataQualityEvaluationTaskId();
   }
 
   if (!!request.hasDataQualityRuleIdsShrink()) {
-    body["DataQualityRuleIds"] = request.dataQualityRuleIdsShrink();
+    body["DataQualityRuleIds"] = request.getDataQualityRuleIdsShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4989,11 +5040,11 @@ DissociateProjectFromResourceGroupResponse Client::dissociateProjectFromResource
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5037,23 +5088,23 @@ EstablishRelationTableToBusinessResponse Client::establishRelationTableToBusines
   request.validate();
   json body = {};
   if (!!request.hasBusinessId()) {
-    body["BusinessId"] = request.businessId();
+    body["BusinessId"] = request.getBusinessId();
   }
 
   if (!!request.hasFolderId()) {
-    body["FolderId"] = request.folderId();
+    body["FolderId"] = request.getFolderId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasTableGuid()) {
-    body["TableGuid"] = request.tableGuid();
+    body["TableGuid"] = request.getTableGuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5096,16 +5147,16 @@ ExecPipelineRunStageResponse Client::execPipelineRunStageWithOptions(const ExecP
   request.validate();
   json query = {};
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasCode()) {
-    body["Code"] = request.code();
+    body["Code"] = request.getCode();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5154,32 +5205,32 @@ ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstanceWithOpt
   ExecuteAdhocWorkflowInstanceShrinkRequest request = ExecuteAdhocWorkflowInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTasks()) {
-    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tasks(), "Tasks", "json"));
+    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTasks(), "Tasks", "json"));
   }
 
   json body = {};
   if (!!request.hasBizDate()) {
-    body["BizDate"] = request.bizDate();
+    body["BizDate"] = request.getBizDate();
   }
 
   if (!!request.hasEnvType()) {
-    body["EnvType"] = request.envType();
+    body["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTasksShrink()) {
-    body["Tasks"] = request.tasksShrink();
+    body["Tasks"] = request.getTasksShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5259,15 +5310,15 @@ GetBusinessResponse Client::getBusinessWithOptions(const GetBusinessRequest &req
   request.validate();
   json body = {};
   if (!!request.hasBusinessId()) {
-    body["BusinessId"] = request.businessId();
+    body["BusinessId"] = request.getBusinessId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5429,11 +5480,11 @@ GetComponentResponse Client::getComponentWithOptions(const GetComponentRequest &
   request.validate();
   json query = {};
   if (!!request.hasComponentId()) {
-    query["ComponentId"] = request.componentId();
+    query["ComponentId"] = request.getComponentId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5477,11 +5528,11 @@ GetComputeResourceResponse Client::getComputeResourceWithOptions(const GetComput
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5651,7 +5702,7 @@ GetDataQualityAlertRuleResponse Client::getDataQualityAlertRuleWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5857,7 +5908,7 @@ GetDataQualityScanResponse Client::getDataQualityScanWithOptions(const GetDataQu
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5903,7 +5954,7 @@ GetDataQualityScanRunResponse Client::getDataQualityScanRunWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5949,11 +6000,11 @@ GetDataQualityScanRunLogResponse Client::getDataQualityScanRunLogWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasOffset()) {
-    query["Offset"] = request.offset();
+    query["Offset"] = request.getOffset();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5999,7 +6050,7 @@ GetDataQualityTemplateResponse Client::getDataQualityTemplateWithOptions(const G
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6127,7 +6178,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6159,7 +6210,7 @@ GetDatasetResponse Client::getDataset(const GetDatasetRequest &request) {
 }
 
 /**
- * @summary 获取数据集版本
+ * @summary Gets information for a given dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6169,7 +6220,7 @@ GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const GetDatasetV
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6190,7 +6241,7 @@ GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const GetDatasetV
 }
 
 /**
- * @summary 获取数据集版本
+ * @summary Gets information for a given dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @return GetDatasetVersionResponse
@@ -6209,15 +6260,15 @@ GetDeploymentPackageResponse Client::getDeploymentPackageWithOptions(const GetDe
   request.validate();
   json body = {};
   if (!!request.hasDeploymentId()) {
-    body["DeploymentId"] = request.deploymentId();
+    body["DeploymentId"] = request.getDeploymentId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6257,19 +6308,19 @@ GetFileResponse Client::getFileWithOptions(const GetFileRequest &request, const 
   request.validate();
   json body = {};
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasNodeId()) {
-    body["NodeId"] = request.nodeId();
+    body["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6311,19 +6362,19 @@ GetFileVersionResponse Client::getFileVersionWithOptions(const GetFileVersionReq
   request.validate();
   json body = {};
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasFileVersion()) {
-    body["FileVersion"] = request.fileVersion();
+    body["FileVersion"] = request.getFileVersion();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6363,19 +6414,19 @@ GetFolderResponse Client::getFolderWithOptions(const GetFolderRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasFolderId()) {
-    body["FolderId"] = request.folderId();
+    body["FolderId"] = request.getFolderId();
   }
 
   if (!!request.hasFolderPath()) {
-    body["FolderPath"] = request.folderPath();
+    body["FolderPath"] = request.getFolderPath();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6453,11 +6504,11 @@ GetIDEEventDetailResponse Client::getIDEEventDetailWithOptions(const GetIDEEvent
   request.validate();
   json body = {};
   if (!!request.hasMessageId()) {
-    body["MessageId"] = request.messageId();
+    body["MessageId"] = request.getMessageId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6819,11 +6870,11 @@ GetProjectMemberResponse Client::getProjectMemberWithOptions(const GetProjectMem
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6869,11 +6920,11 @@ GetProjectRoleResponse Client::getProjectRoleWithOptions(const GetProjectRoleReq
   request.validate();
   json query = {};
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6917,7 +6968,7 @@ GetRerunWorkflowInstancesResultResponse Client::getRerunWorkflowInstancesResultW
   request.validate();
   json query = {};
   if (!!request.hasOperationId()) {
-    query["OperationId"] = request.operationId();
+    query["OperationId"] = request.getOperationId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7410,20 +7461,20 @@ GrantMemberProjectRolesResponse Client::grantMemberProjectRolesWithOptions(const
   GrantMemberProjectRolesShrinkRequest request = GrantMemberProjectRolesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoleCodes()) {
-    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roleCodes(), "RoleCodes", "json"));
+    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoleCodes(), "RoleCodes", "json"));
   }
 
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRoleCodesShrink()) {
-    body["RoleCodes"] = request.roleCodesShrink();
+    body["RoleCodes"] = request.getRoleCodesShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7467,19 +7518,19 @@ ImportCertificateResponse Client::importCertificateWithOptions(const ImportCerti
   request.validate();
   json query = {};
   if (!!request.hasCertificateFile()) {
-    query["CertificateFile"] = request.certificateFile();
+    query["CertificateFile"] = request.getCertificateFile();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7520,10 +7571,10 @@ ImportCertificateResponse Client::importCertificateAdvance(const ImportCertifica
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -7576,7 +7627,7 @@ ImportCertificateResponse Client::importCertificateAdvance(const ImportCertifica
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.certificateFileObject()},
+      {"content" , request.getCertificateFileObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -7611,11 +7662,11 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinitionWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7662,40 +7713,40 @@ ListAlertRulesResponse Client::listAlertRulesWithOptions(const ListAlertRulesReq
   ListAlertRulesShrinkRequest request = ListAlertRulesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTaskIds()) {
-    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskIds(), "TaskIds", "json"));
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "TaskIds", "json"));
   }
 
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "Types", "json"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "json"));
   }
 
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOwner()) {
-    query["Owner"] = request.owner();
+    query["Owner"] = request.getOwner();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasReceiver()) {
-    query["Receiver"] = request.receiver();
+    query["Receiver"] = request.getReceiver();
   }
 
   if (!!request.hasTaskIdsShrink()) {
-    query["TaskIds"] = request.taskIdsShrink();
+    query["TaskIds"] = request.getTaskIdsShrink();
   }
 
   if (!!request.hasTypesShrink()) {
-    query["Types"] = request.typesShrink();
+    query["Types"] = request.getTypesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7735,23 +7786,23 @@ ListBusinessResponse Client::listBusinessWithOptions(const ListBusinessRequest &
   request.validate();
   json body = {};
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7792,7 +7843,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const ListCatalogsRequest &
   ListCatalogsShrinkRequest request = ListCatalogsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "Types", "simple"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "simple"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -7919,19 +7970,19 @@ ListComponentsResponse Client::listComponentsWithOptions(const ListComponentsReq
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7976,40 +8027,40 @@ ListComputeResourcesResponse Client::listComputeResourcesWithOptions(const ListC
   ListComputeResourcesShrinkRequest request = ListComputeResourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "Types", "simple"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "simple"));
   }
 
   json query = {};
   if (!!request.hasEnvType()) {
-    query["EnvType"] = request.envType();
+    query["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasTypesShrink()) {
-    query["Types"] = request.typesShrink();
+    query["Types"] = request.getTypesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8167,7 +8218,7 @@ ListDIJobMetricsResponse Client::listDIJobMetricsWithOptions(const ListDIJobMetr
   ListDIJobMetricsShrinkRequest request = ListDIJobMetricsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasMetricName()) {
-    request.setMetricNameShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.metricName(), "MetricName", "json"));
+    request.setMetricNameShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetricName(), "MetricName", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -8341,11 +8392,11 @@ ListDataAssetsResponse Client::listDataAssetsWithOptions(const ListDataAssetsReq
   ListDataAssetsShrinkRequest request = ListDataAssetsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataAssetIds()) {
-    request.setDataAssetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataAssetIds(), "DataAssetIds", "json"));
+    request.setDataAssetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataAssetIds(), "DataAssetIds", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -8392,23 +8443,23 @@ ListDataQualityAlertRulesResponse Client::listDataQualityAlertRulesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasDataQualityScanId()) {
-    query["DataQualityScanId"] = request.dataQualityScanId();
+    query["DataQualityScanId"] = request.getDataQualityScanId();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8657,44 +8708,44 @@ ListDataQualityScanRunsResponse Client::listDataQualityScanRunsWithOptions(const
   ListDataQualityScanRunsShrinkRequest request = ListDataQualityScanRunsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json query = {};
   if (!!request.hasCreateTimeFrom()) {
-    query["CreateTimeFrom"] = request.createTimeFrom();
+    query["CreateTimeFrom"] = request.getCreateTimeFrom();
   }
 
   if (!!request.hasCreateTimeTo()) {
-    query["CreateTimeTo"] = request.createTimeTo();
+    query["CreateTimeTo"] = request.getCreateTimeTo();
   }
 
   if (!!request.hasDataQualityScanId()) {
-    query["DataQualityScanId"] = request.dataQualityScanId();
+    query["DataQualityScanId"] = request.getDataQualityScanId();
   }
 
   if (!!request.hasFilterShrink()) {
-    query["Filter"] = request.filterShrink();
+    query["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8740,27 +8791,27 @@ ListDataQualityScansResponse Client::listDataQualityScansWithOptions(const ListD
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasTable()) {
-    query["Table"] = request.table();
+    query["Table"] = request.getTable();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8806,23 +8857,23 @@ ListDataQualityTemplatesResponse Client::listDataQualityTemplatesWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasCatalog()) {
-    query["Catalog"] = request.catalog();
+    query["Catalog"] = request.getCatalog();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8917,7 +8968,7 @@ ListDataSourcesResponse Client::listDataSourcesWithOptions(const ListDataSources
   ListDataSourcesShrinkRequest request = ListDataSourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "Types", "simple"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "simple"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -8992,7 +9043,7 @@ ListDatabasesResponse Client::listDatabases(const ListDatabasesRequest &request)
 }
 
 /**
- * @summary 获取数据集版本列表
+ * @summary Retrieves the version list for a given dataset.
  *
  * @param request ListDatasetVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9002,27 +9053,27 @@ ListDatasetVersionsResponse Client::listDatasetVersionsWithOptions(const ListDat
   request.validate();
   json body = {};
   if (!!request.hasCreatorId()) {
-    body["CreatorId"] = request.creatorId();
+    body["CreatorId"] = request.getCreatorId();
   }
 
   if (!!request.hasDatasetId()) {
-    body["DatasetId"] = request.datasetId();
+    body["DatasetId"] = request.getDatasetId();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    body["SortBy"] = request.sortBy();
+    body["SortBy"] = request.getSortBy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9043,7 +9094,7 @@ ListDatasetVersionsResponse Client::listDatasetVersionsWithOptions(const ListDat
 }
 
 /**
- * @summary 获取数据集版本列表
+ * @summary Retrieves the version list for a given dataset.
  *
  * @param request ListDatasetVersionsRequest
  * @return ListDatasetVersionsResponse
@@ -9054,7 +9105,7 @@ ListDatasetVersionsResponse Client::listDatasetVersions(const ListDatasetVersion
 }
 
 /**
- * @summary 获取数据集列表
+ * @summary Queries a list of datasets. Currently, DataWorks datasets and PAI datasets are supported.
  *
  * @param tmpReq ListDatasetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9065,52 +9116,52 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
   ListDatasetsShrinkRequest request = ListDatasetsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataTypeList()) {
-    request.setDataTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataTypeList(), "DataTypeList", "simple"));
+    request.setDataTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataTypeList(), "DataTypeList", "simple"));
   }
 
   if (!!tmpReq.hasStorageTypeList()) {
-    request.setStorageTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.storageTypeList(), "StorageTypeList", "simple"));
+    request.setStorageTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStorageTypeList(), "StorageTypeList", "simple"));
   }
 
   json body = {};
   if (!!request.hasCreatorId()) {
-    body["CreatorId"] = request.creatorId();
+    body["CreatorId"] = request.getCreatorId();
   }
 
   if (!!request.hasDataTypeListShrink()) {
-    body["DataTypeList"] = request.dataTypeListShrink();
+    body["DataTypeList"] = request.getDataTypeListShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrigin()) {
-    body["Origin"] = request.origin();
+    body["Origin"] = request.getOrigin();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSortBy()) {
-    body["SortBy"] = request.sortBy();
+    body["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStorageTypeListShrink()) {
-    body["StorageTypeList"] = request.storageTypeListShrink();
+    body["StorageTypeList"] = request.getStorageTypeListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9131,7 +9182,7 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
 }
 
 /**
- * @summary 获取数据集列表
+ * @summary Queries a list of datasets. Currently, DataWorks datasets and PAI datasets are supported.
  *
  * @param request ListDatasetsRequest
  * @return ListDatasetsResponse
@@ -9153,56 +9204,56 @@ ListDeploymentPackageFilesResponse Client::listDeploymentPackageFilesWithOptions
   ListDeploymentPackageFilesShrinkRequest request = ListDeploymentPackageFilesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFileIds()) {
-    request.setFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.fileIds(), "FileIds", "json"));
+    request.setFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileIds(), "FileIds", "json"));
   }
 
   json query = {};
   if (!!request.hasBusinessId()) {
-    query["BusinessId"] = request.businessId();
+    query["BusinessId"] = request.getBusinessId();
   }
 
   if (!!request.hasChangeType()) {
-    query["ChangeType"] = request.changeType();
+    query["ChangeType"] = request.getChangeType();
   }
 
   if (!!request.hasCommitFrom()) {
-    query["CommitFrom"] = request.commitFrom();
+    query["CommitFrom"] = request.getCommitFrom();
   }
 
   if (!!request.hasCommitTo()) {
-    query["CommitTo"] = request.commitTo();
+    query["CommitTo"] = request.getCommitTo();
   }
 
   if (!!request.hasCommitUserId()) {
-    query["CommitUserId"] = request.commitUserId();
+    query["CommitUserId"] = request.getCommitUserId();
   }
 
   if (!!request.hasFileIdsShrink()) {
-    query["FileIds"] = request.fileIdsShrink();
+    query["FileIds"] = request.getFileIdsShrink();
   }
 
   if (!!request.hasFileName()) {
-    query["FileName"] = request.fileName();
+    query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileType()) {
-    query["FileType"] = request.fileType();
+    query["FileType"] = request.getFileType();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSolutionId()) {
-    query["SolutionId"] = request.solutionId();
+    query["SolutionId"] = request.getSolutionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9244,43 +9295,43 @@ ListDeploymentPackagesResponse Client::listDeploymentPackagesWithOptions(const L
   request.validate();
   json body = {};
   if (!!request.hasCreator()) {
-    body["Creator"] = request.creator();
+    body["Creator"] = request.getCreator();
   }
 
   if (!!request.hasEndCreateTime()) {
-    body["EndCreateTime"] = request.endCreateTime();
+    body["EndCreateTime"] = request.getEndCreateTime();
   }
 
   if (!!request.hasEndExecuteTime()) {
-    body["EndExecuteTime"] = request.endExecuteTime();
+    body["EndExecuteTime"] = request.getEndExecuteTime();
   }
 
   if (!!request.hasExecutor()) {
-    body["Executor"] = request.executor();
+    body["Executor"] = request.getExecutor();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9438,23 +9489,23 @@ ListFileVersionsResponse Client::listFileVersionsWithOptions(const ListFileVersi
   request.validate();
   json body = {};
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9492,67 +9543,67 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasCommitStatus()) {
-    body["CommitStatus"] = request.commitStatus();
+    body["CommitStatus"] = request.getCommitStatus();
   }
 
   if (!!request.hasExactFileName()) {
-    body["ExactFileName"] = request.exactFileName();
+    body["ExactFileName"] = request.getExactFileName();
   }
 
   if (!!request.hasFileFolderPath()) {
-    body["FileFolderPath"] = request.fileFolderPath();
+    body["FileFolderPath"] = request.getFileFolderPath();
   }
 
   if (!!request.hasFileIdIn()) {
-    body["FileIdIn"] = request.fileIdIn();
+    body["FileIdIn"] = request.getFileIdIn();
   }
 
   if (!!request.hasFileTypes()) {
-    body["FileTypes"] = request.fileTypes();
+    body["FileTypes"] = request.getFileTypes();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasLastEditUser()) {
-    body["LastEditUser"] = request.lastEditUser();
+    body["LastEditUser"] = request.getLastEditUser();
   }
 
   if (!!request.hasNeedAbsoluteFolderPath()) {
-    body["NeedAbsoluteFolderPath"] = request.needAbsoluteFolderPath();
+    body["NeedAbsoluteFolderPath"] = request.getNeedAbsoluteFolderPath();
   }
 
   if (!!request.hasNeedContent()) {
-    body["NeedContent"] = request.needContent();
+    body["NeedContent"] = request.getNeedContent();
   }
 
   if (!!request.hasNodeId()) {
-    body["NodeId"] = request.nodeId();
+    body["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasUseType()) {
-    body["UseType"] = request.useType();
+    body["UseType"] = request.getUseType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9590,23 +9641,23 @@ ListFoldersResponse Client::listFoldersWithOptions(const ListFoldersRequest &req
   request.validate();
   json body = {};
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasParentFolderPath()) {
-    body["ParentFolderPath"] = request.parentFolderPath();
+    body["ParentFolderPath"] = request.getParentFolderPath();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9712,7 +9763,7 @@ ListLineageRelationshipsResponse Client::listLineageRelationships(const ListLine
 }
 
 /**
- * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
+ * @summary 查询实体血缘
  *
  * @param request ListLineagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9739,7 +9790,7 @@ ListLineagesResponse Client::listLineagesWithOptions(const ListLineagesRequest &
 }
 
 /**
- * @summary Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
+ * @summary 查询实体血缘
  *
  * @param request ListLineagesRequest
  * @return ListLineagesResponse
@@ -10033,32 +10084,32 @@ ListProjectMembersResponse Client::listProjectMembersWithOptions(const ListProje
   ListProjectMembersShrinkRequest request = ListProjectMembersShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoleCodes()) {
-    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roleCodes(), "RoleCodes", "json"));
+    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoleCodes(), "RoleCodes", "json"));
   }
 
   if (!!tmpReq.hasUserIds()) {
-    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIds(), "UserIds", "json"));
+    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIds(), "UserIds", "json"));
   }
 
   json body = {};
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRoleCodesShrink()) {
-    body["RoleCodes"] = request.roleCodesShrink();
+    body["RoleCodes"] = request.getRoleCodesShrink();
   }
 
   if (!!request.hasUserIdsShrink()) {
-    body["UserIds"] = request.userIdsShrink();
+    body["UserIds"] = request.getUserIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10105,36 +10156,36 @@ ListProjectRolesResponse Client::listProjectRolesWithOptions(const ListProjectRo
   ListProjectRolesShrinkRequest request = ListProjectRolesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCodes()) {
-    request.setCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.codes(), "Codes", "json"));
+    request.setCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCodes(), "Codes", "json"));
   }
 
   if (!!tmpReq.hasNames()) {
-    request.setNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.names(), "Names", "json"));
+    request.setNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNames(), "Names", "json"));
   }
 
   json body = {};
   if (!!request.hasCodesShrink()) {
-    body["Codes"] = request.codesShrink();
+    body["Codes"] = request.getCodesShrink();
   }
 
   if (!!request.hasNamesShrink()) {
-    body["Names"] = request.namesShrink();
+    body["Names"] = request.getNamesShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10179,56 +10230,56 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
   ListProjectsShrinkRequest request = ListProjectsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAliyunResourceTags()) {
-    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.aliyunResourceTags(), "AliyunResourceTags", "json"));
+    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAliyunResourceTags(), "AliyunResourceTags", "json"));
   }
 
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   if (!!tmpReq.hasNames()) {
-    request.setNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.names(), "Names", "json"));
+    request.setNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNames(), "Names", "json"));
   }
 
   json body = {};
   if (!!request.hasAliyunResourceGroupId()) {
-    body["AliyunResourceGroupId"] = request.aliyunResourceGroupId();
+    body["AliyunResourceGroupId"] = request.getAliyunResourceGroupId();
   }
 
   if (!!request.hasAliyunResourceTagsShrink()) {
-    body["AliyunResourceTags"] = request.aliyunResourceTagsShrink();
+    body["AliyunResourceTags"] = request.getAliyunResourceTagsShrink();
   }
 
   if (!!request.hasDevEnvironmentEnabled()) {
-    body["DevEnvironmentEnabled"] = request.devEnvironmentEnabled();
+    body["DevEnvironmentEnabled"] = request.getDevEnvironmentEnabled();
   }
 
   if (!!request.hasDevRoleDisabled()) {
-    body["DevRoleDisabled"] = request.devRoleDisabled();
+    body["DevRoleDisabled"] = request.getDevRoleDisabled();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   if (!!request.hasNamesShrink()) {
-    body["Names"] = request.namesShrink();
+    body["Names"] = request.getNamesShrink();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPaiTaskEnabled()) {
-    body["PaiTaskEnabled"] = request.paiTaskEnabled();
+    body["PaiTaskEnabled"] = request.getPaiTaskEnabled();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10273,7 +10324,7 @@ ListResourceGroupAssociateProjectsResponse Client::listResourceGroupAssociatePro
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10318,31 +10369,31 @@ ListResourceGroupMetricDataResponse Client::listResourceGroupMetricDataWithOptio
   request.validate();
   json body = {};
   if (!!request.hasBeginTime()) {
-    body["BeginTime"] = request.beginTime();
+    body["BeginTime"] = request.getBeginTime();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasLength()) {
-    body["Length"] = request.length();
+    body["Length"] = request.getLength();
   }
 
   if (!!request.hasMetricName()) {
-    body["MetricName"] = request.metricName();
+    body["MetricName"] = request.getMetricName();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPeriod()) {
-    body["Period"] = request.period();
+    body["Period"] = request.getPeriod();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10385,15 +10436,15 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
   ListResourceGroupsShrinkRequest request = ListResourceGroupsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAliyunResourceTags()) {
-    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.aliyunResourceTags(), "AliyunResourceTags", "json"));
+    request.setAliyunResourceTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAliyunResourceTags(), "AliyunResourceTags", "json"));
   }
 
   if (!!tmpReq.hasResourceGroupTypes()) {
-    request.setResourceGroupTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceGroupTypes(), "ResourceGroupTypes", "json"));
+    request.setResourceGroupTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceGroupTypes(), "ResourceGroupTypes", "json"));
   }
 
   if (!!tmpReq.hasStatuses()) {
-    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.statuses(), "Statuses", "json"));
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "Statuses", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -10517,7 +10568,7 @@ ListSchemasResponse Client::listSchemasWithOptions(const ListSchemasRequest &tmp
   ListSchemasShrinkRequest request = ListSchemasShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "Types", "simple"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "Types", "simple"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -10561,7 +10612,7 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
   ListTablesShrinkRequest request = ListTablesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTableTypes()) {
-    request.setTableTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableTypes(), "TableTypes", "simple"));
+    request.setTableTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableTypes(), "TableTypes", "simple"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -10651,100 +10702,100 @@ ListTaskInstancesResponse Client::listTaskInstancesWithOptions(const ListTaskIns
   ListTaskInstancesShrinkRequest request = ListTaskInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   if (!!tmpReq.hasTaskIds()) {
-    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskIds(), "TaskIds", "json"));
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "TaskIds", "json"));
   }
 
   json body = {};
   if (!!request.hasBizdate()) {
-    body["Bizdate"] = request.bizdate();
+    body["Bizdate"] = request.getBizdate();
   }
 
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectEnv()) {
-    body["ProjectEnv"] = request.projectEnv();
+    body["ProjectEnv"] = request.getProjectEnv();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeResource()) {
-    body["RuntimeResource"] = request.runtimeResource();
+    body["RuntimeResource"] = request.getRuntimeResource();
   }
 
   if (!!request.hasSortBy()) {
-    body["SortBy"] = request.sortBy();
+    body["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskIdsShrink()) {
-    body["TaskIds"] = request.taskIdsShrink();
+    body["TaskIds"] = request.getTaskIdsShrink();
   }
 
   if (!!request.hasTaskName()) {
-    body["TaskName"] = request.taskName();
+    body["TaskName"] = request.getTaskName();
   }
 
   if (!!request.hasTaskType()) {
-    body["TaskType"] = request.taskType();
+    body["TaskType"] = request.getTaskType();
   }
 
   if (!!request.hasTriggerRecurrence()) {
-    body["TriggerRecurrence"] = request.triggerRecurrence();
+    body["TriggerRecurrence"] = request.getTriggerRecurrence();
   }
 
   if (!!request.hasTriggerType()) {
-    body["TriggerType"] = request.triggerType();
+    body["TriggerType"] = request.getTriggerType();
   }
 
   if (!!request.hasUnifiedWorkflowInstanceId()) {
-    body["UnifiedWorkflowInstanceId"] = request.unifiedWorkflowInstanceId();
+    body["UnifiedWorkflowInstanceId"] = request.getUnifiedWorkflowInstanceId();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   if (!!request.hasWorkflowInstanceId()) {
-    body["WorkflowInstanceId"] = request.workflowInstanceId();
+    body["WorkflowInstanceId"] = request.getWorkflowInstanceId();
   }
 
   if (!!request.hasWorkflowInstanceType()) {
-    body["WorkflowInstanceType"] = request.workflowInstanceType();
+    body["WorkflowInstanceType"] = request.getWorkflowInstanceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10833,60 +10884,60 @@ ListTasksResponse Client::listTasksWithOptions(const ListTasksRequest &tmpReq, c
   ListTasksShrinkRequest request = ListTasksShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectEnv()) {
-    body["ProjectEnv"] = request.projectEnv();
+    body["ProjectEnv"] = request.getProjectEnv();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeResource()) {
-    body["RuntimeResource"] = request.runtimeResource();
+    body["RuntimeResource"] = request.getRuntimeResource();
   }
 
   if (!!request.hasSortBy()) {
-    body["SortBy"] = request.sortBy();
+    body["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasTaskType()) {
-    body["TaskType"] = request.taskType();
+    body["TaskType"] = request.getTaskType();
   }
 
   if (!!request.hasTriggerRecurrence()) {
-    body["TriggerRecurrence"] = request.triggerRecurrence();
+    body["TriggerRecurrence"] = request.getTriggerRecurrence();
   }
 
   if (!!request.hasTriggerType()) {
-    body["TriggerType"] = request.triggerType();
+    body["TriggerType"] = request.getTriggerType();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11049,64 +11100,64 @@ ListWorkflowInstancesResponse Client::listWorkflowInstancesWithOptions(const Lis
   ListWorkflowInstancesShrinkRequest request = ListWorkflowInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   json body = {};
   if (!!request.hasBizDate()) {
-    body["BizDate"] = request.bizDate();
+    body["BizDate"] = request.getBizDate();
   }
 
   if (!!request.hasFilter()) {
-    body["Filter"] = request.filter();
+    body["Filter"] = request.getFilter();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSortBy()) {
-    body["SortBy"] = request.sortBy();
+    body["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["Tags"] = request.tagsShrink();
+    body["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasUnifiedWorkflowInstanceId()) {
-    body["UnifiedWorkflowInstanceId"] = request.unifiedWorkflowInstanceId();
+    body["UnifiedWorkflowInstanceId"] = request.getUnifiedWorkflowInstanceId();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11153,52 +11204,52 @@ ListWorkflowsResponse Client::listWorkflowsWithOptions(const ListWorkflowsReques
   ListWorkflowsShrinkRequest request = ListWorkflowsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   json body = {};
   if (!!request.hasEnvType()) {
-    body["EnvType"] = request.envType();
+    body["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSortBy()) {
-    body["SortBy"] = request.sortBy();
+    body["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["Tags"] = request.tagsShrink();
+    body["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTriggerType()) {
-    body["TriggerType"] = request.triggerType();
+    body["TriggerType"] = request.getTriggerType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11242,15 +11293,15 @@ MoveFunctionResponse Client::moveFunctionWithOptions(const MoveFunctionRequest &
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasPath()) {
-    body["Path"] = request.path();
+    body["Path"] = request.getPath();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11292,15 +11343,15 @@ MoveNodeResponse Client::moveNodeWithOptions(const MoveNodeRequest &request, con
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasPath()) {
-    body["Path"] = request.path();
+    body["Path"] = request.getPath();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11342,15 +11393,15 @@ MoveResourceResponse Client::moveResourceWithOptions(const MoveResourceRequest &
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasPath()) {
-    body["Path"] = request.path();
+    body["Path"] = request.getPath();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11392,15 +11443,15 @@ MoveWorkflowDefinitionResponse Client::moveWorkflowDefinitionWithOptions(const M
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasPath()) {
-    body["Path"] = request.path();
+    body["Path"] = request.getPath();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11432,7 +11483,7 @@ MoveWorkflowDefinitionResponse Client::moveWorkflowDefinition(const MoveWorkflow
 }
 
 /**
- * @summary 预览数据集版本内容
+ * @summary Previews the content of a specified dataset version. Currently only text file preview is supported for OSS-type datasets. Supported MIME types 1. application/json 2. application/xml 3. text/html 4. text/plain 5. application/octet-stream
  *
  * @param request PreviewDatasetVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11442,7 +11493,7 @@ PreviewDatasetVersionResponse Client::previewDatasetVersionWithOptions(const Pre
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11463,7 +11514,7 @@ PreviewDatasetVersionResponse Client::previewDatasetVersionWithOptions(const Pre
 }
 
 /**
- * @summary 预览数据集版本内容
+ * @summary Previews the content of a specified dataset version. Currently only text file preview is supported for OSS-type datasets. Supported MIME types 1. application/json 2. application/xml 3. text/html 4. text/plain 5. application/octet-stream
  *
  * @param request PreviewDatasetVersionRequest
  * @return PreviewDatasetVersionResponse
@@ -11484,11 +11535,11 @@ RemoveEntityFromMetaCollectionResponse Client::removeEntityFromMetaCollectionWit
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasMetaCollectionId()) {
-    query["MetaCollectionId"] = request.metaCollectionId();
+    query["MetaCollectionId"] = request.getMetaCollectionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11533,21 +11584,21 @@ RemoveTaskInstanceDependenciesResponse Client::removeTaskInstanceDependenciesWit
   RemoveTaskInstanceDependenciesShrinkRequest request = RemoveTaskInstanceDependenciesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUpstreamTaskInstanceIds()) {
-    request.setUpstreamTaskInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.upstreamTaskInstanceIds(), "UpstreamTaskInstanceIds", "json"));
+    request.setUpstreamTaskInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpstreamTaskInstanceIds(), "UpstreamTaskInstanceIds", "json"));
   }
 
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasUpstreamTaskInstanceIdsShrink()) {
-    body["UpstreamTaskInstanceIds"] = request.upstreamTaskInstanceIdsShrink();
+    body["UpstreamTaskInstanceIds"] = request.getUpstreamTaskInstanceIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11592,15 +11643,15 @@ RenameFunctionResponse Client::renameFunctionWithOptions(const RenameFunctionReq
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11642,15 +11693,15 @@ RenameNodeResponse Client::renameNodeWithOptions(const RenameNodeRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11692,15 +11743,15 @@ RenameResourceResponse Client::renameResourceWithOptions(const RenameResourceReq
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11742,15 +11793,15 @@ RenameWorkflowDefinitionResponse Client::renameWorkflowDefinitionWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11795,16 +11846,16 @@ RerunTaskInstancesResponse Client::rerunTaskInstancesWithOptions(const RerunTask
   RerunTaskInstancesShrinkRequest request = RerunTaskInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11849,56 +11900,56 @@ RerunWorkflowInstancesResponse Client::rerunWorkflowInstancesWithOptions(const R
   RerunWorkflowInstancesShrinkRequest request = RerunWorkflowInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasBizdate()) {
-    body["Bizdate"] = request.bizdate();
+    body["Bizdate"] = request.getBizdate();
   }
 
   if (!!request.hasEndTriggerTime()) {
-    body["EndTriggerTime"] = request.endTriggerTime();
+    body["EndTriggerTime"] = request.getEndTriggerTime();
   }
 
   if (!!request.hasEnvType()) {
-    body["EnvType"] = request.envType();
+    body["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasFilterShrink()) {
-    body["Filter"] = request.filterShrink();
+    body["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasStartTriggerTime()) {
-    body["StartTriggerTime"] = request.startTriggerTime();
+    body["StartTriggerTime"] = request.getStartTriggerTime();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   if (!!request.hasWorkflowId()) {
-    body["WorkflowId"] = request.workflowId();
+    body["WorkflowId"] = request.getWorkflowId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11943,16 +11994,16 @@ ResumeTaskInstancesResponse Client::resumeTaskInstancesWithOptions(const ResumeT
   ResumeTaskInstancesShrinkRequest request = ResumeTaskInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11999,20 +12050,20 @@ RevokeMemberProjectRolesResponse Client::revokeMemberProjectRolesWithOptions(con
   RevokeMemberProjectRolesShrinkRequest request = RevokeMemberProjectRolesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRoleCodes()) {
-    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roleCodes(), "RoleCodes", "json"));
+    request.setRoleCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoleCodes(), "RoleCodes", "json"));
   }
 
   json body = {};
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRoleCodesShrink()) {
-    body["RoleCodes"] = request.roleCodesShrink();
+    body["RoleCodes"] = request.getRoleCodesShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12059,16 +12110,16 @@ SetSuccessTaskInstancesResponse Client::setSuccessTaskInstancesWithOptions(const
   SetSuccessTaskInstancesShrinkRequest request = SetSuccessTaskInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12115,7 +12166,7 @@ StartDIJobResponse Client::startDIJobWithOptions(const StartDIJobRequest &tmpReq
   StartDIJobShrinkRequest request = StartDIJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRealtimeStartSettings()) {
-    request.setRealtimeStartSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.realtimeStartSettings(), "RealtimeStartSettings", "json"));
+    request.setRealtimeStartSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRealtimeStartSettings(), "RealtimeStartSettings", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -12163,16 +12214,16 @@ StartWorkflowInstancesResponse Client::startWorkflowInstancesWithOptions(const S
   StartWorkflowInstancesShrinkRequest request = StartWorkflowInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12261,16 +12312,16 @@ StopTaskInstancesResponse Client::stopTaskInstancesWithOptions(const StopTaskIns
   StopTaskInstancesShrinkRequest request = StopTaskInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12317,16 +12368,16 @@ StopWorkflowInstancesResponse Client::stopWorkflowInstancesWithOptions(const Sto
   StopWorkflowInstancesShrinkRequest request = StopWorkflowInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12368,23 +12419,23 @@ SubmitFileResponse Client::submitFileWithOptions(const SubmitFileRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasSkipAllDeployFileExtensions()) {
-    body["SkipAllDeployFileExtensions"] = request.skipAllDeployFileExtensions();
+    body["SkipAllDeployFileExtensions"] = request.getSkipAllDeployFileExtensions();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12427,16 +12478,16 @@ SuspendTaskInstancesResponse Client::suspendTaskInstancesWithOptions(const Suspe
   SuspendTaskInstancesShrinkRequest request = SuspendTaskInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIds()) {
-    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasIdsShrink()) {
-    body["Ids"] = request.idsShrink();
+    body["Ids"] = request.getIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12483,36 +12534,36 @@ TagDataAssetsResponse Client::tagDataAssetsWithOptions(const TagDataAssetsReques
   TagDataAssetsShrinkRequest request = TagDataAssetsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataAssetIds()) {
-    request.setDataAssetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataAssetIds(), "DataAssetIds", "json"));
+    request.setDataAssetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataAssetIds(), "DataAssetIds", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   json query = {};
   if (!!request.hasAutoTraceEnabled()) {
-    query["AutoTraceEnabled"] = request.autoTraceEnabled();
+    query["AutoTraceEnabled"] = request.getAutoTraceEnabled();
   }
 
   if (!!request.hasDataAssetIdsShrink()) {
-    query["DataAssetIds"] = request.dataAssetIdsShrink();
+    query["DataAssetIds"] = request.getDataAssetIdsShrink();
   }
 
   if (!!request.hasDataAssetType()) {
-    query["DataAssetType"] = request.dataAssetType();
+    query["DataAssetType"] = request.getDataAssetType();
   }
 
   if (!!request.hasEnvType()) {
-    query["EnvType"] = request.envType();
+    query["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTagsShrink()) {
-    query["Tags"] = request.tagsShrink();
+    query["Tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12559,15 +12610,15 @@ TestDataSourceConnectivityResponse Client::testDataSourceConnectivityWithOptions
   request.validate();
   json query = {};
   if (!!request.hasDataSourceId()) {
-    query["DataSourceId"] = request.dataSourceId();
+    query["DataSourceId"] = request.getDataSourceId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12614,16 +12665,16 @@ TriggerSchedulerTaskInstanceResponse Client::triggerSchedulerTaskInstanceWithOpt
   request.validate();
   json query = {};
   if (!!request.hasEnvType()) {
-    query["EnvType"] = request.envType();
+    query["EnvType"] = request.getEnvType();
   }
 
   json body = {};
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTriggerTime()) {
-    body["TriggerTime"] = request.triggerTime();
+    body["TriggerTime"] = request.getTriggerTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12671,32 +12722,32 @@ UnTagDataAssetsResponse Client::unTagDataAssetsWithOptions(const UnTagDataAssets
   UnTagDataAssetsShrinkRequest request = UnTagDataAssetsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataAssetIds()) {
-    request.setDataAssetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataAssetIds(), "DataAssetIds", "json"));
+    request.setDataAssetIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataAssetIds(), "DataAssetIds", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   json query = {};
   if (!!request.hasDataAssetIdsShrink()) {
-    query["DataAssetIds"] = request.dataAssetIdsShrink();
+    query["DataAssetIds"] = request.getDataAssetIdsShrink();
   }
 
   if (!!request.hasDataAssetType()) {
-    query["DataAssetType"] = request.dataAssetType();
+    query["DataAssetType"] = request.getDataAssetType();
   }
 
   if (!!request.hasEnvType()) {
-    query["EnvType"] = request.envType();
+    query["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTagsShrink()) {
-    query["Tags"] = request.tagsShrink();
+    query["Tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12741,36 +12792,36 @@ UpdateAlertRuleResponse Client::updateAlertRuleWithOptions(const UpdateAlertRule
   UpdateAlertRuleShrinkRequest request = UpdateAlertRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNotification()) {
-    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notification(), "Notification", "json"));
+    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotification(), "Notification", "json"));
   }
 
   if (!!tmpReq.hasTriggerCondition()) {
-    request.setTriggerConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.triggerCondition(), "TriggerCondition", "json"));
+    request.setTriggerConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTriggerCondition(), "TriggerCondition", "json"));
   }
 
   json query = {};
   if (!!request.hasEnabled()) {
-    query["Enabled"] = request.enabled();
+    query["Enabled"] = request.getEnabled();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNotificationShrink()) {
-    query["Notification"] = request.notificationShrink();
+    query["Notification"] = request.getNotificationShrink();
   }
 
   if (!!request.hasOwner()) {
-    query["Owner"] = request.owner();
+    query["Owner"] = request.getOwner();
   }
 
   if (!!request.hasTriggerConditionShrink()) {
-    query["TriggerCondition"] = request.triggerConditionShrink();
+    query["TriggerCondition"] = request.getTriggerConditionShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12812,27 +12863,27 @@ UpdateBusinessResponse Client::updateBusinessWithOptions(const UpdateBusinessReq
   request.validate();
   json body = {};
   if (!!request.hasBusinessId()) {
-    body["BusinessId"] = request.businessId();
+    body["BusinessId"] = request.getBusinessId();
   }
 
   if (!!request.hasBusinessName()) {
-    body["BusinessName"] = request.businessName();
+    body["BusinessName"] = request.getBusinessName();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12874,11 +12925,11 @@ UpdateColumnBusinessMetadataResponse Client::updateColumnBusinessMetadataWithOpt
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12922,16 +12973,16 @@ UpdateComponentResponse Client::updateComponentWithOptions(const UpdateComponent
   request.validate();
   json query = {};
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasComponentId()) {
-    body["ComponentId"] = request.componentId();
+    body["ComponentId"] = request.getComponentId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12976,23 +13027,23 @@ UpdateComputeResourceResponse Client::updateComputeResourceWithOptions(const Upd
   request.validate();
   json query = {};
   if (!!request.hasConnectionProperties()) {
-    query["ConnectionProperties"] = request.connectionProperties();
+    query["ConnectionProperties"] = request.getConnectionProperties();
   }
 
   if (!!request.hasConnectionPropertiesMode()) {
-    query["ConnectionPropertiesMode"] = request.connectionPropertiesMode();
+    query["ConnectionPropertiesMode"] = request.getConnectionPropertiesMode();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13035,11 +13086,11 @@ UpdateDIAlarmRuleResponse Client::updateDIAlarmRuleWithOptions(const UpdateDIAla
   UpdateDIAlarmRuleShrinkRequest request = UpdateDIAlarmRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNotificationSettings()) {
-    request.setNotificationSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notificationSettings(), "NotificationSettings", "json"));
+    request.setNotificationSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotificationSettings(), "NotificationSettings", "json"));
   }
 
   if (!!tmpReq.hasTriggerConditions()) {
-    request.setTriggerConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.triggerConditions(), "TriggerConditions", "json"));
+    request.setTriggerConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTriggerConditions(), "TriggerConditions", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -13085,53 +13136,53 @@ UpdateDIJobResponse Client::updateDIJobWithOptions(const UpdateDIJobRequest &tmp
   UpdateDIJobShrinkRequest request = UpdateDIJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJobSettings()) {
-    request.setJobSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobSettings(), "JobSettings", "json"));
+    request.setJobSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJobSettings(), "JobSettings", "json"));
   }
 
   if (!!tmpReq.hasResourceSettings()) {
-    request.setResourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSettings(), "ResourceSettings", "json"));
+    request.setResourceSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSettings(), "ResourceSettings", "json"));
   }
 
   if (!!tmpReq.hasTableMappings()) {
-    request.setTableMappingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableMappings(), "TableMappings", "json"));
+    request.setTableMappingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTableMappings(), "TableMappings", "json"));
   }
 
   if (!!tmpReq.hasTransformationRules()) {
-    request.setTransformationRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.transformationRules(), "TransformationRules", "json"));
+    request.setTransformationRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransformationRules(), "TransformationRules", "json"));
   }
 
   json query = {};
   if (!!request.hasDIJobId()) {
-    query["DIJobId"] = request.DIJobId();
+    query["DIJobId"] = request.getDIJobId();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasJobSettingsShrink()) {
-    body["JobSettings"] = request.jobSettingsShrink();
+    body["JobSettings"] = request.getJobSettingsShrink();
   }
 
   if (!!request.hasResourceSettingsShrink()) {
-    body["ResourceSettings"] = request.resourceSettingsShrink();
+    body["ResourceSettings"] = request.getResourceSettingsShrink();
   }
 
   if (!!request.hasTableMappingsShrink()) {
-    body["TableMappings"] = request.tableMappingsShrink();
+    body["TableMappings"] = request.getTableMappingsShrink();
   }
 
   if (!!request.hasTransformationRulesShrink()) {
-    body["TransformationRules"] = request.transformationRulesShrink();
+    body["TransformationRules"] = request.getTransformationRulesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13179,28 +13230,28 @@ UpdateDataAssetTagResponse Client::updateDataAssetTagWithOptions(const UpdateDat
   UpdateDataAssetTagShrinkRequest request = UpdateDataAssetTagShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasManagers()) {
-    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.managers(), "Managers", "json"));
+    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getManagers(), "Managers", "json"));
   }
 
   if (!!tmpReq.hasValues()) {
-    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.values(), "Values", "json"));
+    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValues(), "Values", "json"));
   }
 
   json query = {};
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasManagersShrink()) {
-    query["Managers"] = request.managersShrink();
+    query["Managers"] = request.getManagersShrink();
   }
 
   if (!!request.hasValuesShrink()) {
-    query["Values"] = request.valuesShrink();
+    query["Values"] = request.getValuesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13247,32 +13298,32 @@ UpdateDataQualityAlertRuleResponse Client::updateDataQualityAlertRuleWithOptions
   UpdateDataQualityAlertRuleShrinkRequest request = UpdateDataQualityAlertRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNotification()) {
-    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notification(), "Notification", "json"));
+    request.setNotificationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotification(), "Notification", "json"));
   }
 
   if (!!tmpReq.hasTarget()) {
-    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.target(), "Target", "json"));
+    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTarget(), "Target", "json"));
   }
 
   json body = {};
   if (!!request.hasCondition()) {
-    body["Condition"] = request.condition();
+    body["Condition"] = request.getCondition();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasNotificationShrink()) {
-    body["Notification"] = request.notificationShrink();
+    body["Notification"] = request.getNotificationShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasTargetShrink()) {
-    body["Target"] = request.targetShrink();
+    body["Target"] = request.getTargetShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13319,68 +13370,68 @@ UpdateDataQualityEvaluationTaskResponse Client::updateDataQualityEvaluationTaskW
   UpdateDataQualityEvaluationTaskShrinkRequest request = UpdateDataQualityEvaluationTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataQualityRules()) {
-    request.setDataQualityRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRules(), "DataQualityRules", "json"));
+    request.setDataQualityRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataQualityRules(), "DataQualityRules", "json"));
   }
 
   if (!!tmpReq.hasHooks()) {
-    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hooks(), "Hooks", "json"));
+    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHooks(), "Hooks", "json"));
   }
 
   if (!!tmpReq.hasNotifications()) {
-    request.setNotificationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifications(), "Notifications", "json"));
+    request.setNotificationsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotifications(), "Notifications", "json"));
   }
 
   if (!!tmpReq.hasTarget()) {
-    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.target(), "Target", "json"));
+    request.setTargetShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTarget(), "Target", "json"));
   }
 
   if (!!tmpReq.hasTrigger()) {
-    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.trigger(), "Trigger", "json"));
+    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTrigger(), "Trigger", "json"));
   }
 
   json body = {};
   if (!!request.hasDataQualityRulesShrink()) {
-    body["DataQualityRules"] = request.dataQualityRulesShrink();
+    body["DataQualityRules"] = request.getDataQualityRulesShrink();
   }
 
   if (!!request.hasDataSourceId()) {
-    body["DataSourceId"] = request.dataSourceId();
+    body["DataSourceId"] = request.getDataSourceId();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasHooksShrink()) {
-    body["Hooks"] = request.hooksShrink();
+    body["Hooks"] = request.getHooksShrink();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNotificationsShrink()) {
-    body["Notifications"] = request.notificationsShrink();
+    body["Notifications"] = request.getNotificationsShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeConf()) {
-    body["RuntimeConf"] = request.runtimeConf();
+    body["RuntimeConf"] = request.getRuntimeConf();
   }
 
   if (!!request.hasTargetShrink()) {
-    body["Target"] = request.targetShrink();
+    body["Target"] = request.getTargetShrink();
   }
 
   if (!!request.hasTriggerShrink()) {
-    body["Trigger"] = request.triggerShrink();
+    body["Trigger"] = request.getTriggerShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13425,57 +13476,57 @@ UpdateDataQualityRuleResponse Client::updateDataQualityRuleWithOptions(const Upd
   UpdateDataQualityRuleShrinkRequest request = UpdateDataQualityRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCheckingConfig()) {
-    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig(), "CheckingConfig", "json"));
+    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckingConfig(), "CheckingConfig", "json"));
   }
 
   if (!!tmpReq.hasErrorHandlers()) {
-    request.setErrorHandlersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.errorHandlers(), "ErrorHandlers", "json"));
+    request.setErrorHandlersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getErrorHandlers(), "ErrorHandlers", "json"));
   }
 
   if (!!tmpReq.hasSamplingConfig()) {
-    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig(), "SamplingConfig", "json"));
+    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSamplingConfig(), "SamplingConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasCheckingConfigShrink()) {
-    body["CheckingConfig"] = request.checkingConfigShrink();
+    body["CheckingConfig"] = request.getCheckingConfigShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnabled()) {
-    body["Enabled"] = request.enabled();
+    body["Enabled"] = request.getEnabled();
   }
 
   if (!!request.hasErrorHandlersShrink()) {
-    body["ErrorHandlers"] = request.errorHandlersShrink();
+    body["ErrorHandlers"] = request.getErrorHandlersShrink();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSamplingConfigShrink()) {
-    body["SamplingConfig"] = request.samplingConfigShrink();
+    body["SamplingConfig"] = request.getSamplingConfigShrink();
   }
 
   if (!!request.hasSeverity()) {
-    body["Severity"] = request.severity();
+    body["Severity"] = request.getSeverity();
   }
 
   if (!!request.hasTemplateCode()) {
-    body["TemplateCode"] = request.templateCode();
+    body["TemplateCode"] = request.getTemplateCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13519,37 +13570,37 @@ UpdateDataQualityRuleTemplateResponse Client::updateDataQualityRuleTemplateWithO
   UpdateDataQualityRuleTemplateShrinkRequest request = UpdateDataQualityRuleTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCheckingConfig()) {
-    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig(), "CheckingConfig", "json"));
+    request.setCheckingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckingConfig(), "CheckingConfig", "json"));
   }
 
   if (!!tmpReq.hasSamplingConfig()) {
-    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig(), "SamplingConfig", "json"));
+    request.setSamplingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSamplingConfig(), "SamplingConfig", "json"));
   }
 
   json query = {};
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   json body = {};
   if (!!request.hasCheckingConfigShrink()) {
-    body["CheckingConfig"] = request.checkingConfigShrink();
+    body["CheckingConfig"] = request.getCheckingConfigShrink();
   }
 
   if (!!request.hasCode()) {
-    body["Code"] = request.code();
+    body["Code"] = request.getCode();
   }
 
   if (!!request.hasDirectoryPath()) {
-    body["DirectoryPath"] = request.directoryPath();
+    body["DirectoryPath"] = request.getDirectoryPath();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSamplingConfigShrink()) {
-    body["SamplingConfig"] = request.samplingConfigShrink();
+    body["SamplingConfig"] = request.getSamplingConfigShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13595,68 +13646,68 @@ UpdateDataQualityScanResponse Client::updateDataQualityScanWithOptions(const Upd
   UpdateDataQualityScanShrinkRequest request = UpdateDataQualityScanShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasComputeResource()) {
-    request.setComputeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.computeResource(), "ComputeResource", "json"));
+    request.setComputeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getComputeResource(), "ComputeResource", "json"));
   }
 
   if (!!tmpReq.hasHooks()) {
-    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hooks(), "Hooks", "json"));
+    request.setHooksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHooks(), "Hooks", "json"));
   }
 
   if (!!tmpReq.hasParameters()) {
-    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.parameters(), "Parameters", "json"));
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
   }
 
   if (!!tmpReq.hasRuntimeResource()) {
-    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource(), "RuntimeResource", "json"));
+    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRuntimeResource(), "RuntimeResource", "json"));
   }
 
   if (!!tmpReq.hasTrigger()) {
-    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.trigger(), "Trigger", "json"));
+    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTrigger(), "Trigger", "json"));
   }
 
   json body = {};
   if (!!request.hasComputeResourceShrink()) {
-    body["ComputeResource"] = request.computeResourceShrink();
+    body["ComputeResource"] = request.getComputeResourceShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasHooksShrink()) {
-    body["Hooks"] = request.hooksShrink();
+    body["Hooks"] = request.getHooksShrink();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasParametersShrink()) {
-    body["Parameters"] = request.parametersShrink();
+    body["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasRuntimeResourceShrink()) {
-    body["RuntimeResource"] = request.runtimeResourceShrink();
+    body["RuntimeResource"] = request.getRuntimeResourceShrink();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   if (!!request.hasTriggerShrink()) {
-    body["Trigger"] = request.triggerShrink();
+    body["Trigger"] = request.getTriggerShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13702,20 +13753,20 @@ UpdateDataQualityTemplateResponse Client::updateDataQualityTemplateWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasOwner()) {
-    query["Owner"] = request.owner();
+    query["Owner"] = request.getOwner();
   }
 
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13764,23 +13815,23 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
   request.validate();
   json query = {};
   if (!!request.hasConnectionProperties()) {
-    query["ConnectionProperties"] = request.connectionProperties();
+    query["ConnectionProperties"] = request.getConnectionProperties();
   }
 
   if (!!request.hasConnectionPropertiesMode()) {
-    query["ConnectionPropertiesMode"] = request.connectionPropertiesMode();
+    query["ConnectionPropertiesMode"] = request.getConnectionPropertiesMode();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    query["ProjectId"] = request.projectId();
+    query["ProjectId"] = request.getProjectId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13816,7 +13867,7 @@ UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest 
 }
 
 /**
- * @summary 更新数据集
+ * @summary Updates dataset information. Only DataWorks datasets are supported. The operator must be the creator of the dataset or the administrator of the workspace where the dataset is located.
  *
  * @param request UpdateDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13826,19 +13877,19 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetReques
   request.validate();
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasReadme()) {
-    body["Readme"] = request.readme();
+    body["Readme"] = request.getReadme();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13859,7 +13910,7 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetReques
 }
 
 /**
- * @summary 更新数据集
+ * @summary Updates dataset information. Only DataWorks datasets are supported. The operator must be the creator of the dataset or the administrator of the workspace where the dataset is located.
  *
  * @param request UpdateDatasetRequest
  * @return UpdateDatasetResponse
@@ -13870,7 +13921,7 @@ UpdateDatasetResponse Client::updateDataset(const UpdateDatasetRequest &request)
 }
 
 /**
- * @summary 更新数据集版本信息
+ * @summary Updates dataset version information. Only DataWorks datasets are supported. Requires dataset creator or workspace administrator permissions.
  *
  * @param request UpdateDatasetVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13880,11 +13931,11 @@ UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const Updat
   request.validate();
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13905,7 +13956,7 @@ UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const Updat
 }
 
 /**
- * @summary 更新数据集版本信息
+ * @summary Updates dataset version information. Only DataWorks datasets are supported. Requires dataset creator or workspace administrator permissions.
  *
  * @param request UpdateDatasetVersionRequest
  * @return UpdateDatasetVersionResponse
@@ -13924,135 +13975,135 @@ UpdateFileResponse Client::updateFileWithOptions(const UpdateFileRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasAdvancedSettings()) {
-    body["AdvancedSettings"] = request.advancedSettings();
+    body["AdvancedSettings"] = request.getAdvancedSettings();
   }
 
   if (!!request.hasApplyScheduleImmediately()) {
-    body["ApplyScheduleImmediately"] = request.applyScheduleImmediately();
+    body["ApplyScheduleImmediately"] = request.getApplyScheduleImmediately();
   }
 
   if (!!request.hasAutoParsing()) {
-    body["AutoParsing"] = request.autoParsing();
+    body["AutoParsing"] = request.getAutoParsing();
   }
 
   if (!!request.hasAutoRerunIntervalMillis()) {
-    body["AutoRerunIntervalMillis"] = request.autoRerunIntervalMillis();
+    body["AutoRerunIntervalMillis"] = request.getAutoRerunIntervalMillis();
   }
 
   if (!!request.hasAutoRerunTimes()) {
-    body["AutoRerunTimes"] = request.autoRerunTimes();
+    body["AutoRerunTimes"] = request.getAutoRerunTimes();
   }
 
   if (!!request.hasConnectionName()) {
-    body["ConnectionName"] = request.connectionName();
+    body["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasCronExpress()) {
-    body["CronExpress"] = request.cronExpress();
+    body["CronExpress"] = request.getCronExpress();
   }
 
   if (!!request.hasCycleType()) {
-    body["CycleType"] = request.cycleType();
+    body["CycleType"] = request.getCycleType();
   }
 
   if (!!request.hasDependentNodeIdList()) {
-    body["DependentNodeIdList"] = request.dependentNodeIdList();
+    body["DependentNodeIdList"] = request.getDependentNodeIdList();
   }
 
   if (!!request.hasDependentType()) {
-    body["DependentType"] = request.dependentType();
+    body["DependentType"] = request.getDependentType();
   }
 
   if (!!request.hasEndEffectDate()) {
-    body["EndEffectDate"] = request.endEffectDate();
+    body["EndEffectDate"] = request.getEndEffectDate();
   }
 
   if (!!request.hasFileDescription()) {
-    body["FileDescription"] = request.fileDescription();
+    body["FileDescription"] = request.getFileDescription();
   }
 
   if (!!request.hasFileFolderPath()) {
-    body["FileFolderPath"] = request.fileFolderPath();
+    body["FileFolderPath"] = request.getFileFolderPath();
   }
 
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasFileName()) {
-    body["FileName"] = request.fileName();
+    body["FileName"] = request.getFileName();
   }
 
   if (!!request.hasIgnoreParentSkipRunningProperty()) {
-    body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty();
+    body["IgnoreParentSkipRunningProperty"] = request.getIgnoreParentSkipRunningProperty();
   }
 
   if (!!request.hasImageId()) {
-    body["ImageId"] = request.imageId();
+    body["ImageId"] = request.getImageId();
   }
 
   if (!!request.hasInputList()) {
-    body["InputList"] = request.inputList();
+    body["InputList"] = request.getInputList();
   }
 
   if (!!request.hasInputParameters()) {
-    body["InputParameters"] = request.inputParameters();
+    body["InputParameters"] = request.getInputParameters();
   }
 
   if (!!request.hasOutputList()) {
-    body["OutputList"] = request.outputList();
+    body["OutputList"] = request.getOutputList();
   }
 
   if (!!request.hasOutputParameters()) {
-    body["OutputParameters"] = request.outputParameters();
+    body["OutputParameters"] = request.getOutputParameters();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasParaValue()) {
-    body["ParaValue"] = request.paraValue();
+    body["ParaValue"] = request.getParaValue();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasRerunMode()) {
-    body["RerunMode"] = request.rerunMode();
+    body["RerunMode"] = request.getRerunMode();
   }
 
   if (!!request.hasResourceGroupIdentifier()) {
-    body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier();
+    body["ResourceGroupIdentifier"] = request.getResourceGroupIdentifier();
   }
 
   if (!!request.hasSchedulerType()) {
-    body["SchedulerType"] = request.schedulerType();
+    body["SchedulerType"] = request.getSchedulerType();
   }
 
   if (!!request.hasStartEffectDate()) {
-    body["StartEffectDate"] = request.startEffectDate();
+    body["StartEffectDate"] = request.getStartEffectDate();
   }
 
   if (!!request.hasStartImmediately()) {
-    body["StartImmediately"] = request.startImmediately();
+    body["StartImmediately"] = request.getStartImmediately();
   }
 
   if (!!request.hasStop()) {
-    body["Stop"] = request.stop();
+    body["Stop"] = request.getStop();
   }
 
   if (!!request.hasTimeout()) {
-    body["Timeout"] = request.timeout();
+    body["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14090,19 +14141,19 @@ UpdateFolderResponse Client::updateFolderWithOptions(const UpdateFolderRequest &
   request.validate();
   json body = {};
   if (!!request.hasFolderId()) {
-    body["FolderId"] = request.folderId();
+    body["FolderId"] = request.getFolderId();
   }
 
   if (!!request.hasFolderName()) {
-    body["FolderName"] = request.folderName();
+    body["FolderName"] = request.getFolderName();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14142,15 +14193,15 @@ UpdateFunctionResponse Client::updateFunctionWithOptions(const UpdateFunctionReq
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14192,19 +14243,19 @@ UpdateIDEEventResultResponse Client::updateIDEEventResultWithOptions(const Updat
   request.validate();
   json body = {};
   if (!!request.hasCheckResult()) {
-    body["CheckResult"] = request.checkResult();
+    body["CheckResult"] = request.getCheckResult();
   }
 
   if (!!request.hasCheckResultTip()) {
-    body["CheckResultTip"] = request.checkResultTip();
+    body["CheckResultTip"] = request.getCheckResultTip();
   }
 
   if (!!request.hasExtensionCode()) {
-    body["ExtensionCode"] = request.extensionCode();
+    body["ExtensionCode"] = request.getExtensionCode();
   }
 
   if (!!request.hasMessageId()) {
-    body["MessageId"] = request.messageId();
+    body["MessageId"] = request.getMessageId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14247,24 +14298,24 @@ UpdateMetaCollectionResponse Client::updateMetaCollectionWithOptions(const Updat
   UpdateMetaCollectionShrinkRequest request = UpdateMetaCollectionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAdministrators()) {
-    request.setAdministratorsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.administrators(), "Administrators", "simple"));
+    request.setAdministratorsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAdministrators(), "Administrators", "simple"));
   }
 
   json query = {};
   if (!!request.hasAdministratorsShrink()) {
-    query["Administrators"] = request.administratorsShrink();
+    query["Administrators"] = request.getAdministratorsShrink();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14306,15 +14357,15 @@ UpdateNodeResponse Client::updateNodeWithOptions(const UpdateNodeRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14356,31 +14407,31 @@ UpdateProjectResponse Client::updateProjectWithOptions(const UpdateProjectReques
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDevEnvironmentEnabled()) {
-    body["DevEnvironmentEnabled"] = request.devEnvironmentEnabled();
+    body["DevEnvironmentEnabled"] = request.getDevEnvironmentEnabled();
   }
 
   if (!!request.hasDevRoleDisabled()) {
-    body["DevRoleDisabled"] = request.devRoleDisabled();
+    body["DevRoleDisabled"] = request.getDevRoleDisabled();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasPaiTaskEnabled()) {
-    body["PaiTaskEnabled"] = request.paiTaskEnabled();
+    body["PaiTaskEnabled"] = request.getPaiTaskEnabled();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14422,19 +14473,19 @@ UpdateResourceResponse Client::updateResourceWithOptions(const UpdateResourceReq
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasResourceFile()) {
-    body["ResourceFile"] = request.resourceFile();
+    body["ResourceFile"] = request.getResourceFile();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14475,10 +14526,10 @@ UpdateResourceResponse Client::updateResourceAdvance(const UpdateResourceAdvance
   }
 
   CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
   string openPlatformEndpoint = _openPlatformEndpoint;
   if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
     openPlatformEndpoint = "openplatform.aliyuncs.com";
@@ -14531,7 +14582,7 @@ UpdateResourceResponse Client::updateResourceAdvance(const UpdateResourceAdvance
     authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
     fileObj = FileField(json({
       {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.resourceFileObject()},
+      {"content" , request.getResourceFileObject()},
       {"contentType" , ""}
     }));
     ossHeader = json({
@@ -14564,19 +14615,19 @@ UpdateResourceGroupResponse Client::updateResourceGroupWithOptions(const UpdateR
   request.validate();
   json body = {};
   if (!!request.hasAliyunResourceGroupId()) {
-    body["AliyunResourceGroupId"] = request.aliyunResourceGroupId();
+    body["AliyunResourceGroupId"] = request.getAliyunResourceGroupId();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14622,11 +14673,11 @@ UpdateRouteResponse Client::updateRouteWithOptions(const UpdateRouteRequest &req
   request.validate();
   json body = {};
   if (!!request.hasDestinationCidr()) {
-    body["DestinationCidr"] = request.destinationCidr();
+    body["DestinationCidr"] = request.getDestinationCidr();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14670,11 +14721,11 @@ UpdateTableBusinessMetadataResponse Client::updateTableBusinessMetadataWithOptio
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasReadme()) {
-    body["Readme"] = request.readme();
+    body["Readme"] = request.getReadme();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14717,112 +14768,112 @@ UpdateTaskResponse Client::updateTaskWithOptions(const UpdateTaskRequest &tmpReq
   UpdateTaskShrinkRequest request = UpdateTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDataSource()) {
-    request.setDataSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataSource(), "DataSource", "json"));
+    request.setDataSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataSource(), "DataSource", "json"));
   }
 
   if (!!tmpReq.hasDependencies()) {
-    request.setDependenciesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dependencies(), "Dependencies", "json"));
+    request.setDependenciesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDependencies(), "Dependencies", "json"));
   }
 
   if (!!tmpReq.hasInputs()) {
-    request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.inputs(), "Inputs", "json"));
+    request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInputs(), "Inputs", "json"));
   }
 
   if (!!tmpReq.hasOutputs()) {
-    request.setOutputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outputs(), "Outputs", "json"));
+    request.setOutputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutputs(), "Outputs", "json"));
   }
 
   if (!!tmpReq.hasRuntimeResource()) {
-    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource(), "RuntimeResource", "json"));
+    request.setRuntimeResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRuntimeResource(), "RuntimeResource", "json"));
   }
 
   if (!!tmpReq.hasScript()) {
-    request.setScriptShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.script(), "Script", "json"));
+    request.setScriptShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScript(), "Script", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   if (!!tmpReq.hasTrigger()) {
-    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.trigger(), "Trigger", "json"));
+    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTrigger(), "Trigger", "json"));
   }
 
   json body = {};
   if (!!request.hasClientUniqueCode()) {
-    body["ClientUniqueCode"] = request.clientUniqueCode();
+    body["ClientUniqueCode"] = request.getClientUniqueCode();
   }
 
   if (!!request.hasDataSourceShrink()) {
-    body["DataSource"] = request.dataSourceShrink();
+    body["DataSource"] = request.getDataSourceShrink();
   }
 
   if (!!request.hasDependenciesShrink()) {
-    body["Dependencies"] = request.dependenciesShrink();
+    body["Dependencies"] = request.getDependenciesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvType()) {
-    body["EnvType"] = request.envType();
+    body["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasInputsShrink()) {
-    body["Inputs"] = request.inputsShrink();
+    body["Inputs"] = request.getInputsShrink();
   }
 
   if (!!request.hasInstanceMode()) {
-    body["InstanceMode"] = request.instanceMode();
+    body["InstanceMode"] = request.getInstanceMode();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOutputsShrink()) {
-    body["Outputs"] = request.outputsShrink();
+    body["Outputs"] = request.getOutputsShrink();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasRerunInterval()) {
-    body["RerunInterval"] = request.rerunInterval();
+    body["RerunInterval"] = request.getRerunInterval();
   }
 
   if (!!request.hasRerunMode()) {
-    body["RerunMode"] = request.rerunMode();
+    body["RerunMode"] = request.getRerunMode();
   }
 
   if (!!request.hasRerunTimes()) {
-    body["RerunTimes"] = request.rerunTimes();
+    body["RerunTimes"] = request.getRerunTimes();
   }
 
   if (!!request.hasRuntimeResourceShrink()) {
-    body["RuntimeResource"] = request.runtimeResourceShrink();
+    body["RuntimeResource"] = request.getRuntimeResourceShrink();
   }
 
   if (!!request.hasScriptShrink()) {
-    body["Script"] = request.scriptShrink();
+    body["Script"] = request.getScriptShrink();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["Tags"] = request.tagsShrink();
+    body["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTimeout()) {
-    body["Timeout"] = request.timeout();
+    body["Timeout"] = request.getTimeout();
   }
 
   if (!!request.hasTriggerShrink()) {
-    body["Trigger"] = request.triggerShrink();
+    body["Trigger"] = request.getTriggerShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14867,16 +14918,16 @@ UpdateTaskInstancesResponse Client::updateTaskInstancesWithOptions(const UpdateT
   UpdateTaskInstancesShrinkRequest request = UpdateTaskInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTaskInstances()) {
-    request.setTaskInstancesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskInstances(), "TaskInstances", "json"));
+    request.setTaskInstancesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskInstances(), "TaskInstances", "json"));
   }
 
   json body = {};
   if (!!request.hasComment()) {
-    body["Comment"] = request.comment();
+    body["Comment"] = request.getComment();
   }
 
   if (!!request.hasTaskInstancesShrink()) {
-    body["TaskInstances"] = request.taskInstancesShrink();
+    body["TaskInstances"] = request.getTaskInstancesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14918,51 +14969,51 @@ UpdateUdfFileResponse Client::updateUdfFileWithOptions(const UpdateUdfFileReques
   request.validate();
   json body = {};
   if (!!request.hasClassName()) {
-    body["ClassName"] = request.className();
+    body["ClassName"] = request.getClassName();
   }
 
   if (!!request.hasCmdDescription()) {
-    body["CmdDescription"] = request.cmdDescription();
+    body["CmdDescription"] = request.getCmdDescription();
   }
 
   if (!!request.hasExample()) {
-    body["Example"] = request.example();
+    body["Example"] = request.getExample();
   }
 
   if (!!request.hasFileFolderPath()) {
-    body["FileFolderPath"] = request.fileFolderPath();
+    body["FileFolderPath"] = request.getFileFolderPath();
   }
 
   if (!!request.hasFileId()) {
-    body["FileId"] = request.fileId();
+    body["FileId"] = request.getFileId();
   }
 
   if (!!request.hasFunctionType()) {
-    body["FunctionType"] = request.functionType();
+    body["FunctionType"] = request.getFunctionType();
   }
 
   if (!!request.hasParameterDescription()) {
-    body["ParameterDescription"] = request.parameterDescription();
+    body["ParameterDescription"] = request.getParameterDescription();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasProjectIdentifier()) {
-    body["ProjectIdentifier"] = request.projectIdentifier();
+    body["ProjectIdentifier"] = request.getProjectIdentifier();
   }
 
   if (!!request.hasResources()) {
-    body["Resources"] = request.resources();
+    body["Resources"] = request.getResources();
   }
 
   if (!!request.hasReturnValue()) {
-    body["ReturnValue"] = request.returnValue();
+    body["ReturnValue"] = request.getReturnValue();
   }
 
   if (!!request.hasUdfDescription()) {
-    body["UdfDescription"] = request.udfDescription();
+    body["UdfDescription"] = request.getUdfDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15005,76 +15056,76 @@ UpdateWorkflowResponse Client::updateWorkflowWithOptions(const UpdateWorkflowReq
   UpdateWorkflowShrinkRequest request = UpdateWorkflowShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDependencies()) {
-    request.setDependenciesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dependencies(), "Dependencies", "json"));
+    request.setDependenciesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDependencies(), "Dependencies", "json"));
   }
 
   if (!!tmpReq.hasOutputs()) {
-    request.setOutputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.outputs(), "Outputs", "json"));
+    request.setOutputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOutputs(), "Outputs", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   if (!!tmpReq.hasTasks()) {
-    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tasks(), "Tasks", "json"));
+    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTasks(), "Tasks", "json"));
   }
 
   if (!!tmpReq.hasTrigger()) {
-    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.trigger(), "Trigger", "json"));
+    request.setTriggerShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTrigger(), "Trigger", "json"));
   }
 
   json body = {};
   if (!!request.hasClientUniqueCode()) {
-    body["ClientUniqueCode"] = request.clientUniqueCode();
+    body["ClientUniqueCode"] = request.getClientUniqueCode();
   }
 
   if (!!request.hasDependenciesShrink()) {
-    body["Dependencies"] = request.dependenciesShrink();
+    body["Dependencies"] = request.getDependenciesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEnvType()) {
-    body["EnvType"] = request.envType();
+    body["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasInstanceMode()) {
-    body["InstanceMode"] = request.instanceMode();
+    body["InstanceMode"] = request.getInstanceMode();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOutputsShrink()) {
-    body["Outputs"] = request.outputsShrink();
+    body["Outputs"] = request.getOutputsShrink();
   }
 
   if (!!request.hasOwner()) {
-    body["Owner"] = request.owner();
+    body["Owner"] = request.getOwner();
   }
 
   if (!!request.hasParameters()) {
-    body["Parameters"] = request.parameters();
+    body["Parameters"] = request.getParameters();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["Tags"] = request.tagsShrink();
+    body["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTasksShrink()) {
-    body["Tasks"] = request.tasksShrink();
+    body["Tasks"] = request.getTasksShrink();
   }
 
   if (!!request.hasTriggerShrink()) {
-    body["Trigger"] = request.triggerShrink();
+    body["Trigger"] = request.getTriggerShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15120,15 +15171,15 @@ UpdateWorkflowDefinitionResponse Client::updateWorkflowDefinitionWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasProjectId()) {
-    body["ProjectId"] = request.projectId();
+    body["ProjectId"] = request.getProjectId();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

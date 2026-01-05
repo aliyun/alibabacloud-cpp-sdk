@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DIJobId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->sourceDataSourceName_ == nullptr && return this->sourceDatabaseName_ == nullptr
-        && return this->sourceSchemaName_ == nullptr && return this->sourceTableName_ == nullptr; };
+        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sourceDataSourceName_ == nullptr && this->sourceDatabaseName_ == nullptr
+        && this->sourceSchemaName_ == nullptr && this->sourceTableName_ == nullptr; };
     // DIJobId Field Functions 
     bool hasDIJobId() const { return this->DIJobId_ != nullptr;};
     void deleteDIJobId() { this->DIJobId_ = nullptr;};
-    inline int64_t DIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
+    inline int64_t getDIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
     inline ListDIJobRunDetailsRequest& setDIJobId(int64_t DIJobId) { DARABONBA_PTR_SET_VALUE(DIJobId_, DIJobId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline int64_t instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, 0L) };
+    inline int64_t getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, 0L) };
     inline ListDIJobRunDetailsRequest& setInstanceId(int64_t instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListDIJobRunDetailsRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListDIJobRunDetailsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // sourceDataSourceName Field Functions 
     bool hasSourceDataSourceName() const { return this->sourceDataSourceName_ != nullptr;};
     void deleteSourceDataSourceName() { this->sourceDataSourceName_ = nullptr;};
-    inline string sourceDataSourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceDataSourceName_, "") };
+    inline string getSourceDataSourceName() const { DARABONBA_PTR_GET_DEFAULT(sourceDataSourceName_, "") };
     inline ListDIJobRunDetailsRequest& setSourceDataSourceName(string sourceDataSourceName) { DARABONBA_PTR_SET_VALUE(sourceDataSourceName_, sourceDataSourceName) };
 
 
     // sourceDatabaseName Field Functions 
     bool hasSourceDatabaseName() const { return this->sourceDatabaseName_ != nullptr;};
     void deleteSourceDatabaseName() { this->sourceDatabaseName_ = nullptr;};
-    inline string sourceDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(sourceDatabaseName_, "") };
+    inline string getSourceDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(sourceDatabaseName_, "") };
     inline ListDIJobRunDetailsRequest& setSourceDatabaseName(string sourceDatabaseName) { DARABONBA_PTR_SET_VALUE(sourceDatabaseName_, sourceDatabaseName) };
 
 
     // sourceSchemaName Field Functions 
     bool hasSourceSchemaName() const { return this->sourceSchemaName_ != nullptr;};
     void deleteSourceSchemaName() { this->sourceSchemaName_ = nullptr;};
-    inline string sourceSchemaName() const { DARABONBA_PTR_GET_DEFAULT(sourceSchemaName_, "") };
+    inline string getSourceSchemaName() const { DARABONBA_PTR_GET_DEFAULT(sourceSchemaName_, "") };
     inline ListDIJobRunDetailsRequest& setSourceSchemaName(string sourceSchemaName) { DARABONBA_PTR_SET_VALUE(sourceSchemaName_, sourceSchemaName) };
 
 
     // sourceTableName Field Functions 
     bool hasSourceTableName() const { return this->sourceTableName_ != nullptr;};
     void deleteSourceTableName() { this->sourceTableName_ = nullptr;};
-    inline string sourceTableName() const { DARABONBA_PTR_GET_DEFAULT(sourceTableName_, "") };
+    inline string getSourceTableName() const { DARABONBA_PTR_GET_DEFAULT(sourceTableName_, "") };
     inline ListDIJobRunDetailsRequest& setSourceTableName(string sourceTableName) { DARABONBA_PTR_SET_VALUE(sourceTableName_, sourceTableName) };
 
 
@@ -106,21 +106,21 @@ namespace Models
     // The ID of the synchronization task.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> DIJobId_ = nullptr;
+    shared_ptr<int64_t> DIJobId_ {};
     // The instance ID.
-    std::shared_ptr<int64_t> instanceId_ = nullptr;
+    shared_ptr<int64_t> instanceId_ {};
     // The page number.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The name of the source.
-    std::shared_ptr<string> sourceDataSourceName_ = nullptr;
+    shared_ptr<string> sourceDataSourceName_ {};
     // The name of the database in the source.
-    std::shared_ptr<string> sourceDatabaseName_ = nullptr;
+    shared_ptr<string> sourceDatabaseName_ {};
     // The name of the schema of the source.
-    std::shared_ptr<string> sourceSchemaName_ = nullptr;
+    shared_ptr<string> sourceSchemaName_ {};
     // The name of the table in the source.
-    std::shared_ptr<string> sourceTableName_ = nullptr;
+    shared_ptr<string> sourceTableName_ {};
   };
 
   } // namespace Models

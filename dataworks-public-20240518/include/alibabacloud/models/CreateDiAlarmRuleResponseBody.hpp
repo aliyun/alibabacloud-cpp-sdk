@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DIAlarmRuleId_ == nullptr
-        && return this->id_ == nullptr && return this->requestId_ == nullptr; };
+        && this->id_ == nullptr && this->requestId_ == nullptr; };
     // DIAlarmRuleId Field Functions 
     bool hasDIAlarmRuleId() const { return this->DIAlarmRuleId_ != nullptr;};
     void deleteDIAlarmRuleId() { this->DIAlarmRuleId_ = nullptr;};
-    inline string DIAlarmRuleId() const { DARABONBA_PTR_GET_DEFAULT(DIAlarmRuleId_, "") };
+    inline string getDIAlarmRuleId() const { DARABONBA_PTR_GET_DEFAULT(DIAlarmRuleId_, "") };
     inline CreateDIAlarmRuleResponseBody& setDIAlarmRuleId(string DIAlarmRuleId) { DARABONBA_PTR_SET_VALUE(DIAlarmRuleId_, DIAlarmRuleId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline CreateDIAlarmRuleResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDIAlarmRuleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // This parameter is deprecated and is replaced by the Id parameter.
-    std::shared_ptr<string> DIAlarmRuleId_ = nullptr;
+    shared_ptr<string> DIAlarmRuleId_ {};
     // The ID of the alert rule.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The request ID. You can locate logs and troubleshoot issues based on the ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

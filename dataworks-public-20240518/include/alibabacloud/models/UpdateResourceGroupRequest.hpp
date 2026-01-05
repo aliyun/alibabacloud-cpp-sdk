@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunResourceGroupId_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->remark_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->remark_ == nullptr; };
     // aliyunResourceGroupId Field Functions 
     bool hasAliyunResourceGroupId() const { return this->aliyunResourceGroupId_ != nullptr;};
     void deleteAliyunResourceGroupId() { this->aliyunResourceGroupId_ = nullptr;};
-    inline string aliyunResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(aliyunResourceGroupId_, "") };
+    inline string getAliyunResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(aliyunResourceGroupId_, "") };
     inline UpdateResourceGroupRequest& setAliyunResourceGroupId(string aliyunResourceGroupId) { DARABONBA_PTR_SET_VALUE(aliyunResourceGroupId_, aliyunResourceGroupId) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateResourceGroupRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateResourceGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline UpdateResourceGroupRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
   protected:
     // The ID of the new Alibaba Cloud resource group.
-    std::shared_ptr<string> aliyunResourceGroupId_ = nullptr;
+    shared_ptr<string> aliyunResourceGroupId_ {};
     // The ID of the resource group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The new name that you want to change for the resource group.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The new remarks that you want to modify for the resource group.
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dstEntity_ == nullptr
-        && return this->srcEntity_ == nullptr && return this->task_ == nullptr; };
+        && this->srcEntity_ == nullptr && this->task_ == nullptr; };
     // dstEntity Field Functions 
     bool hasDstEntity() const { return this->dstEntity_ != nullptr;};
     void deleteDstEntity() { this->dstEntity_ = nullptr;};
-    inline const LineageEntity & dstEntity() const { DARABONBA_PTR_GET_CONST(dstEntity_, LineageEntity) };
-    inline LineageEntity dstEntity() { DARABONBA_PTR_GET(dstEntity_, LineageEntity) };
+    inline const LineageEntity & getDstEntity() const { DARABONBA_PTR_GET_CONST(dstEntity_, LineageEntity) };
+    inline LineageEntity getDstEntity() { DARABONBA_PTR_GET(dstEntity_, LineageEntity) };
     inline CreateLineageRelationshipRequest& setDstEntity(const LineageEntity & dstEntity) { DARABONBA_PTR_SET_VALUE(dstEntity_, dstEntity) };
     inline CreateLineageRelationshipRequest& setDstEntity(LineageEntity && dstEntity) { DARABONBA_PTR_SET_RVALUE(dstEntity_, dstEntity) };
 
@@ -49,8 +49,8 @@ namespace Models
     // srcEntity Field Functions 
     bool hasSrcEntity() const { return this->srcEntity_ != nullptr;};
     void deleteSrcEntity() { this->srcEntity_ = nullptr;};
-    inline const LineageEntity & srcEntity() const { DARABONBA_PTR_GET_CONST(srcEntity_, LineageEntity) };
-    inline LineageEntity srcEntity() { DARABONBA_PTR_GET(srcEntity_, LineageEntity) };
+    inline const LineageEntity & getSrcEntity() const { DARABONBA_PTR_GET_CONST(srcEntity_, LineageEntity) };
+    inline LineageEntity getSrcEntity() { DARABONBA_PTR_GET(srcEntity_, LineageEntity) };
     inline CreateLineageRelationshipRequest& setSrcEntity(const LineageEntity & srcEntity) { DARABONBA_PTR_SET_VALUE(srcEntity_, srcEntity) };
     inline CreateLineageRelationshipRequest& setSrcEntity(LineageEntity && srcEntity) { DARABONBA_PTR_SET_RVALUE(srcEntity_, srcEntity) };
 
@@ -58,19 +58,19 @@ namespace Models
     // task Field Functions 
     bool hasTask() const { return this->task_ != nullptr;};
     void deleteTask() { this->task_ = nullptr;};
-    inline const LineageTask & task() const { DARABONBA_PTR_GET_CONST(task_, LineageTask) };
-    inline LineageTask task() { DARABONBA_PTR_GET(task_, LineageTask) };
+    inline const LineageTask & getTask() const { DARABONBA_PTR_GET_CONST(task_, LineageTask) };
+    inline LineageTask getTask() { DARABONBA_PTR_GET(task_, LineageTask) };
     inline CreateLineageRelationshipRequest& setTask(const LineageTask & task) { DARABONBA_PTR_SET_VALUE(task_, task) };
     inline CreateLineageRelationshipRequest& setTask(LineageTask && task) { DARABONBA_PTR_SET_RVALUE(task_, task) };
 
 
   protected:
     // The destination entity.
-    std::shared_ptr<LineageEntity> dstEntity_ = nullptr;
+    shared_ptr<LineageEntity> dstEntity_ {};
     // The source entity.
-    std::shared_ptr<LineageEntity> srcEntity_ = nullptr;
+    shared_ptr<LineageEntity> srcEntity_ {};
     // The task information.
-    std::shared_ptr<LineageTask> task_ = nullptr;
+    shared_ptr<LineageTask> task_ {};
   };
 
   } // namespace Models

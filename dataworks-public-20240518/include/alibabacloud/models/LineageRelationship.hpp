@@ -40,19 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->dstEntity_ == nullptr && return this->id_ == nullptr && return this->srcEntity_ == nullptr && return this->task_ == nullptr; };
+        && this->dstEntity_ == nullptr && this->id_ == nullptr && this->srcEntity_ == nullptr && this->task_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline LineageRelationship& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // dstEntity Field Functions 
     bool hasDstEntity() const { return this->dstEntity_ != nullptr;};
     void deleteDstEntity() { this->dstEntity_ = nullptr;};
-    inline const LineageEntity & dstEntity() const { DARABONBA_PTR_GET_CONST(dstEntity_, LineageEntity) };
-    inline LineageEntity dstEntity() { DARABONBA_PTR_GET(dstEntity_, LineageEntity) };
+    inline const LineageEntity & getDstEntity() const { DARABONBA_PTR_GET_CONST(dstEntity_, LineageEntity) };
+    inline LineageEntity getDstEntity() { DARABONBA_PTR_GET(dstEntity_, LineageEntity) };
     inline LineageRelationship& setDstEntity(const LineageEntity & dstEntity) { DARABONBA_PTR_SET_VALUE(dstEntity_, dstEntity) };
     inline LineageRelationship& setDstEntity(LineageEntity && dstEntity) { DARABONBA_PTR_SET_RVALUE(dstEntity_, dstEntity) };
 
@@ -60,15 +60,15 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline LineageRelationship& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // srcEntity Field Functions 
     bool hasSrcEntity() const { return this->srcEntity_ != nullptr;};
     void deleteSrcEntity() { this->srcEntity_ = nullptr;};
-    inline const LineageEntity & srcEntity() const { DARABONBA_PTR_GET_CONST(srcEntity_, LineageEntity) };
-    inline LineageEntity srcEntity() { DARABONBA_PTR_GET(srcEntity_, LineageEntity) };
+    inline const LineageEntity & getSrcEntity() const { DARABONBA_PTR_GET_CONST(srcEntity_, LineageEntity) };
+    inline LineageEntity getSrcEntity() { DARABONBA_PTR_GET(srcEntity_, LineageEntity) };
     inline LineageRelationship& setSrcEntity(const LineageEntity & srcEntity) { DARABONBA_PTR_SET_VALUE(srcEntity_, srcEntity) };
     inline LineageRelationship& setSrcEntity(LineageEntity && srcEntity) { DARABONBA_PTR_SET_RVALUE(srcEntity_, srcEntity) };
 
@@ -76,18 +76,18 @@ namespace Models
     // task Field Functions 
     bool hasTask() const { return this->task_ != nullptr;};
     void deleteTask() { this->task_ = nullptr;};
-    inline const LineageTask & task() const { DARABONBA_PTR_GET_CONST(task_, LineageTask) };
-    inline LineageTask task() { DARABONBA_PTR_GET(task_, LineageTask) };
+    inline const LineageTask & getTask() const { DARABONBA_PTR_GET_CONST(task_, LineageTask) };
+    inline LineageTask getTask() { DARABONBA_PTR_GET(task_, LineageTask) };
     inline LineageRelationship& setTask(const LineageTask & task) { DARABONBA_PTR_SET_VALUE(task_, task) };
     inline LineageRelationship& setTask(LineageTask && task) { DARABONBA_PTR_SET_RVALUE(task_, task) };
 
 
   protected:
-    std::shared_ptr<int64_t> createTime_ = nullptr;
-    std::shared_ptr<LineageEntity> dstEntity_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<LineageEntity> srcEntity_ = nullptr;
-    std::shared_ptr<LineageTask> task_ = nullptr;
+    shared_ptr<int64_t> createTime_ {};
+    shared_ptr<LineageEntity> dstEntity_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<LineageEntity> srcEntity_ {};
+    shared_ptr<LineageTask> task_ {};
   };
 
   } // namespace Models

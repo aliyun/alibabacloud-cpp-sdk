@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->path_ == nullptr && return this->projectId_ == nullptr; };
+        && this->path_ == nullptr && this->projectId_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
-    inline MoveNodeRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline MoveNodeRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline MoveNodeRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline MoveNodeRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -60,19 +60,19 @@ namespace Models
     // The ID of the node.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The path to which you want to move the node. You do not need to specify a node name in the path.
     // 
     // For example, if you want to move the test node to root/demo/test, you must set this parameter to root/demo.
     // 
     // This parameter is required.
-    std::shared_ptr<string> path_ = nullptr;
+    shared_ptr<string> path_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
     // 
     // You can use this parameter to specify the DataWorks workspace on which you want to perform the API operation.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

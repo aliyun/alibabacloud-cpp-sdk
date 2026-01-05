@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataQualityEvaluationTaskId_ == nullptr
-        && return this->dataQualityRuleIdsShrink_ == nullptr && return this->projectId_ == nullptr; };
+        && this->dataQualityRuleIdsShrink_ == nullptr && this->projectId_ == nullptr; };
     // dataQualityEvaluationTaskId Field Functions 
     bool hasDataQualityEvaluationTaskId() const { return this->dataQualityEvaluationTaskId_ != nullptr;};
     void deleteDataQualityEvaluationTaskId() { this->dataQualityEvaluationTaskId_ = nullptr;};
-    inline int64_t dataQualityEvaluationTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataQualityEvaluationTaskId_, 0L) };
+    inline int64_t getDataQualityEvaluationTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataQualityEvaluationTaskId_, 0L) };
     inline AttachDataQualityRulesToEvaluationTaskShrinkRequest& setDataQualityEvaluationTaskId(int64_t dataQualityEvaluationTaskId) { DARABONBA_PTR_SET_VALUE(dataQualityEvaluationTaskId_, dataQualityEvaluationTaskId) };
 
 
     // dataQualityRuleIdsShrink Field Functions 
     bool hasDataQualityRuleIdsShrink() const { return this->dataQualityRuleIdsShrink_ != nullptr;};
     void deleteDataQualityRuleIdsShrink() { this->dataQualityRuleIdsShrink_ = nullptr;};
-    inline string dataQualityRuleIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataQualityRuleIdsShrink_, "") };
+    inline string getDataQualityRuleIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(dataQualityRuleIdsShrink_, "") };
     inline AttachDataQualityRulesToEvaluationTaskShrinkRequest& setDataQualityRuleIdsShrink(string dataQualityRuleIdsShrink) { DARABONBA_PTR_SET_VALUE(dataQualityRuleIdsShrink_, dataQualityRuleIdsShrink) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline AttachDataQualityRulesToEvaluationTaskShrinkRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the data quality monitoring task that is associated with the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dataQualityEvaluationTaskId_ = nullptr;
+    shared_ptr<int64_t> dataQualityEvaluationTaskId_ {};
     // The IDs of the monitoring rules.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataQualityRuleIdsShrink_ = nullptr;
+    shared_ptr<string> dataQualityRuleIdsShrink_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

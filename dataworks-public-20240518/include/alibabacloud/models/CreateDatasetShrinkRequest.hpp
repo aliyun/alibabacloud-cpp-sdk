@@ -42,69 +42,103 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->dataType_ == nullptr && return this->initVersionShrink_ == nullptr && return this->name_ == nullptr && return this->origin_ == nullptr && return this->projectId_ == nullptr
-        && return this->storageType_ == nullptr; };
+        && this->dataType_ == nullptr && this->initVersionShrink_ == nullptr && this->name_ == nullptr && this->origin_ == nullptr && this->projectId_ == nullptr
+        && this->storageType_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline CreateDatasetShrinkRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // dataType Field Functions 
     bool hasDataType() const { return this->dataType_ != nullptr;};
     void deleteDataType() { this->dataType_ = nullptr;};
-    inline string dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+    inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
     inline CreateDatasetShrinkRequest& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
 
 
     // initVersionShrink Field Functions 
     bool hasInitVersionShrink() const { return this->initVersionShrink_ != nullptr;};
     void deleteInitVersionShrink() { this->initVersionShrink_ = nullptr;};
-    inline string initVersionShrink() const { DARABONBA_PTR_GET_DEFAULT(initVersionShrink_, "") };
+    inline string getInitVersionShrink() const { DARABONBA_PTR_GET_DEFAULT(initVersionShrink_, "") };
     inline CreateDatasetShrinkRequest& setInitVersionShrink(string initVersionShrink) { DARABONBA_PTR_SET_VALUE(initVersionShrink_, initVersionShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateDatasetShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // origin Field Functions 
     bool hasOrigin() const { return this->origin_ != nullptr;};
     void deleteOrigin() { this->origin_ = nullptr;};
-    inline string origin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
+    inline string getOrigin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
     inline CreateDatasetShrinkRequest& setOrigin(string origin) { DARABONBA_PTR_SET_VALUE(origin_, origin) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateDatasetShrinkRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline CreateDatasetShrinkRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> dataType_ = nullptr;
+    // The description of the dataset. It must not exceed 1,024 characters in length.
+    shared_ptr<string> comment_ {};
+    // The data type. Valid values:
+    // 
+    // *   COMMON: Common (Default)
+    // *   PIC
+    // *   TEXT
+    // *   TABLE
+    // *   VIDEO
+    // *   AUDIO
+    // *   INDEX
+    shared_ptr<string> dataType_ {};
+    // The initial version of the dataset.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> initVersionShrink_ = nullptr;
+    shared_ptr<string> initVersionShrink_ {};
+    // The name of the dataset. It cannot be an empty string and must not exceed 128 characters in length.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> origin_ = nullptr;
+    shared_ptr<string> name_ {};
+    // The source of the dataset. Currently, only DataWorks is supported.
+    shared_ptr<string> origin_ {};
+    // The DataWorks workspace ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
+    // The storage type. Currently supported values:
+    // 
+    // *   OSS
+    // *   NAS: General-purpose NAS file systems
+    // *   EXTREMENAS: Extreme NAS file systems
+    // *   DLF_LANCE: Data Lake Formation
+    // 
+    // Valid values:
+    // 
+    // *   NAS: General-purpose NAS file systems
+    // *   MAXCOMPUTE: MaxCompute table
+    // *   CPFS: Cloud Parallel File Storage
+    // *   BMCPFS: CPFS for Lingjun
+    // *   EXTREMENAS: Extreme NAS file systems
+    // *   OSS: Object Storage Service
+    // *   DLF_LANCE: Data Lake Formation.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> storageType_ {};
   };
 
   } // namespace Models

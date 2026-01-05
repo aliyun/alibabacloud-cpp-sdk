@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->readme_ == nullptr; };
+        && this->readme_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline UpdateTableBusinessMetadataRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // readme Field Functions 
     bool hasReadme() const { return this->readme_ != nullptr;};
     void deleteReadme() { this->readme_ = nullptr;};
-    inline string readme() const { DARABONBA_PTR_GET_DEFAULT(readme_, "") };
+    inline string getReadme() const { DARABONBA_PTR_GET_DEFAULT(readme_, "") };
     inline UpdateTableBusinessMetadataRequest& setReadme(string readme) { DARABONBA_PTR_SET_VALUE(readme_, readme) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The table ID. You can refer to the format of the table ID returned by the ListTables operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // The usage notes. The rich text format is supported.
-    std::shared_ptr<string> readme_ = nullptr;
+    shared_ptr<string> readme_ {};
   };
 
   } // namespace Models

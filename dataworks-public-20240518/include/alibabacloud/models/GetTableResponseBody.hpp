@@ -35,37 +35,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->success_ == nullptr && return this->table_ == nullptr; };
+        && this->success_ == nullptr && this->table_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTableResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetTableResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // table Field Functions 
     bool hasTable() const { return this->table_ != nullptr;};
     void deleteTable() { this->table_ = nullptr;};
-    inline const Table & table() const { DARABONBA_PTR_GET_CONST(table_, Table) };
-    inline Table table() { DARABONBA_PTR_GET(table_, Table) };
+    inline const Table & getTable() const { DARABONBA_PTR_GET_CONST(table_, Table) };
+    inline Table getTable() { DARABONBA_PTR_GET(table_, Table) };
     inline GetTableResponseBody& setTable(const Table & table) { DARABONBA_PTR_SET_VALUE(table_, table) };
     inline GetTableResponseBody& setTable(Table && table) { DARABONBA_PTR_SET_RVALUE(table_, table) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request succeeded.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // Detailed information about the table.
-    std::shared_ptr<Table> table_ = nullptr;
+    shared_ptr<Table> table_ {};
   };
 
   } // namespace Models

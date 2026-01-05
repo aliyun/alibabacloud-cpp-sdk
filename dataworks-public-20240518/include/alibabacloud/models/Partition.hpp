@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->dataSize_ == nullptr && return this->modifyTime_ == nullptr && return this->name_ == nullptr && return this->recordCount_ == nullptr && return this->tableId_ == nullptr; };
+        && this->dataSize_ == nullptr && this->modifyTime_ == nullptr && this->name_ == nullptr && this->recordCount_ == nullptr && this->tableId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+    inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline Partition& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // dataSize Field Functions 
     bool hasDataSize() const { return this->dataSize_ != nullptr;};
     void deleteDataSize() { this->dataSize_ = nullptr;};
-    inline int64_t dataSize() const { DARABONBA_PTR_GET_DEFAULT(dataSize_, 0L) };
+    inline int64_t getDataSize() const { DARABONBA_PTR_GET_DEFAULT(dataSize_, 0L) };
     inline Partition& setDataSize(int64_t dataSize) { DARABONBA_PTR_SET_VALUE(dataSize_, dataSize) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline int64_t modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, 0L) };
+    inline int64_t getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, 0L) };
     inline Partition& setModifyTime(int64_t modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Partition& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // recordCount Field Functions 
     bool hasRecordCount() const { return this->recordCount_ != nullptr;};
     void deleteRecordCount() { this->recordCount_ = nullptr;};
-    inline int64_t recordCount() const { DARABONBA_PTR_GET_DEFAULT(recordCount_, 0L) };
+    inline int64_t getRecordCount() const { DARABONBA_PTR_GET_DEFAULT(recordCount_, 0L) };
     inline Partition& setRecordCount(int64_t recordCount) { DARABONBA_PTR_SET_VALUE(recordCount_, recordCount) };
 
 
     // tableId Field Functions 
     bool hasTableId() const { return this->tableId_ != nullptr;};
     void deleteTableId() { this->tableId_ = nullptr;};
-    inline string tableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, "") };
+    inline string getTableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, "") };
     inline Partition& setTableId(string tableId) { DARABONBA_PTR_SET_VALUE(tableId_, tableId) };
 
 
   protected:
-    std::shared_ptr<int64_t> createTime_ = nullptr;
-    std::shared_ptr<int64_t> dataSize_ = nullptr;
-    std::shared_ptr<int64_t> modifyTime_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<int64_t> recordCount_ = nullptr;
-    std::shared_ptr<string> tableId_ = nullptr;
+    shared_ptr<int64_t> createTime_ {};
+    shared_ptr<int64_t> dataSize_ {};
+    shared_ptr<int64_t> modifyTime_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<int64_t> recordCount_ {};
+    shared_ptr<string> tableId_ {};
   };
 
   } // namespace Models

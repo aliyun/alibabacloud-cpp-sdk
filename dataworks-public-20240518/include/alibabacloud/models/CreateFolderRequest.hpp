@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->folderPath_ == nullptr
-        && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr; };
+        && this->projectId_ == nullptr && this->projectIdentifier_ == nullptr; };
     // folderPath Field Functions 
     bool hasFolderPath() const { return this->folderPath_ != nullptr;};
     void deleteFolderPath() { this->folderPath_ = nullptr;};
-    inline string folderPath() const { DARABONBA_PTR_GET_DEFAULT(folderPath_, "") };
+    inline string getFolderPath() const { DARABONBA_PTR_GET_DEFAULT(folderPath_, "") };
     inline CreateFolderRequest& setFolderPath(string folderPath) { DARABONBA_PTR_SET_VALUE(folderPath_, folderPath) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateFolderRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectIdentifier Field Functions 
     bool hasProjectIdentifier() const { return this->projectIdentifier_ != nullptr;};
     void deleteProjectIdentifier() { this->projectIdentifier_ = nullptr;};
-    inline string projectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
+    inline string getProjectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
     inline CreateFolderRequest& setProjectIdentifier(string projectIdentifier) { DARABONBA_PTR_SET_VALUE(projectIdentifier_, projectIdentifier) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The path of the folder.
     // 
     // This parameter is required.
-    std::shared_ptr<string> folderPath_ = nullptr;
+    shared_ptr<string> folderPath_ {};
     // The ID of the DataWorks workspace. You can obtain the workspace ID from the workspace configuration page in the DataWorks console. Either this parameter or **ProjectIdentifier** must be specified to determine which DataWorks workspace this API call operates on.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The name of the DataWorks workspace. You can obtain the workspace name from the workspace configuration page in the DataWorks console. Either this parameter or **ProjectId** must be specified to determine which DataWorks workspace this API call operates on.
-    std::shared_ptr<string> projectIdentifier_ = nullptr;
+    shared_ptr<string> projectIdentifier_ {};
   };
 
   } // namespace Models

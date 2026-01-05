@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->includeBusinessMetadata_ == nullptr; };
+        && this->includeBusinessMetadata_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline GetTableRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // includeBusinessMetadata Field Functions 
     bool hasIncludeBusinessMetadata() const { return this->includeBusinessMetadata_ != nullptr;};
     void deleteIncludeBusinessMetadata() { this->includeBusinessMetadata_ = nullptr;};
-    inline bool includeBusinessMetadata() const { DARABONBA_PTR_GET_DEFAULT(includeBusinessMetadata_, false) };
+    inline bool getIncludeBusinessMetadata() const { DARABONBA_PTR_GET_DEFAULT(includeBusinessMetadata_, false) };
     inline GetTableRequest& setIncludeBusinessMetadata(bool includeBusinessMetadata) { DARABONBA_PTR_SET_VALUE(includeBusinessMetadata_, includeBusinessMetadata) };
 
 
@@ -80,9 +80,9 @@ namespace Models
     // `table_name`: The table name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
     // Specifies whether to include metadata. Default: false.
-    std::shared_ptr<bool> includeBusinessMetadata_ = nullptr;
+    shared_ptr<bool> includeBusinessMetadata_ {};
   };
 
   } // namespace Models

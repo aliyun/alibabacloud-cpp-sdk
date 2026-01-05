@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSourceId_ == nullptr
-        && return this->targetProjectId_ == nullptr; };
+        && this->targetProjectId_ == nullptr; };
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline int64_t dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, 0L) };
+    inline int64_t getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, 0L) };
     inline ListDataSourceSharedRulesRequest& setDataSourceId(int64_t dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // targetProjectId Field Functions 
     bool hasTargetProjectId() const { return this->targetProjectId_ != nullptr;};
     void deleteTargetProjectId() { this->targetProjectId_ = nullptr;};
-    inline int64_t targetProjectId() const { DARABONBA_PTR_GET_DEFAULT(targetProjectId_, 0L) };
+    inline int64_t getTargetProjectId() const { DARABONBA_PTR_GET_DEFAULT(targetProjectId_, 0L) };
     inline ListDataSourceSharedRulesRequest& setTargetProjectId(int64_t targetProjectId) { DARABONBA_PTR_SET_VALUE(targetProjectId_, targetProjectId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The data source ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dataSourceId_ = nullptr;
+    shared_ptr<int64_t> dataSourceId_ {};
     // The ID of the workspace to which the data source is shared. You cannot share the data source to the workspace with which the data source is associated.
-    std::shared_ptr<int64_t> targetProjectId_ = nullptr;
+    shared_ptr<int64_t> targetProjectId_ {};
   };
 
   } // namespace Models

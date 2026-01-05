@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetVersion_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->requestId_ == nullptr && this->success_ == nullptr; };
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
-    inline const DatasetVersion & datasetVersion() const { DARABONBA_PTR_GET_CONST(datasetVersion_, DatasetVersion) };
-    inline DatasetVersion datasetVersion() { DARABONBA_PTR_GET(datasetVersion_, DatasetVersion) };
+    inline const DatasetVersion & getDatasetVersion() const { DARABONBA_PTR_GET_CONST(datasetVersion_, DatasetVersion) };
+    inline DatasetVersion getDatasetVersion() { DARABONBA_PTR_GET(datasetVersion_, DatasetVersion) };
     inline GetDatasetVersionResponseBody& setDatasetVersion(const DatasetVersion & datasetVersion) { DARABONBA_PTR_SET_VALUE(datasetVersion_, datasetVersion) };
     inline GetDatasetVersionResponseBody& setDatasetVersion(DatasetVersion && datasetVersion) { DARABONBA_PTR_SET_RVALUE(datasetVersion_, datasetVersion) };
 
@@ -48,22 +48,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDatasetVersionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetDatasetVersionResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<DatasetVersion> datasetVersion_ = nullptr;
+    // The dataset version.
+    shared_ptr<DatasetVersion> datasetVersion_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

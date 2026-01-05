@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataSourceId_ == nullptr
-        && return this->envType_ == nullptr && return this->sharedUser_ == nullptr && return this->targetProjectId_ == nullptr; };
+        && this->envType_ == nullptr && this->sharedUser_ == nullptr && this->targetProjectId_ == nullptr; };
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline int64_t dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, 0L) };
+    inline int64_t getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, 0L) };
     inline CreateDataSourceSharedRuleRequest& setDataSourceId(int64_t dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline CreateDataSourceSharedRuleRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // sharedUser Field Functions 
     bool hasSharedUser() const { return this->sharedUser_ != nullptr;};
     void deleteSharedUser() { this->sharedUser_ = nullptr;};
-    inline string sharedUser() const { DARABONBA_PTR_GET_DEFAULT(sharedUser_, "") };
+    inline string getSharedUser() const { DARABONBA_PTR_GET_DEFAULT(sharedUser_, "") };
     inline CreateDataSourceSharedRuleRequest& setSharedUser(string sharedUser) { DARABONBA_PTR_SET_VALUE(sharedUser_, sharedUser) };
 
 
     // targetProjectId Field Functions 
     bool hasTargetProjectId() const { return this->targetProjectId_ != nullptr;};
     void deleteTargetProjectId() { this->targetProjectId_ = nullptr;};
-    inline int64_t targetProjectId() const { DARABONBA_PTR_GET_DEFAULT(targetProjectId_, 0L) };
+    inline int64_t getTargetProjectId() const { DARABONBA_PTR_GET_DEFAULT(targetProjectId_, 0L) };
     inline CreateDataSourceSharedRuleRequest& setTargetProjectId(int64_t targetProjectId) { DARABONBA_PTR_SET_VALUE(targetProjectId_, targetProjectId) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // The data source ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dataSourceId_ = nullptr;
+    shared_ptr<int64_t> dataSourceId_ {};
     // Share data sources to the target project environment, including
     // - Dev (Development Environment)
     // - Prod (production environment)
     // 
     // This parameter is required.
-    std::shared_ptr<string> envType_ = nullptr;
+    shared_ptr<string> envType_ {};
     // The user with which you want to share the data source. If you do not configure this parameter, the data source is shared to an entire workspace.
-    std::shared_ptr<string> sharedUser_ = nullptr;
+    shared_ptr<string> sharedUser_ {};
     // The ID of the workspace to which you want to share the data source. You cannot share the data source to the workspace with which the data source is associated.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> targetProjectId_ = nullptr;
+    shared_ptr<int64_t> targetProjectId_ {};
   };
 
   } // namespace Models

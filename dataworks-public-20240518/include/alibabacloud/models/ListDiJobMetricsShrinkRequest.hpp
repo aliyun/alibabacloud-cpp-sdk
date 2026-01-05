@@ -36,50 +36,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DIJobId_ == nullptr
-        && return this->endTime_ == nullptr && return this->metricNameShrink_ == nullptr && return this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->metricNameShrink_ == nullptr && this->startTime_ == nullptr; };
     // DIJobId Field Functions 
     bool hasDIJobId() const { return this->DIJobId_ != nullptr;};
     void deleteDIJobId() { this->DIJobId_ = nullptr;};
-    inline int64_t DIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
+    inline int64_t getDIJobId() const { DARABONBA_PTR_GET_DEFAULT(DIJobId_, 0L) };
     inline ListDIJobMetricsShrinkRequest& setDIJobId(int64_t DIJobId) { DARABONBA_PTR_SET_VALUE(DIJobId_, DIJobId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline ListDIJobMetricsShrinkRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // metricNameShrink Field Functions 
     bool hasMetricNameShrink() const { return this->metricNameShrink_ != nullptr;};
     void deleteMetricNameShrink() { this->metricNameShrink_ = nullptr;};
-    inline string metricNameShrink() const { DARABONBA_PTR_GET_DEFAULT(metricNameShrink_, "") };
+    inline string getMetricNameShrink() const { DARABONBA_PTR_GET_DEFAULT(metricNameShrink_, "") };
     inline ListDIJobMetricsShrinkRequest& setMetricNameShrink(string metricNameShrink) { DARABONBA_PTR_SET_VALUE(metricNameShrink_, metricNameShrink) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline ListDIJobMetricsShrinkRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // The ID of the synchronization task.
-    std::shared_ptr<int64_t> DIJobId_ = nullptr;
+    shared_ptr<int64_t> DIJobId_ {};
     // The end of the time range to query.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The metrics that you want to query.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metricNameShrink_ = nullptr;
+    shared_ptr<string> metricNameShrink_ {};
     // The beginning of the time range to query.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->className_ == nullptr
-        && return this->cmdDescription_ == nullptr && return this->createFolderIfNotExists_ == nullptr && return this->example_ == nullptr && return this->fileFolderPath_ == nullptr && return this->fileName_ == nullptr
-        && return this->functionType_ == nullptr && return this->parameterDescription_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr && return this->resources_ == nullptr
-        && return this->returnValue_ == nullptr && return this->udfDescription_ == nullptr; };
+        && this->cmdDescription_ == nullptr && this->createFolderIfNotExists_ == nullptr && this->example_ == nullptr && this->fileFolderPath_ == nullptr && this->fileName_ == nullptr
+        && this->functionType_ == nullptr && this->parameterDescription_ == nullptr && this->projectId_ == nullptr && this->projectIdentifier_ == nullptr && this->resources_ == nullptr
+        && this->returnValue_ == nullptr && this->udfDescription_ == nullptr; };
     // className Field Functions 
     bool hasClassName() const { return this->className_ != nullptr;};
     void deleteClassName() { this->className_ = nullptr;};
-    inline string className() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
+    inline string getClassName() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
     inline CreateUdfFileRequest& setClassName(string className) { DARABONBA_PTR_SET_VALUE(className_, className) };
 
 
     // cmdDescription Field Functions 
     bool hasCmdDescription() const { return this->cmdDescription_ != nullptr;};
     void deleteCmdDescription() { this->cmdDescription_ = nullptr;};
-    inline string cmdDescription() const { DARABONBA_PTR_GET_DEFAULT(cmdDescription_, "") };
+    inline string getCmdDescription() const { DARABONBA_PTR_GET_DEFAULT(cmdDescription_, "") };
     inline CreateUdfFileRequest& setCmdDescription(string cmdDescription) { DARABONBA_PTR_SET_VALUE(cmdDescription_, cmdDescription) };
 
 
     // createFolderIfNotExists Field Functions 
     bool hasCreateFolderIfNotExists() const { return this->createFolderIfNotExists_ != nullptr;};
     void deleteCreateFolderIfNotExists() { this->createFolderIfNotExists_ = nullptr;};
-    inline bool createFolderIfNotExists() const { DARABONBA_PTR_GET_DEFAULT(createFolderIfNotExists_, false) };
+    inline bool getCreateFolderIfNotExists() const { DARABONBA_PTR_GET_DEFAULT(createFolderIfNotExists_, false) };
     inline CreateUdfFileRequest& setCreateFolderIfNotExists(bool createFolderIfNotExists) { DARABONBA_PTR_SET_VALUE(createFolderIfNotExists_, createFolderIfNotExists) };
 
 
     // example Field Functions 
     bool hasExample() const { return this->example_ != nullptr;};
     void deleteExample() { this->example_ = nullptr;};
-    inline string example() const { DARABONBA_PTR_GET_DEFAULT(example_, "") };
+    inline string getExample() const { DARABONBA_PTR_GET_DEFAULT(example_, "") };
     inline CreateUdfFileRequest& setExample(string example) { DARABONBA_PTR_SET_VALUE(example_, example) };
 
 
     // fileFolderPath Field Functions 
     bool hasFileFolderPath() const { return this->fileFolderPath_ != nullptr;};
     void deleteFileFolderPath() { this->fileFolderPath_ = nullptr;};
-    inline string fileFolderPath() const { DARABONBA_PTR_GET_DEFAULT(fileFolderPath_, "") };
+    inline string getFileFolderPath() const { DARABONBA_PTR_GET_DEFAULT(fileFolderPath_, "") };
     inline CreateUdfFileRequest& setFileFolderPath(string fileFolderPath) { DARABONBA_PTR_SET_VALUE(fileFolderPath_, fileFolderPath) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline CreateUdfFileRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // functionType Field Functions 
     bool hasFunctionType() const { return this->functionType_ != nullptr;};
     void deleteFunctionType() { this->functionType_ = nullptr;};
-    inline string functionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
+    inline string getFunctionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
     inline CreateUdfFileRequest& setFunctionType(string functionType) { DARABONBA_PTR_SET_VALUE(functionType_, functionType) };
 
 
     // parameterDescription Field Functions 
     bool hasParameterDescription() const { return this->parameterDescription_ != nullptr;};
     void deleteParameterDescription() { this->parameterDescription_ = nullptr;};
-    inline string parameterDescription() const { DARABONBA_PTR_GET_DEFAULT(parameterDescription_, "") };
+    inline string getParameterDescription() const { DARABONBA_PTR_GET_DEFAULT(parameterDescription_, "") };
     inline CreateUdfFileRequest& setParameterDescription(string parameterDescription) { DARABONBA_PTR_SET_VALUE(parameterDescription_, parameterDescription) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateUdfFileRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectIdentifier Field Functions 
     bool hasProjectIdentifier() const { return this->projectIdentifier_ != nullptr;};
     void deleteProjectIdentifier() { this->projectIdentifier_ = nullptr;};
-    inline string projectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
+    inline string getProjectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
     inline CreateUdfFileRequest& setProjectIdentifier(string projectIdentifier) { DARABONBA_PTR_SET_VALUE(projectIdentifier_, projectIdentifier) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline string resources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
+    inline string getResources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
     inline CreateUdfFileRequest& setResources(string resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
 
 
     // returnValue Field Functions 
     bool hasReturnValue() const { return this->returnValue_ != nullptr;};
     void deleteReturnValue() { this->returnValue_ = nullptr;};
-    inline string returnValue() const { DARABONBA_PTR_GET_DEFAULT(returnValue_, "") };
+    inline string getReturnValue() const { DARABONBA_PTR_GET_DEFAULT(returnValue_, "") };
     inline CreateUdfFileRequest& setReturnValue(string returnValue) { DARABONBA_PTR_SET_VALUE(returnValue_, returnValue) };
 
 
     // udfDescription Field Functions 
     bool hasUdfDescription() const { return this->udfDescription_ != nullptr;};
     void deleteUdfDescription() { this->udfDescription_ = nullptr;};
-    inline string udfDescription() const { DARABONBA_PTR_GET_DEFAULT(udfDescription_, "") };
+    inline string getUdfDescription() const { DARABONBA_PTR_GET_DEFAULT(udfDescription_, "") };
     inline CreateUdfFileRequest& setUdfDescription(string udfDescription) { DARABONBA_PTR_SET_VALUE(udfDescription_, udfDescription) };
 
 
@@ -152,42 +152,42 @@ namespace Models
     // The class name where the function is defined, corresponding to the class name field in the Create Function form.
     // 
     // This parameter is required.
-    std::shared_ptr<string> className_ = nullptr;
+    shared_ptr<string> className_ {};
     // The command format for invoking the function, corresponding to the command format field in the Create Function form.
-    std::shared_ptr<string> cmdDescription_ = nullptr;
+    shared_ptr<string> cmdDescription_ {};
     // Specifies whether to automatically create the directory if the specified path (FileFolderPath) does not exist. Valid values:
     // 
     // *   true: Automatically creates the directory if it does not exist.
     // *   false: The call fails if the directory does not exist.
-    std::shared_ptr<bool> createFolderIfNotExists_ = nullptr;
+    shared_ptr<bool> createFolderIfNotExists_ {};
     // An example demonstrating how to call the function, corresponding to the example field in the Create Function form.
-    std::shared_ptr<string> example_ = nullptr;
+    shared_ptr<string> example_ {};
     // The path to the folder containing the function file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileFolderPath_ = nullptr;
+    shared_ptr<string> fileFolderPath_ {};
     // The function name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The function category, corresponding to the function type field in the Create Function form. Valid values: MATH (mathematical functions), AGGREGATE (aggregate functions), STRING (string processing functions), DATE (date processing functions), ANALYTIC (window functions), and OTHER (other functions).
     // 
     // This parameter is required.
-    std::shared_ptr<string> functionType_ = nullptr;
+    shared_ptr<string> functionType_ {};
     // The function parameter description, corresponding to the parameter description field in the Create Function form.
-    std::shared_ptr<string> parameterDescription_ = nullptr;
+    shared_ptr<string> parameterDescription_ {};
     // The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces.
-    std::shared_ptr<string> projectIdentifier_ = nullptr;
+    shared_ptr<string> projectIdentifier_ {};
     // A comma-separated list of resource names referenced by the function, corresponding to the resource list field in the Create Function form.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resources_ = nullptr;
+    shared_ptr<string> resources_ {};
     // The return value description, corresponding to the return value field in the Create Function form.
-    std::shared_ptr<string> returnValue_ = nullptr;
+    shared_ptr<string> returnValue_ {};
     // The function purpose description, corresponding to the description field in the Create Function form.
-    std::shared_ptr<string> udfDescription_ = nullptr;
+    shared_ptr<string> udfDescription_ {};
   };
 
   } // namespace Models

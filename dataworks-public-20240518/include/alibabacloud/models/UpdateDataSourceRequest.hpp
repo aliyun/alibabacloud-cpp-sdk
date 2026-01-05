@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionProperties_ == nullptr
-        && return this->connectionPropertiesMode_ == nullptr && return this->description_ == nullptr && return this->id_ == nullptr && return this->projectId_ == nullptr; };
+        && this->connectionPropertiesMode_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->projectId_ == nullptr; };
     // connectionProperties Field Functions 
     bool hasConnectionProperties() const { return this->connectionProperties_ != nullptr;};
     void deleteConnectionProperties() { this->connectionProperties_ = nullptr;};
-    inline string connectionProperties() const { DARABONBA_PTR_GET_DEFAULT(connectionProperties_, "") };
+    inline string getConnectionProperties() const { DARABONBA_PTR_GET_DEFAULT(connectionProperties_, "") };
     inline UpdateDataSourceRequest& setConnectionProperties(string connectionProperties) { DARABONBA_PTR_SET_VALUE(connectionProperties_, connectionProperties) };
 
 
     // connectionPropertiesMode Field Functions 
     bool hasConnectionPropertiesMode() const { return this->connectionPropertiesMode_ != nullptr;};
     void deleteConnectionPropertiesMode() { this->connectionPropertiesMode_ = nullptr;};
-    inline string connectionPropertiesMode() const { DARABONBA_PTR_GET_DEFAULT(connectionPropertiesMode_, "") };
+    inline string getConnectionPropertiesMode() const { DARABONBA_PTR_GET_DEFAULT(connectionPropertiesMode_, "") };
     inline UpdateDataSourceRequest& setConnectionPropertiesMode(string connectionPropertiesMode) { DARABONBA_PTR_SET_VALUE(connectionPropertiesMode_, connectionPropertiesMode) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateDataSourceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateDataSourceRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline UpdateDataSourceRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
@@ -83,22 +83,22 @@ namespace Models
     // The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> connectionProperties_ = nullptr;
+    shared_ptr<string> connectionProperties_ {};
     // The mode in which the data source is added. The mode varies based on the data source type. Valid values:
     // 
     // *   InstanceMode: instance mode
     // *   UrlMode: connection string mode
-    std::shared_ptr<string> connectionPropertiesMode_ = nullptr;
+    shared_ptr<string> connectionPropertiesMode_ {};
     // The description of the data source. The description cannot exceed 3,000 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The data source ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> id_ = nullptr;
+    shared_ptr<int64_t> id_ {};
     // The DataWorks workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
   };
 
   } // namespace Models

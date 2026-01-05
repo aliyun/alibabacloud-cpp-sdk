@@ -38,50 +38,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->datasetId_ == nullptr && return this->importInfoShrink_ == nullptr && return this->mountPath_ == nullptr && return this->url_ == nullptr; };
+        && this->datasetId_ == nullptr && this->importInfoShrink_ == nullptr && this->mountPath_ == nullptr && this->url_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline CreateDatasetVersionShrinkRequest& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
-    inline string datasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
+    inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
     inline CreateDatasetVersionShrinkRequest& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
     // importInfoShrink Field Functions 
     bool hasImportInfoShrink() const { return this->importInfoShrink_ != nullptr;};
     void deleteImportInfoShrink() { this->importInfoShrink_ = nullptr;};
-    inline string importInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(importInfoShrink_, "") };
+    inline string getImportInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(importInfoShrink_, "") };
     inline CreateDatasetVersionShrinkRequest& setImportInfoShrink(string importInfoShrink) { DARABONBA_PTR_SET_VALUE(importInfoShrink_, importInfoShrink) };
 
 
     // mountPath Field Functions 
     bool hasMountPath() const { return this->mountPath_ != nullptr;};
     void deleteMountPath() { this->mountPath_ = nullptr;};
-    inline string mountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+    inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
     inline CreateDatasetVersionShrinkRequest& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline CreateDatasetVersionShrinkRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
+    // The description for this dataset version. Maximum length: 1,024 characters.
+    shared_ptr<string> comment_ {};
+    // The dataset ID. Currently supports DataWorks datasets only.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> datasetId_ = nullptr;
-    std::shared_ptr<string> importInfoShrink_ = nullptr;
-    std::shared_ptr<string> mountPath_ = nullptr;
+    shared_ptr<string> datasetId_ {};
+    // The storage import configuration for the dataset. Required configuration varies by storage type.
+    // 
+    // **NAS**
+    // 
+    // For valid values, see the response from the file storage API DescribeFileSystems.
+    // 
+    // ```JSON
+    // {
+    // "fileSystemId": "3b6XXX89c9", // The file system ID.
+    // "fileSystemStorageType":  "Performance" // The file system storage type.
+    // "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID for the mount point.
+    // }
+    // ```
+    shared_ptr<string> importInfoShrink_ {};
+    // The mount path, which must start with /mnt/. Default value: /mnt/data.
+    shared_ptr<string> mountPath_ {};
+    // URL
+    // 
     // This parameter is required.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

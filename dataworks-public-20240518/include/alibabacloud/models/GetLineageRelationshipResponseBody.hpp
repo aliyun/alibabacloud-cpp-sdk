@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lineageRelationship_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // lineageRelationship Field Functions 
     bool hasLineageRelationship() const { return this->lineageRelationship_ != nullptr;};
     void deleteLineageRelationship() { this->lineageRelationship_ = nullptr;};
-    inline const LineageRelationship & lineageRelationship() const { DARABONBA_PTR_GET_CONST(lineageRelationship_, LineageRelationship) };
-    inline LineageRelationship lineageRelationship() { DARABONBA_PTR_GET(lineageRelationship_, LineageRelationship) };
+    inline const LineageRelationship & getLineageRelationship() const { DARABONBA_PTR_GET_CONST(lineageRelationship_, LineageRelationship) };
+    inline LineageRelationship getLineageRelationship() { DARABONBA_PTR_GET(lineageRelationship_, LineageRelationship) };
     inline GetLineageRelationshipResponseBody& setLineageRelationship(const LineageRelationship & lineageRelationship) { DARABONBA_PTR_SET_VALUE(lineageRelationship_, lineageRelationship) };
     inline GetLineageRelationshipResponseBody& setLineageRelationship(LineageRelationship && lineageRelationship) { DARABONBA_PTR_SET_RVALUE(lineageRelationship_, lineageRelationship) };
 
@@ -46,15 +46,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetLineageRelationshipResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The lineage structure.
-    std::shared_ptr<LineageRelationship> lineageRelationship_ = nullptr;
+    shared_ptr<LineageRelationship> lineageRelationship_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

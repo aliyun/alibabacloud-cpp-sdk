@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->key_ == nullptr
-        && return this->values_ == nullptr; };
+        && this->values_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline DeleteDataAssetTagRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline const vector<string> & values() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
-    inline vector<string> values() { DARABONBA_PTR_GET(values_, vector<string>) };
+    inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+    inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
     inline DeleteDataAssetTagRequest& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
     inline DeleteDataAssetTagRequest& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
 
@@ -54,9 +54,9 @@ namespace Models
     // The tag key.
     // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // The tag values.
-    std::shared_ptr<vector<string>> values_ = nullptr;
+    shared_ptr<vector<string>> values_ {};
   };
 
   } // namespace Models

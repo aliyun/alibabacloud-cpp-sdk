@@ -34,38 +34,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->projectId_ == nullptr
-        && return this->resourceFile_ == nullptr && return this->spec_ == nullptr; };
+        && this->resourceFile_ == nullptr && this->spec_ == nullptr; };
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline CreateResourceRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // resourceFile Field Functions 
     bool hasResourceFile() const { return this->resourceFile_ != nullptr;};
     void deleteResourceFile() { this->resourceFile_ = nullptr;};
-    inline string resourceFile() const { DARABONBA_PTR_GET_DEFAULT(resourceFile_, "") };
+    inline string getResourceFile() const { DARABONBA_PTR_GET_DEFAULT(resourceFile_, "") };
     inline CreateResourceRequest& setResourceFile(string resourceFile) { DARABONBA_PTR_SET_VALUE(resourceFile_, resourceFile) };
 
 
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline CreateResourceRequest& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
   protected:
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+    // The ID of the DataWorks workspace. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
-    std::shared_ptr<string> resourceFile_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
+    // The specific file stream or OSS download link contained in the resource.
+    // 
+    // >  This field allows users to provide a file stream or an OSS download link. When providing an OSS download link, ensure that the OSS link is publicly accessible. A presigned URL is recommended.
+    shared_ptr<string> resourceFile_ {};
     // The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
     // 
     // This parameter is required.
-    std::shared_ptr<string> spec_ = nullptr;
+    shared_ptr<string> spec_ {};
   };
 
   } // namespace Models

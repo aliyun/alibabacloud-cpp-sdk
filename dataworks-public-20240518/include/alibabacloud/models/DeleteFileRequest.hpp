@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileId_ == nullptr
-        && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr; };
+        && this->projectId_ == nullptr && this->projectIdentifier_ == nullptr; };
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
-    inline int64_t fileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, 0L) };
+    inline int64_t getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, 0L) };
     inline DeleteFileRequest& setFileId(int64_t fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline DeleteFileRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectIdentifier Field Functions 
     bool hasProjectIdentifier() const { return this->projectIdentifier_ != nullptr;};
     void deleteProjectIdentifier() { this->projectIdentifier_ = nullptr;};
-    inline string projectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
+    inline string getProjectIdentifier() const { DARABONBA_PTR_GET_DEFAULT(projectIdentifier_, "") };
     inline DeleteFileRequest& setProjectIdentifier(string projectIdentifier) { DARABONBA_PTR_SET_VALUE(projectIdentifier_, projectIdentifier) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the folder ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> fileId_ = nullptr;
+    shared_ptr<int64_t> fileId_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
     // 
     // You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
-    std::shared_ptr<int64_t> projectId_ = nullptr;
+    shared_ptr<int64_t> projectId_ {};
     // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the name.
     // 
     // You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
-    std::shared_ptr<string> projectIdentifier_ = nullptr;
+    shared_ptr<string> projectIdentifier_ {};
   };
 
   } // namespace Models

@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->schema_ == nullptr && return this->success_ == nullptr; };
+        && this->schema_ == nullptr && this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSchemaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline const Schema & schema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
-    inline Schema schema() { DARABONBA_PTR_GET(schema_, Schema) };
+    inline const Schema & getSchema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
+    inline Schema getSchema() { DARABONBA_PTR_GET(schema_, Schema) };
     inline GetSchemaResponseBody& setSchema(const Schema & schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
     inline GetSchemaResponseBody& setSchema(Schema && schema) { DARABONBA_PTR_SET_RVALUE(schema_, schema) };
 
@@ -55,17 +55,17 @@ namespace Models
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetSchemaResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The schema information.
-    std::shared_ptr<Schema> schema_ = nullptr;
+    shared_ptr<Schema> schema_ {};
     // Indicates whether the request was successful.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

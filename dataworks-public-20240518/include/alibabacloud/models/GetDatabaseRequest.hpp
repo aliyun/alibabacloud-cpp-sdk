@@ -33,7 +33,7 @@ namespace Models
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline GetDatabaseRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
@@ -61,7 +61,7 @@ namespace Models
     // *   `database_name`: The database name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> id_ = nullptr;
+    shared_ptr<string> id_ {};
   };
 
   } // namespace Models

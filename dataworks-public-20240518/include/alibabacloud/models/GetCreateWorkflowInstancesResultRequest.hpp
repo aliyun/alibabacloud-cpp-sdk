@@ -33,7 +33,7 @@ namespace Models
     // operationId Field Functions 
     bool hasOperationId() const { return this->operationId_ != nullptr;};
     void deleteOperationId() { this->operationId_ = nullptr;};
-    inline string operationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
+    inline string getOperationId() const { DARABONBA_PTR_GET_DEFAULT(operationId_, "") };
     inline GetCreateWorkflowInstancesResultRequest& setOperationId(string operationId) { DARABONBA_PTR_SET_VALUE(operationId_, operationId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The operation ID. This parameter is used to query the result of asynchronously creating a workflow instance. You can call the CreateWorkflowInstances operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> operationId_ = nullptr;
+    shared_ptr<string> operationId_ {};
   };
 
   } // namespace Models
