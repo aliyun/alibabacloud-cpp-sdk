@@ -34,40 +34,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptType_ == nullptr
-        && return this->mobilesShrink_ == nullptr && return this->templateCode_ == nullptr; };
+        && this->mobilesShrink_ == nullptr && this->templateCode_ == nullptr; };
     // encryptType Field Functions 
     bool hasEncryptType() const { return this->encryptType_ != nullptr;};
     void deleteEncryptType() { this->encryptType_ = nullptr;};
-    inline string encryptType() const { DARABONBA_PTR_GET_DEFAULT(encryptType_, "") };
+    inline string getEncryptType() const { DARABONBA_PTR_GET_DEFAULT(encryptType_, "") };
     inline QueryMobilesCardSupportShrinkRequest& setEncryptType(string encryptType) { DARABONBA_PTR_SET_VALUE(encryptType_, encryptType) };
 
 
     // mobilesShrink Field Functions 
     bool hasMobilesShrink() const { return this->mobilesShrink_ != nullptr;};
     void deleteMobilesShrink() { this->mobilesShrink_ = nullptr;};
-    inline string mobilesShrink() const { DARABONBA_PTR_GET_DEFAULT(mobilesShrink_, "") };
+    inline string getMobilesShrink() const { DARABONBA_PTR_GET_DEFAULT(mobilesShrink_, "") };
     inline QueryMobilesCardSupportShrinkRequest& setMobilesShrink(string mobilesShrink) { DARABONBA_PTR_SET_VALUE(mobilesShrink_, mobilesShrink) };
 
 
     // templateCode Field Functions 
     bool hasTemplateCode() const { return this->templateCode_ != nullptr;};
     void deleteTemplateCode() { this->templateCode_ = nullptr;};
-    inline string templateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
+    inline string getTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
     inline QueryMobilesCardSupportShrinkRequest& setTemplateCode(string templateCode) { DARABONBA_PTR_SET_VALUE(templateCode_, templateCode) };
 
 
   protected:
-    std::shared_ptr<string> encryptType_ = nullptr;
+    shared_ptr<string> encryptType_ {};
     // The list of mobile phone numbers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> mobilesShrink_ = nullptr;
+    shared_ptr<string> mobilesShrink_ {};
     // The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
     // 
     // > Make sure that the message template has been approved.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateCode_ = nullptr;
+    shared_ptr<string> templateCode_ {};
   };
 
   } // namespace Models

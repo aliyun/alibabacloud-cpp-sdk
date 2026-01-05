@@ -50,103 +50,103 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->companyName_ == nullptr
-        && return this->legalPersonName_ == nullptr && return this->ownerId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->qualificationGroupName_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->state_ == nullptr && return this->useBySelf_ == nullptr && return this->workOrderId_ == nullptr; };
+        && this->legalPersonName_ == nullptr && this->ownerId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->qualificationGroupName_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->state_ == nullptr && this->useBySelf_ == nullptr && this->workOrderId_ == nullptr; };
     // companyName Field Functions 
     bool hasCompanyName() const { return this->companyName_ != nullptr;};
     void deleteCompanyName() { this->companyName_ = nullptr;};
-    inline string companyName() const { DARABONBA_PTR_GET_DEFAULT(companyName_, "") };
+    inline string getCompanyName() const { DARABONBA_PTR_GET_DEFAULT(companyName_, "") };
     inline QuerySmsQualificationRecordRequest& setCompanyName(string companyName) { DARABONBA_PTR_SET_VALUE(companyName_, companyName) };
 
 
     // legalPersonName Field Functions 
     bool hasLegalPersonName() const { return this->legalPersonName_ != nullptr;};
     void deleteLegalPersonName() { this->legalPersonName_ = nullptr;};
-    inline string legalPersonName() const { DARABONBA_PTR_GET_DEFAULT(legalPersonName_, "") };
+    inline string getLegalPersonName() const { DARABONBA_PTR_GET_DEFAULT(legalPersonName_, "") };
     inline QuerySmsQualificationRecordRequest& setLegalPersonName(string legalPersonName) { DARABONBA_PTR_SET_VALUE(legalPersonName_, legalPersonName) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline QuerySmsQualificationRecordRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int64_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0L) };
+    inline int64_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0L) };
     inline QuerySmsQualificationRecordRequest& setPageNo(int64_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline QuerySmsQualificationRecordRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // qualificationGroupName Field Functions 
     bool hasQualificationGroupName() const { return this->qualificationGroupName_ != nullptr;};
     void deleteQualificationGroupName() { this->qualificationGroupName_ = nullptr;};
-    inline string qualificationGroupName() const { DARABONBA_PTR_GET_DEFAULT(qualificationGroupName_, "") };
+    inline string getQualificationGroupName() const { DARABONBA_PTR_GET_DEFAULT(qualificationGroupName_, "") };
     inline QuerySmsQualificationRecordRequest& setQualificationGroupName(string qualificationGroupName) { DARABONBA_PTR_SET_VALUE(qualificationGroupName_, qualificationGroupName) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline QuerySmsQualificationRecordRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline QuerySmsQualificationRecordRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline QuerySmsQualificationRecordRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // useBySelf Field Functions 
     bool hasUseBySelf() const { return this->useBySelf_ != nullptr;};
     void deleteUseBySelf() { this->useBySelf_ = nullptr;};
-    inline bool useBySelf() const { DARABONBA_PTR_GET_DEFAULT(useBySelf_, false) };
+    inline bool getUseBySelf() const { DARABONBA_PTR_GET_DEFAULT(useBySelf_, false) };
     inline QuerySmsQualificationRecordRequest& setUseBySelf(bool useBySelf) { DARABONBA_PTR_SET_VALUE(useBySelf_, useBySelf) };
 
 
     // workOrderId Field Functions 
     bool hasWorkOrderId() const { return this->workOrderId_ != nullptr;};
     void deleteWorkOrderId() { this->workOrderId_ = nullptr;};
-    inline int64_t workOrderId() const { DARABONBA_PTR_GET_DEFAULT(workOrderId_, 0L) };
+    inline int64_t getWorkOrderId() const { DARABONBA_PTR_GET_DEFAULT(workOrderId_, 0L) };
     inline QuerySmsQualificationRecordRequest& setWorkOrderId(int64_t workOrderId) { DARABONBA_PTR_SET_VALUE(workOrderId_, workOrderId) };
 
 
   protected:
     // 公司名
-    std::shared_ptr<string> companyName_ = nullptr;
+    shared_ptr<string> companyName_ {};
     // 法人姓名
-    std::shared_ptr<string> legalPersonName_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<int64_t> pageNo_ = nullptr;
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<string> legalPersonName_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<int64_t> pageNo_ {};
+    shared_ptr<int64_t> pageSize_ {};
     // 资质组名称
-    std::shared_ptr<string> qualificationGroupName_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> qualificationGroupName_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // 审核状态。INT:审核中FAILED:审核失败,PASSED:审核通过,NOT_FINISH:资料待补充,CANCELED:已撤回
-    std::shared_ptr<string> state_ = nullptr;
+    shared_ptr<string> state_ {};
     // 是否自用
-    std::shared_ptr<bool> useBySelf_ = nullptr;
+    shared_ptr<bool> useBySelf_ {};
     // 工单ID
-    std::shared_ptr<int64_t> workOrderId_ = nullptr;
+    shared_ptr<int64_t> workOrderId_ {};
   };
 
   } // namespace Models

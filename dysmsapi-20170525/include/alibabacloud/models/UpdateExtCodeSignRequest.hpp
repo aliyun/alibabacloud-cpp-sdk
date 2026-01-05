@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->existExtCode_ == nullptr
-        && return this->newExtCode_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr; };
+        && this->newExtCode_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->signName_ == nullptr; };
     // existExtCode Field Functions 
     bool hasExistExtCode() const { return this->existExtCode_ != nullptr;};
     void deleteExistExtCode() { this->existExtCode_ = nullptr;};
-    inline string existExtCode() const { DARABONBA_PTR_GET_DEFAULT(existExtCode_, "") };
+    inline string getExistExtCode() const { DARABONBA_PTR_GET_DEFAULT(existExtCode_, "") };
     inline UpdateExtCodeSignRequest& setExistExtCode(string existExtCode) { DARABONBA_PTR_SET_VALUE(existExtCode_, existExtCode) };
 
 
     // newExtCode Field Functions 
     bool hasNewExtCode() const { return this->newExtCode_ != nullptr;};
     void deleteNewExtCode() { this->newExtCode_ = nullptr;};
-    inline string newExtCode() const { DARABONBA_PTR_GET_DEFAULT(newExtCode_, "") };
+    inline string getNewExtCode() const { DARABONBA_PTR_GET_DEFAULT(newExtCode_, "") };
     inline UpdateExtCodeSignRequest& setNewExtCode(string newExtCode) { DARABONBA_PTR_SET_VALUE(newExtCode_, newExtCode) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateExtCodeSignRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline UpdateExtCodeSignRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline UpdateExtCodeSignRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // signName Field Functions 
     bool hasSignName() const { return this->signName_ != nullptr;};
     void deleteSignName() { this->signName_ = nullptr;};
-    inline string signName() const { DARABONBA_PTR_GET_DEFAULT(signName_, "") };
+    inline string getSignName() const { DARABONBA_PTR_GET_DEFAULT(signName_, "") };
     inline UpdateExtCodeSignRequest& setSignName(string signName) { DARABONBA_PTR_SET_VALUE(signName_, signName) };
 
 
@@ -87,18 +87,18 @@ namespace Models
     // 要修改的扩展码A3
     // 
     // This parameter is required.
-    std::shared_ptr<string> existExtCode_ = nullptr;
+    shared_ptr<string> existExtCode_ {};
     // 修改后的扩展码A3
     // 
     // This parameter is required.
-    std::shared_ptr<string> newExtCode_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> newExtCode_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // 签名
     // 
     // This parameter is required.
-    std::shared_ptr<string> signName_ = nullptr;
+    shared_ptr<string> signName_ {};
   };
 
   } // namespace Models

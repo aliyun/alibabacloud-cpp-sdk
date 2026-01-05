@@ -35,39 +35,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endDate_ == nullptr
-        && return this->startDate_ == nullptr && return this->templateCodes_ == nullptr; };
+        && this->startDate_ == nullptr && this->templateCodes_ == nullptr; };
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline QueryCardSmsTemplateReportRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline QueryCardSmsTemplateReportRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // templateCodes Field Functions 
     bool hasTemplateCodes() const { return this->templateCodes_ != nullptr;};
     void deleteTemplateCodes() { this->templateCodes_ = nullptr;};
-    inline const vector<string> & templateCodes() const { DARABONBA_PTR_GET_CONST(templateCodes_, vector<string>) };
-    inline vector<string> templateCodes() { DARABONBA_PTR_GET(templateCodes_, vector<string>) };
+    inline const vector<string> & getTemplateCodes() const { DARABONBA_PTR_GET_CONST(templateCodes_, vector<string>) };
+    inline vector<string> getTemplateCodes() { DARABONBA_PTR_GET(templateCodes_, vector<string>) };
     inline QueryCardSmsTemplateReportRequest& setTemplateCodes(const vector<string> & templateCodes) { DARABONBA_PTR_SET_VALUE(templateCodes_, templateCodes) };
     inline QueryCardSmsTemplateReportRequest& setTemplateCodes(vector<string> && templateCodes) { DARABONBA_PTR_SET_RVALUE(templateCodes_, templateCodes) };
 
 
   protected:
     // The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
     // The array of message templates.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> templateCodes_ = nullptr;
+    shared_ptr<vector<string>> templateCodes_ {};
   };
 
   } // namespace Models

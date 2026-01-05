@@ -33,7 +33,7 @@ namespace Models
     // templateCode Field Functions 
     bool hasTemplateCode() const { return this->templateCode_ != nullptr;};
     void deleteTemplateCode() { this->templateCode_ = nullptr;};
-    inline string templateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
+    inline string getTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
     inline QueryCardSmsTemplateRequest& setTemplateCode(string templateCode) { DARABONBA_PTR_SET_VALUE(templateCode_, templateCode) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // > Make sure that the message template has been approved.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateCode_ = nullptr;
+    shared_ptr<string> templateCode_ {};
   };
 
   } // namespace Models

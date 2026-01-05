@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->outId_ == nullptr
-        && return this->ownerId_ == nullptr && return this->phoneNumberJson_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signNameJson_ == nullptr
-        && return this->smsUpExtendCodeJson_ == nullptr && return this->templateCode_ == nullptr && return this->templateParamJson_ == nullptr; };
+        && this->ownerId_ == nullptr && this->phoneNumberJson_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->signNameJson_ == nullptr
+        && this->smsUpExtendCodeJson_ == nullptr && this->templateCode_ == nullptr && this->templateParamJson_ == nullptr; };
     // outId Field Functions 
     bool hasOutId() const { return this->outId_ != nullptr;};
     void deleteOutId() { this->outId_ = nullptr;};
-    inline string outId() const { DARABONBA_PTR_GET_DEFAULT(outId_, "") };
+    inline string getOutId() const { DARABONBA_PTR_GET_DEFAULT(outId_, "") };
     inline SendBatchSmsRequest& setOutId(string outId) { DARABONBA_PTR_SET_VALUE(outId_, outId) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline SendBatchSmsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // phoneNumberJson Field Functions 
     bool hasPhoneNumberJson() const { return this->phoneNumberJson_ != nullptr;};
     void deletePhoneNumberJson() { this->phoneNumberJson_ = nullptr;};
-    inline string phoneNumberJson() const { DARABONBA_PTR_GET_DEFAULT(phoneNumberJson_, "") };
+    inline string getPhoneNumberJson() const { DARABONBA_PTR_GET_DEFAULT(phoneNumberJson_, "") };
     inline SendBatchSmsRequest& setPhoneNumberJson(string phoneNumberJson) { DARABONBA_PTR_SET_VALUE(phoneNumberJson_, phoneNumberJson) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline SendBatchSmsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline SendBatchSmsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // signNameJson Field Functions 
     bool hasSignNameJson() const { return this->signNameJson_ != nullptr;};
     void deleteSignNameJson() { this->signNameJson_ = nullptr;};
-    inline string signNameJson() const { DARABONBA_PTR_GET_DEFAULT(signNameJson_, "") };
+    inline string getSignNameJson() const { DARABONBA_PTR_GET_DEFAULT(signNameJson_, "") };
     inline SendBatchSmsRequest& setSignNameJson(string signNameJson) { DARABONBA_PTR_SET_VALUE(signNameJson_, signNameJson) };
 
 
     // smsUpExtendCodeJson Field Functions 
     bool hasSmsUpExtendCodeJson() const { return this->smsUpExtendCodeJson_ != nullptr;};
     void deleteSmsUpExtendCodeJson() { this->smsUpExtendCodeJson_ = nullptr;};
-    inline string smsUpExtendCodeJson() const { DARABONBA_PTR_GET_DEFAULT(smsUpExtendCodeJson_, "") };
+    inline string getSmsUpExtendCodeJson() const { DARABONBA_PTR_GET_DEFAULT(smsUpExtendCodeJson_, "") };
     inline SendBatchSmsRequest& setSmsUpExtendCodeJson(string smsUpExtendCodeJson) { DARABONBA_PTR_SET_VALUE(smsUpExtendCodeJson_, smsUpExtendCodeJson) };
 
 
     // templateCode Field Functions 
     bool hasTemplateCode() const { return this->templateCode_ != nullptr;};
     void deleteTemplateCode() { this->templateCode_ = nullptr;};
-    inline string templateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
+    inline string getTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
     inline SendBatchSmsRequest& setTemplateCode(string templateCode) { DARABONBA_PTR_SET_VALUE(templateCode_, templateCode) };
 
 
     // templateParamJson Field Functions 
     bool hasTemplateParamJson() const { return this->templateParamJson_ != nullptr;};
     void deleteTemplateParamJson() { this->templateParamJson_ = nullptr;};
-    inline string templateParamJson() const { DARABONBA_PTR_GET_DEFAULT(templateParamJson_, "") };
+    inline string getTemplateParamJson() const { DARABONBA_PTR_GET_DEFAULT(templateParamJson_, "") };
     inline SendBatchSmsRequest& setTemplateParamJson(string templateParamJson) { DARABONBA_PTR_SET_VALUE(templateParamJson_, templateParamJson) };
 
 
@@ -115,8 +115,8 @@ namespace Models
     // The extension field of the external record. The value is a string that contains no more than 256 characters.
     // 
     // > The parameter is optional.
-    std::shared_ptr<string> outId_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> outId_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The mobile number of the recipient. Format:
     // 
     // *   Message delivery to the Chinese mainland: +/+86/0086/86 or an 11-digit mobile number without a prefix. Example: 1590000\\*\\*\\*\\*.
@@ -125,9 +125,9 @@ namespace Models
     // > We recommend that you call the SendSms operation to send verification codes.
     // 
     // This parameter is required.
-    std::shared_ptr<string> phoneNumberJson_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> phoneNumberJson_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The signature.
     // 
     // Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the signature in the **Signature** column on the **Signatures** tab.
@@ -135,11 +135,11 @@ namespace Models
     // > The signatures must be approved and correspond to the mobile numbers in sequence.
     // 
     // This parameter is required.
-    std::shared_ptr<string> signNameJson_ = nullptr;
+    shared_ptr<string> signNameJson_ {};
     // The extension code of the MO message. Format: JSON array.
     // 
     // > The parameter is optional.
-    std::shared_ptr<string> smsUpExtendCodeJson_ = nullptr;
+    shared_ptr<string> smsUpExtendCodeJson_ {};
     // The code of the message template.
     // 
     // Log on to the Alibaba Cloud SMS console. In the left-side navigation pane, click **Go Globe** or **Go China**. You can view the message template in the **Template Code** column on the **Message Templates** tab.
@@ -147,11 +147,11 @@ namespace Models
     // > The message templates must be created on the Go Globe page and approved.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateCode_ = nullptr;
+    shared_ptr<string> templateCode_ {};
     // The value of the variable in the message template.
     // 
     // > If you need to add line breaks to the JSON template, make sure that the format is valid. In addition, the sequence of variable values must be the same as that of the mobile numbers and signatures.
-    std::shared_ptr<string> templateParamJson_ = nullptr;
+    shared_ptr<string> templateParamJson_ {};
   };
 
   } // namespace Models

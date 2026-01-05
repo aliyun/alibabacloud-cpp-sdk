@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->createDate_ == nullptr && return this->message_ == nullptr && return this->reason_ == nullptr && return this->requestId_ == nullptr && return this->signName_ == nullptr
-        && return this->signStatus_ == nullptr; };
+        && this->createDate_ == nullptr && this->message_ == nullptr && this->reason_ == nullptr && this->requestId_ == nullptr && this->signName_ == nullptr
+        && this->signStatus_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline QuerySmsSignResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // createDate Field Functions 
     bool hasCreateDate() const { return this->createDate_ != nullptr;};
     void deleteCreateDate() { this->createDate_ = nullptr;};
-    inline string createDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
+    inline string getCreateDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
     inline QuerySmsSignResponseBody& setCreateDate(string createDate) { DARABONBA_PTR_SET_VALUE(createDate_, createDate) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline QuerySmsSignResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline QuerySmsSignResponseBody& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QuerySmsSignResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // signName Field Functions 
     bool hasSignName() const { return this->signName_ != nullptr;};
     void deleteSignName() { this->signName_ = nullptr;};
-    inline string signName() const { DARABONBA_PTR_GET_DEFAULT(signName_, "") };
+    inline string getSignName() const { DARABONBA_PTR_GET_DEFAULT(signName_, "") };
     inline QuerySmsSignResponseBody& setSignName(string signName) { DARABONBA_PTR_SET_VALUE(signName_, signName) };
 
 
     // signStatus Field Functions 
     bool hasSignStatus() const { return this->signStatus_ != nullptr;};
     void deleteSignStatus() { this->signStatus_ = nullptr;};
-    inline int32_t signStatus() const { DARABONBA_PTR_GET_DEFAULT(signStatus_, 0) };
+    inline int32_t getSignStatus() const { DARABONBA_PTR_GET_DEFAULT(signStatus_, 0) };
     inline QuerySmsSignResponseBody& setSignStatus(int32_t signStatus) { DARABONBA_PTR_SET_VALUE(signStatus_, signStatus) };
 
 
@@ -98,27 +98,27 @@ namespace Models
     // 
     // *   If OK is returned, the request is successful.
     // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The date and time when the signature was created.
-    std::shared_ptr<string> createDate_ = nullptr;
+    shared_ptr<string> createDate_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The remarks of the review. Valid values:
     // 
     // *   If the signature is in the **Approved** or **Pending Approval** state, No Remarks is returned.
     // *   If the signature is in the **Not Approved** state, the reason why the signature is rejected is returned.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The signature.
-    std::shared_ptr<string> signName_ = nullptr;
+    shared_ptr<string> signName_ {};
     // The status of the signature. Valid values:
     // 
     // *   **0**: The signature is pending approval.
     // *   **1**: The signature is approved.
     // *   **2**: The signature is rejected. The Reason parameter indicates the reason why the signature is rejected.
     // *   **10**: The signature is cancelled.
-    std::shared_ptr<int32_t> signStatus_ = nullptr;
+    shared_ptr<int32_t> signStatus_ {};
   };
 
   } // namespace Models

@@ -36,34 +36,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->factorys_ == nullptr
-        && return this->memo_ == nullptr && return this->template_ == nullptr && return this->templateName_ == nullptr; };
+        && this->memo_ == nullptr && this->template_ == nullptr && this->templateName_ == nullptr; };
     // factorys Field Functions 
     bool hasFactorys() const { return this->factorys_ != nullptr;};
     void deleteFactorys() { this->factorys_ = nullptr;};
-    inline string factorys() const { DARABONBA_PTR_GET_DEFAULT(factorys_, "") };
+    inline string getFactorys() const { DARABONBA_PTR_GET_DEFAULT(factorys_, "") };
     inline CreateCardSmsTemplateRequest& setFactorys(string factorys) { DARABONBA_PTR_SET_VALUE(factorys_, factorys) };
 
 
     // memo Field Functions 
     bool hasMemo() const { return this->memo_ != nullptr;};
     void deleteMemo() { this->memo_ = nullptr;};
-    inline string memo() const { DARABONBA_PTR_GET_DEFAULT(memo_, "") };
+    inline string getMemo() const { DARABONBA_PTR_GET_DEFAULT(memo_, "") };
     inline CreateCardSmsTemplateRequest& setMemo(string memo) { DARABONBA_PTR_SET_VALUE(memo_, memo) };
 
 
     // template Field Functions 
     bool hasTemplate() const { return this->template_ != nullptr;};
     void deleteTemplate() { this->template_ = nullptr;};
-    inline     const Darabonba::Json & _template() const { DARABONBA_GET(template_) };
-    Darabonba::Json & _template() { DARABONBA_GET(template_) };
+    inline     const Darabonba::Json & getTemplate() const { DARABONBA_GET(template_) };
+    Darabonba::Json & getTemplate() { DARABONBA_GET(template_) };
     inline CreateCardSmsTemplateRequest& setTemplate(const Darabonba::Json & _template) { DARABONBA_SET_VALUE(template_, _template) };
-    inline CreateCardSmsTemplateRequest& setTemplate(Darabonba::Json & _template) { DARABONBA_SET_RVALUE(template_, _template) };
+    inline CreateCardSmsTemplateRequest& setTemplate(Darabonba::Json && _template) { DARABONBA_SET_RVALUE(template_, _template) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline CreateCardSmsTemplateRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
@@ -77,9 +77,9 @@ namespace Models
     // *   **MEIZU**: MEIZU
     // 
     // > If this parameter is not specified, the system automatically specifies a supported mobile phone manufacturer.
-    std::shared_ptr<string> factorys_ = nullptr;
+    shared_ptr<string> factorys_ {};
     // The description of the message template.
-    std::shared_ptr<string> memo_ = nullptr;
+    shared_ptr<string> memo_ {};
     // The content of the card message template.
     // 
     // > 
@@ -89,11 +89,11 @@ namespace Models
     // *   Message template content varies based on the template type. For more information, see [Sample message templates](https://help.aliyun.com/document_detail/435361.html).
     // 
     // This parameter is required.
-    Darabonba::Json template_ = nullptr;
+    Darabonba::Json template_ {};
     // The name of the card message template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
   };
 
   } // namespace Models

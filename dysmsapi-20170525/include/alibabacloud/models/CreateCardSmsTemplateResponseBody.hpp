@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATECARDSMSTEMPLATERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATECARDSMSTEMPLATERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateCardSmsTemplateResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,35 +35,71 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(TemplateCode, templateCode_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(TemplateCode, templateCode_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->templateCode_ == nullptr; };
+      // templateCode Field Functions 
+      bool hasTemplateCode() const { return this->templateCode_ != nullptr;};
+      void deleteTemplateCode() { this->templateCode_ = nullptr;};
+      inline string getTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
+      inline Data& setTemplateCode(string templateCode) { DARABONBA_PTR_SET_VALUE(templateCode_, templateCode) };
+
+
+    protected:
+      // The code of the message template.
+      // 
+      // You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview).
+      // 
+      // > Make sure that the message template has been approved.
+      shared_ptr<string> templateCode_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline CreateCardSmsTemplateResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const CreateCardSmsTemplateResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, CreateCardSmsTemplateResponseBodyData) };
-    inline CreateCardSmsTemplateResponseBodyData data() { DARABONBA_PTR_GET(data_, CreateCardSmsTemplateResponseBodyData) };
-    inline CreateCardSmsTemplateResponseBody& setData(const CreateCardSmsTemplateResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline CreateCardSmsTemplateResponseBody& setData(CreateCardSmsTemplateResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const CreateCardSmsTemplateResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, CreateCardSmsTemplateResponseBody::Data) };
+    inline CreateCardSmsTemplateResponseBody::Data getData() { DARABONBA_PTR_GET(data_, CreateCardSmsTemplateResponseBody::Data) };
+    inline CreateCardSmsTemplateResponseBody& setData(const CreateCardSmsTemplateResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline CreateCardSmsTemplateResponseBody& setData(CreateCardSmsTemplateResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCardSmsTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline CreateCardSmsTemplateResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
@@ -73,16 +108,16 @@ namespace Models
     // 
     // *   If OK is returned, the request is successful.
     // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The data returned.
-    std::shared_ptr<CreateCardSmsTemplateResponseBodyData> data_ = nullptr;
+    shared_ptr<CreateCardSmsTemplateResponseBody::Data> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

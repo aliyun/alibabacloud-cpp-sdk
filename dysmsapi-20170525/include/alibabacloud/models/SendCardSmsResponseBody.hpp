@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_SENDCARDSMSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_SENDCARDSMSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/SendCardSmsResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,35 +35,129 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(BizCardId, bizCardId_);
+        DARABONBA_PTR_TO_JSON(BizDigitalId, bizDigitalId_);
+        DARABONBA_PTR_TO_JSON(BizSmsId, bizSmsId_);
+        DARABONBA_PTR_TO_JSON(CardTmpState, cardTmpState_);
+        DARABONBA_PTR_TO_JSON(MediaMobiles, mediaMobiles_);
+        DARABONBA_PTR_TO_JSON(NotMediaMobiles, notMediaMobiles_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(BizCardId, bizCardId_);
+        DARABONBA_PTR_FROM_JSON(BizDigitalId, bizDigitalId_);
+        DARABONBA_PTR_FROM_JSON(BizSmsId, bizSmsId_);
+        DARABONBA_PTR_FROM_JSON(CardTmpState, cardTmpState_);
+        DARABONBA_PTR_FROM_JSON(MediaMobiles, mediaMobiles_);
+        DARABONBA_PTR_FROM_JSON(NotMediaMobiles, notMediaMobiles_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->bizCardId_ == nullptr
+        && this->bizDigitalId_ == nullptr && this->bizSmsId_ == nullptr && this->cardTmpState_ == nullptr && this->mediaMobiles_ == nullptr && this->notMediaMobiles_ == nullptr; };
+      // bizCardId Field Functions 
+      bool hasBizCardId() const { return this->bizCardId_ != nullptr;};
+      void deleteBizCardId() { this->bizCardId_ = nullptr;};
+      inline string getBizCardId() const { DARABONBA_PTR_GET_DEFAULT(bizCardId_, "") };
+      inline Data& setBizCardId(string bizCardId) { DARABONBA_PTR_SET_VALUE(bizCardId_, bizCardId) };
+
+
+      // bizDigitalId Field Functions 
+      bool hasBizDigitalId() const { return this->bizDigitalId_ != nullptr;};
+      void deleteBizDigitalId() { this->bizDigitalId_ = nullptr;};
+      inline string getBizDigitalId() const { DARABONBA_PTR_GET_DEFAULT(bizDigitalId_, "") };
+      inline Data& setBizDigitalId(string bizDigitalId) { DARABONBA_PTR_SET_VALUE(bizDigitalId_, bizDigitalId) };
+
+
+      // bizSmsId Field Functions 
+      bool hasBizSmsId() const { return this->bizSmsId_ != nullptr;};
+      void deleteBizSmsId() { this->bizSmsId_ = nullptr;};
+      inline string getBizSmsId() const { DARABONBA_PTR_GET_DEFAULT(bizSmsId_, "") };
+      inline Data& setBizSmsId(string bizSmsId) { DARABONBA_PTR_SET_VALUE(bizSmsId_, bizSmsId) };
+
+
+      // cardTmpState Field Functions 
+      bool hasCardTmpState() const { return this->cardTmpState_ != nullptr;};
+      void deleteCardTmpState() { this->cardTmpState_ = nullptr;};
+      inline int32_t getCardTmpState() const { DARABONBA_PTR_GET_DEFAULT(cardTmpState_, 0) };
+      inline Data& setCardTmpState(int32_t cardTmpState) { DARABONBA_PTR_SET_VALUE(cardTmpState_, cardTmpState) };
+
+
+      // mediaMobiles Field Functions 
+      bool hasMediaMobiles() const { return this->mediaMobiles_ != nullptr;};
+      void deleteMediaMobiles() { this->mediaMobiles_ = nullptr;};
+      inline string getMediaMobiles() const { DARABONBA_PTR_GET_DEFAULT(mediaMobiles_, "") };
+      inline Data& setMediaMobiles(string mediaMobiles) { DARABONBA_PTR_SET_VALUE(mediaMobiles_, mediaMobiles) };
+
+
+      // notMediaMobiles Field Functions 
+      bool hasNotMediaMobiles() const { return this->notMediaMobiles_ != nullptr;};
+      void deleteNotMediaMobiles() { this->notMediaMobiles_ = nullptr;};
+      inline string getNotMediaMobiles() const { DARABONBA_PTR_GET_DEFAULT(notMediaMobiles_, "") };
+      inline Data& setNotMediaMobiles(string notMediaMobiles) { DARABONBA_PTR_SET_VALUE(notMediaMobiles_, notMediaMobiles) };
+
+
+    protected:
+      // The ID of the card message.
+      shared_ptr<string> bizCardId_ {};
+      // The ID of the digital message.
+      shared_ptr<string> bizDigitalId_ {};
+      // The ID of the text message.
+      shared_ptr<string> bizSmsId_ {};
+      // The review status of the card message template.
+      // 
+      // *   **0**: pending approval
+      // *   **1**: approved
+      // *   **2**: rejected
+      // 
+      // > Unapproved card messages are rolled back.
+      shared_ptr<int32_t> cardTmpState_ {};
+      // The mobile phone number from which the card message is sent.
+      shared_ptr<string> mediaMobiles_ {};
+      // The mobile phone number whose card message is rolled back.
+      shared_ptr<string> notMediaMobiles_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline SendCardSmsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const SendCardSmsResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, SendCardSmsResponseBodyData) };
-    inline SendCardSmsResponseBodyData data() { DARABONBA_PTR_GET(data_, SendCardSmsResponseBodyData) };
-    inline SendCardSmsResponseBody& setData(const SendCardSmsResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline SendCardSmsResponseBody& setData(SendCardSmsResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const SendCardSmsResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, SendCardSmsResponseBody::Data) };
+    inline SendCardSmsResponseBody::Data getData() { DARABONBA_PTR_GET(data_, SendCardSmsResponseBody::Data) };
+    inline SendCardSmsResponseBody& setData(const SendCardSmsResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline SendCardSmsResponseBody& setData(SendCardSmsResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SendCardSmsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline SendCardSmsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
@@ -73,16 +166,16 @@ namespace Models
     // 
     // *   If OK is returned, the request is successful.
     // *   Other values indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The data returned.
-    std::shared_ptr<SendCardSmsResponseBodyData> data_ = nullptr;
+    shared_ptr<SendCardSmsResponseBody::Data> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

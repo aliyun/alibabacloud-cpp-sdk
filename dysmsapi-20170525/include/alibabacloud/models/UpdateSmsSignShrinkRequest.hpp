@@ -56,136 +56,136 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIcpRecordId_ == nullptr
-        && return this->applySceneContent_ == nullptr && return this->authorizationLetterId_ == nullptr && return this->moreDataShrink_ == nullptr && return this->ownerId_ == nullptr && return this->qualificationId_ == nullptr
-        && return this->remark_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr && return this->signSource_ == nullptr
-        && return this->signType_ == nullptr && return this->thirdParty_ == nullptr && return this->trademarkId_ == nullptr; };
+        && this->applySceneContent_ == nullptr && this->authorizationLetterId_ == nullptr && this->moreDataShrink_ == nullptr && this->ownerId_ == nullptr && this->qualificationId_ == nullptr
+        && this->remark_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->signName_ == nullptr && this->signSource_ == nullptr
+        && this->signType_ == nullptr && this->thirdParty_ == nullptr && this->trademarkId_ == nullptr; };
     // appIcpRecordId Field Functions 
     bool hasAppIcpRecordId() const { return this->appIcpRecordId_ != nullptr;};
     void deleteAppIcpRecordId() { this->appIcpRecordId_ = nullptr;};
-    inline int64_t appIcpRecordId() const { DARABONBA_PTR_GET_DEFAULT(appIcpRecordId_, 0L) };
+    inline int64_t getAppIcpRecordId() const { DARABONBA_PTR_GET_DEFAULT(appIcpRecordId_, 0L) };
     inline UpdateSmsSignShrinkRequest& setAppIcpRecordId(int64_t appIcpRecordId) { DARABONBA_PTR_SET_VALUE(appIcpRecordId_, appIcpRecordId) };
 
 
     // applySceneContent Field Functions 
     bool hasApplySceneContent() const { return this->applySceneContent_ != nullptr;};
     void deleteApplySceneContent() { this->applySceneContent_ = nullptr;};
-    inline string applySceneContent() const { DARABONBA_PTR_GET_DEFAULT(applySceneContent_, "") };
+    inline string getApplySceneContent() const { DARABONBA_PTR_GET_DEFAULT(applySceneContent_, "") };
     inline UpdateSmsSignShrinkRequest& setApplySceneContent(string applySceneContent) { DARABONBA_PTR_SET_VALUE(applySceneContent_, applySceneContent) };
 
 
     // authorizationLetterId Field Functions 
     bool hasAuthorizationLetterId() const { return this->authorizationLetterId_ != nullptr;};
     void deleteAuthorizationLetterId() { this->authorizationLetterId_ = nullptr;};
-    inline int64_t authorizationLetterId() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterId_, 0L) };
+    inline int64_t getAuthorizationLetterId() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterId_, 0L) };
     inline UpdateSmsSignShrinkRequest& setAuthorizationLetterId(int64_t authorizationLetterId) { DARABONBA_PTR_SET_VALUE(authorizationLetterId_, authorizationLetterId) };
 
 
     // moreDataShrink Field Functions 
     bool hasMoreDataShrink() const { return this->moreDataShrink_ != nullptr;};
     void deleteMoreDataShrink() { this->moreDataShrink_ = nullptr;};
-    inline string moreDataShrink() const { DARABONBA_PTR_GET_DEFAULT(moreDataShrink_, "") };
+    inline string getMoreDataShrink() const { DARABONBA_PTR_GET_DEFAULT(moreDataShrink_, "") };
     inline UpdateSmsSignShrinkRequest& setMoreDataShrink(string moreDataShrink) { DARABONBA_PTR_SET_VALUE(moreDataShrink_, moreDataShrink) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline UpdateSmsSignShrinkRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // qualificationId Field Functions 
     bool hasQualificationId() const { return this->qualificationId_ != nullptr;};
     void deleteQualificationId() { this->qualificationId_ = nullptr;};
-    inline int64_t qualificationId() const { DARABONBA_PTR_GET_DEFAULT(qualificationId_, 0L) };
+    inline int64_t getQualificationId() const { DARABONBA_PTR_GET_DEFAULT(qualificationId_, 0L) };
     inline UpdateSmsSignShrinkRequest& setQualificationId(int64_t qualificationId) { DARABONBA_PTR_SET_VALUE(qualificationId_, qualificationId) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline UpdateSmsSignShrinkRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline UpdateSmsSignShrinkRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline UpdateSmsSignShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // signName Field Functions 
     bool hasSignName() const { return this->signName_ != nullptr;};
     void deleteSignName() { this->signName_ = nullptr;};
-    inline string signName() const { DARABONBA_PTR_GET_DEFAULT(signName_, "") };
+    inline string getSignName() const { DARABONBA_PTR_GET_DEFAULT(signName_, "") };
     inline UpdateSmsSignShrinkRequest& setSignName(string signName) { DARABONBA_PTR_SET_VALUE(signName_, signName) };
 
 
     // signSource Field Functions 
     bool hasSignSource() const { return this->signSource_ != nullptr;};
     void deleteSignSource() { this->signSource_ = nullptr;};
-    inline int32_t signSource() const { DARABONBA_PTR_GET_DEFAULT(signSource_, 0) };
+    inline int32_t getSignSource() const { DARABONBA_PTR_GET_DEFAULT(signSource_, 0) };
     inline UpdateSmsSignShrinkRequest& setSignSource(int32_t signSource) { DARABONBA_PTR_SET_VALUE(signSource_, signSource) };
 
 
     // signType Field Functions 
     bool hasSignType() const { return this->signType_ != nullptr;};
     void deleteSignType() { this->signType_ = nullptr;};
-    inline int32_t signType() const { DARABONBA_PTR_GET_DEFAULT(signType_, 0) };
+    inline int32_t getSignType() const { DARABONBA_PTR_GET_DEFAULT(signType_, 0) };
     inline UpdateSmsSignShrinkRequest& setSignType(int32_t signType) { DARABONBA_PTR_SET_VALUE(signType_, signType) };
 
 
     // thirdParty Field Functions 
     bool hasThirdParty() const { return this->thirdParty_ != nullptr;};
     void deleteThirdParty() { this->thirdParty_ = nullptr;};
-    inline bool thirdParty() const { DARABONBA_PTR_GET_DEFAULT(thirdParty_, false) };
+    inline bool getThirdParty() const { DARABONBA_PTR_GET_DEFAULT(thirdParty_, false) };
     inline UpdateSmsSignShrinkRequest& setThirdParty(bool thirdParty) { DARABONBA_PTR_SET_VALUE(thirdParty_, thirdParty) };
 
 
     // trademarkId Field Functions 
     bool hasTrademarkId() const { return this->trademarkId_ != nullptr;};
     void deleteTrademarkId() { this->trademarkId_ = nullptr;};
-    inline int64_t trademarkId() const { DARABONBA_PTR_GET_DEFAULT(trademarkId_, 0L) };
+    inline int64_t getTrademarkId() const { DARABONBA_PTR_GET_DEFAULT(trademarkId_, 0L) };
     inline UpdateSmsSignShrinkRequest& setTrademarkId(int64_t trademarkId) { DARABONBA_PTR_SET_VALUE(trademarkId_, trademarkId) };
 
 
   protected:
-    std::shared_ptr<int64_t> appIcpRecordId_ = nullptr;
+    shared_ptr<int64_t> appIcpRecordId_ {};
     // Application scenarios, instructions as follows:
     // - For registered websites, please enter the domain name registered with MIIT, including HTTP or HTTPS.
     // - For launched apps, provide the display link from the app store with HTTP or HTTPS, ensuring the app is online.
     // - For public accounts or mini-programs, fill in the full name, ensuring they are online.
     // - For e-commerce platform store names (for enterprise users only), provide the display link with HTTP or HTTPS.
-    std::shared_ptr<string> applySceneContent_ = nullptr;
-    std::shared_ptr<int64_t> authorizationLetterId_ = nullptr;
+    shared_ptr<string> applySceneContent_ {};
+    shared_ptr<int64_t> authorizationLetterId_ {};
     // Additional materials, such as uploading business proof documents or screenshots of business operations, to help reviewers understand your business details.
-    std::shared_ptr<string> moreDataShrink_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> moreDataShrink_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // Approved or under-review qualification ID.
     // 
     // > - Before applying for an SMS signature, please first [apply for qualifications](https://help.aliyun.com/zh/sms/user-guide/new-qualification?spm=a2c4g.11186623.0.0.718d187bbkpMRK).
     // > - You can view the qualification ID on the [Qualification Management](https://dysms.console.aliyun.com/domestic/text/qualification) page.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> qualificationId_ = nullptr;
+    shared_ptr<int64_t> qualificationId_ {};
     // Explanation of the SMS signature scenario, with a maximum length of 200 characters.
     // 
     // > The scenario explanation is one of the reference information for signature review. Please provide a detailed description of the usage scenarios of the launched business, along with verifiable information such as website links, registered domain addresses, app store download links, full names of public accounts or mini-programs, etc. For login scenarios, test account credentials are also required. A well-informed application explanation will enhance the efficiency of signature and template reviews. Refer to the **Application Scenarios** column in the [Signature Source](https://help.aliyun.com/zh/sms/user-guide/signature-specifications-1?spm=a2c4g.11186623.0.i2#section-xup-k46-yi4) table for filling in SMS scenarios.
-    std::shared_ptr<string> remark_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> remark_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // Signature not yet approved.
     // 
     // This parameter is required.
-    std::shared_ptr<string> signName_ = nullptr;
+    shared_ptr<string> signName_ {};
     // Source of the signature. Values:
     // 
     // - **0**: Full name or abbreviation of enterprises and institutions.
@@ -196,19 +196,19 @@ namespace Models
     // - **5**: Full name or abbreviation of trademarks.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> signSource_ = nullptr;
+    shared_ptr<int32_t> signSource_ {};
     // Signature type. It is recommended to use the default value.
     // 
     // - **0**: Verification code
     // - **1**: General (default)
-    std::shared_ptr<int32_t> signType_ = nullptr;
+    shared_ptr<int32_t> signType_ {};
     // Whether the signature is for self-use or others.
     // 
     // - false: Self-use
     // - true: Others
     // >Notice: When the signature is for self-use, select the self-use qualification ID; when it\\"s for others, choose the others\\" qualification ID.
-    std::shared_ptr<bool> thirdParty_ = nullptr;
-    std::shared_ptr<int64_t> trademarkId_ = nullptr;
+    shared_ptr<bool> thirdParty_ {};
+    shared_ptr<int64_t> trademarkId_ {};
   };
 
   } // namespace Models

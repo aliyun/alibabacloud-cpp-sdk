@@ -248,6 +248,23 @@ namespace Dysmsapi20170525
       Models::CreateSmartShortUrlResponse createSmartShortUrl(const Models::CreateSmartShortUrlRequest &request);
 
       /**
+       * @summary 创建APP-ICP备案对客openAPI
+       *
+       * @param request CreateSmsAppIcpRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSmsAppIcpRecordResponse
+       */
+      Models::CreateSmsAppIcpRecordResponse createSmsAppIcpRecordWithOptions(const Models::CreateSmsAppIcpRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建APP-ICP备案对客openAPI
+       *
+       * @param request CreateSmsAppIcpRecordRequest
+       * @return CreateSmsAppIcpRecordResponse
+       */
+      Models::CreateSmsAppIcpRecordResponse createSmsAppIcpRecord(const Models::CreateSmsAppIcpRecordRequest &request);
+
+      /**
        * @summary 创建委托授权书
        *
        * @param tmpReq CreateSmsAuthorizationLetterRequest
@@ -321,6 +338,23 @@ namespace Dysmsapi20170525
        * @return CreateSmsTemplateResponse
        */
       Models::CreateSmsTemplateResponse createSmsTemplate(const Models::CreateSmsTemplateRequest &request);
+
+      /**
+       * @summary 创建商标对客openAPI
+       *
+       * @param request CreateSmsTrademarkRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSmsTrademarkResponse
+       */
+      Models::CreateSmsTrademarkResponse createSmsTrademarkWithOptions(const Models::CreateSmsTrademarkRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建商标对客openAPI
+       *
+       * @param request CreateSmsTrademarkRequest
+       * @return CreateSmsTrademarkResponse
+       */
+      Models::CreateSmsTrademarkResponse createSmsTrademark(const Models::CreateSmsTrademarkRequest &request);
 
       /**
        * @summary 删除验证码签名
@@ -632,6 +666,23 @@ namespace Dysmsapi20170525
       Models::GetSmsTemplateResponse getSmsTemplate(const Models::GetSmsTemplateRequest &request);
 
       /**
+       * @summary 查询模板列表详情（新接口）
+       *
+       * @param tmpReq GetSmsTemplateListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSmsTemplateListResponse
+       */
+      Models::GetSmsTemplateListResponse getSmsTemplateListWithOptions(const Models::GetSmsTemplateListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模板列表详情（新接口）
+       *
+       * @param request GetSmsTemplateListRequest
+       * @return GetSmsTemplateListResponse
+       */
+      Models::GetSmsTemplateListResponse getSmsTemplateList(const Models::GetSmsTemplateListRequest &request);
+
+      /**
        * @summary Queries the tags of a message template.
        *
        * @description ### QPS limit
@@ -902,6 +953,23 @@ namespace Dysmsapi20170525
       Models::QuerySingleSmsQualificationResponse querySingleSmsQualification(const Models::QuerySingleSmsQualificationRequest &request);
 
       /**
+       * @summary 查询APP-ICP备案对客openAPI
+       *
+       * @param tmpReq QuerySmsAppIcpRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySmsAppIcpRecordResponse
+       */
+      Models::QuerySmsAppIcpRecordResponse querySmsAppIcpRecordWithOptions(const Models::QuerySmsAppIcpRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询APP-ICP备案对客openAPI
+       *
+       * @param request QuerySmsAppIcpRecordRequest
+       * @return QuerySmsAppIcpRecordResponse
+       */
+      Models::QuerySmsAppIcpRecordResponse querySmsAppIcpRecord(const Models::QuerySmsAppIcpRecordRequest &request);
+
+      /**
        * @summary 查询委托授权书
        *
        * @param tmpReq QuerySmsAuthorizationLetterRequest
@@ -1038,6 +1106,23 @@ namespace Dysmsapi20170525
        * @return QuerySmsTemplateListResponse
        */
       Models::QuerySmsTemplateListResponse querySmsTemplateList(const Models::QuerySmsTemplateListRequest &request);
+
+      /**
+       * @summary 查询商标对客openAPI
+       *
+       * @param tmpReq QuerySmsTrademarkRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySmsTrademarkResponse
+       */
+      Models::QuerySmsTrademarkResponse querySmsTrademarkWithOptions(const Models::QuerySmsTrademarkRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询商标对客openAPI
+       *
+       * @param request QuerySmsTrademarkRequest
+       * @return QuerySmsTrademarkResponse
+       */
+      Models::QuerySmsTrademarkResponse querySmsTrademark(const Models::QuerySmsTrademarkRequest &request);
 
       /**
        * @summary 验证手机验证码

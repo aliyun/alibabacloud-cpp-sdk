@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->createDate_ == nullptr && return this->message_ == nullptr && return this->reason_ == nullptr && return this->requestId_ == nullptr && return this->templateCode_ == nullptr
-        && return this->templateContent_ == nullptr && return this->templateName_ == nullptr && return this->templateStatus_ == nullptr && return this->templateType_ == nullptr; };
+        && this->createDate_ == nullptr && this->message_ == nullptr && this->reason_ == nullptr && this->requestId_ == nullptr && this->templateCode_ == nullptr
+        && this->templateContent_ == nullptr && this->templateName_ == nullptr && this->templateStatus_ == nullptr && this->templateType_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline QuerySmsTemplateResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // createDate Field Functions 
     bool hasCreateDate() const { return this->createDate_ != nullptr;};
     void deleteCreateDate() { this->createDate_ = nullptr;};
-    inline string createDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
+    inline string getCreateDate() const { DARABONBA_PTR_GET_DEFAULT(createDate_, "") };
     inline QuerySmsTemplateResponseBody& setCreateDate(string createDate) { DARABONBA_PTR_SET_VALUE(createDate_, createDate) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline QuerySmsTemplateResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline QuerySmsTemplateResponseBody& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QuerySmsTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // templateCode Field Functions 
     bool hasTemplateCode() const { return this->templateCode_ != nullptr;};
     void deleteTemplateCode() { this->templateCode_ = nullptr;};
-    inline string templateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
+    inline string getTemplateCode() const { DARABONBA_PTR_GET_DEFAULT(templateCode_, "") };
     inline QuerySmsTemplateResponseBody& setTemplateCode(string templateCode) { DARABONBA_PTR_SET_VALUE(templateCode_, templateCode) };
 
 
     // templateContent Field Functions 
     bool hasTemplateContent() const { return this->templateContent_ != nullptr;};
     void deleteTemplateContent() { this->templateContent_ = nullptr;};
-    inline string templateContent() const { DARABONBA_PTR_GET_DEFAULT(templateContent_, "") };
+    inline string getTemplateContent() const { DARABONBA_PTR_GET_DEFAULT(templateContent_, "") };
     inline QuerySmsTemplateResponseBody& setTemplateContent(string templateContent) { DARABONBA_PTR_SET_VALUE(templateContent_, templateContent) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline QuerySmsTemplateResponseBody& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // templateStatus Field Functions 
     bool hasTemplateStatus() const { return this->templateStatus_ != nullptr;};
     void deleteTemplateStatus() { this->templateStatus_ = nullptr;};
-    inline int32_t templateStatus() const { DARABONBA_PTR_GET_DEFAULT(templateStatus_, 0) };
+    inline int32_t getTemplateStatus() const { DARABONBA_PTR_GET_DEFAULT(templateStatus_, 0) };
     inline QuerySmsTemplateResponseBody& setTemplateStatus(int32_t templateStatus) { DARABONBA_PTR_SET_VALUE(templateStatus_, templateStatus) };
 
 
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline int32_t templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, 0) };
+    inline int32_t getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, 0) };
     inline QuerySmsTemplateResponseBody& setTemplateType(int32_t templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
@@ -125,38 +125,38 @@ namespace Models
     // 
     // *   The value OK indicates that the request was successful.
     // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html).
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The time when the message template was created.
-    std::shared_ptr<string> createDate_ = nullptr;
+    shared_ptr<string> createDate_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The approval remarks.
     // 
     // *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
     // *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The code of the message template.
-    std::shared_ptr<string> templateCode_ = nullptr;
+    shared_ptr<string> templateCode_ {};
     // The content of the message template.
-    std::shared_ptr<string> templateContent_ = nullptr;
+    shared_ptr<string> templateContent_ {};
     // The name of the message template.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
     // The approval status of the message template. Valid values:
     // 
     // *   **0**: The message template is pending approval.
     // *   **1**: The message template is approved.
     // *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
     // *   **10**: The approval is canceled.
-    std::shared_ptr<int32_t> templateStatus_ = nullptr;
+    shared_ptr<int32_t> templateStatus_ {};
     // The type of the message. Valid values:
     // 
     // *   **0**: verification code
     // *   **1**: notification message
     // *   **2**: promotional message
     // *   **3**: message sent to countries or regions outside the Chinese mainland
-    std::shared_ptr<int32_t> templateType_ = nullptr;
+    shared_ptr<int32_t> templateType_ {};
   };
 
   } // namespace Models

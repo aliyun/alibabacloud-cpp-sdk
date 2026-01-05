@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorization_ == nullptr
-        && return this->authorizationLetterExpDate_ == nullptr && return this->authorizationLetterName_ == nullptr && return this->authorizationLetterPic_ == nullptr && return this->organizationCode_ == nullptr && return this->ownerId_ == nullptr
-        && return this->proxyAuthorization_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signListShrink_ == nullptr; };
+        && this->authorizationLetterExpDate_ == nullptr && this->authorizationLetterName_ == nullptr && this->authorizationLetterPic_ == nullptr && this->organizationCode_ == nullptr && this->ownerId_ == nullptr
+        && this->proxyAuthorization_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->signListShrink_ == nullptr; };
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
-    inline string authorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
+    inline string getAuthorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
 
 
     // authorizationLetterExpDate Field Functions 
     bool hasAuthorizationLetterExpDate() const { return this->authorizationLetterExpDate_ != nullptr;};
     void deleteAuthorizationLetterExpDate() { this->authorizationLetterExpDate_ = nullptr;};
-    inline string authorizationLetterExpDate() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterExpDate_, "") };
+    inline string getAuthorizationLetterExpDate() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterExpDate_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setAuthorizationLetterExpDate(string authorizationLetterExpDate) { DARABONBA_PTR_SET_VALUE(authorizationLetterExpDate_, authorizationLetterExpDate) };
 
 
     // authorizationLetterName Field Functions 
     bool hasAuthorizationLetterName() const { return this->authorizationLetterName_ != nullptr;};
     void deleteAuthorizationLetterName() { this->authorizationLetterName_ = nullptr;};
-    inline string authorizationLetterName() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterName_, "") };
+    inline string getAuthorizationLetterName() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterName_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setAuthorizationLetterName(string authorizationLetterName) { DARABONBA_PTR_SET_VALUE(authorizationLetterName_, authorizationLetterName) };
 
 
     // authorizationLetterPic Field Functions 
     bool hasAuthorizationLetterPic() const { return this->authorizationLetterPic_ != nullptr;};
     void deleteAuthorizationLetterPic() { this->authorizationLetterPic_ = nullptr;};
-    inline string authorizationLetterPic() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterPic_, "") };
+    inline string getAuthorizationLetterPic() const { DARABONBA_PTR_GET_DEFAULT(authorizationLetterPic_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setAuthorizationLetterPic(string authorizationLetterPic) { DARABONBA_PTR_SET_VALUE(authorizationLetterPic_, authorizationLetterPic) };
 
 
     // organizationCode Field Functions 
     bool hasOrganizationCode() const { return this->organizationCode_ != nullptr;};
     void deleteOrganizationCode() { this->organizationCode_ = nullptr;};
-    inline string organizationCode() const { DARABONBA_PTR_GET_DEFAULT(organizationCode_, "") };
+    inline string getOrganizationCode() const { DARABONBA_PTR_GET_DEFAULT(organizationCode_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setOrganizationCode(string organizationCode) { DARABONBA_PTR_SET_VALUE(organizationCode_, organizationCode) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateSmsAuthorizationLetterShrinkRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // proxyAuthorization Field Functions 
     bool hasProxyAuthorization() const { return this->proxyAuthorization_ != nullptr;};
     void deleteProxyAuthorization() { this->proxyAuthorization_ = nullptr;};
-    inline string proxyAuthorization() const { DARABONBA_PTR_GET_DEFAULT(proxyAuthorization_, "") };
+    inline string getProxyAuthorization() const { DARABONBA_PTR_GET_DEFAULT(proxyAuthorization_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setProxyAuthorization(string proxyAuthorization) { DARABONBA_PTR_SET_VALUE(proxyAuthorization_, proxyAuthorization) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateSmsAuthorizationLetterShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // signListShrink Field Functions 
     bool hasSignListShrink() const { return this->signListShrink_ != nullptr;};
     void deleteSignListShrink() { this->signListShrink_ = nullptr;};
-    inline string signListShrink() const { DARABONBA_PTR_GET_DEFAULT(signListShrink_, "") };
+    inline string getSignListShrink() const { DARABONBA_PTR_GET_DEFAULT(signListShrink_, "") };
     inline CreateSmsAuthorizationLetterShrinkRequest& setSignListShrink(string signListShrink) { DARABONBA_PTR_SET_VALUE(signListShrink_, signListShrink) };
 
 
@@ -124,34 +124,34 @@ namespace Models
     // 授权方，授权方命名长度不超过1000个字符，暂不支持包含除中点（·）、空格、中文括号【】、英文括号()外的任何符号或纯数字输入
     // 
     // This parameter is required.
-    std::shared_ptr<string> authorization_ = nullptr;
+    shared_ptr<string> authorization_ {};
     // 委托授权书有效期
     // 
     // This parameter is required.
-    std::shared_ptr<string> authorizationLetterExpDate_ = nullptr;
+    shared_ptr<string> authorizationLetterExpDate_ {};
     // 委托授权书命名非空，不超过100个字符，支持中文、英文或与数字组合进行命名，暂不支持任何符号或纯数字输入
     // 
     // This parameter is required.
-    std::shared_ptr<string> authorizationLetterName_ = nullptr;
+    shared_ptr<string> authorizationLetterName_ {};
     // 上传oss的委托授权书图片标识
     // 
     // This parameter is required.
-    std::shared_ptr<string> authorizationLetterPic_ = nullptr;
+    shared_ptr<string> authorizationLetterPic_ {};
     // 授权方社会统一信用代码，长度不超过150个字符
     // 
     // This parameter is required.
-    std::shared_ptr<string> organizationCode_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> organizationCode_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // 被授权方，被授权方命名长度不超过1000个字符，暂不支持包含除中点（·）、空格、中文括号【】、英文括号()外的任何符号或纯数字输入
     // 
     // This parameter is required.
-    std::shared_ptr<string> proxyAuthorization_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> proxyAuthorization_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // 委托授权签名列表，签名数量限制100个以内
     // 
     // This parameter is required.
-    std::shared_ptr<string> signListShrink_ = nullptr;
+    shared_ptr<string> signListShrink_ {};
   };
 
   } // namespace Models
