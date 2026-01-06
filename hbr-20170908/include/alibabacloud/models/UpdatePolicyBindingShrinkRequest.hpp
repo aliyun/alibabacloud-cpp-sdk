@@ -48,115 +48,115 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->advancedOptionsShrink_ == nullptr
-        && return this->dataSourceId_ == nullptr && return this->disabled_ == nullptr && return this->exclude_ == nullptr && return this->include_ == nullptr && return this->policyBindingDescription_ == nullptr
-        && return this->policyId_ == nullptr && return this->source_ == nullptr && return this->sourceType_ == nullptr && return this->speedLimit_ == nullptr; };
+        && this->dataSourceId_ == nullptr && this->disabled_ == nullptr && this->exclude_ == nullptr && this->include_ == nullptr && this->policyBindingDescription_ == nullptr
+        && this->policyId_ == nullptr && this->source_ == nullptr && this->sourceType_ == nullptr && this->speedLimit_ == nullptr; };
     // advancedOptionsShrink Field Functions 
     bool hasAdvancedOptionsShrink() const { return this->advancedOptionsShrink_ != nullptr;};
     void deleteAdvancedOptionsShrink() { this->advancedOptionsShrink_ = nullptr;};
-    inline string advancedOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(advancedOptionsShrink_, "") };
+    inline string getAdvancedOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(advancedOptionsShrink_, "") };
     inline UpdatePolicyBindingShrinkRequest& setAdvancedOptionsShrink(string advancedOptionsShrink) { DARABONBA_PTR_SET_VALUE(advancedOptionsShrink_, advancedOptionsShrink) };
 
 
     // dataSourceId Field Functions 
     bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
     void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
-    inline string dataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
+    inline string getDataSourceId() const { DARABONBA_PTR_GET_DEFAULT(dataSourceId_, "") };
     inline UpdatePolicyBindingShrinkRequest& setDataSourceId(string dataSourceId) { DARABONBA_PTR_SET_VALUE(dataSourceId_, dataSourceId) };
 
 
     // disabled Field Functions 
     bool hasDisabled() const { return this->disabled_ != nullptr;};
     void deleteDisabled() { this->disabled_ = nullptr;};
-    inline bool disabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
+    inline bool getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
     inline UpdatePolicyBindingShrinkRequest& setDisabled(bool disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
 
 
     // exclude Field Functions 
     bool hasExclude() const { return this->exclude_ != nullptr;};
     void deleteExclude() { this->exclude_ = nullptr;};
-    inline string exclude() const { DARABONBA_PTR_GET_DEFAULT(exclude_, "") };
+    inline string getExclude() const { DARABONBA_PTR_GET_DEFAULT(exclude_, "") };
     inline UpdatePolicyBindingShrinkRequest& setExclude(string exclude) { DARABONBA_PTR_SET_VALUE(exclude_, exclude) };
 
 
     // include Field Functions 
     bool hasInclude() const { return this->include_ != nullptr;};
     void deleteInclude() { this->include_ = nullptr;};
-    inline string include() const { DARABONBA_PTR_GET_DEFAULT(include_, "") };
+    inline string getInclude() const { DARABONBA_PTR_GET_DEFAULT(include_, "") };
     inline UpdatePolicyBindingShrinkRequest& setInclude(string include) { DARABONBA_PTR_SET_VALUE(include_, include) };
 
 
     // policyBindingDescription Field Functions 
     bool hasPolicyBindingDescription() const { return this->policyBindingDescription_ != nullptr;};
     void deletePolicyBindingDescription() { this->policyBindingDescription_ = nullptr;};
-    inline string policyBindingDescription() const { DARABONBA_PTR_GET_DEFAULT(policyBindingDescription_, "") };
+    inline string getPolicyBindingDescription() const { DARABONBA_PTR_GET_DEFAULT(policyBindingDescription_, "") };
     inline UpdatePolicyBindingShrinkRequest& setPolicyBindingDescription(string policyBindingDescription) { DARABONBA_PTR_SET_VALUE(policyBindingDescription_, policyBindingDescription) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline UpdatePolicyBindingShrinkRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline UpdatePolicyBindingShrinkRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline UpdatePolicyBindingShrinkRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // speedLimit Field Functions 
     bool hasSpeedLimit() const { return this->speedLimit_ != nullptr;};
     void deleteSpeedLimit() { this->speedLimit_ = nullptr;};
-    inline string speedLimit() const { DARABONBA_PTR_GET_DEFAULT(speedLimit_, "") };
+    inline string getSpeedLimit() const { DARABONBA_PTR_GET_DEFAULT(speedLimit_, "") };
     inline UpdatePolicyBindingShrinkRequest& setSpeedLimit(string speedLimit) { DARABONBA_PTR_SET_VALUE(speedLimit_, speedLimit) };
 
 
   protected:
     // The advanced options.
-    std::shared_ptr<string> advancedOptionsShrink_ = nullptr;
+    shared_ptr<string> advancedOptionsShrink_ {};
     // The ID of the data source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataSourceId_ = nullptr;
+    shared_ptr<string> dataSourceId_ {};
     // Specifies whether to disable the backup policy for the data source. Valid values:
     // 
     // *   true: disables the backup policy for the data source
     // *   false: enables the backup policy for the data source
-    std::shared_ptr<bool> disabled_ = nullptr;
+    shared_ptr<bool> disabled_ {};
     // This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
-    std::shared_ptr<string> exclude_ = nullptr;
+    shared_ptr<string> exclude_ {};
     // This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
-    std::shared_ptr<string> include_ = nullptr;
+    shared_ptr<string> include_ {};
     // The description of the association.
-    std::shared_ptr<string> policyBindingDescription_ = nullptr;
+    shared_ptr<string> policyBindingDescription_ {};
     // The ID of the backup policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
     // *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The type of the data source. Valid values:
     // 
     // *   **UDM_ECS**: ECS instance backup
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the throttling rules. Format: `{start}{end}{bandwidth}`. Separate multiple throttling rules with vertical bars (|). The time ranges of the throttling rules cannot overlap.
     // 
     // *   **start**: the start hour.
     // *   **end**: the end hour.
     // *   **bandwidth**: the bandwidth. Unit: KB/s.
-    std::shared_ptr<string> speedLimit_ = nullptr;
+    shared_ptr<string> speedLimit_ {};
   };
 
   } // namespace Models

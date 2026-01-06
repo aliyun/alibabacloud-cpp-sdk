@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->edition_ == nullptr
-        && return this->planId_ == nullptr && return this->requireNoRunningJobs_ == nullptr && return this->sourceType_ == nullptr && return this->vaultId_ == nullptr; };
+        && this->planId_ == nullptr && this->requireNoRunningJobs_ == nullptr && this->sourceType_ == nullptr && this->vaultId_ == nullptr; };
     // edition Field Functions 
     bool hasEdition() const { return this->edition_ != nullptr;};
     void deleteEdition() { this->edition_ = nullptr;};
-    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline string getEdition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
     inline DeleteBackupPlanRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // planId Field Functions 
     bool hasPlanId() const { return this->planId_ != nullptr;};
     void deletePlanId() { this->planId_ = nullptr;};
-    inline string planId() const { DARABONBA_PTR_GET_DEFAULT(planId_, "") };
+    inline string getPlanId() const { DARABONBA_PTR_GET_DEFAULT(planId_, "") };
     inline DeleteBackupPlanRequest& setPlanId(string planId) { DARABONBA_PTR_SET_VALUE(planId_, planId) };
 
 
     // requireNoRunningJobs Field Functions 
     bool hasRequireNoRunningJobs() const { return this->requireNoRunningJobs_ != nullptr;};
     void deleteRequireNoRunningJobs() { this->requireNoRunningJobs_ = nullptr;};
-    inline bool requireNoRunningJobs() const { DARABONBA_PTR_GET_DEFAULT(requireNoRunningJobs_, false) };
+    inline bool getRequireNoRunningJobs() const { DARABONBA_PTR_GET_DEFAULT(requireNoRunningJobs_, false) };
     inline DeleteBackupPlanRequest& setRequireNoRunningJobs(bool requireNoRunningJobs) { DARABONBA_PTR_SET_VALUE(requireNoRunningJobs_, requireNoRunningJobs) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline DeleteBackupPlanRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline DeleteBackupPlanRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
   protected:
-    std::shared_ptr<string> edition_ = nullptr;
+    shared_ptr<string> edition_ {};
     // The ID of the backup plan.
     // 
     // This parameter is required.
-    std::shared_ptr<string> planId_ = nullptr;
+    shared_ptr<string> planId_ {};
     // Specifies whether no running jobs are required.
-    std::shared_ptr<bool> requireNoRunningJobs_ = nullptr;
+    shared_ptr<bool> requireNoRunningJobs_ {};
     // The type of the data source. Valid values:
     // 
     // *   **ECS_FILE**: Elastic Compute Service (ECS) files
@@ -89,9 +89,9 @@ namespace Models
     // *   **NAS**: Apsara File Storage NAS file systems
     // *   **UDM_ECS**: ECS instances
     // *   **OTS**: Tablestore instances
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // The ID of the backup vault. This parameter is required if the SourceType parameter is not set to UDM_ECS.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
   };
 
   } // namespace Models

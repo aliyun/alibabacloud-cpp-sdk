@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->databaseName_ == nullptr && return this->vaultId_ == nullptr; };
+        && this->databaseName_ == nullptr && this->vaultId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeHanaRetentionSettingRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline DescribeHanaRetentionSettingRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline DescribeHanaRetentionSettingRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the SAP HANA instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The database name.
-    std::shared_ptr<string> databaseName_ = nullptr;
+    shared_ptr<string> databaseName_ {};
     // The ID of the backup vault.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
   };
 
   } // namespace Models

@@ -38,55 +38,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->vaultId_ == nullptr && return this->vaultName_ == nullptr && return this->wormEnabled_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->vaultId_ == nullptr && this->vaultName_ == nullptr && this->wormEnabled_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateVaultRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline UpdateVaultRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline UpdateVaultRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
     // vaultName Field Functions 
     bool hasVaultName() const { return this->vaultName_ != nullptr;};
     void deleteVaultName() { this->vaultName_ = nullptr;};
-    inline string vaultName() const { DARABONBA_PTR_GET_DEFAULT(vaultName_, "") };
+    inline string getVaultName() const { DARABONBA_PTR_GET_DEFAULT(vaultName_, "") };
     inline UpdateVaultRequest& setVaultName(string vaultName) { DARABONBA_PTR_SET_VALUE(vaultName_, vaultName) };
 
 
     // wormEnabled Field Functions 
     bool hasWormEnabled() const { return this->wormEnabled_ != nullptr;};
     void deleteWormEnabled() { this->wormEnabled_ = nullptr;};
-    inline bool wormEnabled() const { DARABONBA_PTR_GET_DEFAULT(wormEnabled_, false) };
+    inline bool getWormEnabled() const { DARABONBA_PTR_GET_DEFAULT(wormEnabled_, false) };
     inline UpdateVaultRequest& setWormEnabled(bool wormEnabled) { DARABONBA_PTR_SET_VALUE(wormEnabled_, wormEnabled) };
 
 
   protected:
     // The description of the backup vault. The description must be 0 to 255 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The ID of the backup vault.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
     // The name of the backup vault. The name must be 1 to 64 characters in length.
-    std::shared_ptr<string> vaultName_ = nullptr;
+    shared_ptr<string> vaultName_ {};
     // Specifies whether to enable the immutable backup feature for storage vaults. After the immutable backup feature is enabled, backup vaults and all backup data cannot be deleted until the retention period expires. The immutable backup feature cannot be disabled after it is enabled. Only standard backup vaults and archive vaults support the immutable backup feature.
-    std::shared_ptr<bool> wormEnabled_ = nullptr;
+    shared_ptr<bool> wormEnabled_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // tempFileKey Field Functions 
     bool hasTempFileKey() const { return this->tempFileKey_ != nullptr;};
     void deleteTempFileKey() { this->tempFileKey_ = nullptr;};
-    inline string tempFileKey() const { DARABONBA_PTR_GET_DEFAULT(tempFileKey_, "") };
+    inline string getTempFileKey() const { DARABONBA_PTR_GET_DEFAULT(tempFileKey_, "") };
     inline GetTempFileDownloadLinkRequest& setTempFileKey(string tempFileKey) { DARABONBA_PTR_SET_VALUE(tempFileKey_, tempFileKey) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The key that is used to download a file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tempFileKey_ = nullptr;
+    shared_ptr<string> tempFileKey_ {};
   };
 
   } // namespace Models

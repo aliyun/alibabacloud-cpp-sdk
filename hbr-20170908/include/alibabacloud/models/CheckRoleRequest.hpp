@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkRoleType_ == nullptr
-        && return this->crossAccountRoleName_ == nullptr && return this->crossAccountUserId_ == nullptr; };
+        && this->crossAccountRoleName_ == nullptr && this->crossAccountUserId_ == nullptr; };
     // checkRoleType Field Functions 
     bool hasCheckRoleType() const { return this->checkRoleType_ != nullptr;};
     void deleteCheckRoleType() { this->checkRoleType_ = nullptr;};
-    inline string checkRoleType() const { DARABONBA_PTR_GET_DEFAULT(checkRoleType_, "") };
+    inline string getCheckRoleType() const { DARABONBA_PTR_GET_DEFAULT(checkRoleType_, "") };
     inline CheckRoleRequest& setCheckRoleType(string checkRoleType) { DARABONBA_PTR_SET_VALUE(checkRoleType_, checkRoleType) };
 
 
     // crossAccountRoleName Field Functions 
     bool hasCrossAccountRoleName() const { return this->crossAccountRoleName_ != nullptr;};
     void deleteCrossAccountRoleName() { this->crossAccountRoleName_ = nullptr;};
-    inline string crossAccountRoleName() const { DARABONBA_PTR_GET_DEFAULT(crossAccountRoleName_, "") };
+    inline string getCrossAccountRoleName() const { DARABONBA_PTR_GET_DEFAULT(crossAccountRoleName_, "") };
     inline CheckRoleRequest& setCrossAccountRoleName(string crossAccountRoleName) { DARABONBA_PTR_SET_VALUE(crossAccountRoleName_, crossAccountRoleName) };
 
 
     // crossAccountUserId Field Functions 
     bool hasCrossAccountUserId() const { return this->crossAccountUserId_ != nullptr;};
     void deleteCrossAccountUserId() { this->crossAccountUserId_ = nullptr;};
-    inline int64_t crossAccountUserId() const { DARABONBA_PTR_GET_DEFAULT(crossAccountUserId_, 0L) };
+    inline int64_t getCrossAccountUserId() const { DARABONBA_PTR_GET_DEFAULT(crossAccountUserId_, 0L) };
     inline CheckRoleRequest& setCrossAccountUserId(int64_t crossAccountUserId) { DARABONBA_PTR_SET_VALUE(crossAccountUserId_, crossAccountUserId) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // *   EcsBackupRole: a role with the permissions to perform ECS backup
     // *   OtsRole: a role with the permissions to perform Tablestore backup
     // *   CrossAccountRole: a role with the permissions to perform cross-account backup
-    std::shared_ptr<string> checkRoleType_ = nullptr;
+    shared_ptr<string> checkRoleType_ {};
     // The name of the Resource Access Management (RAM) role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-    std::shared_ptr<string> crossAccountRoleName_ = nullptr;
+    shared_ptr<string> crossAccountRoleName_ {};
     // The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-    std::shared_ptr<int64_t> crossAccountUserId_ = nullptr;
+    shared_ptr<int64_t> crossAccountUserId_ {};
   };
 
   } // namespace Models

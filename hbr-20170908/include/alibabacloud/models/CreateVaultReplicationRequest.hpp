@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->replicationSourceRegionId_ == nullptr
-        && return this->replicationSourceVaultId_ == nullptr && return this->replicationTargetVaultId_ == nullptr; };
+        && this->replicationSourceVaultId_ == nullptr && this->replicationTargetVaultId_ == nullptr; };
     // replicationSourceRegionId Field Functions 
     bool hasReplicationSourceRegionId() const { return this->replicationSourceRegionId_ != nullptr;};
     void deleteReplicationSourceRegionId() { this->replicationSourceRegionId_ = nullptr;};
-    inline string replicationSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(replicationSourceRegionId_, "") };
+    inline string getReplicationSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(replicationSourceRegionId_, "") };
     inline CreateVaultReplicationRequest& setReplicationSourceRegionId(string replicationSourceRegionId) { DARABONBA_PTR_SET_VALUE(replicationSourceRegionId_, replicationSourceRegionId) };
 
 
     // replicationSourceVaultId Field Functions 
     bool hasReplicationSourceVaultId() const { return this->replicationSourceVaultId_ != nullptr;};
     void deleteReplicationSourceVaultId() { this->replicationSourceVaultId_ = nullptr;};
-    inline string replicationSourceVaultId() const { DARABONBA_PTR_GET_DEFAULT(replicationSourceVaultId_, "") };
+    inline string getReplicationSourceVaultId() const { DARABONBA_PTR_GET_DEFAULT(replicationSourceVaultId_, "") };
     inline CreateVaultReplicationRequest& setReplicationSourceVaultId(string replicationSourceVaultId) { DARABONBA_PTR_SET_VALUE(replicationSourceVaultId_, replicationSourceVaultId) };
 
 
     // replicationTargetVaultId Field Functions 
     bool hasReplicationTargetVaultId() const { return this->replicationTargetVaultId_ != nullptr;};
     void deleteReplicationTargetVaultId() { this->replicationTargetVaultId_ = nullptr;};
-    inline string replicationTargetVaultId() const { DARABONBA_PTR_GET_DEFAULT(replicationTargetVaultId_, "") };
+    inline string getReplicationTargetVaultId() const { DARABONBA_PTR_GET_DEFAULT(replicationTargetVaultId_, "") };
     inline CreateVaultReplicationRequest& setReplicationTargetVaultId(string replicationTargetVaultId) { DARABONBA_PTR_SET_VALUE(replicationTargetVaultId_, replicationTargetVaultId) };
 
 
   protected:
-    std::shared_ptr<string> replicationSourceRegionId_ = nullptr;
+    shared_ptr<string> replicationSourceRegionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> replicationSourceVaultId_ = nullptr;
+    shared_ptr<string> replicationSourceVaultId_ {};
     // This parameter is required.
-    std::shared_ptr<string> replicationTargetVaultId_ = nullptr;
+    shared_ptr<string> replicationTargetVaultId_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyDescription_ == nullptr
-        && return this->policyName_ == nullptr && return this->policyType_ == nullptr && return this->rulesShrink_ == nullptr; };
+        && this->policyName_ == nullptr && this->policyType_ == nullptr && this->rulesShrink_ == nullptr; };
     // policyDescription Field Functions 
     bool hasPolicyDescription() const { return this->policyDescription_ != nullptr;};
     void deletePolicyDescription() { this->policyDescription_ = nullptr;};
-    inline string policyDescription() const { DARABONBA_PTR_GET_DEFAULT(policyDescription_, "") };
+    inline string getPolicyDescription() const { DARABONBA_PTR_GET_DEFAULT(policyDescription_, "") };
     inline CreatePolicyV2ShrinkRequest& setPolicyDescription(string policyDescription) { DARABONBA_PTR_SET_VALUE(policyDescription_, policyDescription) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline CreatePolicyV2ShrinkRequest& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
-    inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
+    inline string getPolicyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
     inline CreatePolicyV2ShrinkRequest& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
     // rulesShrink Field Functions 
     bool hasRulesShrink() const { return this->rulesShrink_ != nullptr;};
     void deleteRulesShrink() { this->rulesShrink_ = nullptr;};
-    inline string rulesShrink() const { DARABONBA_PTR_GET_DEFAULT(rulesShrink_, "") };
+    inline string getRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(rulesShrink_, "") };
     inline CreatePolicyV2ShrinkRequest& setRulesShrink(string rulesShrink) { DARABONBA_PTR_SET_VALUE(rulesShrink_, rulesShrink) };
 
 
   protected:
     // The description of the backup policy.
-    std::shared_ptr<string> policyDescription_ = nullptr;
+    shared_ptr<string> policyDescription_ {};
     // The name of the backup policy.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // The policy type. Valid values:
     // 
     // *   **STANDARD**: the general backup policy. This type of policy applies to backups other than Elastic Compute Service (ECS) instance backup.
@@ -79,9 +79,9 @@ namespace Models
     // 
     // *   If the backup vault is specified, Cloud Backup sets the policy type to **STANDARD**.
     // *   If the backup vault is not specified, Cloud Backup sets the policy type to **UDM_ECS_ONLY**.
-    std::shared_ptr<string> policyType_ = nullptr;
+    shared_ptr<string> policyType_ {};
     // The rules in the backup policy.
-    std::shared_ptr<string> rulesShrink_ = nullptr;
+    shared_ptr<string> rulesShrink_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // clientIdsShrink Field Functions 
     bool hasClientIdsShrink() const { return this->clientIdsShrink_ != nullptr;};
     void deleteClientIdsShrink() { this->clientIdsShrink_ = nullptr;};
-    inline string clientIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(clientIdsShrink_, "") };
+    inline string getClientIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(clientIdsShrink_, "") };
     inline DeleteBackupClientResourceShrinkRequest& setClientIdsShrink(string clientIdsShrink) { DARABONBA_PTR_SET_VALUE(clientIdsShrink_, clientIdsShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> clientIdsShrink_ = nullptr;
+    shared_ptr<string> clientIdsShrink_ {};
   };
 
   } // namespace Models

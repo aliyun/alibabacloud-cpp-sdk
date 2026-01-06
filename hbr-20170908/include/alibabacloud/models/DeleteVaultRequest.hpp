@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceGroupId_ == nullptr
-        && return this->token_ == nullptr && return this->vaultId_ == nullptr; };
+        && this->token_ == nullptr && this->vaultId_ == nullptr; };
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DeleteVaultRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline DeleteVaultRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline DeleteVaultRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
   protected:
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The token.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
     // The ID of the backup vault.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
   };
 
   } // namespace Models

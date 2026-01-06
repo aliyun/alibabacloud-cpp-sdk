@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->edition_ == nullptr
-        && return this->limit_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr && return this->queryShrink_ == nullptr && return this->sortBy_ == nullptr
-        && return this->sourceType_ == nullptr; };
+        && this->limit_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->queryShrink_ == nullptr && this->sortBy_ == nullptr
+        && this->sourceType_ == nullptr; };
     // edition Field Functions 
     bool hasEdition() const { return this->edition_ != nullptr;};
     void deleteEdition() { this->edition_ = nullptr;};
-    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline string getEdition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
     inline SearchHistoricalSnapshotsShrinkRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline SearchHistoricalSnapshotsShrinkRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline SearchHistoricalSnapshotsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline SearchHistoricalSnapshotsShrinkRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // queryShrink Field Functions 
     bool hasQueryShrink() const { return this->queryShrink_ != nullptr;};
     void deleteQueryShrink() { this->queryShrink_ = nullptr;};
-    inline string queryShrink() const { DARABONBA_PTR_GET_DEFAULT(queryShrink_, "") };
+    inline string getQueryShrink() const { DARABONBA_PTR_GET_DEFAULT(queryShrink_, "") };
     inline SearchHistoricalSnapshotsShrinkRequest& setQueryShrink(string queryShrink) { DARABONBA_PTR_SET_VALUE(queryShrink_, queryShrink) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline SearchHistoricalSnapshotsShrinkRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline SearchHistoricalSnapshotsShrinkRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
   protected:
-    std::shared_ptr<string> edition_ = nullptr;
+    shared_ptr<string> edition_ {};
     // The maximum number of rows that you want the current query to return. To query only the number of matched rows without the need to return specific data, you can set the Limit parameter to `0`. Then, the operation returns only the number of matched rows.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The token that is required to obtain the next page of backup snapshots.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ordering mode. Valid values:
     // 
     // *   ASC (default): ascending order
     // *   DESC: descending order
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // The query conditions. Example:
     // 
     //     [
@@ -149,15 +149,15 @@ namespace Models
     //     *   BETWEEN: specifies a JSON array as a range. The results must fall within the range in the `[Minimum value,Maximum value]` format.
     //     *   IN: specifies an array as a collection. The results must fall within the collection.
     //     *   NOT_IN: specifies an array as a collection. The results cannot fall within the collection.
-    std::shared_ptr<string> queryShrink_ = nullptr;
+    shared_ptr<string> queryShrink_ {};
     // The field that is used to sort data.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The type of the data source. Valid values:
     // 
     // *   **ECS_FILE**: backup snapshots for Elastic Compute Service (ECS) files
     // *   **OSS**: backup snapshots for Object Storage Service (OSS) buckets
     // *   **NAS**: backup snapshots for Apsara File Storage NAS file systems
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

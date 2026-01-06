@@ -33,7 +33,7 @@ namespace Models
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline DeleteBackupClientRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the Cloud Backup client.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clientId_ = nullptr;
+    shared_ptr<string> clientId_ {};
   };
 
   } // namespace Models

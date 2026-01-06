@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
-        && return this->description_ == nullptr && return this->identifier_ == nullptr && return this->name_ == nullptr && return this->networkType_ == nullptr; };
+        && this->description_ == nullptr && this->identifier_ == nullptr && this->name_ == nullptr && this->networkType_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
-    inline string clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+    inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline AddContainerClusterRequest& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AddContainerClusterRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // identifier Field Functions 
     bool hasIdentifier() const { return this->identifier_ != nullptr;};
     void deleteIdentifier() { this->identifier_ = nullptr;};
-    inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
+    inline string getIdentifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline AddContainerClusterRequest& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AddContainerClusterRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // networkType Field Functions 
     bool hasNetworkType() const { return this->networkType_ != nullptr;};
     void deleteNetworkType() { this->networkType_ = nullptr;};
-    inline string networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
     inline AddContainerClusterRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
@@ -78,22 +78,22 @@ namespace Models
     // The type of the cluster. Only Container Service for Kubernetes (ACK) clusters are supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterType_ = nullptr;
+    shared_ptr<string> clusterType_ {};
     // The description of the cluster.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the cluster that you want to register.
     // 
     // This parameter is required.
-    std::shared_ptr<string> identifier_ = nullptr;
+    shared_ptr<string> identifier_ {};
     // The name of the cluster.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The network type of the cluster. Valid values:
     // 
     // *   **CLASSIC**: the classic network
     // *   **VPC**: a virtual private cloud (VPC)
     // 
     // This parameter is required.
-    std::shared_ptr<string> networkType_ = nullptr;
+    shared_ptr<string> networkType_ {};
   };
 
   } // namespace Models

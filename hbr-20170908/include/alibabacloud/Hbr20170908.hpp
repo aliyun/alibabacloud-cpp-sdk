@@ -501,6 +501,8 @@ namespace Hbr20170908
       Models::DeleteBackupPlanResponse deleteBackupPlan(const Models::DeleteBackupPlanRequest &request);
 
       /**
+       * @summary 删除客户端
+       *
        * @param request DeleteClientRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteClientResponse
@@ -508,6 +510,8 @@ namespace Hbr20170908
       Models::DeleteClientResponse deleteClientWithOptions(const Models::DeleteClientRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 删除客户端
+       *
        * @param request DeleteClientRequest
        * @return DeleteClientResponse
        */

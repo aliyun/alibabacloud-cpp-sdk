@@ -34,36 +34,36 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->edition_ == nullptr
-        && return this->restoreId_ == nullptr && return this->vaultId_ == nullptr; };
+        && this->restoreId_ == nullptr && this->vaultId_ == nullptr; };
     // edition Field Functions 
     bool hasEdition() const { return this->edition_ != nullptr;};
     void deleteEdition() { this->edition_ = nullptr;};
-    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline string getEdition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
     inline CancelRestoreJobRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // restoreId Field Functions 
     bool hasRestoreId() const { return this->restoreId_ != nullptr;};
     void deleteRestoreId() { this->restoreId_ = nullptr;};
-    inline string restoreId() const { DARABONBA_PTR_GET_DEFAULT(restoreId_, "") };
+    inline string getRestoreId() const { DARABONBA_PTR_GET_DEFAULT(restoreId_, "") };
     inline CancelRestoreJobRequest& setRestoreId(string restoreId) { DARABONBA_PTR_SET_VALUE(restoreId_, restoreId) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline CancelRestoreJobRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
   protected:
-    std::shared_ptr<string> edition_ = nullptr;
+    shared_ptr<string> edition_ {};
     // The ID of the restore job.
     // 
     // This parameter is required.
-    std::shared_ptr<string> restoreId_ = nullptr;
+    shared_ptr<string> restoreId_ {};
     // The ID of the backup vault.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failedFiles_ == nullptr
-        && return this->skippedFiles_ == nullptr && return this->successFiles_ == nullptr && return this->totalFiles_ == nullptr; };
+        && this->skippedFiles_ == nullptr && this->successFiles_ == nullptr && this->totalFiles_ == nullptr; };
     // failedFiles Field Functions 
     bool hasFailedFiles() const { return this->failedFiles_ != nullptr;};
     void deleteFailedFiles() { this->failedFiles_ = nullptr;};
-    inline string failedFiles() const { DARABONBA_PTR_GET_DEFAULT(failedFiles_, "") };
+    inline string getFailedFiles() const { DARABONBA_PTR_GET_DEFAULT(failedFiles_, "") };
     inline Report& setFailedFiles(string failedFiles) { DARABONBA_PTR_SET_VALUE(failedFiles_, failedFiles) };
 
 
     // skippedFiles Field Functions 
     bool hasSkippedFiles() const { return this->skippedFiles_ != nullptr;};
     void deleteSkippedFiles() { this->skippedFiles_ = nullptr;};
-    inline string skippedFiles() const { DARABONBA_PTR_GET_DEFAULT(skippedFiles_, "") };
+    inline string getSkippedFiles() const { DARABONBA_PTR_GET_DEFAULT(skippedFiles_, "") };
     inline Report& setSkippedFiles(string skippedFiles) { DARABONBA_PTR_SET_VALUE(skippedFiles_, skippedFiles) };
 
 
     // successFiles Field Functions 
     bool hasSuccessFiles() const { return this->successFiles_ != nullptr;};
     void deleteSuccessFiles() { this->successFiles_ = nullptr;};
-    inline string successFiles() const { DARABONBA_PTR_GET_DEFAULT(successFiles_, "") };
+    inline string getSuccessFiles() const { DARABONBA_PTR_GET_DEFAULT(successFiles_, "") };
     inline Report& setSuccessFiles(string successFiles) { DARABONBA_PTR_SET_VALUE(successFiles_, successFiles) };
 
 
     // totalFiles Field Functions 
     bool hasTotalFiles() const { return this->totalFiles_ != nullptr;};
     void deleteTotalFiles() { this->totalFiles_ = nullptr;};
-    inline string totalFiles() const { DARABONBA_PTR_GET_DEFAULT(totalFiles_, "") };
+    inline string getTotalFiles() const { DARABONBA_PTR_GET_DEFAULT(totalFiles_, "") };
     inline Report& setTotalFiles(string totalFiles) { DARABONBA_PTR_SET_VALUE(totalFiles_, totalFiles) };
 
 
   protected:
-    std::shared_ptr<string> failedFiles_ = nullptr;
-    std::shared_ptr<string> skippedFiles_ = nullptr;
-    std::shared_ptr<string> successFiles_ = nullptr;
-    std::shared_ptr<string> totalFiles_ = nullptr;
+    shared_ptr<string> failedFiles_ {};
+    shared_ptr<string> skippedFiles_ {};
+    shared_ptr<string> successFiles_ {};
+    shared_ptr<string> totalFiles_ {};
   };
 
   } // namespace Models

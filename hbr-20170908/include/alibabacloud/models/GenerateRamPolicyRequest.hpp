@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionType_ == nullptr
-        && return this->requireBasePolicy_ == nullptr && return this->resourceGroupId_ == nullptr && return this->vaultId_ == nullptr; };
+        && this->requireBasePolicy_ == nullptr && this->resourceGroupId_ == nullptr && this->vaultId_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
-    inline string actionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
+    inline string getActionType() const { DARABONBA_PTR_GET_DEFAULT(actionType_, "") };
     inline GenerateRamPolicyRequest& setActionType(string actionType) { DARABONBA_PTR_SET_VALUE(actionType_, actionType) };
 
 
     // requireBasePolicy Field Functions 
     bool hasRequireBasePolicy() const { return this->requireBasePolicy_ != nullptr;};
     void deleteRequireBasePolicy() { this->requireBasePolicy_ = nullptr;};
-    inline bool requireBasePolicy() const { DARABONBA_PTR_GET_DEFAULT(requireBasePolicy_, false) };
+    inline bool getRequireBasePolicy() const { DARABONBA_PTR_GET_DEFAULT(requireBasePolicy_, false) };
     inline GenerateRamPolicyRequest& setRequireBasePolicy(bool requireBasePolicy) { DARABONBA_PTR_SET_VALUE(requireBasePolicy_, requireBasePolicy) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline GenerateRamPolicyRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline GenerateRamPolicyRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
@@ -72,18 +72,18 @@ namespace Models
     // *   RESTORE: the permission to restore data from a backup vault
     // 
     // This parameter is required.
-    std::shared_ptr<string> actionType_ = nullptr;
+    shared_ptr<string> actionType_ {};
     // Specifies whether to generate the policy based on an existing instance-specific rule. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> requireBasePolicy_ = nullptr;
+    shared_ptr<bool> requireBasePolicy_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The ID of the backup vault.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
   };
 
   } // namespace Models

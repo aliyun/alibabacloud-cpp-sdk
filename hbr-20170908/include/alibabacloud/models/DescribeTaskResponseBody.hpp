@@ -50,116 +50,116 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->completedTime_ == nullptr && return this->createdTime_ == nullptr && return this->description_ == nullptr && return this->message_ == nullptr && return this->name_ == nullptr
-        && return this->progress_ == nullptr && return this->requestId_ == nullptr && return this->result_ == nullptr && return this->success_ == nullptr && return this->updatedTime_ == nullptr; };
+        && this->completedTime_ == nullptr && this->createdTime_ == nullptr && this->description_ == nullptr && this->message_ == nullptr && this->name_ == nullptr
+        && this->progress_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr && this->success_ == nullptr && this->updatedTime_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DescribeTaskResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // completedTime Field Functions 
     bool hasCompletedTime() const { return this->completedTime_ != nullptr;};
     void deleteCompletedTime() { this->completedTime_ = nullptr;};
-    inline int64_t completedTime() const { DARABONBA_PTR_GET_DEFAULT(completedTime_, 0L) };
+    inline int64_t getCompletedTime() const { DARABONBA_PTR_GET_DEFAULT(completedTime_, 0L) };
     inline DescribeTaskResponseBody& setCompletedTime(int64_t completedTime) { DARABONBA_PTR_SET_VALUE(completedTime_, completedTime) };
 
 
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline int64_t createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, 0L) };
+    inline int64_t getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, 0L) };
     inline DescribeTaskResponseBody& setCreatedTime(int64_t createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeTaskResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeTaskResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeTaskResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline int32_t progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
+    inline int32_t getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, 0) };
     inline DescribeTaskResponseBody& setProgress(int32_t progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline string result() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+    inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
     inline DescribeTaskResponseBody& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeTaskResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // updatedTime Field Functions 
     bool hasUpdatedTime() const { return this->updatedTime_ != nullptr;};
     void deleteUpdatedTime() { this->updatedTime_ = nullptr;};
-    inline int64_t updatedTime() const { DARABONBA_PTR_GET_DEFAULT(updatedTime_, 0L) };
+    inline int64_t getUpdatedTime() const { DARABONBA_PTR_GET_DEFAULT(updatedTime_, 0L) };
     inline DescribeTaskResponseBody& setUpdatedTime(int64_t updatedTime) { DARABONBA_PTR_SET_VALUE(updatedTime_, updatedTime) };
 
 
   protected:
     // HttpCode
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The time when the task was complete. The time is a UNIX timestamp. Unit: seconds.
-    std::shared_ptr<int64_t> completedTime_ = nullptr;
+    shared_ptr<int64_t> completedTime_ {};
     // The time when the job was created. This value is a UNIX timestamp. Unit: seconds.
-    std::shared_ptr<int64_t> createdTime_ = nullptr;
+    shared_ptr<int64_t> createdTime_ {};
     // The status of the job. Valid values:
     // 
     // *   **created**: The job is created.
     // *   **expired**: The job expires.
     // *   **completed**: The job is completed.
     // *   **cancelled**: The job is canceled.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The name of the job.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The progress of the job. Valid values: 0 to 100. Unit: percentage (%). If the job fails, the value -1 is returned.
-    std::shared_ptr<int32_t> progress_ = nullptr;
+    shared_ptr<int32_t> progress_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The result of the job.
-    std::shared_ptr<string> result_ = nullptr;
+    shared_ptr<string> result_ {};
     // Indicates whether the call is successful.
     // 
     // *   true: The call is successful.
     // *   false: The call fails.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // The time when the job was updated. This value is a UNIX timestamp. Unit: seconds.
-    std::shared_ptr<int64_t> updatedTime_ = nullptr;
+    shared_ptr<int64_t> updatedTime_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->policyBindingListShrink_ == nullptr
-        && return this->policyId_ == nullptr; };
+        && this->policyId_ == nullptr; };
     // policyBindingListShrink Field Functions 
     bool hasPolicyBindingListShrink() const { return this->policyBindingListShrink_ != nullptr;};
     void deletePolicyBindingListShrink() { this->policyBindingListShrink_ = nullptr;};
-    inline string policyBindingListShrink() const { DARABONBA_PTR_GET_DEFAULT(policyBindingListShrink_, "") };
+    inline string getPolicyBindingListShrink() const { DARABONBA_PTR_GET_DEFAULT(policyBindingListShrink_, "") };
     inline CreatePolicyBindingsShrinkRequest& setPolicyBindingListShrink(string policyBindingListShrink) { DARABONBA_PTR_SET_VALUE(policyBindingListShrink_, policyBindingListShrink) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline CreatePolicyBindingsShrinkRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
   protected:
     // The data sources that you want to bind to the backup policy.
-    std::shared_ptr<string> policyBindingListShrink_ = nullptr;
+    shared_ptr<string> policyBindingListShrink_ {};
     // The ID of the backup policy.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
   };
 
   } // namespace Models

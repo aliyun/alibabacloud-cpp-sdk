@@ -44,67 +44,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupPrefix_ == nullptr
-        && return this->backupType_ == nullptr && return this->clusterId_ == nullptr && return this->databaseName_ == nullptr && return this->planName_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->schedule_ == nullptr && return this->vaultId_ == nullptr; };
+        && this->backupType_ == nullptr && this->clusterId_ == nullptr && this->databaseName_ == nullptr && this->planName_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->schedule_ == nullptr && this->vaultId_ == nullptr; };
     // backupPrefix Field Functions 
     bool hasBackupPrefix() const { return this->backupPrefix_ != nullptr;};
     void deleteBackupPrefix() { this->backupPrefix_ = nullptr;};
-    inline string backupPrefix() const { DARABONBA_PTR_GET_DEFAULT(backupPrefix_, "") };
+    inline string getBackupPrefix() const { DARABONBA_PTR_GET_DEFAULT(backupPrefix_, "") };
     inline CreateHanaBackupPlanRequest& setBackupPrefix(string backupPrefix) { DARABONBA_PTR_SET_VALUE(backupPrefix_, backupPrefix) };
 
 
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};
-    inline string backupType() const { DARABONBA_PTR_GET_DEFAULT(backupType_, "") };
+    inline string getBackupType() const { DARABONBA_PTR_GET_DEFAULT(backupType_, "") };
     inline CreateHanaBackupPlanRequest& setBackupType(string backupType) { DARABONBA_PTR_SET_VALUE(backupType_, backupType) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateHanaBackupPlanRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline CreateHanaBackupPlanRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // planName Field Functions 
     bool hasPlanName() const { return this->planName_ != nullptr;};
     void deletePlanName() { this->planName_ = nullptr;};
-    inline string planName() const { DARABONBA_PTR_GET_DEFAULT(planName_, "") };
+    inline string getPlanName() const { DARABONBA_PTR_GET_DEFAULT(planName_, "") };
     inline CreateHanaBackupPlanRequest& setPlanName(string planName) { DARABONBA_PTR_SET_VALUE(planName_, planName) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateHanaBackupPlanRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // schedule Field Functions 
     bool hasSchedule() const { return this->schedule_ != nullptr;};
     void deleteSchedule() { this->schedule_ = nullptr;};
-    inline string schedule() const { DARABONBA_PTR_GET_DEFAULT(schedule_, "") };
+    inline string getSchedule() const { DARABONBA_PTR_GET_DEFAULT(schedule_, "") };
     inline CreateHanaBackupPlanRequest& setSchedule(string schedule) { DARABONBA_PTR_SET_VALUE(schedule_, schedule) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline CreateHanaBackupPlanRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
   protected:
     // The backup prefix.
-    std::shared_ptr<string> backupPrefix_ = nullptr;
+    shared_ptr<string> backupPrefix_ {};
     // The backup type. Valid values:
     // 
     // *   COMPLETE: full backup
@@ -112,32 +112,32 @@ namespace Models
     // *   DIFFERENTIAL: differential backup
     // 
     // This parameter is required.
-    std::shared_ptr<string> backupType_ = nullptr;
+    shared_ptr<string> backupType_ {};
     // The ID of the SAP HANA instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The name of the database.
     // 
     // This parameter is required.
-    std::shared_ptr<string> databaseName_ = nullptr;
+    shared_ptr<string> databaseName_ {};
     // The name of the backup plan.
     // 
     // This parameter is required.
-    std::shared_ptr<string> planName_ = nullptr;
+    shared_ptr<string> planName_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
     // 
     // *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
     // *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
     // 
     // This parameter is required.
-    std::shared_ptr<string> schedule_ = nullptr;
+    shared_ptr<string> schedule_ {};
     // The ID of the backup vault.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
   };
 
   } // namespace Models

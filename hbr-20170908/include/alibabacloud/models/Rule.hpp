@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupType_ == nullptr
-        && return this->destinationRegionId_ == nullptr && return this->destinationRetention_ == nullptr && return this->disabled_ == nullptr && return this->doCopy_ == nullptr && return this->retention_ == nullptr
-        && return this->ruleName_ == nullptr && return this->schedule_ == nullptr; };
+        && this->destinationRegionId_ == nullptr && this->destinationRetention_ == nullptr && this->disabled_ == nullptr && this->doCopy_ == nullptr && this->retention_ == nullptr
+        && this->ruleName_ == nullptr && this->schedule_ == nullptr; };
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};
-    inline string backupType() const { DARABONBA_PTR_GET_DEFAULT(backupType_, "") };
+    inline string getBackupType() const { DARABONBA_PTR_GET_DEFAULT(backupType_, "") };
     inline Rule& setBackupType(string backupType) { DARABONBA_PTR_SET_VALUE(backupType_, backupType) };
 
 
     // destinationRegionId Field Functions 
     bool hasDestinationRegionId() const { return this->destinationRegionId_ != nullptr;};
     void deleteDestinationRegionId() { this->destinationRegionId_ = nullptr;};
-    inline string destinationRegionId() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionId_, "") };
+    inline string getDestinationRegionId() const { DARABONBA_PTR_GET_DEFAULT(destinationRegionId_, "") };
     inline Rule& setDestinationRegionId(string destinationRegionId) { DARABONBA_PTR_SET_VALUE(destinationRegionId_, destinationRegionId) };
 
 
     // destinationRetention Field Functions 
     bool hasDestinationRetention() const { return this->destinationRetention_ != nullptr;};
     void deleteDestinationRetention() { this->destinationRetention_ = nullptr;};
-    inline int64_t destinationRetention() const { DARABONBA_PTR_GET_DEFAULT(destinationRetention_, 0L) };
+    inline int64_t getDestinationRetention() const { DARABONBA_PTR_GET_DEFAULT(destinationRetention_, 0L) };
     inline Rule& setDestinationRetention(int64_t destinationRetention) { DARABONBA_PTR_SET_VALUE(destinationRetention_, destinationRetention) };
 
 
     // disabled Field Functions 
     bool hasDisabled() const { return this->disabled_ != nullptr;};
     void deleteDisabled() { this->disabled_ = nullptr;};
-    inline bool disabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
+    inline bool getDisabled() const { DARABONBA_PTR_GET_DEFAULT(disabled_, false) };
     inline Rule& setDisabled(bool disabled) { DARABONBA_PTR_SET_VALUE(disabled_, disabled) };
 
 
     // doCopy Field Functions 
     bool hasDoCopy() const { return this->doCopy_ != nullptr;};
     void deleteDoCopy() { this->doCopy_ = nullptr;};
-    inline bool doCopy() const { DARABONBA_PTR_GET_DEFAULT(doCopy_, false) };
+    inline bool getDoCopy() const { DARABONBA_PTR_GET_DEFAULT(doCopy_, false) };
     inline Rule& setDoCopy(bool doCopy) { DARABONBA_PTR_SET_VALUE(doCopy_, doCopy) };
 
 
     // retention Field Functions 
     bool hasRetention() const { return this->retention_ != nullptr;};
     void deleteRetention() { this->retention_ = nullptr;};
-    inline int64_t retention() const { DARABONBA_PTR_GET_DEFAULT(retention_, 0L) };
+    inline int64_t getRetention() const { DARABONBA_PTR_GET_DEFAULT(retention_, 0L) };
     inline Rule& setRetention(int64_t retention) { DARABONBA_PTR_SET_VALUE(retention_, retention) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline Rule& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // schedule Field Functions 
     bool hasSchedule() const { return this->schedule_ != nullptr;};
     void deleteSchedule() { this->schedule_ = nullptr;};
-    inline string schedule() const { DARABONBA_PTR_GET_DEFAULT(schedule_, "") };
+    inline string getSchedule() const { DARABONBA_PTR_GET_DEFAULT(schedule_, "") };
     inline Rule& setSchedule(string schedule) { DARABONBA_PTR_SET_VALUE(schedule_, schedule) };
 
 
   protected:
-    std::shared_ptr<string> backupType_ = nullptr;
-    std::shared_ptr<string> destinationRegionId_ = nullptr;
-    std::shared_ptr<int64_t> destinationRetention_ = nullptr;
-    std::shared_ptr<bool> disabled_ = nullptr;
-    std::shared_ptr<bool> doCopy_ = nullptr;
-    std::shared_ptr<int64_t> retention_ = nullptr;
-    std::shared_ptr<string> ruleName_ = nullptr;
-    std::shared_ptr<string> schedule_ = nullptr;
+    shared_ptr<string> backupType_ {};
+    shared_ptr<string> destinationRegionId_ {};
+    shared_ptr<int64_t> destinationRetention_ {};
+    shared_ptr<bool> disabled_ {};
+    shared_ptr<bool> doCopy_ {};
+    shared_ptr<int64_t> retention_ {};
+    shared_ptr<string> ruleName_ {};
+    shared_ptr<string> schedule_ {};
   };
 
   } // namespace Models

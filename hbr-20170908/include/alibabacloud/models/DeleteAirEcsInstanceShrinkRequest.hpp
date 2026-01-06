@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ecsInstanceId_ == nullptr
-        && return this->uninstallClientSourceTypesShrink_ == nullptr; };
+        && this->uninstallClientSourceTypesShrink_ == nullptr; };
     // ecsInstanceId Field Functions 
     bool hasEcsInstanceId() const { return this->ecsInstanceId_ != nullptr;};
     void deleteEcsInstanceId() { this->ecsInstanceId_ = nullptr;};
-    inline string ecsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
+    inline string getEcsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
     inline DeleteAirEcsInstanceShrinkRequest& setEcsInstanceId(string ecsInstanceId) { DARABONBA_PTR_SET_VALUE(ecsInstanceId_, ecsInstanceId) };
 
 
     // uninstallClientSourceTypesShrink Field Functions 
     bool hasUninstallClientSourceTypesShrink() const { return this->uninstallClientSourceTypesShrink_ != nullptr;};
     void deleteUninstallClientSourceTypesShrink() { this->uninstallClientSourceTypesShrink_ = nullptr;};
-    inline string uninstallClientSourceTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(uninstallClientSourceTypesShrink_, "") };
+    inline string getUninstallClientSourceTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(uninstallClientSourceTypesShrink_, "") };
     inline DeleteAirEcsInstanceShrinkRequest& setUninstallClientSourceTypesShrink(string uninstallClientSourceTypesShrink) { DARABONBA_PTR_SET_VALUE(uninstallClientSourceTypesShrink_, uninstallClientSourceTypesShrink) };
 
 
   protected:
     // The ID of the Elastic Compute Service (ECS) instance.
-    std::shared_ptr<string> ecsInstanceId_ = nullptr;
+    shared_ptr<string> ecsInstanceId_ {};
     // The data sources for which the client needs to be uninstalled.
-    std::shared_ptr<string> uninstallClientSourceTypesShrink_ = nullptr;
+    shared_ptr<string> uninstallClientSourceTypesShrink_ {};
   };
 
   } // namespace Models

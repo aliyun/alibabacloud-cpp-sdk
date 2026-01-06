@@ -34,14 +34,14 @@ namespace Models
     // tableNames Field Functions 
     bool hasTableNames() const { return this->tableNames_ != nullptr;};
     void deleteTableNames() { this->tableNames_ = nullptr;};
-    inline const vector<string> & tableNames() const { DARABONBA_PTR_GET_CONST(tableNames_, vector<string>) };
-    inline vector<string> tableNames() { DARABONBA_PTR_GET(tableNames_, vector<string>) };
+    inline const vector<string> & getTableNames() const { DARABONBA_PTR_GET_CONST(tableNames_, vector<string>) };
+    inline vector<string> getTableNames() { DARABONBA_PTR_GET(tableNames_, vector<string>) };
     inline OtsDetail& setTableNames(const vector<string> & tableNames) { DARABONBA_PTR_SET_VALUE(tableNames_, tableNames) };
     inline OtsDetail& setTableNames(vector<string> && tableNames) { DARABONBA_PTR_SET_RVALUE(tableNames_, tableNames) };
 
 
   protected:
-    std::shared_ptr<vector<string>> tableNames_ = nullptr;
+    shared_ptr<vector<string>> tableNames_ {};
   };
 
   } // namespace Models

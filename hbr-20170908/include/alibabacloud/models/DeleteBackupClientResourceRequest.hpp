@@ -33,17 +33,17 @@ namespace Models
     // clientIds Field Functions 
     bool hasClientIds() const { return this->clientIds_ != nullptr;};
     void deleteClientIds() { this->clientIds_ = nullptr;};
-    inline     const Darabonba::Json & clientIds() const { DARABONBA_GET(clientIds_) };
-    Darabonba::Json & clientIds() { DARABONBA_GET(clientIds_) };
+    inline     const Darabonba::Json & getClientIds() const { DARABONBA_GET(clientIds_) };
+    Darabonba::Json & getClientIds() { DARABONBA_GET(clientIds_) };
     inline DeleteBackupClientResourceRequest& setClientIds(const Darabonba::Json & clientIds) { DARABONBA_SET_VALUE(clientIds_, clientIds) };
-    inline DeleteBackupClientResourceRequest& setClientIds(Darabonba::Json & clientIds) { DARABONBA_SET_RVALUE(clientIds_, clientIds) };
+    inline DeleteBackupClientResourceRequest& setClientIds(Darabonba::Json && clientIds) { DARABONBA_SET_RVALUE(clientIds_, clientIds) };
 
 
   protected:
     // The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
     // 
     // This parameter is required.
-    Darabonba::Json clientIds_ = nullptr;
+    Darabonba::Json clientIds_ {};
   };
 
   } // namespace Models

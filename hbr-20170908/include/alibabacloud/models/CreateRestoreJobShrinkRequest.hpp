@@ -84,230 +84,230 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crossAccountRoleName_ == nullptr
-        && return this->crossAccountType_ == nullptr && return this->crossAccountUserId_ == nullptr && return this->edition_ == nullptr && return this->exclude_ == nullptr && return this->failbackDetailShrink_ == nullptr
-        && return this->include_ == nullptr && return this->initiatedByAck_ == nullptr && return this->options_ == nullptr && return this->otsDetailShrink_ == nullptr && return this->restoreType_ == nullptr
-        && return this->snapshotHash_ == nullptr && return this->snapshotId_ == nullptr && return this->sourceType_ == nullptr && return this->targetBucket_ == nullptr && return this->targetContainer_ == nullptr
-        && return this->targetContainerClusterId_ == nullptr && return this->targetCreateTime_ == nullptr && return this->targetFileSystemId_ == nullptr && return this->targetInstanceId_ == nullptr && return this->targetInstanceName_ == nullptr
-        && return this->targetPath_ == nullptr && return this->targetPrefix_ == nullptr && return this->targetTableName_ == nullptr && return this->targetTime_ == nullptr && return this->udmDetailShrink_ == nullptr
-        && return this->udmRegionId_ == nullptr && return this->vaultId_ == nullptr; };
+        && this->crossAccountType_ == nullptr && this->crossAccountUserId_ == nullptr && this->edition_ == nullptr && this->exclude_ == nullptr && this->failbackDetailShrink_ == nullptr
+        && this->include_ == nullptr && this->initiatedByAck_ == nullptr && this->options_ == nullptr && this->otsDetailShrink_ == nullptr && this->restoreType_ == nullptr
+        && this->snapshotHash_ == nullptr && this->snapshotId_ == nullptr && this->sourceType_ == nullptr && this->targetBucket_ == nullptr && this->targetContainer_ == nullptr
+        && this->targetContainerClusterId_ == nullptr && this->targetCreateTime_ == nullptr && this->targetFileSystemId_ == nullptr && this->targetInstanceId_ == nullptr && this->targetInstanceName_ == nullptr
+        && this->targetPath_ == nullptr && this->targetPrefix_ == nullptr && this->targetTableName_ == nullptr && this->targetTime_ == nullptr && this->udmDetailShrink_ == nullptr
+        && this->udmRegionId_ == nullptr && this->vaultId_ == nullptr; };
     // crossAccountRoleName Field Functions 
     bool hasCrossAccountRoleName() const { return this->crossAccountRoleName_ != nullptr;};
     void deleteCrossAccountRoleName() { this->crossAccountRoleName_ = nullptr;};
-    inline string crossAccountRoleName() const { DARABONBA_PTR_GET_DEFAULT(crossAccountRoleName_, "") };
+    inline string getCrossAccountRoleName() const { DARABONBA_PTR_GET_DEFAULT(crossAccountRoleName_, "") };
     inline CreateRestoreJobShrinkRequest& setCrossAccountRoleName(string crossAccountRoleName) { DARABONBA_PTR_SET_VALUE(crossAccountRoleName_, crossAccountRoleName) };
 
 
     // crossAccountType Field Functions 
     bool hasCrossAccountType() const { return this->crossAccountType_ != nullptr;};
     void deleteCrossAccountType() { this->crossAccountType_ = nullptr;};
-    inline string crossAccountType() const { DARABONBA_PTR_GET_DEFAULT(crossAccountType_, "") };
+    inline string getCrossAccountType() const { DARABONBA_PTR_GET_DEFAULT(crossAccountType_, "") };
     inline CreateRestoreJobShrinkRequest& setCrossAccountType(string crossAccountType) { DARABONBA_PTR_SET_VALUE(crossAccountType_, crossAccountType) };
 
 
     // crossAccountUserId Field Functions 
     bool hasCrossAccountUserId() const { return this->crossAccountUserId_ != nullptr;};
     void deleteCrossAccountUserId() { this->crossAccountUserId_ = nullptr;};
-    inline int64_t crossAccountUserId() const { DARABONBA_PTR_GET_DEFAULT(crossAccountUserId_, 0L) };
+    inline int64_t getCrossAccountUserId() const { DARABONBA_PTR_GET_DEFAULT(crossAccountUserId_, 0L) };
     inline CreateRestoreJobShrinkRequest& setCrossAccountUserId(int64_t crossAccountUserId) { DARABONBA_PTR_SET_VALUE(crossAccountUserId_, crossAccountUserId) };
 
 
     // edition Field Functions 
     bool hasEdition() const { return this->edition_ != nullptr;};
     void deleteEdition() { this->edition_ = nullptr;};
-    inline string edition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline string getEdition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
     inline CreateRestoreJobShrinkRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
 
 
     // exclude Field Functions 
     bool hasExclude() const { return this->exclude_ != nullptr;};
     void deleteExclude() { this->exclude_ = nullptr;};
-    inline string exclude() const { DARABONBA_PTR_GET_DEFAULT(exclude_, "") };
+    inline string getExclude() const { DARABONBA_PTR_GET_DEFAULT(exclude_, "") };
     inline CreateRestoreJobShrinkRequest& setExclude(string exclude) { DARABONBA_PTR_SET_VALUE(exclude_, exclude) };
 
 
     // failbackDetailShrink Field Functions 
     bool hasFailbackDetailShrink() const { return this->failbackDetailShrink_ != nullptr;};
     void deleteFailbackDetailShrink() { this->failbackDetailShrink_ = nullptr;};
-    inline string failbackDetailShrink() const { DARABONBA_PTR_GET_DEFAULT(failbackDetailShrink_, "") };
+    inline string getFailbackDetailShrink() const { DARABONBA_PTR_GET_DEFAULT(failbackDetailShrink_, "") };
     inline CreateRestoreJobShrinkRequest& setFailbackDetailShrink(string failbackDetailShrink) { DARABONBA_PTR_SET_VALUE(failbackDetailShrink_, failbackDetailShrink) };
 
 
     // include Field Functions 
     bool hasInclude() const { return this->include_ != nullptr;};
     void deleteInclude() { this->include_ = nullptr;};
-    inline string include() const { DARABONBA_PTR_GET_DEFAULT(include_, "") };
+    inline string getInclude() const { DARABONBA_PTR_GET_DEFAULT(include_, "") };
     inline CreateRestoreJobShrinkRequest& setInclude(string include) { DARABONBA_PTR_SET_VALUE(include_, include) };
 
 
     // initiatedByAck Field Functions 
     bool hasInitiatedByAck() const { return this->initiatedByAck_ != nullptr;};
     void deleteInitiatedByAck() { this->initiatedByAck_ = nullptr;};
-    inline bool initiatedByAck() const { DARABONBA_PTR_GET_DEFAULT(initiatedByAck_, false) };
+    inline bool getInitiatedByAck() const { DARABONBA_PTR_GET_DEFAULT(initiatedByAck_, false) };
     inline CreateRestoreJobShrinkRequest& setInitiatedByAck(bool initiatedByAck) { DARABONBA_PTR_SET_VALUE(initiatedByAck_, initiatedByAck) };
 
 
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline string options() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
     inline CreateRestoreJobShrinkRequest& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
     // otsDetailShrink Field Functions 
     bool hasOtsDetailShrink() const { return this->otsDetailShrink_ != nullptr;};
     void deleteOtsDetailShrink() { this->otsDetailShrink_ = nullptr;};
-    inline string otsDetailShrink() const { DARABONBA_PTR_GET_DEFAULT(otsDetailShrink_, "") };
+    inline string getOtsDetailShrink() const { DARABONBA_PTR_GET_DEFAULT(otsDetailShrink_, "") };
     inline CreateRestoreJobShrinkRequest& setOtsDetailShrink(string otsDetailShrink) { DARABONBA_PTR_SET_VALUE(otsDetailShrink_, otsDetailShrink) };
 
 
     // restoreType Field Functions 
     bool hasRestoreType() const { return this->restoreType_ != nullptr;};
     void deleteRestoreType() { this->restoreType_ = nullptr;};
-    inline string restoreType() const { DARABONBA_PTR_GET_DEFAULT(restoreType_, "") };
+    inline string getRestoreType() const { DARABONBA_PTR_GET_DEFAULT(restoreType_, "") };
     inline CreateRestoreJobShrinkRequest& setRestoreType(string restoreType) { DARABONBA_PTR_SET_VALUE(restoreType_, restoreType) };
 
 
     // snapshotHash Field Functions 
     bool hasSnapshotHash() const { return this->snapshotHash_ != nullptr;};
     void deleteSnapshotHash() { this->snapshotHash_ = nullptr;};
-    inline string snapshotHash() const { DARABONBA_PTR_GET_DEFAULT(snapshotHash_, "") };
+    inline string getSnapshotHash() const { DARABONBA_PTR_GET_DEFAULT(snapshotHash_, "") };
     inline CreateRestoreJobShrinkRequest& setSnapshotHash(string snapshotHash) { DARABONBA_PTR_SET_VALUE(snapshotHash_, snapshotHash) };
 
 
     // snapshotId Field Functions 
     bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
     void deleteSnapshotId() { this->snapshotId_ = nullptr;};
-    inline string snapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+    inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
     inline CreateRestoreJobShrinkRequest& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline CreateRestoreJobShrinkRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // targetBucket Field Functions 
     bool hasTargetBucket() const { return this->targetBucket_ != nullptr;};
     void deleteTargetBucket() { this->targetBucket_ = nullptr;};
-    inline string targetBucket() const { DARABONBA_PTR_GET_DEFAULT(targetBucket_, "") };
+    inline string getTargetBucket() const { DARABONBA_PTR_GET_DEFAULT(targetBucket_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetBucket(string targetBucket) { DARABONBA_PTR_SET_VALUE(targetBucket_, targetBucket) };
 
 
     // targetContainer Field Functions 
     bool hasTargetContainer() const { return this->targetContainer_ != nullptr;};
     void deleteTargetContainer() { this->targetContainer_ = nullptr;};
-    inline string targetContainer() const { DARABONBA_PTR_GET_DEFAULT(targetContainer_, "") };
+    inline string getTargetContainer() const { DARABONBA_PTR_GET_DEFAULT(targetContainer_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetContainer(string targetContainer) { DARABONBA_PTR_SET_VALUE(targetContainer_, targetContainer) };
 
 
     // targetContainerClusterId Field Functions 
     bool hasTargetContainerClusterId() const { return this->targetContainerClusterId_ != nullptr;};
     void deleteTargetContainerClusterId() { this->targetContainerClusterId_ = nullptr;};
-    inline string targetContainerClusterId() const { DARABONBA_PTR_GET_DEFAULT(targetContainerClusterId_, "") };
+    inline string getTargetContainerClusterId() const { DARABONBA_PTR_GET_DEFAULT(targetContainerClusterId_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetContainerClusterId(string targetContainerClusterId) { DARABONBA_PTR_SET_VALUE(targetContainerClusterId_, targetContainerClusterId) };
 
 
     // targetCreateTime Field Functions 
     bool hasTargetCreateTime() const { return this->targetCreateTime_ != nullptr;};
     void deleteTargetCreateTime() { this->targetCreateTime_ = nullptr;};
-    inline int64_t targetCreateTime() const { DARABONBA_PTR_GET_DEFAULT(targetCreateTime_, 0L) };
+    inline int64_t getTargetCreateTime() const { DARABONBA_PTR_GET_DEFAULT(targetCreateTime_, 0L) };
     inline CreateRestoreJobShrinkRequest& setTargetCreateTime(int64_t targetCreateTime) { DARABONBA_PTR_SET_VALUE(targetCreateTime_, targetCreateTime) };
 
 
     // targetFileSystemId Field Functions 
     bool hasTargetFileSystemId() const { return this->targetFileSystemId_ != nullptr;};
     void deleteTargetFileSystemId() { this->targetFileSystemId_ = nullptr;};
-    inline string targetFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(targetFileSystemId_, "") };
+    inline string getTargetFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(targetFileSystemId_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetFileSystemId(string targetFileSystemId) { DARABONBA_PTR_SET_VALUE(targetFileSystemId_, targetFileSystemId) };
 
 
     // targetInstanceId Field Functions 
     bool hasTargetInstanceId() const { return this->targetInstanceId_ != nullptr;};
     void deleteTargetInstanceId() { this->targetInstanceId_ = nullptr;};
-    inline string targetInstanceId() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceId_, "") };
+    inline string getTargetInstanceId() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceId_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetInstanceId(string targetInstanceId) { DARABONBA_PTR_SET_VALUE(targetInstanceId_, targetInstanceId) };
 
 
     // targetInstanceName Field Functions 
     bool hasTargetInstanceName() const { return this->targetInstanceName_ != nullptr;};
     void deleteTargetInstanceName() { this->targetInstanceName_ = nullptr;};
-    inline string targetInstanceName() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceName_, "") };
+    inline string getTargetInstanceName() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceName_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetInstanceName(string targetInstanceName) { DARABONBA_PTR_SET_VALUE(targetInstanceName_, targetInstanceName) };
 
 
     // targetPath Field Functions 
     bool hasTargetPath() const { return this->targetPath_ != nullptr;};
     void deleteTargetPath() { this->targetPath_ = nullptr;};
-    inline string targetPath() const { DARABONBA_PTR_GET_DEFAULT(targetPath_, "") };
+    inline string getTargetPath() const { DARABONBA_PTR_GET_DEFAULT(targetPath_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetPath(string targetPath) { DARABONBA_PTR_SET_VALUE(targetPath_, targetPath) };
 
 
     // targetPrefix Field Functions 
     bool hasTargetPrefix() const { return this->targetPrefix_ != nullptr;};
     void deleteTargetPrefix() { this->targetPrefix_ = nullptr;};
-    inline string targetPrefix() const { DARABONBA_PTR_GET_DEFAULT(targetPrefix_, "") };
+    inline string getTargetPrefix() const { DARABONBA_PTR_GET_DEFAULT(targetPrefix_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetPrefix(string targetPrefix) { DARABONBA_PTR_SET_VALUE(targetPrefix_, targetPrefix) };
 
 
     // targetTableName Field Functions 
     bool hasTargetTableName() const { return this->targetTableName_ != nullptr;};
     void deleteTargetTableName() { this->targetTableName_ = nullptr;};
-    inline string targetTableName() const { DARABONBA_PTR_GET_DEFAULT(targetTableName_, "") };
+    inline string getTargetTableName() const { DARABONBA_PTR_GET_DEFAULT(targetTableName_, "") };
     inline CreateRestoreJobShrinkRequest& setTargetTableName(string targetTableName) { DARABONBA_PTR_SET_VALUE(targetTableName_, targetTableName) };
 
 
     // targetTime Field Functions 
     bool hasTargetTime() const { return this->targetTime_ != nullptr;};
     void deleteTargetTime() { this->targetTime_ = nullptr;};
-    inline int64_t targetTime() const { DARABONBA_PTR_GET_DEFAULT(targetTime_, 0L) };
+    inline int64_t getTargetTime() const { DARABONBA_PTR_GET_DEFAULT(targetTime_, 0L) };
     inline CreateRestoreJobShrinkRequest& setTargetTime(int64_t targetTime) { DARABONBA_PTR_SET_VALUE(targetTime_, targetTime) };
 
 
     // udmDetailShrink Field Functions 
     bool hasUdmDetailShrink() const { return this->udmDetailShrink_ != nullptr;};
     void deleteUdmDetailShrink() { this->udmDetailShrink_ = nullptr;};
-    inline string udmDetailShrink() const { DARABONBA_PTR_GET_DEFAULT(udmDetailShrink_, "") };
+    inline string getUdmDetailShrink() const { DARABONBA_PTR_GET_DEFAULT(udmDetailShrink_, "") };
     inline CreateRestoreJobShrinkRequest& setUdmDetailShrink(string udmDetailShrink) { DARABONBA_PTR_SET_VALUE(udmDetailShrink_, udmDetailShrink) };
 
 
     // udmRegionId Field Functions 
     bool hasUdmRegionId() const { return this->udmRegionId_ != nullptr;};
     void deleteUdmRegionId() { this->udmRegionId_ = nullptr;};
-    inline string udmRegionId() const { DARABONBA_PTR_GET_DEFAULT(udmRegionId_, "") };
+    inline string getUdmRegionId() const { DARABONBA_PTR_GET_DEFAULT(udmRegionId_, "") };
     inline CreateRestoreJobShrinkRequest& setUdmRegionId(string udmRegionId) { DARABONBA_PTR_SET_VALUE(udmRegionId_, udmRegionId) };
 
 
     // vaultId Field Functions 
     bool hasVaultId() const { return this->vaultId_ != nullptr;};
     void deleteVaultId() { this->vaultId_ = nullptr;};
-    inline string vaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
+    inline string getVaultId() const { DARABONBA_PTR_GET_DEFAULT(vaultId_, "") };
     inline CreateRestoreJobShrinkRequest& setVaultId(string vaultId) { DARABONBA_PTR_SET_VALUE(vaultId_, vaultId) };
 
 
   protected:
     // The name of the role created in the RAM of the original account for cross-account backup managed by the current account.
-    std::shared_ptr<string> crossAccountRoleName_ = nullptr;
+    shared_ptr<string> crossAccountRoleName_ {};
     // Cross-account backup type. Supported values:
     // - SELF_ACCOUNT: Backup within the same account
     // - CROSS_ACCOUNT: Cross-account backup
-    std::shared_ptr<string> crossAccountType_ = nullptr;
+    shared_ptr<string> crossAccountType_ {};
     // The original account ID managed by the current account for cross-account backup.
-    std::shared_ptr<int64_t> crossAccountUserId_ = nullptr;
-    std::shared_ptr<string> edition_ = nullptr;
+    shared_ptr<int64_t> crossAccountUserId_ {};
+    shared_ptr<string> edition_ {};
     // The path not to be restored. All documents under this path will not be restored. Maximum length is 255 characters.
-    std::shared_ptr<string> exclude_ = nullptr;
+    shared_ptr<string> exclude_ {};
     // Details of restoring to the local environment.
-    std::shared_ptr<string> failbackDetailShrink_ = nullptr;
+    shared_ptr<string> failbackDetailShrink_ {};
     // The path to be restored. All documents under this path will be restored. Maximum length is 255 characters.
-    std::shared_ptr<string> include_ = nullptr;
+    shared_ptr<string> include_ {};
     // Indicates whether it is called by the container service. Default is false.
-    std::shared_ptr<bool> initiatedByAck_ = nullptr;
+    shared_ptr<bool> initiatedByAck_ {};
     // Parameters for the restore job.
-    std::shared_ptr<string> options_ = nullptr;
+    shared_ptr<string> options_ {};
     // Details of the Table Store instance.
-    std::shared_ptr<string> otsDetailShrink_ = nullptr;
+    shared_ptr<string> otsDetailShrink_ {};
     // The type of the restore destination data source. Possible values:
     //   - **ECS_FILE**: Restore to ECS file.
     //   - **OSS**: Restore to Alibaba Cloud OSS.
@@ -316,11 +316,11 @@ namespace Models
     //   - **UDM_ECS_ROLLBACK**: Restore to Alibaba Cloud ECS whole machine.
     // 
     // This parameter is required.
-    std::shared_ptr<string> restoreType_ = nullptr;
+    shared_ptr<string> restoreType_ {};
     // The HASH value of the backup snapshot.
-    std::shared_ptr<string> snapshotHash_ = nullptr;
+    shared_ptr<string> snapshotHash_ {};
     // The ID of the backup snapshot.
-    std::shared_ptr<string> snapshotId_ = nullptr;
+    shared_ptr<string> snapshotId_ {};
     // The type of the data source. Possible values:
     //   - **ECS_FILE**: Restore ECS file.
     //   - **OSS**: Restore Alibaba Cloud OSS.
@@ -329,29 +329,29 @@ namespace Models
     //   - **UDM_ECS**: Restore to Alibaba Cloud ECS whole machine.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // Valid only when **RestoreType** is **OSS**. Indicates the name of the OSS bucket at the restore destination.
-    std::shared_ptr<string> targetBucket_ = nullptr;
+    shared_ptr<string> targetBucket_ {};
     // Details of the target container.
-    std::shared_ptr<string> targetContainer_ = nullptr;
+    shared_ptr<string> targetContainer_ {};
     // The ID of the target container cluster.
-    std::shared_ptr<string> targetContainerClusterId_ = nullptr;
+    shared_ptr<string> targetContainerClusterId_ {};
     // Valid only when **RestoreType** is **NAS**. Indicates the creation time of the file system at the restore destination.
-    std::shared_ptr<int64_t> targetCreateTime_ = nullptr;
+    shared_ptr<int64_t> targetCreateTime_ {};
     // Valid only when **RestoreType** is **NAS**. Indicates the ID of the file system at the restore destination.
-    std::shared_ptr<string> targetFileSystemId_ = nullptr;
+    shared_ptr<string> targetFileSystemId_ {};
     // Valid only when **RestoreType** is **ECS_FILE**. Indicates the ECS instance ID at the restore destination.
-    std::shared_ptr<string> targetInstanceId_ = nullptr;
+    shared_ptr<string> targetInstanceId_ {};
     // The name of the target Table Store instance.
-    std::shared_ptr<string> targetInstanceName_ = nullptr;
+    shared_ptr<string> targetInstanceName_ {};
     // Valid only when **RestoreType** is **ECS_FILE**. Indicates the file path at the restore destination.
-    std::shared_ptr<string> targetPath_ = nullptr;
+    shared_ptr<string> targetPath_ {};
     // Valid only when **RestoreType** is **OSS**. Indicates the object prefix at the restore destination.
-    std::shared_ptr<string> targetPrefix_ = nullptr;
+    shared_ptr<string> targetPrefix_ {};
     // The name of the data table in the target Table Store.
-    std::shared_ptr<string> targetTableName_ = nullptr;
+    shared_ptr<string> targetTableName_ {};
     // The time of the Table Store to be restored. UNIX timestamp, in seconds.
-    std::shared_ptr<int64_t> targetTime_ = nullptr;
+    shared_ptr<int64_t> targetTime_ {};
     // The parameter is valid only when the SourceType is set to UDM_ECS. It represents the details of the entire machine backup and is a JSON string. Depending on the value of RestoreType, different details must be passed as follows:
     // - **UDM_ECS_DISK**: ECS disk cloning.
     //   - **targetInstanceId**: string (required). Specifies the target ECS instance ID to which the cloned disk will be attached.
@@ -376,11 +376,11 @@ namespace Models
     //   - **sourceInstanceId**: string (required). Specifies the source ECS instance ID.
     //   - **forceRestore**: bool (default: false). Indicates whether to force restore. NOTE: If forceRestore is set to true, the disk restoration will proceed even if the backup disk has been unmounted from the original ECS instance or mounted to another instance. Exercise caution when using this option.
     //   - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
-    std::shared_ptr<string> udmDetailShrink_ = nullptr;
+    shared_ptr<string> udmDetailShrink_ {};
     // Valid only when **SourceType** is **UDM_ECS**. Indicates the target region for the restore.
-    std::shared_ptr<string> udmRegionId_ = nullptr;
+    shared_ptr<string> udmRegionId_ {};
     // The ID of the backup vault that the snapshot belongs to.
-    std::shared_ptr<string> vaultId_ = nullptr;
+    shared_ptr<string> vaultId_ {};
   };
 
   } // namespace Models
