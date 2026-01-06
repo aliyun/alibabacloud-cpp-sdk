@@ -442,6 +442,9 @@
 #include <alibabacloud/models/DescribeHaLogsRequest.hpp>
 #include <alibabacloud/models/DescribeHaLogsResponseBody.hpp>
 #include <alibabacloud/models/DescribeHaLogsResponse.hpp>
+#include <alibabacloud/models/DescribeHistoryEventsRequest.hpp>
+#include <alibabacloud/models/DescribeHistoryEventsResponseBody.hpp>
+#include <alibabacloud/models/DescribeHistoryEventsResponse.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksRequest.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksResponse.hpp>

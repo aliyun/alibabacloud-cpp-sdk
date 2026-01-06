@@ -2645,6 +2645,23 @@ namespace Polardb20170801
       Models::DescribeHALogsResponse describeHALogs(const Models::DescribeHALogsRequest &request);
 
       /**
+       * @summary 事件中心事件列表
+       *
+       * @param request DescribeHistoryEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHistoryEventsResponse
+       */
+      Models::DescribeHistoryEventsResponse describeHistoryEventsWithOptions(const Models::DescribeHistoryEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 事件中心事件列表
+       *
+       * @param request DescribeHistoryEventsRequest
+       * @return DescribeHistoryEventsResponse
+       */
+      Models::DescribeHistoryEventsResponse describeHistoryEvents(const Models::DescribeHistoryEventsRequest &request);
+
+      /**
        * @summary 任务中心任务列表
        *
        * @param request DescribeHistoryTasksRequest

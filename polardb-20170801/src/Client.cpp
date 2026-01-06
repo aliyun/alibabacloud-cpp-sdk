@@ -10399,6 +10399,104 @@ DescribeHALogsResponse Client::describeHALogs(const DescribeHALogsRequest &reque
 }
 
 /**
+ * @summary 事件中心事件列表
+ *
+ * @param request DescribeHistoryEventsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHistoryEventsResponse
+ */
+DescribeHistoryEventsResponse Client::describeHistoryEventsWithOptions(const DescribeHistoryEventsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArchiveStatus()) {
+    query["ArchiveStatus"] = request.getArchiveStatus();
+  }
+
+  if (!!request.hasEventCategory()) {
+    query["EventCategory"] = request.getEventCategory();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.getEventId();
+  }
+
+  if (!!request.hasEventLevel()) {
+    query["EventLevel"] = request.getEventLevel();
+  }
+
+  if (!!request.hasEventStatus()) {
+    query["EventStatus"] = request.getEventStatus();
+  }
+
+  if (!!request.hasEventType()) {
+    query["EventType"] = request.getEventType();
+  }
+
+  if (!!request.hasFromStartTime()) {
+    query["FromStartTime"] = request.getFromStartTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasToStartTime()) {
+    query["ToStartTime"] = request.getToStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHistoryEvents"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHistoryEventsResponse>();
+}
+
+/**
+ * @summary 事件中心事件列表
+ *
+ * @param request DescribeHistoryEventsRequest
+ * @return DescribeHistoryEventsResponse
+ */
+DescribeHistoryEventsResponse Client::describeHistoryEvents(const DescribeHistoryEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHistoryEventsWithOptions(request, runtime);
+}
+
+/**
  * @summary 任务中心任务列表
  *
  * @param request DescribeHistoryTasksRequest
