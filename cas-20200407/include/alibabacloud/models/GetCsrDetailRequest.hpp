@@ -33,7 +33,7 @@ namespace Models
     // csrId Field Functions 
     bool hasCsrId() const { return this->csrId_ != nullptr;};
     void deleteCsrId() { this->csrId_ = nullptr;};
-    inline int64_t csrId() const { DARABONBA_PTR_GET_DEFAULT(csrId_, 0L) };
+    inline int64_t getCsrId() const { DARABONBA_PTR_GET_DEFAULT(csrId_, 0L) };
     inline GetCsrDetailRequest& setCsrId(int64_t csrId) { DARABONBA_PTR_SET_VALUE(csrId_, csrId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the CSR.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> csrId_ = nullptr;
+    shared_ptr<int64_t> csrId_ {};
   };
 
   } // namespace Models

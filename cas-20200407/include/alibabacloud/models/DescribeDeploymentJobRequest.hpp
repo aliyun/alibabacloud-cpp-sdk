@@ -33,7 +33,7 @@ namespace Models
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline DescribeDeploymentJobRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the deployment job. The **ID** of the job is returned after you call the [CreateDeploymentJob](https://help.aliyun.com/document_detail/2712234.html) operation. You can also call the [ListDeploymentJob](https://help.aliyun.com/document_detail/2712223.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
   };
 
   } // namespace Models

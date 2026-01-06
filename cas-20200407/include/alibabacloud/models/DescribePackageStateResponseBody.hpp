@@ -38,45 +38,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->issuedCount_ == nullptr
-        && return this->productCode_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr && return this->usedCount_ == nullptr; };
+        && this->productCode_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr && this->usedCount_ == nullptr; };
     // issuedCount Field Functions 
     bool hasIssuedCount() const { return this->issuedCount_ != nullptr;};
     void deleteIssuedCount() { this->issuedCount_ = nullptr;};
-    inline int64_t issuedCount() const { DARABONBA_PTR_GET_DEFAULT(issuedCount_, 0L) };
+    inline int64_t getIssuedCount() const { DARABONBA_PTR_GET_DEFAULT(issuedCount_, 0L) };
     inline DescribePackageStateResponseBody& setIssuedCount(int64_t issuedCount) { DARABONBA_PTR_SET_VALUE(issuedCount_, issuedCount) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline DescribePackageStateResponseBody& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePackageStateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline DescribePackageStateResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
     // usedCount Field Functions 
     bool hasUsedCount() const { return this->usedCount_ != nullptr;};
     void deleteUsedCount() { this->usedCount_ = nullptr;};
-    inline int64_t usedCount() const { DARABONBA_PTR_GET_DEFAULT(usedCount_, 0L) };
+    inline int64_t getUsedCount() const { DARABONBA_PTR_GET_DEFAULT(usedCount_, 0L) };
     inline DescribePackageStateResponseBody& setUsedCount(int64_t usedCount) { DARABONBA_PTR_SET_VALUE(usedCount_, usedCount) };
 
 
   protected:
     // The number of issued certificates of the specified specifications.
-    std::shared_ptr<int64_t> issuedCount_ = nullptr;
+    shared_ptr<int64_t> issuedCount_ {};
     // The specifications of the certificate resource plan. Valid values:
     // 
     // *   **digicert-free-1-free**: DigiCert single-domain DV certificate in a three-month free trial, available only on the China site (aliyun.com).
@@ -94,15 +94,15 @@ namespace Models
     // *   **globalsign-ov-w-advanced**: GlobalSign wildcard OV certificate.
     // *   **cfca-ov-1-personal**: CFCA single-domain OV certificate, available only on the China site (aliyun.com).
     // *   **cfca-ev-w-advanced**: CFCA wildcard OV certificate, available only on the China site (aliyun.com).
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of purchased certificate resource plans of the specified specifications.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
     // The number of certificate applications that you submitted for certificates of the specified specifications.
     // 
     // > : A successful call of the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/204087.html), [CreateCertificateRequest](https://help.aliyun.com/document_detail/164105.html), or [CreateCertificateWithCsrRequest](https://help.aliyun.com/document_detail/178732.html) operation is counted as one a certificate application, regardless of whether the certificate is issued.
-    std::shared_ptr<int64_t> usedCount_ = nullptr;
+    shared_ptr<int64_t> usedCount_ {};
   };
 
   } // namespace Models

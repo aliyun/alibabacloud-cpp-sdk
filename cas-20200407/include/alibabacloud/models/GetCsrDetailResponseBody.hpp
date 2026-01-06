@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->csr_ == nullptr
-        && return this->privateKey_ == nullptr && return this->requestId_ == nullptr; };
+        && this->privateKey_ == nullptr && this->requestId_ == nullptr; };
     // csr Field Functions 
     bool hasCsr() const { return this->csr_ != nullptr;};
     void deleteCsr() { this->csr_ = nullptr;};
-    inline string csr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
+    inline string getCsr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline GetCsrDetailResponseBody& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
 
 
     // privateKey Field Functions 
     bool hasPrivateKey() const { return this->privateKey_ != nullptr;};
     void deletePrivateKey() { this->privateKey_ = nullptr;};
-    inline string privateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
+    inline string getPrivateKey() const { DARABONBA_PTR_GET_DEFAULT(privateKey_, "") };
     inline GetCsrDetailResponseBody& setPrivateKey(string privateKey) { DARABONBA_PTR_SET_VALUE(privateKey_, privateKey) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetCsrDetailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The content of the CSR.
-    std::shared_ptr<string> csr_ = nullptr;
+    shared_ptr<string> csr_ {};
     // The private key. Specify a Base64-encoded string.
-    std::shared_ptr<string> privateKey_ = nullptr;
+    shared_ptr<string> privateKey_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

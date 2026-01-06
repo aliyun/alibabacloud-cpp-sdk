@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_RENEWCERTIFICATEORDERFORPACKAGEREQUESTREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/RenewCertificateOrderForPackageRequestRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,29 +34,77 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // 
+      // A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+      shared_ptr<string> key_ {};
+      // The value of the resource tag. A maximum of 20 tag values can be entered. If this value needs to be passed in, an empty string can be entered.
+      // 
+      // A maximum of 128 characters are supported, it cannot start with \\"aliyun\\" or \\"acs:\\", and it cannot contain \\"http://\\" or \\"https://\\".
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->csr_ == nullptr
-        && return this->orderId_ == nullptr && return this->tags_ == nullptr; };
+        && this->orderId_ == nullptr && this->tags_ == nullptr; };
     // csr Field Functions 
     bool hasCsr() const { return this->csr_ != nullptr;};
     void deleteCsr() { this->csr_ = nullptr;};
-    inline string csr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
+    inline string getCsr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline RenewCertificateOrderForPackageRequestRequest& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
 
 
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline int64_t orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
+    inline int64_t getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
     inline RenewCertificateOrderForPackageRequestRequest& setOrderId(int64_t orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<RenewCertificateOrderForPackageRequestRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<RenewCertificateOrderForPackageRequestRequestTags>) };
-    inline vector<RenewCertificateOrderForPackageRequestRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<RenewCertificateOrderForPackageRequestRequestTags>) };
-    inline RenewCertificateOrderForPackageRequestRequest& setTags(const vector<RenewCertificateOrderForPackageRequestRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline RenewCertificateOrderForPackageRequestRequest& setTags(vector<RenewCertificateOrderForPackageRequestRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<RenewCertificateOrderForPackageRequestRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<RenewCertificateOrderForPackageRequestRequest::Tags>) };
+    inline vector<RenewCertificateOrderForPackageRequestRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<RenewCertificateOrderForPackageRequestRequest::Tags>) };
+    inline RenewCertificateOrderForPackageRequestRequest& setTags(const vector<RenewCertificateOrderForPackageRequestRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline RenewCertificateOrderForPackageRequestRequest& setTags(vector<RenewCertificateOrderForPackageRequestRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
   protected:
@@ -68,15 +115,15 @@ namespace Models
     // A CSR file contains the information about your server and company. When you apply for a certificate, you must submit the CSR file to the CA. The CA signs the CSR file by using the private key of the root certificate and generates a public key file to issue your certificate.
     // 
     // >  The **CN** field in the CSR file specifies the domain name that is bound to the certificate.
-    std::shared_ptr<string> csr_ = nullptr;
+    shared_ptr<string> csr_ {};
     // The ID of the certificate application order that you want to renew.
     // 
     // >  After you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html), [CreateCertificateRequest](https://help.aliyun.com/document_detail/455292.html), or [CreateCertificateWithCsrRequest](https://help.aliyun.com/document_detail/455801.html) operation to submit a certificate application, you can obtain the ID of the certificate application order from the **OrderId** response parameter. You can also call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the order ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> orderId_ = nullptr;
+    shared_ptr<int64_t> orderId_ {};
     // The tags.
-    std::shared_ptr<vector<RenewCertificateOrderForPackageRequestRequestTags>> tags_ = nullptr;
+    shared_ptr<vector<RenewCertificateOrderForPackageRequestRequest::Tags>> tags_ {};
   };
 
   } // namespace Models

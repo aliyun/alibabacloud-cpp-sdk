@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certIds_ == nullptr
-        && return this->contactIds_ == nullptr && return this->jobId_ == nullptr && return this->name_ == nullptr && return this->resourceIds_ == nullptr && return this->scheduleTime_ == nullptr; };
+        && this->contactIds_ == nullptr && this->jobId_ == nullptr && this->name_ == nullptr && this->resourceIds_ == nullptr && this->scheduleTime_ == nullptr; };
     // certIds Field Functions 
     bool hasCertIds() const { return this->certIds_ != nullptr;};
     void deleteCertIds() { this->certIds_ = nullptr;};
-    inline string certIds() const { DARABONBA_PTR_GET_DEFAULT(certIds_, "") };
+    inline string getCertIds() const { DARABONBA_PTR_GET_DEFAULT(certIds_, "") };
     inline UpdateDeploymentJobRequest& setCertIds(string certIds) { DARABONBA_PTR_SET_VALUE(certIds_, certIds) };
 
 
     // contactIds Field Functions 
     bool hasContactIds() const { return this->contactIds_ != nullptr;};
     void deleteContactIds() { this->contactIds_ = nullptr;};
-    inline string contactIds() const { DARABONBA_PTR_GET_DEFAULT(contactIds_, "") };
+    inline string getContactIds() const { DARABONBA_PTR_GET_DEFAULT(contactIds_, "") };
     inline UpdateDeploymentJobRequest& setContactIds(string contactIds) { DARABONBA_PTR_SET_VALUE(contactIds_, contactIds) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline UpdateDeploymentJobRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateDeploymentJobRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // resourceIds Field Functions 
     bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
     void deleteResourceIds() { this->resourceIds_ = nullptr;};
-    inline string resourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
+    inline string getResourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
     inline UpdateDeploymentJobRequest& setResourceIds(string resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
 
 
     // scheduleTime Field Functions 
     bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
     void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
-    inline int64_t scheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, 0L) };
+    inline int64_t getScheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, 0L) };
     inline UpdateDeploymentJobRequest& setScheduleTime(int64_t scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
 
 
   protected:
     // The ID of the certificate. Separate multiple certificate IDs with commas (,). You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the ID of a certificate from the **CertificateId** parameter.
-    std::shared_ptr<string> certIds_ = nullptr;
+    shared_ptr<string> certIds_ {};
     // The ID of the contact. Separate multiple contact IDs with commas (,). You can call the [ListContact](https://help.aliyun.com/document_detail/2712221.html) operation to obtain the ID of a contact from the **ContactId** parameter.
-    std::shared_ptr<string> contactIds_ = nullptr;
+    shared_ptr<string> contactIds_ {};
     // The ID of the deployment task. You can call the [CreateDeploymentJob](https://help.aliyun.com/document_detail/2712234.html) operation to obtain the ID of a deployment task from the JobId parameter. You can also call the [ListDeploymentJob](https://help.aliyun.com/document_detail/2712223.html) operation to obtain the ID of a deployment task.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
     // The name of the deployment task.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the cloud resource. Separate multiple resource IDs with commas (,). You can call the [ListCloudResources](https://help.aliyun.com/document_detail/2712230.html) operation to obtain the ID of a cloud resource from the **Id** parameter.
-    std::shared_ptr<string> resourceIds_ = nullptr;
+    shared_ptr<string> resourceIds_ {};
     // The time when the task starts. The value is a UNIX timestamp. If you do not specify this parameter, the system immediately starts the task after it is created.
-    std::shared_ptr<int64_t> scheduleTime_ = nullptr;
+    shared_ptr<int64_t> scheduleTime_ {};
   };
 
   } // namespace Models

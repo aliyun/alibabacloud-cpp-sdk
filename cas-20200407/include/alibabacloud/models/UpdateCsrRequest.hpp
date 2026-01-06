@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->csrId_ == nullptr
-        && return this->key_ == nullptr; };
+        && this->key_ == nullptr; };
     // csrId Field Functions 
     bool hasCsrId() const { return this->csrId_ != nullptr;};
     void deleteCsrId() { this->csrId_ = nullptr;};
-    inline int64_t csrId() const { DARABONBA_PTR_GET_DEFAULT(csrId_, 0L) };
+    inline int64_t getCsrId() const { DARABONBA_PTR_GET_DEFAULT(csrId_, 0L) };
     inline UpdateCsrRequest& setCsrId(int64_t csrId) { DARABONBA_PTR_SET_VALUE(csrId_, csrId) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline UpdateCsrRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the CSR.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> csrId_ = nullptr;
+    shared_ptr<int64_t> csrId_ {};
     // The private key content of the certificate in the PEM format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
   };
 
   } // namespace Models

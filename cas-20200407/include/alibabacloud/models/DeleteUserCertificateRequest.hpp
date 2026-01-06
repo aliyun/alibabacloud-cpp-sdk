@@ -33,7 +33,7 @@ namespace Models
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
-    inline int64_t certId() const { DARABONBA_PTR_GET_DEFAULT(certId_, 0L) };
+    inline int64_t getCertId() const { DARABONBA_PTR_GET_DEFAULT(certId_, 0L) };
     inline DeleteUserCertificateRequest& setCertId(int64_t certId) { DARABONBA_PTR_SET_VALUE(certId_, certId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> certId_ = nullptr;
+    shared_ptr<int64_t> certId_ {};
   };
 
   } // namespace Models

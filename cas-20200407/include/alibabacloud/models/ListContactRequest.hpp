@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->keyword_ == nullptr && return this->showSize_ == nullptr; };
+        && this->keyword_ == nullptr && this->showSize_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListContactRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListContactRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // showSize Field Functions 
     bool hasShowSize() const { return this->showSize_ != nullptr;};
     void deleteShowSize() { this->showSize_ = nullptr;};
-    inline int32_t showSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
+    inline int32_t getShowSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
     inline ListContactRequest& setShowSize(int32_t showSize) { DARABONBA_PTR_SET_VALUE(showSize_, showSize) };
 
 
   protected:
     // The page number. Default value: 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The keyword used in the query. For example, you can specify a keyword in names, email addresses, and mobile phone numbers.
-    std::shared_ptr<string> keyword_ = nullptr;
+    shared_ptr<string> keyword_ {};
     // The number of contacts per page.
-    std::shared_ptr<int32_t> showSize_ = nullptr;
+    shared_ptr<int32_t> showSize_ {};
   };
 
   } // namespace Models

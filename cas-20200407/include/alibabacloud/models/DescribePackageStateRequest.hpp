@@ -33,7 +33,7 @@ namespace Models
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline DescribePackageStateRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
@@ -55,7 +55,7 @@ namespace Models
     // *   **globalsign-ov-w-advanced**: GlobalSign wildcard OV certificate.
     // *   **cfca-ov-1-personal**: China Financial Certification Authority (CFCA) single-domain OV certificate, available only on the China site (aliyun.com).
     // *   **cfca-ev-w-advanced**: CFCA wildcard OV certificate, available only on the China site (aliyun.com).
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
   };
 
   } // namespace Models

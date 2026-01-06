@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certId_ == nullptr
-        && return this->requestId_ == nullptr && return this->resourceId_ == nullptr; };
+        && this->requestId_ == nullptr && this->resourceId_ == nullptr; };
     // certId Field Functions 
     bool hasCertId() const { return this->certId_ != nullptr;};
     void deleteCertId() { this->certId_ = nullptr;};
-    inline int64_t certId() const { DARABONBA_PTR_GET_DEFAULT(certId_, 0L) };
+    inline int64_t getCertId() const { DARABONBA_PTR_GET_DEFAULT(certId_, 0L) };
     inline UploadUserCertificateResponseBody& setCertId(int64_t certId) { DARABONBA_PTR_SET_VALUE(certId_, certId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UploadUserCertificateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline UploadUserCertificateResponseBody& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
   protected:
     // The ID of the certificate.
-    std::shared_ptr<int64_t> certId_ = nullptr;
+    shared_ptr<int64_t> certId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the resource.
-    std::shared_ptr<string> resourceId_ = nullptr;
+    shared_ptr<string> resourceId_ {};
   };
 
   } // namespace Models

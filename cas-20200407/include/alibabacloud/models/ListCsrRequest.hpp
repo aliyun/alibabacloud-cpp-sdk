@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->currentPage_ == nullptr && return this->keyWord_ == nullptr && return this->showSize_ == nullptr; };
+        && this->currentPage_ == nullptr && this->keyWord_ == nullptr && this->showSize_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
-    inline string algorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline ListCsrRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int64_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
+    inline int64_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0L) };
     inline ListCsrRequest& setCurrentPage(int64_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // keyWord Field Functions 
     bool hasKeyWord() const { return this->keyWord_ != nullptr;};
     void deleteKeyWord() { this->keyWord_ = nullptr;};
-    inline string keyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
+    inline string getKeyWord() const { DARABONBA_PTR_GET_DEFAULT(keyWord_, "") };
     inline ListCsrRequest& setKeyWord(string keyWord) { DARABONBA_PTR_SET_VALUE(keyWord_, keyWord) };
 
 
     // showSize Field Functions 
     bool hasShowSize() const { return this->showSize_ != nullptr;};
     void deleteShowSize() { this->showSize_ = nullptr;};
-    inline int64_t showSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0L) };
+    inline int64_t getShowSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0L) };
     inline ListCsrRequest& setShowSize(int64_t showSize) { DARABONBA_PTR_SET_VALUE(showSize_, showSize) };
 
 
   protected:
     // The algorithm. Valid values: RSA, ECC, and SM2.
-    std::shared_ptr<string> algorithm_ = nullptr;
+    shared_ptr<string> algorithm_ {};
     // The page number.
-    std::shared_ptr<int64_t> currentPage_ = nullptr;
+    shared_ptr<int64_t> currentPage_ {};
     // The keyword.
-    std::shared_ptr<string> keyWord_ = nullptr;
+    shared_ptr<string> keyWord_ {};
     // The number of entries per page. Default value: 50.
-    std::shared_ptr<int64_t> showSize_ = nullptr;
+    shared_ptr<int64_t> showSize_ {};
   };
 
   } // namespace Models

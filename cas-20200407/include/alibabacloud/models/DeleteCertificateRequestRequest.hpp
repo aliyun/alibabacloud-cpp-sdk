@@ -33,7 +33,7 @@ namespace Models
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline int64_t orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
+    inline int64_t getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
     inline DeleteCertificateRequestRequest& setOrderId(int64_t orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // >  After you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html), [CreateCertificateRequest](https://help.aliyun.com/document_detail/455292.html), or [CreateCertificateWithCsrRequest](https://help.aliyun.com/document_detail/455801.html) operation to submit a certificate application, you can obtain the ID of the certificate application order from the **OrderId** response parameter. You can also call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the order ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> orderId_ = nullptr;
+    shared_ptr<int64_t> orderId_ {};
   };
 
   } // namespace Models

@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->jobType_ == nullptr && return this->showSize_ == nullptr && return this->status_ == nullptr; };
+        && this->jobType_ == nullptr && this->showSize_ == nullptr && this->status_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListDeploymentJobRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // jobType Field Functions 
     bool hasJobType() const { return this->jobType_ != nullptr;};
     void deleteJobType() { this->jobType_ = nullptr;};
-    inline string jobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline ListDeploymentJobRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
 
 
     // showSize Field Functions 
     bool hasShowSize() const { return this->showSize_ != nullptr;};
     void deleteShowSize() { this->showSize_ = nullptr;};
-    inline int32_t showSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
+    inline int32_t getShowSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
     inline ListDeploymentJobRequest& setShowSize(int32_t showSize) { DARABONBA_PTR_SET_VALUE(showSize_, showSize) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListDeploymentJobRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The page number. Default value: 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The type of the deployment task.
     // 
     // Valid values:
     // 
     // *   cloud: multi-cloud deployment task.
     // *   user: cloud service deployment task. This type of task does not support Elastic Compute Service (ECS) instances.
-    std::shared_ptr<string> jobType_ = nullptr;
+    shared_ptr<string> jobType_ {};
     // The number of certificates per page. Default value: **50**.
-    std::shared_ptr<int32_t> showSize_ = nullptr;
+    shared_ptr<int32_t> showSize_ {};
     // The status of the deployment task.
     // 
     // Valid values:
@@ -87,7 +87,7 @@ namespace Models
     // *   processing
     // *   error
     // *   editing
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

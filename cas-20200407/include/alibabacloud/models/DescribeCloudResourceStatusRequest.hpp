@@ -33,7 +33,7 @@ namespace Models
     // secretId Field Functions 
     bool hasSecretId() const { return this->secretId_ != nullptr;};
     void deleteSecretId() { this->secretId_ = nullptr;};
-    inline string secretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, "") };
+    inline string getSecretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, "") };
     inline DescribeCloudResourceStatusRequest& setSecretId(string secretId) { DARABONBA_PTR_SET_VALUE(secretId_, secretId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The AccessKey secret used to access cloud resources.
     // 
     // >  You can call the [ListCloudAccess](https://help.aliyun.com/document_detail/2712219.html) operation to obtain the ID.
-    std::shared_ptr<string> secretId_ = nullptr;
+    shared_ptr<string> secretId_ {};
   };
 
   } // namespace Models

@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->signatureValid_ == nullptr; };
+        && this->signatureValid_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline VerifyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // signatureValid Field Functions 
     bool hasSignatureValid() const { return this->signatureValid_ != nullptr;};
     void deleteSignatureValid() { this->signatureValid_ = nullptr;};
-    inline bool signatureValid() const { DARABONBA_PTR_GET_DEFAULT(signatureValid_, false) };
+    inline bool getSignatureValid() const { DARABONBA_PTR_GET_DEFAULT(signatureValid_, false) };
     inline VerifyResponseBody& setSignatureValid(bool signatureValid) { DARABONBA_PTR_SET_VALUE(signatureValid_, signatureValid) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the signature is valid. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> signatureValid_ = nullptr;
+    shared_ptr<bool> signatureValid_ {};
   };
 
   } // namespace Models

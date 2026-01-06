@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->csr_ == nullptr
-        && return this->csrId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->csrId_ == nullptr && this->requestId_ == nullptr; };
     // csr Field Functions 
     bool hasCsr() const { return this->csr_ != nullptr;};
     void deleteCsr() { this->csr_ = nullptr;};
-    inline string csr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
+    inline string getCsr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline CreateCsrResponseBody& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
 
 
     // csrId Field Functions 
     bool hasCsrId() const { return this->csrId_ != nullptr;};
     void deleteCsrId() { this->csrId_ = nullptr;};
-    inline int64_t csrId() const { DARABONBA_PTR_GET_DEFAULT(csrId_, 0L) };
+    inline int64_t getCsrId() const { DARABONBA_PTR_GET_DEFAULT(csrId_, 0L) };
     inline CreateCsrResponseBody& setCsrId(int64_t csrId) { DARABONBA_PTR_SET_VALUE(csrId_, csrId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateCsrResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The content of the CSR.
-    std::shared_ptr<string> csr_ = nullptr;
+    shared_ptr<string> csr_ {};
     // The unique identifier of the CSR. You can use this value to obtain the content of the CSR. For more information about the operation that you can call to obtain the content of a CSR, see [GetCsrDetail](https://help.aliyun.com/document_detail/2709720.html).
-    std::shared_ptr<int64_t> csrId_ = nullptr;
+    shared_ptr<int64_t> csrId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

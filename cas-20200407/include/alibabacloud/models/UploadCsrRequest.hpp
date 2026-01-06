@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->csr_ == nullptr
-        && return this->key_ == nullptr && return this->name_ == nullptr; };
+        && this->key_ == nullptr && this->name_ == nullptr; };
     // csr Field Functions 
     bool hasCsr() const { return this->csr_ != nullptr;};
     void deleteCsr() { this->csr_ = nullptr;};
-    inline string csr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
+    inline string getCsr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline UploadCsrRequest& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline UploadCsrRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UploadCsrRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The content of the CSR.
     // 
     // This parameter is required.
-    std::shared_ptr<string> csr_ = nullptr;
+    shared_ptr<string> csr_ {};
     // The private key content of the certificate in the PEM format.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // The name of the CSR.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

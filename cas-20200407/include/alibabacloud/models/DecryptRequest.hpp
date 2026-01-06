@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CiphertextBlob, ciphertextBlob_);
       DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(MessageType, messageType_);
+      DARABONBA_PTR_TO_JSON(WarehouseId, warehouseId_);
     };
     friend void from_json(const Darabonba::Json& j, DecryptRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CiphertextBlob, ciphertextBlob_);
       DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(MessageType, messageType_);
+      DARABONBA_PTR_FROM_JSON(WarehouseId, warehouseId_);
     };
     DecryptRequest() = default ;
     DecryptRequest(const DecryptRequest &) = default ;
@@ -38,40 +40,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->certIdentifier_ == nullptr && return this->ciphertextBlob_ == nullptr && return this->customIdentifier_ == nullptr && return this->messageType_ == nullptr; };
+        && this->certIdentifier_ == nullptr && this->ciphertextBlob_ == nullptr && this->customIdentifier_ == nullptr && this->messageType_ == nullptr && this->warehouseId_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
-    inline string algorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
+    inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline DecryptRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
 
 
     // certIdentifier Field Functions 
     bool hasCertIdentifier() const { return this->certIdentifier_ != nullptr;};
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
-    inline string certIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
+    inline string getCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
     inline DecryptRequest& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
 
 
     // ciphertextBlob Field Functions 
     bool hasCiphertextBlob() const { return this->ciphertextBlob_ != nullptr;};
     void deleteCiphertextBlob() { this->ciphertextBlob_ = nullptr;};
-    inline string ciphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
+    inline string getCiphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
     inline DecryptRequest& setCiphertextBlob(string ciphertextBlob) { DARABONBA_PTR_SET_VALUE(ciphertextBlob_, ciphertextBlob) };
 
 
     // customIdentifier Field Functions 
     bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
     void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
-    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline string getCustomIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
     inline DecryptRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // messageType Field Functions 
     bool hasMessageType() const { return this->messageType_ != nullptr;};
     void deleteMessageType() { this->messageType_ = nullptr;};
-    inline string messageType() const { DARABONBA_PTR_GET_DEFAULT(messageType_, "") };
+    inline string getMessageType() const { DARABONBA_PTR_GET_DEFAULT(messageType_, "") };
     inline DecryptRequest& setMessageType(string messageType) { DARABONBA_PTR_SET_VALUE(messageType_, messageType) };
+
+
+    // warehouseId Field Functions 
+    bool hasWarehouseId() const { return this->warehouseId_ != nullptr;};
+    void deleteWarehouseId() { this->warehouseId_ = nullptr;};
+    inline int64_t getWarehouseId() const { DARABONBA_PTR_GET_DEFAULT(warehouseId_, 0L) };
+    inline DecryptRequest& setWarehouseId(int64_t warehouseId) { DARABONBA_PTR_SET_VALUE(warehouseId_, warehouseId) };
 
 
   protected:
@@ -82,22 +91,23 @@ namespace Models
     // *   **SM2PKE**
     // 
     // This parameter is required.
-    std::shared_ptr<string> algorithm_ = nullptr;
+    shared_ptr<string> algorithm_ {};
     // The unique identifier of the certificate. You can call the [ListCert](https://help.aliyun.com/document_detail/455806.html) operation to query the identifier.
     // 
     // *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
     // *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
-    std::shared_ptr<string> certIdentifier_ = nullptr;
+    shared_ptr<string> certIdentifier_ {};
     // The data that you want to decrypt. The value is encoded in Base64.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ciphertextBlob_ = nullptr;
-    std::shared_ptr<string> customIdentifier_ = nullptr;
+    shared_ptr<string> ciphertextBlob_ {};
+    shared_ptr<string> customIdentifier_ {};
     // The value type of the Message parameter. Valid values:
     // 
     // *   RAW: The returned result is raw data encoded in UTF-8.
     // *   Base64: The returned result is Base64-encoded data. This is the default value.
-    std::shared_ptr<string> messageType_ = nullptr;
+    shared_ptr<string> messageType_ {};
+    shared_ptr<int64_t> warehouseId_ {};
   };
 
   } // namespace Models

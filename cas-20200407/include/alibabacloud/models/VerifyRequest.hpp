@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MessageType, messageType_);
       DARABONBA_PTR_TO_JSON(SignatureValue, signatureValue_);
       DARABONBA_PTR_TO_JSON(SigningAlgorithm, signingAlgorithm_);
+      DARABONBA_PTR_TO_JSON(WarehouseId, warehouseId_);
     };
     friend void from_json(const Darabonba::Json& j, VerifyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MessageType, messageType_);
       DARABONBA_PTR_FROM_JSON(SignatureValue, signatureValue_);
       DARABONBA_PTR_FROM_JSON(SigningAlgorithm, signingAlgorithm_);
+      DARABONBA_PTR_FROM_JSON(WarehouseId, warehouseId_);
     };
     VerifyRequest() = default ;
     VerifyRequest(const VerifyRequest &) = default ;
@@ -40,47 +42,55 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certIdentifier_ == nullptr
-        && return this->customIdentifier_ == nullptr && return this->message_ == nullptr && return this->messageType_ == nullptr && return this->signatureValue_ == nullptr && return this->signingAlgorithm_ == nullptr; };
+        && this->customIdentifier_ == nullptr && this->message_ == nullptr && this->messageType_ == nullptr && this->signatureValue_ == nullptr && this->signingAlgorithm_ == nullptr
+        && this->warehouseId_ == nullptr; };
     // certIdentifier Field Functions 
     bool hasCertIdentifier() const { return this->certIdentifier_ != nullptr;};
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
-    inline string certIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
+    inline string getCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
     inline VerifyRequest& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
 
 
     // customIdentifier Field Functions 
     bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
     void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
-    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline string getCustomIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
     inline VerifyRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline VerifyRequest& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // messageType Field Functions 
     bool hasMessageType() const { return this->messageType_ != nullptr;};
     void deleteMessageType() { this->messageType_ = nullptr;};
-    inline string messageType() const { DARABONBA_PTR_GET_DEFAULT(messageType_, "") };
+    inline string getMessageType() const { DARABONBA_PTR_GET_DEFAULT(messageType_, "") };
     inline VerifyRequest& setMessageType(string messageType) { DARABONBA_PTR_SET_VALUE(messageType_, messageType) };
 
 
     // signatureValue Field Functions 
     bool hasSignatureValue() const { return this->signatureValue_ != nullptr;};
     void deleteSignatureValue() { this->signatureValue_ = nullptr;};
-    inline string signatureValue() const { DARABONBA_PTR_GET_DEFAULT(signatureValue_, "") };
+    inline string getSignatureValue() const { DARABONBA_PTR_GET_DEFAULT(signatureValue_, "") };
     inline VerifyRequest& setSignatureValue(string signatureValue) { DARABONBA_PTR_SET_VALUE(signatureValue_, signatureValue) };
 
 
     // signingAlgorithm Field Functions 
     bool hasSigningAlgorithm() const { return this->signingAlgorithm_ != nullptr;};
     void deleteSigningAlgorithm() { this->signingAlgorithm_ = nullptr;};
-    inline string signingAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(signingAlgorithm_, "") };
+    inline string getSigningAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(signingAlgorithm_, "") };
     inline VerifyRequest& setSigningAlgorithm(string signingAlgorithm) { DARABONBA_PTR_SET_VALUE(signingAlgorithm_, signingAlgorithm) };
+
+
+    // warehouseId Field Functions 
+    bool hasWarehouseId() const { return this->warehouseId_ != nullptr;};
+    void deleteWarehouseId() { this->warehouseId_ = nullptr;};
+    inline string getWarehouseId() const { DARABONBA_PTR_GET_DEFAULT(warehouseId_, "") };
+    inline VerifyRequest& setWarehouseId(string warehouseId) { DARABONBA_PTR_SET_VALUE(warehouseId_, warehouseId) };
 
 
   protected:
@@ -88,8 +98,8 @@ namespace Models
     // 
     // *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
     // *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
-    std::shared_ptr<string> certIdentifier_ = nullptr;
-    std::shared_ptr<string> customIdentifier_ = nullptr;
+    shared_ptr<string> certIdentifier_ {};
+    shared_ptr<string> customIdentifier_ {};
     // The data for which you want to verify the signature. The value must be encoded in Base64.\\
     // For example, if the hexadecimal data that you want to verify is [0x31, 0x32, 0x33, 0x34], set the parameter to the Base64-encoded value MTIzNA==. If you set MessageType to RAW, the size of the data must be less than 4 KB. If the size of the data is greater than 4 KB, you can set MessageType to DIGEST and set Message to the digest of the data. The digest is also called hash value. You can compute the digest of the data on an on-premises machine. The certificate repository uses your certificate application system to compute the message digest. The message digest algorithm that is used must meet the requirements of the specified signature algorithm. The following signature algorithms require different message digest algorithms:
     // 
@@ -97,18 +107,18 @@ namespace Models
     // *   If the signature algorithm is SM3withSM2, the message digest algorithm must be SM3.
     // 
     // This parameter is required.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The value type of the Message parameter. Valid values:
     // 
     // *   **RAW**: the raw data. This is the default value.
     // *   **DIGEST**: the message digest of the raw data.
     // 
     // This parameter is required.
-    std::shared_ptr<string> messageType_ = nullptr;
+    shared_ptr<string> messageType_ {};
     // The signature value. The value must be encoded in Base64.
     // 
     // This parameter is required.
-    std::shared_ptr<string> signatureValue_ = nullptr;
+    shared_ptr<string> signatureValue_ {};
     // The signature algorithm. Valid values:
     // 
     // *   **SHA256withRSA**
@@ -117,7 +127,8 @@ namespace Models
     // *   **SM3withSM2**
     // 
     // This parameter is required.
-    std::shared_ptr<string> signingAlgorithm_ = nullptr;
+    shared_ptr<string> signingAlgorithm_ {};
+    shared_ptr<string> warehouseId_ {};
   };
 
   } // namespace Models

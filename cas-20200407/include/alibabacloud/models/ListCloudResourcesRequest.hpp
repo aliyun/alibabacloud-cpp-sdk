@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certIds_ == nullptr
-        && return this->cloudName_ == nullptr && return this->cloudProduct_ == nullptr && return this->currentPage_ == nullptr && return this->keyword_ == nullptr && return this->secretId_ == nullptr
-        && return this->showSize_ == nullptr; };
+        && this->cloudName_ == nullptr && this->cloudProduct_ == nullptr && this->currentPage_ == nullptr && this->keyword_ == nullptr && this->secretId_ == nullptr
+        && this->showSize_ == nullptr; };
     // certIds Field Functions 
     bool hasCertIds() const { return this->certIds_ != nullptr;};
     void deleteCertIds() { this->certIds_ = nullptr;};
-    inline const vector<int64_t> & certIds() const { DARABONBA_PTR_GET_CONST(certIds_, vector<int64_t>) };
-    inline vector<int64_t> certIds() { DARABONBA_PTR_GET(certIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getCertIds() const { DARABONBA_PTR_GET_CONST(certIds_, vector<int64_t>) };
+    inline vector<int64_t> getCertIds() { DARABONBA_PTR_GET(certIds_, vector<int64_t>) };
     inline ListCloudResourcesRequest& setCertIds(const vector<int64_t> & certIds) { DARABONBA_PTR_SET_VALUE(certIds_, certIds) };
     inline ListCloudResourcesRequest& setCertIds(vector<int64_t> && certIds) { DARABONBA_PTR_SET_RVALUE(certIds_, certIds) };
 
@@ -57,48 +57,48 @@ namespace Models
     // cloudName Field Functions 
     bool hasCloudName() const { return this->cloudName_ != nullptr;};
     void deleteCloudName() { this->cloudName_ = nullptr;};
-    inline string cloudName() const { DARABONBA_PTR_GET_DEFAULT(cloudName_, "") };
+    inline string getCloudName() const { DARABONBA_PTR_GET_DEFAULT(cloudName_, "") };
     inline ListCloudResourcesRequest& setCloudName(string cloudName) { DARABONBA_PTR_SET_VALUE(cloudName_, cloudName) };
 
 
     // cloudProduct Field Functions 
     bool hasCloudProduct() const { return this->cloudProduct_ != nullptr;};
     void deleteCloudProduct() { this->cloudProduct_ = nullptr;};
-    inline string cloudProduct() const { DARABONBA_PTR_GET_DEFAULT(cloudProduct_, "") };
+    inline string getCloudProduct() const { DARABONBA_PTR_GET_DEFAULT(cloudProduct_, "") };
     inline ListCloudResourcesRequest& setCloudProduct(string cloudProduct) { DARABONBA_PTR_SET_VALUE(cloudProduct_, cloudProduct) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListCloudResourcesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
-    inline string keyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
+    inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListCloudResourcesRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
 
 
     // secretId Field Functions 
     bool hasSecretId() const { return this->secretId_ != nullptr;};
     void deleteSecretId() { this->secretId_ = nullptr;};
-    inline string secretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, "") };
+    inline string getSecretId() const { DARABONBA_PTR_GET_DEFAULT(secretId_, "") };
     inline ListCloudResourcesRequest& setSecretId(string secretId) { DARABONBA_PTR_SET_VALUE(secretId_, secretId) };
 
 
     // showSize Field Functions 
     bool hasShowSize() const { return this->showSize_ != nullptr;};
     void deleteShowSize() { this->showSize_ = nullptr;};
-    inline int32_t showSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
+    inline int32_t getShowSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
     inline ListCloudResourcesRequest& setShowSize(int32_t showSize) { DARABONBA_PTR_SET_VALUE(showSize_, showSize) };
 
 
   protected:
     // The certificate IDs.
-    std::shared_ptr<vector<int64_t>> certIds_ = nullptr;
+    shared_ptr<vector<int64_t>> certIds_ {};
     // The cloud service provider.
     // 
     // Valid values:
@@ -107,7 +107,7 @@ namespace Models
     // *   Huawei
     // *   Aws
     // *   aliyun
-    std::shared_ptr<string> cloudName_ = nullptr;
+    shared_ptr<string> cloudName_ {};
     // The cloud service.
     // 
     // Valid values when CloudName is set to aliyun:
@@ -146,15 +146,15 @@ namespace Models
     // *   AwsCLB: CLB.
     // *   AwsALB: ALB.
     // *   AwsNLB: NLB.
-    std::shared_ptr<string> cloudProduct_ = nullptr;
+    shared_ptr<string> cloudProduct_ {};
     // The page number. Default value: **1**.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The keyword of the domain name or instance ID bound to the cloud resource.
-    std::shared_ptr<string> keyword_ = nullptr;
+    shared_ptr<string> keyword_ {};
     // The AccessKey ID that is used to access cloud resources.
-    std::shared_ptr<string> secretId_ = nullptr;
+    shared_ptr<string> secretId_ {};
     // The number of entries per page. Default value: **20**.
-    std::shared_ptr<int32_t> showSize_ = nullptr;
+    shared_ptr<int32_t> showSize_ {};
   };
 
   } // namespace Models

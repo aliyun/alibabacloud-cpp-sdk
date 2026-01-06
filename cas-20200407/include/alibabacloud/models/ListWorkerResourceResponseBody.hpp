@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTWORKERRESOURCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListWorkerResourceResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,56 +38,379 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CertDomain, certDomain_);
+        DARABONBA_PTR_TO_JSON(CertId, certId_);
+        DARABONBA_PTR_TO_JSON(CertInstanceId, certInstanceId_);
+        DARABONBA_PTR_TO_JSON(CertName, certName_);
+        DARABONBA_PTR_TO_JSON(CloudName, cloudName_);
+        DARABONBA_PTR_TO_JSON(CloudProduct, cloudProduct_);
+        DARABONBA_PTR_TO_JSON(CloudRegion, cloudRegion_);
+        DARABONBA_PTR_TO_JSON(DefaultResource, defaultResource_);
+        DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(JobId, jobId_);
+        DARABONBA_PTR_TO_JSON(ListenerId, listenerId_);
+        DARABONBA_PTR_TO_JSON(NamespaceId, namespaceId_);
+        DARABONBA_PTR_TO_JSON(OrderId, orderId_);
+        DARABONBA_PTR_TO_JSON(Port, port_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResourceCertId, resourceCertId_);
+        DARABONBA_PTR_TO_JSON(ResourceDomain, resourceDomain_);
+        DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(UserId, userId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CertDomain, certDomain_);
+        DARABONBA_PTR_FROM_JSON(CertId, certId_);
+        DARABONBA_PTR_FROM_JSON(CertInstanceId, certInstanceId_);
+        DARABONBA_PTR_FROM_JSON(CertName, certName_);
+        DARABONBA_PTR_FROM_JSON(CloudName, cloudName_);
+        DARABONBA_PTR_FROM_JSON(CloudProduct, cloudProduct_);
+        DARABONBA_PTR_FROM_JSON(CloudRegion, cloudRegion_);
+        DARABONBA_PTR_FROM_JSON(DefaultResource, defaultResource_);
+        DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(JobId, jobId_);
+        DARABONBA_PTR_FROM_JSON(ListenerId, listenerId_);
+        DARABONBA_PTR_FROM_JSON(NamespaceId, namespaceId_);
+        DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
+        DARABONBA_PTR_FROM_JSON(Port, port_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceCertId, resourceCertId_);
+        DARABONBA_PTR_FROM_JSON(ResourceDomain, resourceDomain_);
+        DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(UserId, userId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->certDomain_ == nullptr
+        && this->certId_ == nullptr && this->certInstanceId_ == nullptr && this->certName_ == nullptr && this->cloudName_ == nullptr && this->cloudProduct_ == nullptr
+        && this->cloudRegion_ == nullptr && this->defaultResource_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
+        && this->instanceId_ == nullptr && this->jobId_ == nullptr && this->listenerId_ == nullptr && this->namespaceId_ == nullptr && this->orderId_ == nullptr
+        && this->port_ == nullptr && this->regionId_ == nullptr && this->resourceCertId_ == nullptr && this->resourceDomain_ == nullptr && this->resourceId_ == nullptr
+        && this->status_ == nullptr && this->userId_ == nullptr; };
+      // certDomain Field Functions 
+      bool hasCertDomain() const { return this->certDomain_ != nullptr;};
+      void deleteCertDomain() { this->certDomain_ = nullptr;};
+      inline string getCertDomain() const { DARABONBA_PTR_GET_DEFAULT(certDomain_, "") };
+      inline Data& setCertDomain(string certDomain) { DARABONBA_PTR_SET_VALUE(certDomain_, certDomain) };
+
+
+      // certId Field Functions 
+      bool hasCertId() const { return this->certId_ != nullptr;};
+      void deleteCertId() { this->certId_ = nullptr;};
+      inline int64_t getCertId() const { DARABONBA_PTR_GET_DEFAULT(certId_, 0L) };
+      inline Data& setCertId(int64_t certId) { DARABONBA_PTR_SET_VALUE(certId_, certId) };
+
+
+      // certInstanceId Field Functions 
+      bool hasCertInstanceId() const { return this->certInstanceId_ != nullptr;};
+      void deleteCertInstanceId() { this->certInstanceId_ = nullptr;};
+      inline string getCertInstanceId() const { DARABONBA_PTR_GET_DEFAULT(certInstanceId_, "") };
+      inline Data& setCertInstanceId(string certInstanceId) { DARABONBA_PTR_SET_VALUE(certInstanceId_, certInstanceId) };
+
+
+      // certName Field Functions 
+      bool hasCertName() const { return this->certName_ != nullptr;};
+      void deleteCertName() { this->certName_ = nullptr;};
+      inline string getCertName() const { DARABONBA_PTR_GET_DEFAULT(certName_, "") };
+      inline Data& setCertName(string certName) { DARABONBA_PTR_SET_VALUE(certName_, certName) };
+
+
+      // cloudName Field Functions 
+      bool hasCloudName() const { return this->cloudName_ != nullptr;};
+      void deleteCloudName() { this->cloudName_ = nullptr;};
+      inline string getCloudName() const { DARABONBA_PTR_GET_DEFAULT(cloudName_, "") };
+      inline Data& setCloudName(string cloudName) { DARABONBA_PTR_SET_VALUE(cloudName_, cloudName) };
+
+
+      // cloudProduct Field Functions 
+      bool hasCloudProduct() const { return this->cloudProduct_ != nullptr;};
+      void deleteCloudProduct() { this->cloudProduct_ = nullptr;};
+      inline string getCloudProduct() const { DARABONBA_PTR_GET_DEFAULT(cloudProduct_, "") };
+      inline Data& setCloudProduct(string cloudProduct) { DARABONBA_PTR_SET_VALUE(cloudProduct_, cloudProduct) };
+
+
+      // cloudRegion Field Functions 
+      bool hasCloudRegion() const { return this->cloudRegion_ != nullptr;};
+      void deleteCloudRegion() { this->cloudRegion_ = nullptr;};
+      inline string getCloudRegion() const { DARABONBA_PTR_GET_DEFAULT(cloudRegion_, "") };
+      inline Data& setCloudRegion(string cloudRegion) { DARABONBA_PTR_SET_VALUE(cloudRegion_, cloudRegion) };
+
+
+      // defaultResource Field Functions 
+      bool hasDefaultResource() const { return this->defaultResource_ != nullptr;};
+      void deleteDefaultResource() { this->defaultResource_ = nullptr;};
+      inline bool getDefaultResource() const { DARABONBA_PTR_GET_DEFAULT(defaultResource_, false) };
+      inline Data& setDefaultResource(bool defaultResource) { DARABONBA_PTR_SET_VALUE(defaultResource_, defaultResource) };
+
+
+      // gmtCreate Field Functions 
+      bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+      void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+      inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+      inline Data& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+      // gmtModified Field Functions 
+      bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+      void deleteGmtModified() { this->gmtModified_ = nullptr;};
+      inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+      inline Data& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline Data& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Data& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // jobId Field Functions 
+      bool hasJobId() const { return this->jobId_ != nullptr;};
+      void deleteJobId() { this->jobId_ = nullptr;};
+      inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+      inline Data& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+
+
+      // listenerId Field Functions 
+      bool hasListenerId() const { return this->listenerId_ != nullptr;};
+      void deleteListenerId() { this->listenerId_ = nullptr;};
+      inline string getListenerId() const { DARABONBA_PTR_GET_DEFAULT(listenerId_, "") };
+      inline Data& setListenerId(string listenerId) { DARABONBA_PTR_SET_VALUE(listenerId_, listenerId) };
+
+
+      // namespaceId Field Functions 
+      bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
+      void deleteNamespaceId() { this->namespaceId_ = nullptr;};
+      inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+      inline Data& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
+
+
+      // orderId Field Functions 
+      bool hasOrderId() const { return this->orderId_ != nullptr;};
+      void deleteOrderId() { this->orderId_ = nullptr;};
+      inline int64_t getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
+      inline Data& setOrderId(int64_t orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
+
+
+      // port Field Functions 
+      bool hasPort() const { return this->port_ != nullptr;};
+      void deletePort() { this->port_ = nullptr;};
+      inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+      inline Data& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline Data& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // resourceCertId Field Functions 
+      bool hasResourceCertId() const { return this->resourceCertId_ != nullptr;};
+      void deleteResourceCertId() { this->resourceCertId_ = nullptr;};
+      inline int64_t getResourceCertId() const { DARABONBA_PTR_GET_DEFAULT(resourceCertId_, 0L) };
+      inline Data& setResourceCertId(int64_t resourceCertId) { DARABONBA_PTR_SET_VALUE(resourceCertId_, resourceCertId) };
+
+
+      // resourceDomain Field Functions 
+      bool hasResourceDomain() const { return this->resourceDomain_ != nullptr;};
+      void deleteResourceDomain() { this->resourceDomain_ = nullptr;};
+      inline string getResourceDomain() const { DARABONBA_PTR_GET_DEFAULT(resourceDomain_, "") };
+      inline Data& setResourceDomain(string resourceDomain) { DARABONBA_PTR_SET_VALUE(resourceDomain_, resourceDomain) };
+
+
+      // resourceId Field Functions 
+      bool hasResourceId() const { return this->resourceId_ != nullptr;};
+      void deleteResourceId() { this->resourceId_ = nullptr;};
+      inline int64_t getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, 0L) };
+      inline Data& setResourceId(int64_t resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // userId Field Functions 
+      bool hasUserId() const { return this->userId_ != nullptr;};
+      void deleteUserId() { this->userId_ = nullptr;};
+      inline int64_t getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
+      inline Data& setUserId(int64_t userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
+    protected:
+      // The domain name bound to the certificate in the worker task.
+      shared_ptr<string> certDomain_ {};
+      // The ID of the certificate in the worker task.
+      shared_ptr<int64_t> certId_ {};
+      // The instance ID of the certificate in the worker task.
+      shared_ptr<string> certInstanceId_ {};
+      // The name of the certificate in the worker task.
+      shared_ptr<string> certName_ {};
+      // The cloud service provider to which the cloud resource in the worker task belongs.
+      // 
+      // >  This parameter is not returned if you deploy certificates to Alibaba Cloud services.
+      shared_ptr<string> cloudName_ {};
+      // The cloud service to which the cloud resource in the worker task belongs. Valid values:
+      // 
+      // *   **CDN**: Alibaba Cloud CDN (CDN). This value is supported only at the China site (aliyun.com).
+      // *   **SLB**: Classic Load Balancer (CLB). This value is supported only at the China site (aliyun.com).
+      // *   **DCDN**: Dynamic Content Delivery Network (DCDN). This value is supported only at the China site (aliyun.com).
+      // *   **DDOS**: Anti-DDoS. This value is supported only at the China site (aliyun.com).
+      // *   **LIVE**: ApsaraVideo Live. This value is supported only at the China site (aliyun.com).
+      // *   **webHosting**: Cloud Web Hosting. This value is supported only at the China site (aliyun.com).
+      // *   **VOD**: ApsaraVideo VOD. This value is supported only at the China site (aliyun.com).
+      // *   **CR**: Container Registry. This value is supported only at the China site (aliyun.com).
+      // *   **ALB**: Application Load Balancer (ALB).
+      // *   **APIGateway**: API Gateway.
+      // *   **FC**: Function Compute.
+      // *   **GA**: Global Accelerator (GA).
+      // *   **MSE**: Microservices Engine (MSE).
+      // *   **NLB**: Network Load Balancer (NLB).
+      // *   **OSS**: Object Storage Service (OSS).
+      // *   **SAE**: Serverless App Engine (SAE).
+      // *   **TencentCDN**: Tencent Cloud Content Delivery Network (CDN).
+      // *   **WAF**: Web Application Firewall (WAF).
+      shared_ptr<string> cloudProduct_ {};
+      // The original region ID of the cloud resource in the worker task. The value is the region ID defined by the cloud service provider. This parameter is required only when you deploy certificates to services of multiple clouds.
+      shared_ptr<string> cloudRegion_ {};
+      // Indicates whether the cloud resource in the worker task is the default resource. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      // 
+      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      shared_ptr<bool> defaultResource_ {};
+      // The time when the worker task was created. The time is a timestamp in seconds.
+      shared_ptr<string> gmtCreate_ {};
+      // The time when the worker task was last modified. The time is a timestamp in seconds.
+      shared_ptr<string> gmtModified_ {};
+      // The ID of the worker task.
+      shared_ptr<int64_t> id_ {};
+      // The ID of the cloud resource in the worker task.
+      // 
+      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      shared_ptr<string> instanceId_ {};
+      // The ID of the deployment task to which the worker task belongs.
+      shared_ptr<int64_t> jobId_ {};
+      // The listener ID of the cloud resource in the worker task.
+      // 
+      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      shared_ptr<string> listenerId_ {};
+      // The ID of the namespace in SAE. This parameter is returned only if you deploy certificates to SAE.
+      shared_ptr<string> namespaceId_ {};
+      // The order ID of the worker task, which is the same as the order ID of the certificate.
+      // 
+      // >  If the CertId parameter is returned, this parameter is not returned.
+      shared_ptr<int64_t> orderId_ {};
+      // The listening port of the cloud resource in the worker task.
+      // 
+      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      shared_ptr<int32_t> port_ {};
+      // The region ID of the cloud resource in the worker task.
+      shared_ptr<string> regionId_ {};
+      // The ID of the certificate that was originally bound to the cloud resource in the worker task.
+      shared_ptr<int64_t> resourceCertId_ {};
+      // The domain name that was originally bound to the cloud resource in the worker task.
+      shared_ptr<string> resourceDomain_ {};
+      // The ID of the cloud resource in the worker task.
+      shared_ptr<int64_t> resourceId_ {};
+      // The status of the worker task. Valid values:
+      // 
+      // *   **editing**
+      // *   **pending**
+      // *   **scheduling**
+      // *   **processing**
+      // *   **error**
+      // *   **success**
+      // *   **rollback**
+      // *   **rollback_success**
+      // *   **rollback_error**
+      shared_ptr<string> status_ {};
+      // The ID of the Alibaba Cloud account to which the worker task belongs.
+      shared_ptr<int64_t> userId_ {};
+    };
+
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->data_ == nullptr && return this->requestId_ == nullptr && return this->showSize_ == nullptr && return this->total_ == nullptr; };
+        && this->data_ == nullptr && this->requestId_ == nullptr && this->showSize_ == nullptr && this->total_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListWorkerResourceResponseBody& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ListWorkerResourceResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ListWorkerResourceResponseBodyData>) };
-    inline vector<ListWorkerResourceResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ListWorkerResourceResponseBodyData>) };
-    inline ListWorkerResourceResponseBody& setData(const vector<ListWorkerResourceResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ListWorkerResourceResponseBody& setData(vector<ListWorkerResourceResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ListWorkerResourceResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ListWorkerResourceResponseBody::Data>) };
+    inline vector<ListWorkerResourceResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ListWorkerResourceResponseBody::Data>) };
+    inline ListWorkerResourceResponseBody& setData(const vector<ListWorkerResourceResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListWorkerResourceResponseBody& setData(vector<ListWorkerResourceResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListWorkerResourceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // showSize Field Functions 
     bool hasShowSize() const { return this->showSize_ != nullptr;};
     void deleteShowSize() { this->showSize_ = nullptr;};
-    inline int32_t showSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
+    inline int32_t getShowSize() const { DARABONBA_PTR_GET_DEFAULT(showSize_, 0) };
     inline ListWorkerResourceResponseBody& setShowSize(int32_t showSize) { DARABONBA_PTR_SET_VALUE(showSize_, showSize) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int64_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
     inline ListWorkerResourceResponseBody& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
     // The page number. Default value: 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // The response parameters.
-    std::shared_ptr<vector<ListWorkerResourceResponseBodyData>> data_ = nullptr;
+    shared_ptr<vector<ListWorkerResourceResponseBody::Data>> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of entries per page. Default value: **50**.
-    std::shared_ptr<int32_t> showSize_ = nullptr;
+    shared_ptr<int32_t> showSize_ {};
     // The total number of entries returned.
-    std::shared_ptr<int64_t> total_ = nullptr;
+    shared_ptr<int64_t> total_ {};
   };
 
   } // namespace Models

@@ -134,26 +134,5 @@
 #include <alibabacloud/models/VerifyRequest.hpp>
 #include <alibabacloud/models/VerifyResponseBody.hpp>
 #include <alibabacloud/models/VerifyResponse.hpp>
-#include <alibabacloud/models/CreateCertificateForPackageRequestRequestTags.hpp>
-#include <alibabacloud/models/CreateCertificateRequestRequestTags.hpp>
-#include <alibabacloud/models/CreateCertificateWithCsrRequestRequestTags.hpp>
-#include <alibabacloud/models/DescribeCloudResourceStatusResponseBodyData.hpp>
-#include <alibabacloud/models/DescribeDeploymentJobResponseBodyCasContacts.hpp>
-#include <alibabacloud/models/DescribeDeploymentJobStatusResponseBodyProductWorkerCount.hpp>
-#include <alibabacloud/models/GetUserCertificateDetailResponseBodyCertChain.hpp>
-#include <alibabacloud/models/GetUserCertificateDetailResponseBodyTags.hpp>
-#include <alibabacloud/models/ListCertResponseBodyCertList.hpp>
-#include <alibabacloud/models/ListCertWarehouseResponseBodyCertWarehouseList.hpp>
-#include <alibabacloud/models/ListCloudAccessResponseBodyCloudAccessList.hpp>
-#include <alibabacloud/models/ListCloudResourcesResponseBodyData.hpp>
-#include <alibabacloud/models/ListContactResponseBodyContactList.hpp>
-#include <alibabacloud/models/ListCsrResponseBodyCsrList.hpp>
-#include <alibabacloud/models/ListDeploymentJobResponseBodyData.hpp>
-#include <alibabacloud/models/ListDeploymentJobCertResponseBodyData.hpp>
-#include <alibabacloud/models/ListDeploymentJobResourceResponseBodyData.hpp>
-#include <alibabacloud/models/ListUserCertificateOrderResponseBodyCertificateOrderList.hpp>
-#include <alibabacloud/models/ListWorkerResourceResponseBodyData.hpp>
-#include <alibabacloud/models/RenewCertificateOrderForPackageRequestRequestTags.hpp>
-#include <alibabacloud/models/UploadUserCertificateRequestTags.hpp>
 
 #endif

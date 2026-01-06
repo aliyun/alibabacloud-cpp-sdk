@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobId_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline int64_t jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
+    inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline UpdateDeploymentJobStatusRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateDeploymentJobStatusRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The ID of the deployment task.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> jobId_ = nullptr;
+    shared_ptr<int64_t> jobId_ {};
     // The desired status.
     // 
     // Valid values:
@@ -61,7 +61,7 @@ namespace Models
     // *   editing
     // 
     // This parameter is required.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->signature_ == nullptr; };
+        && this->signature_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SignResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // signature Field Functions 
     bool hasSignature() const { return this->signature_ != nullptr;};
     void deleteSignature() { this->signature_ = nullptr;};
-    inline string signature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
+    inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
     inline SignResponseBody& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The signature.
-    std::shared_ptr<string> signature_ = nullptr;
+    shared_ptr<string> signature_ {};
   };
 
   } // namespace Models
