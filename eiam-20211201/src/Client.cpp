@@ -253,6 +253,10 @@ AuthorizeApplicationToGroupsResponse Client::authorizeApplicationToGroupsWithOpt
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
   if (!!request.hasGroupIds()) {
     query["GroupIds"] = request.getGroupIds();
   }
@@ -303,6 +307,10 @@ AuthorizeApplicationToOrganizationalUnitsResponse Client::authorizeApplicationTo
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -351,6 +359,10 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsersWithOptio
   json query = {};
   if (!!request.hasApplicationId()) {
     query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
   }
 
   if (!!request.hasInstanceId()) {
@@ -7196,6 +7208,10 @@ ListGroupsForApplicationResponse Client::listGroupsForApplicationWithOptions(con
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
   if (!!request.hasGroupIds()) {
     query["GroupIds"] = request.getGroupIds();
   }
@@ -7827,6 +7843,10 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -8162,6 +8182,10 @@ ListUsersForApplicationResponse Client::listUsersForApplicationWithOptions(const
   json query = {};
   if (!!request.hasApplicationId()) {
     query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
   }
 
   if (!!request.hasInstanceId()) {
@@ -8634,6 +8658,10 @@ RevokeApplicationFromGroupsResponse Client::revokeApplicationFromGroupsWithOptio
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
   if (!!request.hasGroupIds()) {
     query["GroupIds"] = request.getGroupIds();
   }
@@ -8684,6 +8712,10 @@ RevokeApplicationFromOrganizationalUnitsResponse Client::revokeApplicationFromOr
     query["ApplicationId"] = request.getApplicationId();
   }
 
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -8732,6 +8764,10 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsersWithOptions
   json query = {};
   if (!!request.hasApplicationId()) {
     query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasApplicationRoleId()) {
+    query["ApplicationRoleId"] = request.getApplicationRoleId();
   }
 
   if (!!request.hasInstanceId()) {

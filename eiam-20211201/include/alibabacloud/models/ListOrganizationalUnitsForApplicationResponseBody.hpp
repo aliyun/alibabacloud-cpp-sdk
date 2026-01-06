@@ -37,9 +37,11 @@ namespace Models
     class OrganizationalUnits : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const OrganizationalUnits& obj) { 
+        DARABONBA_PTR_TO_JSON(ApplicationRoles, applicationRoles_);
         DARABONBA_PTR_TO_JSON(OrganizationalUnitId, organizationalUnitId_);
       };
       friend void from_json(const Darabonba::Json& j, OrganizationalUnits& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApplicationRoles, applicationRoles_);
         DARABONBA_PTR_FROM_JSON(OrganizationalUnitId, organizationalUnitId_);
       };
       OrganizationalUnits() = default ;
@@ -53,7 +55,49 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->organizationalUnitId_ == nullptr; };
+      class ApplicationRoles : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ApplicationRoles& obj) { 
+          DARABONBA_PTR_TO_JSON(ApplicationRoleId, applicationRoleId_);
+        };
+        friend void from_json(const Darabonba::Json& j, ApplicationRoles& obj) { 
+          DARABONBA_PTR_FROM_JSON(ApplicationRoleId, applicationRoleId_);
+        };
+        ApplicationRoles() = default ;
+        ApplicationRoles(const ApplicationRoles &) = default ;
+        ApplicationRoles(ApplicationRoles &&) = default ;
+        ApplicationRoles(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ApplicationRoles() = default ;
+        ApplicationRoles& operator=(const ApplicationRoles &) = default ;
+        ApplicationRoles& operator=(ApplicationRoles &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->applicationRoleId_ == nullptr; };
+        // applicationRoleId Field Functions 
+        bool hasApplicationRoleId() const { return this->applicationRoleId_ != nullptr;};
+        void deleteApplicationRoleId() { this->applicationRoleId_ = nullptr;};
+        inline string getApplicationRoleId() const { DARABONBA_PTR_GET_DEFAULT(applicationRoleId_, "") };
+        inline ApplicationRoles& setApplicationRoleId(string applicationRoleId) { DARABONBA_PTR_SET_VALUE(applicationRoleId_, applicationRoleId) };
+
+
+      protected:
+        // 应用角色标识。
+        shared_ptr<string> applicationRoleId_ {};
+      };
+
+      virtual bool empty() const override { return this->applicationRoles_ == nullptr
+        && this->organizationalUnitId_ == nullptr; };
+      // applicationRoles Field Functions 
+      bool hasApplicationRoles() const { return this->applicationRoles_ != nullptr;};
+      void deleteApplicationRoles() { this->applicationRoles_ = nullptr;};
+      inline const vector<OrganizationalUnits::ApplicationRoles> & getApplicationRoles() const { DARABONBA_PTR_GET_CONST(applicationRoles_, vector<OrganizationalUnits::ApplicationRoles>) };
+      inline vector<OrganizationalUnits::ApplicationRoles> getApplicationRoles() { DARABONBA_PTR_GET(applicationRoles_, vector<OrganizationalUnits::ApplicationRoles>) };
+      inline OrganizationalUnits& setApplicationRoles(const vector<OrganizationalUnits::ApplicationRoles> & applicationRoles) { DARABONBA_PTR_SET_VALUE(applicationRoles_, applicationRoles) };
+      inline OrganizationalUnits& setApplicationRoles(vector<OrganizationalUnits::ApplicationRoles> && applicationRoles) { DARABONBA_PTR_SET_RVALUE(applicationRoles_, applicationRoles) };
+
+
       // organizationalUnitId Field Functions 
       bool hasOrganizationalUnitId() const { return this->organizationalUnitId_ != nullptr;};
       void deleteOrganizationalUnitId() { this->organizationalUnitId_ = nullptr;};
@@ -62,6 +106,8 @@ namespace Models
 
 
     protected:
+      // 应用角色列表。
+      shared_ptr<vector<OrganizationalUnits::ApplicationRoles>> applicationRoles_ {};
       // The ID of the organization that is allowed to access the application.
       shared_ptr<string> organizationalUnitId_ {};
     };

@@ -38,11 +38,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Applications& obj) { 
         DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
+        DARABONBA_PTR_TO_JSON(ApplicationRoles, applicationRoles_);
         DARABONBA_PTR_TO_JSON(HasDirectAuthorization, hasDirectAuthorization_);
         DARABONBA_PTR_TO_JSON(HasInheritAuthorization, hasInheritAuthorization_);
       };
       friend void from_json(const Darabonba::Json& j, Applications& obj) { 
         DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
+        DARABONBA_PTR_FROM_JSON(ApplicationRoles, applicationRoles_);
         DARABONBA_PTR_FROM_JSON(HasDirectAuthorization, hasDirectAuthorization_);
         DARABONBA_PTR_FROM_JSON(HasInheritAuthorization, hasInheritAuthorization_);
       };
@@ -57,13 +59,77 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->applicationId_ == nullptr
+      class ApplicationRoles : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ApplicationRoles& obj) { 
+          DARABONBA_PTR_TO_JSON(ApplicationRoleId, applicationRoleId_);
+          DARABONBA_PTR_TO_JSON(HasDirectAuthorization, hasDirectAuthorization_);
+          DARABONBA_PTR_TO_JSON(HasInheritAuthorization, hasInheritAuthorization_);
+        };
+        friend void from_json(const Darabonba::Json& j, ApplicationRoles& obj) { 
+          DARABONBA_PTR_FROM_JSON(ApplicationRoleId, applicationRoleId_);
+          DARABONBA_PTR_FROM_JSON(HasDirectAuthorization, hasDirectAuthorization_);
+          DARABONBA_PTR_FROM_JSON(HasInheritAuthorization, hasInheritAuthorization_);
+        };
+        ApplicationRoles() = default ;
+        ApplicationRoles(const ApplicationRoles &) = default ;
+        ApplicationRoles(ApplicationRoles &&) = default ;
+        ApplicationRoles(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ApplicationRoles() = default ;
+        ApplicationRoles& operator=(const ApplicationRoles &) = default ;
+        ApplicationRoles& operator=(ApplicationRoles &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->applicationRoleId_ == nullptr
         && this->hasDirectAuthorization_ == nullptr && this->hasInheritAuthorization_ == nullptr; };
+        // applicationRoleId Field Functions 
+        bool hasApplicationRoleId() const { return this->applicationRoleId_ != nullptr;};
+        void deleteApplicationRoleId() { this->applicationRoleId_ = nullptr;};
+        inline string getApplicationRoleId() const { DARABONBA_PTR_GET_DEFAULT(applicationRoleId_, "") };
+        inline ApplicationRoles& setApplicationRoleId(string applicationRoleId) { DARABONBA_PTR_SET_VALUE(applicationRoleId_, applicationRoleId) };
+
+
+        // hasDirectAuthorization Field Functions 
+        bool hasHasDirectAuthorization() const { return this->hasDirectAuthorization_ != nullptr;};
+        void deleteHasDirectAuthorization() { this->hasDirectAuthorization_ = nullptr;};
+        inline bool getHasDirectAuthorization() const { DARABONBA_PTR_GET_DEFAULT(hasDirectAuthorization_, false) };
+        inline ApplicationRoles& setHasDirectAuthorization(bool hasDirectAuthorization) { DARABONBA_PTR_SET_VALUE(hasDirectAuthorization_, hasDirectAuthorization) };
+
+
+        // hasInheritAuthorization Field Functions 
+        bool hasHasInheritAuthorization() const { return this->hasInheritAuthorization_ != nullptr;};
+        void deleteHasInheritAuthorization() { this->hasInheritAuthorization_ = nullptr;};
+        inline bool getHasInheritAuthorization() const { DARABONBA_PTR_GET_DEFAULT(hasInheritAuthorization_, false) };
+        inline ApplicationRoles& setHasInheritAuthorization(bool hasInheritAuthorization) { DARABONBA_PTR_SET_VALUE(hasInheritAuthorization_, hasInheritAuthorization) };
+
+
+      protected:
+        // 应用角色标识。
+        shared_ptr<string> applicationRoleId_ {};
+        // 直接分配给当前用户的权限，视为直接授权。
+        shared_ptr<bool> hasDirectAuthorization_ {};
+        // 通过用户隶属的组织、组获取的权限，视为继承权限。
+        shared_ptr<bool> hasInheritAuthorization_ {};
+      };
+
+      virtual bool empty() const override { return this->applicationId_ == nullptr
+        && this->applicationRoles_ == nullptr && this->hasDirectAuthorization_ == nullptr && this->hasInheritAuthorization_ == nullptr; };
       // applicationId Field Functions 
       bool hasApplicationId() const { return this->applicationId_ != nullptr;};
       void deleteApplicationId() { this->applicationId_ = nullptr;};
       inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
       inline Applications& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
+
+
+      // applicationRoles Field Functions 
+      bool hasApplicationRoles() const { return this->applicationRoles_ != nullptr;};
+      void deleteApplicationRoles() { this->applicationRoles_ = nullptr;};
+      inline const vector<Applications::ApplicationRoles> & getApplicationRoles() const { DARABONBA_PTR_GET_CONST(applicationRoles_, vector<Applications::ApplicationRoles>) };
+      inline vector<Applications::ApplicationRoles> getApplicationRoles() { DARABONBA_PTR_GET(applicationRoles_, vector<Applications::ApplicationRoles>) };
+      inline Applications& setApplicationRoles(const vector<Applications::ApplicationRoles> & applicationRoles) { DARABONBA_PTR_SET_VALUE(applicationRoles_, applicationRoles) };
+      inline Applications& setApplicationRoles(vector<Applications::ApplicationRoles> && applicationRoles) { DARABONBA_PTR_SET_RVALUE(applicationRoles_, applicationRoles) };
 
 
       // hasDirectAuthorization Field Functions 
@@ -83,6 +149,8 @@ namespace Models
     protected:
       // The ID of the application that the EIAM account can access.
       shared_ptr<string> applicationId_ {};
+      // 应用角色列表。
+      shared_ptr<vector<Applications::ApplicationRoles>> applicationRoles_ {};
       // Indicates whether the EIAM account has direct permissions on the application. Valid values:
       // 
       // *   true: The EIAM account has direct permissions on the application.
