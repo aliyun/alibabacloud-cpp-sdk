@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
-        && return this->conferenceId_ == nullptr && return this->summaryTypeListShrink_ == nullptr; };
+        && this->conferenceId_ == nullptr && this->summaryTypeListShrink_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryMinutesSummaryShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline QueryMinutesSummaryShrinkRequest& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
     // summaryTypeListShrink Field Functions 
     bool hasSummaryTypeListShrink() const { return this->summaryTypeListShrink_ != nullptr;};
     void deleteSummaryTypeListShrink() { this->summaryTypeListShrink_ = nullptr;};
-    inline string summaryTypeListShrink() const { DARABONBA_PTR_GET_DEFAULT(summaryTypeListShrink_, "") };
+    inline string getSummaryTypeListShrink() const { DARABONBA_PTR_GET_DEFAULT(summaryTypeListShrink_, "") };
     inline QueryMinutesSummaryShrinkRequest& setSummaryTypeListShrink(string summaryTypeListShrink) { DARABONBA_PTR_SET_VALUE(summaryTypeListShrink_, summaryTypeListShrink) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> conferenceId_ = nullptr;
-    std::shared_ptr<string> summaryTypeListShrink_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
+    shared_ptr<string> summaryTypeListShrink_ {};
   };
 
   } // namespace Models

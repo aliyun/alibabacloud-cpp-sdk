@@ -41,33 +41,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->asynchronousExecution_ == nullptr && return this->executeExpression_ == nullptr && return this->formInstanceIdList_ == nullptr && return this->formUuid_ == nullptr && return this->systemToken_ == nullptr; };
+        && this->asynchronousExecution_ == nullptr && this->executeExpression_ == nullptr && this->formInstanceIdList_ == nullptr && this->formUuid_ == nullptr && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline BatchRemovalByFormInstanceIdListRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // asynchronousExecution Field Functions 
     bool hasAsynchronousExecution() const { return this->asynchronousExecution_ != nullptr;};
     void deleteAsynchronousExecution() { this->asynchronousExecution_ = nullptr;};
-    inline bool asynchronousExecution() const { DARABONBA_PTR_GET_DEFAULT(asynchronousExecution_, false) };
+    inline bool getAsynchronousExecution() const { DARABONBA_PTR_GET_DEFAULT(asynchronousExecution_, false) };
     inline BatchRemovalByFormInstanceIdListRequest& setAsynchronousExecution(bool asynchronousExecution) { DARABONBA_PTR_SET_VALUE(asynchronousExecution_, asynchronousExecution) };
 
 
     // executeExpression Field Functions 
     bool hasExecuteExpression() const { return this->executeExpression_ != nullptr;};
     void deleteExecuteExpression() { this->executeExpression_ = nullptr;};
-    inline bool executeExpression() const { DARABONBA_PTR_GET_DEFAULT(executeExpression_, false) };
+    inline bool getExecuteExpression() const { DARABONBA_PTR_GET_DEFAULT(executeExpression_, false) };
     inline BatchRemovalByFormInstanceIdListRequest& setExecuteExpression(bool executeExpression) { DARABONBA_PTR_SET_VALUE(executeExpression_, executeExpression) };
 
 
     // formInstanceIdList Field Functions 
     bool hasFormInstanceIdList() const { return this->formInstanceIdList_ != nullptr;};
     void deleteFormInstanceIdList() { this->formInstanceIdList_ = nullptr;};
-    inline const vector<string> & formInstanceIdList() const { DARABONBA_PTR_GET_CONST(formInstanceIdList_, vector<string>) };
-    inline vector<string> formInstanceIdList() { DARABONBA_PTR_GET(formInstanceIdList_, vector<string>) };
+    inline const vector<string> & getFormInstanceIdList() const { DARABONBA_PTR_GET_CONST(formInstanceIdList_, vector<string>) };
+    inline vector<string> getFormInstanceIdList() { DARABONBA_PTR_GET(formInstanceIdList_, vector<string>) };
     inline BatchRemovalByFormInstanceIdListRequest& setFormInstanceIdList(const vector<string> & formInstanceIdList) { DARABONBA_PTR_SET_VALUE(formInstanceIdList_, formInstanceIdList) };
     inline BatchRemovalByFormInstanceIdListRequest& setFormInstanceIdList(vector<string> && formInstanceIdList) { DARABONBA_PTR_SET_RVALUE(formInstanceIdList_, formInstanceIdList) };
 
@@ -75,28 +75,28 @@ namespace Models
     // formUuid Field Functions 
     bool hasFormUuid() const { return this->formUuid_ != nullptr;};
     void deleteFormUuid() { this->formUuid_ = nullptr;};
-    inline string formUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
+    inline string getFormUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
     inline BatchRemovalByFormInstanceIdListRequest& setFormUuid(string formUuid) { DARABONBA_PTR_SET_VALUE(formUuid_, formUuid) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline BatchRemovalByFormInstanceIdListRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<bool> asynchronousExecution_ = nullptr;
-    std::shared_ptr<bool> executeExpression_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<bool> asynchronousExecution_ {};
+    shared_ptr<bool> executeExpression_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> formInstanceIdList_ = nullptr;
+    shared_ptr<vector<string>> formInstanceIdList_ {};
     // This parameter is required.
-    std::shared_ptr<string> formUuid_ = nullptr;
+    shared_ptr<string> formUuid_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models

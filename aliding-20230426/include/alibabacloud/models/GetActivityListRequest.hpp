@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->language_ == nullptr && return this->processCode_ == nullptr && return this->systemToken_ == nullptr; };
+        && this->language_ == nullptr && this->processCode_ == nullptr && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline GetActivityListRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline GetActivityListRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // processCode Field Functions 
     bool hasProcessCode() const { return this->processCode_ != nullptr;};
     void deleteProcessCode() { this->processCode_ = nullptr;};
-    inline string processCode() const { DARABONBA_PTR_GET_DEFAULT(processCode_, "") };
+    inline string getProcessCode() const { DARABONBA_PTR_GET_DEFAULT(processCode_, "") };
     inline GetActivityListRequest& setProcessCode(string processCode) { DARABONBA_PTR_SET_VALUE(processCode_, processCode) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline GetActivityListRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<string> processCode_ = nullptr;
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<string> language_ {};
+    shared_ptr<string> processCode_ {};
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models

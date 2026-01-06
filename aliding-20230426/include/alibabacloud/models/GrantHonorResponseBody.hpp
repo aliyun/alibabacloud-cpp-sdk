@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failedUserIds_ == nullptr
-        && return this->requestId_ == nullptr && return this->successUserIds_ == nullptr; };
+        && this->requestId_ == nullptr && this->successUserIds_ == nullptr; };
     // failedUserIds Field Functions 
     bool hasFailedUserIds() const { return this->failedUserIds_ != nullptr;};
     void deleteFailedUserIds() { this->failedUserIds_ = nullptr;};
-    inline const vector<string> & failedUserIds() const { DARABONBA_PTR_GET_CONST(failedUserIds_, vector<string>) };
-    inline vector<string> failedUserIds() { DARABONBA_PTR_GET(failedUserIds_, vector<string>) };
+    inline const vector<string> & getFailedUserIds() const { DARABONBA_PTR_GET_CONST(failedUserIds_, vector<string>) };
+    inline vector<string> getFailedUserIds() { DARABONBA_PTR_GET(failedUserIds_, vector<string>) };
     inline GrantHonorResponseBody& setFailedUserIds(const vector<string> & failedUserIds) { DARABONBA_PTR_SET_VALUE(failedUserIds_, failedUserIds) };
     inline GrantHonorResponseBody& setFailedUserIds(vector<string> && failedUserIds) { DARABONBA_PTR_SET_RVALUE(failedUserIds_, failedUserIds) };
 
@@ -48,24 +48,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GrantHonorResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // successUserIds Field Functions 
     bool hasSuccessUserIds() const { return this->successUserIds_ != nullptr;};
     void deleteSuccessUserIds() { this->successUserIds_ = nullptr;};
-    inline const vector<string> & successUserIds() const { DARABONBA_PTR_GET_CONST(successUserIds_, vector<string>) };
-    inline vector<string> successUserIds() { DARABONBA_PTR_GET(successUserIds_, vector<string>) };
+    inline const vector<string> & getSuccessUserIds() const { DARABONBA_PTR_GET_CONST(successUserIds_, vector<string>) };
+    inline vector<string> getSuccessUserIds() { DARABONBA_PTR_GET(successUserIds_, vector<string>) };
     inline GrantHonorResponseBody& setSuccessUserIds(const vector<string> & successUserIds) { DARABONBA_PTR_SET_VALUE(successUserIds_, successUserIds) };
     inline GrantHonorResponseBody& setSuccessUserIds(vector<string> && successUserIds) { DARABONBA_PTR_SET_RVALUE(successUserIds_, successUserIds) };
 
 
   protected:
-    std::shared_ptr<vector<string>> failedUserIds_ = nullptr;
+    shared_ptr<vector<string>> failedUserIds_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<string>> successUserIds_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<string>> successUserIds_ {};
   };
 
   } // namespace Models

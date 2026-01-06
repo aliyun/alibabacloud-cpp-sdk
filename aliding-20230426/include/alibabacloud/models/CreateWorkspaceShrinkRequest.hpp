@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->name_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->name_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateWorkspaceShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateWorkspaceShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline CreateWorkspaceShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

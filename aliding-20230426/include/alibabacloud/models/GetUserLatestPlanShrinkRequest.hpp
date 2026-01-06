@@ -33,12 +33,12 @@ namespace Models
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetUserLatestPlanShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

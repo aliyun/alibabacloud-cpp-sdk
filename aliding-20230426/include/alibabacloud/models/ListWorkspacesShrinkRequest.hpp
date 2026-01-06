@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->orderBy_ == nullptr && return this->teamId_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->withPermissionRole_ == nullptr; };
+        && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->teamId_ == nullptr && this->tenantContextShrink_ == nullptr && this->withPermissionRole_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListWorkspacesShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListWorkspacesShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListWorkspacesShrinkRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // teamId Field Functions 
     bool hasTeamId() const { return this->teamId_ != nullptr;};
     void deleteTeamId() { this->teamId_ = nullptr;};
-    inline string teamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
+    inline string getTeamId() const { DARABONBA_PTR_GET_DEFAULT(teamId_, "") };
     inline ListWorkspacesShrinkRequest& setTeamId(string teamId) { DARABONBA_PTR_SET_VALUE(teamId_, teamId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline ListWorkspacesShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // withPermissionRole Field Functions 
     bool hasWithPermissionRole() const { return this->withPermissionRole_ != nullptr;};
     void deleteWithPermissionRole() { this->withPermissionRole_ = nullptr;};
-    inline bool withPermissionRole() const { DARABONBA_PTR_GET_DEFAULT(withPermissionRole_, false) };
+    inline bool getWithPermissionRole() const { DARABONBA_PTR_GET_DEFAULT(withPermissionRole_, false) };
     inline ListWorkspacesShrinkRequest& setWithPermissionRole(bool withPermissionRole) { DARABONBA_PTR_SET_VALUE(withPermissionRole_, withPermissionRole) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> orderBy_ = nullptr;
-    std::shared_ptr<string> teamId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<bool> withPermissionRole_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> orderBy_ {};
+    shared_ptr<string> teamId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<bool> withPermissionRole_ {};
   };
 
   } // namespace Models

@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->operationType_ == nullptr
-        && return this->tenantContextShrink_ == nullptr && return this->userIdsShrink_ == nullptr && return this->conferenceId_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr && this->userIdsShrink_ == nullptr && this->conferenceId_ == nullptr; };
     // operationType Field Functions 
     bool hasOperationType() const { return this->operationType_ != nullptr;};
     void deleteOperationType() { this->operationType_ = nullptr;};
-    inline string operationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
+    inline string getOperationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
     inline SetConferenceHostsShrinkRequest& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline SetConferenceHostsShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // userIdsShrink Field Functions 
     bool hasUserIdsShrink() const { return this->userIdsShrink_ != nullptr;};
     void deleteUserIdsShrink() { this->userIdsShrink_ = nullptr;};
-    inline string userIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(userIdsShrink_, "") };
+    inline string getUserIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(userIdsShrink_, "") };
     inline SetConferenceHostsShrinkRequest& setUserIdsShrink(string userIdsShrink) { DARABONBA_PTR_SET_VALUE(userIdsShrink_, userIdsShrink) };
 
 
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline SetConferenceHostsShrinkRequest& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> operationType_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> operationType_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> userIdsShrink_ = nullptr;
+    shared_ptr<string> userIdsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> conferenceId_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYMEETINGROOMLISTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_QUERYMEETINGROOMLISTREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/QueryMeetingRoomListRequestTenantContext.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,35 +33,66 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TenantContext : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TenantContext& obj) { 
+        DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      };
+      friend void from_json(const Darabonba::Json& j, TenantContext& obj) { 
+        DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      };
+      TenantContext() = default ;
+      TenantContext(const TenantContext &) = default ;
+      TenantContext(TenantContext &&) = default ;
+      TenantContext(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TenantContext() = default ;
+      TenantContext& operator=(const TenantContext &) = default ;
+      TenantContext& operator=(TenantContext &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tenantId_ == nullptr; };
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline TenantContext& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    protected:
+      shared_ptr<string> tenantId_ {};
+    };
+
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->tenantContext_ == nullptr; };
+        && this->nextToken_ == nullptr && this->tenantContext_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline QueryMeetingRoomListRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline int64_t nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, 0L) };
+    inline int64_t getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, 0L) };
     inline QueryMeetingRoomListRequest& setNextToken(int64_t nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // tenantContext Field Functions 
     bool hasTenantContext() const { return this->tenantContext_ != nullptr;};
     void deleteTenantContext() { this->tenantContext_ = nullptr;};
-    inline const QueryMeetingRoomListRequestTenantContext & tenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, QueryMeetingRoomListRequestTenantContext) };
-    inline QueryMeetingRoomListRequestTenantContext tenantContext() { DARABONBA_PTR_GET(tenantContext_, QueryMeetingRoomListRequestTenantContext) };
-    inline QueryMeetingRoomListRequest& setTenantContext(const QueryMeetingRoomListRequestTenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
-    inline QueryMeetingRoomListRequest& setTenantContext(QueryMeetingRoomListRequestTenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
+    inline const QueryMeetingRoomListRequest::TenantContext & getTenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, QueryMeetingRoomListRequest::TenantContext) };
+    inline QueryMeetingRoomListRequest::TenantContext getTenantContext() { DARABONBA_PTR_GET(tenantContext_, QueryMeetingRoomListRequest::TenantContext) };
+    inline QueryMeetingRoomListRequest& setTenantContext(const QueryMeetingRoomListRequest::TenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
+    inline QueryMeetingRoomListRequest& setTenantContext(QueryMeetingRoomListRequest::TenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<int64_t> nextToken_ = nullptr;
-    std::shared_ptr<QueryMeetingRoomListRequestTenantContext> tenantContext_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<int64_t> nextToken_ {};
+    shared_ptr<QueryMeetingRoomListRequest::TenantContext> tenantContext_ {};
   };
 
   } // namespace Models

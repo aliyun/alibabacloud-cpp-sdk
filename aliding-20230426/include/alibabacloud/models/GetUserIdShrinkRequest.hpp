@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
-        && return this->unionId_ == nullptr; };
+        && this->unionId_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetUserIdShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // unionId Field Functions 
     bool hasUnionId() const { return this->unionId_ != nullptr;};
     void deleteUnionId() { this->unionId_ = nullptr;};
-    inline string unionId() const { DARABONBA_PTR_GET_DEFAULT(unionId_, "") };
+    inline string getUnionId() const { DARABONBA_PTR_GET_DEFAULT(unionId_, "") };
     inline GetUserIdShrinkRequest& setUnionId(string unionId) { DARABONBA_PTR_SET_VALUE(unionId_, unionId) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
     // unionId
-    std::shared_ptr<string> unionId_ = nullptr;
+    shared_ptr<string> unionId_ {};
   };
 
   } // namespace Models

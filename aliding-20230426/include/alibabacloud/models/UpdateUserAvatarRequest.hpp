@@ -33,12 +33,12 @@ namespace Models
     // avatarMediaId Field Functions 
     bool hasAvatarMediaId() const { return this->avatarMediaId_ != nullptr;};
     void deleteAvatarMediaId() { this->avatarMediaId_ = nullptr;};
-    inline string avatarMediaId() const { DARABONBA_PTR_GET_DEFAULT(avatarMediaId_, "") };
+    inline string getAvatarMediaId() const { DARABONBA_PTR_GET_DEFAULT(avatarMediaId_, "") };
     inline UpdateUserAvatarRequest& setAvatarMediaId(string avatarMediaId) { DARABONBA_PTR_SET_VALUE(avatarMediaId_, avatarMediaId) };
 
 
   protected:
-    std::shared_ptr<string> avatarMediaId_ = nullptr;
+    shared_ptr<string> avatarMediaId_ {};
   };
 
   } // namespace Models

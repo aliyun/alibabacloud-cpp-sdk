@@ -43,27 +43,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->asynchronousExecution_ == nullptr && return this->formDataJsonList_ == nullptr && return this->formUuid_ == nullptr && return this->keepRunningAfterException_ == nullptr && return this->noExecuteExpression_ == nullptr
-        && return this->systemToken_ == nullptr; };
+        && this->asynchronousExecution_ == nullptr && this->formDataJsonList_ == nullptr && this->formUuid_ == nullptr && this->keepRunningAfterException_ == nullptr && this->noExecuteExpression_ == nullptr
+        && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline BatchSaveFormDataRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // asynchronousExecution Field Functions 
     bool hasAsynchronousExecution() const { return this->asynchronousExecution_ != nullptr;};
     void deleteAsynchronousExecution() { this->asynchronousExecution_ = nullptr;};
-    inline bool asynchronousExecution() const { DARABONBA_PTR_GET_DEFAULT(asynchronousExecution_, false) };
+    inline bool getAsynchronousExecution() const { DARABONBA_PTR_GET_DEFAULT(asynchronousExecution_, false) };
     inline BatchSaveFormDataRequest& setAsynchronousExecution(bool asynchronousExecution) { DARABONBA_PTR_SET_VALUE(asynchronousExecution_, asynchronousExecution) };
 
 
     // formDataJsonList Field Functions 
     bool hasFormDataJsonList() const { return this->formDataJsonList_ != nullptr;};
     void deleteFormDataJsonList() { this->formDataJsonList_ = nullptr;};
-    inline const vector<string> & formDataJsonList() const { DARABONBA_PTR_GET_CONST(formDataJsonList_, vector<string>) };
-    inline vector<string> formDataJsonList() { DARABONBA_PTR_GET(formDataJsonList_, vector<string>) };
+    inline const vector<string> & getFormDataJsonList() const { DARABONBA_PTR_GET_CONST(formDataJsonList_, vector<string>) };
+    inline vector<string> getFormDataJsonList() { DARABONBA_PTR_GET(formDataJsonList_, vector<string>) };
     inline BatchSaveFormDataRequest& setFormDataJsonList(const vector<string> & formDataJsonList) { DARABONBA_PTR_SET_VALUE(formDataJsonList_, formDataJsonList) };
     inline BatchSaveFormDataRequest& setFormDataJsonList(vector<string> && formDataJsonList) { DARABONBA_PTR_SET_RVALUE(formDataJsonList_, formDataJsonList) };
 
@@ -71,39 +71,39 @@ namespace Models
     // formUuid Field Functions 
     bool hasFormUuid() const { return this->formUuid_ != nullptr;};
     void deleteFormUuid() { this->formUuid_ = nullptr;};
-    inline string formUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
+    inline string getFormUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
     inline BatchSaveFormDataRequest& setFormUuid(string formUuid) { DARABONBA_PTR_SET_VALUE(formUuid_, formUuid) };
 
 
     // keepRunningAfterException Field Functions 
     bool hasKeepRunningAfterException() const { return this->keepRunningAfterException_ != nullptr;};
     void deleteKeepRunningAfterException() { this->keepRunningAfterException_ = nullptr;};
-    inline bool keepRunningAfterException() const { DARABONBA_PTR_GET_DEFAULT(keepRunningAfterException_, false) };
+    inline bool getKeepRunningAfterException() const { DARABONBA_PTR_GET_DEFAULT(keepRunningAfterException_, false) };
     inline BatchSaveFormDataRequest& setKeepRunningAfterException(bool keepRunningAfterException) { DARABONBA_PTR_SET_VALUE(keepRunningAfterException_, keepRunningAfterException) };
 
 
     // noExecuteExpression Field Functions 
     bool hasNoExecuteExpression() const { return this->noExecuteExpression_ != nullptr;};
     void deleteNoExecuteExpression() { this->noExecuteExpression_ = nullptr;};
-    inline bool noExecuteExpression() const { DARABONBA_PTR_GET_DEFAULT(noExecuteExpression_, false) };
+    inline bool getNoExecuteExpression() const { DARABONBA_PTR_GET_DEFAULT(noExecuteExpression_, false) };
     inline BatchSaveFormDataRequest& setNoExecuteExpression(bool noExecuteExpression) { DARABONBA_PTR_SET_VALUE(noExecuteExpression_, noExecuteExpression) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline BatchSaveFormDataRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<bool> asynchronousExecution_ = nullptr;
-    std::shared_ptr<vector<string>> formDataJsonList_ = nullptr;
-    std::shared_ptr<string> formUuid_ = nullptr;
-    std::shared_ptr<bool> keepRunningAfterException_ = nullptr;
-    std::shared_ptr<bool> noExecuteExpression_ = nullptr;
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<bool> asynchronousExecution_ {};
+    shared_ptr<vector<string>> formDataJsonList_ {};
+    shared_ptr<string> formUuid_ {};
+    shared_ptr<bool> keepRunningAfterException_ {};
+    shared_ptr<bool> noExecuteExpression_ {};
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models

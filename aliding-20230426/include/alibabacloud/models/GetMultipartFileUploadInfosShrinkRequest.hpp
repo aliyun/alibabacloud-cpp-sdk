@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->optionShrink_ == nullptr
-        && return this->partNumbersShrink_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->uploadKey_ == nullptr; };
+        && this->partNumbersShrink_ == nullptr && this->tenantContextShrink_ == nullptr && this->uploadKey_ == nullptr; };
     // optionShrink Field Functions 
     bool hasOptionShrink() const { return this->optionShrink_ != nullptr;};
     void deleteOptionShrink() { this->optionShrink_ = nullptr;};
-    inline string optionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
+    inline string getOptionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
     inline GetMultipartFileUploadInfosShrinkRequest& setOptionShrink(string optionShrink) { DARABONBA_PTR_SET_VALUE(optionShrink_, optionShrink) };
 
 
     // partNumbersShrink Field Functions 
     bool hasPartNumbersShrink() const { return this->partNumbersShrink_ != nullptr;};
     void deletePartNumbersShrink() { this->partNumbersShrink_ = nullptr;};
-    inline string partNumbersShrink() const { DARABONBA_PTR_GET_DEFAULT(partNumbersShrink_, "") };
+    inline string getPartNumbersShrink() const { DARABONBA_PTR_GET_DEFAULT(partNumbersShrink_, "") };
     inline GetMultipartFileUploadInfosShrinkRequest& setPartNumbersShrink(string partNumbersShrink) { DARABONBA_PTR_SET_VALUE(partNumbersShrink_, partNumbersShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetMultipartFileUploadInfosShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // uploadKey Field Functions 
     bool hasUploadKey() const { return this->uploadKey_ != nullptr;};
     void deleteUploadKey() { this->uploadKey_ = nullptr;};
-    inline string uploadKey() const { DARABONBA_PTR_GET_DEFAULT(uploadKey_, "") };
+    inline string getUploadKey() const { DARABONBA_PTR_GET_DEFAULT(uploadKey_, "") };
     inline GetMultipartFileUploadInfosShrinkRequest& setUploadKey(string uploadKey) { DARABONBA_PTR_SET_VALUE(uploadKey_, uploadKey) };
 
 
   protected:
-    std::shared_ptr<string> optionShrink_ = nullptr;
-    std::shared_ptr<string> partNumbersShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<string> uploadKey_ = nullptr;
+    shared_ptr<string> optionShrink_ {};
+    shared_ptr<string> partNumbersShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<string> uploadKey_ {};
   };
 
   } // namespace Models

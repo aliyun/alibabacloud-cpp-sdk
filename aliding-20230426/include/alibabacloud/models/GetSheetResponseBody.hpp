@@ -44,74 +44,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columnCount_ == nullptr
-        && return this->id_ == nullptr && return this->lastNonEmptyColumn_ == nullptr && return this->lastNonEmptyRow_ == nullptr && return this->name_ == nullptr && return this->requestId_ == nullptr
-        && return this->rowCount_ == nullptr && return this->visibility_ == nullptr; };
+        && this->id_ == nullptr && this->lastNonEmptyColumn_ == nullptr && this->lastNonEmptyRow_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr
+        && this->rowCount_ == nullptr && this->visibility_ == nullptr; };
     // columnCount Field Functions 
     bool hasColumnCount() const { return this->columnCount_ != nullptr;};
     void deleteColumnCount() { this->columnCount_ = nullptr;};
-    inline int64_t columnCount() const { DARABONBA_PTR_GET_DEFAULT(columnCount_, 0L) };
+    inline int64_t getColumnCount() const { DARABONBA_PTR_GET_DEFAULT(columnCount_, 0L) };
     inline GetSheetResponseBody& setColumnCount(int64_t columnCount) { DARABONBA_PTR_SET_VALUE(columnCount_, columnCount) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline GetSheetResponseBody& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // lastNonEmptyColumn Field Functions 
     bool hasLastNonEmptyColumn() const { return this->lastNonEmptyColumn_ != nullptr;};
     void deleteLastNonEmptyColumn() { this->lastNonEmptyColumn_ = nullptr;};
-    inline int64_t lastNonEmptyColumn() const { DARABONBA_PTR_GET_DEFAULT(lastNonEmptyColumn_, 0L) };
+    inline int64_t getLastNonEmptyColumn() const { DARABONBA_PTR_GET_DEFAULT(lastNonEmptyColumn_, 0L) };
     inline GetSheetResponseBody& setLastNonEmptyColumn(int64_t lastNonEmptyColumn) { DARABONBA_PTR_SET_VALUE(lastNonEmptyColumn_, lastNonEmptyColumn) };
 
 
     // lastNonEmptyRow Field Functions 
     bool hasLastNonEmptyRow() const { return this->lastNonEmptyRow_ != nullptr;};
     void deleteLastNonEmptyRow() { this->lastNonEmptyRow_ = nullptr;};
-    inline int64_t lastNonEmptyRow() const { DARABONBA_PTR_GET_DEFAULT(lastNonEmptyRow_, 0L) };
+    inline int64_t getLastNonEmptyRow() const { DARABONBA_PTR_GET_DEFAULT(lastNonEmptyRow_, 0L) };
     inline GetSheetResponseBody& setLastNonEmptyRow(int64_t lastNonEmptyRow) { DARABONBA_PTR_SET_VALUE(lastNonEmptyRow_, lastNonEmptyRow) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetSheetResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSheetResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rowCount Field Functions 
     bool hasRowCount() const { return this->rowCount_ != nullptr;};
     void deleteRowCount() { this->rowCount_ = nullptr;};
-    inline int64_t rowCount() const { DARABONBA_PTR_GET_DEFAULT(rowCount_, 0L) };
+    inline int64_t getRowCount() const { DARABONBA_PTR_GET_DEFAULT(rowCount_, 0L) };
     inline GetSheetResponseBody& setRowCount(int64_t rowCount) { DARABONBA_PTR_SET_VALUE(rowCount_, rowCount) };
 
 
     // visibility Field Functions 
     bool hasVisibility() const { return this->visibility_ != nullptr;};
     void deleteVisibility() { this->visibility_ = nullptr;};
-    inline string visibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+    inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
     inline GetSheetResponseBody& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
 
 
   protected:
-    std::shared_ptr<int64_t> columnCount_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<int64_t> lastNonEmptyColumn_ = nullptr;
-    std::shared_ptr<int64_t> lastNonEmptyRow_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<int64_t> columnCount_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<int64_t> lastNonEmptyColumn_ {};
+    shared_ptr<int64_t> lastNonEmptyRow_ {};
+    shared_ptr<string> name_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> rowCount_ = nullptr;
-    std::shared_ptr<string> visibility_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> rowCount_ {};
+    shared_ptr<string> visibility_ {};
   };
 
   } // namespace Models

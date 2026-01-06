@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->formInstanceIdListShrink_ == nullptr && return this->formUuid_ == nullptr && return this->systemToken_ == nullptr; };
+        && this->formInstanceIdListShrink_ == nullptr && this->formUuid_ == nullptr && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline ListFormRemarksShrinkRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // formInstanceIdListShrink Field Functions 
     bool hasFormInstanceIdListShrink() const { return this->formInstanceIdListShrink_ != nullptr;};
     void deleteFormInstanceIdListShrink() { this->formInstanceIdListShrink_ = nullptr;};
-    inline string formInstanceIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(formInstanceIdListShrink_, "") };
+    inline string getFormInstanceIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(formInstanceIdListShrink_, "") };
     inline ListFormRemarksShrinkRequest& setFormInstanceIdListShrink(string formInstanceIdListShrink) { DARABONBA_PTR_SET_VALUE(formInstanceIdListShrink_, formInstanceIdListShrink) };
 
 
     // formUuid Field Functions 
     bool hasFormUuid() const { return this->formUuid_ != nullptr;};
     void deleteFormUuid() { this->formUuid_ = nullptr;};
-    inline string formUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
+    inline string getFormUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
     inline ListFormRemarksShrinkRequest& setFormUuid(string formUuid) { DARABONBA_PTR_SET_VALUE(formUuid_, formUuid) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline ListFormRemarksShrinkRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
+    shared_ptr<string> appType_ {};
     // This parameter is required.
-    std::shared_ptr<string> formInstanceIdListShrink_ = nullptr;
+    shared_ptr<string> formInstanceIdListShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> formUuid_ = nullptr;
+    shared_ptr<string> formUuid_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models

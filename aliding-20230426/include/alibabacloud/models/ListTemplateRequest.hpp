@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_LISTTEMPLATEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTTEMPLATEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListTemplateRequestTenantContext.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,53 +37,84 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TenantContext : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TenantContext& obj) { 
+        DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      };
+      friend void from_json(const Darabonba::Json& j, TenantContext& obj) { 
+        DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      };
+      TenantContext() = default ;
+      TenantContext(const TenantContext &) = default ;
+      TenantContext(TenantContext &&) = default ;
+      TenantContext(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TenantContext() = default ;
+      TenantContext& operator=(const TenantContext &) = default ;
+      TenantContext& operator=(TenantContext &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tenantId_ == nullptr; };
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline TenantContext& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    protected:
+      shared_ptr<string> tenantId_ {};
+    };
+
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->templateType_ == nullptr && return this->tenantContext_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->nextToken_ == nullptr && this->templateType_ == nullptr && this->tenantContext_ == nullptr && this->workspaceId_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListTemplateRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTemplateRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // templateType Field Functions 
     bool hasTemplateType() const { return this->templateType_ != nullptr;};
     void deleteTemplateType() { this->templateType_ = nullptr;};
-    inline string templateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
+    inline string getTemplateType() const { DARABONBA_PTR_GET_DEFAULT(templateType_, "") };
     inline ListTemplateRequest& setTemplateType(string templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
     // tenantContext Field Functions 
     bool hasTenantContext() const { return this->tenantContext_ != nullptr;};
     void deleteTenantContext() { this->tenantContext_ = nullptr;};
-    inline const ListTemplateRequestTenantContext & tenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, ListTemplateRequestTenantContext) };
-    inline ListTemplateRequestTenantContext tenantContext() { DARABONBA_PTR_GET(tenantContext_, ListTemplateRequestTenantContext) };
-    inline ListTemplateRequest& setTenantContext(const ListTemplateRequestTenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
-    inline ListTemplateRequest& setTenantContext(ListTemplateRequestTenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
+    inline const ListTemplateRequest::TenantContext & getTenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, ListTemplateRequest::TenantContext) };
+    inline ListTemplateRequest::TenantContext getTenantContext() { DARABONBA_PTR_GET(tenantContext_, ListTemplateRequest::TenantContext) };
+    inline ListTemplateRequest& setTenantContext(const ListTemplateRequest::TenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
+    inline ListTemplateRequest& setTenantContext(ListTemplateRequest::TenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline ListTemplateRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> templateType_ = nullptr;
-    std::shared_ptr<ListTemplateRequestTenantContext> tenantContext_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> templateType_ {};
+    shared_ptr<ListTemplateRequest::TenantContext> tenantContext_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

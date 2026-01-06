@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calendarId_ == nullptr
-        && return this->eventId_ == nullptr && return this->meetingRoomsToAddShrink_ == nullptr; };
+        && this->eventId_ == nullptr && this->meetingRoomsToAddShrink_ == nullptr; };
     // calendarId Field Functions 
     bool hasCalendarId() const { return this->calendarId_ != nullptr;};
     void deleteCalendarId() { this->calendarId_ = nullptr;};
-    inline string calendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
+    inline string getCalendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
     inline AddMeetingRoomsShrinkRequest& setCalendarId(string calendarId) { DARABONBA_PTR_SET_VALUE(calendarId_, calendarId) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline string eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
+    inline string getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
     inline AddMeetingRoomsShrinkRequest& setEventId(string eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // meetingRoomsToAddShrink Field Functions 
     bool hasMeetingRoomsToAddShrink() const { return this->meetingRoomsToAddShrink_ != nullptr;};
     void deleteMeetingRoomsToAddShrink() { this->meetingRoomsToAddShrink_ = nullptr;};
-    inline string meetingRoomsToAddShrink() const { DARABONBA_PTR_GET_DEFAULT(meetingRoomsToAddShrink_, "") };
+    inline string getMeetingRoomsToAddShrink() const { DARABONBA_PTR_GET_DEFAULT(meetingRoomsToAddShrink_, "") };
     inline AddMeetingRoomsShrinkRequest& setMeetingRoomsToAddShrink(string meetingRoomsToAddShrink) { DARABONBA_PTR_SET_VALUE(meetingRoomsToAddShrink_, meetingRoomsToAddShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> calendarId_ = nullptr;
+    shared_ptr<string> calendarId_ {};
     // This parameter is required.
-    std::shared_ptr<string> eventId_ = nullptr;
+    shared_ptr<string> eventId_ {};
     // This parameter is required.
-    std::shared_ptr<string> meetingRoomsToAddShrink_ = nullptr;
+    shared_ptr<string> meetingRoomsToAddShrink_ {};
   };
 
   } // namespace Models

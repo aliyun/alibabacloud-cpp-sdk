@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->optionShrink_ == nullptr
-        && return this->tenantContextShrink_ == nullptr && return this->url_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr && this->url_ == nullptr; };
     // optionShrink Field Functions 
     bool hasOptionShrink() const { return this->optionShrink_ != nullptr;};
     void deleteOptionShrink() { this->optionShrink_ = nullptr;};
-    inline string optionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
+    inline string getOptionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
     inline GetNodeByUrlShrinkRequest& setOptionShrink(string optionShrink) { DARABONBA_PTR_SET_VALUE(optionShrink_, optionShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetNodeByUrlShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline GetNodeByUrlShrinkRequest& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
-    std::shared_ptr<string> optionShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> optionShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

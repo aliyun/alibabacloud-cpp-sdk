@@ -45,20 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->phones_ == nullptr && return this->requestId_ == nullptr && return this->roomCode_ == nullptr && return this->scheduleConferenceId_ == nullptr && return this->startTime_ == nullptr
-        && return this->title_ == nullptr && return this->url_ == nullptr; };
+        && this->phones_ == nullptr && this->requestId_ == nullptr && this->roomCode_ == nullptr && this->scheduleConferenceId_ == nullptr && this->startTime_ == nullptr
+        && this->title_ == nullptr && this->url_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline QueryScheduleConferenceResponseBody& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // phones Field Functions 
     bool hasPhones() const { return this->phones_ != nullptr;};
     void deletePhones() { this->phones_ = nullptr;};
-    inline const vector<string> & phones() const { DARABONBA_PTR_GET_CONST(phones_, vector<string>) };
-    inline vector<string> phones() { DARABONBA_PTR_GET(phones_, vector<string>) };
+    inline const vector<string> & getPhones() const { DARABONBA_PTR_GET_CONST(phones_, vector<string>) };
+    inline vector<string> getPhones() { DARABONBA_PTR_GET(phones_, vector<string>) };
     inline QueryScheduleConferenceResponseBody& setPhones(const vector<string> & phones) { DARABONBA_PTR_SET_VALUE(phones_, phones) };
     inline QueryScheduleConferenceResponseBody& setPhones(vector<string> && phones) { DARABONBA_PTR_SET_RVALUE(phones_, phones) };
 
@@ -66,54 +66,54 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryScheduleConferenceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // roomCode Field Functions 
     bool hasRoomCode() const { return this->roomCode_ != nullptr;};
     void deleteRoomCode() { this->roomCode_ = nullptr;};
-    inline string roomCode() const { DARABONBA_PTR_GET_DEFAULT(roomCode_, "") };
+    inline string getRoomCode() const { DARABONBA_PTR_GET_DEFAULT(roomCode_, "") };
     inline QueryScheduleConferenceResponseBody& setRoomCode(string roomCode) { DARABONBA_PTR_SET_VALUE(roomCode_, roomCode) };
 
 
     // scheduleConferenceId Field Functions 
     bool hasScheduleConferenceId() const { return this->scheduleConferenceId_ != nullptr;};
     void deleteScheduleConferenceId() { this->scheduleConferenceId_ = nullptr;};
-    inline string scheduleConferenceId() const { DARABONBA_PTR_GET_DEFAULT(scheduleConferenceId_, "") };
+    inline string getScheduleConferenceId() const { DARABONBA_PTR_GET_DEFAULT(scheduleConferenceId_, "") };
     inline QueryScheduleConferenceResponseBody& setScheduleConferenceId(string scheduleConferenceId) { DARABONBA_PTR_SET_VALUE(scheduleConferenceId_, scheduleConferenceId) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline QueryScheduleConferenceResponseBody& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline QueryScheduleConferenceResponseBody& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
     // url Field Functions 
     bool hasUrl() const { return this->url_ != nullptr;};
     void deleteUrl() { this->url_ = nullptr;};
-    inline string url() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+    inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
     inline QueryScheduleConferenceResponseBody& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
 
 
   protected:
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<vector<string>> phones_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> roomCode_ = nullptr;
-    std::shared_ptr<string> scheduleConferenceId_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> title_ = nullptr;
-    std::shared_ptr<string> url_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<vector<string>> phones_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> roomCode_ {};
+    shared_ptr<string> scheduleConferenceId_ {};
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> title_ {};
+    shared_ptr<string> url_ {};
   };
 
   } // namespace Models

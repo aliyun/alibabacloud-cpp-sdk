@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && return this->conferenceId_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->conferenceId_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
-    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline QueryRecordMinutesUrlShrinkRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
 
 
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline QueryRecordMinutesUrlShrinkRequest& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryRecordMinutesUrlShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bizType_ = nullptr;
+    shared_ptr<string> bizType_ {};
     // This parameter is required.
-    std::shared_ptr<string> conferenceId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

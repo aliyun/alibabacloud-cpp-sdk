@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->optionShrink_ == nullptr
-        && return this->tenantContextShrink_ == nullptr && return this->workspaceIdsShrink_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr && this->workspaceIdsShrink_ == nullptr; };
     // optionShrink Field Functions 
     bool hasOptionShrink() const { return this->optionShrink_ != nullptr;};
     void deleteOptionShrink() { this->optionShrink_ = nullptr;};
-    inline string optionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
+    inline string getOptionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
     inline GetWorkspacesShrinkRequest& setOptionShrink(string optionShrink) { DARABONBA_PTR_SET_VALUE(optionShrink_, optionShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetWorkspacesShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // workspaceIdsShrink Field Functions 
     bool hasWorkspaceIdsShrink() const { return this->workspaceIdsShrink_ != nullptr;};
     void deleteWorkspaceIdsShrink() { this->workspaceIdsShrink_ = nullptr;};
-    inline string workspaceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(workspaceIdsShrink_, "") };
+    inline string getWorkspaceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(workspaceIdsShrink_, "") };
     inline GetWorkspacesShrinkRequest& setWorkspaceIdsShrink(string workspaceIdsShrink) { DARABONBA_PTR_SET_VALUE(workspaceIdsShrink_, workspaceIdsShrink) };
 
 
   protected:
-    std::shared_ptr<string> optionShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> optionShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceIdsShrink_ = nullptr;
+    shared_ptr<string> workspaceIdsShrink_ {};
   };
 
   } // namespace Models

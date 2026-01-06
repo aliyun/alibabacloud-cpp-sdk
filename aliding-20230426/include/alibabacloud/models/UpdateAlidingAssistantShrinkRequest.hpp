@@ -50,98 +50,98 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assistantId_ == nullptr
-        && return this->description_ == nullptr && return this->extShrink_ == nullptr && return this->fallbackContent_ == nullptr && return this->featureShrink_ == nullptr && return this->icon_ == nullptr
-        && return this->instructions_ == nullptr && return this->name_ == nullptr && return this->recommendPromptsShrink_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->welcomeContent_ == nullptr; };
+        && this->description_ == nullptr && this->extShrink_ == nullptr && this->fallbackContent_ == nullptr && this->featureShrink_ == nullptr && this->icon_ == nullptr
+        && this->instructions_ == nullptr && this->name_ == nullptr && this->recommendPromptsShrink_ == nullptr && this->tenantContextShrink_ == nullptr && this->welcomeContent_ == nullptr; };
     // assistantId Field Functions 
     bool hasAssistantId() const { return this->assistantId_ != nullptr;};
     void deleteAssistantId() { this->assistantId_ = nullptr;};
-    inline string assistantId() const { DARABONBA_PTR_GET_DEFAULT(assistantId_, "") };
+    inline string getAssistantId() const { DARABONBA_PTR_GET_DEFAULT(assistantId_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setAssistantId(string assistantId) { DARABONBA_PTR_SET_VALUE(assistantId_, assistantId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // extShrink Field Functions 
     bool hasExtShrink() const { return this->extShrink_ != nullptr;};
     void deleteExtShrink() { this->extShrink_ = nullptr;};
-    inline string extShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
+    inline string getExtShrink() const { DARABONBA_PTR_GET_DEFAULT(extShrink_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setExtShrink(string extShrink) { DARABONBA_PTR_SET_VALUE(extShrink_, extShrink) };
 
 
     // fallbackContent Field Functions 
     bool hasFallbackContent() const { return this->fallbackContent_ != nullptr;};
     void deleteFallbackContent() { this->fallbackContent_ = nullptr;};
-    inline string fallbackContent() const { DARABONBA_PTR_GET_DEFAULT(fallbackContent_, "") };
+    inline string getFallbackContent() const { DARABONBA_PTR_GET_DEFAULT(fallbackContent_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setFallbackContent(string fallbackContent) { DARABONBA_PTR_SET_VALUE(fallbackContent_, fallbackContent) };
 
 
     // featureShrink Field Functions 
     bool hasFeatureShrink() const { return this->featureShrink_ != nullptr;};
     void deleteFeatureShrink() { this->featureShrink_ = nullptr;};
-    inline string featureShrink() const { DARABONBA_PTR_GET_DEFAULT(featureShrink_, "") };
+    inline string getFeatureShrink() const { DARABONBA_PTR_GET_DEFAULT(featureShrink_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setFeatureShrink(string featureShrink) { DARABONBA_PTR_SET_VALUE(featureShrink_, featureShrink) };
 
 
     // icon Field Functions 
     bool hasIcon() const { return this->icon_ != nullptr;};
     void deleteIcon() { this->icon_ = nullptr;};
-    inline string icon() const { DARABONBA_PTR_GET_DEFAULT(icon_, "") };
+    inline string getIcon() const { DARABONBA_PTR_GET_DEFAULT(icon_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setIcon(string icon) { DARABONBA_PTR_SET_VALUE(icon_, icon) };
 
 
     // instructions Field Functions 
     bool hasInstructions() const { return this->instructions_ != nullptr;};
     void deleteInstructions() { this->instructions_ = nullptr;};
-    inline string instructions() const { DARABONBA_PTR_GET_DEFAULT(instructions_, "") };
+    inline string getInstructions() const { DARABONBA_PTR_GET_DEFAULT(instructions_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setInstructions(string instructions) { DARABONBA_PTR_SET_VALUE(instructions_, instructions) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // recommendPromptsShrink Field Functions 
     bool hasRecommendPromptsShrink() const { return this->recommendPromptsShrink_ != nullptr;};
     void deleteRecommendPromptsShrink() { this->recommendPromptsShrink_ = nullptr;};
-    inline string recommendPromptsShrink() const { DARABONBA_PTR_GET_DEFAULT(recommendPromptsShrink_, "") };
+    inline string getRecommendPromptsShrink() const { DARABONBA_PTR_GET_DEFAULT(recommendPromptsShrink_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setRecommendPromptsShrink(string recommendPromptsShrink) { DARABONBA_PTR_SET_VALUE(recommendPromptsShrink_, recommendPromptsShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // welcomeContent Field Functions 
     bool hasWelcomeContent() const { return this->welcomeContent_ != nullptr;};
     void deleteWelcomeContent() { this->welcomeContent_ = nullptr;};
-    inline string welcomeContent() const { DARABONBA_PTR_GET_DEFAULT(welcomeContent_, "") };
+    inline string getWelcomeContent() const { DARABONBA_PTR_GET_DEFAULT(welcomeContent_, "") };
     inline UpdateAlidingAssistantShrinkRequest& setWelcomeContent(string welcomeContent) { DARABONBA_PTR_SET_VALUE(welcomeContent_, welcomeContent) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> assistantId_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> extShrink_ = nullptr;
-    std::shared_ptr<string> fallbackContent_ = nullptr;
-    std::shared_ptr<string> featureShrink_ = nullptr;
-    std::shared_ptr<string> icon_ = nullptr;
-    std::shared_ptr<string> instructions_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> recommendPromptsShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<string> welcomeContent_ = nullptr;
+    shared_ptr<string> assistantId_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> extShrink_ {};
+    shared_ptr<string> fallbackContent_ {};
+    shared_ptr<string> featureShrink_ {};
+    shared_ptr<string> icon_ {};
+    shared_ptr<string> instructions_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> recommendPromptsShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<string> welcomeContent_ {};
   };
 
   } // namespace Models

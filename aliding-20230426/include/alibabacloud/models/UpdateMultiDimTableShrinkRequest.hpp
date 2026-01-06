@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baseId_ == nullptr
-        && return this->name_ == nullptr && return this->sheetIdOrName_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->name_ == nullptr && this->sheetIdOrName_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // baseId Field Functions 
     bool hasBaseId() const { return this->baseId_ != nullptr;};
     void deleteBaseId() { this->baseId_ = nullptr;};
-    inline string baseId() const { DARABONBA_PTR_GET_DEFAULT(baseId_, "") };
+    inline string getBaseId() const { DARABONBA_PTR_GET_DEFAULT(baseId_, "") };
     inline UpdateMultiDimTableShrinkRequest& setBaseId(string baseId) { DARABONBA_PTR_SET_VALUE(baseId_, baseId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateMultiDimTableShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // sheetIdOrName Field Functions 
     bool hasSheetIdOrName() const { return this->sheetIdOrName_ != nullptr;};
     void deleteSheetIdOrName() { this->sheetIdOrName_ = nullptr;};
-    inline string sheetIdOrName() const { DARABONBA_PTR_GET_DEFAULT(sheetIdOrName_, "") };
+    inline string getSheetIdOrName() const { DARABONBA_PTR_GET_DEFAULT(sheetIdOrName_, "") };
     inline UpdateMultiDimTableShrinkRequest& setSheetIdOrName(string sheetIdOrName) { DARABONBA_PTR_SET_VALUE(sheetIdOrName_, sheetIdOrName) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline UpdateMultiDimTableShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> baseId_ = nullptr;
+    shared_ptr<string> baseId_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> sheetIdOrName_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> sheetIdOrName_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

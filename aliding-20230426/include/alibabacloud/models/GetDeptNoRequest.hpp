@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETDEPTNOREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_GETDEPTNOREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetDeptNoRequestTenantContext.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,28 +31,59 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TenantContext : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TenantContext& obj) { 
+        DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      };
+      friend void from_json(const Darabonba::Json& j, TenantContext& obj) { 
+        DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      };
+      TenantContext() = default ;
+      TenantContext(const TenantContext &) = default ;
+      TenantContext(TenantContext &&) = default ;
+      TenantContext(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TenantContext() = default ;
+      TenantContext& operator=(const TenantContext &) = default ;
+      TenantContext& operator=(TenantContext &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tenantId_ == nullptr; };
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline TenantContext& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    protected:
+      shared_ptr<string> tenantId_ {};
+    };
+
     virtual bool empty() const override { return this->tenantContext_ == nullptr
-        && return this->deptId_ == nullptr; };
+        && this->deptId_ == nullptr; };
     // tenantContext Field Functions 
     bool hasTenantContext() const { return this->tenantContext_ != nullptr;};
     void deleteTenantContext() { this->tenantContext_ = nullptr;};
-    inline const GetDeptNoRequestTenantContext & tenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, GetDeptNoRequestTenantContext) };
-    inline GetDeptNoRequestTenantContext tenantContext() { DARABONBA_PTR_GET(tenantContext_, GetDeptNoRequestTenantContext) };
-    inline GetDeptNoRequest& setTenantContext(const GetDeptNoRequestTenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
-    inline GetDeptNoRequest& setTenantContext(GetDeptNoRequestTenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
+    inline const GetDeptNoRequest::TenantContext & getTenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, GetDeptNoRequest::TenantContext) };
+    inline GetDeptNoRequest::TenantContext getTenantContext() { DARABONBA_PTR_GET(tenantContext_, GetDeptNoRequest::TenantContext) };
+    inline GetDeptNoRequest& setTenantContext(const GetDeptNoRequest::TenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
+    inline GetDeptNoRequest& setTenantContext(GetDeptNoRequest::TenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
 
 
     // deptId Field Functions 
     bool hasDeptId() const { return this->deptId_ != nullptr;};
     void deleteDeptId() { this->deptId_ = nullptr;};
-    inline string deptId() const { DARABONBA_PTR_GET_DEFAULT(deptId_, "") };
+    inline string getDeptId() const { DARABONBA_PTR_GET_DEFAULT(deptId_, "") };
     inline GetDeptNoRequest& setDeptId(string deptId) { DARABONBA_PTR_SET_VALUE(deptId_, deptId) };
 
 
   protected:
-    std::shared_ptr<GetDeptNoRequestTenantContext> tenantContext_ = nullptr;
+    shared_ptr<GetDeptNoRequest::TenantContext> tenantContext_ {};
     // This parameter is required.
-    std::shared_ptr<string> deptId_ = nullptr;
+    shared_ptr<string> deptId_ {};
   };
 
   } // namespace Models

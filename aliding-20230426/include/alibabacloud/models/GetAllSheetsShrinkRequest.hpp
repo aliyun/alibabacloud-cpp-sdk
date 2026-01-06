@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
-        && return this->workbookId_ == nullptr; };
+        && this->workbookId_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetAllSheetsShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // workbookId Field Functions 
     bool hasWorkbookId() const { return this->workbookId_ != nullptr;};
     void deleteWorkbookId() { this->workbookId_ = nullptr;};
-    inline string workbookId() const { DARABONBA_PTR_GET_DEFAULT(workbookId_, "") };
+    inline string getWorkbookId() const { DARABONBA_PTR_GET_DEFAULT(workbookId_, "") };
     inline GetAllSheetsShrinkRequest& setWorkbookId(string workbookId) { DARABONBA_PTR_SET_VALUE(workbookId_, workbookId) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> workbookId_ = nullptr;
+    shared_ptr<string> workbookId_ {};
   };
 
   } // namespace Models

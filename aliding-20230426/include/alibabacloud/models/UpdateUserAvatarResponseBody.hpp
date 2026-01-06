@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errcode_ == nullptr
-        && return this->errmsg_ == nullptr && return this->requestId_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
+        && this->errmsg_ == nullptr && this->requestId_ == nullptr && this->vendorRequestId_ == nullptr && this->vendorType_ == nullptr; };
     // errcode Field Functions 
     bool hasErrcode() const { return this->errcode_ != nullptr;};
     void deleteErrcode() { this->errcode_ = nullptr;};
-    inline string errcode() const { DARABONBA_PTR_GET_DEFAULT(errcode_, "") };
+    inline string getErrcode() const { DARABONBA_PTR_GET_DEFAULT(errcode_, "") };
     inline UpdateUserAvatarResponseBody& setErrcode(string errcode) { DARABONBA_PTR_SET_VALUE(errcode_, errcode) };
 
 
     // errmsg Field Functions 
     bool hasErrmsg() const { return this->errmsg_ != nullptr;};
     void deleteErrmsg() { this->errmsg_ = nullptr;};
-    inline string errmsg() const { DARABONBA_PTR_GET_DEFAULT(errmsg_, "") };
+    inline string getErrmsg() const { DARABONBA_PTR_GET_DEFAULT(errmsg_, "") };
     inline UpdateUserAvatarResponseBody& setErrmsg(string errmsg) { DARABONBA_PTR_SET_VALUE(errmsg_, errmsg) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateUserAvatarResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // vendorRequestId Field Functions 
     bool hasVendorRequestId() const { return this->vendorRequestId_ != nullptr;};
     void deleteVendorRequestId() { this->vendorRequestId_ = nullptr;};
-    inline string vendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
+    inline string getVendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
     inline UpdateUserAvatarResponseBody& setVendorRequestId(string vendorRequestId) { DARABONBA_PTR_SET_VALUE(vendorRequestId_, vendorRequestId) };
 
 
     // vendorType Field Functions 
     bool hasVendorType() const { return this->vendorType_ != nullptr;};
     void deleteVendorType() { this->vendorType_ = nullptr;};
-    inline string vendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
+    inline string getVendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
     inline UpdateUserAvatarResponseBody& setVendorType(string vendorType) { DARABONBA_PTR_SET_VALUE(vendorType_, vendorType) };
 
 
   protected:
-    std::shared_ptr<string> errcode_ = nullptr;
-    std::shared_ptr<string> errmsg_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> vendorRequestId_ = nullptr;
-    std::shared_ptr<string> vendorType_ = nullptr;
+    shared_ptr<string> errcode_ {};
+    shared_ptr<string> errmsg_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> vendorRequestId_ {};
+    shared_ptr<string> vendorType_ {};
   };
 
   } // namespace Models

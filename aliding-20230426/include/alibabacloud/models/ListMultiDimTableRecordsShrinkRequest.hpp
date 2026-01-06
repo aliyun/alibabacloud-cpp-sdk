@@ -40,58 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baseId_ == nullptr
-        && return this->filterShrink_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->sheetIdOrName_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->filterShrink_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->sheetIdOrName_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // baseId Field Functions 
     bool hasBaseId() const { return this->baseId_ != nullptr;};
     void deleteBaseId() { this->baseId_ = nullptr;};
-    inline string baseId() const { DARABONBA_PTR_GET_DEFAULT(baseId_, "") };
+    inline string getBaseId() const { DARABONBA_PTR_GET_DEFAULT(baseId_, "") };
     inline ListMultiDimTableRecordsShrinkRequest& setBaseId(string baseId) { DARABONBA_PTR_SET_VALUE(baseId_, baseId) };
 
 
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
-    inline string filterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
+    inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
     inline ListMultiDimTableRecordsShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListMultiDimTableRecordsShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListMultiDimTableRecordsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // sheetIdOrName Field Functions 
     bool hasSheetIdOrName() const { return this->sheetIdOrName_ != nullptr;};
     void deleteSheetIdOrName() { this->sheetIdOrName_ = nullptr;};
-    inline string sheetIdOrName() const { DARABONBA_PTR_GET_DEFAULT(sheetIdOrName_, "") };
+    inline string getSheetIdOrName() const { DARABONBA_PTR_GET_DEFAULT(sheetIdOrName_, "") };
     inline ListMultiDimTableRecordsShrinkRequest& setSheetIdOrName(string sheetIdOrName) { DARABONBA_PTR_SET_VALUE(sheetIdOrName_, sheetIdOrName) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline ListMultiDimTableRecordsShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> baseId_ = nullptr;
-    std::shared_ptr<string> filterShrink_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> baseId_ {};
+    shared_ptr<string> filterShrink_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> sheetIdOrName_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> sheetIdOrName_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

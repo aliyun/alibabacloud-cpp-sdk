@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIdsForAppPropertiesShrink_ == nullptr
-        && return this->dentryId_ == nullptr && return this->spaceId_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->withThumbnail_ == nullptr; };
+        && this->dentryId_ == nullptr && this->spaceId_ == nullptr && this->tenantContextShrink_ == nullptr && this->withThumbnail_ == nullptr; };
     // appIdsForAppPropertiesShrink Field Functions 
     bool hasAppIdsForAppPropertiesShrink() const { return this->appIdsForAppPropertiesShrink_ != nullptr;};
     void deleteAppIdsForAppPropertiesShrink() { this->appIdsForAppPropertiesShrink_ = nullptr;};
-    inline string appIdsForAppPropertiesShrink() const { DARABONBA_PTR_GET_DEFAULT(appIdsForAppPropertiesShrink_, "") };
+    inline string getAppIdsForAppPropertiesShrink() const { DARABONBA_PTR_GET_DEFAULT(appIdsForAppPropertiesShrink_, "") };
     inline QueryDentriesInfoShrinkRequest& setAppIdsForAppPropertiesShrink(string appIdsForAppPropertiesShrink) { DARABONBA_PTR_SET_VALUE(appIdsForAppPropertiesShrink_, appIdsForAppPropertiesShrink) };
 
 
     // dentryId Field Functions 
     bool hasDentryId() const { return this->dentryId_ != nullptr;};
     void deleteDentryId() { this->dentryId_ = nullptr;};
-    inline string dentryId() const { DARABONBA_PTR_GET_DEFAULT(dentryId_, "") };
+    inline string getDentryId() const { DARABONBA_PTR_GET_DEFAULT(dentryId_, "") };
     inline QueryDentriesInfoShrinkRequest& setDentryId(string dentryId) { DARABONBA_PTR_SET_VALUE(dentryId_, dentryId) };
 
 
     // spaceId Field Functions 
     bool hasSpaceId() const { return this->spaceId_ != nullptr;};
     void deleteSpaceId() { this->spaceId_ = nullptr;};
-    inline string spaceId() const { DARABONBA_PTR_GET_DEFAULT(spaceId_, "") };
+    inline string getSpaceId() const { DARABONBA_PTR_GET_DEFAULT(spaceId_, "") };
     inline QueryDentriesInfoShrinkRequest& setSpaceId(string spaceId) { DARABONBA_PTR_SET_VALUE(spaceId_, spaceId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryDentriesInfoShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // withThumbnail Field Functions 
     bool hasWithThumbnail() const { return this->withThumbnail_ != nullptr;};
     void deleteWithThumbnail() { this->withThumbnail_ = nullptr;};
-    inline bool withThumbnail() const { DARABONBA_PTR_GET_DEFAULT(withThumbnail_, false) };
+    inline bool getWithThumbnail() const { DARABONBA_PTR_GET_DEFAULT(withThumbnail_, false) };
     inline QueryDentriesInfoShrinkRequest& setWithThumbnail(bool withThumbnail) { DARABONBA_PTR_SET_VALUE(withThumbnail_, withThumbnail) };
 
 
   protected:
-    std::shared_ptr<string> appIdsForAppPropertiesShrink_ = nullptr;
+    shared_ptr<string> appIdsForAppPropertiesShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> dentryId_ = nullptr;
+    shared_ptr<string> dentryId_ {};
     // This parameter is required.
-    std::shared_ptr<string> spaceId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<bool> withThumbnail_ = nullptr;
+    shared_ptr<string> spaceId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<bool> withThumbnail_ {};
   };
 
   } // namespace Models

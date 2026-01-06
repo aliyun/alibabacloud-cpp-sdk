@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
-        && return this->withPermissionRole_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->withPermissionRole_ == nullptr && this->workspaceId_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetWorkspaceShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // withPermissionRole Field Functions 
     bool hasWithPermissionRole() const { return this->withPermissionRole_ != nullptr;};
     void deleteWithPermissionRole() { this->withPermissionRole_ = nullptr;};
-    inline bool withPermissionRole() const { DARABONBA_PTR_GET_DEFAULT(withPermissionRole_, false) };
+    inline bool getWithPermissionRole() const { DARABONBA_PTR_GET_DEFAULT(withPermissionRole_, false) };
     inline GetWorkspaceShrinkRequest& setWithPermissionRole(bool withPermissionRole) { DARABONBA_PTR_SET_VALUE(withPermissionRole_, withPermissionRole) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline GetWorkspaceShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<bool> withPermissionRole_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<bool> withPermissionRole_ {};
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

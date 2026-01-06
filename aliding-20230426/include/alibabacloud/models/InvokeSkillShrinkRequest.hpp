@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->paramsShrink_ == nullptr
-        && return this->skillId_ == nullptr && return this->stream_ == nullptr && return this->sourceIdOfAssistantId_ == nullptr; };
+        && this->skillId_ == nullptr && this->stream_ == nullptr && this->sourceIdOfAssistantId_ == nullptr; };
     // paramsShrink Field Functions 
     bool hasParamsShrink() const { return this->paramsShrink_ != nullptr;};
     void deleteParamsShrink() { this->paramsShrink_ = nullptr;};
-    inline string paramsShrink() const { DARABONBA_PTR_GET_DEFAULT(paramsShrink_, "") };
+    inline string getParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(paramsShrink_, "") };
     inline InvokeSkillShrinkRequest& setParamsShrink(string paramsShrink) { DARABONBA_PTR_SET_VALUE(paramsShrink_, paramsShrink) };
 
 
     // skillId Field Functions 
     bool hasSkillId() const { return this->skillId_ != nullptr;};
     void deleteSkillId() { this->skillId_ = nullptr;};
-    inline string skillId() const { DARABONBA_PTR_GET_DEFAULT(skillId_, "") };
+    inline string getSkillId() const { DARABONBA_PTR_GET_DEFAULT(skillId_, "") };
     inline InvokeSkillShrinkRequest& setSkillId(string skillId) { DARABONBA_PTR_SET_VALUE(skillId_, skillId) };
 
 
     // stream Field Functions 
     bool hasStream() const { return this->stream_ != nullptr;};
     void deleteStream() { this->stream_ = nullptr;};
-    inline bool stream() const { DARABONBA_PTR_GET_DEFAULT(stream_, false) };
+    inline bool getStream() const { DARABONBA_PTR_GET_DEFAULT(stream_, false) };
     inline InvokeSkillShrinkRequest& setStream(bool stream) { DARABONBA_PTR_SET_VALUE(stream_, stream) };
 
 
     // sourceIdOfAssistantId Field Functions 
     bool hasSourceIdOfAssistantId() const { return this->sourceIdOfAssistantId_ != nullptr;};
     void deleteSourceIdOfAssistantId() { this->sourceIdOfAssistantId_ = nullptr;};
-    inline string sourceIdOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfAssistantId_, "") };
+    inline string getSourceIdOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfAssistantId_, "") };
     inline InvokeSkillShrinkRequest& setSourceIdOfAssistantId(string sourceIdOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfAssistantId_, sourceIdOfAssistantId) };
 
 
   protected:
-    std::shared_ptr<string> paramsShrink_ = nullptr;
+    shared_ptr<string> paramsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> skillId_ = nullptr;
-    std::shared_ptr<bool> stream_ = nullptr;
-    std::shared_ptr<string> sourceIdOfAssistantId_ = nullptr;
+    shared_ptr<string> skillId_ {};
+    shared_ptr<bool> stream_ {};
+    shared_ptr<string> sourceIdOfAssistantId_ {};
   };
 
   } // namespace Models

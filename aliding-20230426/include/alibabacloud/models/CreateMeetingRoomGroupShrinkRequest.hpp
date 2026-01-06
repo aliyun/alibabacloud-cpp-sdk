@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupName_ == nullptr
-        && return this->parentGroupId_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->parentGroupId_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateMeetingRoomGroupShrinkRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // parentGroupId Field Functions 
     bool hasParentGroupId() const { return this->parentGroupId_ != nullptr;};
     void deleteParentGroupId() { this->parentGroupId_ = nullptr;};
-    inline int64_t parentGroupId() const { DARABONBA_PTR_GET_DEFAULT(parentGroupId_, 0L) };
+    inline int64_t getParentGroupId() const { DARABONBA_PTR_GET_DEFAULT(parentGroupId_, 0L) };
     inline CreateMeetingRoomGroupShrinkRequest& setParentGroupId(int64_t parentGroupId) { DARABONBA_PTR_SET_VALUE(parentGroupId_, parentGroupId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline CreateMeetingRoomGroupShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> parentGroupId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<int64_t> parentGroupId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

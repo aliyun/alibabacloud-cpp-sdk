@@ -37,43 +37,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hasMore_ == nullptr
-        && return this->nextCursor_ == nullptr && return this->requestId_ == nullptr && return this->useridList_ == nullptr; };
+        && this->nextCursor_ == nullptr && this->requestId_ == nullptr && this->useridList_ == nullptr; };
     // hasMore Field Functions 
     bool hasHasMore() const { return this->hasMore_ != nullptr;};
     void deleteHasMore() { this->hasMore_ = nullptr;};
-    inline bool hasMore() const { DARABONBA_PTR_GET_DEFAULT(hasMore_, false) };
+    inline bool getHasMore() const { DARABONBA_PTR_GET_DEFAULT(hasMore_, false) };
     inline StatisticsListByTypeReportResponseBody& setHasMore(bool hasMore) { DARABONBA_PTR_SET_VALUE(hasMore_, hasMore) };
 
 
     // nextCursor Field Functions 
     bool hasNextCursor() const { return this->nextCursor_ != nullptr;};
     void deleteNextCursor() { this->nextCursor_ = nullptr;};
-    inline int64_t nextCursor() const { DARABONBA_PTR_GET_DEFAULT(nextCursor_, 0L) };
+    inline int64_t getNextCursor() const { DARABONBA_PTR_GET_DEFAULT(nextCursor_, 0L) };
     inline StatisticsListByTypeReportResponseBody& setNextCursor(int64_t nextCursor) { DARABONBA_PTR_SET_VALUE(nextCursor_, nextCursor) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StatisticsListByTypeReportResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // useridList Field Functions 
     bool hasUseridList() const { return this->useridList_ != nullptr;};
     void deleteUseridList() { this->useridList_ = nullptr;};
-    inline const vector<string> & useridList() const { DARABONBA_PTR_GET_CONST(useridList_, vector<string>) };
-    inline vector<string> useridList() { DARABONBA_PTR_GET(useridList_, vector<string>) };
+    inline const vector<string> & getUseridList() const { DARABONBA_PTR_GET_CONST(useridList_, vector<string>) };
+    inline vector<string> getUseridList() { DARABONBA_PTR_GET(useridList_, vector<string>) };
     inline StatisticsListByTypeReportResponseBody& setUseridList(const vector<string> & useridList) { DARABONBA_PTR_SET_VALUE(useridList_, useridList) };
     inline StatisticsListByTypeReportResponseBody& setUseridList(vector<string> && useridList) { DARABONBA_PTR_SET_RVALUE(useridList_, useridList) };
 
 
   protected:
-    std::shared_ptr<bool> hasMore_ = nullptr;
-    std::shared_ptr<int64_t> nextCursor_ = nullptr;
+    shared_ptr<bool> hasMore_ {};
+    shared_ptr<int64_t> nextCursor_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<string>> useridList_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<string>> useridList_ {};
   };
 
   } // namespace Models

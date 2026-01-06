@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->async_ == nullptr
-        && return this->requestId_ == nullptr && return this->taskId_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
+        && this->requestId_ == nullptr && this->taskId_ == nullptr && this->vendorRequestId_ == nullptr && this->vendorType_ == nullptr; };
     // async Field Functions 
     bool hasAsync() const { return this->async_ != nullptr;};
     void deleteAsync() { this->async_ = nullptr;};
-    inline bool async() const { DARABONBA_PTR_GET_DEFAULT(async_, false) };
+    inline bool getAsync() const { DARABONBA_PTR_GET_DEFAULT(async_, false) };
     inline DeleteDentryResponseBody& setAsync(bool async) { DARABONBA_PTR_SET_VALUE(async_, async) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteDentryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DeleteDentryResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // vendorRequestId Field Functions 
     bool hasVendorRequestId() const { return this->vendorRequestId_ != nullptr;};
     void deleteVendorRequestId() { this->vendorRequestId_ = nullptr;};
-    inline string vendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
+    inline string getVendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
     inline DeleteDentryResponseBody& setVendorRequestId(string vendorRequestId) { DARABONBA_PTR_SET_VALUE(vendorRequestId_, vendorRequestId) };
 
 
     // vendorType Field Functions 
     bool hasVendorType() const { return this->vendorType_ != nullptr;};
     void deleteVendorType() { this->vendorType_ = nullptr;};
-    inline string vendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
+    inline string getVendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
     inline DeleteDentryResponseBody& setVendorType(string vendorType) { DARABONBA_PTR_SET_VALUE(vendorType_, vendorType) };
 
 
   protected:
-    std::shared_ptr<bool> async_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
-    std::shared_ptr<string> vendorRequestId_ = nullptr;
-    std::shared_ptr<string> vendorType_ = nullptr;
+    shared_ptr<bool> async_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> taskId_ {};
+    shared_ptr<string> vendorRequestId_ {};
+    shared_ptr<string> vendorType_ {};
   };
 
   } // namespace Models

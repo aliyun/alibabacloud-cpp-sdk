@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETRANGEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_GETRANGEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetRangeRequestTenantContext.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,54 +37,85 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TenantContext : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TenantContext& obj) { 
+        DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      };
+      friend void from_json(const Darabonba::Json& j, TenantContext& obj) { 
+        DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      };
+      TenantContext() = default ;
+      TenantContext(const TenantContext &) = default ;
+      TenantContext(TenantContext &&) = default ;
+      TenantContext(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TenantContext() = default ;
+      TenantContext& operator=(const TenantContext &) = default ;
+      TenantContext& operator=(TenantContext &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tenantId_ == nullptr; };
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline TenantContext& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    protected:
+      shared_ptr<string> tenantId_ {};
+    };
+
     virtual bool empty() const override { return this->rangeAddress_ == nullptr
-        && return this->select_ == nullptr && return this->sheetId_ == nullptr && return this->tenantContext_ == nullptr && return this->workbookId_ == nullptr; };
+        && this->select_ == nullptr && this->sheetId_ == nullptr && this->tenantContext_ == nullptr && this->workbookId_ == nullptr; };
     // rangeAddress Field Functions 
     bool hasRangeAddress() const { return this->rangeAddress_ != nullptr;};
     void deleteRangeAddress() { this->rangeAddress_ = nullptr;};
-    inline string rangeAddress() const { DARABONBA_PTR_GET_DEFAULT(rangeAddress_, "") };
+    inline string getRangeAddress() const { DARABONBA_PTR_GET_DEFAULT(rangeAddress_, "") };
     inline GetRangeRequest& setRangeAddress(string rangeAddress) { DARABONBA_PTR_SET_VALUE(rangeAddress_, rangeAddress) };
 
 
     // select Field Functions 
     bool hasSelect() const { return this->select_ != nullptr;};
     void deleteSelect() { this->select_ = nullptr;};
-    inline string select() const { DARABONBA_PTR_GET_DEFAULT(select_, "") };
+    inline string getSelect() const { DARABONBA_PTR_GET_DEFAULT(select_, "") };
     inline GetRangeRequest& setSelect(string select) { DARABONBA_PTR_SET_VALUE(select_, select) };
 
 
     // sheetId Field Functions 
     bool hasSheetId() const { return this->sheetId_ != nullptr;};
     void deleteSheetId() { this->sheetId_ = nullptr;};
-    inline string sheetId() const { DARABONBA_PTR_GET_DEFAULT(sheetId_, "") };
+    inline string getSheetId() const { DARABONBA_PTR_GET_DEFAULT(sheetId_, "") };
     inline GetRangeRequest& setSheetId(string sheetId) { DARABONBA_PTR_SET_VALUE(sheetId_, sheetId) };
 
 
     // tenantContext Field Functions 
     bool hasTenantContext() const { return this->tenantContext_ != nullptr;};
     void deleteTenantContext() { this->tenantContext_ = nullptr;};
-    inline const GetRangeRequestTenantContext & tenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, GetRangeRequestTenantContext) };
-    inline GetRangeRequestTenantContext tenantContext() { DARABONBA_PTR_GET(tenantContext_, GetRangeRequestTenantContext) };
-    inline GetRangeRequest& setTenantContext(const GetRangeRequestTenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
-    inline GetRangeRequest& setTenantContext(GetRangeRequestTenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
+    inline const GetRangeRequest::TenantContext & getTenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, GetRangeRequest::TenantContext) };
+    inline GetRangeRequest::TenantContext getTenantContext() { DARABONBA_PTR_GET(tenantContext_, GetRangeRequest::TenantContext) };
+    inline GetRangeRequest& setTenantContext(const GetRangeRequest::TenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
+    inline GetRangeRequest& setTenantContext(GetRangeRequest::TenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
 
 
     // workbookId Field Functions 
     bool hasWorkbookId() const { return this->workbookId_ != nullptr;};
     void deleteWorkbookId() { this->workbookId_ = nullptr;};
-    inline string workbookId() const { DARABONBA_PTR_GET_DEFAULT(workbookId_, "") };
+    inline string getWorkbookId() const { DARABONBA_PTR_GET_DEFAULT(workbookId_, "") };
     inline GetRangeRequest& setWorkbookId(string workbookId) { DARABONBA_PTR_SET_VALUE(workbookId_, workbookId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> rangeAddress_ = nullptr;
-    std::shared_ptr<string> select_ = nullptr;
+    shared_ptr<string> rangeAddress_ {};
+    shared_ptr<string> select_ {};
     // This parameter is required.
-    std::shared_ptr<string> sheetId_ = nullptr;
-    std::shared_ptr<GetRangeRequestTenantContext> tenantContext_ = nullptr;
+    shared_ptr<string> sheetId_ {};
+    shared_ptr<GetRangeRequest::TenantContext> tenantContext_ {};
     // This parameter is required.
-    std::shared_ptr<string> workbookId_ = nullptr;
+    shared_ptr<string> workbookId_ {};
   };
 
   } // namespace Models

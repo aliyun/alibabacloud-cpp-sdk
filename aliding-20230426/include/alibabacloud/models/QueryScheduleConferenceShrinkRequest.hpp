@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
-        && return this->scheduleConferenceId_ == nullptr; };
+        && this->scheduleConferenceId_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryScheduleConferenceShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // scheduleConferenceId Field Functions 
     bool hasScheduleConferenceId() const { return this->scheduleConferenceId_ != nullptr;};
     void deleteScheduleConferenceId() { this->scheduleConferenceId_ = nullptr;};
-    inline string scheduleConferenceId() const { DARABONBA_PTR_GET_DEFAULT(scheduleConferenceId_, "") };
+    inline string getScheduleConferenceId() const { DARABONBA_PTR_GET_DEFAULT(scheduleConferenceId_, "") };
     inline QueryScheduleConferenceShrinkRequest& setScheduleConferenceId(string scheduleConferenceId) { DARABONBA_PTR_SET_VALUE(scheduleConferenceId_, scheduleConferenceId) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> scheduleConferenceId_ = nullptr;
+    shared_ptr<string> scheduleConferenceId_ {};
   };
 
   } // namespace Models

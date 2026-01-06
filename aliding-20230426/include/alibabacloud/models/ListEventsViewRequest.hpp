@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calendarId_ == nullptr
-        && return this->maxAttendees_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->timeMax_ == nullptr && return this->timeMin_ == nullptr; };
+        && this->maxAttendees_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->timeMax_ == nullptr && this->timeMin_ == nullptr; };
     // calendarId Field Functions 
     bool hasCalendarId() const { return this->calendarId_ != nullptr;};
     void deleteCalendarId() { this->calendarId_ = nullptr;};
-    inline string calendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
+    inline string getCalendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
     inline ListEventsViewRequest& setCalendarId(string calendarId) { DARABONBA_PTR_SET_VALUE(calendarId_, calendarId) };
 
 
     // maxAttendees Field Functions 
     bool hasMaxAttendees() const { return this->maxAttendees_ != nullptr;};
     void deleteMaxAttendees() { this->maxAttendees_ = nullptr;};
-    inline int32_t maxAttendees() const { DARABONBA_PTR_GET_DEFAULT(maxAttendees_, 0) };
+    inline int32_t getMaxAttendees() const { DARABONBA_PTR_GET_DEFAULT(maxAttendees_, 0) };
     inline ListEventsViewRequest& setMaxAttendees(int32_t maxAttendees) { DARABONBA_PTR_SET_VALUE(maxAttendees_, maxAttendees) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListEventsViewRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListEventsViewRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // timeMax Field Functions 
     bool hasTimeMax() const { return this->timeMax_ != nullptr;};
     void deleteTimeMax() { this->timeMax_ = nullptr;};
-    inline string timeMax() const { DARABONBA_PTR_GET_DEFAULT(timeMax_, "") };
+    inline string getTimeMax() const { DARABONBA_PTR_GET_DEFAULT(timeMax_, "") };
     inline ListEventsViewRequest& setTimeMax(string timeMax) { DARABONBA_PTR_SET_VALUE(timeMax_, timeMax) };
 
 
     // timeMin Field Functions 
     bool hasTimeMin() const { return this->timeMin_ != nullptr;};
     void deleteTimeMin() { this->timeMin_ = nullptr;};
-    inline string timeMin() const { DARABONBA_PTR_GET_DEFAULT(timeMin_, "") };
+    inline string getTimeMin() const { DARABONBA_PTR_GET_DEFAULT(timeMin_, "") };
     inline ListEventsViewRequest& setTimeMin(string timeMin) { DARABONBA_PTR_SET_VALUE(timeMin_, timeMin) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> calendarId_ = nullptr;
-    std::shared_ptr<int32_t> maxAttendees_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> timeMax_ = nullptr;
-    std::shared_ptr<string> timeMin_ = nullptr;
+    shared_ptr<string> calendarId_ {};
+    shared_ptr<int32_t> maxAttendees_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> timeMax_ {};
+    shared_ptr<string> timeMin_ {};
   };
 
   } // namespace Models

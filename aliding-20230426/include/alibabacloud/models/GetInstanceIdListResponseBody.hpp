@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr && this->vendorRequestId_ == nullptr && this->vendorType_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<string> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<string>) };
-    inline vector<string> data() { DARABONBA_PTR_GET(data_, vector<string>) };
+    inline const vector<string> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<string>) };
+    inline vector<string> getData() { DARABONBA_PTR_GET(data_, vector<string>) };
     inline GetInstanceIdListResponseBody& setData(const vector<string> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline GetInstanceIdListResponseBody& setData(vector<string> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -54,45 +54,45 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline GetInstanceIdListResponseBody& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstanceIdListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline GetInstanceIdListResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
     // vendorRequestId Field Functions 
     bool hasVendorRequestId() const { return this->vendorRequestId_ != nullptr;};
     void deleteVendorRequestId() { this->vendorRequestId_ = nullptr;};
-    inline string vendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
+    inline string getVendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
     inline GetInstanceIdListResponseBody& setVendorRequestId(string vendorRequestId) { DARABONBA_PTR_SET_VALUE(vendorRequestId_, vendorRequestId) };
 
 
     // vendorType Field Functions 
     bool hasVendorType() const { return this->vendorType_ != nullptr;};
     void deleteVendorType() { this->vendorType_ = nullptr;};
-    inline string vendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
+    inline string getVendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
     inline GetInstanceIdListResponseBody& setVendorType(string vendorType) { DARABONBA_PTR_SET_VALUE(vendorType_, vendorType) };
 
 
   protected:
-    std::shared_ptr<vector<string>> data_ = nullptr;
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
-    std::shared_ptr<string> vendorRequestId_ = nullptr;
-    std::shared_ptr<string> vendorType_ = nullptr;
+    shared_ptr<vector<string>> data_ {};
+    shared_ptr<int64_t> pageNumber_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> totalCount_ {};
+    shared_ptr<string> vendorRequestId_ {};
+    shared_ptr<string> vendorType_ {};
   };
 
   } // namespace Models

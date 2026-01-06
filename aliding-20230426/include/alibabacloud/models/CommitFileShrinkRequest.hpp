@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->optionShrink_ == nullptr && return this->parentDentryUuid_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->uploadKey_ == nullptr; };
+        && this->optionShrink_ == nullptr && this->parentDentryUuid_ == nullptr && this->tenantContextShrink_ == nullptr && this->uploadKey_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CommitFileShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // optionShrink Field Functions 
     bool hasOptionShrink() const { return this->optionShrink_ != nullptr;};
     void deleteOptionShrink() { this->optionShrink_ = nullptr;};
-    inline string optionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
+    inline string getOptionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
     inline CommitFileShrinkRequest& setOptionShrink(string optionShrink) { DARABONBA_PTR_SET_VALUE(optionShrink_, optionShrink) };
 
 
     // parentDentryUuid Field Functions 
     bool hasParentDentryUuid() const { return this->parentDentryUuid_ != nullptr;};
     void deleteParentDentryUuid() { this->parentDentryUuid_ = nullptr;};
-    inline string parentDentryUuid() const { DARABONBA_PTR_GET_DEFAULT(parentDentryUuid_, "") };
+    inline string getParentDentryUuid() const { DARABONBA_PTR_GET_DEFAULT(parentDentryUuid_, "") };
     inline CommitFileShrinkRequest& setParentDentryUuid(string parentDentryUuid) { DARABONBA_PTR_SET_VALUE(parentDentryUuid_, parentDentryUuid) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline CommitFileShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // uploadKey Field Functions 
     bool hasUploadKey() const { return this->uploadKey_ != nullptr;};
     void deleteUploadKey() { this->uploadKey_ = nullptr;};
-    inline string uploadKey() const { DARABONBA_PTR_GET_DEFAULT(uploadKey_, "") };
+    inline string getUploadKey() const { DARABONBA_PTR_GET_DEFAULT(uploadKey_, "") };
     inline CommitFileShrinkRequest& setUploadKey(string uploadKey) { DARABONBA_PTR_SET_VALUE(uploadKey_, uploadKey) };
 
 
   protected:
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> optionShrink_ = nullptr;
-    std::shared_ptr<string> parentDentryUuid_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<string> uploadKey_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<string> optionShrink_ {};
+    shared_ptr<string> parentDentryUuid_ {};
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<string> uploadKey_ {};
   };
 
   } // namespace Models

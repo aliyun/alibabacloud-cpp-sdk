@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->dataType_ == nullptr && return this->docKey_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->dataType_ == nullptr && this->docKey_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline DocUpdateContentShrinkRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // dataType Field Functions 
     bool hasDataType() const { return this->dataType_ != nullptr;};
     void deleteDataType() { this->dataType_ = nullptr;};
-    inline string dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
+    inline string getDataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, "") };
     inline DocUpdateContentShrinkRequest& setDataType(string dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
 
 
     // docKey Field Functions 
     bool hasDocKey() const { return this->docKey_ != nullptr;};
     void deleteDocKey() { this->docKey_ = nullptr;};
-    inline string docKey() const { DARABONBA_PTR_GET_DEFAULT(docKey_, "") };
+    inline string getDocKey() const { DARABONBA_PTR_GET_DEFAULT(docKey_, "") };
     inline DocUpdateContentShrinkRequest& setDocKey(string docKey) { DARABONBA_PTR_SET_VALUE(docKey_, docKey) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline DocUpdateContentShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> dataType_ = nullptr;
+    shared_ptr<string> content_ {};
+    shared_ptr<string> dataType_ {};
     // This parameter is required.
-    std::shared_ptr<string> docKey_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> docKey_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

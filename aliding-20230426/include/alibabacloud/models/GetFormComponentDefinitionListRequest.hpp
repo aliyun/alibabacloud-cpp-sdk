@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->formUuid_ == nullptr && return this->language_ == nullptr && return this->systemToken_ == nullptr; };
+        && this->formUuid_ == nullptr && this->language_ == nullptr && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline GetFormComponentDefinitionListRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // formUuid Field Functions 
     bool hasFormUuid() const { return this->formUuid_ != nullptr;};
     void deleteFormUuid() { this->formUuid_ = nullptr;};
-    inline string formUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
+    inline string getFormUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
     inline GetFormComponentDefinitionListRequest& setFormUuid(string formUuid) { DARABONBA_PTR_SET_VALUE(formUuid_, formUuid) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline GetFormComponentDefinitionListRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline GetFormComponentDefinitionListRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
+    shared_ptr<string> appType_ {};
     // This parameter is required.
-    std::shared_ptr<string> formUuid_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> formUuid_ {};
+    shared_ptr<string> language_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models

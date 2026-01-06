@@ -52,41 +52,41 @@ AddAttendeeResponse Client::addAttendeeWithOptions(const AddAttendeeRequest &tmp
   AddAttendeeShrinkHeaders headers = AddAttendeeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasAttendeesToAdd()) {
-    request.setAttendeesToAddShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.attendeesToAdd(), "AttendeesToAdd", "json"));
+    request.setAttendeesToAddShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttendeesToAdd(), "AttendeesToAdd", "json"));
   }
 
   json body = {};
   if (!!request.hasAttendeesToAddShrink()) {
-    body["AttendeesToAdd"] = request.attendeesToAddShrink();
+    body["AttendeesToAdd"] = request.getAttendeesToAddShrink();
   }
 
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   if (!!request.hasChatNotification()) {
-    body["chatNotification"] = request.chatNotification();
+    body["chatNotification"] = request.getChatNotification();
   }
 
   if (!!request.hasPushNotification()) {
-    body["pushNotification"] = request.pushNotification();
+    body["pushNotification"] = request.getPushNotification();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -134,29 +134,29 @@ AddDriveSpaceResponse Client::addDriveSpaceWithOptions(const AddDriveSpaceReques
   AddDriveSpaceShrinkHeaders headers = AddDriveSpaceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -204,45 +204,45 @@ AddFolderResponse Client::addFolderWithOptions(const AddFolderRequest &tmpReq, c
   AddFolderShrinkHeaders headers = AddFolderShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasParentId()) {
-    body["ParentId"] = request.parentId();
+    body["ParentId"] = request.getParentId();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -290,33 +290,33 @@ AddMeetingRoomsResponse Client::addMeetingRoomsWithOptions(const AddMeetingRooms
   AddMeetingRoomsShrinkHeaders headers = AddMeetingRoomsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMeetingRoomsToAdd()) {
-    request.setMeetingRoomsToAddShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.meetingRoomsToAdd(), "MeetingRoomsToAdd", "json"));
+    request.setMeetingRoomsToAddShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMeetingRoomsToAdd(), "MeetingRoomsToAdd", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   if (!!request.hasMeetingRoomsToAddShrink()) {
-    body["MeetingRoomsToAdd"] = request.meetingRoomsToAddShrink();
+    body["MeetingRoomsToAdd"] = request.getMeetingRoomsToAddShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -364,41 +364,41 @@ AddMultiDimTableResponse Client::addMultiDimTableWithOptions(const AddMultiDimTa
   AddMultiDimTableShrinkHeaders headers = AddMultiDimTableShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasFields()) {
-    request.setFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.fields(), "Fields", "json"));
+    request.setFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFields(), "Fields", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasFieldsShrink()) {
-    body["Fields"] = request.fieldsShrink();
+    body["Fields"] = request.getFieldsShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -446,49 +446,49 @@ AddPermissionResponse Client::addPermissionWithOptions(const AddPermissionReques
   AddPermissionShrinkHeaders headers = AddPermissionShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasRoleId()) {
-    body["RoleId"] = request.roleId();
+    body["RoleId"] = request.getRoleId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -536,37 +536,37 @@ AddRecordPermissionResponse Client::addRecordPermissionWithOptions(const AddReco
   AddRecordPermissionShrinkHeaders headers = AddRecordPermissionShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBizType()) {
-    body["BizType"] = request.bizType();
+    body["BizType"] = request.getBizType();
   }
 
   if (!!request.hasConferenceId()) {
-    body["ConferenceId"] = request.conferenceId();
+    body["ConferenceId"] = request.getConferenceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -612,25 +612,25 @@ AddScenegroupMemberResponse Client::addScenegroupMemberWithOptions(const AddScen
   AddScenegroupMemberShrinkHeaders headers = AddScenegroupMemberShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenConversationId()) {
-    body["OpenConversationId"] = request.openConversationId();
+    body["OpenConversationId"] = request.getOpenConversationId();
   }
 
   if (!!request.hasUserIds()) {
-    body["UserIds"] = request.userIds();
+    body["UserIds"] = request.getUserIds();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -678,41 +678,41 @@ AddTicketMemoResponse Client::addTicketMemoWithOptions(const AddTicketMemoReques
   AddTicketMemoShrinkHeaders headers = AddTicketMemoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasTicketMemo()) {
-    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo(), "TicketMemo", "json"));
+    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTicketMemo(), "TicketMemo", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenTeamId()) {
-    body["OpenTeamId"] = request.openTeamId();
+    body["OpenTeamId"] = request.getOpenTeamId();
   }
 
   if (!!request.hasOpenTicketId()) {
-    body["OpenTicketId"] = request.openTicketId();
+    body["OpenTicketId"] = request.getOpenTicketId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTicketMemoShrink()) {
-    body["TicketMemo"] = request.ticketMemoShrink();
+    body["TicketMemo"] = request.getTicketMemoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -760,37 +760,37 @@ AddWorkspaceResponse Client::addWorkspaceWithOptions(const AddWorkspaceRequest &
   AddWorkspaceShrinkHeaders headers = AddWorkspaceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -838,41 +838,41 @@ AddWorkspaceDocMembersResponse Client::addWorkspaceDocMembersWithOptions(const A
   AddWorkspaceDocMembersShrinkHeaders headers = AddWorkspaceDocMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasNodeId()) {
-    body["NodeId"] = request.nodeId();
+    body["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -920,37 +920,37 @@ AddWorkspaceMembersResponse Client::addWorkspaceMembersWithOptions(const AddWork
   AddWorkspaceMembersShrinkHeaders headers = AddWorkspaceMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -998,57 +998,57 @@ AssignTicketResponse Client::assignTicketWithOptions(const AssignTicketRequest &
   AssignTicketShrinkHeaders headers = AssignTicketShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasNotify()) {
-    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notify(), "Notify", "json"));
+    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotify(), "Notify", "json"));
   }
 
   if (!!tmpReq.hasProcessorUserIds()) {
-    request.setProcessorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.processorUserIds(), "ProcessorUserIds", "json"));
+    request.setProcessorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProcessorUserIds(), "ProcessorUserIds", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasTicketMemo()) {
-    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo(), "TicketMemo", "json"));
+    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTicketMemo(), "TicketMemo", "json"));
   }
 
   json body = {};
   if (!!request.hasNotifyShrink()) {
-    body["Notify"] = request.notifyShrink();
+    body["Notify"] = request.getNotifyShrink();
   }
 
   if (!!request.hasOpenTeamId()) {
-    body["OpenTeamId"] = request.openTeamId();
+    body["OpenTeamId"] = request.getOpenTeamId();
   }
 
   if (!!request.hasOpenTicketId()) {
-    body["OpenTicketId"] = request.openTicketId();
+    body["OpenTicketId"] = request.getOpenTicketId();
   }
 
   if (!!request.hasProcessorUserIdsShrink()) {
-    body["ProcessorUserIds"] = request.processorUserIdsShrink();
+    body["ProcessorUserIds"] = request.getProcessorUserIdsShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTicketMemoShrink()) {
-    body["TicketMemo"] = request.ticketMemoShrink();
+    body["TicketMemo"] = request.getTicketMemoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1096,25 +1096,25 @@ AuthorizeSkillResponse Client::authorizeSkillWithOptions(const AuthorizeSkillReq
   AuthorizeSkillShrinkHeaders headers = AuthorizeSkillShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasPermissionCodes()) {
-    request.setPermissionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.permissionCodes(), "PermissionCodes", "json"));
+    request.setPermissionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPermissionCodes(), "PermissionCodes", "json"));
   }
 
   json body = {};
   if (!!request.hasPermissionCodesShrink()) {
-    body["PermissionCodes"] = request.permissionCodesShrink();
+    body["PermissionCodes"] = request.getPermissionCodesShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1162,41 +1162,41 @@ BatchGetFormDataByIdListResponse Client::batchGetFormDataByIdListWithOptions(con
   BatchGetFormDataByIdListShrinkHeaders headers = BatchGetFormDataByIdListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasFormInstanceIdList()) {
-    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.formInstanceIdList(), "FormInstanceIdList", "json"));
+    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFormInstanceIdList(), "FormInstanceIdList", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormInstanceIdListShrink()) {
-    body["FormInstanceIdList"] = request.formInstanceIdListShrink();
+    body["FormInstanceIdList"] = request.getFormInstanceIdListShrink();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasNeedFormInstanceValue()) {
-    body["NeedFormInstanceValue"] = request.needFormInstanceValue();
+    body["NeedFormInstanceValue"] = request.getNeedFormInstanceValue();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1244,45 +1244,45 @@ BatchRemovalByFormInstanceIdListResponse Client::batchRemovalByFormInstanceIdLis
   BatchRemovalByFormInstanceIdListShrinkHeaders headers = BatchRemovalByFormInstanceIdListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasFormInstanceIdList()) {
-    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.formInstanceIdList(), "FormInstanceIdList", "json"));
+    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFormInstanceIdList(), "FormInstanceIdList", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasAsynchronousExecution()) {
-    body["AsynchronousExecution"] = request.asynchronousExecution();
+    body["AsynchronousExecution"] = request.getAsynchronousExecution();
   }
 
   if (!!request.hasExecuteExpression()) {
-    body["ExecuteExpression"] = request.executeExpression();
+    body["ExecuteExpression"] = request.getExecuteExpression();
   }
 
   if (!!request.hasFormInstanceIdListShrink()) {
-    body["FormInstanceIdList"] = request.formInstanceIdListShrink();
+    body["FormInstanceIdList"] = request.getFormInstanceIdListShrink();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1330,49 +1330,49 @@ BatchSaveFormDataResponse Client::batchSaveFormDataWithOptions(const BatchSaveFo
   BatchSaveFormDataShrinkHeaders headers = BatchSaveFormDataShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasFormDataJsonList()) {
-    request.setFormDataJsonListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.formDataJsonList(), "FormDataJsonList", "json"));
+    request.setFormDataJsonListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFormDataJsonList(), "FormDataJsonList", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasAsynchronousExecution()) {
-    body["AsynchronousExecution"] = request.asynchronousExecution();
+    body["AsynchronousExecution"] = request.getAsynchronousExecution();
   }
 
   if (!!request.hasFormDataJsonListShrink()) {
-    body["FormDataJsonList"] = request.formDataJsonListShrink();
+    body["FormDataJsonList"] = request.getFormDataJsonListShrink();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasKeepRunningAfterException()) {
-    body["KeepRunningAfterException"] = request.keepRunningAfterException();
+    body["KeepRunningAfterException"] = request.getKeepRunningAfterException();
   }
 
   if (!!request.hasNoExecuteExpression()) {
-    body["NoExecuteExpression"] = request.noExecuteExpression();
+    body["NoExecuteExpression"] = request.getNoExecuteExpression();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1420,57 +1420,57 @@ BatchUpdateFormDataByInstanceIdResponse Client::batchUpdateFormDataByInstanceIdW
   BatchUpdateFormDataByInstanceIdShrinkHeaders headers = BatchUpdateFormDataByInstanceIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasFormInstanceIdList()) {
-    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.formInstanceIdList(), "FormInstanceIdList", "json"));
+    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFormInstanceIdList(), "FormInstanceIdList", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasAsynchronousExecution()) {
-    body["AsynchronousExecution"] = request.asynchronousExecution();
+    body["AsynchronousExecution"] = request.getAsynchronousExecution();
   }
 
   if (!!request.hasFormInstanceIdListShrink()) {
-    body["FormInstanceIdList"] = request.formInstanceIdListShrink();
+    body["FormInstanceIdList"] = request.getFormInstanceIdListShrink();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasIgnoreEmpty()) {
-    body["IgnoreEmpty"] = request.ignoreEmpty();
+    body["IgnoreEmpty"] = request.getIgnoreEmpty();
   }
 
   if (!!request.hasNoExecuteExpression()) {
-    body["NoExecuteExpression"] = request.noExecuteExpression();
+    body["NoExecuteExpression"] = request.getNoExecuteExpression();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasUpdateFormDataJson()) {
-    body["UpdateFormDataJson"] = request.updateFormDataJson();
+    body["UpdateFormDataJson"] = request.getUpdateFormDataJson();
   }
 
   if (!!request.hasUseLatestFormSchemaVersion()) {
-    body["UseLatestFormSchemaVersion"] = request.useLatestFormSchemaVersion();
+    body["UseLatestFormSchemaVersion"] = request.getUseLatestFormSchemaVersion();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1518,53 +1518,53 @@ BatchUpdateFormDataByInstanceMapResponse Client::batchUpdateFormDataByInstanceMa
   BatchUpdateFormDataByInstanceMapShrinkHeaders headers = BatchUpdateFormDataByInstanceMapShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasUpdateFormDataJsonMap()) {
-    request.setUpdateFormDataJsonMapShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateFormDataJsonMap(), "UpdateFormDataJsonMap", "json"));
+    request.setUpdateFormDataJsonMapShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateFormDataJsonMap(), "UpdateFormDataJsonMap", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasAsynchronousExecution()) {
-    body["AsynchronousExecution"] = request.asynchronousExecution();
+    body["AsynchronousExecution"] = request.getAsynchronousExecution();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasIgnoreEmpty()) {
-    body["IgnoreEmpty"] = request.ignoreEmpty();
+    body["IgnoreEmpty"] = request.getIgnoreEmpty();
   }
 
   if (!!request.hasNoExecuteExpression()) {
-    body["NoExecuteExpression"] = request.noExecuteExpression();
+    body["NoExecuteExpression"] = request.getNoExecuteExpression();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasUpdateFormDataJsonMapShrink()) {
-    body["UpdateFormDataJsonMap"] = request.updateFormDataJsonMapShrink();
+    body["UpdateFormDataJsonMap"] = request.getUpdateFormDataJsonMapShrink();
   }
 
   if (!!request.hasUseLatestFormSchemaVersion()) {
-    body["UseLatestFormSchemaVersion"] = request.useLatestFormSchemaVersion();
+    body["UseLatestFormSchemaVersion"] = request.getUseLatestFormSchemaVersion();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1612,29 +1612,29 @@ CancelScheduleConferenceResponse Client::cancelScheduleConferenceWithOptions(con
   CancelScheduleConferenceShrinkHeaders headers = CancelScheduleConferenceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasScheduleConferenceId()) {
-    body["ScheduleConferenceId"] = request.scheduleConferenceId();
+    body["ScheduleConferenceId"] = request.getScheduleConferenceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1682,29 +1682,29 @@ ChangeDingTalkIdResponse Client::changeDingTalkIdWithOptions(const ChangeDingTal
   ChangeDingTalkIdShrinkHeaders headers = ChangeDingTalkIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDingTalkId()) {
-    body["DingTalkId"] = request.dingTalkId();
+    body["DingTalkId"] = request.getDingTalkId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1752,29 +1752,29 @@ CheckAlibabaStaffResponse Client::checkAlibabaStaffWithOptions(const CheckAlibab
   CheckAlibabaStaffShrinkHeaders headers = CheckAlibabaStaffShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMobile()) {
-    body["Mobile"] = request.mobile();
+    body["Mobile"] = request.getMobile();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1820,21 +1820,21 @@ CheckUserIsGroupMemberResponse Client::checkUserIsGroupMemberWithOptions(const C
   CheckUserIsGroupMemberShrinkHeaders headers = CheckUserIsGroupMemberShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenConversationId()) {
-    body["OpenConversationId"] = request.openConversationId();
+    body["OpenConversationId"] = request.getOpenConversationId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1882,37 +1882,37 @@ ClearResponse Client::clearWithOptions(const ClearRequest &tmpReq, const ClearHe
   ClearShrinkHeaders headers = ClearShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRangeAddress()) {
-    body["RangeAddress"] = request.rangeAddress();
+    body["RangeAddress"] = request.getRangeAddress();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1960,37 +1960,37 @@ ClearDataResponse Client::clearDataWithOptions(const ClearDataRequest &tmpReq, c
   ClearDataShrinkHeaders headers = ClearDataShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRangeAddress()) {
-    body["RangeAddress"] = request.rangeAddress();
+    body["RangeAddress"] = request.getRangeAddress();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2038,29 +2038,29 @@ CloseVideoConferenceResponse Client::closeVideoConferenceWithOptions(const Close
   CloseVideoConferenceShrinkHeaders headers = CloseVideoConferenceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2108,37 +2108,37 @@ CommentListReportResponse Client::commentListReportWithOptions(const CommentList
   CommentListReportShrinkHeaders headers = CommentListReportShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOffset()) {
-    body["Offset"] = request.offset();
+    body["Offset"] = request.getOffset();
   }
 
   if (!!request.hasReportId()) {
-    body["ReportId"] = request.reportId();
+    body["ReportId"] = request.getReportId();
   }
 
   if (!!request.hasSize()) {
-    body["Size"] = request.size();
+    body["Size"] = request.getSize();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2186,45 +2186,45 @@ CommitFileResponse Client::commitFileWithOptions(const CommitFileRequest &tmpReq
   CommitFileShrinkHeaders headers = CommitFileShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasParentDentryUuid()) {
-    body["ParentDentryUuid"] = request.parentDentryUuid();
+    body["ParentDentryUuid"] = request.getParentDentryUuid();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUploadKey()) {
-    body["UploadKey"] = request.uploadKey();
+    body["UploadKey"] = request.getUploadKey();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2272,53 +2272,53 @@ CopyDentryResponse Client::copyDentryWithOptions(const CopyDentryRequest &tmpReq
   CopyDentryShrinkHeaders headers = CopyDentryShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryId()) {
-    body["DentryId"] = request.dentryId();
+    body["DentryId"] = request.getDentryId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTargetSpaceId()) {
-    body["TargetSpaceId"] = request.targetSpaceId();
+    body["TargetSpaceId"] = request.getTargetSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasToNextDentryId()) {
-    body["ToNextDentryId"] = request.toNextDentryId();
+    body["ToNextDentryId"] = request.getToNextDentryId();
   }
 
   if (!!request.hasToParentDentryId()) {
-    body["ToParentDentryId"] = request.toParentDentryId();
+    body["ToParentDentryId"] = request.getToParentDentryId();
   }
 
   if (!!request.hasToPrevDentryId()) {
-    body["ToPrevDentryId"] = request.toPrevDentryId();
+    body["ToPrevDentryId"] = request.getToPrevDentryId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2366,45 +2366,45 @@ CopyDentryByNodeIdResponse Client::copyDentryByNodeIdWithOptions(const CopyDentr
   CopyDentryByNodeIdShrinkHeaders headers = CopyDentryByNodeIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasToNextNodeId()) {
-    body["ToNextNodeId"] = request.toNextNodeId();
+    body["ToNextNodeId"] = request.getToNextNodeId();
   }
 
   if (!!request.hasToParentNodeId()) {
-    body["ToParentNodeId"] = request.toParentNodeId();
+    body["ToParentNodeId"] = request.getToParentNodeId();
   }
 
   if (!!request.hasToPrevNodeId()) {
-    body["ToPrevNodeId"] = request.toPrevNodeId();
+    body["ToPrevNodeId"] = request.getToPrevNodeId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2450,73 +2450,73 @@ CreateAlidingAssistantResponse Client::createAlidingAssistantWithOptions(const C
   CreateAlidingAssistantShrinkHeaders headers = CreateAlidingAssistantShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "Ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "Ext", "json"));
   }
 
   if (!!tmpReq.hasRecommendPrompts()) {
-    request.setRecommendPromptsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recommendPrompts(), "RecommendPrompts", "json"));
+    request.setRecommendPromptsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecommendPrompts(), "RecommendPrompts", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppCode()) {
-    body["AppCode"] = request.appCode();
+    body["AppCode"] = request.getAppCode();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasExtShrink()) {
-    body["Ext"] = request.extShrink();
+    body["Ext"] = request.getExtShrink();
   }
 
   if (!!request.hasIcon()) {
-    body["Icon"] = request.icon();
+    body["Icon"] = request.getIcon();
   }
 
   if (!!request.hasInstructions()) {
-    body["Instructions"] = request.instructions();
+    body["Instructions"] = request.getInstructions();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRecommendPromptsShrink()) {
-    body["RecommendPrompts"] = request.recommendPromptsShrink();
+    body["RecommendPrompts"] = request.getRecommendPromptsShrink();
   }
 
   if (!!request.hasSource()) {
-    body["Source"] = request.source();
+    body["Source"] = request.getSource();
   }
 
   if (!!request.hasSourceIdentityId()) {
-    body["SourceIdentityId"] = request.sourceIdentityId();
+    body["SourceIdentityId"] = request.getSourceIdentityId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWelcomeContent()) {
-    body["WelcomeContent"] = request.welcomeContent();
+    body["WelcomeContent"] = request.getWelcomeContent();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2562,53 +2562,53 @@ CreateDeliveryPlanResponse Client::createDeliveryPlanWithOptions(const CreateDel
   CreateDeliveryPlanShrinkHeaders headers = CreateDeliveryPlanShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasContent()) {
-    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.content(), "Content", "json"));
+    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContent(), "Content", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasUserIdList()) {
-    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIdList(), "UserIdList", "json"));
+    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIdList(), "UserIdList", "json"));
   }
 
   json body = {};
   if (!!request.hasContentShrink()) {
-    body["Content"] = request.contentShrink();
+    body["Content"] = request.getContentShrink();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasResId()) {
-    body["ResId"] = request.resId();
+    body["ResId"] = request.getResId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserIdListShrink()) {
-    body["UserIdList"] = request.userIdListShrink();
+    body["UserIdList"] = request.getUserIdListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2656,65 +2656,65 @@ CreateDingtalkPersonalTodoTaskResponse Client::createDingtalkPersonalTodoTaskWit
   CreateDingtalkPersonalTodoTaskShrinkHeaders headers = CreateDingtalkPersonalTodoTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasExecutorIds()) {
-    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executorIds(), "ExecutorIds", "json"));
+    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutorIds(), "ExecutorIds", "json"));
   }
 
   if (!!tmpReq.hasNotifyConfigs()) {
-    request.setNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifyConfigs(), "NotifyConfigs", "json"));
+    request.setNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotifyConfigs(), "NotifyConfigs", "json"));
   }
 
   if (!!tmpReq.hasParticipantIds()) {
-    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.participantIds(), "ParticipantIds", "json"));
+    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParticipantIds(), "ParticipantIds", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDueTime()) {
-    body["DueTime"] = request.dueTime();
+    body["DueTime"] = request.getDueTime();
   }
 
   if (!!request.hasExecutorIdsShrink()) {
-    body["ExecutorIds"] = request.executorIdsShrink();
+    body["ExecutorIds"] = request.getExecutorIdsShrink();
   }
 
   if (!!request.hasNotifyConfigsShrink()) {
-    body["NotifyConfigs"] = request.notifyConfigsShrink();
+    body["NotifyConfigs"] = request.getNotifyConfigsShrink();
   }
 
   if (!!request.hasParticipantIdsShrink()) {
-    body["ParticipantIds"] = request.participantIdsShrink();
+    body["ParticipantIds"] = request.getParticipantIdsShrink();
   }
 
   if (!!request.hasSubject()) {
-    body["Subject"] = request.subject();
+    body["Subject"] = request.getSubject();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserToken()) {
-    body["UserToken"] = request.userToken();
+    body["UserToken"] = request.getUserToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2762,121 +2762,121 @@ CreateEventResponse Client::createEventWithOptions(const CreateEventRequest &tmp
   CreateEventShrinkHeaders headers = CreateEventShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasAttendees()) {
-    request.setAttendeesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.attendees(), "Attendees", "json"));
+    request.setAttendeesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttendees(), "Attendees", "json"));
   }
 
   if (!!tmpReq.hasCardInstances()) {
-    request.setCardInstancesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cardInstances(), "CardInstances", "json"));
+    request.setCardInstancesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCardInstances(), "CardInstances", "json"));
   }
 
   if (!!tmpReq.hasEnd()) {
-    request.setEndShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.end(), "End", "json"));
+    request.setEndShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnd(), "End", "json"));
   }
 
   if (!!tmpReq.hasExtra()) {
-    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extra(), "Extra", "json"));
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "Extra", "json"));
   }
 
   if (!!tmpReq.hasLocation()) {
-    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.location(), "Location", "json"));
+    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLocation(), "Location", "json"));
   }
 
   if (!!tmpReq.hasOnlineMeetingInfo()) {
-    request.setOnlineMeetingInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.onlineMeetingInfo(), "OnlineMeetingInfo", "json"));
+    request.setOnlineMeetingInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOnlineMeetingInfo(), "OnlineMeetingInfo", "json"));
   }
 
   if (!!tmpReq.hasRecurrence()) {
-    request.setRecurrenceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recurrence(), "Recurrence", "json"));
+    request.setRecurrenceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecurrence(), "Recurrence", "json"));
   }
 
   if (!!tmpReq.hasReminders()) {
-    request.setRemindersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.reminders(), "Reminders", "json"));
+    request.setRemindersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReminders(), "Reminders", "json"));
   }
 
   if (!!tmpReq.hasRichTextDescription()) {
-    request.setRichTextDescriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.richTextDescription(), "RichTextDescription", "json"));
+    request.setRichTextDescriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRichTextDescription(), "RichTextDescription", "json"));
   }
 
   if (!!tmpReq.hasUiConfigs()) {
-    request.setUiConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.uiConfigs(), "UiConfigs", "json"));
+    request.setUiConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUiConfigs(), "UiConfigs", "json"));
   }
 
   if (!!tmpReq.hasStart()) {
-    request.setStartShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.start(), "start", "json"));
+    request.setStartShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStart(), "start", "json"));
   }
 
   json body = {};
   if (!!request.hasAttendeesShrink()) {
-    body["Attendees"] = request.attendeesShrink();
+    body["Attendees"] = request.getAttendeesShrink();
   }
 
   if (!!request.hasCardInstancesShrink()) {
-    body["CardInstances"] = request.cardInstancesShrink();
+    body["CardInstances"] = request.getCardInstancesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEndShrink()) {
-    body["End"] = request.endShrink();
+    body["End"] = request.getEndShrink();
   }
 
   if (!!request.hasExtraShrink()) {
-    body["Extra"] = request.extraShrink();
+    body["Extra"] = request.getExtraShrink();
   }
 
   if (!!request.hasIsAllDay()) {
-    body["IsAllDay"] = request.isAllDay();
+    body["IsAllDay"] = request.getIsAllDay();
   }
 
   if (!!request.hasLocationShrink()) {
-    body["Location"] = request.locationShrink();
+    body["Location"] = request.getLocationShrink();
   }
 
   if (!!request.hasOnlineMeetingInfoShrink()) {
-    body["OnlineMeetingInfo"] = request.onlineMeetingInfoShrink();
+    body["OnlineMeetingInfo"] = request.getOnlineMeetingInfoShrink();
   }
 
   if (!!request.hasRecurrenceShrink()) {
-    body["Recurrence"] = request.recurrenceShrink();
+    body["Recurrence"] = request.getRecurrenceShrink();
   }
 
   if (!!request.hasRemindersShrink()) {
-    body["Reminders"] = request.remindersShrink();
+    body["Reminders"] = request.getRemindersShrink();
   }
 
   if (!!request.hasRichTextDescriptionShrink()) {
-    body["RichTextDescription"] = request.richTextDescriptionShrink();
+    body["RichTextDescription"] = request.getRichTextDescriptionShrink();
   }
 
   if (!!request.hasSummary()) {
-    body["Summary"] = request.summary();
+    body["Summary"] = request.getSummary();
   }
 
   if (!!request.hasUiConfigsShrink()) {
-    body["UiConfigs"] = request.uiConfigsShrink();
+    body["UiConfigs"] = request.getUiConfigsShrink();
   }
 
   if (!!request.hasCalendarId()) {
-    body["calendarId"] = request.calendarId();
+    body["calendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasStartShrink()) {
-    body["start"] = request.startShrink();
+    body["start"] = request.getStartShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2924,49 +2924,49 @@ CreateLiveResponse Client::createLiveWithOptions(const CreateLiveRequest &tmpReq
   CreateLiveShrinkHeaders headers = CreateLiveShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCoverUrl()) {
-    body["CoverUrl"] = request.coverUrl();
+    body["CoverUrl"] = request.getCoverUrl();
   }
 
   if (!!request.hasIntroduction()) {
-    body["Introduction"] = request.introduction();
+    body["Introduction"] = request.getIntroduction();
   }
 
   if (!!request.hasPreEndTime()) {
-    body["PreEndTime"] = request.preEndTime();
+    body["PreEndTime"] = request.getPreEndTime();
   }
 
   if (!!request.hasPreStartTime()) {
-    body["PreStartTime"] = request.preStartTime();
+    body["PreStartTime"] = request.getPreStartTime();
   }
 
   if (!!request.hasPublicType()) {
-    body["PublicType"] = request.publicType();
+    body["PublicType"] = request.getPublicType();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3014,77 +3014,77 @@ CreateMeetingRoomResponse Client::createMeetingRoomWithOptions(const CreateMeeti
   CreateMeetingRoomShrinkHeaders headers = CreateMeetingRoomShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasReservationAuthority()) {
-    request.setReservationAuthorityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.reservationAuthority(), "ReservationAuthority", "json"));
+    request.setReservationAuthorityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReservationAuthority(), "ReservationAuthority", "json"));
   }
 
   if (!!tmpReq.hasRoomLabelIds()) {
-    request.setRoomLabelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roomLabelIds(), "RoomLabelIds", "json"));
+    request.setRoomLabelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoomLabelIds(), "RoomLabelIds", "json"));
   }
 
   if (!!tmpReq.hasRoomLocation()) {
-    request.setRoomLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roomLocation(), "RoomLocation", "json"));
+    request.setRoomLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoomLocation(), "RoomLocation", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasEnableCycleReservation()) {
-    body["EnableCycleReservation"] = request.enableCycleReservation();
+    body["EnableCycleReservation"] = request.getEnableCycleReservation();
   }
 
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasIsvRoomId()) {
-    body["IsvRoomId"] = request.isvRoomId();
+    body["IsvRoomId"] = request.getIsvRoomId();
   }
 
   if (!!request.hasReservationAuthorityShrink()) {
-    body["ReservationAuthority"] = request.reservationAuthorityShrink();
+    body["ReservationAuthority"] = request.getReservationAuthorityShrink();
   }
 
   if (!!request.hasRoomCapacity()) {
-    body["RoomCapacity"] = request.roomCapacity();
+    body["RoomCapacity"] = request.getRoomCapacity();
   }
 
   if (!!request.hasRoomLabelIdsShrink()) {
-    body["RoomLabelIds"] = request.roomLabelIdsShrink();
+    body["RoomLabelIds"] = request.getRoomLabelIdsShrink();
   }
 
   if (!!request.hasRoomLocationShrink()) {
-    body["RoomLocation"] = request.roomLocationShrink();
+    body["RoomLocation"] = request.getRoomLocationShrink();
   }
 
   if (!!request.hasRoomName()) {
-    body["RoomName"] = request.roomName();
+    body["RoomName"] = request.getRoomName();
   }
 
   if (!!request.hasRoomPicture()) {
-    body["RoomPicture"] = request.roomPicture();
+    body["RoomPicture"] = request.getRoomPicture();
   }
 
   if (!!request.hasRoomStatus()) {
-    body["RoomStatus"] = request.roomStatus();
+    body["RoomStatus"] = request.getRoomStatus();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3132,33 +3132,33 @@ CreateMeetingRoomGroupResponse Client::createMeetingRoomGroupWithOptions(const C
   CreateMeetingRoomGroupShrinkHeaders headers = CreateMeetingRoomGroupShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasGroupName()) {
-    body["GroupName"] = request.groupName();
+    body["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasParentGroupId()) {
-    body["ParentGroupId"] = request.parentGroupId();
+    body["ParentGroupId"] = request.getParentGroupId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3203,40 +3203,40 @@ CreateMessageResponse Client::createMessageWithOptions(const CreateMessageReques
   request.validate();
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasMessages()) {
-    body["messages"] = request.messages();
+    body["messages"] = request.getMessages();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   if (!!request.hasThreadId()) {
-    body["threadId"] = request.threadId();
+    body["threadId"] = request.getThreadId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3284,49 +3284,49 @@ CreateMultiDimTableFieldResponse Client::createMultiDimTableFieldWithOptions(con
   CreateMultiDimTableFieldShrinkHeaders headers = CreateMultiDimTableFieldShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasProperty()) {
-    request.setPropertyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.property(), "Property", "json"));
+    request.setPropertyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProperty(), "Property", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPropertyShrink()) {
-    body["Property"] = request.propertyShrink();
+    body["Property"] = request.getPropertyShrink();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3372,45 +3372,45 @@ CreateOrUpdateFormDataResponse Client::createOrUpdateFormDataWithOptions(const C
   CreateOrUpdateFormDataShrinkHeaders headers = CreateOrUpdateFormDataShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormDataJson()) {
-    body["FormDataJson"] = request.formDataJson();
+    body["FormDataJson"] = request.getFormDataJson();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasNoExecuteExpression()) {
-    body["NoExecuteExpression"] = request.noExecuteExpression();
+    body["NoExecuteExpression"] = request.getNoExecuteExpression();
   }
 
   if (!!request.hasSearchCondition()) {
-    body["SearchCondition"] = request.searchCondition();
+    body["SearchCondition"] = request.getSearchCondition();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3458,53 +3458,53 @@ CreateOrgHonorTemplateResponse Client::createOrgHonorTemplateWithOptions(const C
   CreateOrgHonorTemplateShrinkHeaders headers = CreateOrgHonorTemplateShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasAvatarFrameMediaId()) {
-    body["avatarFrameMediaId"] = request.avatarFrameMediaId();
+    body["avatarFrameMediaId"] = request.getAvatarFrameMediaId();
   }
 
   if (!!request.hasDefaultBgColor()) {
-    body["defaultBgColor"] = request.defaultBgColor();
+    body["defaultBgColor"] = request.getDefaultBgColor();
   }
 
   if (!!request.hasMedalDesc()) {
-    body["medalDesc"] = request.medalDesc();
+    body["medalDesc"] = request.getMedalDesc();
   }
 
   if (!!request.hasMedalMediaId()) {
-    body["medalMediaId"] = request.medalMediaId();
+    body["medalMediaId"] = request.getMedalMediaId();
   }
 
   if (!!request.hasMedalName()) {
-    body["medalName"] = request.medalName();
+    body["medalName"] = request.getMedalName();
   }
 
   if (!!request.hasOrgId()) {
-    body["orgId"] = request.orgId();
+    body["orgId"] = request.getOrgId();
   }
 
   if (!!request.hasUserId()) {
-    body["userId"] = request.userId();
+    body["userId"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3552,65 +3552,65 @@ CreatePersonalTodoTaskResponse Client::createPersonalTodoTaskWithOptions(const C
   CreatePersonalTodoTaskShrinkHeaders headers = CreatePersonalTodoTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasExecutorIds()) {
-    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executorIds(), "ExecutorIds", "json"));
+    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutorIds(), "ExecutorIds", "json"));
   }
 
   if (!!tmpReq.hasNotifyConfigs()) {
-    request.setNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifyConfigs(), "NotifyConfigs", "json"));
+    request.setNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotifyConfigs(), "NotifyConfigs", "json"));
   }
 
   if (!!tmpReq.hasParticipantIds()) {
-    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.participantIds(), "ParticipantIds", "json"));
+    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParticipantIds(), "ParticipantIds", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDueTime()) {
-    body["DueTime"] = request.dueTime();
+    body["DueTime"] = request.getDueTime();
   }
 
   if (!!request.hasExecutorIdsShrink()) {
-    body["ExecutorIds"] = request.executorIdsShrink();
+    body["ExecutorIds"] = request.getExecutorIdsShrink();
   }
 
   if (!!request.hasNotifyConfigsShrink()) {
-    body["NotifyConfigs"] = request.notifyConfigsShrink();
+    body["NotifyConfigs"] = request.getNotifyConfigsShrink();
   }
 
   if (!!request.hasParticipantIdsShrink()) {
-    body["ParticipantIds"] = request.participantIdsShrink();
+    body["ParticipantIds"] = request.getParticipantIdsShrink();
   }
 
   if (!!request.hasReminderTimeStamp()) {
-    body["ReminderTimeStamp"] = request.reminderTimeStamp();
+    body["ReminderTimeStamp"] = request.getReminderTimeStamp();
   }
 
   if (!!request.hasSubject()) {
-    body["Subject"] = request.subject();
+    body["Subject"] = request.getSubject();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3658,61 +3658,61 @@ CreateReportResponse Client::createReportWithOptions(const CreateReportRequest &
   CreateReportShrinkHeaders headers = CreateReportShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasContents()) {
-    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contents(), "Contents", "json"));
+    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContents(), "Contents", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasToCids()) {
-    request.setToCidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.toCids(), "ToCids", "json"));
+    request.setToCidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getToCids(), "ToCids", "json"));
   }
 
   if (!!tmpReq.hasToUserids()) {
-    request.setToUseridsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.toUserids(), "ToUserids", "json"));
+    request.setToUseridsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getToUserids(), "ToUserids", "json"));
   }
 
   json body = {};
   if (!!request.hasContentsShrink()) {
-    body["Contents"] = request.contentsShrink();
+    body["Contents"] = request.getContentsShrink();
   }
 
   if (!!request.hasDdFrom()) {
-    body["DdFrom"] = request.ddFrom();
+    body["DdFrom"] = request.getDdFrom();
   }
 
   if (!!request.hasTemplateId()) {
-    body["TemplateId"] = request.templateId();
+    body["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasToChat()) {
-    body["ToChat"] = request.toChat();
+    body["ToChat"] = request.getToChat();
   }
 
   if (!!request.hasToCidsShrink()) {
-    body["ToCids"] = request.toCidsShrink();
+    body["ToCids"] = request.getToCidsShrink();
   }
 
   if (!!request.hasToUseridsShrink()) {
-    body["ToUserids"] = request.toUseridsShrink();
+    body["ToUserids"] = request.getToUseridsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3753,48 +3753,48 @@ CreateReportResponse Client::createReport(const CreateReportRequest &request) {
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateRunResponse
  */
-FutrueGenerator<CreateRunResponse> Client::createRunWithSSE(const CreateRunRequest &request, const CreateRunHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<CreateRunResponse> Client::createRunWithSSE(const CreateRunRequest &request, const CreateRunHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasAllowStructViewContent()) {
-    body["allowStructViewContent"] = request.allowStructViewContent();
+    body["allowStructViewContent"] = request.getAllowStructViewContent();
   }
 
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasThreadId()) {
-    body["threadId"] = request.threadId();
+    body["threadId"] = request.getThreadId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3812,18 +3812,18 @@ FutrueGenerator<CreateRunResponse> Client::createRunWithSSE(const CreateRunReque
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<CreateRunResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -3839,44 +3839,44 @@ CreateRunResponse Client::createRunWithOptions(const CreateRunRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasAllowStructViewContent()) {
-    body["allowStructViewContent"] = request.allowStructViewContent();
+    body["allowStructViewContent"] = request.getAllowStructViewContent();
   }
 
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   if (!!request.hasThreadId()) {
-    body["threadId"] = request.threadId();
+    body["threadId"] = request.getThreadId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3922,97 +3922,97 @@ CreateScenegroupResponse Client::createScenegroupWithOptions(const CreateScenegr
   CreateScenegroupShrinkHeaders headers = CreateScenegroupShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAddFriendForbidden()) {
-    body["AddFriendForbidden"] = request.addFriendForbidden();
+    body["AddFriendForbidden"] = request.getAddFriendForbidden();
   }
 
   if (!!request.hasAllMembersCanCreateCalendar()) {
-    body["AllMembersCanCreateCalendar"] = request.allMembersCanCreateCalendar();
+    body["AllMembersCanCreateCalendar"] = request.getAllMembersCanCreateCalendar();
   }
 
   if (!!request.hasAllMembersCanCreateMcsConf()) {
-    body["AllMembersCanCreateMcsConf"] = request.allMembersCanCreateMcsConf();
+    body["AllMembersCanCreateMcsConf"] = request.getAllMembersCanCreateMcsConf();
   }
 
   if (!!request.hasChatBannedType()) {
-    body["ChatBannedType"] = request.chatBannedType();
+    body["ChatBannedType"] = request.getChatBannedType();
   }
 
   if (!!request.hasGroupEmailDisabled()) {
-    body["GroupEmailDisabled"] = request.groupEmailDisabled();
+    body["GroupEmailDisabled"] = request.getGroupEmailDisabled();
   }
 
   if (!!request.hasGroupLiveSwitch()) {
-    body["GroupLiveSwitch"] = request.groupLiveSwitch();
+    body["GroupLiveSwitch"] = request.getGroupLiveSwitch();
   }
 
   if (!!request.hasIcon()) {
-    body["Icon"] = request.icon();
+    body["Icon"] = request.getIcon();
   }
 
   if (!!request.hasManagementType()) {
-    body["ManagementType"] = request.managementType();
+    body["ManagementType"] = request.getManagementType();
   }
 
   if (!!request.hasMembersToAdminChat()) {
-    body["MembersToAdminChat"] = request.membersToAdminChat();
+    body["MembersToAdminChat"] = request.getMembersToAdminChat();
   }
 
   if (!!request.hasMentionAllAuthority()) {
-    body["MentionAllAuthority"] = request.mentionAllAuthority();
+    body["MentionAllAuthority"] = request.getMentionAllAuthority();
   }
 
   if (!!request.hasOnlyAdminCanDing()) {
-    body["OnlyAdminCanDing"] = request.onlyAdminCanDing();
+    body["OnlyAdminCanDing"] = request.getOnlyAdminCanDing();
   }
 
   if (!!request.hasOnlyAdminCanSetMsgTop()) {
-    body["OnlyAdminCanSetMsgTop"] = request.onlyAdminCanSetMsgTop();
+    body["OnlyAdminCanSetMsgTop"] = request.getOnlyAdminCanSetMsgTop();
   }
 
   if (!!request.hasSearchable()) {
-    body["Searchable"] = request.searchable();
+    body["Searchable"] = request.getSearchable();
   }
 
   if (!!request.hasShowHistoryType()) {
-    body["ShowHistoryType"] = request.showHistoryType();
+    body["ShowHistoryType"] = request.getShowHistoryType();
   }
 
   if (!!request.hasSubadminIds()) {
-    body["SubadminIds"] = request.subadminIds();
+    body["SubadminIds"] = request.getSubadminIds();
   }
 
   if (!!request.hasTemplateId()) {
-    body["TemplateId"] = request.templateId();
+    body["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   if (!!request.hasUserIds()) {
-    body["UserIds"] = request.userIds();
+    body["UserIds"] = request.getUserIds();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   if (!!request.hasValidationType()) {
-    body["ValidationType"] = request.validationType();
+    body["ValidationType"] = request.getValidationType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4060,45 +4060,45 @@ CreateScheduleConferenceResponse Client::createScheduleConferenceWithOptions(con
   CreateScheduleConferenceShrinkHeaders headers = CreateScheduleConferenceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasScheduleConfSettingModel()) {
-    request.setScheduleConfSettingModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfSettingModel(), "ScheduleConfSettingModel", "json"));
+    request.setScheduleConfSettingModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleConfSettingModel(), "ScheduleConfSettingModel", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasScheduleConfSettingModelShrink()) {
-    body["ScheduleConfSettingModel"] = request.scheduleConfSettingModelShrink();
+    body["ScheduleConfSettingModel"] = request.getScheduleConfSettingModelShrink();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4146,49 +4146,49 @@ CreateSearchDomeResponse Client::createSearchDomeWithOptions(const CreateSearchD
   CreateSearchDomeShrinkHeaders headers = CreateSearchDomeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasUserIdList()) {
-    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIdList(), "UserIdList", "json"));
+    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIdList(), "UserIdList", "json"));
   }
 
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasResId()) {
-    body["ResId"] = request.resId();
+    body["ResId"] = request.getResId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserIdListShrink()) {
-    body["UserIdList"] = request.userIdListShrink();
+    body["UserIdList"] = request.getUserIdListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4236,49 +4236,49 @@ CreateSearchKeywordResponse Client::createSearchKeywordWithOptions(const CreateS
   CreateSearchKeywordShrinkHeaders headers = CreateSearchKeywordShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasUserIdList()) {
-    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIdList(), "UserIdList", "json"));
+    request.setUserIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIdList(), "UserIdList", "json"));
   }
 
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasResId()) {
-    body["ResId"] = request.resId();
+    body["ResId"] = request.getResId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserIdListShrink()) {
-    body["UserIdList"] = request.userIdListShrink();
+    body["UserIdList"] = request.getUserIdListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4326,33 +4326,33 @@ CreateSheetResponse Client::createSheetWithOptions(const CreateSheetRequest &tmp
   CreateSheetShrinkHeaders headers = CreateSheetShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4400,41 +4400,41 @@ CreateSubscribedCalendarResponse Client::createSubscribedCalendarWithOptions(con
   CreateSubscribedCalendarShrinkHeaders headers = CreateSubscribedCalendarShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasManagers()) {
-    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.managers(), "Managers", "json"));
+    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getManagers(), "Managers", "json"));
   }
 
   if (!!tmpReq.hasSubscribeScope()) {
-    request.setSubscribeScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.subscribeScope(), "SubscribeScope", "json"));
+    request.setSubscribeScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubscribeScope(), "SubscribeScope", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasManagersShrink()) {
-    body["Managers"] = request.managersShrink();
+    body["Managers"] = request.getManagersShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSubscribeScopeShrink()) {
-    body["SubscribeScope"] = request.subscribeScopeShrink();
+    body["SubscribeScope"] = request.getSubscribeScopeShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4479,36 +4479,36 @@ CreateThreadResponse Client::createThreadWithOptions(const CreateThreadRequest &
   request.validate();
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasClientEnum()) {
-    body["clientEnum"] = request.clientEnum();
+    body["clientEnum"] = request.getClientEnum();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4556,69 +4556,69 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
   CreateTicketShrinkHeaders headers = CreateTicketShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasNotify()) {
-    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notify(), "Notify", "json"));
+    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotify(), "Notify", "json"));
   }
 
   if (!!tmpReq.hasProcessorUserIds()) {
-    request.setProcessorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.processorUserIds(), "ProcessorUserIds", "json"));
+    request.setProcessorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProcessorUserIds(), "ProcessorUserIds", "json"));
   }
 
   if (!!tmpReq.hasSceneContext()) {
-    request.setSceneContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sceneContext(), "SceneContext", "json"));
+    request.setSceneContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSceneContext(), "SceneContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCustomFields()) {
-    body["CustomFields"] = request.customFields();
+    body["CustomFields"] = request.getCustomFields();
   }
 
   if (!!request.hasNotifyShrink()) {
-    body["Notify"] = request.notifyShrink();
+    body["Notify"] = request.getNotifyShrink();
   }
 
   if (!!request.hasOpenTeamId()) {
-    body["OpenTeamId"] = request.openTeamId();
+    body["OpenTeamId"] = request.getOpenTeamId();
   }
 
   if (!!request.hasOpenTemplateBizId()) {
-    body["OpenTemplateBizId"] = request.openTemplateBizId();
+    body["OpenTemplateBizId"] = request.getOpenTemplateBizId();
   }
 
   if (!!request.hasProcessorUserIdsShrink()) {
-    body["ProcessorUserIds"] = request.processorUserIdsShrink();
+    body["ProcessorUserIds"] = request.getProcessorUserIdsShrink();
   }
 
   if (!!request.hasScene()) {
-    body["Scene"] = request.scene();
+    body["Scene"] = request.getScene();
   }
 
   if (!!request.hasSceneContextShrink()) {
-    body["SceneContext"] = request.sceneContextShrink();
+    body["SceneContext"] = request.getSceneContextShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4666,118 +4666,118 @@ CreateTodoTaskResponse Client::createTodoTaskWithOptions(const CreateTodoTaskReq
   CreateTodoTaskShrinkHeaders headers = CreateTodoTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasActionList()) {
-    request.setActionListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.actionList(), "actionList", "json"));
+    request.setActionListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getActionList(), "actionList", "json"));
   }
 
   if (!!tmpReq.hasContentFieldList()) {
-    request.setContentFieldListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contentFieldList(), "contentFieldList", "json"));
+    request.setContentFieldListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContentFieldList(), "contentFieldList", "json"));
   }
 
   if (!!tmpReq.hasDetailUrl()) {
-    request.setDetailUrlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.detailUrl(), "detailUrl", "json"));
+    request.setDetailUrlShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDetailUrl(), "detailUrl", "json"));
   }
 
   if (!!tmpReq.hasExecutorIds()) {
-    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executorIds(), "executorIds", "json"));
+    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutorIds(), "executorIds", "json"));
   }
 
   if (!!tmpReq.hasNotifyConfigs()) {
-    request.setNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifyConfigs(), "notifyConfigs", "json"));
+    request.setNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotifyConfigs(), "notifyConfigs", "json"));
   }
 
   if (!!tmpReq.hasParticipantIds()) {
-    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.participantIds(), "participantIds", "json"));
+    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParticipantIds(), "participantIds", "json"));
   }
 
   if (!!tmpReq.hasRemindNotifyConfigs()) {
-    request.setRemindNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.remindNotifyConfigs(), "remindNotifyConfigs", "json"));
+    request.setRemindNotifyConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRemindNotifyConfigs(), "remindNotifyConfigs", "json"));
   }
 
   json query = {};
   if (!!request.hasOperatorId()) {
-    query["operatorId"] = request.operatorId();
+    query["operatorId"] = request.getOperatorId();
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasActionListShrink()) {
-    body["actionList"] = request.actionListShrink();
+    body["actionList"] = request.getActionListShrink();
   }
 
   if (!!request.hasContentFieldListShrink()) {
-    body["contentFieldList"] = request.contentFieldListShrink();
+    body["contentFieldList"] = request.getContentFieldListShrink();
   }
 
   if (!!request.hasCreatorId()) {
-    body["creatorId"] = request.creatorId();
+    body["creatorId"] = request.getCreatorId();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasDetailUrlShrink()) {
-    body["detailUrl"] = request.detailUrlShrink();
+    body["detailUrl"] = request.getDetailUrlShrink();
   }
 
   if (!!request.hasDueTime()) {
-    body["dueTime"] = request.dueTime();
+    body["dueTime"] = request.getDueTime();
   }
 
   if (!!request.hasExecutorIdsShrink()) {
-    body["executorIds"] = request.executorIdsShrink();
+    body["executorIds"] = request.getExecutorIdsShrink();
   }
 
   if (!!request.hasIsOnlyShowExecutor()) {
-    body["isOnlyShowExecutor"] = request.isOnlyShowExecutor();
+    body["isOnlyShowExecutor"] = request.getIsOnlyShowExecutor();
   }
 
   if (!!request.hasNotifyConfigsShrink()) {
-    body["notifyConfigs"] = request.notifyConfigsShrink();
+    body["notifyConfigs"] = request.getNotifyConfigsShrink();
   }
 
   if (!!request.hasParticipantIdsShrink()) {
-    body["participantIds"] = request.participantIdsShrink();
+    body["participantIds"] = request.getParticipantIdsShrink();
   }
 
   if (!!request.hasPriority()) {
-    body["priority"] = request.priority();
+    body["priority"] = request.getPriority();
   }
 
   if (!!request.hasRemindNotifyConfigsShrink()) {
-    body["remindNotifyConfigs"] = request.remindNotifyConfigsShrink();
+    body["remindNotifyConfigs"] = request.getRemindNotifyConfigsShrink();
   }
 
   if (!!request.hasReminderTimeStamp()) {
-    body["reminderTimeStamp"] = request.reminderTimeStamp();
+    body["reminderTimeStamp"] = request.getReminderTimeStamp();
   }
 
   if (!!request.hasSourceId()) {
-    body["sourceId"] = request.sourceId();
+    body["sourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSubject()) {
-    body["subject"] = request.subject();
+    body["subject"] = request.getSubject();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4826,33 +4826,33 @@ CreateVideoConferenceResponse Client::createVideoConferenceWithOptions(const Cre
   CreateVideoConferenceShrinkHeaders headers = CreateVideoConferenceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasInviteUserIds()) {
-    request.setInviteUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.inviteUserIds(), "InviteUserIds", "json"));
+    request.setInviteUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInviteUserIds(), "InviteUserIds", "json"));
   }
 
   json body = {};
   if (!!request.hasConfTitle()) {
-    body["ConfTitle"] = request.confTitle();
+    body["ConfTitle"] = request.getConfTitle();
   }
 
   if (!!request.hasInviteCaller()) {
-    body["InviteCaller"] = request.inviteCaller();
+    body["InviteCaller"] = request.getInviteCaller();
   }
 
   if (!!request.hasInviteUserIdsShrink()) {
-    body["InviteUserIds"] = request.inviteUserIdsShrink();
+    body["InviteUserIds"] = request.getInviteUserIdsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4900,33 +4900,33 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
   CreateWorkspaceShrinkHeaders headers = CreateWorkspaceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4974,49 +4974,49 @@ CreateWorkspaceDocResponse Client::createWorkspaceDocWithOptions(const CreateWor
   CreateWorkspaceDocShrinkHeaders headers = CreateWorkspaceDocShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDocType()) {
-    body["DocType"] = request.docType();
+    body["DocType"] = request.getDocType();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasParentNodeId()) {
-    body["ParentNodeId"] = request.parentNodeId();
+    body["ParentNodeId"] = request.getParentNodeId();
   }
 
   if (!!request.hasTemplateId()) {
-    body["TemplateId"] = request.templateId();
+    body["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateType()) {
-    body["TemplateType"] = request.templateType();
+    body["TemplateType"] = request.getTemplateType();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5062,29 +5062,29 @@ DeleteAlidingAssistantResponse Client::deleteAlidingAssistantWithOptions(const D
   DeleteAlidingAssistantShrinkHeaders headers = DeleteAlidingAssistantShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["AssistantId"] = request.assistantId();
+    body["AssistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5130,41 +5130,41 @@ DeleteColumnsResponse Client::deleteColumnsWithOptions(const DeleteColumnsReques
   DeleteColumnsShrinkHeaders headers = DeleteColumnsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasColumn()) {
-    body["Column"] = request.column();
+    body["Column"] = request.getColumn();
   }
 
   if (!!request.hasColumnCount()) {
-    body["ColumnCount"] = request.columnCount();
+    body["ColumnCount"] = request.getColumnCount();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5212,37 +5212,37 @@ DeleteDentryResponse Client::deleteDentryWithOptions(const DeleteDentryRequest &
   DeleteDentryShrinkHeaders headers = DeleteDentryShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryId()) {
-    body["DentryId"] = request.dentryId();
+    body["DentryId"] = request.getDentryId();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasToRecycleBin()) {
-    body["ToRecycleBin"] = request.toRecycleBin();
+    body["ToRecycleBin"] = request.getToRecycleBin();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5290,29 +5290,29 @@ DeleteDriveSpaceResponse Client::deleteDriveSpaceWithOptions(const DeleteDriveSp
   DeleteDriveSpaceShrinkHeaders headers = DeleteDriveSpaceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5358,29 +5358,29 @@ DeleteEventResponse Client::deleteEventWithOptions(const DeleteEventRequest &req
   DeleteEventShrinkHeaders headers = DeleteEventShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   if (!!request.hasPushNotification()) {
-    body["pushNotification"] = request.pushNotification();
+    body["pushNotification"] = request.getPushNotification();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5426,33 +5426,33 @@ DeleteFormDataResponse Client::deleteFormDataWithOptions(const DeleteFormDataReq
   DeleteFormDataShrinkHeaders headers = DeleteFormDataShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormInstanceId()) {
-    body["FormInstanceId"] = request.formInstanceId();
+    body["FormInstanceId"] = request.getFormInstanceId();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5496,33 +5496,33 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
   DeleteInstanceShrinkHeaders headers = DeleteInstanceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5568,29 +5568,29 @@ DeleteLiveResponse Client::deleteLiveWithOptions(const DeleteLiveRequest &tmpReq
   DeleteLiveShrinkHeaders headers = DeleteLiveShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasLiveId()) {
-    body["LiveId"] = request.liveId();
+    body["LiveId"] = request.getLiveId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5638,29 +5638,29 @@ DeleteMeetingRoomResponse Client::deleteMeetingRoomWithOptions(const DeleteMeeti
   DeleteMeetingRoomShrinkHeaders headers = DeleteMeetingRoomShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRoomId()) {
-    body["RoomId"] = request.roomId();
+    body["RoomId"] = request.getRoomId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5708,29 +5708,29 @@ DeleteMeetingRoomGroupResponse Client::deleteMeetingRoomGroupWithOptions(const D
   DeleteMeetingRoomGroupShrinkHeaders headers = DeleteMeetingRoomGroupShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5778,37 +5778,37 @@ DeleteMultiDimTableFieldResponse Client::deleteMultiDimTableFieldWithOptions(con
   DeleteMultiDimTableFieldShrinkHeaders headers = DeleteMultiDimTableFieldShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasFieldIdOrName()) {
-    body["FieldIdOrName"] = request.fieldIdOrName();
+    body["FieldIdOrName"] = request.getFieldIdOrName();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5856,41 +5856,41 @@ DeleteMultiDimTableRecordsResponse Client::deleteMultiDimTableRecordsWithOptions
   DeleteMultiDimTableRecordsShrinkHeaders headers = DeleteMultiDimTableRecordsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRecordIds()) {
-    request.setRecordIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recordIds(), "RecordIds", "json"));
+    request.setRecordIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecordIds(), "RecordIds", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasRecordIdsShrink()) {
-    body["RecordIds"] = request.recordIdsShrink();
+    body["RecordIds"] = request.getRecordIdsShrink();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5938,41 +5938,41 @@ DeletePermissionResponse Client::deletePermissionWithOptions(const DeletePermiss
   DeletePermissionShrinkHeaders headers = DeletePermissionShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasRoleId()) {
-    body["RoleId"] = request.roleId();
+    body["RoleId"] = request.getRoleId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6020,41 +6020,41 @@ DeleteRowsResponse Client::deleteRowsWithOptions(const DeleteRowsRequest &tmpReq
   DeleteRowsShrinkHeaders headers = DeleteRowsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRow()) {
-    body["Row"] = request.row();
+    body["Row"] = request.getRow();
   }
 
   if (!!request.hasRowCount()) {
-    body["RowCount"] = request.rowCount();
+    body["RowCount"] = request.getRowCount();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6100,25 +6100,25 @@ DeleteScenegroupMemberResponse Client::deleteScenegroupMemberWithOptions(const D
   DeleteScenegroupMemberShrinkHeaders headers = DeleteScenegroupMemberShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenConversationId()) {
-    body["OpenConversationId"] = request.openConversationId();
+    body["OpenConversationId"] = request.getOpenConversationId();
   }
 
   if (!!request.hasUserIds()) {
-    body["UserIds"] = request.userIds();
+    body["UserIds"] = request.getUserIds();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6166,33 +6166,33 @@ DeleteSheetResponse Client::deleteSheetWithOptions(const DeleteSheetRequest &tmp
   DeleteSheetShrinkHeaders headers = DeleteSheetShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6238,21 +6238,21 @@ DeleteSubscribedCalendarResponse Client::deleteSubscribedCalendarWithOptions(con
   DeleteSubscribedCalendarShrinkHeaders headers = DeleteSubscribedCalendarShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6300,33 +6300,33 @@ DeleteTodoTaskResponse Client::deleteTodoTaskWithOptions(const DeleteTodoTaskReq
   DeleteTodoTaskShrinkHeaders headers = DeleteTodoTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasOperatorId()) {
-    body["operatorId"] = request.operatorId();
+    body["operatorId"] = request.getOperatorId();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6374,41 +6374,41 @@ DeleteWorkspaceDocMembersResponse Client::deleteWorkspaceDocMembersWithOptions(c
   DeleteWorkspaceDocMembersShrinkHeaders headers = DeleteWorkspaceDocMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasNodeId()) {
-    body["NodeId"] = request.nodeId();
+    body["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6456,37 +6456,37 @@ DeleteWorkspaceMembersResponse Client::deleteWorkspaceMembersWithOptions(const D
   DeleteWorkspaceMembersShrinkHeaders headers = DeleteWorkspaceMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6534,33 +6534,33 @@ DocBlocksDeleteResponse Client::docBlocksDeleteWithOptions(const DocBlocksDelete
   DocBlocksDeleteShrinkHeaders headers = DocBlocksDeleteShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBlockId()) {
-    body["BlockId"] = request.blockId();
+    body["BlockId"] = request.getBlockId();
   }
 
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6608,41 +6608,41 @@ DocBlocksModifyResponse Client::docBlocksModifyWithOptions(const DocBlocksModify
   DocBlocksModifyShrinkHeaders headers = DocBlocksModifyShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasElement()) {
-    request.setElementShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.element(), "Element", "json"));
+    request.setElementShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getElement(), "Element", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBlockId()) {
-    body["BlockId"] = request.blockId();
+    body["BlockId"] = request.getBlockId();
   }
 
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasElementShrink()) {
-    body["Element"] = request.elementShrink();
+    body["Element"] = request.getElementShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6690,41 +6690,41 @@ DocBlocksQueryResponse Client::docBlocksQueryWithOptions(const DocBlocksQueryReq
   DocBlocksQueryShrinkHeaders headers = DocBlocksQueryShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBlockType()) {
-    body["BlockType"] = request.blockType();
+    body["BlockType"] = request.getBlockType();
   }
 
   if (!!request.hasDocKey()) {
-    body["DocKey"] = request.docKey();
+    body["DocKey"] = request.getDocKey();
   }
 
   if (!!request.hasEndIndex()) {
-    body["EndIndex"] = request.endIndex();
+    body["EndIndex"] = request.getEndIndex();
   }
 
   if (!!request.hasStartIndex()) {
-    body["StartIndex"] = request.startIndex();
+    body["StartIndex"] = request.getStartIndex();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6772,37 +6772,37 @@ DocUpdateContentResponse Client::docUpdateContentWithOptions(const DocUpdateCont
   DocUpdateContentShrinkHeaders headers = DocUpdateContentShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasDataType()) {
-    body["DataType"] = request.dataType();
+    body["DataType"] = request.getDataType();
   }
 
   if (!!request.hasDocKey()) {
-    body["DocKey"] = request.docKey();
+    body["DocKey"] = request.getDocKey();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6848,37 +6848,37 @@ ExecuteBatchTaskResponse Client::executeBatchTaskWithOptions(const ExecuteBatchT
   ExecuteBatchTaskShrinkHeaders headers = ExecuteBatchTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasOutResult()) {
-    body["OutResult"] = request.outResult();
+    body["OutResult"] = request.getOutResult();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTaskInformationList()) {
-    body["TaskInformationList"] = request.taskInformationList();
+    body["TaskInformationList"] = request.getTaskInformationList();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6924,49 +6924,49 @@ ExecutePlatformTaskResponse Client::executePlatformTaskWithOptions(const Execute
   ExecutePlatformTaskShrinkHeaders headers = ExecutePlatformTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormDataJson()) {
-    body["FormDataJson"] = request.formDataJson();
+    body["FormDataJson"] = request.getFormDataJson();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasNoExecuteExpressions()) {
-    body["NoExecuteExpressions"] = request.noExecuteExpressions();
+    body["NoExecuteExpressions"] = request.getNoExecuteExpressions();
   }
 
   if (!!request.hasOutResult()) {
-    body["OutResult"] = request.outResult();
+    body["OutResult"] = request.getOutResult();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7012,57 +7012,57 @@ ExecuteTaskResponse Client::executeTaskWithOptions(const ExecuteTaskRequest &req
   ExecuteTaskShrinkHeaders headers = ExecuteTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasDigitalSignUrl()) {
-    body["DigitalSignUrl"] = request.digitalSignUrl();
+    body["DigitalSignUrl"] = request.getDigitalSignUrl();
   }
 
   if (!!request.hasFormDataJson()) {
-    body["FormDataJson"] = request.formDataJson();
+    body["FormDataJson"] = request.getFormDataJson();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasNoExecuteExpressions()) {
-    body["NoExecuteExpressions"] = request.noExecuteExpressions();
+    body["NoExecuteExpressions"] = request.getNoExecuteExpressions();
   }
 
   if (!!request.hasOutResult()) {
-    body["OutResult"] = request.outResult();
+    body["OutResult"] = request.getOutResult();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7110,29 +7110,29 @@ ExpandGroupCapacityResponse Client::expandGroupCapacityWithOptions(const ExpandG
   ExpandGroupCapacityShrinkHeaders headers = ExpandGroupCapacityShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenConversationId()) {
-    body["OpenConversationId"] = request.openConversationId();
+    body["OpenConversationId"] = request.getOpenConversationId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7180,49 +7180,49 @@ FinishTicketResponse Client::finishTicketWithOptions(const FinishTicketRequest &
   FinishTicketShrinkHeaders headers = FinishTicketShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasNotify()) {
-    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notify(), "Notify", "json"));
+    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotify(), "Notify", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasTicketMemo()) {
-    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo(), "TicketMemo", "json"));
+    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTicketMemo(), "TicketMemo", "json"));
   }
 
   json body = {};
   if (!!request.hasNotifyShrink()) {
-    body["Notify"] = request.notifyShrink();
+    body["Notify"] = request.getNotifyShrink();
   }
 
   if (!!request.hasOpenTeamId()) {
-    body["OpenTeamId"] = request.openTeamId();
+    body["OpenTeamId"] = request.getOpenTeamId();
   }
 
   if (!!request.hasOpenTicketId()) {
-    body["OpenTicketId"] = request.openTicketId();
+    body["OpenTicketId"] = request.getOpenTicketId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTicketMemoShrink()) {
-    body["TicketMemo"] = request.ticketMemoShrink();
+    body["TicketMemo"] = request.getTicketMemoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7268,33 +7268,33 @@ GetActivityListResponse Client::getActivityListWithOptions(const GetActivityList
   GetActivityListShrinkHeaders headers = GetActivityListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessCode()) {
-    body["ProcessCode"] = request.processCode();
+    body["ProcessCode"] = request.getProcessCode();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7342,29 +7342,29 @@ GetAlidingAssistantInfoResponse Client::getAlidingAssistantInfoWithOptions(const
   GetAlidingAssistantInfoShrinkHeaders headers = GetAlidingAssistantInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["AssistantId"] = request.assistantId();
+    body["AssistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7412,29 +7412,29 @@ GetAllSheetsResponse Client::getAllSheetsWithOptions(const GetAllSheetsRequest &
   GetAllSheetsShrinkHeaders headers = GetAllSheetsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7479,48 +7479,48 @@ GetAssistantCapabilityResponse Client::getAssistantCapabilityWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasMessages()) {
-    body["messages"] = request.messages();
+    body["messages"] = request.getMessages();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasProtocol()) {
-    body["protocol"] = request.protocol();
+    body["protocol"] = request.getProtocol();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   if (!!request.hasThreadId()) {
-    body["threadId"] = request.threadId();
+    body["threadId"] = request.getThreadId();
   }
 
   if (!!request.hasTimeout()) {
-    body["timeout"] = request.timeout();
+    body["timeout"] = request.getTimeout();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7566,29 +7566,29 @@ GetCardTemplateResponse Client::getCardTemplateWithOptions(const GetCardTemplate
   GetCardTemplateShrinkHeaders headers = GetCardTemplateShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTemplateId()) {
-    body["TemplateId"] = request.templateId();
+    body["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7634,29 +7634,29 @@ GetConversaionSpaceResponse Client::getConversaionSpaceWithOptions(const GetConv
   GetConversaionSpaceShrinkHeaders headers = GetConversaionSpaceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenConversationId()) {
-    body["OpenConversationId"] = request.openConversationId();
+    body["OpenConversationId"] = request.getOpenConversationId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7702,57 +7702,57 @@ GetCorpAccomplishmentTasksResponse Client::getCorpAccomplishmentTasksWithOptions
   GetCorpAccomplishmentTasksShrinkHeaders headers = GetCorpAccomplishmentTasksShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppTypes()) {
-    body["AppTypes"] = request.appTypes();
+    body["AppTypes"] = request.getAppTypes();
   }
 
   if (!!request.hasCorpId()) {
-    body["CorpId"] = request.corpId();
+    body["CorpId"] = request.getCorpId();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProcessCodes()) {
-    body["ProcessCodes"] = request.processCodes();
+    body["ProcessCodes"] = request.getProcessCodes();
   }
 
   if (!!request.hasToken()) {
-    body["Token"] = request.token();
+    body["Token"] = request.getToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7798,57 +7798,57 @@ GetCorpTasksResponse Client::getCorpTasksWithOptions(const GetCorpTasksRequest &
   GetCorpTasksShrinkHeaders headers = GetCorpTasksShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppTypes()) {
-    body["AppTypes"] = request.appTypes();
+    body["AppTypes"] = request.getAppTypes();
   }
 
   if (!!request.hasCorpId()) {
-    body["CorpId"] = request.corpId();
+    body["CorpId"] = request.getCorpId();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProcessCodes()) {
-    body["ProcessCodes"] = request.processCodes();
+    body["ProcessCodes"] = request.getProcessCodes();
   }
 
   if (!!request.hasToken()) {
-    body["Token"] = request.token();
+    body["Token"] = request.getToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7894,29 +7894,29 @@ GetDeptNoResponse Client::getDeptNoWithOptions(const GetDeptNoRequest &tmpReq, c
   GetDeptNoShrinkHeaders headers = GetDeptNoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasDeptId()) {
-    body["deptId"] = request.deptId();
+    body["deptId"] = request.getDeptId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7948,6 +7948,620 @@ GetDeptNoResponse Client::getDeptNo(const GetDeptNoRequest &request) {
 }
 
 /**
+ * @summary 获取钉钉会议信息
+ *
+ * @param tmpReq GetDingtalkMeetingInfoRequest
+ * @param tmpHeader GetDingtalkMeetingInfoHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDingtalkMeetingInfoResponse
+ */
+GetDingtalkMeetingInfoResponse Client::getDingtalkMeetingInfoWithOptions(const GetDingtalkMeetingInfoRequest &tmpReq, const GetDingtalkMeetingInfoHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDingtalkMeetingInfoShrinkRequest request = GetDingtalkMeetingInfoShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetDingtalkMeetingInfoShrinkHeaders headers = GetDingtalkMeetingInfoShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  if (!!request.hasOrgId()) {
+    body["orgId"] = request.getOrgId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDingtalkMeetingInfo"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/getDingtalkMeetingInfo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDingtalkMeetingInfoResponse>();
+}
+
+/**
+ * @summary 获取钉钉会议信息
+ *
+ * @param request GetDingtalkMeetingInfoRequest
+ * @return GetDingtalkMeetingInfoResponse
+ */
+GetDingtalkMeetingInfoResponse Client::getDingtalkMeetingInfo(const GetDingtalkMeetingInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDingtalkMeetingInfoHeaders headers = GetDingtalkMeetingInfoHeaders();
+  return getDingtalkMeetingInfoWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取钉钉会议列表
+ *
+ * @param tmpReq GetDingtalkMeetingListRequest
+ * @param tmpHeader GetDingtalkMeetingListHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDingtalkMeetingListResponse
+ */
+GetDingtalkMeetingListResponse Client::getDingtalkMeetingListWithOptions(const GetDingtalkMeetingListRequest &tmpReq, const GetDingtalkMeetingListHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDingtalkMeetingListShrinkRequest request = GetDingtalkMeetingListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetDingtalkMeetingListShrinkHeaders headers = GetDingtalkMeetingListShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    body["currentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOrgId()) {
+    body["orgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRoomCode()) {
+    body["roomCode"] = request.getRoomCode();
+  }
+
+  if (!!request.hasRoomName()) {
+    body["roomName"] = request.getRoomName();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWorkNo()) {
+    body["workNo"] = request.getWorkNo();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDingtalkMeetingList"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/getDingtalkMeetingList")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDingtalkMeetingListResponse>();
+}
+
+/**
+ * @summary 获取钉钉会议列表
+ *
+ * @param request GetDingtalkMeetingListRequest
+ * @return GetDingtalkMeetingListResponse
+ */
+GetDingtalkMeetingListResponse Client::getDingtalkMeetingList(const GetDingtalkMeetingListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDingtalkMeetingListHeaders headers = GetDingtalkMeetingListHeaders();
+  return getDingtalkMeetingListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取钉钉会议成员事件
+ *
+ * @param tmpReq GetDingtalkMeetingMemberEventRequest
+ * @param tmpHeader GetDingtalkMeetingMemberEventHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDingtalkMeetingMemberEventResponse
+ */
+GetDingtalkMeetingMemberEventResponse Client::getDingtalkMeetingMemberEventWithOptions(const GetDingtalkMeetingMemberEventRequest &tmpReq, const GetDingtalkMeetingMemberEventHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDingtalkMeetingMemberEventShrinkRequest request = GetDingtalkMeetingMemberEventShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetDingtalkMeetingMemberEventShrinkHeaders headers = GetDingtalkMeetingMemberEventShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasBeginTime()) {
+    body["beginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOrgId()) {
+    body["orgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasWorkNo()) {
+    body["workNo"] = request.getWorkNo();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDingtalkMeetingMemberEvent"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/getDingtalkMeetingMemberEvent")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDingtalkMeetingMemberEventResponse>();
+}
+
+/**
+ * @summary 获取钉钉会议成员事件
+ *
+ * @param request GetDingtalkMeetingMemberEventRequest
+ * @return GetDingtalkMeetingMemberEventResponse
+ */
+GetDingtalkMeetingMemberEventResponse Client::getDingtalkMeetingMemberEvent(const GetDingtalkMeetingMemberEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDingtalkMeetingMemberEventHeaders headers = GetDingtalkMeetingMemberEventHeaders();
+  return getDingtalkMeetingMemberEventWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取钉钉会议成员列表
+ *
+ * @param tmpReq GetDingtalkMeetingMemberListRequest
+ * @param tmpHeader GetDingtalkMeetingMemberListHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDingtalkMeetingMemberListResponse
+ */
+GetDingtalkMeetingMemberListResponse Client::getDingtalkMeetingMemberListWithOptions(const GetDingtalkMeetingMemberListRequest &tmpReq, const GetDingtalkMeetingMemberListHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDingtalkMeetingMemberListShrinkRequest request = GetDingtalkMeetingMemberListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetDingtalkMeetingMemberListShrinkHeaders headers = GetDingtalkMeetingMemberListShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasClusterName()) {
+    body["clusterName"] = request.getClusterName();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    body["currentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasOrgId()) {
+    body["orgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDingtalkMeetingMemberList"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/getDingtalkMeetingMemberList")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDingtalkMeetingMemberListResponse>();
+}
+
+/**
+ * @summary 获取钉钉会议成员列表
+ *
+ * @param request GetDingtalkMeetingMemberListRequest
+ * @return GetDingtalkMeetingMemberListResponse
+ */
+GetDingtalkMeetingMemberListResponse Client::getDingtalkMeetingMemberList(const GetDingtalkMeetingMemberListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDingtalkMeetingMemberListHeaders headers = GetDingtalkMeetingMemberListHeaders();
+  return getDingtalkMeetingMemberListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取会议指标数据
+ *
+ * @param tmpReq GetDingtalkMeetingMetricDataRequest
+ * @param tmpHeader GetDingtalkMeetingMetricDataHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDingtalkMeetingMetricDataResponse
+ */
+GetDingtalkMeetingMetricDataResponse Client::getDingtalkMeetingMetricDataWithOptions(const GetDingtalkMeetingMetricDataRequest &tmpReq, const GetDingtalkMeetingMetricDataHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDingtalkMeetingMetricDataShrinkRequest request = GetDingtalkMeetingMetricDataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetDingtalkMeetingMetricDataShrinkHeaders headers = GetDingtalkMeetingMetricDataShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasBeginTime()) {
+    body["beginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOrgId()) {
+    body["orgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasTypeName()) {
+    body["typeName"] = request.getTypeName();
+  }
+
+  if (!!request.hasWorkNo()) {
+    body["workNo"] = request.getWorkNo();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDingtalkMeetingMetricData"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/getDingtalkMeetingMetricData")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDingtalkMeetingMetricDataResponse>();
+}
+
+/**
+ * @summary 获取会议指标数据
+ *
+ * @param request GetDingtalkMeetingMetricDataRequest
+ * @return GetDingtalkMeetingMetricDataResponse
+ */
+GetDingtalkMeetingMetricDataResponse Client::getDingtalkMeetingMetricData(const GetDingtalkMeetingMetricDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDingtalkMeetingMetricDataHeaders headers = GetDingtalkMeetingMetricDataHeaders();
+  return getDingtalkMeetingMetricDataWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取钉钉投屏信息
+ *
+ * @param tmpReq GetDingtalkProjectionInfoRequest
+ * @param tmpHeader GetDingtalkProjectionInfoHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDingtalkProjectionInfoResponse
+ */
+GetDingtalkProjectionInfoResponse Client::getDingtalkProjectionInfoWithOptions(const GetDingtalkProjectionInfoRequest &tmpReq, const GetDingtalkProjectionInfoHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDingtalkProjectionInfoShrinkRequest request = GetDingtalkProjectionInfoShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetDingtalkProjectionInfoShrinkHeaders headers = GetDingtalkProjectionInfoShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasClient()) {
+    body["client"] = request.getClient();
+  }
+
+  if (!!request.hasEndTs()) {
+    body["endTs"] = request.getEndTs();
+  }
+
+  if (!!request.hasOrgId()) {
+    body["orgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasPubWorkNo()) {
+    body["pubWorkNo"] = request.getPubWorkNo();
+  }
+
+  if (!!request.hasRoomId()) {
+    body["roomId"] = request.getRoomId();
+  }
+
+  if (!!request.hasStartTs()) {
+    body["startTs"] = request.getStartTs();
+  }
+
+  if (!!request.hasSubUid()) {
+    body["subUid"] = request.getSubUid();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDingtalkProjectionInfo"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/getDingtalkProjectionInfo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDingtalkProjectionInfoResponse>();
+}
+
+/**
+ * @summary 获取钉钉投屏信息
+ *
+ * @param request GetDingtalkProjectionInfoRequest
+ * @return GetDingtalkProjectionInfoResponse
+ */
+GetDingtalkProjectionInfoResponse Client::getDingtalkProjectionInfo(const GetDingtalkProjectionInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDingtalkProjectionInfoHeaders headers = GetDingtalkProjectionInfoHeaders();
+  return getDingtalkProjectionInfoWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取钉钉投屏列表
+ *
+ * @param tmpReq GetDingtalkProjectionListRequest
+ * @param tmpHeader GetDingtalkProjectionListHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDingtalkProjectionListResponse
+ */
+GetDingtalkProjectionListResponse Client::getDingtalkProjectionListWithOptions(const GetDingtalkProjectionListRequest &tmpReq, const GetDingtalkProjectionListHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDingtalkProjectionListShrinkRequest request = GetDingtalkProjectionListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetDingtalkProjectionListShrinkHeaders headers = GetDingtalkProjectionListShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasCode()) {
+    body["code"] = request.getCode();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    body["currentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasOrgId()) {
+    body["orgId"] = request.getOrgId();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectorWorkNo()) {
+    body["projectorWorkNo"] = request.getProjectorWorkNo();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDingtalkProjectionList"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/getDingtalkProjectionList")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDingtalkProjectionListResponse>();
+}
+
+/**
+ * @summary 获取钉钉投屏列表
+ *
+ * @param request GetDingtalkProjectionListRequest
+ * @return GetDingtalkProjectionListResponse
+ */
+GetDingtalkProjectionListResponse Client::getDingtalkProjectionList(const GetDingtalkProjectionListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDingtalkProjectionListHeaders headers = GetDingtalkProjectionListHeaders();
+  return getDingtalkProjectionListWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 委托权限获取文档内容
  *
  * @param tmpReq GetDocContentRequest
@@ -7962,37 +8576,37 @@ GetDocContentResponse Client::getDocContentWithOptions(const GetDocContentReques
   GetDocContentShrinkHeaders headers = GetDocContentShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasTargetFormat()) {
-    body["TargetFormat"] = request.targetFormat();
+    body["TargetFormat"] = request.getTargetFormat();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserToken()) {
-    body["userToken"] = request.userToken();
+    body["userToken"] = request.getUserToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8040,37 +8654,37 @@ GetDocContentTakIdResponse Client::getDocContentTakIdWithOptions(const GetDocCon
   GetDocContentTakIdShrinkHeaders headers = GetDocContentTakIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasGenerateCp()) {
-    body["GenerateCp"] = request.generateCp();
+    body["GenerateCp"] = request.getGenerateCp();
   }
 
   if (!!request.hasTargetFormat()) {
-    body["TargetFormat"] = request.targetFormat();
+    body["TargetFormat"] = request.getTargetFormat();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8116,30 +8730,30 @@ GetEventResponse Client::getEventWithOptions(const GetEventRequest &request, con
   GetEventShrinkHeaders headers = GetEventShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json query = {};
   if (!!request.hasMaxAttendees()) {
-    query["MaxAttendees"] = request.maxAttendees();
+    query["MaxAttendees"] = request.getMaxAttendees();
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8186,29 +8800,29 @@ GetFieldDefByUuidResponse Client::getFieldDefByUuidWithOptions(const GetFieldDef
   GetFieldDefByUuidShrinkHeaders headers = GetFieldDefByUuidShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8256,41 +8870,41 @@ GetFileDownloadInfoResponse Client::getFileDownloadInfoWithOptions(const GetFile
   GetFileDownloadInfoShrinkHeaders headers = GetFileDownloadInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryId()) {
-    body["DentryId"] = request.dentryId();
+    body["DentryId"] = request.getDentryId();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8338,41 +8952,41 @@ GetFileUploadInfoResponse Client::getFileUploadInfoWithOptions(const GetFileUplo
   GetFileUploadInfoShrinkHeaders headers = GetFileUploadInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasParentDentryUuid()) {
-    body["ParentDentryUuid"] = request.parentDentryUuid();
+    body["ParentDentryUuid"] = request.getParentDentryUuid();
   }
 
   if (!!request.hasProtocol()) {
-    body["Protocol"] = request.protocol();
+    body["Protocol"] = request.getProtocol();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8418,33 +9032,33 @@ GetFormComponentDefinitionListResponse Client::getFormComponentDefinitionListWit
   GetFormComponentDefinitionListShrinkHeaders headers = GetFormComponentDefinitionListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8490,33 +9104,33 @@ GetFormDataByIDResponse Client::getFormDataByIDWithOptions(const GetFormDataByID
   GetFormDataByIDShrinkHeaders headers = GetFormDataByIDShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8562,37 +9176,37 @@ GetFormListInAppResponse Client::getFormListInAppWithOptions(const GetFormListIn
   GetFormListInAppShrinkHeaders headers = GetFormListInAppShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormTypes()) {
-    body["FormTypes"] = request.formTypes();
+    body["FormTypes"] = request.getFormTypes();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8640,37 +9254,37 @@ GetGroupLiveListResponse Client::getGroupLiveListWithOptions(const GetGroupLiveL
   GetGroupLiveListShrinkHeaders headers = GetGroupLiveListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasOpenConversationId()) {
-    body["OpenConversationId"] = request.openConversationId();
+    body["OpenConversationId"] = request.getOpenConversationId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8716,29 +9330,29 @@ GetInnerGroupMembersResponse Client::getInnerGroupMembersWithOptions(const GetIn
   GetInnerGroupMembersShrinkHeaders headers = GetInnerGroupMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOpenConversationId()) {
-    body["OpenConversationId"] = request.openConversationId();
+    body["OpenConversationId"] = request.getOpenConversationId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8784,33 +9398,33 @@ GetInstanceByIdResponse Client::getInstanceByIdWithOptions(const GetInstanceById
   GetInstanceByIdShrinkHeaders headers = GetInstanceByIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8856,77 +9470,77 @@ GetInstanceIdListResponse Client::getInstanceIdListWithOptions(const GetInstance
   GetInstanceIdListShrinkHeaders headers = GetInstanceIdListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasApprovedResult()) {
-    body["ApprovedResult"] = request.approvedResult();
+    body["ApprovedResult"] = request.getApprovedResult();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasInstanceStatus()) {
-    body["InstanceStatus"] = request.instanceStatus();
+    body["InstanceStatus"] = request.getInstanceStatus();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasModifiedFromTimeGMT()) {
-    body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT();
+    body["ModifiedFromTimeGMT"] = request.getModifiedFromTimeGMT();
   }
 
   if (!!request.hasModifiedToTimeGMT()) {
-    body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT();
+    body["ModifiedToTimeGMT"] = request.getModifiedToTimeGMT();
   }
 
   if (!!request.hasOriginatorId()) {
-    body["OriginatorId"] = request.originatorId();
+    body["OriginatorId"] = request.getOriginatorId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchFieldJson()) {
-    body["SearchFieldJson"] = request.searchFieldJson();
+    body["SearchFieldJson"] = request.getSearchFieldJson();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8972,81 +9586,81 @@ GetInstancesResponse Client::getInstancesWithOptions(const GetInstancesRequest &
   GetInstancesShrinkHeaders headers = GetInstancesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasApprovedResult()) {
-    body["ApprovedResult"] = request.approvedResult();
+    body["ApprovedResult"] = request.getApprovedResult();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasInstanceStatus()) {
-    body["InstanceStatus"] = request.instanceStatus();
+    body["InstanceStatus"] = request.getInstanceStatus();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasModifiedFromTimeGMT()) {
-    body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT();
+    body["ModifiedFromTimeGMT"] = request.getModifiedFromTimeGMT();
   }
 
   if (!!request.hasModifiedToTimeGMT()) {
-    body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT();
+    body["ModifiedToTimeGMT"] = request.getModifiedToTimeGMT();
   }
 
   if (!!request.hasOrderConfigJson()) {
-    body["OrderConfigJson"] = request.orderConfigJson();
+    body["OrderConfigJson"] = request.getOrderConfigJson();
   }
 
   if (!!request.hasOriginatorId()) {
-    body["OriginatorId"] = request.originatorId();
+    body["OriginatorId"] = request.getOriginatorId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchFieldJson()) {
-    body["SearchFieldJson"] = request.searchFieldJson();
+    body["SearchFieldJson"] = request.getSearchFieldJson();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9092,33 +9706,33 @@ GetInstancesByIdListResponse Client::getInstancesByIdListWithOptions(const GetIn
   GetInstancesByIdListShrinkHeaders headers = GetInstancesByIdListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessInstanceIds()) {
-    body["ProcessInstanceIds"] = request.processInstanceIds();
+    body["ProcessInstanceIds"] = request.getProcessInstanceIds();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9166,29 +9780,29 @@ GetLiveReplayUrlResponse Client::getLiveReplayUrlWithOptions(const GetLiveReplay
   GetLiveReplayUrlShrinkHeaders headers = GetLiveReplayUrlShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasLiveId()) {
-    body["LiveId"] = request.liveId();
+    body["LiveId"] = request.getLiveId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9234,57 +9848,57 @@ GetMeCorpSubmissionResponse Client::getMeCorpSubmissionWithOptions(const GetMeCo
   GetMeCorpSubmissionShrinkHeaders headers = GetMeCorpSubmissionShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppTypes()) {
-    body["AppTypes"] = request.appTypes();
+    body["AppTypes"] = request.getAppTypes();
   }
 
   if (!!request.hasCorpId()) {
-    body["CorpId"] = request.corpId();
+    body["CorpId"] = request.getCorpId();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProcessCodes()) {
-    body["ProcessCodes"] = request.processCodes();
+    body["ProcessCodes"] = request.getProcessCodes();
   }
 
   if (!!request.hasToken()) {
-    body["Token"] = request.token();
+    body["Token"] = request.getToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9332,33 +9946,33 @@ GetMeetingRoomsScheduleResponse Client::getMeetingRoomsScheduleWithOptions(const
   GetMeetingRoomsScheduleShrinkHeaders headers = GetMeetingRoomsScheduleShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRoomIds()) {
-    request.setRoomIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roomIds(), "RoomIds", "json"));
+    request.setRoomIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoomIds(), "RoomIds", "json"));
   }
 
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasRoomIdsShrink()) {
-    body["RoomIds"] = request.roomIdsShrink();
+    body["RoomIds"] = request.getRoomIdsShrink();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9406,33 +10020,33 @@ GetMineWorkspaceResponse Client::getMineWorkspaceWithOptions(const GetMineWorksp
   GetMineWorkspaceShrinkHeaders headers = GetMineWorkspaceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9480,33 +10094,33 @@ GetMultiDimTableAllFieldsResponse Client::getMultiDimTableAllFieldsWithOptions(c
   GetMultiDimTableAllFieldsShrinkHeaders headers = GetMultiDimTableAllFieldsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9554,29 +10168,29 @@ GetMultiDimTableAllSheetsResponse Client::getMultiDimTableAllSheetsWithOptions(c
   GetMultiDimTableAllSheetsShrinkHeaders headers = GetMultiDimTableAllSheetsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9624,37 +10238,37 @@ GetMultiDimTableRecordResponse Client::getMultiDimTableRecordWithOptions(const G
   GetMultiDimTableRecordShrinkHeaders headers = GetMultiDimTableRecordShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasRecordId()) {
-    body["RecordId"] = request.recordId();
+    body["RecordId"] = request.getRecordId();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9702,33 +10316,33 @@ GetMultiDimTableSheetResponse Client::getMultiDimTableSheetWithOptions(const Get
   GetMultiDimTableSheetShrinkHeaders headers = GetMultiDimTableSheetShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9776,45 +10390,45 @@ GetMultipartFileUploadInfosResponse Client::getMultipartFileUploadInfosWithOptio
   GetMultipartFileUploadInfosShrinkHeaders headers = GetMultipartFileUploadInfosShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasPartNumbers()) {
-    request.setPartNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.partNumbers(), "PartNumbers", "json"));
+    request.setPartNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPartNumbers(), "PartNumbers", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasPartNumbersShrink()) {
-    body["PartNumbers"] = request.partNumbersShrink();
+    body["PartNumbers"] = request.getPartNumbersShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUploadKey()) {
-    body["UploadKey"] = request.uploadKey();
+    body["UploadKey"] = request.getUploadKey();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9862,25 +10476,25 @@ GetNewestInnerGroupsResponse Client::getNewestInnerGroupsWithOptions(const GetNe
   GetNewestInnerGroupsShrinkHeaders headers = GetNewestInnerGroupsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9928,37 +10542,37 @@ GetNodeResponse Client::getNodeWithOptions(const GetNodeRequest &tmpReq, const G
   GetNodeShrinkHeaders headers = GetNodeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasNodeId()) {
-    body["NodeId"] = request.nodeId();
+    body["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWithPermissionRole()) {
-    body["WithPermissionRole"] = request.withPermissionRole();
+    body["WithPermissionRole"] = request.getWithPermissionRole();
   }
 
   if (!!request.hasWithStatisticalInfo()) {
-    body["WithStatisticalInfo"] = request.withStatisticalInfo();
+    body["WithStatisticalInfo"] = request.getWithStatisticalInfo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10006,37 +10620,37 @@ GetNodeByUrlResponse Client::getNodeByUrlWithOptions(const GetNodeByUrlRequest &
   GetNodeByUrlShrinkHeaders headers = GetNodeByUrlShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUrl()) {
-    body["Url"] = request.url();
+    body["Url"] = request.getUrl();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10084,41 +10698,41 @@ GetNodesResponse Client::getNodesWithOptions(const GetNodesRequest &tmpReq, cons
   GetNodesShrinkHeaders headers = GetNodesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasNodeIds()) {
-    request.setNodeIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.nodeIds(), "NodeIds", "json"));
+    request.setNodeIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodeIds(), "NodeIds", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasNodeIdsShrink()) {
-    body["NodeIds"] = request.nodeIdsShrink();
+    body["NodeIds"] = request.getNodeIdsShrink();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10164,65 +10778,65 @@ GetNotifyMeResponse Client::getNotifyMeWithOptions(const GetNotifyMeRequest &req
   GetNotifyMeShrinkHeaders headers = GetNotifyMeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppTypes()) {
-    body["AppTypes"] = request.appTypes();
+    body["AppTypes"] = request.getAppTypes();
   }
 
   if (!!request.hasCorpId()) {
-    body["CorpId"] = request.corpId();
+    body["CorpId"] = request.getCorpId();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasInstanceCreateFromTimeGMT()) {
-    body["InstanceCreateFromTimeGMT"] = request.instanceCreateFromTimeGMT();
+    body["InstanceCreateFromTimeGMT"] = request.getInstanceCreateFromTimeGMT();
   }
 
   if (!!request.hasInstanceCreateToTimeGMT()) {
-    body["InstanceCreateToTimeGMT"] = request.instanceCreateToTimeGMT();
+    body["InstanceCreateToTimeGMT"] = request.getInstanceCreateToTimeGMT();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProcessCodes()) {
-    body["ProcessCodes"] = request.processCodes();
+    body["ProcessCodes"] = request.getProcessCodes();
   }
 
   if (!!request.hasToken()) {
-    body["Token"] = request.token();
+    body["Token"] = request.getToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10268,37 +10882,37 @@ GetOpenUrlResponse Client::getOpenUrlWithOptions(const GetOpenUrlRequest &reques
   GetOpenUrlShrinkHeaders headers = GetOpenUrlShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFileUrl()) {
-    body["FileUrl"] = request.fileUrl();
+    body["FileUrl"] = request.getFileUrl();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTimeout()) {
-    body["Timeout"] = request.timeout();
+    body["Timeout"] = request.getTimeout();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10344,33 +10958,33 @@ GetOperationRecordsResponse Client::getOperationRecordsWithOptions(const GetOper
   GetOperationRecordsShrinkHeaders headers = GetOperationRecordsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10416,49 +11030,49 @@ GetOrgLiveListResponse Client::getOrgLiveListWithOptions(const GetOrgLiveListReq
   GetOrgLiveListShrinkHeaders headers = GetOrgLiveListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCorpId()) {
-    body["CorpId"] = request.corpId();
+    body["CorpId"] = request.getCorpId();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10504,41 +11118,41 @@ GetOrgOrWebOpenDocContentTaskIdResponse Client::getOrgOrWebOpenDocContentTaskIdW
   GetOrgOrWebOpenDocContentTaskIdShrinkHeaders headers = GetOrgOrWebOpenDocContentTaskIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasGenerateCp()) {
-    body["GenerateCp"] = request.generateCp();
+    body["GenerateCp"] = request.getGenerateCp();
   }
 
   if (!!request.hasScopeType()) {
-    body["ScopeType"] = request.scopeType();
+    body["ScopeType"] = request.getScopeType();
   }
 
   if (!!request.hasTargetFormat()) {
-    body["TargetFormat"] = request.targetFormat();
+    body["TargetFormat"] = request.getTargetFormat();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10584,53 +11198,53 @@ GetProcessDefinitionResponse Client::getProcessDefinitionWithOptions(const GetPr
   GetProcessDefinitionShrinkHeaders headers = GetProcessDefinitionShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasCorpId()) {
-    body["CorpId"] = request.corpId();
+    body["CorpId"] = request.getCorpId();
   }
 
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasNameSpace()) {
-    body["NameSpace"] = request.nameSpace();
+    body["NameSpace"] = request.getNameSpace();
   }
 
   if (!!request.hasOrderNumber()) {
-    body["OrderNumber"] = request.orderNumber();
+    body["OrderNumber"] = request.getOrderNumber();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasSystemType()) {
-    body["SystemType"] = request.systemType();
+    body["SystemType"] = request.getSystemType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10678,41 +11292,41 @@ GetRangeResponse Client::getRangeWithOptions(const GetRangeRequest &tmpReq, cons
   GetRangeShrinkHeaders headers = GetRangeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRangeAddress()) {
-    body["RangeAddress"] = request.rangeAddress();
+    body["RangeAddress"] = request.getRangeAddress();
   }
 
   if (!!request.hasSelect()) {
-    body["Select"] = request.select();
+    body["Select"] = request.getSelect();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10760,29 +11374,29 @@ GetRelatedWorkspacesResponse Client::getRelatedWorkspacesWithOptions(const GetRe
   GetRelatedWorkspacesShrinkHeaders headers = GetRelatedWorkspacesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasIncludeRecent()) {
-    body["IncludeRecent"] = request.includeRecent();
+    body["IncludeRecent"] = request.getIncludeRecent();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10830,29 +11444,29 @@ GetReportTemplateByNameResponse Client::getReportTemplateByNameWithOptions(const
   GetReportTemplateByNameShrinkHeaders headers = GetReportTemplateByNameShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTemplateName()) {
-    body["TemplateName"] = request.templateName();
+    body["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10900,33 +11514,33 @@ GetReportUnReadCountResponse Client::getReportUnReadCountWithOptions(const GetRe
   GetReportUnReadCountShrinkHeaders headers = GetReportUnReadCountShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -10972,37 +11586,37 @@ GetRunningTasksResponse Client::getRunningTasksWithOptions(const GetRunningTasks
   GetRunningTasksShrinkHeaders headers = GetRunningTasksShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessCodes()) {
-    body["ProcessCodes"] = request.processCodes();
+    body["ProcessCodes"] = request.getProcessCodes();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11050,41 +11664,41 @@ GetScheduleResponse Client::getScheduleWithOptions(const GetScheduleRequest &tmp
   GetScheduleShrinkHeaders headers = GetScheduleShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasUserIds()) {
-    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIds(), "UserIds", "json"));
+    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIds(), "UserIds", "json"));
   }
 
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserIdsShrink()) {
-    body["UserIds"] = request.userIdsShrink();
+    body["UserIds"] = request.getUserIdsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11132,33 +11746,33 @@ GetSheetResponse Client::getSheetWithOptions(const GetSheetRequest &tmpReq, cons
   GetSheetShrinkHeaders headers = GetSheetShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11206,33 +11820,33 @@ GetSheetContentJobIdResponse Client::getSheetContentJobIdWithOptions(const GetSh
   GetSheetContentJobIdShrinkHeaders headers = GetSheetContentJobIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasExportType()) {
-    body["ExportType"] = request.exportType();
+    body["ExportType"] = request.getExportType();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11280,41 +11894,41 @@ GetSpaceDirectoriesResponse Client::getSpaceDirectoriesWithOptions(const GetSpac
   GetSpaceDirectoriesShrinkHeaders headers = GetSpaceDirectoriesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryId()) {
-    body["DentryId"] = request.dentryId();
+    body["DentryId"] = request.getDentryId();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11360,21 +11974,21 @@ GetSubscribedCalendarResponse Client::getSubscribedCalendarWithOptions(const Get
   GetSubscribedCalendarShrinkHeaders headers = GetSubscribedCalendarShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11420,53 +12034,53 @@ GetTaskCopiesResponse Client::getTaskCopiesWithOptions(const GetTaskCopiesReques
   GetTaskCopiesShrinkHeaders headers = GetTaskCopiesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProcessCodes()) {
-    body["ProcessCodes"] = request.processCodes();
+    body["ProcessCodes"] = request.getProcessCodes();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11514,33 +12128,33 @@ GetTemplateListByUserIdResponse Client::getTemplateListByUserIdWithOptions(const
   GetTemplateListByUserIdShrinkHeaders headers = GetTemplateListByUserIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOffset()) {
-    body["Offset"] = request.offset();
+    body["Offset"] = request.getOffset();
   }
 
   if (!!request.hasSize()) {
-    body["Size"] = request.size();
+    body["Size"] = request.getSize();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11588,33 +12202,33 @@ GetTicketResponse Client::getTicketWithOptions(const GetTicketRequest &tmpReq, c
   GetTicketShrinkHeaders headers = GetTicketShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenTeamId()) {
-    body["OpenTeamId"] = request.openTeamId();
+    body["OpenTeamId"] = request.getOpenTeamId();
   }
 
   if (!!request.hasOpenTicketId()) {
-    body["OpenTicketId"] = request.openTicketId();
+    body["OpenTicketId"] = request.getOpenTicketId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11662,29 +12276,29 @@ GetTodoTaskResponse Client::getTodoTaskWithOptions(const GetTodoTaskRequest &tmp
   GetTodoTaskShrinkHeaders headers = GetTodoTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11732,29 +12346,29 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &tmpReq, const G
   GetUserShrinkHeaders headers = GetUserShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11802,29 +12416,29 @@ GetUserIdResponse Client::getUserIdWithOptions(const GetUserIdRequest &tmpReq, c
   GetUserIdShrinkHeaders headers = GetUserIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUnionId()) {
-    body["UnionId"] = request.unionId();
+    body["UnionId"] = request.getUnionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11872,29 +12486,29 @@ GetUserIdByOrgIdAndStaffIdResponse Client::getUserIdByOrgIdAndStaffIdWithOptions
   GetUserIdByOrgIdAndStaffIdShrinkHeaders headers = GetUserIdByOrgIdAndStaffIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOrgId()) {
-    body["OrgId"] = request.orgId();
+    body["OrgId"] = request.getOrgId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -11942,25 +12556,25 @@ GetUserLatestPlanResponse Client::getUserLatestPlanWithOptions(const GetUserLate
   GetUserLatestPlanShrinkHeaders headers = GetUserLatestPlanShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12008,33 +12622,33 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const GetWorkspaceRequest &
   GetWorkspaceShrinkHeaders headers = GetWorkspaceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWithPermissionRole()) {
-    body["WithPermissionRole"] = request.withPermissionRole();
+    body["WithPermissionRole"] = request.getWithPermissionRole();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12082,41 +12696,41 @@ GetWorkspacesResponse Client::getWorkspacesWithOptions(const GetWorkspacesReques
   GetWorkspacesShrinkHeaders headers = GetWorkspacesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasWorkspaceIds()) {
-    request.setWorkspaceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workspaceIds(), "WorkspaceIds", "json"));
+    request.setWorkspaceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkspaceIds(), "WorkspaceIds", "json"));
   }
 
   json body = {};
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceIdsShrink()) {
-    body["WorkspaceIds"] = request.workspaceIdsShrink();
+    body["WorkspaceIds"] = request.getWorkspaceIdsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12164,73 +12778,73 @@ GrantHonorResponse Client::grantHonorWithOptions(const GrantHonorRequest &tmpReq
   GrantHonorShrinkHeaders headers = GrantHonorShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasOpenConversationIds()) {
-    request.setOpenConversationIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openConversationIds(), "openConversationIds", "json"));
+    request.setOpenConversationIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenConversationIds(), "openConversationIds", "json"));
   }
 
   if (!!tmpReq.hasReceiverUserIds()) {
-    request.setReceiverUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.receiverUserIds(), "receiverUserIds", "json"));
+    request.setReceiverUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReceiverUserIds(), "receiverUserIds", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasExpirationTime()) {
-    body["expirationTime"] = request.expirationTime();
+    body["expirationTime"] = request.getExpirationTime();
   }
 
   if (!!request.hasGrantReason()) {
-    body["grantReason"] = request.grantReason();
+    body["grantReason"] = request.getGrantReason();
   }
 
   if (!!request.hasGranterName()) {
-    body["granterName"] = request.granterName();
+    body["granterName"] = request.getGranterName();
   }
 
   if (!!request.hasHonorId()) {
-    body["honorId"] = request.honorId();
+    body["honorId"] = request.getHonorId();
   }
 
   if (!!request.hasNoticeAnnouncer()) {
-    body["noticeAnnouncer"] = request.noticeAnnouncer();
+    body["noticeAnnouncer"] = request.getNoticeAnnouncer();
   }
 
   if (!!request.hasNoticeSingle()) {
-    body["noticeSingle"] = request.noticeSingle();
+    body["noticeSingle"] = request.getNoticeSingle();
   }
 
   if (!!request.hasOpenConversationIdsShrink()) {
-    body["openConversationIds"] = request.openConversationIdsShrink();
+    body["openConversationIds"] = request.getOpenConversationIdsShrink();
   }
 
   if (!!request.hasOrgId()) {
-    body["orgId"] = request.orgId();
+    body["orgId"] = request.getOrgId();
   }
 
   if (!!request.hasReceiverUserIdsShrink()) {
-    body["receiverUserIds"] = request.receiverUserIdsShrink();
+    body["receiverUserIds"] = request.getReceiverUserIdsShrink();
   }
 
   if (!!request.hasSenderUserId()) {
-    body["senderUserId"] = request.senderUserId();
+    body["senderUserId"] = request.getSenderUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12278,37 +12892,37 @@ InitMultipartFileUploadResponse Client::initMultipartFileUploadWithOptions(const
   InitMultipartFileUploadShrinkHeaders headers = InitMultipartFileUploadShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasParentDentryUuid()) {
-    body["ParentDentryUuid"] = request.parentDentryUuid();
+    body["ParentDentryUuid"] = request.getParentDentryUuid();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12356,41 +12970,41 @@ InsertColumnsBeforeResponse Client::insertColumnsBeforeWithOptions(const InsertC
   InsertColumnsBeforeShrinkHeaders headers = InsertColumnsBeforeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasColumn()) {
-    body["Column"] = request.column();
+    body["Column"] = request.getColumn();
   }
 
   if (!!request.hasColumnCount()) {
-    body["ColumnCount"] = request.columnCount();
+    body["ColumnCount"] = request.getColumnCount();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12438,49 +13052,49 @@ InsertContentWithOptionsResponse Client::insertContentWithOptionsWithOptions(con
   InsertContentWithOptionsShrinkHeaders headers = InsertContentWithOptionsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasContent()) {
-    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.content(), "Content", "json"));
+    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContent(), "Content", "json"));
   }
 
   if (!!tmpReq.hasPath()) {
-    request.setPathShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.path(), "Path", "json"));
+    request.setPathShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPath(), "Path", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasContentShrink()) {
-    body["Content"] = request.contentShrink();
+    body["Content"] = request.getContentShrink();
   }
 
   if (!!request.hasDocumentId()) {
-    body["DocumentId"] = request.documentId();
+    body["DocumentId"] = request.getDocumentId();
   }
 
   if (!!request.hasIndex()) {
-    body["Index"] = request.index();
+    body["Index"] = request.getIndex();
   }
 
   if (!!request.hasPathShrink()) {
-    body["Path"] = request.pathShrink();
+    body["Path"] = request.getPathShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12528,45 +13142,45 @@ InsertDropDownListResponse Client::insertDropDownListWithOptions(const InsertDro
   InsertDropDownListShrinkHeaders headers = InsertDropDownListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOptions()) {
-    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "Options", "json"));
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "Options", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOptionsShrink()) {
-    body["Options"] = request.optionsShrink();
+    body["Options"] = request.getOptionsShrink();
   }
 
   if (!!request.hasRangeAddress()) {
-    body["RangeAddress"] = request.rangeAddress();
+    body["RangeAddress"] = request.getRangeAddress();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12614,41 +13228,41 @@ InsertMultiDimTableRecordResponse Client::insertMultiDimTableRecordWithOptions(c
   InsertMultiDimTableRecordShrinkHeaders headers = InsertMultiDimTableRecordShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRecords()) {
-    request.setRecordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.records(), "Records", "json"));
+    request.setRecordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecords(), "Records", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasRecordsShrink()) {
-    body["Records"] = request.recordsShrink();
+    body["Records"] = request.getRecordsShrink();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12696,41 +13310,41 @@ InsertRowsBeforeResponse Client::insertRowsBeforeWithOptions(const InsertRowsBef
   InsertRowsBeforeShrinkHeaders headers = InsertRowsBeforeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRow()) {
-    body["Row"] = request.row();
+    body["Row"] = request.getRow();
   }
 
   if (!!request.hasRowCount()) {
-    body["RowCount"] = request.rowCount();
+    body["RowCount"] = request.getRowCount();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12778,45 +13392,45 @@ InviteUsersResponse Client::inviteUsersWithOptions(const InviteUsersRequest &tmp
   InviteUsersShrinkHeaders headers = InviteUsersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasInviteeList()) {
-    request.setInviteeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.inviteeList(), "InviteeList", "json"));
+    request.setInviteeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInviteeList(), "InviteeList", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasPhoneInviteeList()) {
-    request.setPhoneInviteeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.phoneInviteeList(), "phoneInviteeList", "json"));
+    request.setPhoneInviteeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPhoneInviteeList(), "phoneInviteeList", "json"));
   }
 
   json body = {};
   if (!!request.hasInviteeListShrink()) {
-    body["InviteeList"] = request.inviteeListShrink();
+    body["InviteeList"] = request.getInviteeListShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   if (!!request.hasPhoneInviteeListShrink()) {
-    body["phoneInviteeList"] = request.phoneInviteeListShrink();
+    body["phoneInviteeList"] = request.getPhoneInviteeListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12857,52 +13471,52 @@ InviteUsersResponse Client::inviteUsers(const InviteUsersRequest &request) {
  * @param runtime runtime options for this request RuntimeOptions
  * @return InvokeAssistantResponse
  */
-FutrueGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const InvokeAssistantRequest &request, const InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const InvokeAssistantRequest &request, const InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasClientEnum()) {
-    body["clientEnum"] = request.clientEnum();
+    body["clientEnum"] = request.getClientEnum();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasMessages()) {
-    body["messages"] = request.messages();
+    body["messages"] = request.getMessages();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasSessionId()) {
-    body["sessionId"] = request.sessionId();
+    body["sessionId"] = request.getSessionId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12920,18 +13534,18 @@ FutrueGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const In
     {"reqBodyType" , "json"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<InvokeAssistantResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -12947,48 +13561,48 @@ InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistant
   request.validate();
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasClientEnum()) {
-    body["clientEnum"] = request.clientEnum();
+    body["clientEnum"] = request.getClientEnum();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasMessages()) {
-    body["messages"] = request.messages();
+    body["messages"] = request.getMessages();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasSessionId()) {
-    body["sessionId"] = request.sessionId();
+    body["sessionId"] = request.getSessionId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   if (!!request.hasStream()) {
-    body["stream"] = request.stream();
+    body["stream"] = request.getStream();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13029,44 +13643,44 @@ InvokeAssistantResponse Client::invokeAssistant(const InvokeAssistantRequest &re
  * @param runtime runtime options for this request RuntimeOptions
  * @return InvokeSkillResponse
  */
-FutrueGenerator<InvokeSkillResponse> Client::invokeSkillWithSSE(const InvokeSkillRequest &tmpReq, const InvokeSkillHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<InvokeSkillResponse> Client::invokeSkillWithSSE(const InvokeSkillRequest &tmpReq, const InvokeSkillHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   InvokeSkillShrinkRequest request = InvokeSkillShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   InvokeSkillShrinkHeaders headers = InvokeSkillShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasParams()) {
-    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.params(), "Params", "json"));
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
   }
 
   json body = {};
   if (!!request.hasParamsShrink()) {
-    body["Params"] = request.paramsShrink();
+    body["Params"] = request.getParamsShrink();
   }
 
   if (!!request.hasSkillId()) {
-    body["SkillId"] = request.skillId();
+    body["SkillId"] = request.getSkillId();
   }
 
   if (!!request.hasStream()) {
-    body["Stream"] = request.stream();
+    body["Stream"] = request.getStream();
   }
 
   if (!!request.hasSourceIdOfAssistantId()) {
-    body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId();
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13084,18 +13698,18 @@ FutrueGenerator<InvokeSkillResponse> Client::invokeSkillWithSSE(const InvokeSkil
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<InvokeSkillResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -13114,37 +13728,37 @@ InvokeSkillResponse Client::invokeSkillWithOptions(const InvokeSkillRequest &tmp
   InvokeSkillShrinkHeaders headers = InvokeSkillShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasParams()) {
-    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.params(), "Params", "json"));
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
   }
 
   json body = {};
   if (!!request.hasParamsShrink()) {
-    body["Params"] = request.paramsShrink();
+    body["Params"] = request.getParamsShrink();
   }
 
   if (!!request.hasSkillId()) {
-    body["SkillId"] = request.skillId();
+    body["SkillId"] = request.getSkillId();
   }
 
   if (!!request.hasStream()) {
-    body["Stream"] = request.stream();
+    body["Stream"] = request.getStream();
   }
 
   if (!!request.hasSourceIdOfAssistantId()) {
-    body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId();
+    body["sourceIdOfAssistantId"] = request.getSourceIdOfAssistantId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13190,41 +13804,41 @@ ListApplicationResponse Client::listApplicationWithOptions(const ListApplication
   ListApplicationShrinkHeaders headers = ListApplicationShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppFilter()) {
-    body["AppFilter"] = request.appFilter();
+    body["AppFilter"] = request.getAppFilter();
   }
 
   if (!!request.hasAppNameSearchKeyword()) {
-    body["AppNameSearchKeyword"] = request.appNameSearchKeyword();
+    body["AppNameSearchKeyword"] = request.getAppNameSearchKeyword();
   }
 
   if (!!request.hasCorpId()) {
-    body["CorpId"] = request.corpId();
+    body["CorpId"] = request.getCorpId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasToken()) {
-    body["Token"] = request.token();
+    body["Token"] = request.getToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13272,25 +13886,25 @@ ListCalendarsResponse Client::listCalendarsWithOptions(const ListCalendarsReques
   ListCalendarsShrinkHeaders headers = ListCalendarsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13338,53 +13952,53 @@ ListDentriesResponse Client::listDentriesWithOptions(const ListDentriesRequest &
   ListDentriesShrinkHeaders headers = ListDentriesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrder()) {
-    body["Order"] = request.order();
+    body["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderBy()) {
-    body["OrderBy"] = request.orderBy();
+    body["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasParentId()) {
-    body["ParentId"] = request.parentId();
+    body["ParentId"] = request.getParentId();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWithThumbnail()) {
-    body["WithThumbnail"] = request.withThumbnail();
+    body["WithThumbnail"] = request.getWithThumbnail();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13432,37 +14046,37 @@ ListDriveSpacesResponse Client::listDriveSpacesWithOptions(const ListDriveSpaces
   ListDriveSpacesShrinkHeaders headers = ListDriveSpacesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSpaceType()) {
-    body["SpaceType"] = request.spaceType();
+    body["SpaceType"] = request.getSpaceType();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13508,53 +14122,53 @@ ListEventsResponse Client::listEventsWithOptions(const ListEventsRequest &reques
   ListEventsShrinkHeaders headers = ListEventsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasMaxAttendees()) {
-    body["MaxAttendees"] = request.maxAttendees();
+    body["MaxAttendees"] = request.getMaxAttendees();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSeriesMasterId()) {
-    body["SeriesMasterId"] = request.seriesMasterId();
+    body["SeriesMasterId"] = request.getSeriesMasterId();
   }
 
   if (!!request.hasShowDeleted()) {
-    body["ShowDeleted"] = request.showDeleted();
+    body["ShowDeleted"] = request.getShowDeleted();
   }
 
   if (!!request.hasSyncToken()) {
-    body["SyncToken"] = request.syncToken();
+    body["SyncToken"] = request.getSyncToken();
   }
 
   if (!!request.hasTimeMax()) {
-    body["TimeMax"] = request.timeMax();
+    body["TimeMax"] = request.getTimeMax();
   }
 
   if (!!request.hasTimeMin()) {
-    body["TimeMin"] = request.timeMin();
+    body["TimeMin"] = request.getTimeMin();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13600,41 +14214,41 @@ ListEventsViewResponse Client::listEventsViewWithOptions(const ListEventsViewReq
   ListEventsViewShrinkHeaders headers = ListEventsViewShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasMaxAttendees()) {
-    body["MaxAttendees"] = request.maxAttendees();
+    body["MaxAttendees"] = request.getMaxAttendees();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTimeMax()) {
-    body["TimeMax"] = request.timeMax();
+    body["TimeMax"] = request.getTimeMax();
   }
 
   if (!!request.hasTimeMin()) {
-    body["TimeMin"] = request.timeMin();
+    body["TimeMin"] = request.getTimeMin();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13682,37 +14296,37 @@ ListFormRemarksResponse Client::listFormRemarksWithOptions(const ListFormRemarks
   ListFormRemarksShrinkHeaders headers = ListFormRemarksShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasFormInstanceIdList()) {
-    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.formInstanceIdList(), "FormInstanceIdList", "json"));
+    request.setFormInstanceIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFormInstanceIdList(), "FormInstanceIdList", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormInstanceIdListShrink()) {
-    body["FormInstanceIdList"] = request.formInstanceIdListShrink();
+    body["FormInstanceIdList"] = request.getFormInstanceIdListShrink();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13757,48 +14371,48 @@ ListMessageResponse Client::listMessageWithOptions(const ListMessageRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasLimit()) {
-    body["limit"] = request.limit();
+    body["limit"] = request.getLimit();
   }
 
   if (!!request.hasOrder()) {
-    body["order"] = request.order();
+    body["order"] = request.getOrder();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasRunId()) {
-    body["runId"] = request.runId();
+    body["runId"] = request.getRunId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   if (!!request.hasThreadId()) {
-    body["threadId"] = request.threadId();
+    body["threadId"] = request.getThreadId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13846,49 +14460,49 @@ ListMultiDimTableRecordsResponse Client::listMultiDimTableRecordsWithOptions(con
   ListMultiDimTableRecordsShrinkHeaders headers = ListMultiDimTableRecordsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasFilterShrink()) {
-    body["Filter"] = request.filterShrink();
+    body["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -13934,33 +14548,33 @@ ListNavigationByFormTypeResponse Client::listNavigationByFormTypeWithOptions(con
   ListNavigationByFormTypeShrinkHeaders headers = ListNavigationByFormTypeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormType()) {
-    body["FormType"] = request.formType();
+    body["FormType"] = request.getFormType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14008,41 +14622,41 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
   ListNodesShrinkHeaders headers = ListNodesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasParentNodeId()) {
-    body["ParentNodeId"] = request.parentNodeId();
+    body["ParentNodeId"] = request.getParentNodeId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWithPermissionRole()) {
-    body["WithPermissionRole"] = request.withPermissionRole();
+    body["WithPermissionRole"] = request.getWithPermissionRole();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14090,37 +14704,37 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const ListPermissions
   ListPermissionsShrinkHeaders headers = ListPermissionsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14168,53 +14782,53 @@ ListReportResponse Client::listReportWithOptions(const ListReportRequest &tmpReq
   ListReportShrinkHeaders headers = ListReportShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCursor()) {
-    body["Cursor"] = request.cursor();
+    body["Cursor"] = request.getCursor();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasModifiedEndTime()) {
-    body["ModifiedEndTime"] = request.modifiedEndTime();
+    body["ModifiedEndTime"] = request.getModifiedEndTime();
   }
 
   if (!!request.hasModifiedStartTime()) {
-    body["ModifiedStartTime"] = request.modifiedStartTime();
+    body["ModifiedStartTime"] = request.getModifiedStartTime();
   }
 
   if (!!request.hasSize()) {
-    body["Size"] = request.size();
+    body["Size"] = request.getSize();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTemplateName()) {
-    body["TemplateName"] = request.templateName();
+    body["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14260,21 +14874,21 @@ ListSkillResponse Client::listSkillWithOptions(const ListSkillRequest &request, 
   ListSkillShrinkHeaders headers = ListSkillShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasGroupId()) {
-    body["groupId"] = request.groupId();
+    body["groupId"] = request.getGroupId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14320,45 +14934,45 @@ ListTableDataByFormInstanceIdTableIdResponse Client::listTableDataByFormInstance
   ListTableDataByFormInstanceIdTableIdShrinkHeaders headers = ListTableDataByFormInstanceIdTableIdShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormInstanceId()) {
-    body["FormInstanceId"] = request.formInstanceId();
+    body["FormInstanceId"] = request.getFormInstanceId();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTableFieldId()) {
-    body["TableFieldId"] = request.tableFieldId();
+    body["TableFieldId"] = request.getTableFieldId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14406,33 +15020,33 @@ ListTeamsResponse Client::listTeamsWithOptions(const ListTeamsRequest &tmpReq, c
   ListTeamsShrinkHeaders headers = ListTeamsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14480,41 +15094,41 @@ ListTemplateResponse Client::listTemplateWithOptions(const ListTemplateRequest &
   ListTemplateShrinkHeaders headers = ListTemplateShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTemplateType()) {
-    body["TemplateType"] = request.templateType();
+    body["TemplateType"] = request.getTemplateType();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14562,33 +15176,33 @@ ListTicketOperateRecordResponse Client::listTicketOperateRecordWithOptions(const
   ListTicketOperateRecordShrinkHeaders headers = ListTicketOperateRecordShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOpenTeamId()) {
-    body["OpenTeamId"] = request.openTeamId();
+    body["OpenTeamId"] = request.getOpenTeamId();
   }
 
   if (!!request.hasOpenTicketId()) {
-    body["OpenTicketId"] = request.openTicketId();
+    body["OpenTicketId"] = request.getOpenTicketId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14636,45 +15250,45 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
   ListWorkspacesShrinkHeaders headers = ListWorkspacesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrderBy()) {
-    body["OrderBy"] = request.orderBy();
+    body["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasTeamId()) {
-    body["TeamId"] = request.teamId();
+    body["TeamId"] = request.getTeamId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWithPermissionRole()) {
-    body["WithPermissionRole"] = request.withPermissionRole();
+    body["WithPermissionRole"] = request.getWithPermissionRole();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14722,138 +15336,138 @@ PatchEventResponse Client::patchEventWithOptions(const PatchEventRequest &tmpReq
   PatchEventShrinkHeaders headers = PatchEventShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasAttendees()) {
-    request.setAttendeesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.attendees(), "Attendees", "json"));
+    request.setAttendeesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttendees(), "Attendees", "json"));
   }
 
   if (!!tmpReq.hasCardInstances()) {
-    request.setCardInstancesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cardInstances(), "CardInstances", "json"));
+    request.setCardInstancesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCardInstances(), "CardInstances", "json"));
   }
 
   if (!!tmpReq.hasEnd()) {
-    request.setEndShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.end(), "End", "json"));
+    request.setEndShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnd(), "End", "json"));
   }
 
   if (!!tmpReq.hasExtra()) {
-    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extra(), "Extra", "json"));
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "Extra", "json"));
   }
 
   if (!!tmpReq.hasLocation()) {
-    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.location(), "Location", "json"));
+    request.setLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLocation(), "Location", "json"));
   }
 
   if (!!tmpReq.hasRecurrence()) {
-    request.setRecurrenceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recurrence(), "Recurrence", "json"));
+    request.setRecurrenceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecurrence(), "Recurrence", "json"));
   }
 
   if (!!tmpReq.hasReminders()) {
-    request.setRemindersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.reminders(), "Reminders", "json"));
+    request.setRemindersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReminders(), "Reminders", "json"));
   }
 
   if (!!tmpReq.hasStart()) {
-    request.setStartShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.start(), "Start", "json"));
+    request.setStartShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStart(), "Start", "json"));
   }
 
   if (!!tmpReq.hasCategories()) {
-    request.setCategoriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.categories(), "categories", "json"));
+    request.setCategoriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCategories(), "categories", "json"));
   }
 
   if (!!tmpReq.hasOnlineMeetingInfo()) {
-    request.setOnlineMeetingInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.onlineMeetingInfo(), "onlineMeetingInfo", "json"));
+    request.setOnlineMeetingInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOnlineMeetingInfo(), "onlineMeetingInfo", "json"));
   }
 
   if (!!tmpReq.hasRichTextDescription()) {
-    request.setRichTextDescriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.richTextDescription(), "richTextDescription", "json"));
+    request.setRichTextDescriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRichTextDescription(), "richTextDescription", "json"));
   }
 
   if (!!tmpReq.hasUiConfigs()) {
-    request.setUiConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.uiConfigs(), "uiConfigs", "json"));
+    request.setUiConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUiConfigs(), "uiConfigs", "json"));
   }
 
   json query = {};
   if (!!request.hasCategoriesShrink()) {
-    query["categories"] = request.categoriesShrink();
+    query["categories"] = request.getCategoriesShrink();
   }
 
   if (!!request.hasFreeBusyStatus()) {
-    query["freeBusyStatus"] = request.freeBusyStatus();
+    query["freeBusyStatus"] = request.getFreeBusyStatus();
   }
 
   if (!!request.hasOnlineMeetingInfoShrink()) {
-    query["onlineMeetingInfo"] = request.onlineMeetingInfoShrink();
+    query["onlineMeetingInfo"] = request.getOnlineMeetingInfoShrink();
   }
 
   if (!!request.hasRichTextDescriptionShrink()) {
-    query["richTextDescription"] = request.richTextDescriptionShrink();
+    query["richTextDescription"] = request.getRichTextDescriptionShrink();
   }
 
   if (!!request.hasUiConfigsShrink()) {
-    query["uiConfigs"] = request.uiConfigsShrink();
+    query["uiConfigs"] = request.getUiConfigsShrink();
   }
 
   json body = {};
   if (!!request.hasAttendeesShrink()) {
-    body["Attendees"] = request.attendeesShrink();
+    body["Attendees"] = request.getAttendeesShrink();
   }
 
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasCardInstancesShrink()) {
-    body["CardInstances"] = request.cardInstancesShrink();
+    body["CardInstances"] = request.getCardInstancesShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEndShrink()) {
-    body["End"] = request.endShrink();
+    body["End"] = request.getEndShrink();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   if (!!request.hasExtraShrink()) {
-    body["Extra"] = request.extraShrink();
+    body["Extra"] = request.getExtraShrink();
   }
 
   if (!!request.hasIsAllDay()) {
-    body["IsAllDay"] = request.isAllDay();
+    body["IsAllDay"] = request.getIsAllDay();
   }
 
   if (!!request.hasLocationShrink()) {
-    body["Location"] = request.locationShrink();
+    body["Location"] = request.getLocationShrink();
   }
 
   if (!!request.hasRecurrenceShrink()) {
-    body["Recurrence"] = request.recurrenceShrink();
+    body["Recurrence"] = request.getRecurrenceShrink();
   }
 
   if (!!request.hasRemindersShrink()) {
-    body["Reminders"] = request.remindersShrink();
+    body["Reminders"] = request.getRemindersShrink();
   }
 
   if (!!request.hasStartShrink()) {
-    body["Start"] = request.startShrink();
+    body["Start"] = request.getStartShrink();
   }
 
   if (!!request.hasSummary()) {
-    body["Summary"] = request.summary();
+    body["Summary"] = request.getSummary();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14902,45 +15516,45 @@ QueryCloudRecordTextResponse Client::queryCloudRecordTextWithOptions(const Query
   QueryCloudRecordTextShrinkHeaders headers = QueryCloudRecordTextShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDirection()) {
-    body["Direction"] = request.direction();
+    body["Direction"] = request.getDirection();
   }
 
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14988,29 +15602,29 @@ QueryCloudRecordVideoResponse Client::queryCloudRecordVideoWithOptions(const Que
   QueryCloudRecordVideoShrinkHeaders headers = QueryCloudRecordVideoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15058,37 +15672,37 @@ QueryCloudRecordVideoPlayInfoResponse Client::queryCloudRecordVideoPlayInfoWithO
   QueryCloudRecordVideoPlayInfoShrinkHeaders headers = QueryCloudRecordVideoPlayInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasConferenceId()) {
-    body["ConferenceId"] = request.conferenceId();
+    body["ConferenceId"] = request.getConferenceId();
   }
 
   if (!!request.hasMediaId()) {
-    body["MediaId"] = request.mediaId();
+    body["MediaId"] = request.getMediaId();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15134,21 +15748,21 @@ QueryConferenceInfoResponse Client::queryConferenceInfoWithOptions(const QueryCo
   QueryConferenceInfoShrinkHeaders headers = QueryConferenceInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15196,37 +15810,37 @@ QueryConferenceInfoByRoomCodeResponse Client::queryConferenceInfoByRoomCodeWithO
   QueryConferenceInfoByRoomCodeShrinkHeaders headers = QueryConferenceInfoByRoomCodeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasMaxResults()) {
-    body["maxResults"] = request.maxResults();
+    body["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["nextToken"] = request.nextToken();
+    body["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRoomCode()) {
-    body["roomCode"] = request.roomCode();
+    body["roomCode"] = request.getRoomCode();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15274,37 +15888,37 @@ QueryConferenceMembersResponse Client::queryConferenceMembersWithOptions(const Q
   QueryConferenceMembersShrinkHeaders headers = QueryConferenceMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15352,45 +15966,45 @@ QueryDentriesInfoResponse Client::queryDentriesInfoWithOptions(const QueryDentri
   QueryDentriesInfoShrinkHeaders headers = QueryDentriesInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasAppIdsForAppProperties()) {
-    request.setAppIdsForAppPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.appIdsForAppProperties(), "AppIdsForAppProperties", "json"));
+    request.setAppIdsForAppPropertiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAppIdsForAppProperties(), "AppIdsForAppProperties", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppIdsForAppPropertiesShrink()) {
-    body["AppIdsForAppProperties"] = request.appIdsForAppPropertiesShrink();
+    body["AppIdsForAppProperties"] = request.getAppIdsForAppPropertiesShrink();
   }
 
   if (!!request.hasDentryId()) {
-    body["DentryId"] = request.dentryId();
+    body["DentryId"] = request.getDentryId();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWithThumbnail()) {
-    body["WithThumbnail"] = request.withThumbnail();
+    body["WithThumbnail"] = request.getWithThumbnail();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15438,37 +16052,37 @@ QueryDentryResponse Client::queryDentryWithOptions(const QueryDentryRequest &tmp
   QueryDentryShrinkHeaders headers = QueryDentryShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryId()) {
-    body["DentryId"] = request.dentryId();
+    body["DentryId"] = request.getDentryId();
   }
 
   if (!!request.hasIncludeSpace()) {
-    body["IncludeSpace"] = request.includeSpace();
+    body["IncludeSpace"] = request.getIncludeSpace();
   }
 
   if (!!request.hasSpaceId()) {
-    body["SpaceId"] = request.spaceId();
+    body["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15516,33 +16130,33 @@ QueryGroupLiveInfoResponse Client::queryGroupLiveInfoWithOptions(const QueryGrou
   QueryGroupLiveInfoShrinkHeaders headers = QueryGroupLiveInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAnchorUnionId()) {
-    body["AnchorUnionId"] = request.anchorUnionId();
+    body["AnchorUnionId"] = request.getAnchorUnionId();
   }
 
   if (!!request.hasLiveUuid()) {
-    body["LiveUuid"] = request.liveUuid();
+    body["LiveUuid"] = request.getLiveUuid();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15590,29 +16204,29 @@ QueryLiveInfoResponse Client::queryLiveInfoWithOptions(const QueryLiveInfoReques
   QueryLiveInfoShrinkHeaders headers = QueryLiveInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasLiveId()) {
-    body["LiveId"] = request.liveId();
+    body["LiveId"] = request.getLiveId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15660,29 +16274,29 @@ QueryLiveWatchDetailResponse Client::queryLiveWatchDetailWithOptions(const Query
   QueryLiveWatchDetailShrinkHeaders headers = QueryLiveWatchDetailShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasLiveId()) {
-    body["LiveId"] = request.liveId();
+    body["LiveId"] = request.getLiveId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15730,37 +16344,37 @@ QueryLiveWatchUserListResponse Client::queryLiveWatchUserListWithOptions(const Q
   QueryLiveWatchUserListShrinkHeaders headers = QueryLiveWatchUserListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasLiveId()) {
-    body["LiveId"] = request.liveId();
+    body["LiveId"] = request.getLiveId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15808,29 +16422,29 @@ QueryMeetingRoomResponse Client::queryMeetingRoomWithOptions(const QueryMeetingR
   QueryMeetingRoomShrinkHeaders headers = QueryMeetingRoomShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRoomId()) {
-    body["RoomId"] = request.roomId();
+    body["RoomId"] = request.getRoomId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15878,29 +16492,29 @@ QueryMeetingRoomGroupResponse Client::queryMeetingRoomGroupWithOptions(const Que
   QueryMeetingRoomGroupShrinkHeaders headers = QueryMeetingRoomGroupShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -15948,33 +16562,33 @@ QueryMeetingRoomGroupListResponse Client::queryMeetingRoomGroupListWithOptions(c
   QueryMeetingRoomGroupListShrinkHeaders headers = QueryMeetingRoomGroupListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16022,33 +16636,33 @@ QueryMeetingRoomListResponse Client::queryMeetingRoomListWithOptions(const Query
   QueryMeetingRoomListShrinkHeaders headers = QueryMeetingRoomListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16096,29 +16710,29 @@ QueryMinutesResponse Client::queryMinutesWithOptions(const QueryMinutesRequest &
   QueryMinutesShrinkHeaders headers = QueryMinutesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16166,37 +16780,37 @@ QueryMinutesSummaryResponse Client::queryMinutesSummaryWithOptions(const QueryMi
   QueryMinutesSummaryShrinkHeaders headers = QueryMinutesSummaryShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasSummaryTypeList()) {
-    request.setSummaryTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.summaryTypeList(), "summaryTypeList", "json"));
+    request.setSummaryTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSummaryTypeList(), "summaryTypeList", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   if (!!request.hasSummaryTypeListShrink()) {
-    body["summaryTypeList"] = request.summaryTypeListShrink();
+    body["summaryTypeList"] = request.getSummaryTypeListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16244,41 +16858,41 @@ QueryMinutesTextResponse Client::queryMinutesTextWithOptions(const QueryMinutesT
   QueryMinutesTextShrinkHeaders headers = QueryMinutesTextShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   if (!!request.hasDirection()) {
-    body["direction"] = request.direction();
+    body["direction"] = request.getDirection();
   }
 
   if (!!request.hasMaxResults()) {
-    body["maxResults"] = request.maxResults();
+    body["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["nextToken"] = request.nextToken();
+    body["nextToken"] = request.getNextToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16326,37 +16940,37 @@ QueryOrgHonorsResponse Client::queryOrgHonorsWithOptions(const QueryOrgHonorsReq
   QueryOrgHonorsShrinkHeaders headers = QueryOrgHonorsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasMaxResults()) {
-    body["maxResults"] = request.maxResults();
+    body["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["nextToken"] = request.nextToken();
+    body["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrgId()) {
-    body["orgId"] = request.orgId();
+    body["orgId"] = request.getOrgId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16404,33 +17018,33 @@ QueryOrgTodoTasksResponse Client::queryOrgTodoTasksWithOptions(const QueryOrgTod
   QueryOrgTodoTasksShrinkHeaders headers = QueryOrgTodoTasksShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasIsDone()) {
-    body["isDone"] = request.isDone();
+    body["isDone"] = request.getIsDone();
   }
 
   if (!!request.hasNextToken()) {
-    body["nextToken"] = request.nextToken();
+    body["nextToken"] = request.getNextToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16478,33 +17092,33 @@ QueryRecordMinutesUrlResponse Client::queryRecordMinutesUrlWithOptions(const Que
   QueryRecordMinutesUrlShrinkHeaders headers = QueryRecordMinutesUrlShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBizType()) {
-    body["BizType"] = request.bizType();
+    body["BizType"] = request.getBizType();
   }
 
   if (!!request.hasConferenceId()) {
-    body["ConferenceId"] = request.conferenceId();
+    body["ConferenceId"] = request.getConferenceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16552,29 +17166,29 @@ QueryReportDetailResponse Client::queryReportDetailWithOptions(const QueryReport
   QueryReportDetailShrinkHeaders headers = QueryReportDetailShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasReportId()) {
-    body["ReportId"] = request.reportId();
+    body["ReportId"] = request.getReportId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16608,6 +17222,63 @@ QueryReportDetailResponse Client::queryReportDetail(const QueryReportDetailReque
 }
 
 /**
+ * @summary 分页查询钉钉机器人退订工号
+ *
+ * @param request QueryRobotUnsubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryRobotUnsubscriptionResponse
+ */
+QueryRobotUnsubscriptionResponse Client::queryRobotUnsubscriptionWithOptions(const QueryRobotUnsubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRobotCode()) {
+    body["RobotCode"] = request.getRobotCode();
+  }
+
+  if (!!request.hasSceneCode()) {
+    body["SceneCode"] = request.getSceneCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryRobotUnsubscription"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/aliding/v1/robot/queryRobotUnsubscription")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryRobotUnsubscriptionResponse>();
+}
+
+/**
+ * @summary 分页查询钉钉机器人退订工号
+ *
+ * @param request QueryRobotUnsubscriptionRequest
+ * @return QueryRobotUnsubscriptionResponse
+ */
+QueryRobotUnsubscriptionResponse Client::queryRobotUnsubscription(const QueryRobotUnsubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryRobotUnsubscriptionWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询预约会议
  *
  * @param tmpReq QueryScheduleConferenceRequest
@@ -16622,29 +17293,29 @@ QueryScheduleConferenceResponse Client::queryScheduleConferenceWithOptions(const
   QueryScheduleConferenceShrinkHeaders headers = QueryScheduleConferenceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasScheduleConferenceId()) {
-    body["scheduleConferenceId"] = request.scheduleConferenceId();
+    body["scheduleConferenceId"] = request.getScheduleConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16692,37 +17363,37 @@ QueryScheduleConferenceInfoResponse Client::queryScheduleConferenceInfoWithOptio
   QueryScheduleConferenceInfoShrinkHeaders headers = QueryScheduleConferenceInfoShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["NextToken"] = request.nextToken();
+    body["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasScheduleConferenceId()) {
-    body["ScheduleConferenceId"] = request.scheduleConferenceId();
+    body["ScheduleConferenceId"] = request.getScheduleConferenceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16770,41 +17441,41 @@ QueryUserHonorsResponse Client::queryUserHonorsWithOptions(const QueryUserHonors
   QueryUserHonorsShrinkHeaders headers = QueryUserHonorsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasMaxResults()) {
-    body["maxResults"] = request.maxResults();
+    body["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["nextToken"] = request.nextToken();
+    body["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrgId()) {
-    body["orgId"] = request.orgId();
+    body["orgId"] = request.getOrgId();
   }
 
   if (!!request.hasUserId()) {
-    body["userId"] = request.userId();
+    body["userId"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16852,37 +17523,37 @@ RecallHonorResponse Client::recallHonorWithOptions(const RecallHonorRequest &tmp
   RecallHonorShrinkHeaders headers = RecallHonorShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasHonorId()) {
-    body["honorId"] = request.honorId();
+    body["honorId"] = request.getHonorId();
   }
 
   if (!!request.hasOrgId()) {
-    body["orgId"] = request.orgId();
+    body["orgId"] = request.getOrgId();
   }
 
   if (!!request.hasUserId()) {
-    body["userId"] = request.userId();
+    body["userId"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -16930,37 +17601,37 @@ ReceiverListReportResponse Client::receiverListReportWithOptions(const ReceiverL
   ReceiverListReportShrinkHeaders headers = ReceiverListReportShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOffset()) {
-    body["Offset"] = request.offset();
+    body["Offset"] = request.getOffset();
   }
 
   if (!!request.hasReportId()) {
-    body["ReportId"] = request.reportId();
+    body["ReportId"] = request.getReportId();
   }
 
   if (!!request.hasSize()) {
-    body["Size"] = request.size();
+    body["Size"] = request.getSize();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17006,49 +17677,49 @@ RedirectTaskResponse Client::redirectTaskWithOptions(const RedirectTaskRequest &
   RedirectTaskShrinkHeaders headers = RedirectTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasByManager()) {
-    body["ByManager"] = request.byManager();
+    body["ByManager"] = request.getByManager();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasNowActionExecutorId()) {
-    body["NowActionExecutorId"] = request.nowActionExecutorId();
+    body["NowActionExecutorId"] = request.getNowActionExecutorId();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasRemark()) {
-    body["Remark"] = request.remark();
+    body["Remark"] = request.getRemark();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTaskId()) {
-    body["TaskId"] = request.taskId();
+    body["TaskId"] = request.getTaskId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17096,33 +17767,33 @@ RemoveAttendeeResponse Client::removeAttendeeWithOptions(const RemoveAttendeeReq
   RemoveAttendeeShrinkHeaders headers = RemoveAttendeeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasAttendeesToRemove()) {
-    request.setAttendeesToRemoveShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.attendeesToRemove(), "AttendeesToRemove", "json"));
+    request.setAttendeesToRemoveShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttendeesToRemove(), "AttendeesToRemove", "json"));
   }
 
   json body = {};
   if (!!request.hasAttendeesToRemoveShrink()) {
-    body["AttendeesToRemove"] = request.attendeesToRemoveShrink();
+    body["AttendeesToRemove"] = request.getAttendeesToRemoveShrink();
   }
 
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17170,33 +17841,33 @@ RemoveMeetingRoomsResponse Client::removeMeetingRoomsWithOptions(const RemoveMee
   RemoveMeetingRoomsShrinkHeaders headers = RemoveMeetingRoomsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMeetingRoomsToRemove()) {
-    request.setMeetingRoomsToRemoveShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.meetingRoomsToRemove(), "MeetingRoomsToRemove", "json"));
+    request.setMeetingRoomsToRemoveShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMeetingRoomsToRemove(), "MeetingRoomsToRemove", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   if (!!request.hasMeetingRoomsToRemoveShrink()) {
-    body["MeetingRoomsToRemove"] = request.meetingRoomsToRemoveShrink();
+    body["MeetingRoomsToRemove"] = request.getMeetingRoomsToRemoveShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17244,37 +17915,37 @@ RespondEventResponse Client::respondEventWithOptions(const RespondEventRequest &
   RespondEventShrinkHeaders headers = RespondEventShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasEventId()) {
-    body["EventId"] = request.eventId();
+    body["EventId"] = request.getEventId();
   }
 
   if (!!request.hasResponseStatus()) {
-    body["ResponseStatus"] = request.responseStatus();
+    body["ResponseStatus"] = request.getResponseStatus();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17319,36 +17990,36 @@ RetrieveRunResponse Client::retrieveRunWithOptions(const RetrieveRunRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["assistantId"] = request.assistantId();
+    body["assistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasExtLoginUser()) {
-    body["extLoginUser"] = request.extLoginUser();
+    body["extLoginUser"] = request.getExtLoginUser();
   }
 
   if (!!request.hasOriginalAssistantId()) {
-    body["originalAssistantId"] = request.originalAssistantId();
+    body["originalAssistantId"] = request.getOriginalAssistantId();
   }
 
   if (!!request.hasRunId()) {
-    body["runId"] = request.runId();
+    body["runId"] = request.getRunId();
   }
 
   if (!!request.hasSourceIdOfOriginalAssistantId()) {
-    body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId();
+    body["sourceIdOfOriginalAssistantId"] = request.getSourceIdOfOriginalAssistantId();
   }
 
   if (!!request.hasSourceTypeOfOriginalAssistantId()) {
-    body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId();
+    body["sourceTypeOfOriginalAssistantId"] = request.getSourceTypeOfOriginalAssistantId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountId()) {
-    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.accountId());
+    realHeaders["accountId"] = Darabonba::Convert::stringVal(headers.getAccountId());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17396,41 +18067,41 @@ SaveContentResponse Client::saveContentWithOptions(const SaveContentRequest &tmp
   SaveContentShrinkHeaders headers = SaveContentShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasContents()) {
-    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contents(), "Contents", "json"));
+    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContents(), "Contents", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasContentsShrink()) {
-    body["Contents"] = request.contentsShrink();
+    body["Contents"] = request.getContentsShrink();
   }
 
   if (!!request.hasDdFrom()) {
-    body["DdFrom"] = request.ddFrom();
+    body["DdFrom"] = request.getDdFrom();
   }
 
   if (!!request.hasTemplateId()) {
-    body["TemplateId"] = request.templateId();
+    body["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17476,37 +18147,37 @@ SaveFormDataResponse Client::saveFormDataWithOptions(const SaveFormDataRequest &
   SaveFormDataShrinkHeaders headers = SaveFormDataShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormDataJson()) {
-    body["FormDataJson"] = request.formDataJson();
+    body["FormDataJson"] = request.getFormDataJson();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17552,45 +18223,45 @@ SaveFormRemarkResponse Client::saveFormRemarkWithOptions(const SaveFormRemarkReq
   SaveFormRemarkShrinkHeaders headers = SaveFormRemarkShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasAtUserId()) {
-    body["AtUserId"] = request.atUserId();
+    body["AtUserId"] = request.getAtUserId();
   }
 
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasFormInstanceId()) {
-    body["FormInstanceId"] = request.formInstanceId();
+    body["FormInstanceId"] = request.getFormInstanceId();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasReplyId()) {
-    body["ReplyId"] = request.replyId();
+    body["ReplyId"] = request.getReplyId();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17636,61 +18307,61 @@ SearchEmployeeFieldValuesResponse Client::searchEmployeeFieldValuesWithOptions(c
   SearchEmployeeFieldValuesShrinkHeaders headers = SearchEmployeeFieldValuesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasModifiedFromTimeGMT()) {
-    body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT();
+    body["ModifiedFromTimeGMT"] = request.getModifiedFromTimeGMT();
   }
 
   if (!!request.hasModifiedToTimeGMT()) {
-    body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT();
+    body["ModifiedToTimeGMT"] = request.getModifiedToTimeGMT();
   }
 
   if (!!request.hasOriginatorId()) {
-    body["OriginatorId"] = request.originatorId();
+    body["OriginatorId"] = request.getOriginatorId();
   }
 
   if (!!request.hasSearchFieldJson()) {
-    body["SearchFieldJson"] = request.searchFieldJson();
+    body["SearchFieldJson"] = request.getSearchFieldJson();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasTargetFieldJson()) {
-    body["TargetFieldJson"] = request.targetFieldJson();
+    body["TargetFieldJson"] = request.getTargetFieldJson();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17736,65 +18407,65 @@ SearchFormDataIdListResponse Client::searchFormDataIdListWithOptions(const Searc
   SearchFormDataIdListShrinkHeaders headers = SearchFormDataIdListShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasModifiedFromTimeGMT()) {
-    body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT();
+    body["ModifiedFromTimeGMT"] = request.getModifiedFromTimeGMT();
   }
 
   if (!!request.hasModifiedToTimeGMT()) {
-    body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT();
+    body["ModifiedToTimeGMT"] = request.getModifiedToTimeGMT();
   }
 
   if (!!request.hasOriginatorId()) {
-    body["OriginatorId"] = request.originatorId();
+    body["OriginatorId"] = request.getOriginatorId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchFieldJson()) {
-    body["SearchFieldJson"] = request.searchFieldJson();
+    body["SearchFieldJson"] = request.getSearchFieldJson();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17840,65 +18511,65 @@ SearchFormDataSecondGenerationResponse Client::searchFormDataSecondGenerationWit
   SearchFormDataSecondGenerationShrinkHeaders headers = SearchFormDataSecondGenerationShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasModifiedFromTimeGMT()) {
-    body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT();
+    body["ModifiedFromTimeGMT"] = request.getModifiedFromTimeGMT();
   }
 
   if (!!request.hasModifiedToTimeGMT()) {
-    body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT();
+    body["ModifiedToTimeGMT"] = request.getModifiedToTimeGMT();
   }
 
   if (!!request.hasOrderConfigJson()) {
-    body["OrderConfigJson"] = request.orderConfigJson();
+    body["OrderConfigJson"] = request.getOrderConfigJson();
   }
 
   if (!!request.hasOriginatorId()) {
-    body["OriginatorId"] = request.originatorId();
+    body["OriginatorId"] = request.getOriginatorId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchCondition()) {
-    body["SearchCondition"] = request.searchCondition();
+    body["SearchCondition"] = request.getSearchCondition();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -17944,65 +18615,65 @@ SearchFormDataSecondGenerationNoTableFieldResponse Client::searchFormDataSecondG
   SearchFormDataSecondGenerationNoTableFieldShrinkHeaders headers = SearchFormDataSecondGenerationNoTableFieldShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasModifiedFromTimeGMT()) {
-    body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT();
+    body["ModifiedFromTimeGMT"] = request.getModifiedFromTimeGMT();
   }
 
   if (!!request.hasModifiedToTimeGMT()) {
-    body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT();
+    body["ModifiedToTimeGMT"] = request.getModifiedToTimeGMT();
   }
 
   if (!!request.hasOrderConfigJson()) {
-    body["OrderConfigJson"] = request.orderConfigJson();
+    body["OrderConfigJson"] = request.getOrderConfigJson();
   }
 
   if (!!request.hasOriginatorId()) {
-    body["OriginatorId"] = request.originatorId();
+    body["OriginatorId"] = request.getOriginatorId();
   }
 
   if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.pageNumber();
+    body["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchCondition()) {
-    body["SearchCondition"] = request.searchCondition();
+    body["SearchCondition"] = request.getSearchCondition();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18048,69 +18719,69 @@ SearchFormDatasResponse Client::searchFormDatasWithOptions(const SearchFormDatas
   SearchFormDatasShrinkHeaders headers = SearchFormDatasShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasCreateFromTimeGMT()) {
-    body["CreateFromTimeGMT"] = request.createFromTimeGMT();
+    body["CreateFromTimeGMT"] = request.getCreateFromTimeGMT();
   }
 
   if (!!request.hasCreateToTimeGMT()) {
-    body["CreateToTimeGMT"] = request.createToTimeGMT();
+    body["CreateToTimeGMT"] = request.getCreateToTimeGMT();
   }
 
   if (!!request.hasCurrentPage()) {
-    body["CurrentPage"] = request.currentPage();
+    body["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasDynamicOrder()) {
-    body["DynamicOrder"] = request.dynamicOrder();
+    body["DynamicOrder"] = request.getDynamicOrder();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasModifiedFromTimeGMT()) {
-    body["ModifiedFromTimeGMT"] = request.modifiedFromTimeGMT();
+    body["ModifiedFromTimeGMT"] = request.getModifiedFromTimeGMT();
   }
 
   if (!!request.hasModifiedToTimeGMT()) {
-    body["ModifiedToTimeGMT"] = request.modifiedToTimeGMT();
+    body["ModifiedToTimeGMT"] = request.getModifiedToTimeGMT();
   }
 
   if (!!request.hasOriginatorId()) {
-    body["OriginatorId"] = request.originatorId();
+    body["OriginatorId"] = request.getOriginatorId();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchFieldJson()) {
-    body["SearchFieldJson"] = request.searchFieldJson();
+    body["SearchFieldJson"] = request.getSearchFieldJson();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18156,25 +18827,25 @@ SearchInnerGroupsResponse Client::searchInnerGroupsWithOptions(const SearchInner
   SearchInnerGroupsShrinkHeaders headers = SearchInnerGroupsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMaxResults()) {
-    body["MaxResults"] = request.maxResults();
+    body["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasSearchKey()) {
-    body["SearchKey"] = request.searchKey();
+    body["SearchKey"] = request.getSearchKey();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18222,41 +18893,41 @@ SendBannerResponse Client::sendBannerWithOptions(const SendBannerRequest &tmpReq
   SendBannerShrinkHeaders headers = SendBannerShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasContent()) {
-    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.content(), "Content", "json"));
+    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContent(), "Content", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasContentShrink()) {
-    body["Content"] = request.contentShrink();
+    body["Content"] = request.getContentShrink();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18304,41 +18975,41 @@ SendPopupResponse Client::sendPopupWithOptions(const SendPopupRequest &tmpReq, c
   SendPopupShrinkHeaders headers = SendPopupShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasContent()) {
-    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.content(), "Content", "json"));
+    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContent(), "Content", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasContentShrink()) {
-    body["Content"] = request.contentShrink();
+    body["Content"] = request.getContentShrink();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18386,41 +19057,41 @@ SendSearchShadeResponse Client::sendSearchShadeWithOptions(const SendSearchShade
   SendSearchShadeShrinkHeaders headers = SendSearchShadeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasContent()) {
-    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.content(), "Content", "json"));
+    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContent(), "Content", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasContentShrink()) {
-    body["Content"] = request.contentShrink();
+    body["Content"] = request.getContentShrink();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18468,45 +19139,45 @@ SetColumnsVisibilityResponse Client::setColumnsVisibilityWithOptions(const SetCo
   SetColumnsVisibilityShrinkHeaders headers = SetColumnsVisibilityShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasColumn()) {
-    body["Column"] = request.column();
+    body["Column"] = request.getColumn();
   }
 
   if (!!request.hasColumnCount()) {
-    body["ColumnCount"] = request.columnCount();
+    body["ColumnCount"] = request.getColumnCount();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasVisibility()) {
-    body["Visibility"] = request.visibility();
+    body["Visibility"] = request.getVisibility();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18554,41 +19225,41 @@ SetConferenceHostsResponse Client::setConferenceHostsWithOptions(const SetConfer
   SetConferenceHostsShrinkHeaders headers = SetConferenceHostsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasUserIds()) {
-    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userIds(), "UserIds", "json"));
+    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIds(), "UserIds", "json"));
   }
 
   json body = {};
   if (!!request.hasOperationType()) {
-    body["OperationType"] = request.operationType();
+    body["OperationType"] = request.getOperationType();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasUserIdsShrink()) {
-    body["UserIds"] = request.userIdsShrink();
+    body["UserIds"] = request.getUserIdsShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18636,45 +19307,45 @@ SetRowsVisibilityResponse Client::setRowsVisibilityWithOptions(const SetRowsVisi
   SetRowsVisibilityShrinkHeaders headers = SetRowsVisibilityShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasRow()) {
-    body["Row"] = request.row();
+    body["Row"] = request.getRow();
   }
 
   if (!!request.hasRowCount()) {
-    body["RowCount"] = request.rowCount();
+    body["RowCount"] = request.getRowCount();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasVisibility()) {
-    body["Visibility"] = request.visibility();
+    body["Visibility"] = request.getVisibility();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18722,45 +19393,45 @@ SimpleListReportResponse Client::simpleListReportWithOptions(const SimpleListRep
   SimpleListReportShrinkHeaders headers = SimpleListReportShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCursor()) {
-    body["Cursor"] = request.cursor();
+    body["Cursor"] = request.getCursor();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasSize()) {
-    body["Size"] = request.size();
+    body["Size"] = request.getSize();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTemplateName()) {
-    body["TemplateName"] = request.templateName();
+    body["TemplateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18808,37 +19479,37 @@ StartCloudRecordResponse Client::startCloudRecordWithOptions(const StartCloudRec
   StartCloudRecordShrinkHeaders headers = StartCloudRecordShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMode()) {
-    body["Mode"] = request.mode();
+    body["Mode"] = request.getMode();
   }
 
   if (!!request.hasSmallWindowPosition()) {
-    body["SmallWindowPosition"] = request.smallWindowPosition();
+    body["SmallWindowPosition"] = request.getSmallWindowPosition();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18884,49 +19555,49 @@ StartInstanceResponse Client::startInstanceWithOptions(const StartInstanceReques
   StartInstanceShrinkHeaders headers = StartInstanceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasDepartmentId()) {
-    body["DepartmentId"] = request.departmentId();
+    body["DepartmentId"] = request.getDepartmentId();
   }
 
   if (!!request.hasFormDataJson()) {
-    body["FormDataJson"] = request.formDataJson();
+    body["FormDataJson"] = request.getFormDataJson();
   }
 
   if (!!request.hasFormUuid()) {
-    body["FormUuid"] = request.formUuid();
+    body["FormUuid"] = request.getFormUuid();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessCode()) {
-    body["ProcessCode"] = request.processCode();
+    body["ProcessCode"] = request.getProcessCode();
   }
 
   if (!!request.hasProcessData()) {
-    body["ProcessData"] = request.processData();
+    body["ProcessData"] = request.getProcessData();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18974,37 +19645,37 @@ StartMinutesResponse Client::startMinutesWithOptions(const StartMinutesRequest &
   StartMinutesShrinkHeaders headers = StartMinutesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   if (!!request.hasOwnerUserId()) {
-    body["ownerUserId"] = request.ownerUserId();
+    body["ownerUserId"] = request.getOwnerUserId();
   }
 
   if (!!request.hasRecordAudio()) {
-    body["recordAudio"] = request.recordAudio();
+    body["recordAudio"] = request.getRecordAudio();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19052,41 +19723,41 @@ StatisticsListByTypeReportResponse Client::statisticsListByTypeReportWithOptions
   StatisticsListByTypeReportShrinkHeaders headers = StatisticsListByTypeReportShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasOffset()) {
-    body["Offset"] = request.offset();
+    body["Offset"] = request.getOffset();
   }
 
   if (!!request.hasReportId()) {
-    body["ReportId"] = request.reportId();
+    body["ReportId"] = request.getReportId();
   }
 
   if (!!request.hasSize()) {
-    body["Size"] = request.size();
+    body["Size"] = request.getSize();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19134,29 +19805,29 @@ StatisticsReportResponse Client::statisticsReportWithOptions(const StatisticsRep
   StatisticsReportShrinkHeaders headers = StatisticsReportShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasReportId()) {
-    body["ReportId"] = request.reportId();
+    body["ReportId"] = request.getReportId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19204,29 +19875,29 @@ StopCloudRecordResponse Client::stopCloudRecordWithOptions(const StopCloudRecord
   StopCloudRecordShrinkHeaders headers = StopCloudRecordShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19274,29 +19945,29 @@ StopMinutesResponse Client::stopMinutesWithOptions(const StopMinutesRequest &tmp
   StopMinutesShrinkHeaders headers = StopMinutesShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19342,21 +20013,21 @@ SubscribeCalendarResponse Client::subscribeCalendarWithOptions(const SubscribeCa
   SubscribeCalendarShrinkHeaders headers = SubscribeCalendarShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19404,33 +20075,33 @@ SubscribeEventResponse Client::subscribeEventWithOptions(const SubscribeEventReq
   SubscribeEventShrinkHeaders headers = SubscribeEventShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasScope()) {
-    body["Scope"] = request.scope();
+    body["Scope"] = request.getScope();
   }
 
   if (!!request.hasScopeId()) {
-    body["ScopeId"] = request.scopeId();
+    body["ScopeId"] = request.getScopeId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19476,29 +20147,29 @@ SwitchMainOrgResponse Client::switchMainOrgWithOptions(const SwitchMainOrgReques
   SwitchMainOrgShrinkHeaders headers = SwitchMainOrgShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTargetOrgId()) {
-    body["TargetOrgId"] = request.targetOrgId();
+    body["TargetOrgId"] = request.getTargetOrgId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19544,41 +20215,41 @@ SyncDingTypeResponse Client::syncDingTypeWithOptions(const SyncDingTypeRequest &
   SyncDingTypeShrinkHeaders headers = SyncDingTypeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDingType()) {
-    body["DingType"] = request.dingType();
+    body["DingType"] = request.getDingType();
   }
 
   if (!!request.hasIsDimission()) {
-    body["IsDimission"] = request.isDimission();
+    body["IsDimission"] = request.getIsDimission();
   }
 
   if (!!request.hasSource()) {
-    body["Source"] = request.source();
+    body["Source"] = request.getSource();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkNo()) {
-    body["WorkNo"] = request.workNo();
+    body["WorkNo"] = request.getWorkNo();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19624,33 +20295,33 @@ TerminateInstanceResponse Client::terminateInstanceWithOptions(const TerminateIn
   TerminateInstanceShrinkHeaders headers = TerminateInstanceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19698,57 +20369,57 @@ TransferTicketResponse Client::transferTicketWithOptions(const TransferTicketReq
   TransferTicketShrinkHeaders headers = TransferTicketShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasNotify()) {
-    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notify(), "Notify", "json"));
+    request.setNotifyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotify(), "Notify", "json"));
   }
 
   if (!!tmpReq.hasProcessorUserIds()) {
-    request.setProcessorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.processorUserIds(), "ProcessorUserIds", "json"));
+    request.setProcessorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProcessorUserIds(), "ProcessorUserIds", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasTicketMemo()) {
-    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ticketMemo(), "TicketMemo", "json"));
+    request.setTicketMemoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTicketMemo(), "TicketMemo", "json"));
   }
 
   json body = {};
   if (!!request.hasNotifyShrink()) {
-    body["Notify"] = request.notifyShrink();
+    body["Notify"] = request.getNotifyShrink();
   }
 
   if (!!request.hasOpenTeamId()) {
-    body["OpenTeamId"] = request.openTeamId();
+    body["OpenTeamId"] = request.getOpenTeamId();
   }
 
   if (!!request.hasOpenTicketId()) {
-    body["OpenTicketId"] = request.openTicketId();
+    body["OpenTicketId"] = request.getOpenTicketId();
   }
 
   if (!!request.hasProcessorUserIdsShrink()) {
-    body["ProcessorUserIds"] = request.processorUserIdsShrink();
+    body["ProcessorUserIds"] = request.getProcessorUserIdsShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTicketMemoShrink()) {
-    body["TicketMemo"] = request.ticketMemoShrink();
+    body["TicketMemo"] = request.getTicketMemoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19794,21 +20465,21 @@ UnsubscribeCalendarResponse Client::unsubscribeCalendarWithOptions(const Unsubsc
   UnsubscribeCalendarShrinkHeaders headers = UnsubscribeCalendarShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19856,33 +20527,33 @@ UnsubscribeEventResponse Client::unsubscribeEventWithOptions(const UnsubscribeEv
   UnsubscribeEventShrinkHeaders headers = UnsubscribeEventShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasScope()) {
-    body["Scope"] = request.scope();
+    body["Scope"] = request.getScope();
   }
 
   if (!!request.hasScopeId()) {
-    body["ScopeId"] = request.scopeId();
+    body["ScopeId"] = request.getScopeId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19928,77 +20599,77 @@ UpdateAlidingAssistantResponse Client::updateAlidingAssistantWithOptions(const U
   UpdateAlidingAssistantShrinkHeaders headers = UpdateAlidingAssistantShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasExt()) {
-    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "Ext", "json"));
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "Ext", "json"));
   }
 
   if (!!tmpReq.hasFeature()) {
-    request.setFeatureShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.feature(), "Feature", "json"));
+    request.setFeatureShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFeature(), "Feature", "json"));
   }
 
   if (!!tmpReq.hasRecommendPrompts()) {
-    request.setRecommendPromptsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recommendPrompts(), "RecommendPrompts", "json"));
+    request.setRecommendPromptsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecommendPrompts(), "RecommendPrompts", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAssistantId()) {
-    body["AssistantId"] = request.assistantId();
+    body["AssistantId"] = request.getAssistantId();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasExtShrink()) {
-    body["Ext"] = request.extShrink();
+    body["Ext"] = request.getExtShrink();
   }
 
   if (!!request.hasFallbackContent()) {
-    body["FallbackContent"] = request.fallbackContent();
+    body["FallbackContent"] = request.getFallbackContent();
   }
 
   if (!!request.hasFeatureShrink()) {
-    body["Feature"] = request.featureShrink();
+    body["Feature"] = request.getFeatureShrink();
   }
 
   if (!!request.hasIcon()) {
-    body["Icon"] = request.icon();
+    body["Icon"] = request.getIcon();
   }
 
   if (!!request.hasInstructions()) {
-    body["Instructions"] = request.instructions();
+    body["Instructions"] = request.getInstructions();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasRecommendPromptsShrink()) {
-    body["RecommendPrompts"] = request.recommendPromptsShrink();
+    body["RecommendPrompts"] = request.getRecommendPromptsShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWelcomeContent()) {
-    body["WelcomeContent"] = request.welcomeContent();
+    body["WelcomeContent"] = request.getWelcomeContent();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20042,45 +20713,45 @@ UpdateConvExtensionResponse Client::updateConvExtensionWithOptions(const UpdateC
   UpdateConvExtensionShrinkHeaders headers = UpdateConvExtensionShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasStaffIdList()) {
-    request.setStaffIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.staffIdList(), "StaffIdList", "json"));
+    request.setStaffIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStaffIdList(), "StaffIdList", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMobileUrl()) {
-    body["MobileUrl"] = request.mobileUrl();
+    body["MobileUrl"] = request.getMobileUrl();
   }
 
   if (!!request.hasPcUrl()) {
-    body["PcUrl"] = request.pcUrl();
+    body["PcUrl"] = request.getPcUrl();
   }
 
   if (!!request.hasStaffIdListShrink()) {
-    body["StaffIdList"] = request.staffIdListShrink();
+    body["StaffIdList"] = request.getStaffIdListShrink();
   }
 
   if (!!request.hasSystemUid()) {
-    body["SystemUid"] = request.systemUid();
+    body["SystemUid"] = request.getSystemUid();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20124,41 +20795,41 @@ UpdateFormDataResponse Client::updateFormDataWithOptions(const UpdateFormDataReq
   UpdateFormDataShrinkHeaders headers = UpdateFormDataShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasFormInstanceId()) {
-    body["FormInstanceId"] = request.formInstanceId();
+    body["FormInstanceId"] = request.getFormInstanceId();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasUpdateFormDataJson()) {
-    body["UpdateFormDataJson"] = request.updateFormDataJson();
+    body["UpdateFormDataJson"] = request.getUpdateFormDataJson();
   }
 
   if (!!request.hasUseLatestVersion()) {
-    body["UseLatestVersion"] = request.useLatestVersion();
+    body["UseLatestVersion"] = request.getUseLatestVersion();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20204,37 +20875,37 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
   UpdateInstanceShrinkHeaders headers = UpdateInstanceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasProcessInstanceId()) {
-    body["ProcessInstanceId"] = request.processInstanceId();
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   if (!!request.hasUpdateFormDataJson()) {
-    body["UpdateFormDataJson"] = request.updateFormDataJson();
+    body["UpdateFormDataJson"] = request.getUpdateFormDataJson();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20282,49 +20953,49 @@ UpdateLiveResponse Client::updateLiveWithOptions(const UpdateLiveRequest &tmpReq
   UpdateLiveShrinkHeaders headers = UpdateLiveShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasCoverUrl()) {
-    body["CoverUrl"] = request.coverUrl();
+    body["CoverUrl"] = request.getCoverUrl();
   }
 
   if (!!request.hasIntroduction()) {
-    body["Introduction"] = request.introduction();
+    body["Introduction"] = request.getIntroduction();
   }
 
   if (!!request.hasLiveId()) {
-    body["LiveId"] = request.liveId();
+    body["LiveId"] = request.getLiveId();
   }
 
   if (!!request.hasPreEndTime()) {
-    body["PreEndTime"] = request.preEndTime();
+    body["PreEndTime"] = request.getPreEndTime();
   }
 
   if (!!request.hasPreStartTime()) {
-    body["PreStartTime"] = request.preStartTime();
+    body["PreStartTime"] = request.getPreStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20372,81 +21043,81 @@ UpdateMeetingRoomResponse Client::updateMeetingRoomWithOptions(const UpdateMeeti
   UpdateMeetingRoomShrinkHeaders headers = UpdateMeetingRoomShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasReservationAuthority()) {
-    request.setReservationAuthorityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.reservationAuthority(), "ReservationAuthority", "json"));
+    request.setReservationAuthorityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReservationAuthority(), "ReservationAuthority", "json"));
   }
 
   if (!!tmpReq.hasRoomLabelIds()) {
-    request.setRoomLabelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roomLabelIds(), "RoomLabelIds", "json"));
+    request.setRoomLabelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoomLabelIds(), "RoomLabelIds", "json"));
   }
 
   if (!!tmpReq.hasRoomLocation()) {
-    request.setRoomLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.roomLocation(), "RoomLocation", "json"));
+    request.setRoomLocationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRoomLocation(), "RoomLocation", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasEnableCycleReservation()) {
-    body["EnableCycleReservation"] = request.enableCycleReservation();
+    body["EnableCycleReservation"] = request.getEnableCycleReservation();
   }
 
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasIsvRoomId()) {
-    body["IsvRoomId"] = request.isvRoomId();
+    body["IsvRoomId"] = request.getIsvRoomId();
   }
 
   if (!!request.hasReservationAuthorityShrink()) {
-    body["ReservationAuthority"] = request.reservationAuthorityShrink();
+    body["ReservationAuthority"] = request.getReservationAuthorityShrink();
   }
 
   if (!!request.hasRoomCapacity()) {
-    body["RoomCapacity"] = request.roomCapacity();
+    body["RoomCapacity"] = request.getRoomCapacity();
   }
 
   if (!!request.hasRoomId()) {
-    body["RoomId"] = request.roomId();
+    body["RoomId"] = request.getRoomId();
   }
 
   if (!!request.hasRoomLabelIdsShrink()) {
-    body["RoomLabelIds"] = request.roomLabelIdsShrink();
+    body["RoomLabelIds"] = request.getRoomLabelIdsShrink();
   }
 
   if (!!request.hasRoomLocationShrink()) {
-    body["RoomLocation"] = request.roomLocationShrink();
+    body["RoomLocation"] = request.getRoomLocationShrink();
   }
 
   if (!!request.hasRoomName()) {
-    body["RoomName"] = request.roomName();
+    body["RoomName"] = request.getRoomName();
   }
 
   if (!!request.hasRoomPicture()) {
-    body["RoomPicture"] = request.roomPicture();
+    body["RoomPicture"] = request.getRoomPicture();
   }
 
   if (!!request.hasRoomStatus()) {
-    body["RoomStatus"] = request.roomStatus();
+    body["RoomStatus"] = request.getRoomStatus();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20494,33 +21165,33 @@ UpdateMeetingRoomGroupResponse Client::updateMeetingRoomGroupWithOptions(const U
   UpdateMeetingRoomGroupShrinkHeaders headers = UpdateMeetingRoomGroupShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasGroupId()) {
-    body["GroupId"] = request.groupId();
+    body["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasGroupName()) {
-    body["GroupName"] = request.groupName();
+    body["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20568,37 +21239,37 @@ UpdateMultiDimTableResponse Client::updateMultiDimTableWithOptions(const UpdateM
   UpdateMultiDimTableShrinkHeaders headers = UpdateMultiDimTableShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20646,49 +21317,49 @@ UpdateMultiDimTableFieldResponse Client::updateMultiDimTableFieldWithOptions(con
   UpdateMultiDimTableFieldShrinkHeaders headers = UpdateMultiDimTableFieldShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasProperty()) {
-    request.setPropertyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.property(), "Property", "json"));
+    request.setPropertyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProperty(), "Property", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasFieldIdOrName()) {
-    body["FieldIdOrName"] = request.fieldIdOrName();
+    body["FieldIdOrName"] = request.getFieldIdOrName();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasPropertyShrink()) {
-    body["Property"] = request.propertyShrink();
+    body["Property"] = request.getPropertyShrink();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20736,41 +21407,41 @@ UpdateMultiDimTableRecordsResponse Client::updateMultiDimTableRecordsWithOptions
   UpdateMultiDimTableRecordsShrinkHeaders headers = UpdateMultiDimTableRecordsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasRecordIds()) {
-    request.setRecordIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recordIds(), "RecordIds", "json"));
+    request.setRecordIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecordIds(), "RecordIds", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasBaseId()) {
-    body["BaseId"] = request.baseId();
+    body["BaseId"] = request.getBaseId();
   }
 
   if (!!request.hasRecordIdsShrink()) {
-    body["RecordIds"] = request.recordIdsShrink();
+    body["RecordIds"] = request.getRecordIdsShrink();
   }
 
   if (!!request.hasSheetIdOrName()) {
-    body["SheetIdOrName"] = request.sheetIdOrName();
+    body["SheetIdOrName"] = request.getSheetIdOrName();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20818,49 +21489,49 @@ UpdatePermissionResponse Client::updatePermissionWithOptions(const UpdatePermiss
   UpdatePermissionShrinkHeaders headers = UpdatePermissionShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasOption()) {
-    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.option(), "Option", "json"));
+    request.setOptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOption(), "Option", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasDentryUuid()) {
-    body["DentryUuid"] = request.dentryUuid();
+    body["DentryUuid"] = request.getDentryUuid();
   }
 
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasOptionShrink()) {
-    body["Option"] = request.optionShrink();
+    body["Option"] = request.getOptionShrink();
   }
 
   if (!!request.hasRoleId()) {
-    body["RoleId"] = request.roleId();
+    body["RoleId"] = request.getRoleId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -20908,65 +21579,65 @@ UpdateRangeResponse Client::updateRangeWithOptions(const UpdateRangeRequest &tmp
   UpdateRangeShrinkHeaders headers = UpdateRangeShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasBackgroundColors()) {
-    request.setBackgroundColorsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.backgroundColors(), "BackgroundColors", "json"));
+    request.setBackgroundColorsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBackgroundColors(), "BackgroundColors", "json"));
   }
 
   if (!!tmpReq.hasHyperlinks()) {
-    request.setHyperlinksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hyperlinks(), "Hyperlinks", "json"));
+    request.setHyperlinksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHyperlinks(), "Hyperlinks", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasValues()) {
-    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.values(), "Values", "json"));
+    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValues(), "Values", "json"));
   }
 
   json body = {};
   if (!!request.hasBackgroundColorsShrink()) {
-    body["BackgroundColors"] = request.backgroundColorsShrink();
+    body["BackgroundColors"] = request.getBackgroundColorsShrink();
   }
 
   if (!!request.hasHyperlinksShrink()) {
-    body["Hyperlinks"] = request.hyperlinksShrink();
+    body["Hyperlinks"] = request.getHyperlinksShrink();
   }
 
   if (!!request.hasNumberFormat()) {
-    body["NumberFormat"] = request.numberFormat();
+    body["NumberFormat"] = request.getNumberFormat();
   }
 
   if (!!request.hasRangeAddress()) {
-    body["RangeAddress"] = request.rangeAddress();
+    body["RangeAddress"] = request.getRangeAddress();
   }
 
   if (!!request.hasSheetId()) {
-    body["SheetId"] = request.sheetId();
+    body["SheetId"] = request.getSheetId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasValuesShrink()) {
-    body["Values"] = request.valuesShrink();
+    body["Values"] = request.getValuesShrink();
   }
 
   if (!!request.hasWorkbookId()) {
-    body["WorkbookId"] = request.workbookId();
+    body["WorkbookId"] = request.getWorkbookId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21014,37 +21685,37 @@ UpdateScheduleConfSettingsResponse Client::updateScheduleConfSettingsWithOptions
   UpdateScheduleConfSettingsShrinkHeaders headers = UpdateScheduleConfSettingsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasScheduleConfSettingModel()) {
-    request.setScheduleConfSettingModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfSettingModel(), "ScheduleConfSettingModel", "json"));
+    request.setScheduleConfSettingModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleConfSettingModel(), "ScheduleConfSettingModel", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasScheduleConfSettingModelShrink()) {
-    body["ScheduleConfSettingModel"] = request.scheduleConfSettingModelShrink();
+    body["ScheduleConfSettingModel"] = request.getScheduleConfSettingModelShrink();
   }
 
   if (!!request.hasScheduleConferenceId()) {
-    body["ScheduleConferenceId"] = request.scheduleConferenceId();
+    body["ScheduleConferenceId"] = request.getScheduleConferenceId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21092,41 +21763,41 @@ UpdateScheduleConferenceResponse Client::updateScheduleConferenceWithOptions(con
   UpdateScheduleConferenceShrinkHeaders headers = UpdateScheduleConferenceShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasScheduleConferenceId()) {
-    body["ScheduleConferenceId"] = request.scheduleConferenceId();
+    body["ScheduleConferenceId"] = request.getScheduleConferenceId();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21174,45 +21845,45 @@ UpdateStatusResponse Client::updateStatusWithOptions(const UpdateStatusRequest &
   UpdateStatusShrinkHeaders headers = UpdateStatusShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasErrorLines()) {
-    request.setErrorLinesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.errorLines(), "ErrorLines", "json"));
+    request.setErrorLinesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getErrorLines(), "ErrorLines", "json"));
   }
 
   json body = {};
   if (!!request.hasAppType()) {
-    body["AppType"] = request.appType();
+    body["AppType"] = request.getAppType();
   }
 
   if (!!request.hasErrorLinesShrink()) {
-    body["ErrorLines"] = request.errorLinesShrink();
+    body["ErrorLines"] = request.getErrorLinesShrink();
   }
 
   if (!!request.hasImportSequence()) {
-    body["ImportSequence"] = request.importSequence();
+    body["ImportSequence"] = request.getImportSequence();
   }
 
   if (!!request.hasLanguage()) {
-    body["Language"] = request.language();
+    body["Language"] = request.getLanguage();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   if (!!request.hasSystemToken()) {
-    body["SystemToken"] = request.systemToken();
+    body["SystemToken"] = request.getSystemToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21260,45 +21931,45 @@ UpdateSubscribedCalendarsResponse Client::updateSubscribedCalendarsWithOptions(c
   UpdateSubscribedCalendarsShrinkHeaders headers = UpdateSubscribedCalendarsShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasManagers()) {
-    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.managers(), "Managers", "json"));
+    request.setManagersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getManagers(), "Managers", "json"));
   }
 
   if (!!tmpReq.hasSubscribeScope()) {
-    request.setSubscribeScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.subscribeScope(), "SubscribeScope", "json"));
+    request.setSubscribeScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubscribeScope(), "SubscribeScope", "json"));
   }
 
   json body = {};
   if (!!request.hasCalendarId()) {
-    body["CalendarId"] = request.calendarId();
+    body["CalendarId"] = request.getCalendarId();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasManagersShrink()) {
-    body["Managers"] = request.managersShrink();
+    body["Managers"] = request.getManagersShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSubscribeScopeShrink()) {
-    body["SubscribeScope"] = request.subscribeScopeShrink();
+    body["SubscribeScope"] = request.getSubscribeScopeShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21346,61 +22017,61 @@ UpdateTodoTaskResponse Client::updateTodoTaskWithOptions(const UpdateTodoTaskReq
   UpdateTodoTaskShrinkHeaders headers = UpdateTodoTaskShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasExecutorIds()) {
-    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executorIds(), "executorIds", "json"));
+    request.setExecutorIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutorIds(), "executorIds", "json"));
   }
 
   if (!!tmpReq.hasParticipantIds()) {
-    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.participantIds(), "participantIds", "json"));
+    request.setParticipantIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParticipantIds(), "participantIds", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasDone()) {
-    body["done"] = request.done();
+    body["done"] = request.getDone();
   }
 
   if (!!request.hasDueTime()) {
-    body["dueTime"] = request.dueTime();
+    body["dueTime"] = request.getDueTime();
   }
 
   if (!!request.hasExecutorIdsShrink()) {
-    body["executorIds"] = request.executorIdsShrink();
+    body["executorIds"] = request.getExecutorIdsShrink();
   }
 
   if (!!request.hasParticipantIdsShrink()) {
-    body["participantIds"] = request.participantIdsShrink();
+    body["participantIds"] = request.getParticipantIdsShrink();
   }
 
   if (!!request.hasSubject()) {
-    body["subject"] = request.subject();
+    body["subject"] = request.getSubject();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21448,41 +22119,41 @@ UpdateTodoTaskExecutorStatusResponse Client::updateTodoTaskExecutorStatusWithOpt
   UpdateTodoTaskExecutorStatusShrinkHeaders headers = UpdateTodoTaskExecutorStatusShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   if (!!tmpReq.hasExecutorStatusList()) {
-    request.setExecutorStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.executorStatusList(), "executorStatusList", "json"));
+    request.setExecutorStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecutorStatusList(), "executorStatusList", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasExecutorStatusListShrink()) {
-    body["executorStatusList"] = request.executorStatusListShrink();
+    body["executorStatusList"] = request.getExecutorStatusListShrink();
   }
 
   if (!!request.hasOperatorId()) {
-    body["operatorId"] = request.operatorId();
+    body["operatorId"] = request.getOperatorId();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21528,21 +22199,21 @@ UpdateUserAvatarResponse Client::updateUserAvatarWithOptions(const UpdateUserAva
   UpdateUserAvatarShrinkHeaders headers = UpdateUserAvatarShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAvatarMediaId()) {
-    body["AvatarMediaId"] = request.avatarMediaId();
+    body["AvatarMediaId"] = request.getAvatarMediaId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21590,53 +22261,53 @@ UpdateVideoConferenceSettingResponse Client::updateVideoConferenceSettingWithOpt
   UpdateVideoConferenceSettingShrinkHeaders headers = UpdateVideoConferenceSettingShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasAllowUnmuteSelf()) {
-    body["AllowUnmuteSelf"] = request.allowUnmuteSelf();
+    body["AllowUnmuteSelf"] = request.getAllowUnmuteSelf();
   }
 
   if (!!request.hasAutoTransferHost()) {
-    body["AutoTransferHost"] = request.autoTransferHost();
+    body["AutoTransferHost"] = request.getAutoTransferHost();
   }
 
   if (!!request.hasForbiddenShareScreen()) {
-    body["ForbiddenShareScreen"] = request.forbiddenShareScreen();
+    body["ForbiddenShareScreen"] = request.getForbiddenShareScreen();
   }
 
   if (!!request.hasLockConference()) {
-    body["LockConference"] = request.lockConference();
+    body["LockConference"] = request.getLockConference();
   }
 
   if (!!request.hasMuteAll()) {
-    body["MuteAll"] = request.muteAll();
+    body["MuteAll"] = request.getMuteAll();
   }
 
   if (!!request.hasOnlyInternalEmployeesJoin()) {
-    body["OnlyInternalEmployeesJoin"] = request.onlyInternalEmployeesJoin();
+    body["OnlyInternalEmployeesJoin"] = request.getOnlyInternalEmployeesJoin();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasConferenceId()) {
-    body["conferenceId"] = request.conferenceId();
+    body["conferenceId"] = request.getConferenceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21684,41 +22355,41 @@ UpdateWorkspaceDocMembersResponse Client::updateWorkspaceDocMembersWithOptions(c
   UpdateWorkspaceDocMembersShrinkHeaders headers = UpdateWorkspaceDocMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasNodeId()) {
-    body["NodeId"] = request.nodeId();
+    body["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21766,37 +22437,37 @@ UpdateWorkspaceMembersResponse Client::updateWorkspaceMembersWithOptions(const U
   UpdateWorkspaceMembersShrinkHeaders headers = UpdateWorkspaceMembersShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasMembers()) {
-    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.members(), "Members", "json"));
+    request.setMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMembers(), "Members", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasMembersShrink()) {
-    body["Members"] = request.membersShrink();
+    body["Members"] = request.getMembersShrink();
   }
 
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21844,41 +22515,41 @@ UploadMediaResponse Client::uploadMediaWithOptions(const UploadMediaRequest &tmp
   UploadMediaShrinkHeaders headers = UploadMediaShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasMediaName()) {
-    body["mediaName"] = request.mediaName();
+    body["mediaName"] = request.getMediaName();
   }
 
   if (!!request.hasMediaType()) {
-    body["mediaType"] = request.mediaType();
+    body["mediaType"] = request.getMediaType();
   }
 
   if (!!request.hasOrgId()) {
-    body["orgId"] = request.orgId();
+    body["orgId"] = request.getOrgId();
   }
 
   if (!!request.hasUrl()) {
-    body["url"] = request.url();
+    body["url"] = request.getUrl();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -21926,41 +22597,41 @@ WearOrgHonorResponse Client::wearOrgHonorWithOptions(const WearOrgHonorRequest &
   WearOrgHonorShrinkHeaders headers = WearOrgHonorShrinkHeaders();
   Utils::Utils::convert(tmpHeader, headers);
   if (!!tmpHeader.hasAccountContext()) {
-    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
   }
 
   if (!!tmpReq.hasTenantContext()) {
-    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
   }
 
   json body = {};
   if (!!request.hasTenantContextShrink()) {
-    body["TenantContext"] = request.tenantContextShrink();
+    body["TenantContext"] = request.getTenantContextShrink();
   }
 
   if (!!request.hasHonorId()) {
-    body["honorId"] = request.honorId();
+    body["honorId"] = request.getHonorId();
   }
 
   if (!!request.hasOrgId()) {
-    body["orgId"] = request.orgId();
+    body["orgId"] = request.getOrgId();
   }
 
   if (!!request.hasUserId()) {
-    body["userId"] = request.userId();
+    body["userId"] = request.getUserId();
   }
 
   if (!!request.hasWear()) {
-    body["wear"] = request.wear();
+    body["wear"] = request.getWear();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasAccountContextShrink()) {
-    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

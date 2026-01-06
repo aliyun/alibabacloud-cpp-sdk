@@ -35,35 +35,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->confTitle_ == nullptr
-        && return this->inviteCaller_ == nullptr && return this->inviteUserIds_ == nullptr; };
+        && this->inviteCaller_ == nullptr && this->inviteUserIds_ == nullptr; };
     // confTitle Field Functions 
     bool hasConfTitle() const { return this->confTitle_ != nullptr;};
     void deleteConfTitle() { this->confTitle_ = nullptr;};
-    inline string confTitle() const { DARABONBA_PTR_GET_DEFAULT(confTitle_, "") };
+    inline string getConfTitle() const { DARABONBA_PTR_GET_DEFAULT(confTitle_, "") };
     inline CreateVideoConferenceRequest& setConfTitle(string confTitle) { DARABONBA_PTR_SET_VALUE(confTitle_, confTitle) };
 
 
     // inviteCaller Field Functions 
     bool hasInviteCaller() const { return this->inviteCaller_ != nullptr;};
     void deleteInviteCaller() { this->inviteCaller_ = nullptr;};
-    inline bool inviteCaller() const { DARABONBA_PTR_GET_DEFAULT(inviteCaller_, false) };
+    inline bool getInviteCaller() const { DARABONBA_PTR_GET_DEFAULT(inviteCaller_, false) };
     inline CreateVideoConferenceRequest& setInviteCaller(bool inviteCaller) { DARABONBA_PTR_SET_VALUE(inviteCaller_, inviteCaller) };
 
 
     // inviteUserIds Field Functions 
     bool hasInviteUserIds() const { return this->inviteUserIds_ != nullptr;};
     void deleteInviteUserIds() { this->inviteUserIds_ = nullptr;};
-    inline const vector<string> & inviteUserIds() const { DARABONBA_PTR_GET_CONST(inviteUserIds_, vector<string>) };
-    inline vector<string> inviteUserIds() { DARABONBA_PTR_GET(inviteUserIds_, vector<string>) };
+    inline const vector<string> & getInviteUserIds() const { DARABONBA_PTR_GET_CONST(inviteUserIds_, vector<string>) };
+    inline vector<string> getInviteUserIds() { DARABONBA_PTR_GET(inviteUserIds_, vector<string>) };
     inline CreateVideoConferenceRequest& setInviteUserIds(const vector<string> & inviteUserIds) { DARABONBA_PTR_SET_VALUE(inviteUserIds_, inviteUserIds) };
     inline CreateVideoConferenceRequest& setInviteUserIds(vector<string> && inviteUserIds) { DARABONBA_PTR_SET_RVALUE(inviteUserIds_, inviteUserIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> confTitle_ = nullptr;
-    std::shared_ptr<bool> inviteCaller_ = nullptr;
-    std::shared_ptr<vector<string>> inviteUserIds_ = nullptr;
+    shared_ptr<string> confTitle_ {};
+    shared_ptr<bool> inviteCaller_ {};
+    shared_ptr<vector<string>> inviteUserIds_ {};
   };
 
   } // namespace Models

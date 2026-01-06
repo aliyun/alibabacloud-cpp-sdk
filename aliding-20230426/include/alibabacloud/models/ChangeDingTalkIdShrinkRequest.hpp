@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dingTalkId_ == nullptr
-        && return this->tenantContextShrink_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr; };
     // dingTalkId Field Functions 
     bool hasDingTalkId() const { return this->dingTalkId_ != nullptr;};
     void deleteDingTalkId() { this->dingTalkId_ = nullptr;};
-    inline string dingTalkId() const { DARABONBA_PTR_GET_DEFAULT(dingTalkId_, "") };
+    inline string getDingTalkId() const { DARABONBA_PTR_GET_DEFAULT(dingTalkId_, "") };
     inline ChangeDingTalkIdShrinkRequest& setDingTalkId(string dingTalkId) { DARABONBA_PTR_SET_VALUE(dingTalkId_, dingTalkId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline ChangeDingTalkIdShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dingTalkId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> dingTalkId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

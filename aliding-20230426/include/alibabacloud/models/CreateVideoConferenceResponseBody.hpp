@@ -43,41 +43,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conferenceId_ == nullptr
-        && return this->conferencePassword_ == nullptr && return this->externalLinkUrl_ == nullptr && return this->hostPassword_ == nullptr && return this->phoneNumbers_ == nullptr && return this->requestId_ == nullptr
-        && return this->roomCode_ == nullptr; };
+        && this->conferencePassword_ == nullptr && this->externalLinkUrl_ == nullptr && this->hostPassword_ == nullptr && this->phoneNumbers_ == nullptr && this->requestId_ == nullptr
+        && this->roomCode_ == nullptr; };
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline CreateVideoConferenceResponseBody& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
     // conferencePassword Field Functions 
     bool hasConferencePassword() const { return this->conferencePassword_ != nullptr;};
     void deleteConferencePassword() { this->conferencePassword_ = nullptr;};
-    inline string conferencePassword() const { DARABONBA_PTR_GET_DEFAULT(conferencePassword_, "") };
+    inline string getConferencePassword() const { DARABONBA_PTR_GET_DEFAULT(conferencePassword_, "") };
     inline CreateVideoConferenceResponseBody& setConferencePassword(string conferencePassword) { DARABONBA_PTR_SET_VALUE(conferencePassword_, conferencePassword) };
 
 
     // externalLinkUrl Field Functions 
     bool hasExternalLinkUrl() const { return this->externalLinkUrl_ != nullptr;};
     void deleteExternalLinkUrl() { this->externalLinkUrl_ = nullptr;};
-    inline string externalLinkUrl() const { DARABONBA_PTR_GET_DEFAULT(externalLinkUrl_, "") };
+    inline string getExternalLinkUrl() const { DARABONBA_PTR_GET_DEFAULT(externalLinkUrl_, "") };
     inline CreateVideoConferenceResponseBody& setExternalLinkUrl(string externalLinkUrl) { DARABONBA_PTR_SET_VALUE(externalLinkUrl_, externalLinkUrl) };
 
 
     // hostPassword Field Functions 
     bool hasHostPassword() const { return this->hostPassword_ != nullptr;};
     void deleteHostPassword() { this->hostPassword_ = nullptr;};
-    inline string hostPassword() const { DARABONBA_PTR_GET_DEFAULT(hostPassword_, "") };
+    inline string getHostPassword() const { DARABONBA_PTR_GET_DEFAULT(hostPassword_, "") };
     inline CreateVideoConferenceResponseBody& setHostPassword(string hostPassword) { DARABONBA_PTR_SET_VALUE(hostPassword_, hostPassword) };
 
 
     // phoneNumbers Field Functions 
     bool hasPhoneNumbers() const { return this->phoneNumbers_ != nullptr;};
     void deletePhoneNumbers() { this->phoneNumbers_ = nullptr;};
-    inline const vector<string> & phoneNumbers() const { DARABONBA_PTR_GET_CONST(phoneNumbers_, vector<string>) };
-    inline vector<string> phoneNumbers() { DARABONBA_PTR_GET(phoneNumbers_, vector<string>) };
+    inline const vector<string> & getPhoneNumbers() const { DARABONBA_PTR_GET_CONST(phoneNumbers_, vector<string>) };
+    inline vector<string> getPhoneNumbers() { DARABONBA_PTR_GET(phoneNumbers_, vector<string>) };
     inline CreateVideoConferenceResponseBody& setPhoneNumbers(const vector<string> & phoneNumbers) { DARABONBA_PTR_SET_VALUE(phoneNumbers_, phoneNumbers) };
     inline CreateVideoConferenceResponseBody& setPhoneNumbers(vector<string> && phoneNumbers) { DARABONBA_PTR_SET_RVALUE(phoneNumbers_, phoneNumbers) };
 
@@ -85,26 +85,26 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateVideoConferenceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // roomCode Field Functions 
     bool hasRoomCode() const { return this->roomCode_ != nullptr;};
     void deleteRoomCode() { this->roomCode_ = nullptr;};
-    inline string roomCode() const { DARABONBA_PTR_GET_DEFAULT(roomCode_, "") };
+    inline string getRoomCode() const { DARABONBA_PTR_GET_DEFAULT(roomCode_, "") };
     inline CreateVideoConferenceResponseBody& setRoomCode(string roomCode) { DARABONBA_PTR_SET_VALUE(roomCode_, roomCode) };
 
 
   protected:
-    std::shared_ptr<string> conferenceId_ = nullptr;
-    std::shared_ptr<string> conferencePassword_ = nullptr;
-    std::shared_ptr<string> externalLinkUrl_ = nullptr;
-    std::shared_ptr<string> hostPassword_ = nullptr;
-    std::shared_ptr<vector<string>> phoneNumbers_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
+    shared_ptr<string> conferencePassword_ {};
+    shared_ptr<string> externalLinkUrl_ {};
+    shared_ptr<string> hostPassword_ {};
+    shared_ptr<vector<string>> phoneNumbers_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> roomCode_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> roomCode_ {};
   };
 
   } // namespace Models

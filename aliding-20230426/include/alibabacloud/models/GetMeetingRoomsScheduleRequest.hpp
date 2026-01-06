@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->roomIds_ == nullptr && return this->startTime_ == nullptr; };
+        && this->roomIds_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetMeetingRoomsScheduleRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // roomIds Field Functions 
     bool hasRoomIds() const { return this->roomIds_ != nullptr;};
     void deleteRoomIds() { this->roomIds_ = nullptr;};
-    inline const vector<string> & roomIds() const { DARABONBA_PTR_GET_CONST(roomIds_, vector<string>) };
-    inline vector<string> roomIds() { DARABONBA_PTR_GET(roomIds_, vector<string>) };
+    inline const vector<string> & getRoomIds() const { DARABONBA_PTR_GET_CONST(roomIds_, vector<string>) };
+    inline vector<string> getRoomIds() { DARABONBA_PTR_GET(roomIds_, vector<string>) };
     inline GetMeetingRoomsScheduleRequest& setRoomIds(const vector<string> & roomIds) { DARABONBA_PTR_SET_VALUE(roomIds_, roomIds) };
     inline GetMeetingRoomsScheduleRequest& setRoomIds(vector<string> && roomIds) { DARABONBA_PTR_SET_RVALUE(roomIds_, roomIds) };
 
@@ -55,17 +55,17 @@ namespace Models
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetMeetingRoomsScheduleRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> roomIds_ = nullptr;
+    shared_ptr<vector<string>> roomIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

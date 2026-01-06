@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->outResult_ == nullptr && return this->remark_ == nullptr && return this->systemToken_ == nullptr && return this->taskInformationList_ == nullptr; };
+        && this->outResult_ == nullptr && this->remark_ == nullptr && this->systemToken_ == nullptr && this->taskInformationList_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline ExecuteBatchTaskRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // outResult Field Functions 
     bool hasOutResult() const { return this->outResult_ != nullptr;};
     void deleteOutResult() { this->outResult_ = nullptr;};
-    inline string outResult() const { DARABONBA_PTR_GET_DEFAULT(outResult_, "") };
+    inline string getOutResult() const { DARABONBA_PTR_GET_DEFAULT(outResult_, "") };
     inline ExecuteBatchTaskRequest& setOutResult(string outResult) { DARABONBA_PTR_SET_VALUE(outResult_, outResult) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline ExecuteBatchTaskRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline ExecuteBatchTaskRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
     // taskInformationList Field Functions 
     bool hasTaskInformationList() const { return this->taskInformationList_ != nullptr;};
     void deleteTaskInformationList() { this->taskInformationList_ = nullptr;};
-    inline string taskInformationList() const { DARABONBA_PTR_GET_DEFAULT(taskInformationList_, "") };
+    inline string getTaskInformationList() const { DARABONBA_PTR_GET_DEFAULT(taskInformationList_, "") };
     inline ExecuteBatchTaskRequest& setTaskInformationList(string taskInformationList) { DARABONBA_PTR_SET_VALUE(taskInformationList_, taskInformationList) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
+    shared_ptr<string> appType_ {};
     // This parameter is required.
-    std::shared_ptr<string> outResult_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> outResult_ {};
+    shared_ptr<string> remark_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskInformationList_ = nullptr;
+    shared_ptr<string> taskInformationList_ {};
   };
 
   } // namespace Models

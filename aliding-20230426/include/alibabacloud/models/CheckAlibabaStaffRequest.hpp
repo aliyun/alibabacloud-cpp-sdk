@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CHECKALIBABASTAFFREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CHECKALIBABASTAFFREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CheckAlibabaStaffRequestTenantContext.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,27 +31,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TenantContext : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TenantContext& obj) { 
+        DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      };
+      friend void from_json(const Darabonba::Json& j, TenantContext& obj) { 
+        DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      };
+      TenantContext() = default ;
+      TenantContext(const TenantContext &) = default ;
+      TenantContext(TenantContext &&) = default ;
+      TenantContext(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TenantContext() = default ;
+      TenantContext& operator=(const TenantContext &) = default ;
+      TenantContext& operator=(TenantContext &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tenantId_ == nullptr; };
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline TenantContext& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    protected:
+      shared_ptr<string> tenantId_ {};
+    };
+
     virtual bool empty() const override { return this->mobile_ == nullptr
-        && return this->tenantContext_ == nullptr; };
+        && this->tenantContext_ == nullptr; };
     // mobile Field Functions 
     bool hasMobile() const { return this->mobile_ != nullptr;};
     void deleteMobile() { this->mobile_ = nullptr;};
-    inline string mobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
+    inline string getMobile() const { DARABONBA_PTR_GET_DEFAULT(mobile_, "") };
     inline CheckAlibabaStaffRequest& setMobile(string mobile) { DARABONBA_PTR_SET_VALUE(mobile_, mobile) };
 
 
     // tenantContext Field Functions 
     bool hasTenantContext() const { return this->tenantContext_ != nullptr;};
     void deleteTenantContext() { this->tenantContext_ = nullptr;};
-    inline const CheckAlibabaStaffRequestTenantContext & tenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, CheckAlibabaStaffRequestTenantContext) };
-    inline CheckAlibabaStaffRequestTenantContext tenantContext() { DARABONBA_PTR_GET(tenantContext_, CheckAlibabaStaffRequestTenantContext) };
-    inline CheckAlibabaStaffRequest& setTenantContext(const CheckAlibabaStaffRequestTenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
-    inline CheckAlibabaStaffRequest& setTenantContext(CheckAlibabaStaffRequestTenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
+    inline const CheckAlibabaStaffRequest::TenantContext & getTenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, CheckAlibabaStaffRequest::TenantContext) };
+    inline CheckAlibabaStaffRequest::TenantContext getTenantContext() { DARABONBA_PTR_GET(tenantContext_, CheckAlibabaStaffRequest::TenantContext) };
+    inline CheckAlibabaStaffRequest& setTenantContext(const CheckAlibabaStaffRequest::TenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
+    inline CheckAlibabaStaffRequest& setTenantContext(CheckAlibabaStaffRequest::TenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
 
 
   protected:
-    std::shared_ptr<string> mobile_ = nullptr;
-    std::shared_ptr<CheckAlibabaStaffRequestTenantContext> tenantContext_ = nullptr;
+    shared_ptr<string> mobile_ {};
+    shared_ptr<CheckAlibabaStaffRequest::TenantContext> tenantContext_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // requestShrink Field Functions 
     bool hasRequestShrink() const { return this->requestShrink_ != nullptr;};
     void deleteRequestShrink() { this->requestShrink_ = nullptr;};
-    inline string requestShrink() const { DARABONBA_PTR_GET_DEFAULT(requestShrink_, "") };
+    inline string getRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(requestShrink_, "") };
     inline GetNewestInnerGroupsShrinkRequest& setRequestShrink(string requestShrink) { DARABONBA_PTR_SET_VALUE(requestShrink_, requestShrink) };
 
 
   protected:
-    std::shared_ptr<string> requestShrink_ = nullptr;
+    shared_ptr<string> requestShrink_ {};
   };
 
   } // namespace Models

@@ -798,7 +798,7 @@ namespace Aliding20230426
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateRunResponse
        */
-      FutrueGenerator<Models::CreateRunResponse> createRunWithSSE(const Models::CreateRunRequest &request, const Models::CreateRunHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::CreateRunResponse> createRunWithSSE(const Models::CreateRunRequest &request, const Models::CreateRunHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 创建运行
@@ -1701,6 +1701,132 @@ namespace Aliding20230426
        * @return GetDeptNoResponse
        */
       Models::GetDeptNoResponse getDeptNo(const Models::GetDeptNoRequest &request);
+
+      /**
+       * @summary 获取钉钉会议信息
+       *
+       * @param tmpReq GetDingtalkMeetingInfoRequest
+       * @param tmpHeader GetDingtalkMeetingInfoHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDingtalkMeetingInfoResponse
+       */
+      Models::GetDingtalkMeetingInfoResponse getDingtalkMeetingInfoWithOptions(const Models::GetDingtalkMeetingInfoRequest &tmpReq, const Models::GetDingtalkMeetingInfoHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取钉钉会议信息
+       *
+       * @param request GetDingtalkMeetingInfoRequest
+       * @return GetDingtalkMeetingInfoResponse
+       */
+      Models::GetDingtalkMeetingInfoResponse getDingtalkMeetingInfo(const Models::GetDingtalkMeetingInfoRequest &request);
+
+      /**
+       * @summary 获取钉钉会议列表
+       *
+       * @param tmpReq GetDingtalkMeetingListRequest
+       * @param tmpHeader GetDingtalkMeetingListHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDingtalkMeetingListResponse
+       */
+      Models::GetDingtalkMeetingListResponse getDingtalkMeetingListWithOptions(const Models::GetDingtalkMeetingListRequest &tmpReq, const Models::GetDingtalkMeetingListHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取钉钉会议列表
+       *
+       * @param request GetDingtalkMeetingListRequest
+       * @return GetDingtalkMeetingListResponse
+       */
+      Models::GetDingtalkMeetingListResponse getDingtalkMeetingList(const Models::GetDingtalkMeetingListRequest &request);
+
+      /**
+       * @summary 获取钉钉会议成员事件
+       *
+       * @param tmpReq GetDingtalkMeetingMemberEventRequest
+       * @param tmpHeader GetDingtalkMeetingMemberEventHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDingtalkMeetingMemberEventResponse
+       */
+      Models::GetDingtalkMeetingMemberEventResponse getDingtalkMeetingMemberEventWithOptions(const Models::GetDingtalkMeetingMemberEventRequest &tmpReq, const Models::GetDingtalkMeetingMemberEventHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取钉钉会议成员事件
+       *
+       * @param request GetDingtalkMeetingMemberEventRequest
+       * @return GetDingtalkMeetingMemberEventResponse
+       */
+      Models::GetDingtalkMeetingMemberEventResponse getDingtalkMeetingMemberEvent(const Models::GetDingtalkMeetingMemberEventRequest &request);
+
+      /**
+       * @summary 获取钉钉会议成员列表
+       *
+       * @param tmpReq GetDingtalkMeetingMemberListRequest
+       * @param tmpHeader GetDingtalkMeetingMemberListHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDingtalkMeetingMemberListResponse
+       */
+      Models::GetDingtalkMeetingMemberListResponse getDingtalkMeetingMemberListWithOptions(const Models::GetDingtalkMeetingMemberListRequest &tmpReq, const Models::GetDingtalkMeetingMemberListHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取钉钉会议成员列表
+       *
+       * @param request GetDingtalkMeetingMemberListRequest
+       * @return GetDingtalkMeetingMemberListResponse
+       */
+      Models::GetDingtalkMeetingMemberListResponse getDingtalkMeetingMemberList(const Models::GetDingtalkMeetingMemberListRequest &request);
+
+      /**
+       * @summary 获取会议指标数据
+       *
+       * @param tmpReq GetDingtalkMeetingMetricDataRequest
+       * @param tmpHeader GetDingtalkMeetingMetricDataHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDingtalkMeetingMetricDataResponse
+       */
+      Models::GetDingtalkMeetingMetricDataResponse getDingtalkMeetingMetricDataWithOptions(const Models::GetDingtalkMeetingMetricDataRequest &tmpReq, const Models::GetDingtalkMeetingMetricDataHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取会议指标数据
+       *
+       * @param request GetDingtalkMeetingMetricDataRequest
+       * @return GetDingtalkMeetingMetricDataResponse
+       */
+      Models::GetDingtalkMeetingMetricDataResponse getDingtalkMeetingMetricData(const Models::GetDingtalkMeetingMetricDataRequest &request);
+
+      /**
+       * @summary 获取钉钉投屏信息
+       *
+       * @param tmpReq GetDingtalkProjectionInfoRequest
+       * @param tmpHeader GetDingtalkProjectionInfoHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDingtalkProjectionInfoResponse
+       */
+      Models::GetDingtalkProjectionInfoResponse getDingtalkProjectionInfoWithOptions(const Models::GetDingtalkProjectionInfoRequest &tmpReq, const Models::GetDingtalkProjectionInfoHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取钉钉投屏信息
+       *
+       * @param request GetDingtalkProjectionInfoRequest
+       * @return GetDingtalkProjectionInfoResponse
+       */
+      Models::GetDingtalkProjectionInfoResponse getDingtalkProjectionInfo(const Models::GetDingtalkProjectionInfoRequest &request);
+
+      /**
+       * @summary 获取钉钉投屏列表
+       *
+       * @param tmpReq GetDingtalkProjectionListRequest
+       * @param tmpHeader GetDingtalkProjectionListHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDingtalkProjectionListResponse
+       */
+      Models::GetDingtalkProjectionListResponse getDingtalkProjectionListWithOptions(const Models::GetDingtalkProjectionListRequest &tmpReq, const Models::GetDingtalkProjectionListHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取钉钉投屏列表
+       *
+       * @param request GetDingtalkProjectionListRequest
+       * @return GetDingtalkProjectionListResponse
+       */
+      Models::GetDingtalkProjectionListResponse getDingtalkProjectionList(const Models::GetDingtalkProjectionListRequest &request);
 
       /**
        * @summary 委托权限获取文档内容
@@ -2822,7 +2948,7 @@ namespace Aliding20230426
        * @param runtime runtime options for this request RuntimeOptions
        * @return InvokeAssistantResponse
        */
-      FutrueGenerator<Models::InvokeAssistantResponse> invokeAssistantWithSSE(const Models::InvokeAssistantRequest &request, const Models::InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::InvokeAssistantResponse> invokeAssistantWithSSE(const Models::InvokeAssistantRequest &request, const Models::InvokeAssistantHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 调用助理
@@ -2850,7 +2976,7 @@ namespace Aliding20230426
        * @param runtime runtime options for this request RuntimeOptions
        * @return InvokeSkillResponse
        */
-      FutrueGenerator<Models::InvokeSkillResponse> invokeSkillWithSSE(const Models::InvokeSkillRequest &tmpReq, const Models::InvokeSkillHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::InvokeSkillResponse> invokeSkillWithSSE(const Models::InvokeSkillRequest &tmpReq, const Models::InvokeSkillHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 调用AI技能
@@ -3643,6 +3769,24 @@ namespace Aliding20230426
        * @return QueryReportDetailResponse
        */
       Models::QueryReportDetailResponse queryReportDetail(const Models::QueryReportDetailRequest &request);
+
+      /**
+       * @summary 分页查询钉钉机器人退订工号
+       *
+       * @param request QueryRobotUnsubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryRobotUnsubscriptionResponse
+       */
+      Models::QueryRobotUnsubscriptionResponse queryRobotUnsubscriptionWithOptions(const Models::QueryRobotUnsubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询钉钉机器人退订工号
+       *
+       * @param request QueryRobotUnsubscriptionRequest
+       * @return QueryRobotUnsubscriptionResponse
+       */
+      Models::QueryRobotUnsubscriptionResponse queryRobotUnsubscription(const Models::QueryRobotUnsubscriptionRequest &request);
 
       /**
        * @summary 查询预约会议

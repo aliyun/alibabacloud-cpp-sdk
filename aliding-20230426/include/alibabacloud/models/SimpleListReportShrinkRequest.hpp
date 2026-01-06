@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cursor_ == nullptr
-        && return this->endTime_ == nullptr && return this->size_ == nullptr && return this->startTime_ == nullptr && return this->templateName_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->endTime_ == nullptr && this->size_ == nullptr && this->startTime_ == nullptr && this->templateName_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // cursor Field Functions 
     bool hasCursor() const { return this->cursor_ != nullptr;};
     void deleteCursor() { this->cursor_ = nullptr;};
-    inline int64_t cursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, 0L) };
+    inline int64_t getCursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, 0L) };
     inline SimpleListReportShrinkRequest& setCursor(int64_t cursor) { DARABONBA_PTR_SET_VALUE(cursor_, cursor) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline SimpleListReportShrinkRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int64_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+    inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
     inline SimpleListReportShrinkRequest& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline SimpleListReportShrinkRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline SimpleListReportShrinkRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline SimpleListReportShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> cursor_ = nullptr;
+    shared_ptr<int64_t> cursor_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> size_ = nullptr;
+    shared_ptr<int64_t> size_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> templateName_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> templateName_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

@@ -33,14 +33,14 @@ namespace Models
     // request Field Functions 
     bool hasRequest() const { return this->request_ != nullptr;};
     void deleteRequest() { this->request_ = nullptr;};
-    inline     const Darabonba::Json & request() const { DARABONBA_GET(request_) };
-    Darabonba::Json & request() { DARABONBA_GET(request_) };
+    inline     const Darabonba::Json & getRequest() const { DARABONBA_GET(request_) };
+    Darabonba::Json & getRequest() { DARABONBA_GET(request_) };
     inline ListCalendarsRequest& setRequest(const Darabonba::Json & request) { DARABONBA_SET_VALUE(request_, request) };
-    inline ListCalendarsRequest& setRequest(Darabonba::Json & request) { DARABONBA_SET_RVALUE(request_, request) };
+    inline ListCalendarsRequest& setRequest(Darabonba::Json && request) { DARABONBA_SET_RVALUE(request_, request) };
 
 
   protected:
-    Darabonba::Json request_ = nullptr;
+    Darabonba::Json request_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dentryUuid_ == nullptr
-        && return this->exportType_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->exportType_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // dentryUuid Field Functions 
     bool hasDentryUuid() const { return this->dentryUuid_ != nullptr;};
     void deleteDentryUuid() { this->dentryUuid_ = nullptr;};
-    inline string dentryUuid() const { DARABONBA_PTR_GET_DEFAULT(dentryUuid_, "") };
+    inline string getDentryUuid() const { DARABONBA_PTR_GET_DEFAULT(dentryUuid_, "") };
     inline GetSheetContentJobIdShrinkRequest& setDentryUuid(string dentryUuid) { DARABONBA_PTR_SET_VALUE(dentryUuid_, dentryUuid) };
 
 
     // exportType Field Functions 
     bool hasExportType() const { return this->exportType_ != nullptr;};
     void deleteExportType() { this->exportType_ = nullptr;};
-    inline string exportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
+    inline string getExportType() const { DARABONBA_PTR_GET_DEFAULT(exportType_, "") };
     inline GetSheetContentJobIdShrinkRequest& setExportType(string exportType) { DARABONBA_PTR_SET_VALUE(exportType_, exportType) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetSheetContentJobIdShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<string> dentryUuid_ = nullptr;
-    std::shared_ptr<string> exportType_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> dentryUuid_ {};
+    shared_ptr<string> exportType_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

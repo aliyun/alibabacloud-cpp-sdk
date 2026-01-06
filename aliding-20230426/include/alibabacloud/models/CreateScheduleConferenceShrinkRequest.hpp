@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->scheduleConfSettingModelShrink_ == nullptr && return this->startTime_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->title_ == nullptr; };
+        && this->scheduleConfSettingModelShrink_ == nullptr && this->startTime_ == nullptr && this->tenantContextShrink_ == nullptr && this->title_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline CreateScheduleConferenceShrinkRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // scheduleConfSettingModelShrink Field Functions 
     bool hasScheduleConfSettingModelShrink() const { return this->scheduleConfSettingModelShrink_ != nullptr;};
     void deleteScheduleConfSettingModelShrink() { this->scheduleConfSettingModelShrink_ = nullptr;};
-    inline string scheduleConfSettingModelShrink() const { DARABONBA_PTR_GET_DEFAULT(scheduleConfSettingModelShrink_, "") };
+    inline string getScheduleConfSettingModelShrink() const { DARABONBA_PTR_GET_DEFAULT(scheduleConfSettingModelShrink_, "") };
     inline CreateScheduleConferenceShrinkRequest& setScheduleConfSettingModelShrink(string scheduleConfSettingModelShrink) { DARABONBA_PTR_SET_VALUE(scheduleConfSettingModelShrink_, scheduleConfSettingModelShrink) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline CreateScheduleConferenceShrinkRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline CreateScheduleConferenceShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateScheduleConferenceShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<string> scheduleConfSettingModelShrink_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<string> scheduleConfSettingModelShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

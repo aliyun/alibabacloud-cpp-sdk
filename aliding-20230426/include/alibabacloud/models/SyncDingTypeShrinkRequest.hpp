@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dingType_ == nullptr
-        && return this->isDimission_ == nullptr && return this->source_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->workNo_ == nullptr; };
+        && this->isDimission_ == nullptr && this->source_ == nullptr && this->tenantContextShrink_ == nullptr && this->workNo_ == nullptr; };
     // dingType Field Functions 
     bool hasDingType() const { return this->dingType_ != nullptr;};
     void deleteDingType() { this->dingType_ = nullptr;};
-    inline string dingType() const { DARABONBA_PTR_GET_DEFAULT(dingType_, "") };
+    inline string getDingType() const { DARABONBA_PTR_GET_DEFAULT(dingType_, "") };
     inline SyncDingTypeShrinkRequest& setDingType(string dingType) { DARABONBA_PTR_SET_VALUE(dingType_, dingType) };
 
 
     // isDimission Field Functions 
     bool hasIsDimission() const { return this->isDimission_ != nullptr;};
     void deleteIsDimission() { this->isDimission_ = nullptr;};
-    inline string isDimission() const { DARABONBA_PTR_GET_DEFAULT(isDimission_, "") };
+    inline string getIsDimission() const { DARABONBA_PTR_GET_DEFAULT(isDimission_, "") };
     inline SyncDingTypeShrinkRequest& setIsDimission(string isDimission) { DARABONBA_PTR_SET_VALUE(isDimission_, isDimission) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline SyncDingTypeShrinkRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline SyncDingTypeShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // workNo Field Functions 
     bool hasWorkNo() const { return this->workNo_ != nullptr;};
     void deleteWorkNo() { this->workNo_ = nullptr;};
-    inline string workNo() const { DARABONBA_PTR_GET_DEFAULT(workNo_, "") };
+    inline string getWorkNo() const { DARABONBA_PTR_GET_DEFAULT(workNo_, "") };
     inline SyncDingTypeShrinkRequest& setWorkNo(string workNo) { DARABONBA_PTR_SET_VALUE(workNo_, workNo) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dingType_ = nullptr;
-    std::shared_ptr<string> isDimission_ = nullptr;
+    shared_ptr<string> dingType_ {};
+    shared_ptr<string> isDimission_ {};
     // This parameter is required.
-    std::shared_ptr<string> source_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> source_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> workNo_ = nullptr;
+    shared_ptr<string> workNo_ {};
   };
 
   } // namespace Models

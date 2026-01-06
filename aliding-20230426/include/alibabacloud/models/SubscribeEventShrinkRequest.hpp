@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->scope_ == nullptr
-        && return this->scopeId_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->scopeId_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline SubscribeEventShrinkRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // scopeId Field Functions 
     bool hasScopeId() const { return this->scopeId_ != nullptr;};
     void deleteScopeId() { this->scopeId_ = nullptr;};
-    inline string scopeId() const { DARABONBA_PTR_GET_DEFAULT(scopeId_, "") };
+    inline string getScopeId() const { DARABONBA_PTR_GET_DEFAULT(scopeId_, "") };
     inline SubscribeEventShrinkRequest& setScopeId(string scopeId) { DARABONBA_PTR_SET_VALUE(scopeId_, scopeId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline SubscribeEventShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
     // This parameter is required.
-    std::shared_ptr<string> scopeId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> scopeId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

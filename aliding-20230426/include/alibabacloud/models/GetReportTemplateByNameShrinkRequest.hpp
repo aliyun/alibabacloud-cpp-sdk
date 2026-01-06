@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->templateName_ == nullptr
-        && return this->tenantContextShrink_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr; };
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline GetReportTemplateByNameShrinkRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetReportTemplateByNameShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> templateName_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> templateName_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

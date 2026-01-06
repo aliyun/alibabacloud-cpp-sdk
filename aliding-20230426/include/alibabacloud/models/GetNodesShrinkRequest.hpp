@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeIdsShrink_ == nullptr
-        && return this->optionShrink_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->optionShrink_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // nodeIdsShrink Field Functions 
     bool hasNodeIdsShrink() const { return this->nodeIdsShrink_ != nullptr;};
     void deleteNodeIdsShrink() { this->nodeIdsShrink_ = nullptr;};
-    inline string nodeIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeIdsShrink_, "") };
+    inline string getNodeIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeIdsShrink_, "") };
     inline GetNodesShrinkRequest& setNodeIdsShrink(string nodeIdsShrink) { DARABONBA_PTR_SET_VALUE(nodeIdsShrink_, nodeIdsShrink) };
 
 
     // optionShrink Field Functions 
     bool hasOptionShrink() const { return this->optionShrink_ != nullptr;};
     void deleteOptionShrink() { this->optionShrink_ = nullptr;};
-    inline string optionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
+    inline string getOptionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
     inline GetNodesShrinkRequest& setOptionShrink(string optionShrink) { DARABONBA_PTR_SET_VALUE(optionShrink_, optionShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetNodesShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> nodeIdsShrink_ = nullptr;
-    std::shared_ptr<string> optionShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> nodeIdsShrink_ {};
+    shared_ptr<string> optionShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

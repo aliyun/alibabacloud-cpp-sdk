@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contentShrink_ == nullptr
-        && return this->documentId_ == nullptr && return this->index_ == nullptr && return this->pathShrink_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->documentId_ == nullptr && this->index_ == nullptr && this->pathShrink_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // contentShrink Field Functions 
     bool hasContentShrink() const { return this->contentShrink_ != nullptr;};
     void deleteContentShrink() { this->contentShrink_ = nullptr;};
-    inline string contentShrink() const { DARABONBA_PTR_GET_DEFAULT(contentShrink_, "") };
+    inline string getContentShrink() const { DARABONBA_PTR_GET_DEFAULT(contentShrink_, "") };
     inline InsertContentWithOptionsShrinkRequest& setContentShrink(string contentShrink) { DARABONBA_PTR_SET_VALUE(contentShrink_, contentShrink) };
 
 
     // documentId Field Functions 
     bool hasDocumentId() const { return this->documentId_ != nullptr;};
     void deleteDocumentId() { this->documentId_ = nullptr;};
-    inline string documentId() const { DARABONBA_PTR_GET_DEFAULT(documentId_, "") };
+    inline string getDocumentId() const { DARABONBA_PTR_GET_DEFAULT(documentId_, "") };
     inline InsertContentWithOptionsShrinkRequest& setDocumentId(string documentId) { DARABONBA_PTR_SET_VALUE(documentId_, documentId) };
 
 
     // index Field Functions 
     bool hasIndex() const { return this->index_ != nullptr;};
     void deleteIndex() { this->index_ = nullptr;};
-    inline int32_t index() const { DARABONBA_PTR_GET_DEFAULT(index_, 0) };
+    inline int32_t getIndex() const { DARABONBA_PTR_GET_DEFAULT(index_, 0) };
     inline InsertContentWithOptionsShrinkRequest& setIndex(int32_t index) { DARABONBA_PTR_SET_VALUE(index_, index) };
 
 
     // pathShrink Field Functions 
     bool hasPathShrink() const { return this->pathShrink_ != nullptr;};
     void deletePathShrink() { this->pathShrink_ = nullptr;};
-    inline string pathShrink() const { DARABONBA_PTR_GET_DEFAULT(pathShrink_, "") };
+    inline string getPathShrink() const { DARABONBA_PTR_GET_DEFAULT(pathShrink_, "") };
     inline InsertContentWithOptionsShrinkRequest& setPathShrink(string pathShrink) { DARABONBA_PTR_SET_VALUE(pathShrink_, pathShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline InsertContentWithOptionsShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> contentShrink_ = nullptr;
+    shared_ptr<string> contentShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> documentId_ = nullptr;
-    std::shared_ptr<int32_t> index_ = nullptr;
-    std::shared_ptr<string> pathShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> documentId_ {};
+    shared_ptr<int32_t> index_ {};
+    shared_ptr<string> pathShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // openConversationId Field Functions 
     bool hasOpenConversationId() const { return this->openConversationId_ != nullptr;};
     void deleteOpenConversationId() { this->openConversationId_ = nullptr;};
-    inline string openConversationId() const { DARABONBA_PTR_GET_DEFAULT(openConversationId_, "") };
+    inline string getOpenConversationId() const { DARABONBA_PTR_GET_DEFAULT(openConversationId_, "") };
     inline CheckUserIsGroupMemberRequest& setOpenConversationId(string openConversationId) { DARABONBA_PTR_SET_VALUE(openConversationId_, openConversationId) };
 
 
   protected:
-    std::shared_ptr<string> openConversationId_ = nullptr;
+    shared_ptr<string> openConversationId_ {};
   };
 
   } // namespace Models

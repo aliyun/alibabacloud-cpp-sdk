@@ -33,12 +33,12 @@ namespace Models
     // permissionCodesShrink Field Functions 
     bool hasPermissionCodesShrink() const { return this->permissionCodesShrink_ != nullptr;};
     void deletePermissionCodesShrink() { this->permissionCodesShrink_ = nullptr;};
-    inline string permissionCodesShrink() const { DARABONBA_PTR_GET_DEFAULT(permissionCodesShrink_, "") };
+    inline string getPermissionCodesShrink() const { DARABONBA_PTR_GET_DEFAULT(permissionCodesShrink_, "") };
     inline AuthorizeSkillShrinkRequest& setPermissionCodesShrink(string permissionCodesShrink) { DARABONBA_PTR_SET_VALUE(permissionCodesShrink_, permissionCodesShrink) };
 
 
   protected:
-    std::shared_ptr<string> permissionCodesShrink_ = nullptr;
+    shared_ptr<string> permissionCodesShrink_ {};
   };
 
   } // namespace Models

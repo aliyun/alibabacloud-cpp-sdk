@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->blockType_ == nullptr
-        && return this->docKey_ == nullptr && return this->endIndex_ == nullptr && return this->startIndex_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->docKey_ == nullptr && this->endIndex_ == nullptr && this->startIndex_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // blockType Field Functions 
     bool hasBlockType() const { return this->blockType_ != nullptr;};
     void deleteBlockType() { this->blockType_ = nullptr;};
-    inline string blockType() const { DARABONBA_PTR_GET_DEFAULT(blockType_, "") };
+    inline string getBlockType() const { DARABONBA_PTR_GET_DEFAULT(blockType_, "") };
     inline DocBlocksQueryShrinkRequest& setBlockType(string blockType) { DARABONBA_PTR_SET_VALUE(blockType_, blockType) };
 
 
     // docKey Field Functions 
     bool hasDocKey() const { return this->docKey_ != nullptr;};
     void deleteDocKey() { this->docKey_ = nullptr;};
-    inline string docKey() const { DARABONBA_PTR_GET_DEFAULT(docKey_, "") };
+    inline string getDocKey() const { DARABONBA_PTR_GET_DEFAULT(docKey_, "") };
     inline DocBlocksQueryShrinkRequest& setDocKey(string docKey) { DARABONBA_PTR_SET_VALUE(docKey_, docKey) };
 
 
     // endIndex Field Functions 
     bool hasEndIndex() const { return this->endIndex_ != nullptr;};
     void deleteEndIndex() { this->endIndex_ = nullptr;};
-    inline int32_t endIndex() const { DARABONBA_PTR_GET_DEFAULT(endIndex_, 0) };
+    inline int32_t getEndIndex() const { DARABONBA_PTR_GET_DEFAULT(endIndex_, 0) };
     inline DocBlocksQueryShrinkRequest& setEndIndex(int32_t endIndex) { DARABONBA_PTR_SET_VALUE(endIndex_, endIndex) };
 
 
     // startIndex Field Functions 
     bool hasStartIndex() const { return this->startIndex_ != nullptr;};
     void deleteStartIndex() { this->startIndex_ = nullptr;};
-    inline int32_t startIndex() const { DARABONBA_PTR_GET_DEFAULT(startIndex_, 0) };
+    inline int32_t getStartIndex() const { DARABONBA_PTR_GET_DEFAULT(startIndex_, 0) };
     inline DocBlocksQueryShrinkRequest& setStartIndex(int32_t startIndex) { DARABONBA_PTR_SET_VALUE(startIndex_, startIndex) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline DocBlocksQueryShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<string> blockType_ = nullptr;
+    shared_ptr<string> blockType_ {};
     // This parameter is required.
-    std::shared_ptr<string> docKey_ = nullptr;
-    std::shared_ptr<int32_t> endIndex_ = nullptr;
-    std::shared_ptr<int32_t> startIndex_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> docKey_ {};
+    shared_ptr<int32_t> endIndex_ {};
+    shared_ptr<int32_t> startIndex_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

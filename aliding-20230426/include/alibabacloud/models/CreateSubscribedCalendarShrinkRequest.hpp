@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->managersShrink_ == nullptr && return this->name_ == nullptr && return this->subscribeScopeShrink_ == nullptr; };
+        && this->managersShrink_ == nullptr && this->name_ == nullptr && this->subscribeScopeShrink_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateSubscribedCalendarShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // managersShrink Field Functions 
     bool hasManagersShrink() const { return this->managersShrink_ != nullptr;};
     void deleteManagersShrink() { this->managersShrink_ = nullptr;};
-    inline string managersShrink() const { DARABONBA_PTR_GET_DEFAULT(managersShrink_, "") };
+    inline string getManagersShrink() const { DARABONBA_PTR_GET_DEFAULT(managersShrink_, "") };
     inline CreateSubscribedCalendarShrinkRequest& setManagersShrink(string managersShrink) { DARABONBA_PTR_SET_VALUE(managersShrink_, managersShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateSubscribedCalendarShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // subscribeScopeShrink Field Functions 
     bool hasSubscribeScopeShrink() const { return this->subscribeScopeShrink_ != nullptr;};
     void deleteSubscribeScopeShrink() { this->subscribeScopeShrink_ = nullptr;};
-    inline string subscribeScopeShrink() const { DARABONBA_PTR_GET_DEFAULT(subscribeScopeShrink_, "") };
+    inline string getSubscribeScopeShrink() const { DARABONBA_PTR_GET_DEFAULT(subscribeScopeShrink_, "") };
     inline CreateSubscribedCalendarShrinkRequest& setSubscribeScopeShrink(string subscribeScopeShrink) { DARABONBA_PTR_SET_VALUE(subscribeScopeShrink_, subscribeScopeShrink) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> managersShrink_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> managersShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> subscribeScopeShrink_ = nullptr;
+    shared_ptr<string> subscribeScopeShrink_ {};
   };
 
   } // namespace Models

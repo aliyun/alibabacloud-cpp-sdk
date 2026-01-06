@@ -40,56 +40,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->errorLinesShrink_ == nullptr && return this->importSequence_ == nullptr && return this->language_ == nullptr && return this->status_ == nullptr && return this->systemToken_ == nullptr; };
+        && this->errorLinesShrink_ == nullptr && this->importSequence_ == nullptr && this->language_ == nullptr && this->status_ == nullptr && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline UpdateStatusShrinkRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // errorLinesShrink Field Functions 
     bool hasErrorLinesShrink() const { return this->errorLinesShrink_ != nullptr;};
     void deleteErrorLinesShrink() { this->errorLinesShrink_ = nullptr;};
-    inline string errorLinesShrink() const { DARABONBA_PTR_GET_DEFAULT(errorLinesShrink_, "") };
+    inline string getErrorLinesShrink() const { DARABONBA_PTR_GET_DEFAULT(errorLinesShrink_, "") };
     inline UpdateStatusShrinkRequest& setErrorLinesShrink(string errorLinesShrink) { DARABONBA_PTR_SET_VALUE(errorLinesShrink_, errorLinesShrink) };
 
 
     // importSequence Field Functions 
     bool hasImportSequence() const { return this->importSequence_ != nullptr;};
     void deleteImportSequence() { this->importSequence_ = nullptr;};
-    inline string importSequence() const { DARABONBA_PTR_GET_DEFAULT(importSequence_, "") };
+    inline string getImportSequence() const { DARABONBA_PTR_GET_DEFAULT(importSequence_, "") };
     inline UpdateStatusShrinkRequest& setImportSequence(string importSequence) { DARABONBA_PTR_SET_VALUE(importSequence_, importSequence) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline UpdateStatusShrinkRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline UpdateStatusShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline UpdateStatusShrinkRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<string> errorLinesShrink_ = nullptr;
-    std::shared_ptr<string> importSequence_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<string> errorLinesShrink_ {};
+    shared_ptr<string> importSequence_ {};
+    shared_ptr<string> language_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models

@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calendarId_ == nullptr
-        && return this->eventId_ == nullptr && return this->responseStatus_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->eventId_ == nullptr && this->responseStatus_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // calendarId Field Functions 
     bool hasCalendarId() const { return this->calendarId_ != nullptr;};
     void deleteCalendarId() { this->calendarId_ = nullptr;};
-    inline string calendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
+    inline string getCalendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
     inline RespondEventShrinkRequest& setCalendarId(string calendarId) { DARABONBA_PTR_SET_VALUE(calendarId_, calendarId) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline string eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
+    inline string getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
     inline RespondEventShrinkRequest& setEventId(string eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // responseStatus Field Functions 
     bool hasResponseStatus() const { return this->responseStatus_ != nullptr;};
     void deleteResponseStatus() { this->responseStatus_ = nullptr;};
-    inline string responseStatus() const { DARABONBA_PTR_GET_DEFAULT(responseStatus_, "") };
+    inline string getResponseStatus() const { DARABONBA_PTR_GET_DEFAULT(responseStatus_, "") };
     inline RespondEventShrinkRequest& setResponseStatus(string responseStatus) { DARABONBA_PTR_SET_VALUE(responseStatus_, responseStatus) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline RespondEventShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> calendarId_ = nullptr;
+    shared_ptr<string> calendarId_ {};
     // This parameter is required.
-    std::shared_ptr<string> eventId_ = nullptr;
+    shared_ptr<string> eventId_ {};
     // This parameter is required.
-    std::shared_ptr<string> responseStatus_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> responseStatus_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

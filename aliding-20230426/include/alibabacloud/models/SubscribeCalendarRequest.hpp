@@ -33,13 +33,13 @@ namespace Models
     // calendarId Field Functions 
     bool hasCalendarId() const { return this->calendarId_ != nullptr;};
     void deleteCalendarId() { this->calendarId_ = nullptr;};
-    inline string calendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
+    inline string getCalendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
     inline SubscribeCalendarRequest& setCalendarId(string calendarId) { DARABONBA_PTR_SET_VALUE(calendarId_, calendarId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> calendarId_ = nullptr;
+    shared_ptr<string> calendarId_ {};
   };
 
   } // namespace Models

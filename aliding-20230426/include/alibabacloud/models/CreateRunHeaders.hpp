@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commonHeaders_ == nullptr
-        && return this->accountId_ == nullptr; };
+        && this->accountId_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
-    inline const map<string, string> & commonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
-    inline map<string, string> commonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
+    inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
+    inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
     inline CreateRunHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
     inline CreateRunHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
@@ -46,13 +46,13 @@ namespace Models
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline CreateRunHeaders& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> commonHeaders_ = nullptr;
-    std::shared_ptr<string> accountId_ = nullptr;
+    shared_ptr<map<string, string>> commonHeaders_ {};
+    shared_ptr<string> accountId_ {};
   };
 
   } // namespace Models

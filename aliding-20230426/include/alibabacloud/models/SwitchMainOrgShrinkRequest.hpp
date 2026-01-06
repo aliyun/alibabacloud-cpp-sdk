@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->targetOrgId_ == nullptr
-        && return this->tenantContextShrink_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr; };
     // targetOrgId Field Functions 
     bool hasTargetOrgId() const { return this->targetOrgId_ != nullptr;};
     void deleteTargetOrgId() { this->targetOrgId_ = nullptr;};
-    inline int64_t targetOrgId() const { DARABONBA_PTR_GET_DEFAULT(targetOrgId_, 0L) };
+    inline int64_t getTargetOrgId() const { DARABONBA_PTR_GET_DEFAULT(targetOrgId_, 0L) };
     inline SwitchMainOrgShrinkRequest& setTargetOrgId(int64_t targetOrgId) { DARABONBA_PTR_SET_VALUE(targetOrgId_, targetOrgId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline SwitchMainOrgShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<int64_t> targetOrgId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<int64_t> targetOrgId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

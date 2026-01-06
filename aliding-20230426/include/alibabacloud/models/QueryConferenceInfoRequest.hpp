@@ -33,13 +33,13 @@ namespace Models
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline QueryConferenceInfoRequest& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> conferenceId_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
   };
 
   } // namespace Models

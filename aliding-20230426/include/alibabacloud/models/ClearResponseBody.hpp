@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->a1Notation_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // a1Notation Field Functions 
     bool hasA1Notation() const { return this->a1Notation_ != nullptr;};
     void deleteA1Notation() { this->a1Notation_ = nullptr;};
-    inline string a1Notation() const { DARABONBA_PTR_GET_DEFAULT(a1Notation_, "") };
+    inline string getA1Notation() const { DARABONBA_PTR_GET_DEFAULT(a1Notation_, "") };
     inline ClearResponseBody& setA1Notation(string a1Notation) { DARABONBA_PTR_SET_VALUE(a1Notation_, a1Notation) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ClearResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> a1Notation_ = nullptr;
+    shared_ptr<string> a1Notation_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

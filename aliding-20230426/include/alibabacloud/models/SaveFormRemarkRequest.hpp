@@ -42,69 +42,69 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->atUserId_ == nullptr && return this->content_ == nullptr && return this->formInstanceId_ == nullptr && return this->language_ == nullptr && return this->replyId_ == nullptr
-        && return this->systemToken_ == nullptr; };
+        && this->atUserId_ == nullptr && this->content_ == nullptr && this->formInstanceId_ == nullptr && this->language_ == nullptr && this->replyId_ == nullptr
+        && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline SaveFormRemarkRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // atUserId Field Functions 
     bool hasAtUserId() const { return this->atUserId_ != nullptr;};
     void deleteAtUserId() { this->atUserId_ = nullptr;};
-    inline string atUserId() const { DARABONBA_PTR_GET_DEFAULT(atUserId_, "") };
+    inline string getAtUserId() const { DARABONBA_PTR_GET_DEFAULT(atUserId_, "") };
     inline SaveFormRemarkRequest& setAtUserId(string atUserId) { DARABONBA_PTR_SET_VALUE(atUserId_, atUserId) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline SaveFormRemarkRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // formInstanceId Field Functions 
     bool hasFormInstanceId() const { return this->formInstanceId_ != nullptr;};
     void deleteFormInstanceId() { this->formInstanceId_ = nullptr;};
-    inline string formInstanceId() const { DARABONBA_PTR_GET_DEFAULT(formInstanceId_, "") };
+    inline string getFormInstanceId() const { DARABONBA_PTR_GET_DEFAULT(formInstanceId_, "") };
     inline SaveFormRemarkRequest& setFormInstanceId(string formInstanceId) { DARABONBA_PTR_SET_VALUE(formInstanceId_, formInstanceId) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline SaveFormRemarkRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // replyId Field Functions 
     bool hasReplyId() const { return this->replyId_ != nullptr;};
     void deleteReplyId() { this->replyId_ = nullptr;};
-    inline int64_t replyId() const { DARABONBA_PTR_GET_DEFAULT(replyId_, 0L) };
+    inline int64_t getReplyId() const { DARABONBA_PTR_GET_DEFAULT(replyId_, 0L) };
     inline SaveFormRemarkRequest& setReplyId(int64_t replyId) { DARABONBA_PTR_SET_VALUE(replyId_, replyId) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline SaveFormRemarkRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<string> atUserId_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<string> atUserId_ {};
     // This parameter is required.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // This parameter is required.
-    std::shared_ptr<string> formInstanceId_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<int64_t> replyId_ = nullptr;
+    shared_ptr<string> formInstanceId_ {};
+    shared_ptr<string> language_ {};
+    shared_ptr<int64_t> replyId_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models

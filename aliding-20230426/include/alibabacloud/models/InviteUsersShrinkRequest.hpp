@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inviteeListShrink_ == nullptr
-        && return this->tenantContextShrink_ == nullptr && return this->conferenceId_ == nullptr && return this->phoneInviteeListShrink_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr && this->conferenceId_ == nullptr && this->phoneInviteeListShrink_ == nullptr; };
     // inviteeListShrink Field Functions 
     bool hasInviteeListShrink() const { return this->inviteeListShrink_ != nullptr;};
     void deleteInviteeListShrink() { this->inviteeListShrink_ = nullptr;};
-    inline string inviteeListShrink() const { DARABONBA_PTR_GET_DEFAULT(inviteeListShrink_, "") };
+    inline string getInviteeListShrink() const { DARABONBA_PTR_GET_DEFAULT(inviteeListShrink_, "") };
     inline InviteUsersShrinkRequest& setInviteeListShrink(string inviteeListShrink) { DARABONBA_PTR_SET_VALUE(inviteeListShrink_, inviteeListShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline InviteUsersShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline InviteUsersShrinkRequest& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
     // phoneInviteeListShrink Field Functions 
     bool hasPhoneInviteeListShrink() const { return this->phoneInviteeListShrink_ != nullptr;};
     void deletePhoneInviteeListShrink() { this->phoneInviteeListShrink_ = nullptr;};
-    inline string phoneInviteeListShrink() const { DARABONBA_PTR_GET_DEFAULT(phoneInviteeListShrink_, "") };
+    inline string getPhoneInviteeListShrink() const { DARABONBA_PTR_GET_DEFAULT(phoneInviteeListShrink_, "") };
     inline InviteUsersShrinkRequest& setPhoneInviteeListShrink(string phoneInviteeListShrink) { DARABONBA_PTR_SET_VALUE(phoneInviteeListShrink_, phoneInviteeListShrink) };
 
 
   protected:
-    std::shared_ptr<string> inviteeListShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> inviteeListShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> conferenceId_ = nullptr;
-    std::shared_ptr<string> phoneInviteeListShrink_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
+    shared_ptr<string> phoneInviteeListShrink_ {};
   };
 
   } // namespace Models

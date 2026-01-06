@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dentryId_ == nullptr
-        && return this->includeSpace_ == nullptr && return this->spaceId_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->includeSpace_ == nullptr && this->spaceId_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // dentryId Field Functions 
     bool hasDentryId() const { return this->dentryId_ != nullptr;};
     void deleteDentryId() { this->dentryId_ = nullptr;};
-    inline string dentryId() const { DARABONBA_PTR_GET_DEFAULT(dentryId_, "") };
+    inline string getDentryId() const { DARABONBA_PTR_GET_DEFAULT(dentryId_, "") };
     inline QueryDentryShrinkRequest& setDentryId(string dentryId) { DARABONBA_PTR_SET_VALUE(dentryId_, dentryId) };
 
 
     // includeSpace Field Functions 
     bool hasIncludeSpace() const { return this->includeSpace_ != nullptr;};
     void deleteIncludeSpace() { this->includeSpace_ = nullptr;};
-    inline bool includeSpace() const { DARABONBA_PTR_GET_DEFAULT(includeSpace_, false) };
+    inline bool getIncludeSpace() const { DARABONBA_PTR_GET_DEFAULT(includeSpace_, false) };
     inline QueryDentryShrinkRequest& setIncludeSpace(bool includeSpace) { DARABONBA_PTR_SET_VALUE(includeSpace_, includeSpace) };
 
 
     // spaceId Field Functions 
     bool hasSpaceId() const { return this->spaceId_ != nullptr;};
     void deleteSpaceId() { this->spaceId_ = nullptr;};
-    inline string spaceId() const { DARABONBA_PTR_GET_DEFAULT(spaceId_, "") };
+    inline string getSpaceId() const { DARABONBA_PTR_GET_DEFAULT(spaceId_, "") };
     inline QueryDentryShrinkRequest& setSpaceId(string spaceId) { DARABONBA_PTR_SET_VALUE(spaceId_, spaceId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryDentryShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> dentryId_ = nullptr;
-    std::shared_ptr<bool> includeSpace_ = nullptr;
+    shared_ptr<string> dentryId_ {};
+    shared_ptr<bool> includeSpace_ {};
     // This parameter is required.
-    std::shared_ptr<string> spaceId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> spaceId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

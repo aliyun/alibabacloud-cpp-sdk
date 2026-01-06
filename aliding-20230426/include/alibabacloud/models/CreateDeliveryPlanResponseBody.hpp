@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arguments_ == nullptr
-        && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->vendorRequestId_ == nullptr && return this->vendorType_ == nullptr; };
+        && this->requestId_ == nullptr && this->success_ == nullptr && this->vendorRequestId_ == nullptr && this->vendorType_ == nullptr; };
     // arguments Field Functions 
     bool hasArguments() const { return this->arguments_ != nullptr;};
     void deleteArguments() { this->arguments_ = nullptr;};
-    inline const vector<Darabonba::Json> & arguments() const { DARABONBA_PTR_GET_CONST(arguments_, vector<Darabonba::Json>) };
-    inline vector<Darabonba::Json> arguments() { DARABONBA_PTR_GET(arguments_, vector<Darabonba::Json>) };
+    inline const vector<Darabonba::Json> & getArguments() const { DARABONBA_PTR_GET_CONST(arguments_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getArguments() { DARABONBA_PTR_GET(arguments_, vector<Darabonba::Json>) };
     inline CreateDeliveryPlanResponseBody& setArguments(const vector<Darabonba::Json> & arguments) { DARABONBA_PTR_SET_VALUE(arguments_, arguments) };
     inline CreateDeliveryPlanResponseBody& setArguments(vector<Darabonba::Json> && arguments) { DARABONBA_PTR_SET_RVALUE(arguments_, arguments) };
 
@@ -52,37 +52,37 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDeliveryPlanResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline CreateDeliveryPlanResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // vendorRequestId Field Functions 
     bool hasVendorRequestId() const { return this->vendorRequestId_ != nullptr;};
     void deleteVendorRequestId() { this->vendorRequestId_ = nullptr;};
-    inline string vendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
+    inline string getVendorRequestId() const { DARABONBA_PTR_GET_DEFAULT(vendorRequestId_, "") };
     inline CreateDeliveryPlanResponseBody& setVendorRequestId(string vendorRequestId) { DARABONBA_PTR_SET_VALUE(vendorRequestId_, vendorRequestId) };
 
 
     // vendorType Field Functions 
     bool hasVendorType() const { return this->vendorType_ != nullptr;};
     void deleteVendorType() { this->vendorType_ = nullptr;};
-    inline string vendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
+    inline string getVendorType() const { DARABONBA_PTR_GET_DEFAULT(vendorType_, "") };
     inline CreateDeliveryPlanResponseBody& setVendorType(string vendorType) { DARABONBA_PTR_SET_VALUE(vendorType_, vendorType) };
 
 
   protected:
-    std::shared_ptr<vector<Darabonba::Json>> arguments_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<string> vendorRequestId_ = nullptr;
-    std::shared_ptr<string> vendorType_ = nullptr;
+    shared_ptr<vector<Darabonba::Json>> arguments_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<string> vendorRequestId_ {};
+    shared_ptr<string> vendorType_ {};
   };
 
   } // namespace Models

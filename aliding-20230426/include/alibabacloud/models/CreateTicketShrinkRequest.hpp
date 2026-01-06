@@ -46,86 +46,86 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customFields_ == nullptr
-        && return this->notifyShrink_ == nullptr && return this->openTeamId_ == nullptr && return this->openTemplateBizId_ == nullptr && return this->processorUserIdsShrink_ == nullptr && return this->scene_ == nullptr
-        && return this->sceneContextShrink_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->title_ == nullptr; };
+        && this->notifyShrink_ == nullptr && this->openTeamId_ == nullptr && this->openTemplateBizId_ == nullptr && this->processorUserIdsShrink_ == nullptr && this->scene_ == nullptr
+        && this->sceneContextShrink_ == nullptr && this->tenantContextShrink_ == nullptr && this->title_ == nullptr; };
     // customFields Field Functions 
     bool hasCustomFields() const { return this->customFields_ != nullptr;};
     void deleteCustomFields() { this->customFields_ = nullptr;};
-    inline string customFields() const { DARABONBA_PTR_GET_DEFAULT(customFields_, "") };
+    inline string getCustomFields() const { DARABONBA_PTR_GET_DEFAULT(customFields_, "") };
     inline CreateTicketShrinkRequest& setCustomFields(string customFields) { DARABONBA_PTR_SET_VALUE(customFields_, customFields) };
 
 
     // notifyShrink Field Functions 
     bool hasNotifyShrink() const { return this->notifyShrink_ != nullptr;};
     void deleteNotifyShrink() { this->notifyShrink_ = nullptr;};
-    inline string notifyShrink() const { DARABONBA_PTR_GET_DEFAULT(notifyShrink_, "") };
+    inline string getNotifyShrink() const { DARABONBA_PTR_GET_DEFAULT(notifyShrink_, "") };
     inline CreateTicketShrinkRequest& setNotifyShrink(string notifyShrink) { DARABONBA_PTR_SET_VALUE(notifyShrink_, notifyShrink) };
 
 
     // openTeamId Field Functions 
     bool hasOpenTeamId() const { return this->openTeamId_ != nullptr;};
     void deleteOpenTeamId() { this->openTeamId_ = nullptr;};
-    inline string openTeamId() const { DARABONBA_PTR_GET_DEFAULT(openTeamId_, "") };
+    inline string getOpenTeamId() const { DARABONBA_PTR_GET_DEFAULT(openTeamId_, "") };
     inline CreateTicketShrinkRequest& setOpenTeamId(string openTeamId) { DARABONBA_PTR_SET_VALUE(openTeamId_, openTeamId) };
 
 
     // openTemplateBizId Field Functions 
     bool hasOpenTemplateBizId() const { return this->openTemplateBizId_ != nullptr;};
     void deleteOpenTemplateBizId() { this->openTemplateBizId_ = nullptr;};
-    inline string openTemplateBizId() const { DARABONBA_PTR_GET_DEFAULT(openTemplateBizId_, "") };
+    inline string getOpenTemplateBizId() const { DARABONBA_PTR_GET_DEFAULT(openTemplateBizId_, "") };
     inline CreateTicketShrinkRequest& setOpenTemplateBizId(string openTemplateBizId) { DARABONBA_PTR_SET_VALUE(openTemplateBizId_, openTemplateBizId) };
 
 
     // processorUserIdsShrink Field Functions 
     bool hasProcessorUserIdsShrink() const { return this->processorUserIdsShrink_ != nullptr;};
     void deleteProcessorUserIdsShrink() { this->processorUserIdsShrink_ = nullptr;};
-    inline string processorUserIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(processorUserIdsShrink_, "") };
+    inline string getProcessorUserIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(processorUserIdsShrink_, "") };
     inline CreateTicketShrinkRequest& setProcessorUserIdsShrink(string processorUserIdsShrink) { DARABONBA_PTR_SET_VALUE(processorUserIdsShrink_, processorUserIdsShrink) };
 
 
     // scene Field Functions 
     bool hasScene() const { return this->scene_ != nullptr;};
     void deleteScene() { this->scene_ = nullptr;};
-    inline string scene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
+    inline string getScene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
     inline CreateTicketShrinkRequest& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
 
 
     // sceneContextShrink Field Functions 
     bool hasSceneContextShrink() const { return this->sceneContextShrink_ != nullptr;};
     void deleteSceneContextShrink() { this->sceneContextShrink_ = nullptr;};
-    inline string sceneContextShrink() const { DARABONBA_PTR_GET_DEFAULT(sceneContextShrink_, "") };
+    inline string getSceneContextShrink() const { DARABONBA_PTR_GET_DEFAULT(sceneContextShrink_, "") };
     inline CreateTicketShrinkRequest& setSceneContextShrink(string sceneContextShrink) { DARABONBA_PTR_SET_VALUE(sceneContextShrink_, sceneContextShrink) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline CreateTicketShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateTicketShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
-    std::shared_ptr<string> customFields_ = nullptr;
-    std::shared_ptr<string> notifyShrink_ = nullptr;
+    shared_ptr<string> customFields_ {};
+    shared_ptr<string> notifyShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> openTeamId_ = nullptr;
+    shared_ptr<string> openTeamId_ {};
     // This parameter is required.
-    std::shared_ptr<string> openTemplateBizId_ = nullptr;
+    shared_ptr<string> openTemplateBizId_ {};
     // This parameter is required.
-    std::shared_ptr<string> processorUserIdsShrink_ = nullptr;
+    shared_ptr<string> processorUserIdsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> scene_ = nullptr;
-    std::shared_ptr<string> sceneContextShrink_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> scene_ {};
+    shared_ptr<string> sceneContextShrink_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

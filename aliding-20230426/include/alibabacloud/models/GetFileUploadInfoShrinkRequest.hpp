@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->optionShrink_ == nullptr
-        && return this->parentDentryUuid_ == nullptr && return this->protocol_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->parentDentryUuid_ == nullptr && this->protocol_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // optionShrink Field Functions 
     bool hasOptionShrink() const { return this->optionShrink_ != nullptr;};
     void deleteOptionShrink() { this->optionShrink_ = nullptr;};
-    inline string optionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
+    inline string getOptionShrink() const { DARABONBA_PTR_GET_DEFAULT(optionShrink_, "") };
     inline GetFileUploadInfoShrinkRequest& setOptionShrink(string optionShrink) { DARABONBA_PTR_SET_VALUE(optionShrink_, optionShrink) };
 
 
     // parentDentryUuid Field Functions 
     bool hasParentDentryUuid() const { return this->parentDentryUuid_ != nullptr;};
     void deleteParentDentryUuid() { this->parentDentryUuid_ = nullptr;};
-    inline string parentDentryUuid() const { DARABONBA_PTR_GET_DEFAULT(parentDentryUuid_, "") };
+    inline string getParentDentryUuid() const { DARABONBA_PTR_GET_DEFAULT(parentDentryUuid_, "") };
     inline GetFileUploadInfoShrinkRequest& setParentDentryUuid(string parentDentryUuid) { DARABONBA_PTR_SET_VALUE(parentDentryUuid_, parentDentryUuid) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline GetFileUploadInfoShrinkRequest& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetFileUploadInfoShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<string> optionShrink_ = nullptr;
-    std::shared_ptr<string> parentDentryUuid_ = nullptr;
-    std::shared_ptr<string> protocol_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> optionShrink_ {};
+    shared_ptr<string> parentDentryUuid_ {};
+    shared_ptr<string> protocol_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

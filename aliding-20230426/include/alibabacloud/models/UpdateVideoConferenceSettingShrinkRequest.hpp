@@ -44,74 +44,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowUnmuteSelf_ == nullptr
-        && return this->autoTransferHost_ == nullptr && return this->forbiddenShareScreen_ == nullptr && return this->lockConference_ == nullptr && return this->muteAll_ == nullptr && return this->onlyInternalEmployeesJoin_ == nullptr
-        && return this->tenantContextShrink_ == nullptr && return this->conferenceId_ == nullptr; };
+        && this->autoTransferHost_ == nullptr && this->forbiddenShareScreen_ == nullptr && this->lockConference_ == nullptr && this->muteAll_ == nullptr && this->onlyInternalEmployeesJoin_ == nullptr
+        && this->tenantContextShrink_ == nullptr && this->conferenceId_ == nullptr; };
     // allowUnmuteSelf Field Functions 
     bool hasAllowUnmuteSelf() const { return this->allowUnmuteSelf_ != nullptr;};
     void deleteAllowUnmuteSelf() { this->allowUnmuteSelf_ = nullptr;};
-    inline bool allowUnmuteSelf() const { DARABONBA_PTR_GET_DEFAULT(allowUnmuteSelf_, false) };
+    inline bool getAllowUnmuteSelf() const { DARABONBA_PTR_GET_DEFAULT(allowUnmuteSelf_, false) };
     inline UpdateVideoConferenceSettingShrinkRequest& setAllowUnmuteSelf(bool allowUnmuteSelf) { DARABONBA_PTR_SET_VALUE(allowUnmuteSelf_, allowUnmuteSelf) };
 
 
     // autoTransferHost Field Functions 
     bool hasAutoTransferHost() const { return this->autoTransferHost_ != nullptr;};
     void deleteAutoTransferHost() { this->autoTransferHost_ = nullptr;};
-    inline bool autoTransferHost() const { DARABONBA_PTR_GET_DEFAULT(autoTransferHost_, false) };
+    inline bool getAutoTransferHost() const { DARABONBA_PTR_GET_DEFAULT(autoTransferHost_, false) };
     inline UpdateVideoConferenceSettingShrinkRequest& setAutoTransferHost(bool autoTransferHost) { DARABONBA_PTR_SET_VALUE(autoTransferHost_, autoTransferHost) };
 
 
     // forbiddenShareScreen Field Functions 
     bool hasForbiddenShareScreen() const { return this->forbiddenShareScreen_ != nullptr;};
     void deleteForbiddenShareScreen() { this->forbiddenShareScreen_ = nullptr;};
-    inline bool forbiddenShareScreen() const { DARABONBA_PTR_GET_DEFAULT(forbiddenShareScreen_, false) };
+    inline bool getForbiddenShareScreen() const { DARABONBA_PTR_GET_DEFAULT(forbiddenShareScreen_, false) };
     inline UpdateVideoConferenceSettingShrinkRequest& setForbiddenShareScreen(bool forbiddenShareScreen) { DARABONBA_PTR_SET_VALUE(forbiddenShareScreen_, forbiddenShareScreen) };
 
 
     // lockConference Field Functions 
     bool hasLockConference() const { return this->lockConference_ != nullptr;};
     void deleteLockConference() { this->lockConference_ = nullptr;};
-    inline bool lockConference() const { DARABONBA_PTR_GET_DEFAULT(lockConference_, false) };
+    inline bool getLockConference() const { DARABONBA_PTR_GET_DEFAULT(lockConference_, false) };
     inline UpdateVideoConferenceSettingShrinkRequest& setLockConference(bool lockConference) { DARABONBA_PTR_SET_VALUE(lockConference_, lockConference) };
 
 
     // muteAll Field Functions 
     bool hasMuteAll() const { return this->muteAll_ != nullptr;};
     void deleteMuteAll() { this->muteAll_ = nullptr;};
-    inline bool muteAll() const { DARABONBA_PTR_GET_DEFAULT(muteAll_, false) };
+    inline bool getMuteAll() const { DARABONBA_PTR_GET_DEFAULT(muteAll_, false) };
     inline UpdateVideoConferenceSettingShrinkRequest& setMuteAll(bool muteAll) { DARABONBA_PTR_SET_VALUE(muteAll_, muteAll) };
 
 
     // onlyInternalEmployeesJoin Field Functions 
     bool hasOnlyInternalEmployeesJoin() const { return this->onlyInternalEmployeesJoin_ != nullptr;};
     void deleteOnlyInternalEmployeesJoin() { this->onlyInternalEmployeesJoin_ = nullptr;};
-    inline bool onlyInternalEmployeesJoin() const { DARABONBA_PTR_GET_DEFAULT(onlyInternalEmployeesJoin_, false) };
+    inline bool getOnlyInternalEmployeesJoin() const { DARABONBA_PTR_GET_DEFAULT(onlyInternalEmployeesJoin_, false) };
     inline UpdateVideoConferenceSettingShrinkRequest& setOnlyInternalEmployeesJoin(bool onlyInternalEmployeesJoin) { DARABONBA_PTR_SET_VALUE(onlyInternalEmployeesJoin_, onlyInternalEmployeesJoin) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline UpdateVideoConferenceSettingShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline UpdateVideoConferenceSettingShrinkRequest& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
   protected:
-    std::shared_ptr<bool> allowUnmuteSelf_ = nullptr;
-    std::shared_ptr<bool> autoTransferHost_ = nullptr;
-    std::shared_ptr<bool> forbiddenShareScreen_ = nullptr;
-    std::shared_ptr<bool> lockConference_ = nullptr;
-    std::shared_ptr<bool> muteAll_ = nullptr;
-    std::shared_ptr<bool> onlyInternalEmployeesJoin_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<bool> allowUnmuteSelf_ {};
+    shared_ptr<bool> autoTransferHost_ {};
+    shared_ptr<bool> forbiddenShareScreen_ {};
+    shared_ptr<bool> lockConference_ {};
+    shared_ptr<bool> muteAll_ {};
+    shared_ptr<bool> onlyInternalEmployeesJoin_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> conferenceId_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
   };
 
   } // namespace Models

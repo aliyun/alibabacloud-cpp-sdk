@@ -44,78 +44,78 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->byManager_ == nullptr && return this->language_ == nullptr && return this->nowActionExecutorId_ == nullptr && return this->processInstanceId_ == nullptr && return this->remark_ == nullptr
-        && return this->systemToken_ == nullptr && return this->taskId_ == nullptr; };
+        && this->byManager_ == nullptr && this->language_ == nullptr && this->nowActionExecutorId_ == nullptr && this->processInstanceId_ == nullptr && this->remark_ == nullptr
+        && this->systemToken_ == nullptr && this->taskId_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline RedirectTaskRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // byManager Field Functions 
     bool hasByManager() const { return this->byManager_ != nullptr;};
     void deleteByManager() { this->byManager_ = nullptr;};
-    inline string byManager() const { DARABONBA_PTR_GET_DEFAULT(byManager_, "") };
+    inline string getByManager() const { DARABONBA_PTR_GET_DEFAULT(byManager_, "") };
     inline RedirectTaskRequest& setByManager(string byManager) { DARABONBA_PTR_SET_VALUE(byManager_, byManager) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline RedirectTaskRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // nowActionExecutorId Field Functions 
     bool hasNowActionExecutorId() const { return this->nowActionExecutorId_ != nullptr;};
     void deleteNowActionExecutorId() { this->nowActionExecutorId_ = nullptr;};
-    inline string nowActionExecutorId() const { DARABONBA_PTR_GET_DEFAULT(nowActionExecutorId_, "") };
+    inline string getNowActionExecutorId() const { DARABONBA_PTR_GET_DEFAULT(nowActionExecutorId_, "") };
     inline RedirectTaskRequest& setNowActionExecutorId(string nowActionExecutorId) { DARABONBA_PTR_SET_VALUE(nowActionExecutorId_, nowActionExecutorId) };
 
 
     // processInstanceId Field Functions 
     bool hasProcessInstanceId() const { return this->processInstanceId_ != nullptr;};
     void deleteProcessInstanceId() { this->processInstanceId_ = nullptr;};
-    inline string processInstanceId() const { DARABONBA_PTR_GET_DEFAULT(processInstanceId_, "") };
+    inline string getProcessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(processInstanceId_, "") };
     inline RedirectTaskRequest& setProcessInstanceId(string processInstanceId) { DARABONBA_PTR_SET_VALUE(processInstanceId_, processInstanceId) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline RedirectTaskRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline RedirectTaskRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline RedirectTaskRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<string> byManager_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<string> byManager_ {};
+    shared_ptr<string> language_ {};
     // This parameter is required.
-    std::shared_ptr<string> nowActionExecutorId_ = nullptr;
+    shared_ptr<string> nowActionExecutorId_ {};
     // This parameter is required.
-    std::shared_ptr<string> processInstanceId_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<string> processInstanceId_ {};
+    shared_ptr<string> remark_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

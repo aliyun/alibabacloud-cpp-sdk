@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_STARTMINUTESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_STARTMINUTESREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/StartMinutesRequestTenantContext.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,45 +35,76 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TenantContext : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TenantContext& obj) { 
+        DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      };
+      friend void from_json(const Darabonba::Json& j, TenantContext& obj) { 
+        DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      };
+      TenantContext() = default ;
+      TenantContext(const TenantContext &) = default ;
+      TenantContext(TenantContext &&) = default ;
+      TenantContext(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TenantContext() = default ;
+      TenantContext& operator=(const TenantContext &) = default ;
+      TenantContext& operator=(TenantContext &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tenantId_ == nullptr; };
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline TenantContext& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    protected:
+      shared_ptr<string> tenantId_ {};
+    };
+
     virtual bool empty() const override { return this->tenantContext_ == nullptr
-        && return this->conferenceId_ == nullptr && return this->ownerUserId_ == nullptr && return this->recordAudio_ == nullptr; };
+        && this->conferenceId_ == nullptr && this->ownerUserId_ == nullptr && this->recordAudio_ == nullptr; };
     // tenantContext Field Functions 
     bool hasTenantContext() const { return this->tenantContext_ != nullptr;};
     void deleteTenantContext() { this->tenantContext_ = nullptr;};
-    inline const StartMinutesRequestTenantContext & tenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, StartMinutesRequestTenantContext) };
-    inline StartMinutesRequestTenantContext tenantContext() { DARABONBA_PTR_GET(tenantContext_, StartMinutesRequestTenantContext) };
-    inline StartMinutesRequest& setTenantContext(const StartMinutesRequestTenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
-    inline StartMinutesRequest& setTenantContext(StartMinutesRequestTenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
+    inline const StartMinutesRequest::TenantContext & getTenantContext() const { DARABONBA_PTR_GET_CONST(tenantContext_, StartMinutesRequest::TenantContext) };
+    inline StartMinutesRequest::TenantContext getTenantContext() { DARABONBA_PTR_GET(tenantContext_, StartMinutesRequest::TenantContext) };
+    inline StartMinutesRequest& setTenantContext(const StartMinutesRequest::TenantContext & tenantContext) { DARABONBA_PTR_SET_VALUE(tenantContext_, tenantContext) };
+    inline StartMinutesRequest& setTenantContext(StartMinutesRequest::TenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
 
 
     // conferenceId Field Functions 
     bool hasConferenceId() const { return this->conferenceId_ != nullptr;};
     void deleteConferenceId() { this->conferenceId_ = nullptr;};
-    inline string conferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
+    inline string getConferenceId() const { DARABONBA_PTR_GET_DEFAULT(conferenceId_, "") };
     inline StartMinutesRequest& setConferenceId(string conferenceId) { DARABONBA_PTR_SET_VALUE(conferenceId_, conferenceId) };
 
 
     // ownerUserId Field Functions 
     bool hasOwnerUserId() const { return this->ownerUserId_ != nullptr;};
     void deleteOwnerUserId() { this->ownerUserId_ = nullptr;};
-    inline string ownerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, "") };
+    inline string getOwnerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, "") };
     inline StartMinutesRequest& setOwnerUserId(string ownerUserId) { DARABONBA_PTR_SET_VALUE(ownerUserId_, ownerUserId) };
 
 
     // recordAudio Field Functions 
     bool hasRecordAudio() const { return this->recordAudio_ != nullptr;};
     void deleteRecordAudio() { this->recordAudio_ = nullptr;};
-    inline bool recordAudio() const { DARABONBA_PTR_GET_DEFAULT(recordAudio_, false) };
+    inline bool getRecordAudio() const { DARABONBA_PTR_GET_DEFAULT(recordAudio_, false) };
     inline StartMinutesRequest& setRecordAudio(bool recordAudio) { DARABONBA_PTR_SET_VALUE(recordAudio_, recordAudio) };
 
 
   protected:
-    std::shared_ptr<StartMinutesRequestTenantContext> tenantContext_ = nullptr;
+    shared_ptr<StartMinutesRequest::TenantContext> tenantContext_ {};
     // This parameter is required.
-    std::shared_ptr<string> conferenceId_ = nullptr;
+    shared_ptr<string> conferenceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> ownerUserId_ = nullptr;
-    std::shared_ptr<bool> recordAudio_ = nullptr;
+    shared_ptr<string> ownerUserId_ {};
+    shared_ptr<bool> recordAudio_ {};
   };
 
   } // namespace Models

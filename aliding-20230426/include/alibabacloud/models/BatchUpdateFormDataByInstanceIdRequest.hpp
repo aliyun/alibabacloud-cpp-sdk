@@ -47,27 +47,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->asynchronousExecution_ == nullptr && return this->formInstanceIdList_ == nullptr && return this->formUuid_ == nullptr && return this->ignoreEmpty_ == nullptr && return this->noExecuteExpression_ == nullptr
-        && return this->systemToken_ == nullptr && return this->updateFormDataJson_ == nullptr && return this->useLatestFormSchemaVersion_ == nullptr; };
+        && this->asynchronousExecution_ == nullptr && this->formInstanceIdList_ == nullptr && this->formUuid_ == nullptr && this->ignoreEmpty_ == nullptr && this->noExecuteExpression_ == nullptr
+        && this->systemToken_ == nullptr && this->updateFormDataJson_ == nullptr && this->useLatestFormSchemaVersion_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline BatchUpdateFormDataByInstanceIdRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // asynchronousExecution Field Functions 
     bool hasAsynchronousExecution() const { return this->asynchronousExecution_ != nullptr;};
     void deleteAsynchronousExecution() { this->asynchronousExecution_ = nullptr;};
-    inline bool asynchronousExecution() const { DARABONBA_PTR_GET_DEFAULT(asynchronousExecution_, false) };
+    inline bool getAsynchronousExecution() const { DARABONBA_PTR_GET_DEFAULT(asynchronousExecution_, false) };
     inline BatchUpdateFormDataByInstanceIdRequest& setAsynchronousExecution(bool asynchronousExecution) { DARABONBA_PTR_SET_VALUE(asynchronousExecution_, asynchronousExecution) };
 
 
     // formInstanceIdList Field Functions 
     bool hasFormInstanceIdList() const { return this->formInstanceIdList_ != nullptr;};
     void deleteFormInstanceIdList() { this->formInstanceIdList_ = nullptr;};
-    inline const vector<string> & formInstanceIdList() const { DARABONBA_PTR_GET_CONST(formInstanceIdList_, vector<string>) };
-    inline vector<string> formInstanceIdList() { DARABONBA_PTR_GET(formInstanceIdList_, vector<string>) };
+    inline const vector<string> & getFormInstanceIdList() const { DARABONBA_PTR_GET_CONST(formInstanceIdList_, vector<string>) };
+    inline vector<string> getFormInstanceIdList() { DARABONBA_PTR_GET(formInstanceIdList_, vector<string>) };
     inline BatchUpdateFormDataByInstanceIdRequest& setFormInstanceIdList(const vector<string> & formInstanceIdList) { DARABONBA_PTR_SET_VALUE(formInstanceIdList_, formInstanceIdList) };
     inline BatchUpdateFormDataByInstanceIdRequest& setFormInstanceIdList(vector<string> && formInstanceIdList) { DARABONBA_PTR_SET_RVALUE(formInstanceIdList_, formInstanceIdList) };
 
@@ -75,59 +75,59 @@ namespace Models
     // formUuid Field Functions 
     bool hasFormUuid() const { return this->formUuid_ != nullptr;};
     void deleteFormUuid() { this->formUuid_ = nullptr;};
-    inline string formUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
+    inline string getFormUuid() const { DARABONBA_PTR_GET_DEFAULT(formUuid_, "") };
     inline BatchUpdateFormDataByInstanceIdRequest& setFormUuid(string formUuid) { DARABONBA_PTR_SET_VALUE(formUuid_, formUuid) };
 
 
     // ignoreEmpty Field Functions 
     bool hasIgnoreEmpty() const { return this->ignoreEmpty_ != nullptr;};
     void deleteIgnoreEmpty() { this->ignoreEmpty_ = nullptr;};
-    inline bool ignoreEmpty() const { DARABONBA_PTR_GET_DEFAULT(ignoreEmpty_, false) };
+    inline bool getIgnoreEmpty() const { DARABONBA_PTR_GET_DEFAULT(ignoreEmpty_, false) };
     inline BatchUpdateFormDataByInstanceIdRequest& setIgnoreEmpty(bool ignoreEmpty) { DARABONBA_PTR_SET_VALUE(ignoreEmpty_, ignoreEmpty) };
 
 
     // noExecuteExpression Field Functions 
     bool hasNoExecuteExpression() const { return this->noExecuteExpression_ != nullptr;};
     void deleteNoExecuteExpression() { this->noExecuteExpression_ = nullptr;};
-    inline bool noExecuteExpression() const { DARABONBA_PTR_GET_DEFAULT(noExecuteExpression_, false) };
+    inline bool getNoExecuteExpression() const { DARABONBA_PTR_GET_DEFAULT(noExecuteExpression_, false) };
     inline BatchUpdateFormDataByInstanceIdRequest& setNoExecuteExpression(bool noExecuteExpression) { DARABONBA_PTR_SET_VALUE(noExecuteExpression_, noExecuteExpression) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline BatchUpdateFormDataByInstanceIdRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
     // updateFormDataJson Field Functions 
     bool hasUpdateFormDataJson() const { return this->updateFormDataJson_ != nullptr;};
     void deleteUpdateFormDataJson() { this->updateFormDataJson_ = nullptr;};
-    inline string updateFormDataJson() const { DARABONBA_PTR_GET_DEFAULT(updateFormDataJson_, "") };
+    inline string getUpdateFormDataJson() const { DARABONBA_PTR_GET_DEFAULT(updateFormDataJson_, "") };
     inline BatchUpdateFormDataByInstanceIdRequest& setUpdateFormDataJson(string updateFormDataJson) { DARABONBA_PTR_SET_VALUE(updateFormDataJson_, updateFormDataJson) };
 
 
     // useLatestFormSchemaVersion Field Functions 
     bool hasUseLatestFormSchemaVersion() const { return this->useLatestFormSchemaVersion_ != nullptr;};
     void deleteUseLatestFormSchemaVersion() { this->useLatestFormSchemaVersion_ = nullptr;};
-    inline bool useLatestFormSchemaVersion() const { DARABONBA_PTR_GET_DEFAULT(useLatestFormSchemaVersion_, false) };
+    inline bool getUseLatestFormSchemaVersion() const { DARABONBA_PTR_GET_DEFAULT(useLatestFormSchemaVersion_, false) };
     inline BatchUpdateFormDataByInstanceIdRequest& setUseLatestFormSchemaVersion(bool useLatestFormSchemaVersion) { DARABONBA_PTR_SET_VALUE(useLatestFormSchemaVersion_, useLatestFormSchemaVersion) };
 
 
   protected:
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<bool> asynchronousExecution_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<bool> asynchronousExecution_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> formInstanceIdList_ = nullptr;
+    shared_ptr<vector<string>> formInstanceIdList_ {};
     // This parameter is required.
-    std::shared_ptr<string> formUuid_ = nullptr;
-    std::shared_ptr<bool> ignoreEmpty_ = nullptr;
-    std::shared_ptr<bool> noExecuteExpression_ = nullptr;
+    shared_ptr<string> formUuid_ {};
+    shared_ptr<bool> ignoreEmpty_ {};
+    shared_ptr<bool> noExecuteExpression_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> updateFormDataJson_ = nullptr;
-    std::shared_ptr<bool> useLatestFormSchemaVersion_ = nullptr;
+    shared_ptr<string> updateFormDataJson_ {};
+    shared_ptr<bool> useLatestFormSchemaVersion_ {};
   };
 
   } // namespace Models

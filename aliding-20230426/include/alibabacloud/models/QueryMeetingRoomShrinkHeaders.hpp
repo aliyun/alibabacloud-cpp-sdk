@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commonHeaders_ == nullptr
-        && return this->accountContextShrink_ == nullptr; };
+        && this->accountContextShrink_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
-    inline const map<string, string> & commonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
-    inline map<string, string> commonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
+    inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
+    inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
     inline QueryMeetingRoomShrinkHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
     inline QueryMeetingRoomShrinkHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
@@ -46,13 +46,13 @@ namespace Models
     // accountContextShrink Field Functions 
     bool hasAccountContextShrink() const { return this->accountContextShrink_ != nullptr;};
     void deleteAccountContextShrink() { this->accountContextShrink_ = nullptr;};
-    inline string accountContextShrink() const { DARABONBA_PTR_GET_DEFAULT(accountContextShrink_, "") };
+    inline string getAccountContextShrink() const { DARABONBA_PTR_GET_DEFAULT(accountContextShrink_, "") };
     inline QueryMeetingRoomShrinkHeaders& setAccountContextShrink(string accountContextShrink) { DARABONBA_PTR_SET_VALUE(accountContextShrink_, accountContextShrink) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> commonHeaders_ = nullptr;
-    std::shared_ptr<string> accountContextShrink_ = nullptr;
+    shared_ptr<map<string, string>> commonHeaders_ {};
+    shared_ptr<string> accountContextShrink_ {};
   };
 
   } // namespace Models

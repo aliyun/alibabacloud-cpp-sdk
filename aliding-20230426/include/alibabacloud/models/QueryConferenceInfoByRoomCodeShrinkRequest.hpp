@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->roomCode_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->roomCode_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryConferenceInfoByRoomCodeShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline QueryConferenceInfoByRoomCodeShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline QueryConferenceInfoByRoomCodeShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // roomCode Field Functions 
     bool hasRoomCode() const { return this->roomCode_ != nullptr;};
     void deleteRoomCode() { this->roomCode_ = nullptr;};
-    inline string roomCode() const { DARABONBA_PTR_GET_DEFAULT(roomCode_, "") };
+    inline string getRoomCode() const { DARABONBA_PTR_GET_DEFAULT(roomCode_, "") };
     inline QueryConferenceInfoByRoomCodeShrinkRequest& setRoomCode(string roomCode) { DARABONBA_PTR_SET_VALUE(roomCode_, roomCode) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<int32_t> maxResults_ {};
     // This parameter is required.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> roomCode_ = nullptr;
+    shared_ptr<string> roomCode_ {};
   };
 
   } // namespace Models

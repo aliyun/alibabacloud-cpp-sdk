@@ -36,41 +36,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeId_ == nullptr
-        && return this->tenantContextShrink_ == nullptr && return this->withPermissionRole_ == nullptr && return this->withStatisticalInfo_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr && this->withPermissionRole_ == nullptr && this->withStatisticalInfo_ == nullptr; };
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline GetNodeShrinkRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetNodeShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // withPermissionRole Field Functions 
     bool hasWithPermissionRole() const { return this->withPermissionRole_ != nullptr;};
     void deleteWithPermissionRole() { this->withPermissionRole_ = nullptr;};
-    inline bool withPermissionRole() const { DARABONBA_PTR_GET_DEFAULT(withPermissionRole_, false) };
+    inline bool getWithPermissionRole() const { DARABONBA_PTR_GET_DEFAULT(withPermissionRole_, false) };
     inline GetNodeShrinkRequest& setWithPermissionRole(bool withPermissionRole) { DARABONBA_PTR_SET_VALUE(withPermissionRole_, withPermissionRole) };
 
 
     // withStatisticalInfo Field Functions 
     bool hasWithStatisticalInfo() const { return this->withStatisticalInfo_ != nullptr;};
     void deleteWithStatisticalInfo() { this->withStatisticalInfo_ = nullptr;};
-    inline bool withStatisticalInfo() const { DARABONBA_PTR_GET_DEFAULT(withStatisticalInfo_, false) };
+    inline bool getWithStatisticalInfo() const { DARABONBA_PTR_GET_DEFAULT(withStatisticalInfo_, false) };
     inline GetNodeShrinkRequest& setWithStatisticalInfo(bool withStatisticalInfo) { DARABONBA_PTR_SET_VALUE(withStatisticalInfo_, withStatisticalInfo) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<bool> withPermissionRole_ = nullptr;
-    std::shared_ptr<bool> withStatisticalInfo_ = nullptr;
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<bool> withPermissionRole_ {};
+    shared_ptr<bool> withStatisticalInfo_ {};
   };
 
   } // namespace Models

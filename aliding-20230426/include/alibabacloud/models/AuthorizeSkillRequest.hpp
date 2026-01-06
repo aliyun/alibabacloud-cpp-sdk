@@ -34,14 +34,14 @@ namespace Models
     // permissionCodes Field Functions 
     bool hasPermissionCodes() const { return this->permissionCodes_ != nullptr;};
     void deletePermissionCodes() { this->permissionCodes_ = nullptr;};
-    inline const vector<string> & permissionCodes() const { DARABONBA_PTR_GET_CONST(permissionCodes_, vector<string>) };
-    inline vector<string> permissionCodes() { DARABONBA_PTR_GET(permissionCodes_, vector<string>) };
+    inline const vector<string> & getPermissionCodes() const { DARABONBA_PTR_GET_CONST(permissionCodes_, vector<string>) };
+    inline vector<string> getPermissionCodes() { DARABONBA_PTR_GET(permissionCodes_, vector<string>) };
     inline AuthorizeSkillRequest& setPermissionCodes(const vector<string> & permissionCodes) { DARABONBA_PTR_SET_VALUE(permissionCodes_, permissionCodes) };
     inline AuthorizeSkillRequest& setPermissionCodes(vector<string> && permissionCodes) { DARABONBA_PTR_SET_RVALUE(permissionCodes_, permissionCodes) };
 
 
   protected:
-    std::shared_ptr<vector<string>> permissionCodes_ = nullptr;
+    shared_ptr<vector<string>> permissionCodes_ {};
   };
 
   } // namespace Models

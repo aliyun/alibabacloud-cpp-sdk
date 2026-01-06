@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->anchorUnionId_ == nullptr
-        && return this->liveUuid_ == nullptr && return this->tenantContextShrink_ == nullptr; };
+        && this->liveUuid_ == nullptr && this->tenantContextShrink_ == nullptr; };
     // anchorUnionId Field Functions 
     bool hasAnchorUnionId() const { return this->anchorUnionId_ != nullptr;};
     void deleteAnchorUnionId() { this->anchorUnionId_ = nullptr;};
-    inline string anchorUnionId() const { DARABONBA_PTR_GET_DEFAULT(anchorUnionId_, "") };
+    inline string getAnchorUnionId() const { DARABONBA_PTR_GET_DEFAULT(anchorUnionId_, "") };
     inline QueryGroupLiveInfoShrinkRequest& setAnchorUnionId(string anchorUnionId) { DARABONBA_PTR_SET_VALUE(anchorUnionId_, anchorUnionId) };
 
 
     // liveUuid Field Functions 
     bool hasLiveUuid() const { return this->liveUuid_ != nullptr;};
     void deleteLiveUuid() { this->liveUuid_ = nullptr;};
-    inline string liveUuid() const { DARABONBA_PTR_GET_DEFAULT(liveUuid_, "") };
+    inline string getLiveUuid() const { DARABONBA_PTR_GET_DEFAULT(liveUuid_, "") };
     inline QueryGroupLiveInfoShrinkRequest& setLiveUuid(string liveUuid) { DARABONBA_PTR_SET_VALUE(liveUuid_, liveUuid) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryGroupLiveInfoShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> anchorUnionId_ = nullptr;
+    shared_ptr<string> anchorUnionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> liveUuid_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> liveUuid_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

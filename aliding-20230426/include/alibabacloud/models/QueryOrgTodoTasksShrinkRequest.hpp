@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tenantContextShrink_ == nullptr
-        && return this->isDone_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->isDone_ == nullptr && this->nextToken_ == nullptr; };
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline QueryOrgTodoTasksShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // isDone Field Functions 
     bool hasIsDone() const { return this->isDone_ != nullptr;};
     void deleteIsDone() { this->isDone_ = nullptr;};
-    inline bool isDone() const { DARABONBA_PTR_GET_DEFAULT(isDone_, false) };
+    inline bool getIsDone() const { DARABONBA_PTR_GET_DEFAULT(isDone_, false) };
     inline QueryOrgTodoTasksShrinkRequest& setIsDone(bool isDone) { DARABONBA_PTR_SET_VALUE(isDone_, isDone) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline QueryOrgTodoTasksShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
-    std::shared_ptr<bool> isDone_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> tenantContextShrink_ {};
+    shared_ptr<bool> isDone_ {};
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

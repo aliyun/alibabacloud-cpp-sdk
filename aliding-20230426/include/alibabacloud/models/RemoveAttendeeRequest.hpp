@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attendeesToRemove_ == nullptr
-        && return this->calendarId_ == nullptr && return this->eventId_ == nullptr; };
+        && this->calendarId_ == nullptr && this->eventId_ == nullptr; };
     // attendeesToRemove Field Functions 
     bool hasAttendeesToRemove() const { return this->attendeesToRemove_ != nullptr;};
     void deleteAttendeesToRemove() { this->attendeesToRemove_ = nullptr;};
-    inline const vector<string> & attendeesToRemove() const { DARABONBA_PTR_GET_CONST(attendeesToRemove_, vector<string>) };
-    inline vector<string> attendeesToRemove() { DARABONBA_PTR_GET(attendeesToRemove_, vector<string>) };
+    inline const vector<string> & getAttendeesToRemove() const { DARABONBA_PTR_GET_CONST(attendeesToRemove_, vector<string>) };
+    inline vector<string> getAttendeesToRemove() { DARABONBA_PTR_GET(attendeesToRemove_, vector<string>) };
     inline RemoveAttendeeRequest& setAttendeesToRemove(const vector<string> & attendeesToRemove) { DARABONBA_PTR_SET_VALUE(attendeesToRemove_, attendeesToRemove) };
     inline RemoveAttendeeRequest& setAttendeesToRemove(vector<string> && attendeesToRemove) { DARABONBA_PTR_SET_RVALUE(attendeesToRemove_, attendeesToRemove) };
 
@@ -48,23 +48,23 @@ namespace Models
     // calendarId Field Functions 
     bool hasCalendarId() const { return this->calendarId_ != nullptr;};
     void deleteCalendarId() { this->calendarId_ = nullptr;};
-    inline string calendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
+    inline string getCalendarId() const { DARABONBA_PTR_GET_DEFAULT(calendarId_, "") };
     inline RemoveAttendeeRequest& setCalendarId(string calendarId) { DARABONBA_PTR_SET_VALUE(calendarId_, calendarId) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline string eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
+    inline string getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
     inline RemoveAttendeeRequest& setEventId(string eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> attendeesToRemove_ = nullptr;
+    shared_ptr<vector<string>> attendeesToRemove_ {};
     // This parameter is required.
-    std::shared_ptr<string> calendarId_ = nullptr;
+    shared_ptr<string> calendarId_ {};
     // This parameter is required.
-    std::shared_ptr<string> eventId_ = nullptr;
+    shared_ptr<string> eventId_ {};
   };
 
   } // namespace Models

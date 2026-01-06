@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->openConversationId_ == nullptr
-        && return this->userIds_ == nullptr; };
+        && this->userIds_ == nullptr; };
     // openConversationId Field Functions 
     bool hasOpenConversationId() const { return this->openConversationId_ != nullptr;};
     void deleteOpenConversationId() { this->openConversationId_ = nullptr;};
-    inline string openConversationId() const { DARABONBA_PTR_GET_DEFAULT(openConversationId_, "") };
+    inline string getOpenConversationId() const { DARABONBA_PTR_GET_DEFAULT(openConversationId_, "") };
     inline DeleteScenegroupMemberRequest& setOpenConversationId(string openConversationId) { DARABONBA_PTR_SET_VALUE(openConversationId_, openConversationId) };
 
 
     // userIds Field Functions 
     bool hasUserIds() const { return this->userIds_ != nullptr;};
     void deleteUserIds() { this->userIds_ = nullptr;};
-    inline string userIds() const { DARABONBA_PTR_GET_DEFAULT(userIds_, "") };
+    inline string getUserIds() const { DARABONBA_PTR_GET_DEFAULT(userIds_, "") };
     inline DeleteScenegroupMemberRequest& setUserIds(string userIds) { DARABONBA_PTR_SET_VALUE(userIds_, userIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> openConversationId_ = nullptr;
+    shared_ptr<string> openConversationId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userIds_ = nullptr;
+    shared_ptr<string> userIds_ {};
   };
 
   } // namespace Models

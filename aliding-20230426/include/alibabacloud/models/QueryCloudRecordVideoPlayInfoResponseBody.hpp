@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->duration_ == nullptr
-        && return this->fileSize_ == nullptr && return this->mp4FileUrl_ == nullptr && return this->playUrl_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->fileSize_ == nullptr && this->mp4FileUrl_ == nullptr && this->playUrl_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int64_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
+    inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
     inline QueryCloudRecordVideoPlayInfoResponseBody& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // fileSize Field Functions 
     bool hasFileSize() const { return this->fileSize_ != nullptr;};
     void deleteFileSize() { this->fileSize_ = nullptr;};
-    inline int64_t fileSize() const { DARABONBA_PTR_GET_DEFAULT(fileSize_, 0L) };
+    inline int64_t getFileSize() const { DARABONBA_PTR_GET_DEFAULT(fileSize_, 0L) };
     inline QueryCloudRecordVideoPlayInfoResponseBody& setFileSize(int64_t fileSize) { DARABONBA_PTR_SET_VALUE(fileSize_, fileSize) };
 
 
     // mp4FileUrl Field Functions 
     bool hasMp4FileUrl() const { return this->mp4FileUrl_ != nullptr;};
     void deleteMp4FileUrl() { this->mp4FileUrl_ = nullptr;};
-    inline string mp4FileUrl() const { DARABONBA_PTR_GET_DEFAULT(mp4FileUrl_, "") };
+    inline string getMp4FileUrl() const { DARABONBA_PTR_GET_DEFAULT(mp4FileUrl_, "") };
     inline QueryCloudRecordVideoPlayInfoResponseBody& setMp4FileUrl(string mp4FileUrl) { DARABONBA_PTR_SET_VALUE(mp4FileUrl_, mp4FileUrl) };
 
 
     // playUrl Field Functions 
     bool hasPlayUrl() const { return this->playUrl_ != nullptr;};
     void deletePlayUrl() { this->playUrl_ = nullptr;};
-    inline string playUrl() const { DARABONBA_PTR_GET_DEFAULT(playUrl_, "") };
+    inline string getPlayUrl() const { DARABONBA_PTR_GET_DEFAULT(playUrl_, "") };
     inline QueryCloudRecordVideoPlayInfoResponseBody& setPlayUrl(string playUrl) { DARABONBA_PTR_SET_VALUE(playUrl_, playUrl) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QueryCloudRecordVideoPlayInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int64_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0L) };
+    inline int64_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0L) };
     inline QueryCloudRecordVideoPlayInfoResponseBody& setStatus(int64_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<int64_t> duration_ = nullptr;
-    std::shared_ptr<int64_t> fileSize_ = nullptr;
-    std::shared_ptr<string> mp4FileUrl_ = nullptr;
-    std::shared_ptr<string> playUrl_ = nullptr;
+    shared_ptr<int64_t> duration_ {};
+    shared_ptr<int64_t> fileSize_ {};
+    shared_ptr<string> mp4FileUrl_ {};
+    shared_ptr<string> playUrl_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> status_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> status_ {};
   };
 
   } // namespace Models

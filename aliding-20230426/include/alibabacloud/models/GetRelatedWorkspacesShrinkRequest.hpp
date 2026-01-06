@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->includeRecent_ == nullptr
-        && return this->tenantContextShrink_ == nullptr; };
+        && this->tenantContextShrink_ == nullptr; };
     // includeRecent Field Functions 
     bool hasIncludeRecent() const { return this->includeRecent_ != nullptr;};
     void deleteIncludeRecent() { this->includeRecent_ = nullptr;};
-    inline bool includeRecent() const { DARABONBA_PTR_GET_DEFAULT(includeRecent_, false) };
+    inline bool getIncludeRecent() const { DARABONBA_PTR_GET_DEFAULT(includeRecent_, false) };
     inline GetRelatedWorkspacesShrinkRequest& setIncludeRecent(bool includeRecent) { DARABONBA_PTR_SET_VALUE(includeRecent_, includeRecent) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline GetRelatedWorkspacesShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
   protected:
-    std::shared_ptr<bool> includeRecent_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<bool> includeRecent_ {};
+    shared_ptr<string> tenantContextShrink_ {};
   };
 
   } // namespace Models

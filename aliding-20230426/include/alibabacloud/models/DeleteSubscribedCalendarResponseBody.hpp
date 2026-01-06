@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->result_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline bool result() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
+    inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
     inline DeleteSubscribedCalendarResponseBody& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteSubscribedCalendarResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> result_ = nullptr;
+    shared_ptr<bool> result_ {};
     // requestId
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->optionsShrink_ == nullptr
-        && return this->rangeAddress_ == nullptr && return this->sheetId_ == nullptr && return this->tenantContextShrink_ == nullptr && return this->workbookId_ == nullptr; };
+        && this->rangeAddress_ == nullptr && this->sheetId_ == nullptr && this->tenantContextShrink_ == nullptr && this->workbookId_ == nullptr; };
     // optionsShrink Field Functions 
     bool hasOptionsShrink() const { return this->optionsShrink_ != nullptr;};
     void deleteOptionsShrink() { this->optionsShrink_ = nullptr;};
-    inline string optionsShrink() const { DARABONBA_PTR_GET_DEFAULT(optionsShrink_, "") };
+    inline string getOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(optionsShrink_, "") };
     inline InsertDropDownListShrinkRequest& setOptionsShrink(string optionsShrink) { DARABONBA_PTR_SET_VALUE(optionsShrink_, optionsShrink) };
 
 
     // rangeAddress Field Functions 
     bool hasRangeAddress() const { return this->rangeAddress_ != nullptr;};
     void deleteRangeAddress() { this->rangeAddress_ = nullptr;};
-    inline string rangeAddress() const { DARABONBA_PTR_GET_DEFAULT(rangeAddress_, "") };
+    inline string getRangeAddress() const { DARABONBA_PTR_GET_DEFAULT(rangeAddress_, "") };
     inline InsertDropDownListShrinkRequest& setRangeAddress(string rangeAddress) { DARABONBA_PTR_SET_VALUE(rangeAddress_, rangeAddress) };
 
 
     // sheetId Field Functions 
     bool hasSheetId() const { return this->sheetId_ != nullptr;};
     void deleteSheetId() { this->sheetId_ = nullptr;};
-    inline string sheetId() const { DARABONBA_PTR_GET_DEFAULT(sheetId_, "") };
+    inline string getSheetId() const { DARABONBA_PTR_GET_DEFAULT(sheetId_, "") };
     inline InsertDropDownListShrinkRequest& setSheetId(string sheetId) { DARABONBA_PTR_SET_VALUE(sheetId_, sheetId) };
 
 
     // tenantContextShrink Field Functions 
     bool hasTenantContextShrink() const { return this->tenantContextShrink_ != nullptr;};
     void deleteTenantContextShrink() { this->tenantContextShrink_ = nullptr;};
-    inline string tenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
+    inline string getTenantContextShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantContextShrink_, "") };
     inline InsertDropDownListShrinkRequest& setTenantContextShrink(string tenantContextShrink) { DARABONBA_PTR_SET_VALUE(tenantContextShrink_, tenantContextShrink) };
 
 
     // workbookId Field Functions 
     bool hasWorkbookId() const { return this->workbookId_ != nullptr;};
     void deleteWorkbookId() { this->workbookId_ = nullptr;};
-    inline string workbookId() const { DARABONBA_PTR_GET_DEFAULT(workbookId_, "") };
+    inline string getWorkbookId() const { DARABONBA_PTR_GET_DEFAULT(workbookId_, "") };
     inline InsertDropDownListShrinkRequest& setWorkbookId(string workbookId) { DARABONBA_PTR_SET_VALUE(workbookId_, workbookId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> optionsShrink_ = nullptr;
+    shared_ptr<string> optionsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> rangeAddress_ = nullptr;
+    shared_ptr<string> rangeAddress_ {};
     // This parameter is required.
-    std::shared_ptr<string> sheetId_ = nullptr;
-    std::shared_ptr<string> tenantContextShrink_ = nullptr;
+    shared_ptr<string> sheetId_ {};
+    shared_ptr<string> tenantContextShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> workbookId_ = nullptr;
+    shared_ptr<string> workbookId_ {};
   };
 
   } // namespace Models

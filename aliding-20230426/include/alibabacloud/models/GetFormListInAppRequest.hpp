@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appType_ == nullptr
-        && return this->formTypes_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->systemToken_ == nullptr; };
+        && this->formTypes_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->systemToken_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};
-    inline string appType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+    inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline GetFormListInAppRequest& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
     // formTypes Field Functions 
     bool hasFormTypes() const { return this->formTypes_ != nullptr;};
     void deleteFormTypes() { this->formTypes_ = nullptr;};
-    inline string formTypes() const { DARABONBA_PTR_GET_DEFAULT(formTypes_, "") };
+    inline string getFormTypes() const { DARABONBA_PTR_GET_DEFAULT(formTypes_, "") };
     inline GetFormListInAppRequest& setFormTypes(string formTypes) { DARABONBA_PTR_SET_VALUE(formTypes_, formTypes) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline GetFormListInAppRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetFormListInAppRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // systemToken Field Functions 
     bool hasSystemToken() const { return this->systemToken_ != nullptr;};
     void deleteSystemToken() { this->systemToken_ = nullptr;};
-    inline string systemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
+    inline string getSystemToken() const { DARABONBA_PTR_GET_DEFAULT(systemToken_, "") };
     inline GetFormListInAppRequest& setSystemToken(string systemToken) { DARABONBA_PTR_SET_VALUE(systemToken_, systemToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appType_ = nullptr;
-    std::shared_ptr<string> formTypes_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<string> appType_ {};
+    shared_ptr<string> formTypes_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> systemToken_ = nullptr;
+    shared_ptr<string> systemToken_ {};
   };
 
   } // namespace Models
