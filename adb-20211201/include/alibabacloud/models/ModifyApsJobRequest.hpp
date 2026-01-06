@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apsJobId_ == nullptr
-        && return this->dbList_ == nullptr && return this->partitionList_ == nullptr && return this->regionId_ == nullptr; };
+        && this->dbList_ == nullptr && this->partitionList_ == nullptr && this->regionId_ == nullptr; };
     // apsJobId Field Functions 
     bool hasApsJobId() const { return this->apsJobId_ != nullptr;};
     void deleteApsJobId() { this->apsJobId_ = nullptr;};
-    inline string apsJobId() const { DARABONBA_PTR_GET_DEFAULT(apsJobId_, "") };
+    inline string getApsJobId() const { DARABONBA_PTR_GET_DEFAULT(apsJobId_, "") };
     inline ModifyApsJobRequest& setApsJobId(string apsJobId) { DARABONBA_PTR_SET_VALUE(apsJobId_, apsJobId) };
 
 
     // dbList Field Functions 
     bool hasDbList() const { return this->dbList_ != nullptr;};
     void deleteDbList() { this->dbList_ = nullptr;};
-    inline string dbList() const { DARABONBA_PTR_GET_DEFAULT(dbList_, "") };
+    inline string getDbList() const { DARABONBA_PTR_GET_DEFAULT(dbList_, "") };
     inline ModifyApsJobRequest& setDbList(string dbList) { DARABONBA_PTR_SET_VALUE(dbList_, dbList) };
 
 
     // partitionList Field Functions 
     bool hasPartitionList() const { return this->partitionList_ != nullptr;};
     void deletePartitionList() { this->partitionList_ = nullptr;};
-    inline string partitionList() const { DARABONBA_PTR_GET_DEFAULT(partitionList_, "") };
+    inline string getPartitionList() const { DARABONBA_PTR_GET_DEFAULT(partitionList_, "") };
     inline ModifyApsJobRequest& setPartitionList(string partitionList) { DARABONBA_PTR_SET_VALUE(partitionList_, partitionList) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyApsJobRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The job ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> apsJobId_ = nullptr;
+    shared_ptr<string> apsJobId_ {};
     // The objects to be synchronized.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dbList_ = nullptr;
+    shared_ptr<string> dbList_ {};
     // The partitions.
-    std::shared_ptr<string> partitionList_ = nullptr;
+    shared_ptr<string> partitionList_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

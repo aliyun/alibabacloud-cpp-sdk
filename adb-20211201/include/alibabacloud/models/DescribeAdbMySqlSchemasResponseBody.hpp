@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->message_ == nullptr
-        && return this->requestId_ == nullptr && return this->schemas_ == nullptr && return this->success_ == nullptr; };
+        && this->requestId_ == nullptr && this->schemas_ == nullptr && this->success_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeAdbMySqlSchemasResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAdbMySqlSchemasResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // schemas Field Functions 
     bool hasSchemas() const { return this->schemas_ != nullptr;};
     void deleteSchemas() { this->schemas_ = nullptr;};
-    inline const vector<string> & schemas() const { DARABONBA_PTR_GET_CONST(schemas_, vector<string>) };
-    inline vector<string> schemas() { DARABONBA_PTR_GET(schemas_, vector<string>) };
+    inline const vector<string> & getSchemas() const { DARABONBA_PTR_GET_CONST(schemas_, vector<string>) };
+    inline vector<string> getSchemas() { DARABONBA_PTR_GET(schemas_, vector<string>) };
     inline DescribeAdbMySqlSchemasResponseBody& setSchemas(const vector<string> & schemas) { DARABONBA_PTR_SET_VALUE(schemas_, schemas) };
     inline DescribeAdbMySqlSchemasResponseBody& setSchemas(vector<string> && schemas) { DARABONBA_PTR_SET_RVALUE(schemas_, schemas) };
 
@@ -64,7 +64,7 @@ namespace Models
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeAdbMySqlSchemasResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
@@ -73,16 +73,16 @@ namespace Models
     // 
     // *   If the request was successful, a **success** message is returned.
     // *   If the request failed, an error message is returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The queried databases.
-    std::shared_ptr<vector<string>> schemas_ = nullptr;
+    shared_ptr<vector<string>> schemas_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

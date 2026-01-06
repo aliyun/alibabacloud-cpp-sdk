@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->name_ == nullptr && return this->processid_ == nullptr && return this->refreshInterval_ == nullptr && return this->refreshModel_ == nullptr && return this->resourceGroup_ == nullptr
-        && return this->scheduledStartTime_ == nullptr && return this->schemaName_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr; };
+        && this->name_ == nullptr && this->processid_ == nullptr && this->refreshInterval_ == nullptr && this->refreshModel_ == nullptr && this->resourceGroup_ == nullptr
+        && this->scheduledStartTime_ == nullptr && this->schemaName_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline OpenStructRefreshJobModel& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline OpenStructRefreshJobModel& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // processid Field Functions 
     bool hasProcessid() const { return this->processid_ != nullptr;};
     void deleteProcessid() { this->processid_ = nullptr;};
-    inline string processid() const { DARABONBA_PTR_GET_DEFAULT(processid_, "") };
+    inline string getProcessid() const { DARABONBA_PTR_GET_DEFAULT(processid_, "") };
     inline OpenStructRefreshJobModel& setProcessid(string processid) { DARABONBA_PTR_SET_VALUE(processid_, processid) };
 
 
     // refreshInterval Field Functions 
     bool hasRefreshInterval() const { return this->refreshInterval_ != nullptr;};
     void deleteRefreshInterval() { this->refreshInterval_ = nullptr;};
-    inline string refreshInterval() const { DARABONBA_PTR_GET_DEFAULT(refreshInterval_, "") };
+    inline string getRefreshInterval() const { DARABONBA_PTR_GET_DEFAULT(refreshInterval_, "") };
     inline OpenStructRefreshJobModel& setRefreshInterval(string refreshInterval) { DARABONBA_PTR_SET_VALUE(refreshInterval_, refreshInterval) };
 
 
     // refreshModel Field Functions 
     bool hasRefreshModel() const { return this->refreshModel_ != nullptr;};
     void deleteRefreshModel() { this->refreshModel_ = nullptr;};
-    inline string refreshModel() const { DARABONBA_PTR_GET_DEFAULT(refreshModel_, "") };
+    inline string getRefreshModel() const { DARABONBA_PTR_GET_DEFAULT(refreshModel_, "") };
     inline OpenStructRefreshJobModel& setRefreshModel(string refreshModel) { DARABONBA_PTR_SET_VALUE(refreshModel_, refreshModel) };
 
 
     // resourceGroup Field Functions 
     bool hasResourceGroup() const { return this->resourceGroup_ != nullptr;};
     void deleteResourceGroup() { this->resourceGroup_ = nullptr;};
-    inline string resourceGroup() const { DARABONBA_PTR_GET_DEFAULT(resourceGroup_, "") };
+    inline string getResourceGroup() const { DARABONBA_PTR_GET_DEFAULT(resourceGroup_, "") };
     inline OpenStructRefreshJobModel& setResourceGroup(string resourceGroup) { DARABONBA_PTR_SET_VALUE(resourceGroup_, resourceGroup) };
 
 
     // scheduledStartTime Field Functions 
     bool hasScheduledStartTime() const { return this->scheduledStartTime_ != nullptr;};
     void deleteScheduledStartTime() { this->scheduledStartTime_ = nullptr;};
-    inline string scheduledStartTime() const { DARABONBA_PTR_GET_DEFAULT(scheduledStartTime_, "") };
+    inline string getScheduledStartTime() const { DARABONBA_PTR_GET_DEFAULT(scheduledStartTime_, "") };
     inline OpenStructRefreshJobModel& setScheduledStartTime(string scheduledStartTime) { DARABONBA_PTR_SET_VALUE(scheduledStartTime_, scheduledStartTime) };
 
 
     // schemaName Field Functions 
     bool hasSchemaName() const { return this->schemaName_ != nullptr;};
     void deleteSchemaName() { this->schemaName_ = nullptr;};
-    inline string schemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
+    inline string getSchemaName() const { DARABONBA_PTR_GET_DEFAULT(schemaName_, "") };
     inline OpenStructRefreshJobModel& setSchemaName(string schemaName) { DARABONBA_PTR_SET_VALUE(schemaName_, schemaName) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline OpenStructRefreshJobModel& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline OpenStructRefreshJobModel& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> processid_ = nullptr;
-    std::shared_ptr<string> refreshInterval_ = nullptr;
-    std::shared_ptr<string> refreshModel_ = nullptr;
-    std::shared_ptr<string> resourceGroup_ = nullptr;
-    std::shared_ptr<string> scheduledStartTime_ = nullptr;
-    std::shared_ptr<string> schemaName_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> processid_ {};
+    shared_ptr<string> refreshInterval_ {};
+    shared_ptr<string> refreshModel_ {};
+    shared_ptr<string> resourceGroup_ {};
+    shared_ptr<string> scheduledStartTime_ {};
+    shared_ptr<string> schemaName_ {};
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

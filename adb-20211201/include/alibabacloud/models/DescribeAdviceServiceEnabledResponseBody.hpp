@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->message_ == nullptr
-        && return this->requestId_ == nullptr && return this->result_ == nullptr; };
+        && this->requestId_ == nullptr && this->result_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeAdviceServiceEnabledResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAdviceServiceEnabledResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline bool result() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
+    inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
     inline DescribeAdviceServiceEnabledResponseBody& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
@@ -61,14 +61,14 @@ namespace Models
     // 
     // *   If the request was successful, a **Success** message is returned.
     // *   If the request failed, an error message is returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the suggestion feature is enabled. Valid values:
     // 
     // *   **True**
     // *   **False**
-    std::shared_ptr<bool> result_ = nullptr;
+    shared_ptr<bool> result_ {};
   };
 
   } // namespace Models

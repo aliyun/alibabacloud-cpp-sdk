@@ -66,140 +66,140 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->DBName_ == nullptr && return this->endTime_ == nullptr && return this->hostAddress_ == nullptr && return this->order_ == nullptr && return this->orderType_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->proxyUser_ == nullptr
-        && return this->queryKeyword_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sqlType_ == nullptr
-        && return this->startTime_ == nullptr && return this->succeed_ == nullptr && return this->user_ == nullptr; };
+        && this->DBName_ == nullptr && this->endTime_ == nullptr && this->hostAddress_ == nullptr && this->order_ == nullptr && this->orderType_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->proxyUser_ == nullptr
+        && this->queryKeyword_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sqlType_ == nullptr
+        && this->startTime_ == nullptr && this->succeed_ == nullptr && this->user_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeAuditLogRecordsRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // DBName Field Functions 
     bool hasDBName() const { return this->DBName_ != nullptr;};
     void deleteDBName() { this->DBName_ = nullptr;};
-    inline string DBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+    inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline DescribeAuditLogRecordsRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeAuditLogRecordsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // hostAddress Field Functions 
     bool hasHostAddress() const { return this->hostAddress_ != nullptr;};
     void deleteHostAddress() { this->hostAddress_ = nullptr;};
-    inline string hostAddress() const { DARABONBA_PTR_GET_DEFAULT(hostAddress_, "") };
+    inline string getHostAddress() const { DARABONBA_PTR_GET_DEFAULT(hostAddress_, "") };
     inline DescribeAuditLogRecordsRequest& setHostAddress(string hostAddress) { DARABONBA_PTR_SET_VALUE(hostAddress_, hostAddress) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline DescribeAuditLogRecordsRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline DescribeAuditLogRecordsRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DescribeAuditLogRecordsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeAuditLogRecordsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeAuditLogRecordsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeAuditLogRecordsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // proxyUser Field Functions 
     bool hasProxyUser() const { return this->proxyUser_ != nullptr;};
     void deleteProxyUser() { this->proxyUser_ = nullptr;};
-    inline string proxyUser() const { DARABONBA_PTR_GET_DEFAULT(proxyUser_, "") };
+    inline string getProxyUser() const { DARABONBA_PTR_GET_DEFAULT(proxyUser_, "") };
     inline DescribeAuditLogRecordsRequest& setProxyUser(string proxyUser) { DARABONBA_PTR_SET_VALUE(proxyUser_, proxyUser) };
 
 
     // queryKeyword Field Functions 
     bool hasQueryKeyword() const { return this->queryKeyword_ != nullptr;};
     void deleteQueryKeyword() { this->queryKeyword_ = nullptr;};
-    inline string queryKeyword() const { DARABONBA_PTR_GET_DEFAULT(queryKeyword_, "") };
+    inline string getQueryKeyword() const { DARABONBA_PTR_GET_DEFAULT(queryKeyword_, "") };
     inline DescribeAuditLogRecordsRequest& setQueryKeyword(string queryKeyword) { DARABONBA_PTR_SET_VALUE(queryKeyword_, queryKeyword) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeAuditLogRecordsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeAuditLogRecordsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeAuditLogRecordsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // sqlType Field Functions 
     bool hasSqlType() const { return this->sqlType_ != nullptr;};
     void deleteSqlType() { this->sqlType_ = nullptr;};
-    inline string sqlType() const { DARABONBA_PTR_GET_DEFAULT(sqlType_, "") };
+    inline string getSqlType() const { DARABONBA_PTR_GET_DEFAULT(sqlType_, "") };
     inline DescribeAuditLogRecordsRequest& setSqlType(string sqlType) { DARABONBA_PTR_SET_VALUE(sqlType_, sqlType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeAuditLogRecordsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // succeed Field Functions 
     bool hasSucceed() const { return this->succeed_ != nullptr;};
     void deleteSucceed() { this->succeed_ = nullptr;};
-    inline string succeed() const { DARABONBA_PTR_GET_DEFAULT(succeed_, "") };
+    inline string getSucceed() const { DARABONBA_PTR_GET_DEFAULT(succeed_, "") };
     inline DescribeAuditLogRecordsRequest& setSucceed(string succeed) { DARABONBA_PTR_SET_VALUE(succeed_, succeed) };
 
 
     // user Field Functions 
     bool hasUser() const { return this->user_ != nullptr;};
     void deleteUser() { this->user_ = nullptr;};
-    inline string user() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
+    inline string getUser() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
     inline DescribeAuditLogRecordsRequest& setUser(string user) { DARABONBA_PTR_SET_VALUE(user_, user) };
 
 
@@ -209,9 +209,9 @@ namespace Models
     // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The name of the database on which the SQL statement was executed.
-    std::shared_ptr<string> DBName_ = nullptr;
+    shared_ptr<string> DBName_ {};
     // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // > 
@@ -219,9 +219,9 @@ namespace Models
     // *   The end time must be later than the start time.
     // 
     // *   The maximum time range that can be specified is 24 hours.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The IP address and port number of the client that is used to execute the SQL statement.
-    std::shared_ptr<string> hostAddress_ = nullptr;
+    shared_ptr<string> hostAddress_ {};
     // The order in which to sort the retrieved entries by field. Specify this parameter in the JSON format. The value is an ordered array that uses the order of the input array and contains `Field` and `Type`. Example: `[{"Field":"ExecutionStartTime","Type":"Desc"},{"Field":"ScanRows","Type":"Asc"}]`. Fields:
     // 
     // *   `Field`: the field that is used to sort the retrieved entries. Valid values:
@@ -242,35 +242,35 @@ namespace Models
     // 
     //     *   **Desc**: descending order.
     //     *   **Asc**: ascending order.
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // The sorting order of the retrieved entries. Valid values:
     // 
     // *   **asc**: sorts the retrieved entries by time in ascending order.
     // *   **desc**: sorts the retrieved entries by time in descending order.
-    std::shared_ptr<string> orderType_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> orderType_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The page number. Pages start from page 1. Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
     // *   **10** (default)
     // *   **30**
     // *   **50**
     // *   **100**
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // A reserved parameter.
-    std::shared_ptr<string> proxyUser_ = nullptr;
+    shared_ptr<string> proxyUser_ {};
     // The keyword based on which audit logs are queried. You can set this parameter to a value of the STRING type.
-    std::shared_ptr<string> queryKeyword_ = nullptr;
+    shared_ptr<string> queryKeyword_ {};
     // The region ID of the cluster.
     // 
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of the SQL statement. Valid values:
     // 
     // *   **DELETE**
@@ -282,18 +282,18 @@ namespace Models
     // *   **CREATE**
     // 
     // >  You can query only a single type of SQL statements at a time. If you leave this parameter empty, all types of SQL statements are queried.
-    std::shared_ptr<string> sqlType_ = nullptr;
+    shared_ptr<string> sqlType_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
     // 
     // > SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // Specifies whether the execution of the SQL statement succeeds. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<string> succeed_ = nullptr;
+    shared_ptr<string> succeed_ {};
     // The username that is used to execute the SQL statement.
-    std::shared_ptr<string> user_ = nullptr;
+    shared_ptr<string> user_ {};
   };
 
   } // namespace Models

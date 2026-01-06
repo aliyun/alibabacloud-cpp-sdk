@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->description_ == nullptr && return this->lakeStorageId_ == nullptr && return this->permissionsShrink_ == nullptr && return this->regionId_ == nullptr; };
+        && this->description_ == nullptr && this->lakeStorageId_ == nullptr && this->permissionsShrink_ == nullptr && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline UpdateLakeStorageShrinkRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateLakeStorageShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // lakeStorageId Field Functions 
     bool hasLakeStorageId() const { return this->lakeStorageId_ != nullptr;};
     void deleteLakeStorageId() { this->lakeStorageId_ = nullptr;};
-    inline string lakeStorageId() const { DARABONBA_PTR_GET_DEFAULT(lakeStorageId_, "") };
+    inline string getLakeStorageId() const { DARABONBA_PTR_GET_DEFAULT(lakeStorageId_, "") };
     inline UpdateLakeStorageShrinkRequest& setLakeStorageId(string lakeStorageId) { DARABONBA_PTR_SET_VALUE(lakeStorageId_, lakeStorageId) };
 
 
     // permissionsShrink Field Functions 
     bool hasPermissionsShrink() const { return this->permissionsShrink_ != nullptr;};
     void deletePermissionsShrink() { this->permissionsShrink_ = nullptr;};
-    inline string permissionsShrink() const { DARABONBA_PTR_GET_DEFAULT(permissionsShrink_, "") };
+    inline string getPermissionsShrink() const { DARABONBA_PTR_GET_DEFAULT(permissionsShrink_, "") };
     inline UpdateLakeStorageShrinkRequest& setPermissionsShrink(string permissionsShrink) { DARABONBA_PTR_SET_VALUE(permissionsShrink_, permissionsShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateLakeStorageShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The ID of the AnalyticDB for MySQL cluster that is associated with the lake storage.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The description of the lake storage.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The unique identifier of the lake storage.
-    std::shared_ptr<string> lakeStorageId_ = nullptr;
+    shared_ptr<string> lakeStorageId_ {};
     // The permissions on the lake storage.
-    std::shared_ptr<string> permissionsShrink_ = nullptr;
+    shared_ptr<string> permissionsShrink_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

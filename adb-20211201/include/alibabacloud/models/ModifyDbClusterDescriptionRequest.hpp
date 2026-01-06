@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterDescription_ == nullptr
-        && return this->DBClusterId_ == nullptr; };
+        && this->DBClusterId_ == nullptr; };
     // DBClusterDescription Field Functions 
     bool hasDBClusterDescription() const { return this->DBClusterDescription_ != nullptr;};
     void deleteDBClusterDescription() { this->DBClusterDescription_ = nullptr;};
-    inline string DBClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(DBClusterDescription_, "") };
+    inline string getDBClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(DBClusterDescription_, "") };
     inline ModifyDBClusterDescriptionRequest& setDBClusterDescription(string DBClusterDescription) { DARABONBA_PTR_SET_VALUE(DBClusterDescription_, DBClusterDescription) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyDBClusterDescriptionRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // *   The description must be 2 to 256 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterDescription_ = nullptr;
+    shared_ptr<string> DBClusterDescription_ {};
     // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
   };
 
   } // namespace Models

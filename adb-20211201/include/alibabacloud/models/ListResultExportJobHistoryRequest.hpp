@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_LISTRESULTEXPORTJOBHISTORYREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTRESULTEXPORTJOBHISTORYREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListResultExportJobHistoryRequestOrder.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -49,79 +48,134 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Order : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Order& obj) { 
+        DARABONBA_PTR_TO_JSON(Field, field_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, Order& obj) { 
+        DARABONBA_PTR_FROM_JSON(Field, field_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      Order() = default ;
+      Order(const Order &) = default ;
+      Order(Order &&) = default ;
+      Order(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Order() = default ;
+      Order& operator=(const Order &) = default ;
+      Order& operator=(Order &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->field_ == nullptr
+        && this->type_ == nullptr; };
+      // field Field Functions 
+      bool hasField() const { return this->field_ != nullptr;};
+      void deleteField() { this->field_ = nullptr;};
+      inline string getField() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
+      inline Order& setField(string field) { DARABONBA_PTR_SET_VALUE(field_, field) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Order& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      // The field that is used to sort the SQL statements. Valid values:
+      // 
+      // *   CreateTime
+      // *   DatabaseUser
+      // *   TimeCost
+      // *   ResourceGroup
+      // *   Status
+      // *   Progress
+      // *   ExportRows
+      shared_ptr<string> field_ {};
+      // The sorting order. Valid values (case-insensitive):
+      // 
+      // *   **Desc**: descending order.
+      // *   **Asc**: ascending order.
+      shared_ptr<string> type_ {};
+    };
+
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->databaseUser_ == nullptr && return this->endTime_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroup_ == nullptr && return this->startTime_ == nullptr && return this->statusList_ == nullptr; };
+        && this->databaseUser_ == nullptr && this->endTime_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroup_ == nullptr && this->startTime_ == nullptr && this->statusList_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ListResultExportJobHistoryRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // databaseUser Field Functions 
     bool hasDatabaseUser() const { return this->databaseUser_ != nullptr;};
     void deleteDatabaseUser() { this->databaseUser_ = nullptr;};
-    inline string databaseUser() const { DARABONBA_PTR_GET_DEFAULT(databaseUser_, "") };
+    inline string getDatabaseUser() const { DARABONBA_PTR_GET_DEFAULT(databaseUser_, "") };
     inline ListResultExportJobHistoryRequest& setDatabaseUser(string databaseUser) { DARABONBA_PTR_SET_VALUE(databaseUser_, databaseUser) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ListResultExportJobHistoryRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline const ListResultExportJobHistoryRequestOrder & order() const { DARABONBA_PTR_GET_CONST(order_, ListResultExportJobHistoryRequestOrder) };
-    inline ListResultExportJobHistoryRequestOrder order() { DARABONBA_PTR_GET(order_, ListResultExportJobHistoryRequestOrder) };
-    inline ListResultExportJobHistoryRequest& setOrder(const ListResultExportJobHistoryRequestOrder & order) { DARABONBA_PTR_SET_VALUE(order_, order) };
-    inline ListResultExportJobHistoryRequest& setOrder(ListResultExportJobHistoryRequestOrder && order) { DARABONBA_PTR_SET_RVALUE(order_, order) };
+    inline const ListResultExportJobHistoryRequest::Order & getOrder() const { DARABONBA_PTR_GET_CONST(order_, ListResultExportJobHistoryRequest::Order) };
+    inline ListResultExportJobHistoryRequest::Order getOrder() { DARABONBA_PTR_GET(order_, ListResultExportJobHistoryRequest::Order) };
+    inline ListResultExportJobHistoryRequest& setOrder(const ListResultExportJobHistoryRequest::Order & order) { DARABONBA_PTR_SET_VALUE(order_, order) };
+    inline ListResultExportJobHistoryRequest& setOrder(ListResultExportJobHistoryRequest::Order && order) { DARABONBA_PTR_SET_RVALUE(order_, order) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline ListResultExportJobHistoryRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline ListResultExportJobHistoryRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListResultExportJobHistoryRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroup Field Functions 
     bool hasResourceGroup() const { return this->resourceGroup_ != nullptr;};
     void deleteResourceGroup() { this->resourceGroup_ = nullptr;};
-    inline string resourceGroup() const { DARABONBA_PTR_GET_DEFAULT(resourceGroup_, "") };
+    inline string getResourceGroup() const { DARABONBA_PTR_GET_DEFAULT(resourceGroup_, "") };
     inline ListResultExportJobHistoryRequest& setResourceGroup(string resourceGroup) { DARABONBA_PTR_SET_VALUE(resourceGroup_, resourceGroup) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline ListResultExportJobHistoryRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // statusList Field Functions 
     bool hasStatusList() const { return this->statusList_ != nullptr;};
     void deleteStatusList() { this->statusList_ = nullptr;};
-    inline const vector<string> & statusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
-    inline vector<string> statusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
+    inline const vector<string> & getStatusList() const { DARABONBA_PTR_GET_CONST(statusList_, vector<string>) };
+    inline vector<string> getStatusList() { DARABONBA_PTR_GET(statusList_, vector<string>) };
     inline ListResultExportJobHistoryRequest& setStatusList(const vector<string> & statusList) { DARABONBA_PTR_SET_VALUE(statusList_, statusList) };
     inline ListResultExportJobHistoryRequest& setStatusList(vector<string> && statusList) { DARABONBA_PTR_SET_RVALUE(statusList_, statusList) };
 
@@ -132,13 +186,13 @@ namespace Models
     // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The name of the database account.
-    std::shared_ptr<string> databaseUser_ = nullptr;
+    shared_ptr<string> databaseUser_ {};
     // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // >  The end time must be later than the start time.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The order in which to sort the SQL statements by field, which contains the `Field` and `Type` fields. Specify the order in the JSON format. Example: `[{"Field":"CreateTimee", "Type": "desc" }]`.
     // 
     // *   `Field` specifies the field that is used to sort the SQL statements. Valid values:
@@ -155,27 +209,27 @@ namespace Models
     // 
     //     *   `Desc`: descending order.
     //     *   `Asc`: ascending order.
-    std::shared_ptr<ListResultExportJobHistoryRequestOrder> order_ = nullptr;
+    shared_ptr<ListResultExportJobHistoryRequest::Order> order_ {};
     // The page number. Pages start from page 1.
-    std::shared_ptr<string> pageNumber_ = nullptr;
+    shared_ptr<string> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
     // *   **30** (default)
     // *   **50**
     // *   **100**
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The region ID of the cluster.
     // 
     // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the resource group that runs the result set export jobs. You can use this parameter to query the execution records of export jobs that are run in a specific resource group.
-    std::shared_ptr<string> resourceGroup_ = nullptr;
+    shared_ptr<string> resourceGroup_ {};
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The execution status of result set export jobs. You can use this parameter to query the execution records of export jobs that are in a specific state.
-    std::shared_ptr<vector<string>> statusList_ = nullptr;
+    shared_ptr<vector<string>> statusList_ {};
   };
 
   } // namespace Models

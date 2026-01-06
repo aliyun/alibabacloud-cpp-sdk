@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdTime_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->expiredTime_ == nullptr && return this->privileges_ == nullptr && return this->requestId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->expiredTime_ == nullptr && this->privileges_ == nullptr && this->requestId_ == nullptr; };
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline DescribeOperatorPermissionResponseBody& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeOperatorPermissionResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // expiredTime Field Functions 
     bool hasExpiredTime() const { return this->expiredTime_ != nullptr;};
     void deleteExpiredTime() { this->expiredTime_ = nullptr;};
-    inline string expiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, "") };
+    inline string getExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, "") };
     inline DescribeOperatorPermissionResponseBody& setExpiredTime(string expiredTime) { DARABONBA_PTR_SET_VALUE(expiredTime_, expiredTime) };
 
 
     // privileges Field Functions 
     bool hasPrivileges() const { return this->privileges_ != nullptr;};
     void deletePrivileges() { this->privileges_ = nullptr;};
-    inline string privileges() const { DARABONBA_PTR_GET_DEFAULT(privileges_, "") };
+    inline string getPrivileges() const { DARABONBA_PTR_GET_DEFAULT(privileges_, "") };
     inline DescribeOperatorPermissionResponseBody& setPrivileges(string privileges) { DARABONBA_PTR_SET_VALUE(privileges_, privileges) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeOperatorPermissionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The time when the permissions take effect.
-    std::shared_ptr<string> createdTime_ = nullptr;
+    shared_ptr<string> createdTime_ {};
     // The cluster ID.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The time when the permissions expire.
-    std::shared_ptr<string> expiredTime_ = nullptr;
+    shared_ptr<string> expiredTime_ {};
     // The queried permissions.
-    std::shared_ptr<string> privileges_ = nullptr;
+    shared_ptr<string> privileges_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

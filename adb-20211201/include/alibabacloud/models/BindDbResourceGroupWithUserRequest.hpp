@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->groupName_ == nullptr && return this->groupUser_ == nullptr; };
+        && this->groupName_ == nullptr && this->groupUser_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline BindDBResourceGroupWithUserRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline BindDBResourceGroupWithUserRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // groupUser Field Functions 
     bool hasGroupUser() const { return this->groupUser_ != nullptr;};
     void deleteGroupUser() { this->groupUser_ = nullptr;};
-    inline string groupUser() const { DARABONBA_PTR_GET_DEFAULT(groupUser_, "") };
+    inline string getGroupUser() const { DARABONBA_PTR_GET_DEFAULT(groupUser_, "") };
     inline BindDBResourceGroupWithUserRequest& setGroupUser(string groupUser) { DARABONBA_PTR_SET_VALUE(groupUser_, groupUser) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The name of the resource group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The name of the database account. It can be a standard account or a privileged account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupUser_ = nullptr;
+    shared_ptr<string> groupUser_ {};
   };
 
   } // namespace Models

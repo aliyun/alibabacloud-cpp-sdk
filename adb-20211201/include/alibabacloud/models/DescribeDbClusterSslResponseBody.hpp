@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionString_ == nullptr
-        && return this->expireTime_ == nullptr && return this->requestId_ == nullptr && return this->SSLEnabled_ == nullptr; };
+        && this->expireTime_ == nullptr && this->requestId_ == nullptr && this->SSLEnabled_ == nullptr; };
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
-    inline string connectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+    inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
     inline DescribeDBClusterSSLResponseBody& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
 
 
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
-    inline string expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
+    inline string getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
     inline DescribeDBClusterSSLResponseBody& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBClusterSSLResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // SSLEnabled Field Functions 
     bool hasSSLEnabled() const { return this->SSLEnabled_ != nullptr;};
     void deleteSSLEnabled() { this->SSLEnabled_ = nullptr;};
-    inline bool SSLEnabled() const { DARABONBA_PTR_GET_DEFAULT(SSLEnabled_, false) };
+    inline bool getSSLEnabled() const { DARABONBA_PTR_GET_DEFAULT(SSLEnabled_, false) };
     inline DescribeDBClusterSSLResponseBody& setSSLEnabled(bool SSLEnabled) { DARABONBA_PTR_SET_VALUE(SSLEnabled_, SSLEnabled) };
 
 
   protected:
     // The endpoint that is protected by SSL encryption.
-    std::shared_ptr<string> connectionString_ = nullptr;
+    shared_ptr<string> connectionString_ {};
     // The validity period of the SSL certificate. Format: yyyy-MM-ddTHH:mm:ssZ(UTC time).
-    std::shared_ptr<string> expireTime_ = nullptr;
+    shared_ptr<string> expireTime_ {};
     // The unique ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether SSL encryption is enabled. Default value: true. Valid values:
     // 
     // *   true: enabled
     // *   false: disabled
-    std::shared_ptr<bool> SSLEnabled_ = nullptr;
+    shared_ptr<bool> SSLEnabled_ {};
   };
 
   } // namespace Models

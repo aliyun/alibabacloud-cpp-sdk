@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientIps_ == nullptr
-        && return this->databases_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroups_ == nullptr && return this->userNames_ == nullptr; };
+        && this->databases_ == nullptr && this->requestId_ == nullptr && this->resourceGroups_ == nullptr && this->userNames_ == nullptr; };
     // clientIps Field Functions 
     bool hasClientIps() const { return this->clientIps_ != nullptr;};
     void deleteClientIps() { this->clientIps_ = nullptr;};
-    inline const vector<string> & clientIps() const { DARABONBA_PTR_GET_CONST(clientIps_, vector<string>) };
-    inline vector<string> clientIps() { DARABONBA_PTR_GET(clientIps_, vector<string>) };
+    inline const vector<string> & getClientIps() const { DARABONBA_PTR_GET_CONST(clientIps_, vector<string>) };
+    inline vector<string> getClientIps() { DARABONBA_PTR_GET(clientIps_, vector<string>) };
     inline DescribeDiagnosisDimensionsResponseBody& setClientIps(const vector<string> & clientIps) { DARABONBA_PTR_SET_VALUE(clientIps_, clientIps) };
     inline DescribeDiagnosisDimensionsResponseBody& setClientIps(vector<string> && clientIps) { DARABONBA_PTR_SET_RVALUE(clientIps_, clientIps) };
 
@@ -52,8 +52,8 @@ namespace Models
     // databases Field Functions 
     bool hasDatabases() const { return this->databases_ != nullptr;};
     void deleteDatabases() { this->databases_ = nullptr;};
-    inline const vector<string> & databases() const { DARABONBA_PTR_GET_CONST(databases_, vector<string>) };
-    inline vector<string> databases() { DARABONBA_PTR_GET(databases_, vector<string>) };
+    inline const vector<string> & getDatabases() const { DARABONBA_PTR_GET_CONST(databases_, vector<string>) };
+    inline vector<string> getDatabases() { DARABONBA_PTR_GET(databases_, vector<string>) };
     inline DescribeDiagnosisDimensionsResponseBody& setDatabases(const vector<string> & databases) { DARABONBA_PTR_SET_VALUE(databases_, databases) };
     inline DescribeDiagnosisDimensionsResponseBody& setDatabases(vector<string> && databases) { DARABONBA_PTR_SET_RVALUE(databases_, databases) };
 
@@ -61,15 +61,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDiagnosisDimensionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroups Field Functions 
     bool hasResourceGroups() const { return this->resourceGroups_ != nullptr;};
     void deleteResourceGroups() { this->resourceGroups_ = nullptr;};
-    inline const vector<string> & resourceGroups() const { DARABONBA_PTR_GET_CONST(resourceGroups_, vector<string>) };
-    inline vector<string> resourceGroups() { DARABONBA_PTR_GET(resourceGroups_, vector<string>) };
+    inline const vector<string> & getResourceGroups() const { DARABONBA_PTR_GET_CONST(resourceGroups_, vector<string>) };
+    inline vector<string> getResourceGroups() { DARABONBA_PTR_GET(resourceGroups_, vector<string>) };
     inline DescribeDiagnosisDimensionsResponseBody& setResourceGroups(const vector<string> & resourceGroups) { DARABONBA_PTR_SET_VALUE(resourceGroups_, resourceGroups) };
     inline DescribeDiagnosisDimensionsResponseBody& setResourceGroups(vector<string> && resourceGroups) { DARABONBA_PTR_SET_RVALUE(resourceGroups_, resourceGroups) };
 
@@ -77,23 +77,23 @@ namespace Models
     // userNames Field Functions 
     bool hasUserNames() const { return this->userNames_ != nullptr;};
     void deleteUserNames() { this->userNames_ = nullptr;};
-    inline const vector<string> & userNames() const { DARABONBA_PTR_GET_CONST(userNames_, vector<string>) };
-    inline vector<string> userNames() { DARABONBA_PTR_GET(userNames_, vector<string>) };
+    inline const vector<string> & getUserNames() const { DARABONBA_PTR_GET_CONST(userNames_, vector<string>) };
+    inline vector<string> getUserNames() { DARABONBA_PTR_GET(userNames_, vector<string>) };
     inline DescribeDiagnosisDimensionsResponseBody& setUserNames(const vector<string> & userNames) { DARABONBA_PTR_SET_VALUE(userNames_, userNames) };
     inline DescribeDiagnosisDimensionsResponseBody& setUserNames(vector<string> && userNames) { DARABONBA_PTR_SET_RVALUE(userNames_, userNames) };
 
 
   protected:
     // The queried source IP addresses.
-    std::shared_ptr<vector<string>> clientIps_ = nullptr;
+    shared_ptr<vector<string>> clientIps_ {};
     // The queried database names.
-    std::shared_ptr<vector<string>> databases_ = nullptr;
+    shared_ptr<vector<string>> databases_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The queried resource group names.
-    std::shared_ptr<vector<string>> resourceGroups_ = nullptr;
+    shared_ptr<vector<string>> resourceGroups_ {};
     // The queried usernames.
-    std::shared_ptr<vector<string>> userNames_ = nullptr;
+    shared_ptr<vector<string>> userNames_ {};
   };
 
   } // namespace Models

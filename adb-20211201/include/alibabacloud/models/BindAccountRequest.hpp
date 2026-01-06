@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->ramUser_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->ramUser_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline BindAccountRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline BindAccountRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // ramUser Field Functions 
     bool hasRamUser() const { return this->ramUser_ != nullptr;};
     void deleteRamUser() { this->ramUser_ = nullptr;};
-    inline string ramUser() const { DARABONBA_PTR_GET_DEFAULT(ramUser_, "") };
+    inline string getRamUser() const { DARABONBA_PTR_GET_DEFAULT(ramUser_, "") };
     inline BindAccountRequest& setRamUser(string ramUser) { DARABONBA_PTR_SET_VALUE(ramUser_, ramUser) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The standard account of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The ID of the RAM user.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ramUser_ = nullptr;
+    shared_ptr<string> ramUser_ {};
   };
 
   } // namespace Models

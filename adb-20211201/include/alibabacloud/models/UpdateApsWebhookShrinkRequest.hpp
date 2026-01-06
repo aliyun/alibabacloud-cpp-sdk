@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->regionId_ == nullptr && return this->webhookShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->webhookShrink_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline UpdateApsWebhookShrinkRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateApsWebhookShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // webhookShrink Field Functions 
     bool hasWebhookShrink() const { return this->webhookShrink_ != nullptr;};
     void deleteWebhookShrink() { this->webhookShrink_ = nullptr;};
-    inline string webhookShrink() const { DARABONBA_PTR_GET_DEFAULT(webhookShrink_, "") };
+    inline string getWebhookShrink() const { DARABONBA_PTR_GET_DEFAULT(webhookShrink_, "") };
     inline UpdateApsWebhookShrinkRequest& setWebhookShrink(string webhookShrink) { DARABONBA_PTR_SET_VALUE(webhookShrink_, webhookShrink) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The array of webhooks.
-    std::shared_ptr<string> webhookShrink_ = nullptr;
+    shared_ptr<string> webhookShrink_ {};
   };
 
   } // namespace Models

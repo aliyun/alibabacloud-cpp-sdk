@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupRetentionPeriod_ == nullptr
-        && return this->enableBackupLog_ == nullptr && return this->logBackupRetentionPeriod_ == nullptr && return this->preferredBackupPeriod_ == nullptr && return this->preferredBackupTime_ == nullptr && return this->requestId_ == nullptr; };
+        && this->enableBackupLog_ == nullptr && this->logBackupRetentionPeriod_ == nullptr && this->preferredBackupPeriod_ == nullptr && this->preferredBackupTime_ == nullptr && this->requestId_ == nullptr; };
     // backupRetentionPeriod Field Functions 
     bool hasBackupRetentionPeriod() const { return this->backupRetentionPeriod_ != nullptr;};
     void deleteBackupRetentionPeriod() { this->backupRetentionPeriod_ = nullptr;};
-    inline int32_t backupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPeriod_, 0) };
+    inline int32_t getBackupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPeriod_, 0) };
     inline DescribeBackupPolicyResponseBody& setBackupRetentionPeriod(int32_t backupRetentionPeriod) { DARABONBA_PTR_SET_VALUE(backupRetentionPeriod_, backupRetentionPeriod) };
 
 
     // enableBackupLog Field Functions 
     bool hasEnableBackupLog() const { return this->enableBackupLog_ != nullptr;};
     void deleteEnableBackupLog() { this->enableBackupLog_ = nullptr;};
-    inline string enableBackupLog() const { DARABONBA_PTR_GET_DEFAULT(enableBackupLog_, "") };
+    inline string getEnableBackupLog() const { DARABONBA_PTR_GET_DEFAULT(enableBackupLog_, "") };
     inline DescribeBackupPolicyResponseBody& setEnableBackupLog(string enableBackupLog) { DARABONBA_PTR_SET_VALUE(enableBackupLog_, enableBackupLog) };
 
 
     // logBackupRetentionPeriod Field Functions 
     bool hasLogBackupRetentionPeriod() const { return this->logBackupRetentionPeriod_ != nullptr;};
     void deleteLogBackupRetentionPeriod() { this->logBackupRetentionPeriod_ = nullptr;};
-    inline int32_t logBackupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(logBackupRetentionPeriod_, 0) };
+    inline int32_t getLogBackupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(logBackupRetentionPeriod_, 0) };
     inline DescribeBackupPolicyResponseBody& setLogBackupRetentionPeriod(int32_t logBackupRetentionPeriod) { DARABONBA_PTR_SET_VALUE(logBackupRetentionPeriod_, logBackupRetentionPeriod) };
 
 
     // preferredBackupPeriod Field Functions 
     bool hasPreferredBackupPeriod() const { return this->preferredBackupPeriod_ != nullptr;};
     void deletePreferredBackupPeriod() { this->preferredBackupPeriod_ = nullptr;};
-    inline string preferredBackupPeriod() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupPeriod_, "") };
+    inline string getPreferredBackupPeriod() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupPeriod_, "") };
     inline DescribeBackupPolicyResponseBody& setPreferredBackupPeriod(string preferredBackupPeriod) { DARABONBA_PTR_SET_VALUE(preferredBackupPeriod_, preferredBackupPeriod) };
 
 
     // preferredBackupTime Field Functions 
     bool hasPreferredBackupTime() const { return this->preferredBackupTime_ != nullptr;};
     void deletePreferredBackupTime() { this->preferredBackupTime_ = nullptr;};
-    inline string preferredBackupTime() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupTime_, "") };
+    inline string getPreferredBackupTime() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupTime_, "") };
     inline DescribeBackupPolicyResponseBody& setPreferredBackupTime(string preferredBackupTime) { DARABONBA_PTR_SET_VALUE(preferredBackupTime_, preferredBackupTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeBackupPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The number of days for which data backup files are retained.
-    std::shared_ptr<int32_t> backupRetentionPeriod_ = nullptr;
+    shared_ptr<int32_t> backupRetentionPeriod_ {};
     // Indicates whether log backup is enabled. Valid values:
     // 
     // *   **Enable**
     // *   **Disable**
-    std::shared_ptr<string> enableBackupLog_ = nullptr;
+    shared_ptr<string> enableBackupLog_ {};
     // The number of days for which the log backup files are retained.
-    std::shared_ptr<int32_t> logBackupRetentionPeriod_ = nullptr;
+    shared_ptr<int32_t> logBackupRetentionPeriod_ {};
     // The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid value:
     // 
     // *   Monday
@@ -102,11 +102,11 @@ namespace Models
     // *   Friday
     // *   Saturday
     // *   Sunday
-    std::shared_ptr<string> preferredBackupPeriod_ = nullptr;
+    shared_ptr<string> preferredBackupPeriod_ {};
     // The data backup time. The time is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
-    std::shared_ptr<string> preferredBackupTime_ = nullptr;
+    shared_ptr<string> preferredBackupTime_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

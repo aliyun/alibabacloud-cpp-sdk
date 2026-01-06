@@ -46,83 +46,102 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenewalPeriod_ == nullptr
-        && return this->autoRenewalPeriodUnit_ == nullptr && return this->autoRenewalStatus_ == nullptr && return this->DBClusterId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->autoRenewalPeriodUnit_ == nullptr && this->autoRenewalStatus_ == nullptr && this->DBClusterId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // autoRenewalPeriod Field Functions 
     bool hasAutoRenewalPeriod() const { return this->autoRenewalPeriod_ != nullptr;};
     void deleteAutoRenewalPeriod() { this->autoRenewalPeriod_ = nullptr;};
-    inline string autoRenewalPeriod() const { DARABONBA_PTR_GET_DEFAULT(autoRenewalPeriod_, "") };
+    inline string getAutoRenewalPeriod() const { DARABONBA_PTR_GET_DEFAULT(autoRenewalPeriod_, "") };
     inline ModifyAutoRenewalAttributeRequest& setAutoRenewalPeriod(string autoRenewalPeriod) { DARABONBA_PTR_SET_VALUE(autoRenewalPeriod_, autoRenewalPeriod) };
 
 
     // autoRenewalPeriodUnit Field Functions 
     bool hasAutoRenewalPeriodUnit() const { return this->autoRenewalPeriodUnit_ != nullptr;};
     void deleteAutoRenewalPeriodUnit() { this->autoRenewalPeriodUnit_ = nullptr;};
-    inline string autoRenewalPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(autoRenewalPeriodUnit_, "") };
+    inline string getAutoRenewalPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(autoRenewalPeriodUnit_, "") };
     inline ModifyAutoRenewalAttributeRequest& setAutoRenewalPeriodUnit(string autoRenewalPeriodUnit) { DARABONBA_PTR_SET_VALUE(autoRenewalPeriodUnit_, autoRenewalPeriodUnit) };
 
 
     // autoRenewalStatus Field Functions 
     bool hasAutoRenewalStatus() const { return this->autoRenewalStatus_ != nullptr;};
     void deleteAutoRenewalStatus() { this->autoRenewalStatus_ = nullptr;};
-    inline string autoRenewalStatus() const { DARABONBA_PTR_GET_DEFAULT(autoRenewalStatus_, "") };
+    inline string getAutoRenewalStatus() const { DARABONBA_PTR_GET_DEFAULT(autoRenewalStatus_, "") };
     inline ModifyAutoRenewalAttributeRequest& setAutoRenewalStatus(string autoRenewalStatus) { DARABONBA_PTR_SET_VALUE(autoRenewalStatus_, autoRenewalStatus) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyAutoRenewalAttributeRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyAutoRenewalAttributeRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyAutoRenewalAttributeRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyAutoRenewalAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyAutoRenewalAttributeRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyAutoRenewalAttributeRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
   protected:
-    std::shared_ptr<string> autoRenewalPeriod_ = nullptr;
-    std::shared_ptr<string> autoRenewalPeriodUnit_ = nullptr;
-    std::shared_ptr<string> autoRenewalStatus_ = nullptr;
+    // The duration of the auto-renewal. Default value: 1. Valid values:
+    // 
+    // *   When **AutoRenewalPeriod** is set to **Month**, the value ranges from 1 to 11 (integer).
+    // *   When **AutoRenewalPeriod** is set to **Month**, the valid values are 1, 2, 3, and 5 (integer).
+    // 
+    // >  Longer renewal periods offer better pricing. Renewing for 1 year is more cost-effective than renewing for 10 or 11 months.
+    shared_ptr<string> autoRenewalPeriod_ {};
+    // Auto-renewal duration. Valid values:
+    // 
+    // *   Year.
+    // *   Month.
+    shared_ptr<string> autoRenewalPeriodUnit_ {};
+    // The renewal method. Valid values:
+    // 
+    // *   **AutoRenewal**: The cluster is automatically renewed.
+    // *   **Normal**: The cluster is manually renewed. Before the cluster expires, the system sends you a reminder by SMS message.
+    // *   **NotRenewal**: The cluster is not renewed. Reminders are only sent three days before cluster expiration.
+    shared_ptr<string> autoRenewalStatus_ {};
+    // The ID of cluster.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

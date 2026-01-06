@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->engine_ == nullptr; };
+        && this->engine_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ReleaseClusterPublicConnectionRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline ReleaseClusterPublicConnectionRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
@@ -51,12 +51,12 @@ namespace Models
     // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The database engine of the cluster. Valid values:
     // 
     // *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
     // *   **Clickhouse**: the wide table engine.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attemptId_ == nullptr
-        && return this->logLength_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->logLength_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // attemptId Field Functions 
     bool hasAttemptId() const { return this->attemptId_ != nullptr;};
     void deleteAttemptId() { this->attemptId_ = nullptr;};
-    inline string attemptId() const { DARABONBA_PTR_GET_DEFAULT(attemptId_, "") };
+    inline string getAttemptId() const { DARABONBA_PTR_GET_DEFAULT(attemptId_, "") };
     inline GetSparkAppAttemptLogRequest& setAttemptId(string attemptId) { DARABONBA_PTR_SET_VALUE(attemptId_, attemptId) };
 
 
     // logLength Field Functions 
     bool hasLogLength() const { return this->logLength_ != nullptr;};
     void deleteLogLength() { this->logLength_ = nullptr;};
-    inline int64_t logLength() const { DARABONBA_PTR_GET_DEFAULT(logLength_, 0L) };
+    inline int64_t getLogLength() const { DARABONBA_PTR_GET_DEFAULT(logLength_, 0L) };
     inline GetSparkAppAttemptLogRequest& setLogLength(int64_t logLength) { DARABONBA_PTR_SET_VALUE(logLength_, logLength) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline GetSparkAppAttemptLogRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline GetSparkAppAttemptLogRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -71,13 +71,13 @@ namespace Models
     // > You can call the [ListSparkAppAttempts](https://help.aliyun.com/document_detail/455887.html) operation to query the information about the retry attempts of a Spark application, including the retry log IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> attemptId_ = nullptr;
+    shared_ptr<string> attemptId_ {};
     // The number of log entries to return. Valid values: 1 to 500. Default value: 300.
-    std::shared_ptr<int64_t> logLength_ = nullptr;
+    shared_ptr<int64_t> logLength_ {};
     // The log offset.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
   };
 
   } // namespace Models

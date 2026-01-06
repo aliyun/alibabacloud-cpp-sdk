@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->dbName_ == nullptr && return this->regionId_ == nullptr && return this->tableName_ == nullptr; };
+        && this->dbName_ == nullptr && this->regionId_ == nullptr && this->tableName_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline GetTableRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline GetTableRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetTableRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline GetTableRequest& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The ID of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The name of the database.
-    std::shared_ptr<string> dbName_ = nullptr;
+    shared_ptr<string> dbName_ {};
     // The ID of the region in which the cluster resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the table.
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models

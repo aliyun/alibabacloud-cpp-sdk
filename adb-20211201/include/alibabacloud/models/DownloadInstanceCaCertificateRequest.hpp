@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->engine_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->engine_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DownloadInstanceCACertificateRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline DownloadInstanceCACertificateRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline DownloadInstanceCACertificateRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DownloadInstanceCACertificateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The database engine of the cluster. Valid values:
     // 
     // *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
     // *   **Clickhouse**: the wide table engine.
-    std::shared_ptr<string> engine_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
+    shared_ptr<string> engine_ {};
+    shared_ptr<string> ownerId_ {};
     // The region ID.
     // 
     // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

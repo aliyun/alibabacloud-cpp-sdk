@@ -48,75 +48,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->datasourceDescription_ == nullptr && return this->datasourceId_ == nullptr && return this->datasourceName_ == nullptr && return this->kafkaInfoShrink_ == nullptr && return this->lakehouseIdShrink_ == nullptr
-        && return this->polarDBMysqlInfoShrink_ == nullptr && return this->rdsMysqlInfoShrink_ == nullptr && return this->regionId_ == nullptr && return this->slsInfoShrink_ == nullptr; };
+        && this->datasourceDescription_ == nullptr && this->datasourceId_ == nullptr && this->datasourceName_ == nullptr && this->kafkaInfoShrink_ == nullptr && this->lakehouseIdShrink_ == nullptr
+        && this->polarDBMysqlInfoShrink_ == nullptr && this->rdsMysqlInfoShrink_ == nullptr && this->regionId_ == nullptr && this->slsInfoShrink_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyApsDatasoureShrinkRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // datasourceDescription Field Functions 
     bool hasDatasourceDescription() const { return this->datasourceDescription_ != nullptr;};
     void deleteDatasourceDescription() { this->datasourceDescription_ = nullptr;};
-    inline string datasourceDescription() const { DARABONBA_PTR_GET_DEFAULT(datasourceDescription_, "") };
+    inline string getDatasourceDescription() const { DARABONBA_PTR_GET_DEFAULT(datasourceDescription_, "") };
     inline ModifyApsDatasoureShrinkRequest& setDatasourceDescription(string datasourceDescription) { DARABONBA_PTR_SET_VALUE(datasourceDescription_, datasourceDescription) };
 
 
     // datasourceId Field Functions 
     bool hasDatasourceId() const { return this->datasourceId_ != nullptr;};
     void deleteDatasourceId() { this->datasourceId_ = nullptr;};
-    inline int64_t datasourceId() const { DARABONBA_PTR_GET_DEFAULT(datasourceId_, 0L) };
+    inline int64_t getDatasourceId() const { DARABONBA_PTR_GET_DEFAULT(datasourceId_, 0L) };
     inline ModifyApsDatasoureShrinkRequest& setDatasourceId(int64_t datasourceId) { DARABONBA_PTR_SET_VALUE(datasourceId_, datasourceId) };
 
 
     // datasourceName Field Functions 
     bool hasDatasourceName() const { return this->datasourceName_ != nullptr;};
     void deleteDatasourceName() { this->datasourceName_ = nullptr;};
-    inline string datasourceName() const { DARABONBA_PTR_GET_DEFAULT(datasourceName_, "") };
+    inline string getDatasourceName() const { DARABONBA_PTR_GET_DEFAULT(datasourceName_, "") };
     inline ModifyApsDatasoureShrinkRequest& setDatasourceName(string datasourceName) { DARABONBA_PTR_SET_VALUE(datasourceName_, datasourceName) };
 
 
     // kafkaInfoShrink Field Functions 
     bool hasKafkaInfoShrink() const { return this->kafkaInfoShrink_ != nullptr;};
     void deleteKafkaInfoShrink() { this->kafkaInfoShrink_ = nullptr;};
-    inline string kafkaInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(kafkaInfoShrink_, "") };
+    inline string getKafkaInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(kafkaInfoShrink_, "") };
     inline ModifyApsDatasoureShrinkRequest& setKafkaInfoShrink(string kafkaInfoShrink) { DARABONBA_PTR_SET_VALUE(kafkaInfoShrink_, kafkaInfoShrink) };
 
 
     // lakehouseIdShrink Field Functions 
     bool hasLakehouseIdShrink() const { return this->lakehouseIdShrink_ != nullptr;};
     void deleteLakehouseIdShrink() { this->lakehouseIdShrink_ = nullptr;};
-    inline string lakehouseIdShrink() const { DARABONBA_PTR_GET_DEFAULT(lakehouseIdShrink_, "") };
+    inline string getLakehouseIdShrink() const { DARABONBA_PTR_GET_DEFAULT(lakehouseIdShrink_, "") };
     inline ModifyApsDatasoureShrinkRequest& setLakehouseIdShrink(string lakehouseIdShrink) { DARABONBA_PTR_SET_VALUE(lakehouseIdShrink_, lakehouseIdShrink) };
 
 
     // polarDBMysqlInfoShrink Field Functions 
     bool hasPolarDBMysqlInfoShrink() const { return this->polarDBMysqlInfoShrink_ != nullptr;};
     void deletePolarDBMysqlInfoShrink() { this->polarDBMysqlInfoShrink_ = nullptr;};
-    inline string polarDBMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(polarDBMysqlInfoShrink_, "") };
+    inline string getPolarDBMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(polarDBMysqlInfoShrink_, "") };
     inline ModifyApsDatasoureShrinkRequest& setPolarDBMysqlInfoShrink(string polarDBMysqlInfoShrink) { DARABONBA_PTR_SET_VALUE(polarDBMysqlInfoShrink_, polarDBMysqlInfoShrink) };
 
 
     // rdsMysqlInfoShrink Field Functions 
     bool hasRdsMysqlInfoShrink() const { return this->rdsMysqlInfoShrink_ != nullptr;};
     void deleteRdsMysqlInfoShrink() { this->rdsMysqlInfoShrink_ = nullptr;};
-    inline string rdsMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(rdsMysqlInfoShrink_, "") };
+    inline string getRdsMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(rdsMysqlInfoShrink_, "") };
     inline ModifyApsDatasoureShrinkRequest& setRdsMysqlInfoShrink(string rdsMysqlInfoShrink) { DARABONBA_PTR_SET_VALUE(rdsMysqlInfoShrink_, rdsMysqlInfoShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyApsDatasoureShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // slsInfoShrink Field Functions 
     bool hasSlsInfoShrink() const { return this->slsInfoShrink_ != nullptr;};
     void deleteSlsInfoShrink() { this->slsInfoShrink_ = nullptr;};
-    inline string slsInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(slsInfoShrink_, "") };
+    inline string getSlsInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(slsInfoShrink_, "") };
     inline ModifyApsDatasoureShrinkRequest& setSlsInfoShrink(string slsInfoShrink) { DARABONBA_PTR_SET_VALUE(slsInfoShrink_, slsInfoShrink) };
 
 
@@ -124,29 +124,29 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The description of the data source.
-    std::shared_ptr<string> datasourceDescription_ = nullptr;
+    shared_ptr<string> datasourceDescription_ {};
     // The data source ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> datasourceId_ = nullptr;
+    shared_ptr<int64_t> datasourceId_ {};
     // The name of the data source.
-    std::shared_ptr<string> datasourceName_ = nullptr;
+    shared_ptr<string> datasourceName_ {};
     // The information about the Kafka instance.
-    std::shared_ptr<string> kafkaInfoShrink_ = nullptr;
+    shared_ptr<string> kafkaInfoShrink_ {};
     // The lakehouse ID.
-    std::shared_ptr<string> lakehouseIdShrink_ = nullptr;
+    shared_ptr<string> lakehouseIdShrink_ {};
     // The parameter is no longer supported.
-    std::shared_ptr<string> polarDBMysqlInfoShrink_ = nullptr;
+    shared_ptr<string> polarDBMysqlInfoShrink_ {};
     // The parameter is no longer supported.
-    std::shared_ptr<string> rdsMysqlInfoShrink_ = nullptr;
+    shared_ptr<string> rdsMysqlInfoShrink_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The information about Simple Log Service (SLS).
-    std::shared_ptr<string> slsInfoShrink_ = nullptr;
+    shared_ptr<string> slsInfoShrink_ {};
   };
 
   } // namespace Models

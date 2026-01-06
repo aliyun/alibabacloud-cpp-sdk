@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->parameters_ == nullptr && return this->serDeId_ == nullptr && return this->serializationLib_ == nullptr; };
+        && this->parameters_ == nullptr && this->serDeId_ == nullptr && this->serializationLib_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline SerDeInfoModel& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline const map<string, string> & parameters() const { DARABONBA_PTR_GET_CONST(parameters_, map<string, string>) };
-    inline map<string, string> parameters() { DARABONBA_PTR_GET(parameters_, map<string, string>) };
+    inline const map<string, string> & getParameters() const { DARABONBA_PTR_GET_CONST(parameters_, map<string, string>) };
+    inline map<string, string> getParameters() { DARABONBA_PTR_GET(parameters_, map<string, string>) };
     inline SerDeInfoModel& setParameters(const map<string, string> & parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
     inline SerDeInfoModel& setParameters(map<string, string> && parameters) { DARABONBA_PTR_SET_RVALUE(parameters_, parameters) };
 
@@ -57,22 +57,22 @@ namespace Models
     // serDeId Field Functions 
     bool hasSerDeId() const { return this->serDeId_ != nullptr;};
     void deleteSerDeId() { this->serDeId_ = nullptr;};
-    inline int64_t serDeId() const { DARABONBA_PTR_GET_DEFAULT(serDeId_, 0L) };
+    inline int64_t getSerDeId() const { DARABONBA_PTR_GET_DEFAULT(serDeId_, 0L) };
     inline SerDeInfoModel& setSerDeId(int64_t serDeId) { DARABONBA_PTR_SET_VALUE(serDeId_, serDeId) };
 
 
     // serializationLib Field Functions 
     bool hasSerializationLib() const { return this->serializationLib_ != nullptr;};
     void deleteSerializationLib() { this->serializationLib_ = nullptr;};
-    inline string serializationLib() const { DARABONBA_PTR_GET_DEFAULT(serializationLib_, "") };
+    inline string getSerializationLib() const { DARABONBA_PTR_GET_DEFAULT(serializationLib_, "") };
     inline SerDeInfoModel& setSerializationLib(string serializationLib) { DARABONBA_PTR_SET_VALUE(serializationLib_, serializationLib) };
 
 
   protected:
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<map<string, string>> parameters_ = nullptr;
-    std::shared_ptr<int64_t> serDeId_ = nullptr;
-    std::shared_ptr<string> serializationLib_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<map<string, string>> parameters_ {};
+    shared_ptr<int64_t> serDeId_ {};
+    shared_ptr<string> serializationLib_ {};
   };
 
   } // namespace Models

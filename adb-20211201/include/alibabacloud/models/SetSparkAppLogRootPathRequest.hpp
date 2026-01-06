@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->ossLogPath_ == nullptr && return this->useDefaultOss_ == nullptr; };
+        && this->ossLogPath_ == nullptr && this->useDefaultOss_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline SetSparkAppLogRootPathRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // ossLogPath Field Functions 
     bool hasOssLogPath() const { return this->ossLogPath_ != nullptr;};
     void deleteOssLogPath() { this->ossLogPath_ = nullptr;};
-    inline string ossLogPath() const { DARABONBA_PTR_GET_DEFAULT(ossLogPath_, "") };
+    inline string getOssLogPath() const { DARABONBA_PTR_GET_DEFAULT(ossLogPath_, "") };
     inline SetSparkAppLogRootPathRequest& setOssLogPath(string ossLogPath) { DARABONBA_PTR_SET_VALUE(ossLogPath_, ossLogPath) };
 
 
     // useDefaultOss Field Functions 
     bool hasUseDefaultOss() const { return this->useDefaultOss_ != nullptr;};
     void deleteUseDefaultOss() { this->useDefaultOss_ = nullptr;};
-    inline bool useDefaultOss() const { DARABONBA_PTR_GET_DEFAULT(useDefaultOss_, false) };
+    inline bool getUseDefaultOss() const { DARABONBA_PTR_GET_DEFAULT(useDefaultOss_, false) };
     inline SetSparkAppLogRootPathRequest& setUseDefaultOss(bool useDefaultOss) { DARABONBA_PTR_SET_VALUE(useDefaultOss_, useDefaultOss) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the AnalyticDB for MySQL cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The path of Object Storage Service (OSS) logs.
-    std::shared_ptr<string> ossLogPath_ = nullptr;
+    shared_ptr<string> ossLogPath_ {};
     // Specifies whether to use the default OSS log path.
-    std::shared_ptr<bool> useDefaultOss_ = nullptr;
+    shared_ptr<bool> useDefaultOss_ {};
   };
 
   } // namespace Models

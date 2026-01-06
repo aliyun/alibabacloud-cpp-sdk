@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appErrorAdvice_ == nullptr
-        && return this->appErrorCode_ == nullptr && return this->appErrorLog_ == nullptr; };
+        && this->appErrorCode_ == nullptr && this->appErrorLog_ == nullptr; };
     // appErrorAdvice Field Functions 
     bool hasAppErrorAdvice() const { return this->appErrorAdvice_ != nullptr;};
     void deleteAppErrorAdvice() { this->appErrorAdvice_ = nullptr;};
-    inline string appErrorAdvice() const { DARABONBA_PTR_GET_DEFAULT(appErrorAdvice_, "") };
+    inline string getAppErrorAdvice() const { DARABONBA_PTR_GET_DEFAULT(appErrorAdvice_, "") };
     inline LogAnalyzeResult& setAppErrorAdvice(string appErrorAdvice) { DARABONBA_PTR_SET_VALUE(appErrorAdvice_, appErrorAdvice) };
 
 
     // appErrorCode Field Functions 
     bool hasAppErrorCode() const { return this->appErrorCode_ != nullptr;};
     void deleteAppErrorCode() { this->appErrorCode_ = nullptr;};
-    inline string appErrorCode() const { DARABONBA_PTR_GET_DEFAULT(appErrorCode_, "") };
+    inline string getAppErrorCode() const { DARABONBA_PTR_GET_DEFAULT(appErrorCode_, "") };
     inline LogAnalyzeResult& setAppErrorCode(string appErrorCode) { DARABONBA_PTR_SET_VALUE(appErrorCode_, appErrorCode) };
 
 
     // appErrorLog Field Functions 
     bool hasAppErrorLog() const { return this->appErrorLog_ != nullptr;};
     void deleteAppErrorLog() { this->appErrorLog_ = nullptr;};
-    inline string appErrorLog() const { DARABONBA_PTR_GET_DEFAULT(appErrorLog_, "") };
+    inline string getAppErrorLog() const { DARABONBA_PTR_GET_DEFAULT(appErrorLog_, "") };
     inline LogAnalyzeResult& setAppErrorLog(string appErrorLog) { DARABONBA_PTR_SET_VALUE(appErrorLog_, appErrorLog) };
 
 
   protected:
-    std::shared_ptr<string> appErrorAdvice_ = nullptr;
-    std::shared_ptr<string> appErrorCode_ = nullptr;
-    std::shared_ptr<string> appErrorLog_ = nullptr;
+    shared_ptr<string> appErrorAdvice_ {};
+    shared_ptr<string> appErrorCode_ {};
+    shared_ptr<string> appErrorLog_ {};
   };
 
   } // namespace Models

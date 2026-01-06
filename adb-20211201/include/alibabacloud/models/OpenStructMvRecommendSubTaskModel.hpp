@@ -46,81 +46,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->minRewriteQueryCount_ == nullptr && return this->minRewriteQueryPattern_ == nullptr && return this->scanQueriesCount_ == nullptr && return this->slowQueryThreshold_ == nullptr && return this->startTime_ == nullptr
-        && return this->status_ == nullptr && return this->subQueriesCount_ == nullptr && return this->subtaskId_ == nullptr; };
+        && this->minRewriteQueryCount_ == nullptr && this->minRewriteQueryPattern_ == nullptr && this->scanQueriesCount_ == nullptr && this->slowQueryThreshold_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->subQueriesCount_ == nullptr && this->subtaskId_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline OpenStructMvRecommendSubTaskModel& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // minRewriteQueryCount Field Functions 
     bool hasMinRewriteQueryCount() const { return this->minRewriteQueryCount_ != nullptr;};
     void deleteMinRewriteQueryCount() { this->minRewriteQueryCount_ = nullptr;};
-    inline int32_t minRewriteQueryCount() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryCount_, 0) };
+    inline int32_t getMinRewriteQueryCount() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryCount_, 0) };
     inline OpenStructMvRecommendSubTaskModel& setMinRewriteQueryCount(int32_t minRewriteQueryCount) { DARABONBA_PTR_SET_VALUE(minRewriteQueryCount_, minRewriteQueryCount) };
 
 
     // minRewriteQueryPattern Field Functions 
     bool hasMinRewriteQueryPattern() const { return this->minRewriteQueryPattern_ != nullptr;};
     void deleteMinRewriteQueryPattern() { this->minRewriteQueryPattern_ = nullptr;};
-    inline int32_t minRewriteQueryPattern() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryPattern_, 0) };
+    inline int32_t getMinRewriteQueryPattern() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryPattern_, 0) };
     inline OpenStructMvRecommendSubTaskModel& setMinRewriteQueryPattern(int32_t minRewriteQueryPattern) { DARABONBA_PTR_SET_VALUE(minRewriteQueryPattern_, minRewriteQueryPattern) };
 
 
     // scanQueriesCount Field Functions 
     bool hasScanQueriesCount() const { return this->scanQueriesCount_ != nullptr;};
     void deleteScanQueriesCount() { this->scanQueriesCount_ = nullptr;};
-    inline int64_t scanQueriesCount() const { DARABONBA_PTR_GET_DEFAULT(scanQueriesCount_, 0L) };
+    inline int64_t getScanQueriesCount() const { DARABONBA_PTR_GET_DEFAULT(scanQueriesCount_, 0L) };
     inline OpenStructMvRecommendSubTaskModel& setScanQueriesCount(int64_t scanQueriesCount) { DARABONBA_PTR_SET_VALUE(scanQueriesCount_, scanQueriesCount) };
 
 
     // slowQueryThreshold Field Functions 
     bool hasSlowQueryThreshold() const { return this->slowQueryThreshold_ != nullptr;};
     void deleteSlowQueryThreshold() { this->slowQueryThreshold_ = nullptr;};
-    inline int32_t slowQueryThreshold() const { DARABONBA_PTR_GET_DEFAULT(slowQueryThreshold_, 0) };
+    inline int32_t getSlowQueryThreshold() const { DARABONBA_PTR_GET_DEFAULT(slowQueryThreshold_, 0) };
     inline OpenStructMvRecommendSubTaskModel& setSlowQueryThreshold(int32_t slowQueryThreshold) { DARABONBA_PTR_SET_VALUE(slowQueryThreshold_, slowQueryThreshold) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline OpenStructMvRecommendSubTaskModel& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline OpenStructMvRecommendSubTaskModel& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // subQueriesCount Field Functions 
     bool hasSubQueriesCount() const { return this->subQueriesCount_ != nullptr;};
     void deleteSubQueriesCount() { this->subQueriesCount_ = nullptr;};
-    inline int64_t subQueriesCount() const { DARABONBA_PTR_GET_DEFAULT(subQueriesCount_, 0L) };
+    inline int64_t getSubQueriesCount() const { DARABONBA_PTR_GET_DEFAULT(subQueriesCount_, 0L) };
     inline OpenStructMvRecommendSubTaskModel& setSubQueriesCount(int64_t subQueriesCount) { DARABONBA_PTR_SET_VALUE(subQueriesCount_, subQueriesCount) };
 
 
     // subtaskId Field Functions 
     bool hasSubtaskId() const { return this->subtaskId_ != nullptr;};
     void deleteSubtaskId() { this->subtaskId_ = nullptr;};
-    inline int64_t subtaskId() const { DARABONBA_PTR_GET_DEFAULT(subtaskId_, 0L) };
+    inline int64_t getSubtaskId() const { DARABONBA_PTR_GET_DEFAULT(subtaskId_, 0L) };
     inline OpenStructMvRecommendSubTaskModel& setSubtaskId(int64_t subtaskId) { DARABONBA_PTR_SET_VALUE(subtaskId_, subtaskId) };
 
 
   protected:
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<int32_t> minRewriteQueryCount_ = nullptr;
-    std::shared_ptr<int32_t> minRewriteQueryPattern_ = nullptr;
-    std::shared_ptr<int64_t> scanQueriesCount_ = nullptr;
-    std::shared_ptr<int32_t> slowQueryThreshold_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<int64_t> subQueriesCount_ = nullptr;
-    std::shared_ptr<int64_t> subtaskId_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<int32_t> minRewriteQueryCount_ {};
+    shared_ptr<int32_t> minRewriteQueryPattern_ {};
+    shared_ptr<int64_t> scanQueriesCount_ {};
+    shared_ptr<int32_t> slowQueryThreshold_ {};
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<int64_t> subQueriesCount_ {};
+    shared_ptr<int64_t> subtaskId_ {};
   };
 
   } // namespace Models

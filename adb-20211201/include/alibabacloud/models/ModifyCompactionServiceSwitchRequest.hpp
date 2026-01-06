@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->enableCompactionService_ == nullptr; };
+        && this->enableCompactionService_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyCompactionServiceSwitchRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // enableCompactionService Field Functions 
     bool hasEnableCompactionService() const { return this->enableCompactionService_ != nullptr;};
     void deleteEnableCompactionService() { this->enableCompactionService_ = nullptr;};
-    inline bool enableCompactionService() const { DARABONBA_PTR_GET_DEFAULT(enableCompactionService_, false) };
+    inline bool getEnableCompactionService() const { DARABONBA_PTR_GET_DEFAULT(enableCompactionService_, false) };
     inline ModifyCompactionServiceSwitchRequest& setEnableCompactionService(bool enableCompactionService) { DARABONBA_PTR_SET_VALUE(enableCompactionService_, enableCompactionService) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // Specifies whether to enable the remote build feature.
     // 
     // Valid values:
@@ -60,7 +60,7 @@ namespace Models
     // *   false
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enableCompactionService_ = nullptr;
+    shared_ptr<bool> enableCompactionService_ {};
   };
 
   } // namespace Models

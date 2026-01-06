@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->completedTimeInMills_ == nullptr && return this->output_ == nullptr && return this->process_ == nullptr && return this->startedTimeInMills_ == nullptr && return this->state_ == nullptr
-        && return this->statementId_ == nullptr; };
+        && this->completedTimeInMills_ == nullptr && this->output_ == nullptr && this->process_ == nullptr && this->startedTimeInMills_ == nullptr && this->state_ == nullptr
+        && this->statementId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline StatementInfo& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // completedTimeInMills Field Functions 
     bool hasCompletedTimeInMills() const { return this->completedTimeInMills_ != nullptr;};
     void deleteCompletedTimeInMills() { this->completedTimeInMills_ = nullptr;};
-    inline int64_t completedTimeInMills() const { DARABONBA_PTR_GET_DEFAULT(completedTimeInMills_, 0L) };
+    inline int64_t getCompletedTimeInMills() const { DARABONBA_PTR_GET_DEFAULT(completedTimeInMills_, 0L) };
     inline StatementInfo& setCompletedTimeInMills(int64_t completedTimeInMills) { DARABONBA_PTR_SET_VALUE(completedTimeInMills_, completedTimeInMills) };
 
 
     // output Field Functions 
     bool hasOutput() const { return this->output_ != nullptr;};
     void deleteOutput() { this->output_ = nullptr;};
-    inline string output() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
+    inline string getOutput() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
     inline StatementInfo& setOutput(string output) { DARABONBA_PTR_SET_VALUE(output_, output) };
 
 
     // process Field Functions 
     bool hasProcess() const { return this->process_ != nullptr;};
     void deleteProcess() { this->process_ = nullptr;};
-    inline float process() const { DARABONBA_PTR_GET_DEFAULT(process_, 0.0) };
+    inline float getProcess() const { DARABONBA_PTR_GET_DEFAULT(process_, 0.0) };
     inline StatementInfo& setProcess(float process) { DARABONBA_PTR_SET_VALUE(process_, process) };
 
 
     // startedTimeInMills Field Functions 
     bool hasStartedTimeInMills() const { return this->startedTimeInMills_ != nullptr;};
     void deleteStartedTimeInMills() { this->startedTimeInMills_ = nullptr;};
-    inline int64_t startedTimeInMills() const { DARABONBA_PTR_GET_DEFAULT(startedTimeInMills_, 0L) };
+    inline int64_t getStartedTimeInMills() const { DARABONBA_PTR_GET_DEFAULT(startedTimeInMills_, 0L) };
     inline StatementInfo& setStartedTimeInMills(int64_t startedTimeInMills) { DARABONBA_PTR_SET_VALUE(startedTimeInMills_, startedTimeInMills) };
 
 
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
-    inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+    inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline StatementInfo& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
     // statementId Field Functions 
     bool hasStatementId() const { return this->statementId_ != nullptr;};
     void deleteStatementId() { this->statementId_ = nullptr;};
-    inline string statementId() const { DARABONBA_PTR_GET_DEFAULT(statementId_, "") };
+    inline string getStatementId() const { DARABONBA_PTR_GET_DEFAULT(statementId_, "") };
     inline StatementInfo& setStatementId(string statementId) { DARABONBA_PTR_SET_VALUE(statementId_, statementId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<int64_t> completedTimeInMills_ = nullptr;
-    std::shared_ptr<string> output_ = nullptr;
-    std::shared_ptr<float> process_ = nullptr;
-    std::shared_ptr<int64_t> startedTimeInMills_ = nullptr;
-    std::shared_ptr<string> state_ = nullptr;
-    std::shared_ptr<string> statementId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<int64_t> completedTimeInMills_ {};
+    shared_ptr<string> output_ {};
+    shared_ptr<float> process_ {};
+    shared_ptr<int64_t> startedTimeInMills_ {};
+    shared_ptr<string> state_ {};
+    shared_ptr<string> statementId_ {};
   };
 
   } // namespace Models

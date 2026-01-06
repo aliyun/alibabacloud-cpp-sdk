@@ -40,65 +40,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apsJobId_ == nullptr
-        && return this->errCode_ == nullptr && return this->errMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // apsJobId Field Functions 
     bool hasApsJobId() const { return this->apsJobId_ != nullptr;};
     void deleteApsJobId() { this->apsJobId_ = nullptr;};
-    inline string apsJobId() const { DARABONBA_PTR_GET_DEFAULT(apsJobId_, "") };
+    inline string getApsJobId() const { DARABONBA_PTR_GET_DEFAULT(apsJobId_, "") };
     inline SuspendApsJobResponseBody& setApsJobId(string apsJobId) { DARABONBA_PTR_SET_VALUE(apsJobId_, apsJobId) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline SuspendApsJobResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline SuspendApsJobResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline SuspendApsJobResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SuspendApsJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline SuspendApsJobResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The job ID.
-    std::shared_ptr<string> apsJobId_ = nullptr;
+    shared_ptr<string> apsJobId_ {};
     // The HTTP status code or the error code.
-    std::shared_ptr<string> errCode_ = nullptr;
+    shared_ptr<string> errCode_ {};
     // The error code returned when the request fails.
-    std::shared_ptr<string> errMessage_ = nullptr;
+    shared_ptr<string> errMessage_ {};
     // The response code. The status code 200 indicates that the request was successful.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

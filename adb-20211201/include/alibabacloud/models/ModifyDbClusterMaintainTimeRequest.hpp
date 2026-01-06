@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->maintainTime_ == nullptr; };
+        && this->maintainTime_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyDBClusterMaintainTimeRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // maintainTime Field Functions 
     bool hasMaintainTime() const { return this->maintainTime_ != nullptr;};
     void deleteMaintainTime() { this->maintainTime_ = nullptr;};
-    inline string maintainTime() const { DARABONBA_PTR_GET_DEFAULT(maintainTime_, "") };
+    inline string getMaintainTime() const { DARABONBA_PTR_GET_DEFAULT(maintainTime_, "") };
     inline ModifyDBClusterMaintainTimeRequest& setMaintainTime(string maintainTime) { DARABONBA_PTR_SET_VALUE(maintainTime_, maintainTime) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The maintenance window of the cluster. It must be in the hh:mmZ-hh:mmZ format.
     // 
     // > The interval must be 1 hour and start and end at the beginning of an hour.
     // 
     // This parameter is required.
-    std::shared_ptr<string> maintainTime_ = nullptr;
+    shared_ptr<string> maintainTime_ {};
   };
 
   } // namespace Models

@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->updateSucceed_ == nullptr; };
+        && this->updateSucceed_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyAuditLogConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // updateSucceed Field Functions 
     bool hasUpdateSucceed() const { return this->updateSucceed_ != nullptr;};
     void deleteUpdateSucceed() { this->updateSucceed_ = nullptr;};
-    inline bool updateSucceed() const { DARABONBA_PTR_GET_DEFAULT(updateSucceed_, false) };
+    inline bool getUpdateSucceed() const { DARABONBA_PTR_GET_DEFAULT(updateSucceed_, false) };
     inline ModifyAuditLogConfigResponseBody& setUpdateSucceed(bool updateSucceed) { DARABONBA_PTR_SET_VALUE(updateSucceed_, updateSucceed) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the status of SQL audit is updated. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> updateSucceed_ = nullptr;
+    shared_ptr<bool> updateSucceed_ {};
   };
 
   } // namespace Models

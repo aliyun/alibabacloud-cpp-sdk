@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agency_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->queryId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->queryId_ == nullptr; };
     // agency Field Functions 
     bool hasAgency() const { return this->agency_ != nullptr;};
     void deleteAgency() { this->agency_ = nullptr;};
-    inline string agency() const { DARABONBA_PTR_GET_DEFAULT(agency_, "") };
+    inline string getAgency() const { DARABONBA_PTR_GET_DEFAULT(agency_, "") };
     inline CancelSparkWarehouseBatchSQLRequest& setAgency(string agency) { DARABONBA_PTR_SET_VALUE(agency_, agency) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CancelSparkWarehouseBatchSQLRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // queryId Field Functions 
     bool hasQueryId() const { return this->queryId_ != nullptr;};
     void deleteQueryId() { this->queryId_ = nullptr;};
-    inline string queryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
+    inline string getQueryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
     inline CancelSparkWarehouseBatchSQLRequest& setQueryId(string queryId) { DARABONBA_PTR_SET_VALUE(queryId_, queryId) };
 
 
   protected:
     // The name of the client, which can be up to 16 characters in length. Specify a descriptive name that makes it easy to identify.
-    std::shared_ptr<string> agency_ = nullptr;
+    shared_ptr<string> agency_ {};
     // The cluster ID.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The query ID of the Spark SQL statement.
     // 
     // This parameter is required.
-    std::shared_ptr<string> queryId_ = nullptr;
+    shared_ptr<string> queryId_ {};
   };
 
   } // namespace Models

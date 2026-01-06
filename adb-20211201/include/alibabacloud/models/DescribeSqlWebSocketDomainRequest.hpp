@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->module_ == nullptr && return this->regionId_ == nullptr; };
+        && this->module_ == nullptr && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeSQLWebSocketDomainRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline string module() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
+    inline string getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
     inline DescribeSQLWebSocketDomainRequest& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeSQLWebSocketDomainRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -60,14 +60,14 @@ namespace Models
     // The cluster ID.
     // 
     // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<string> module_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> module_ {};
     // The region ID
     // 
     // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

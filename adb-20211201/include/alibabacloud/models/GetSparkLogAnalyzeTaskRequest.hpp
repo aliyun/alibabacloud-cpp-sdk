@@ -33,7 +33,7 @@ namespace Models
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline GetSparkLogAnalyzeTaskRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the Spark log analysis task. You can call the ListSparkLogAnalyzeTasks operation to query the IDs of all Spark log analysis tasks that are submitted in the current cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

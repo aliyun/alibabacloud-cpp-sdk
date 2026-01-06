@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->sessionId_ == nullptr && return this->statementId_ == nullptr; };
+        && this->sessionId_ == nullptr && this->statementId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetSparkReplStatementRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline int64_t sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, 0L) };
+    inline int64_t getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, 0L) };
     inline GetSparkReplStatementRequest& setSessionId(int64_t sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // statementId Field Functions 
     bool hasStatementId() const { return this->statementId_ != nullptr;};
     void deleteStatementId() { this->statementId_ = nullptr;};
-    inline int64_t statementId() const { DARABONBA_PTR_GET_DEFAULT(statementId_, 0L) };
+    inline int64_t getStatementId() const { DARABONBA_PTR_GET_DEFAULT(statementId_, 0L) };
     inline GetSparkReplStatementRequest& setStatementId(int64_t statementId) { DARABONBA_PTR_SET_VALUE(statementId_, statementId) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The application ID.
     // 
     // >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query Spark application IDs.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the session that executes the code.
-    std::shared_ptr<int64_t> sessionId_ = nullptr;
+    shared_ptr<int64_t> sessionId_ {};
     // The unique ID of the code block in the Spark job.
-    std::shared_ptr<int64_t> statementId_ = nullptr;
+    shared_ptr<int64_t> statementId_ {};
   };
 
   } // namespace Models

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountDescription_ == nullptr
-        && return this->accountName_ == nullptr && return this->accountPassword_ == nullptr && return this->accountType_ == nullptr && return this->DBClusterId_ == nullptr && return this->engine_ == nullptr; };
+        && this->accountName_ == nullptr && this->accountPassword_ == nullptr && this->accountType_ == nullptr && this->DBClusterId_ == nullptr && this->engine_ == nullptr; };
     // accountDescription Field Functions 
     bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
     void deleteAccountDescription() { this->accountDescription_ = nullptr;};
-    inline string accountDescription() const { DARABONBA_PTR_GET_DEFAULT(accountDescription_, "") };
+    inline string getAccountDescription() const { DARABONBA_PTR_GET_DEFAULT(accountDescription_, "") };
     inline CreateAccountRequest& setAccountDescription(string accountDescription) { DARABONBA_PTR_SET_VALUE(accountDescription_, accountDescription) };
 
 
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline CreateAccountRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
-    inline string accountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
+    inline string getAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
     inline CreateAccountRequest& setAccountPassword(string accountPassword) { DARABONBA_PTR_SET_VALUE(accountPassword_, accountPassword) };
 
 
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
-    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline string getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
     inline CreateAccountRequest& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CreateAccountRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline CreateAccountRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
@@ -88,7 +88,7 @@ namespace Models
     // 
     // *   The description cannot start with `http://` or `https://`.
     // *   The description can be up to 256 characters in length.
-    std::shared_ptr<string> accountDescription_ = nullptr;
+    shared_ptr<string> accountDescription_ {};
     // The name of the database account.
     // 
     // *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
@@ -97,7 +97,7 @@ namespace Models
     // *   Reserved account names such as root, admin, and opsadmin cannot be used.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // The password of the database account.
     // 
     // *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
@@ -105,23 +105,23 @@ namespace Models
     // *   The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountPassword_ = nullptr;
+    shared_ptr<string> accountPassword_ {};
     // The type of the database account. Valid values:
     // 
     // *   **Normal**: standard account.
     // *   **Super**: privileged account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountType_ = nullptr;
+    shared_ptr<string> accountType_ {};
     // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The database engine of the cluster. Valid values:
     // 
     // *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
     // *   **Clickhouse**: the wide table engine.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
   };
 
   } // namespace Models

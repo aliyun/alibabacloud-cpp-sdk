@@ -46,81 +46,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdTime_ == nullptr
-        && return this->description_ == nullptr && return this->lastRunAt_ == nullptr && return this->minRewriteQueryCount_ == nullptr && return this->minRewriteQueryPattern_ == nullptr && return this->scanQueriesRange_ == nullptr
-        && return this->schedulingSettings_ == nullptr && return this->slowQueryThreshold_ == nullptr && return this->taskName_ == nullptr; };
+        && this->description_ == nullptr && this->lastRunAt_ == nullptr && this->minRewriteQueryCount_ == nullptr && this->minRewriteQueryPattern_ == nullptr && this->scanQueriesRange_ == nullptr
+        && this->schedulingSettings_ == nullptr && this->slowQueryThreshold_ == nullptr && this->taskName_ == nullptr; };
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
-    inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
+    inline string getCreatedTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline OpenStructMvRecommendTaskModel& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline OpenStructMvRecommendTaskModel& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // lastRunAt Field Functions 
     bool hasLastRunAt() const { return this->lastRunAt_ != nullptr;};
     void deleteLastRunAt() { this->lastRunAt_ = nullptr;};
-    inline string lastRunAt() const { DARABONBA_PTR_GET_DEFAULT(lastRunAt_, "") };
+    inline string getLastRunAt() const { DARABONBA_PTR_GET_DEFAULT(lastRunAt_, "") };
     inline OpenStructMvRecommendTaskModel& setLastRunAt(string lastRunAt) { DARABONBA_PTR_SET_VALUE(lastRunAt_, lastRunAt) };
 
 
     // minRewriteQueryCount Field Functions 
     bool hasMinRewriteQueryCount() const { return this->minRewriteQueryCount_ != nullptr;};
     void deleteMinRewriteQueryCount() { this->minRewriteQueryCount_ = nullptr;};
-    inline int32_t minRewriteQueryCount() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryCount_, 0) };
+    inline int32_t getMinRewriteQueryCount() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryCount_, 0) };
     inline OpenStructMvRecommendTaskModel& setMinRewriteQueryCount(int32_t minRewriteQueryCount) { DARABONBA_PTR_SET_VALUE(minRewriteQueryCount_, minRewriteQueryCount) };
 
 
     // minRewriteQueryPattern Field Functions 
     bool hasMinRewriteQueryPattern() const { return this->minRewriteQueryPattern_ != nullptr;};
     void deleteMinRewriteQueryPattern() { this->minRewriteQueryPattern_ = nullptr;};
-    inline int32_t minRewriteQueryPattern() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryPattern_, 0) };
+    inline int32_t getMinRewriteQueryPattern() const { DARABONBA_PTR_GET_DEFAULT(minRewriteQueryPattern_, 0) };
     inline OpenStructMvRecommendTaskModel& setMinRewriteQueryPattern(int32_t minRewriteQueryPattern) { DARABONBA_PTR_SET_VALUE(minRewriteQueryPattern_, minRewriteQueryPattern) };
 
 
     // scanQueriesRange Field Functions 
     bool hasScanQueriesRange() const { return this->scanQueriesRange_ != nullptr;};
     void deleteScanQueriesRange() { this->scanQueriesRange_ = nullptr;};
-    inline int32_t scanQueriesRange() const { DARABONBA_PTR_GET_DEFAULT(scanQueriesRange_, 0) };
+    inline int32_t getScanQueriesRange() const { DARABONBA_PTR_GET_DEFAULT(scanQueriesRange_, 0) };
     inline OpenStructMvRecommendTaskModel& setScanQueriesRange(int32_t scanQueriesRange) { DARABONBA_PTR_SET_VALUE(scanQueriesRange_, scanQueriesRange) };
 
 
     // schedulingSettings Field Functions 
     bool hasSchedulingSettings() const { return this->schedulingSettings_ != nullptr;};
     void deleteSchedulingSettings() { this->schedulingSettings_ = nullptr;};
-    inline string schedulingSettings() const { DARABONBA_PTR_GET_DEFAULT(schedulingSettings_, "") };
+    inline string getSchedulingSettings() const { DARABONBA_PTR_GET_DEFAULT(schedulingSettings_, "") };
     inline OpenStructMvRecommendTaskModel& setSchedulingSettings(string schedulingSettings) { DARABONBA_PTR_SET_VALUE(schedulingSettings_, schedulingSettings) };
 
 
     // slowQueryThreshold Field Functions 
     bool hasSlowQueryThreshold() const { return this->slowQueryThreshold_ != nullptr;};
     void deleteSlowQueryThreshold() { this->slowQueryThreshold_ = nullptr;};
-    inline int32_t slowQueryThreshold() const { DARABONBA_PTR_GET_DEFAULT(slowQueryThreshold_, 0) };
+    inline int32_t getSlowQueryThreshold() const { DARABONBA_PTR_GET_DEFAULT(slowQueryThreshold_, 0) };
     inline OpenStructMvRecommendTaskModel& setSlowQueryThreshold(int32_t slowQueryThreshold) { DARABONBA_PTR_SET_VALUE(slowQueryThreshold_, slowQueryThreshold) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline OpenStructMvRecommendTaskModel& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
   protected:
-    std::shared_ptr<string> createdTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> lastRunAt_ = nullptr;
-    std::shared_ptr<int32_t> minRewriteQueryCount_ = nullptr;
-    std::shared_ptr<int32_t> minRewriteQueryPattern_ = nullptr;
-    std::shared_ptr<int32_t> scanQueriesRange_ = nullptr;
-    std::shared_ptr<string> schedulingSettings_ = nullptr;
-    std::shared_ptr<int32_t> slowQueryThreshold_ = nullptr;
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> createdTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> lastRunAt_ {};
+    shared_ptr<int32_t> minRewriteQueryCount_ {};
+    shared_ptr<int32_t> minRewriteQueryPattern_ {};
+    shared_ptr<int32_t> scanQueriesRange_ {};
+    shared_ptr<string> schedulingSettings_ {};
+    shared_ptr<int32_t> slowQueryThreshold_ {};
+    shared_ptr<string> taskName_ {};
   };
 
   } // namespace Models

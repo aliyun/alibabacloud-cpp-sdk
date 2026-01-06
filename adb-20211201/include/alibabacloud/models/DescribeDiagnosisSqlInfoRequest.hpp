@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->lang_ == nullptr && return this->processId_ == nullptr && return this->processRcHost_ == nullptr && return this->processStartTime_ == nullptr && return this->processState_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->lang_ == nullptr && this->processId_ == nullptr && this->processRcHost_ == nullptr && this->processStartTime_ == nullptr && this->processState_ == nullptr
+        && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeDiagnosisSQLInfoRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDiagnosisSQLInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // processId Field Functions 
     bool hasProcessId() const { return this->processId_ != nullptr;};
     void deleteProcessId() { this->processId_ = nullptr;};
-    inline string processId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
+    inline string getProcessId() const { DARABONBA_PTR_GET_DEFAULT(processId_, "") };
     inline DescribeDiagnosisSQLInfoRequest& setProcessId(string processId) { DARABONBA_PTR_SET_VALUE(processId_, processId) };
 
 
     // processRcHost Field Functions 
     bool hasProcessRcHost() const { return this->processRcHost_ != nullptr;};
     void deleteProcessRcHost() { this->processRcHost_ = nullptr;};
-    inline string processRcHost() const { DARABONBA_PTR_GET_DEFAULT(processRcHost_, "") };
+    inline string getProcessRcHost() const { DARABONBA_PTR_GET_DEFAULT(processRcHost_, "") };
     inline DescribeDiagnosisSQLInfoRequest& setProcessRcHost(string processRcHost) { DARABONBA_PTR_SET_VALUE(processRcHost_, processRcHost) };
 
 
     // processStartTime Field Functions 
     bool hasProcessStartTime() const { return this->processStartTime_ != nullptr;};
     void deleteProcessStartTime() { this->processStartTime_ = nullptr;};
-    inline int64_t processStartTime() const { DARABONBA_PTR_GET_DEFAULT(processStartTime_, 0L) };
+    inline int64_t getProcessStartTime() const { DARABONBA_PTR_GET_DEFAULT(processStartTime_, 0L) };
     inline DescribeDiagnosisSQLInfoRequest& setProcessStartTime(int64_t processStartTime) { DARABONBA_PTR_SET_VALUE(processStartTime_, processStartTime) };
 
 
     // processState Field Functions 
     bool hasProcessState() const { return this->processState_ != nullptr;};
     void deleteProcessState() { this->processState_ = nullptr;};
-    inline string processState() const { DARABONBA_PTR_GET_DEFAULT(processState_, "") };
+    inline string getProcessState() const { DARABONBA_PTR_GET_DEFAULT(processState_, "") };
     inline DescribeDiagnosisSQLInfoRequest& setProcessState(string processState) { DARABONBA_PTR_SET_VALUE(processState_, processState) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDiagnosisSQLInfoRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -99,26 +99,26 @@ namespace Models
     // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The language of file titles and error messages. Valid values:
     // 
     // *   **zh**: simplified Chinese.
     // *   **en**: English.
     // *   **ja**: Japanese.
     // *   **zh-tw**: traditional Chinese.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The query ID.
     // 
     // >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL cluster, including the query ID.
-    std::shared_ptr<string> processId_ = nullptr;
+    shared_ptr<string> processId_ {};
     // The IP address and port number of the AnalyticDB for MySQL frontend node on which the SQL statement is executed.
     // 
     // >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the IP address and port number of the frontend node.
-    std::shared_ptr<string> processRcHost_ = nullptr;
+    shared_ptr<string> processRcHost_ {};
     // The execution start time of the SQL statement. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL cluster, including the execution start time of the SQL statement.
-    std::shared_ptr<int64_t> processStartTime_ = nullptr;
+    shared_ptr<int64_t> processStartTime_ {};
     // The status of the SQL statement. Valid values:
     // 
     // *   **running**
@@ -126,13 +126,13 @@ namespace Models
     // *   **failed**
     // 
     // >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL cluster, including the status of the SQL statement.
-    std::shared_ptr<string> processState_ = nullptr;
+    shared_ptr<string> processState_ {};
     // The region ID of the cluster.
     // 
     // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

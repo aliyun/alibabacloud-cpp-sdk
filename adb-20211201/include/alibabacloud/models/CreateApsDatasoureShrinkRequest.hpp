@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->databricksInfoShrink_ == nullptr && return this->datasourceDescription_ == nullptr && return this->datasourceName_ == nullptr && return this->datasourceType_ == nullptr && return this->hiveInfoShrink_ == nullptr
-        && return this->kafkaInfoShrink_ == nullptr && return this->mode_ == nullptr && return this->polarDBMysqlInfoShrink_ == nullptr && return this->polarDBXInfoShrink_ == nullptr && return this->rdsMysqlInfoShrink_ == nullptr
-        && return this->regionId_ == nullptr && return this->slsInfoShrink_ == nullptr; };
+        && this->databricksInfoShrink_ == nullptr && this->datasourceDescription_ == nullptr && this->datasourceName_ == nullptr && this->datasourceType_ == nullptr && this->hiveInfoShrink_ == nullptr
+        && this->kafkaInfoShrink_ == nullptr && this->mode_ == nullptr && this->polarDBMysqlInfoShrink_ == nullptr && this->polarDBXInfoShrink_ == nullptr && this->rdsMysqlInfoShrink_ == nullptr
+        && this->regionId_ == nullptr && this->slsInfoShrink_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CreateApsDatasoureShrinkRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // databricksInfoShrink Field Functions 
     bool hasDatabricksInfoShrink() const { return this->databricksInfoShrink_ != nullptr;};
     void deleteDatabricksInfoShrink() { this->databricksInfoShrink_ = nullptr;};
-    inline string databricksInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(databricksInfoShrink_, "") };
+    inline string getDatabricksInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(databricksInfoShrink_, "") };
     inline CreateApsDatasoureShrinkRequest& setDatabricksInfoShrink(string databricksInfoShrink) { DARABONBA_PTR_SET_VALUE(databricksInfoShrink_, databricksInfoShrink) };
 
 
     // datasourceDescription Field Functions 
     bool hasDatasourceDescription() const { return this->datasourceDescription_ != nullptr;};
     void deleteDatasourceDescription() { this->datasourceDescription_ = nullptr;};
-    inline string datasourceDescription() const { DARABONBA_PTR_GET_DEFAULT(datasourceDescription_, "") };
+    inline string getDatasourceDescription() const { DARABONBA_PTR_GET_DEFAULT(datasourceDescription_, "") };
     inline CreateApsDatasoureShrinkRequest& setDatasourceDescription(string datasourceDescription) { DARABONBA_PTR_SET_VALUE(datasourceDescription_, datasourceDescription) };
 
 
     // datasourceName Field Functions 
     bool hasDatasourceName() const { return this->datasourceName_ != nullptr;};
     void deleteDatasourceName() { this->datasourceName_ = nullptr;};
-    inline string datasourceName() const { DARABONBA_PTR_GET_DEFAULT(datasourceName_, "") };
+    inline string getDatasourceName() const { DARABONBA_PTR_GET_DEFAULT(datasourceName_, "") };
     inline CreateApsDatasoureShrinkRequest& setDatasourceName(string datasourceName) { DARABONBA_PTR_SET_VALUE(datasourceName_, datasourceName) };
 
 
     // datasourceType Field Functions 
     bool hasDatasourceType() const { return this->datasourceType_ != nullptr;};
     void deleteDatasourceType() { this->datasourceType_ = nullptr;};
-    inline string datasourceType() const { DARABONBA_PTR_GET_DEFAULT(datasourceType_, "") };
+    inline string getDatasourceType() const { DARABONBA_PTR_GET_DEFAULT(datasourceType_, "") };
     inline CreateApsDatasoureShrinkRequest& setDatasourceType(string datasourceType) { DARABONBA_PTR_SET_VALUE(datasourceType_, datasourceType) };
 
 
     // hiveInfoShrink Field Functions 
     bool hasHiveInfoShrink() const { return this->hiveInfoShrink_ != nullptr;};
     void deleteHiveInfoShrink() { this->hiveInfoShrink_ = nullptr;};
-    inline string hiveInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(hiveInfoShrink_, "") };
+    inline string getHiveInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(hiveInfoShrink_, "") };
     inline CreateApsDatasoureShrinkRequest& setHiveInfoShrink(string hiveInfoShrink) { DARABONBA_PTR_SET_VALUE(hiveInfoShrink_, hiveInfoShrink) };
 
 
     // kafkaInfoShrink Field Functions 
     bool hasKafkaInfoShrink() const { return this->kafkaInfoShrink_ != nullptr;};
     void deleteKafkaInfoShrink() { this->kafkaInfoShrink_ = nullptr;};
-    inline string kafkaInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(kafkaInfoShrink_, "") };
+    inline string getKafkaInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(kafkaInfoShrink_, "") };
     inline CreateApsDatasoureShrinkRequest& setKafkaInfoShrink(string kafkaInfoShrink) { DARABONBA_PTR_SET_VALUE(kafkaInfoShrink_, kafkaInfoShrink) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline CreateApsDatasoureShrinkRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
     // polarDBMysqlInfoShrink Field Functions 
     bool hasPolarDBMysqlInfoShrink() const { return this->polarDBMysqlInfoShrink_ != nullptr;};
     void deletePolarDBMysqlInfoShrink() { this->polarDBMysqlInfoShrink_ = nullptr;};
-    inline string polarDBMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(polarDBMysqlInfoShrink_, "") };
+    inline string getPolarDBMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(polarDBMysqlInfoShrink_, "") };
     inline CreateApsDatasoureShrinkRequest& setPolarDBMysqlInfoShrink(string polarDBMysqlInfoShrink) { DARABONBA_PTR_SET_VALUE(polarDBMysqlInfoShrink_, polarDBMysqlInfoShrink) };
 
 
     // polarDBXInfoShrink Field Functions 
     bool hasPolarDBXInfoShrink() const { return this->polarDBXInfoShrink_ != nullptr;};
     void deletePolarDBXInfoShrink() { this->polarDBXInfoShrink_ = nullptr;};
-    inline string polarDBXInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(polarDBXInfoShrink_, "") };
+    inline string getPolarDBXInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(polarDBXInfoShrink_, "") };
     inline CreateApsDatasoureShrinkRequest& setPolarDBXInfoShrink(string polarDBXInfoShrink) { DARABONBA_PTR_SET_VALUE(polarDBXInfoShrink_, polarDBXInfoShrink) };
 
 
     // rdsMysqlInfoShrink Field Functions 
     bool hasRdsMysqlInfoShrink() const { return this->rdsMysqlInfoShrink_ != nullptr;};
     void deleteRdsMysqlInfoShrink() { this->rdsMysqlInfoShrink_ = nullptr;};
-    inline string rdsMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(rdsMysqlInfoShrink_, "") };
+    inline string getRdsMysqlInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(rdsMysqlInfoShrink_, "") };
     inline CreateApsDatasoureShrinkRequest& setRdsMysqlInfoShrink(string rdsMysqlInfoShrink) { DARABONBA_PTR_SET_VALUE(rdsMysqlInfoShrink_, rdsMysqlInfoShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateApsDatasoureShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // slsInfoShrink Field Functions 
     bool hasSlsInfoShrink() const { return this->slsInfoShrink_ != nullptr;};
     void deleteSlsInfoShrink() { this->slsInfoShrink_ = nullptr;};
-    inline string slsInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(slsInfoShrink_, "") };
+    inline string getSlsInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(slsInfoShrink_, "") };
     inline CreateApsDatasoureShrinkRequest& setSlsInfoShrink(string slsInfoShrink) { DARABONBA_PTR_SET_VALUE(slsInfoShrink_, slsInfoShrink) };
 
 
@@ -152,37 +152,37 @@ namespace Models
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The information about the Databricks data source.
-    std::shared_ptr<string> databricksInfoShrink_ = nullptr;
+    shared_ptr<string> databricksInfoShrink_ {};
     // The description of the data source.
-    std::shared_ptr<string> datasourceDescription_ = nullptr;
+    shared_ptr<string> datasourceDescription_ {};
     // The name of the data source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasourceName_ = nullptr;
+    shared_ptr<string> datasourceName_ {};
     // The type of the data source.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasourceType_ = nullptr;
+    shared_ptr<string> datasourceType_ {};
     // The information about the Hive data source.
-    std::shared_ptr<string> hiveInfoShrink_ = nullptr;
+    shared_ptr<string> hiveInfoShrink_ {};
     // The information about the source Apache Kafka instance.
-    std::shared_ptr<string> kafkaInfoShrink_ = nullptr;
+    shared_ptr<string> kafkaInfoShrink_ {};
     // The mode.
-    std::shared_ptr<string> mode_ = nullptr;
+    shared_ptr<string> mode_ {};
     // The information about the source PolarDB for MySQL cluster.
-    std::shared_ptr<string> polarDBMysqlInfoShrink_ = nullptr;
+    shared_ptr<string> polarDBMysqlInfoShrink_ {};
     // The information about the source PolarDB-X instance.
-    std::shared_ptr<string> polarDBXInfoShrink_ = nullptr;
+    shared_ptr<string> polarDBXInfoShrink_ {};
     // The information about the source ApsaraDB RDS for MySQL instance.
-    std::shared_ptr<string> rdsMysqlInfoShrink_ = nullptr;
+    shared_ptr<string> rdsMysqlInfoShrink_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The information about the source Simple Log Service (SLS) instance or cluster.
-    std::shared_ptr<string> slsInfoShrink_ = nullptr;
+    shared_ptr<string> slsInfoShrink_ {};
   };
 
   } // namespace Models

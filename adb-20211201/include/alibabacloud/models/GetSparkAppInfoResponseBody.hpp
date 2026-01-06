@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const SparkAppInfo & data() const { DARABONBA_PTR_GET_CONST(data_, SparkAppInfo) };
-    inline SparkAppInfo data() { DARABONBA_PTR_GET(data_, SparkAppInfo) };
+    inline const SparkAppInfo & getData() const { DARABONBA_PTR_GET_CONST(data_, SparkAppInfo) };
+    inline SparkAppInfo getData() { DARABONBA_PTR_GET(data_, SparkAppInfo) };
     inline GetSparkAppInfoResponseBody& setData(const SparkAppInfo & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline GetSparkAppInfoResponseBody& setData(SparkAppInfo && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -46,7 +46,7 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetSparkAppInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -65,9 +65,9 @@ namespace Models
     // *   **DBClusterId**: the ID of the cluster on which the Spark application runs.
     // *   **ResourceGroupName**: the name of the job resource group.
     // *   **DurationInMillis**: the amount of time that is required to run the Spark application. Unit: milliseconds.
-    std::shared_ptr<SparkAppInfo> data_ = nullptr;
+    shared_ptr<SparkAppInfo> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

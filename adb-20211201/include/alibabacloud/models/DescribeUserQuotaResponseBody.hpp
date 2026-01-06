@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->elasticACU_ == nullptr
-        && return this->requestId_ == nullptr && return this->reserverdCompteACU_ == nullptr && return this->reserverdStorageACU_ == nullptr && return this->resourceGroupCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->reserverdCompteACU_ == nullptr && this->reserverdStorageACU_ == nullptr && this->resourceGroupCount_ == nullptr; };
     // elasticACU Field Functions 
     bool hasElasticACU() const { return this->elasticACU_ != nullptr;};
     void deleteElasticACU() { this->elasticACU_ = nullptr;};
-    inline string elasticACU() const { DARABONBA_PTR_GET_DEFAULT(elasticACU_, "") };
+    inline string getElasticACU() const { DARABONBA_PTR_GET_DEFAULT(elasticACU_, "") };
     inline DescribeUserQuotaResponseBody& setElasticACU(string elasticACU) { DARABONBA_PTR_SET_VALUE(elasticACU_, elasticACU) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeUserQuotaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // reserverdCompteACU Field Functions 
     bool hasReserverdCompteACU() const { return this->reserverdCompteACU_ != nullptr;};
     void deleteReserverdCompteACU() { this->reserverdCompteACU_ = nullptr;};
-    inline string reserverdCompteACU() const { DARABONBA_PTR_GET_DEFAULT(reserverdCompteACU_, "") };
+    inline string getReserverdCompteACU() const { DARABONBA_PTR_GET_DEFAULT(reserverdCompteACU_, "") };
     inline DescribeUserQuotaResponseBody& setReserverdCompteACU(string reserverdCompteACU) { DARABONBA_PTR_SET_VALUE(reserverdCompteACU_, reserverdCompteACU) };
 
 
     // reserverdStorageACU Field Functions 
     bool hasReserverdStorageACU() const { return this->reserverdStorageACU_ != nullptr;};
     void deleteReserverdStorageACU() { this->reserverdStorageACU_ = nullptr;};
-    inline string reserverdStorageACU() const { DARABONBA_PTR_GET_DEFAULT(reserverdStorageACU_, "") };
+    inline string getReserverdStorageACU() const { DARABONBA_PTR_GET_DEFAULT(reserverdStorageACU_, "") };
     inline DescribeUserQuotaResponseBody& setReserverdStorageACU(string reserverdStorageACU) { DARABONBA_PTR_SET_VALUE(reserverdStorageACU_, reserverdStorageACU) };
 
 
     // resourceGroupCount Field Functions 
     bool hasResourceGroupCount() const { return this->resourceGroupCount_ != nullptr;};
     void deleteResourceGroupCount() { this->resourceGroupCount_ = nullptr;};
-    inline string resourceGroupCount() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupCount_, "") };
+    inline string getResourceGroupCount() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupCount_, "") };
     inline DescribeUserQuotaResponseBody& setResourceGroupCount(string resourceGroupCount) { DARABONBA_PTR_SET_VALUE(resourceGroupCount_, resourceGroupCount) };
 
 
   protected:
     // The available elastic AnalyticDB compute units (ACUs).
-    std::shared_ptr<string> elasticACU_ = nullptr;
+    shared_ptr<string> elasticACU_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The available reserved computing resources.
-    std::shared_ptr<string> reserverdCompteACU_ = nullptr;
+    shared_ptr<string> reserverdCompteACU_ {};
     // The available reserved storage resources.
-    std::shared_ptr<string> reserverdStorageACU_ = nullptr;
+    shared_ptr<string> reserverdStorageACU_ {};
     // The number of available resource groups.
-    std::shared_ptr<string> resourceGroupCount_ = nullptr;
+    shared_ptr<string> resourceGroupCount_ {};
   };
 
   } // namespace Models

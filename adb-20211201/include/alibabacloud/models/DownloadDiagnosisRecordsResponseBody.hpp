@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->downloadId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // downloadId Field Functions 
     bool hasDownloadId() const { return this->downloadId_ != nullptr;};
     void deleteDownloadId() { this->downloadId_ = nullptr;};
-    inline int32_t downloadId() const { DARABONBA_PTR_GET_DEFAULT(downloadId_, 0) };
+    inline int32_t getDownloadId() const { DARABONBA_PTR_GET_DEFAULT(downloadId_, 0) };
     inline DownloadDiagnosisRecordsResponseBody& setDownloadId(int32_t downloadId) { DARABONBA_PTR_SET_VALUE(downloadId_, downloadId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DownloadDiagnosisRecordsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The download ID.
-    std::shared_ptr<int32_t> downloadId_ = nullptr;
+    shared_ptr<int32_t> downloadId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

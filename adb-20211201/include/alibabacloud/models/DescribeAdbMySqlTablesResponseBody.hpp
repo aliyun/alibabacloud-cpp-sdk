@@ -39,40 +39,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->message_ == nullptr
-        && return this->requestId_ == nullptr && return this->schema_ == nullptr && return this->success_ == nullptr && return this->tables_ == nullptr; };
+        && this->requestId_ == nullptr && this->schema_ == nullptr && this->success_ == nullptr && this->tables_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeAdbMySqlTablesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAdbMySqlTablesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline string schema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
+    inline string getSchema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
     inline DescribeAdbMySqlTablesResponseBody& setSchema(string schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeAdbMySqlTablesResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // tables Field Functions 
     bool hasTables() const { return this->tables_ != nullptr;};
     void deleteTables() { this->tables_ = nullptr;};
-    inline const vector<string> & tables() const { DARABONBA_PTR_GET_CONST(tables_, vector<string>) };
-    inline vector<string> tables() { DARABONBA_PTR_GET(tables_, vector<string>) };
+    inline const vector<string> & getTables() const { DARABONBA_PTR_GET_CONST(tables_, vector<string>) };
+    inline vector<string> getTables() { DARABONBA_PTR_GET(tables_, vector<string>) };
     inline DescribeAdbMySqlTablesResponseBody& setTables(const vector<string> & tables) { DARABONBA_PTR_SET_VALUE(tables_, tables) };
     inline DescribeAdbMySqlTablesResponseBody& setTables(vector<string> && tables) { DARABONBA_PTR_SET_RVALUE(tables_, tables) };
 
@@ -82,18 +82,18 @@ namespace Models
     // 
     // *   **Success** is returned if the operation is successful.
     // *   An error message is returned if the operation fails.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The name of the database.
-    std::shared_ptr<string> schema_ = nullptr;
+    shared_ptr<string> schema_ {};
     // Indicates whether the operation is successful. Valid values:
     // 
     // *   **true**: The operation is successful.
     // *   **false**: The operation fails.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
     // The names of tables.
-    std::shared_ptr<vector<string>> tables_ = nullptr;
+    shared_ptr<vector<string>> tables_ {};
   };
 
   } // namespace Models

@@ -1326,7 +1326,7 @@ namespace Adb20211201
       Models::DescribeAuditLogRecordsResponse describeAuditLogRecords(const Models::DescribeAuditLogRecordsRequest &request);
 
       /**
-       * @summary 查询自动续费参数
+       * @summary Queries the auto-renewal status of a subscription cluster.
        *
        * @param tmpReq DescribeAutoRenewalAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1335,7 +1335,7 @@ namespace Adb20211201
       Models::DescribeAutoRenewalAttributeResponse describeAutoRenewalAttributeWithOptions(const Models::DescribeAutoRenewalAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自动续费参数
+       * @summary Queries the auto-renewal status of a subscription cluster.
        *
        * @param request DescribeAutoRenewalAttributeRequest
        * @return DescribeAutoRenewalAttributeResponse
@@ -2101,7 +2101,7 @@ namespace Adb20211201
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLLMAnswerResponse
        */
-      FutrueGenerator<Models::DescribeLLMAnswerResponse> describeLLMAnswerWithSSE(const Models::DescribeLLMAnswerRequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::DescribeLLMAnswerResponse> describeLLMAnswerWithSSE(const Models::DescribeLLMAnswerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
@@ -4076,7 +4076,7 @@ namespace Adb20211201
       Models::ModifyAuditLogConfigResponse modifyAuditLogConfig(const Models::ModifyAuditLogConfigRequest &request);
 
       /**
-       * @summary 修改自动续费配置
+       * @summary Configures auto-renewal for a subscription cluster.
        *
        * @param request ModifyAutoRenewalAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4085,7 +4085,7 @@ namespace Adb20211201
       Models::ModifyAutoRenewalAttributeResponse modifyAutoRenewalAttributeWithOptions(const Models::ModifyAutoRenewalAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改自动续费配置
+       * @summary Configures auto-renewal for a subscription cluster.
        *
        * @param request ModifyAutoRenewalAttributeRequest
        * @return ModifyAutoRenewalAttributeResponse

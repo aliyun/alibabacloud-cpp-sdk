@@ -36,51 +36,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionString_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->enableSSL_ == nullptr && return this->regionId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->enableSSL_ == nullptr && this->regionId_ == nullptr; };
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
-    inline string connectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+    inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
     inline ModifyDBClusterSSLRequest& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyDBClusterSSLRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // enableSSL Field Functions 
     bool hasEnableSSL() const { return this->enableSSL_ != nullptr;};
     void deleteEnableSSL() { this->enableSSL_ = nullptr;};
-    inline bool enableSSL() const { DARABONBA_PTR_GET_DEFAULT(enableSSL_, false) };
+    inline bool getEnableSSL() const { DARABONBA_PTR_GET_DEFAULT(enableSSL_, false) };
     inline ModifyDBClusterSSLRequest& setEnableSSL(bool enableSSL) { DARABONBA_PTR_SET_VALUE(enableSSL_, enableSSL) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyDBClusterSSLRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The private or public endpoint for which the server certificate needs to be created or updated.
-    std::shared_ptr<string> connectionString_ = nullptr;
+    shared_ptr<string> connectionString_ {};
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // Specifies whether to enable SSL encryption. Valid values:
     // 
     // *   **true**: enabled
     // *   **false**: disabled
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enableSSL_ = nullptr;
+    shared_ptr<bool> enableSSL_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

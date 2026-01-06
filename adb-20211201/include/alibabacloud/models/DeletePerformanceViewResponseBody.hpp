@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->deleteStatus_ == nullptr && return this->requestId_ == nullptr; };
+        && this->deleteStatus_ == nullptr && this->requestId_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline DeletePerformanceViewResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // deleteStatus Field Functions 
     bool hasDeleteStatus() const { return this->deleteStatus_ != nullptr;};
     void deleteDeleteStatus() { this->deleteStatus_ = nullptr;};
-    inline bool deleteStatus() const { DARABONBA_PTR_GET_DEFAULT(deleteStatus_, false) };
+    inline bool getDeleteStatus() const { DARABONBA_PTR_GET_DEFAULT(deleteStatus_, false) };
     inline DeletePerformanceViewResponseBody& setDeleteStatus(bool deleteStatus) { DARABONBA_PTR_SET_VALUE(deleteStatus_, deleteStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeletePerformanceViewResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The details about the access denial.
     // 
     // >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
     // The delete status.
-    std::shared_ptr<bool> deleteStatus_ = nullptr;
+    shared_ptr<bool> deleteStatus_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models
