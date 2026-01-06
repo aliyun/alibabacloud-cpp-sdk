@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterDoc_ == nullptr
-        && return this->instanceId_ == nullptr && return this->nodeId_ == nullptr && return this->role_ == nullptr; };
+        && this->instanceId_ == nullptr && this->nodeId_ == nullptr && this->role_ == nullptr; };
     // filterDoc Field Functions 
     bool hasFilterDoc() const { return this->filterDoc_ != nullptr;};
     void deleteFilterDoc() { this->filterDoc_ = nullptr;};
-    inline string filterDoc() const { DARABONBA_PTR_GET_DEFAULT(filterDoc_, "") };
+    inline string getFilterDoc() const { DARABONBA_PTR_GET_DEFAULT(filterDoc_, "") };
     inline GetMongoDBCurrentOpRequest& setFilterDoc(string filterDoc) { DARABONBA_PTR_SET_VALUE(filterDoc_, filterDoc) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetMongoDBCurrentOpRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline GetMongoDBCurrentOpRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // role Field Functions 
     bool hasRole() const { return this->role_ != nullptr;};
     void deleteRole() { this->role_ = nullptr;};
-    inline string role() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+    inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
     inline GetMongoDBCurrentOpRequest& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
 
 
   protected:
     // The `db.currentOp()` command that is used to filter sessions. For more information, see [db.currentOp()](https://docs.mongodb.com/manual/reference/method/db.currentOp/) of MongoDB Documentation.
-    std::shared_ptr<string> filterDoc_ = nullptr;
+    shared_ptr<string> filterDoc_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The node ID.
     // 
     // >  If you do not specify a node ID, the sessions of the primary node are queried by default.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // A reserved parameter. You do not need to specify the parameter.
-    std::shared_ptr<string> role_ = nullptr;
+    shared_ptr<string> role_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->globalSecurityGroupId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->regionName_ == nullptr; };
+        && this->instanceId_ == nullptr && this->regionName_ == nullptr; };
     // globalSecurityGroupId Field Functions 
     bool hasGlobalSecurityGroupId() const { return this->globalSecurityGroupId_ != nullptr;};
     void deleteGlobalSecurityGroupId() { this->globalSecurityGroupId_ = nullptr;};
-    inline string globalSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(globalSecurityGroupId_, "") };
+    inline string getGlobalSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(globalSecurityGroupId_, "") };
     inline ModifySecurityIPGroupRelationRequest& setGlobalSecurityGroupId(string globalSecurityGroupId) { DARABONBA_PTR_SET_VALUE(globalSecurityGroupId_, globalSecurityGroupId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifySecurityIPGroupRelationRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionName Field Functions 
     bool hasRegionName() const { return this->regionName_ != nullptr;};
     void deleteRegionName() { this->regionName_ = nullptr;};
-    inline string regionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
+    inline string getRegionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
     inline ModifySecurityIPGroupRelationRequest& setRegionName(string regionName) { DARABONBA_PTR_SET_VALUE(regionName_, regionName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> globalSecurityGroupId_ = nullptr;
+    shared_ptr<string> globalSecurityGroupId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionName_ = nullptr;
+    shared_ptr<string> regionName_ {};
   };
 
   } // namespace Models

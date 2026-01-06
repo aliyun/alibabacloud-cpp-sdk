@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->engine_ == nullptr && return this->instanceArea_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->searchMap_ == nullptr && return this->startTime_ == nullptr; };
+        && this->engine_ == nullptr && this->instanceArea_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->searchMap_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetInstanceInspectionsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline GetInstanceInspectionsRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // instanceArea Field Functions 
     bool hasInstanceArea() const { return this->instanceArea_ != nullptr;};
     void deleteInstanceArea() { this->instanceArea_ = nullptr;};
-    inline string instanceArea() const { DARABONBA_PTR_GET_DEFAULT(instanceArea_, "") };
+    inline string getInstanceArea() const { DARABONBA_PTR_GET_DEFAULT(instanceArea_, "") };
     inline GetInstanceInspectionsRequest& setInstanceArea(string instanceArea) { DARABONBA_PTR_SET_VALUE(instanceArea_, instanceArea) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline string pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
+    inline string getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
     inline GetInstanceInspectionsRequest& setPageNo(string pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline GetInstanceInspectionsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline GetInstanceInspectionsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // searchMap Field Functions 
     bool hasSearchMap() const { return this->searchMap_ != nullptr;};
     void deleteSearchMap() { this->searchMap_ = nullptr;};
-    inline string searchMap() const { DARABONBA_PTR_GET_DEFAULT(searchMap_, "") };
+    inline string getSearchMap() const { DARABONBA_PTR_GET_DEFAULT(searchMap_, "") };
     inline GetInstanceInspectionsRequest& setSearchMap(string searchMap) { DARABONBA_PTR_SET_VALUE(searchMap_, searchMap) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetInstanceInspectionsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -108,7 +108,7 @@ namespace Models
     // >  The end time must be later than the start time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The database engine. Valid values:
     // 
     // *   **MySQL**
@@ -116,7 +116,7 @@ namespace Models
     // *   **PolarDBMySQL**
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The type of the instance on which the database is deployed. Valid values:
     // 
     // *   **RDS**: an Alibaba Cloud database instance.
@@ -126,27 +126,27 @@ namespace Models
     // >  The value IDC specifies that the instance is deployed in a data center.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceArea_ = nullptr;
+    shared_ptr<string> instanceArea_ {};
     // The page number. The value must be a positive integer. Default value: 1.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pageNo_ = nullptr;
+    shared_ptr<string> pageNo_ {};
     // The number of entries per page. Default value: 10.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The filter condition, which can be specified in one of the following formats:
     // 
     // *   Specify the ID of a single instance in the {"InstanceId":"Instance ID"} format.
     // *   Specify the IDs of multiple instances in the {"InstanceIds":["Instance ID1","Instance ID2"]} format. Separate the instance IDs with commas (,).
     // *   Specify the region in which the instance resides in the {"region":"Region of the instance"} format.
-    std::shared_ptr<string> searchMap_ = nullptr;
+    shared_ptr<string> searchMap_ {};
     // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

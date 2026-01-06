@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleContext_ == nullptr
-        && return this->instanceId_ == nullptr && return this->nodeId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->nodeId_ == nullptr; };
     // consoleContext Field Functions 
     bool hasConsoleContext() const { return this->consoleContext_ != nullptr;};
     void deleteConsoleContext() { this->consoleContext_ = nullptr;};
-    inline string consoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
+    inline string getConsoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
     inline DescribeHotBigKeysRequest& setConsoleContext(string consoleContext) { DARABONBA_PTR_SET_VALUE(consoleContext_, consoleContext) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeHotBigKeysRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline DescribeHotBigKeysRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
   protected:
     // The reserved parameter.
-    std::shared_ptr<string> consoleContext_ = nullptr;
+    shared_ptr<string> consoleContext_ {};
     // The ID of the ApsaraDB for Redis instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the data shard on the ApsaraDB for Redis instance.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
   };
 
   } // namespace Models

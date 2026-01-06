@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleContext_ == nullptr
-        && return this->instanceIds_ == nullptr; };
+        && this->instanceIds_ == nullptr; };
     // consoleContext Field Functions 
     bool hasConsoleContext() const { return this->consoleContext_ != nullptr;};
     void deleteConsoleContext() { this->consoleContext_ = nullptr;};
-    inline string consoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
+    inline string getConsoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
     inline DisableAutoResourceOptimizeRulesRequest& setConsoleContext(string consoleContext) { DARABONBA_PTR_SET_VALUE(consoleContext_, consoleContext) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline DisableAutoResourceOptimizeRulesRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
   protected:
     // The reserved parameter.
-    std::shared_ptr<string> consoleContext_ = nullptr;
+    shared_ptr<string> consoleContext_ {};
     // The database instance ID.
     // 
     // >  Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\\"Instance ID1\\", \\"Instance ID2\\"]`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
   };
 
   } // namespace Models

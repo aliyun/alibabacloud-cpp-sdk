@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbName_ == nullptr
-        && return this->instanceId_ == nullptr && return this->nodeId_ == nullptr && return this->schema_ == nullptr && return this->sql_ == nullptr; };
+        && this->instanceId_ == nullptr && this->nodeId_ == nullptr && this->schema_ == nullptr && this->sql_ == nullptr; };
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline DescribeQueryExplainRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeQueryExplainRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline DescribeQueryExplainRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline string schema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
+    inline string getSchema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
     inline DescribeQueryExplainRequest& setSchema(string schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
 
 
     // sql Field Functions 
     bool hasSql() const { return this->sql_ != nullptr;};
     void deleteSql() { this->sql_ = nullptr;};
-    inline string sql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
+    inline string getSql() const { DARABONBA_PTR_GET_DEFAULT(sql_, "") };
     inline DescribeQueryExplainRequest& setSql(string sql) { DARABONBA_PTR_SET_VALUE(sql_, sql) };
 
 
   protected:
-    std::shared_ptr<string> dbName_ = nullptr;
+    shared_ptr<string> dbName_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> schema_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> schema_ {};
     // This parameter is required.
-    std::shared_ptr<string> sql_ = nullptr;
+    shared_ptr<string> sql_ {};
   };
 
   } // namespace Models

@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ignoredUsers_ == nullptr
-        && return this->instanceId_ == nullptr && return this->killAllSessions_ == nullptr && return this->nodeId_ == nullptr && return this->sessionIds_ == nullptr; };
+        && this->instanceId_ == nullptr && this->killAllSessions_ == nullptr && this->nodeId_ == nullptr && this->sessionIds_ == nullptr; };
     // ignoredUsers Field Functions 
     bool hasIgnoredUsers() const { return this->ignoredUsers_ != nullptr;};
     void deleteIgnoredUsers() { this->ignoredUsers_ = nullptr;};
-    inline string ignoredUsers() const { DARABONBA_PTR_GET_DEFAULT(ignoredUsers_, "") };
+    inline string getIgnoredUsers() const { DARABONBA_PTR_GET_DEFAULT(ignoredUsers_, "") };
     inline CreateKillInstanceSessionTaskWithMaintainUserRequest& setIgnoredUsers(string ignoredUsers) { DARABONBA_PTR_SET_VALUE(ignoredUsers_, ignoredUsers) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateKillInstanceSessionTaskWithMaintainUserRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // killAllSessions Field Functions 
     bool hasKillAllSessions() const { return this->killAllSessions_ != nullptr;};
     void deleteKillAllSessions() { this->killAllSessions_ = nullptr;};
-    inline bool killAllSessions() const { DARABONBA_PTR_GET_DEFAULT(killAllSessions_, false) };
+    inline bool getKillAllSessions() const { DARABONBA_PTR_GET_DEFAULT(killAllSessions_, false) };
     inline CreateKillInstanceSessionTaskWithMaintainUserRequest& setKillAllSessions(bool killAllSessions) { DARABONBA_PTR_SET_VALUE(killAllSessions_, killAllSessions) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline CreateKillInstanceSessionTaskWithMaintainUserRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // sessionIds Field Functions 
     bool hasSessionIds() const { return this->sessionIds_ != nullptr;};
     void deleteSessionIds() { this->sessionIds_ = nullptr;};
-    inline string sessionIds() const { DARABONBA_PTR_GET_DEFAULT(sessionIds_, "") };
+    inline string getSessionIds() const { DARABONBA_PTR_GET_DEFAULT(sessionIds_, "") };
     inline CreateKillInstanceSessionTaskWithMaintainUserRequest& setSessionIds(string sessionIds) { DARABONBA_PTR_SET_VALUE(sessionIds_, sessionIds) };
 
 
   protected:
-    std::shared_ptr<string> ignoredUsers_ = nullptr;
+    shared_ptr<string> ignoredUsers_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<bool> killAllSessions_ = nullptr;
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> sessionIds_ = nullptr;
+    shared_ptr<bool> killAllSessions_ {};
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> sessionIds_ {};
   };
 
   } // namespace Models

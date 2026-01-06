@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->concurrencyControlTime_ == nullptr
-        && return this->consoleContext_ == nullptr && return this->instanceId_ == nullptr && return this->maxConcurrency_ == nullptr && return this->sqlKeywords_ == nullptr && return this->sqlType_ == nullptr; };
+        && this->consoleContext_ == nullptr && this->instanceId_ == nullptr && this->maxConcurrency_ == nullptr && this->sqlKeywords_ == nullptr && this->sqlType_ == nullptr; };
     // concurrencyControlTime Field Functions 
     bool hasConcurrencyControlTime() const { return this->concurrencyControlTime_ != nullptr;};
     void deleteConcurrencyControlTime() { this->concurrencyControlTime_ = nullptr;};
-    inline int64_t concurrencyControlTime() const { DARABONBA_PTR_GET_DEFAULT(concurrencyControlTime_, 0L) };
+    inline int64_t getConcurrencyControlTime() const { DARABONBA_PTR_GET_DEFAULT(concurrencyControlTime_, 0L) };
     inline EnableSqlConcurrencyControlRequest& setConcurrencyControlTime(int64_t concurrencyControlTime) { DARABONBA_PTR_SET_VALUE(concurrencyControlTime_, concurrencyControlTime) };
 
 
     // consoleContext Field Functions 
     bool hasConsoleContext() const { return this->consoleContext_ != nullptr;};
     void deleteConsoleContext() { this->consoleContext_ = nullptr;};
-    inline string consoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
+    inline string getConsoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
     inline EnableSqlConcurrencyControlRequest& setConsoleContext(string consoleContext) { DARABONBA_PTR_SET_VALUE(consoleContext_, consoleContext) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline EnableSqlConcurrencyControlRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maxConcurrency Field Functions 
     bool hasMaxConcurrency() const { return this->maxConcurrency_ != nullptr;};
     void deleteMaxConcurrency() { this->maxConcurrency_ = nullptr;};
-    inline int64_t maxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0L) };
+    inline int64_t getMaxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0L) };
     inline EnableSqlConcurrencyControlRequest& setMaxConcurrency(int64_t maxConcurrency) { DARABONBA_PTR_SET_VALUE(maxConcurrency_, maxConcurrency) };
 
 
     // sqlKeywords Field Functions 
     bool hasSqlKeywords() const { return this->sqlKeywords_ != nullptr;};
     void deleteSqlKeywords() { this->sqlKeywords_ = nullptr;};
-    inline string sqlKeywords() const { DARABONBA_PTR_GET_DEFAULT(sqlKeywords_, "") };
+    inline string getSqlKeywords() const { DARABONBA_PTR_GET_DEFAULT(sqlKeywords_, "") };
     inline EnableSqlConcurrencyControlRequest& setSqlKeywords(string sqlKeywords) { DARABONBA_PTR_SET_VALUE(sqlKeywords_, sqlKeywords) };
 
 
     // sqlType Field Functions 
     bool hasSqlType() const { return this->sqlType_ != nullptr;};
     void deleteSqlType() { this->sqlType_ = nullptr;};
-    inline string sqlType() const { DARABONBA_PTR_GET_DEFAULT(sqlType_, "") };
+    inline string getSqlType() const { DARABONBA_PTR_GET_DEFAULT(sqlType_, "") };
     inline EnableSqlConcurrencyControlRequest& setSqlType(string sqlType) { DARABONBA_PTR_SET_VALUE(sqlType_, sqlType) };
 
 
@@ -89,27 +89,27 @@ namespace Models
     // >  The throttling rule takes effect only within this duration.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> concurrencyControlTime_ = nullptr;
+    shared_ptr<int64_t> concurrencyControlTime_ {};
     // The reserved parameter.
-    std::shared_ptr<string> consoleContext_ = nullptr;
+    shared_ptr<string> consoleContext_ {};
     // The instance ID.
     // 
     // >  You must specify the instance ID only if your database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The maximum number of concurrent SQL statements. Set this parameter to a positive integer.
     // 
     // >  When the number of concurrent SQL statements that contain the specified keywords reaches this upper limit, the throttling rule is triggered.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> maxConcurrency_ = nullptr;
+    shared_ptr<int64_t> maxConcurrency_ {};
     // The keywords that are used to identify the SQL statements that need to be throttled.
     // 
     // >  If you specify multiple SQL keywords, separate them with tildes (~). If the number of concurrent SQL statements that contain all the specified SQL keywords reaches the specified upper limit, the throttling rule is triggered.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sqlKeywords_ = nullptr;
+    shared_ptr<string> sqlKeywords_ {};
     // The type of the SQL statements. Valid values:
     // 
     // *   **SELECT**
@@ -117,7 +117,7 @@ namespace Models
     // *   **DELETE**
     // 
     // This parameter is required.
-    std::shared_ptr<string> sqlType_ = nullptr;
+    shared_ptr<string> sqlType_ {};
   };
 
   } // namespace Models

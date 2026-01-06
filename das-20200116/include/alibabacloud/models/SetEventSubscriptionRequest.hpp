@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->active_ == nullptr
-        && return this->channelType_ == nullptr && return this->contactGroupName_ == nullptr && return this->contactName_ == nullptr && return this->dispatchRule_ == nullptr && return this->eventContext_ == nullptr
-        && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->level_ == nullptr && return this->minInterval_ == nullptr && return this->severity_ == nullptr; };
+        && this->channelType_ == nullptr && this->contactGroupName_ == nullptr && this->contactName_ == nullptr && this->dispatchRule_ == nullptr && this->eventContext_ == nullptr
+        && this->instanceId_ == nullptr && this->lang_ == nullptr && this->level_ == nullptr && this->minInterval_ == nullptr && this->severity_ == nullptr; };
     // active Field Functions 
     bool hasActive() const { return this->active_ != nullptr;};
     void deleteActive() { this->active_ = nullptr;};
-    inline string active() const { DARABONBA_PTR_GET_DEFAULT(active_, "") };
+    inline string getActive() const { DARABONBA_PTR_GET_DEFAULT(active_, "") };
     inline SetEventSubscriptionRequest& setActive(string active) { DARABONBA_PTR_SET_VALUE(active_, active) };
 
 
     // channelType Field Functions 
     bool hasChannelType() const { return this->channelType_ != nullptr;};
     void deleteChannelType() { this->channelType_ = nullptr;};
-    inline string channelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
+    inline string getChannelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
     inline SetEventSubscriptionRequest& setChannelType(string channelType) { DARABONBA_PTR_SET_VALUE(channelType_, channelType) };
 
 
     // contactGroupName Field Functions 
     bool hasContactGroupName() const { return this->contactGroupName_ != nullptr;};
     void deleteContactGroupName() { this->contactGroupName_ = nullptr;};
-    inline string contactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
+    inline string getContactGroupName() const { DARABONBA_PTR_GET_DEFAULT(contactGroupName_, "") };
     inline SetEventSubscriptionRequest& setContactGroupName(string contactGroupName) { DARABONBA_PTR_SET_VALUE(contactGroupName_, contactGroupName) };
 
 
     // contactName Field Functions 
     bool hasContactName() const { return this->contactName_ != nullptr;};
     void deleteContactName() { this->contactName_ = nullptr;};
-    inline string contactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
+    inline string getContactName() const { DARABONBA_PTR_GET_DEFAULT(contactName_, "") };
     inline SetEventSubscriptionRequest& setContactName(string contactName) { DARABONBA_PTR_SET_VALUE(contactName_, contactName) };
 
 
     // dispatchRule Field Functions 
     bool hasDispatchRule() const { return this->dispatchRule_ != nullptr;};
     void deleteDispatchRule() { this->dispatchRule_ = nullptr;};
-    inline string dispatchRule() const { DARABONBA_PTR_GET_DEFAULT(dispatchRule_, "") };
+    inline string getDispatchRule() const { DARABONBA_PTR_GET_DEFAULT(dispatchRule_, "") };
     inline SetEventSubscriptionRequest& setDispatchRule(string dispatchRule) { DARABONBA_PTR_SET_VALUE(dispatchRule_, dispatchRule) };
 
 
     // eventContext Field Functions 
     bool hasEventContext() const { return this->eventContext_ != nullptr;};
     void deleteEventContext() { this->eventContext_ = nullptr;};
-    inline string eventContext() const { DARABONBA_PTR_GET_DEFAULT(eventContext_, "") };
+    inline string getEventContext() const { DARABONBA_PTR_GET_DEFAULT(eventContext_, "") };
     inline SetEventSubscriptionRequest& setEventContext(string eventContext) { DARABONBA_PTR_SET_VALUE(eventContext_, eventContext) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SetEventSubscriptionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SetEventSubscriptionRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // level Field Functions 
     bool hasLevel() const { return this->level_ != nullptr;};
     void deleteLevel() { this->level_ = nullptr;};
-    inline string level() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+    inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
     inline SetEventSubscriptionRequest& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
 
 
     // minInterval Field Functions 
     bool hasMinInterval() const { return this->minInterval_ != nullptr;};
     void deleteMinInterval() { this->minInterval_ = nullptr;};
-    inline string minInterval() const { DARABONBA_PTR_GET_DEFAULT(minInterval_, "") };
+    inline string getMinInterval() const { DARABONBA_PTR_GET_DEFAULT(minInterval_, "") };
     inline SetEventSubscriptionRequest& setMinInterval(string minInterval) { DARABONBA_PTR_SET_VALUE(minInterval_, minInterval) };
 
 
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
-    inline string severity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+    inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
     inline SetEventSubscriptionRequest& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
 
 
@@ -134,18 +134,18 @@ namespace Models
     // 
     // *   **0**: disables the event subscription feature.
     // *   **1**: enables the event subscription feature.
-    std::shared_ptr<string> active_ = nullptr;
+    shared_ptr<string> active_ {};
     // The notification method. Valid values:
     // 
     // *   **hdm_alarm_sms**: text message.
     // *   **dingtalk**: DingTalk chatbot.
     // *   **hdm_alarm_sms_and_email**: text message and email.
     // *   **hdm_alarm_sms,dingtalk**: text message and DingTalk chatbot.
-    std::shared_ptr<string> channelType_ = nullptr;
+    shared_ptr<string> channelType_ {};
     // The name of the contact group that receives alert notifications. Separate multiple names with commas (,).
-    std::shared_ptr<string> contactGroupName_ = nullptr;
+    shared_ptr<string> contactGroupName_ {};
     // The name of the contact who receives alert notifications. Separate multiple names with commas (,).
-    std::shared_ptr<string> contactName_ = nullptr;
+    shared_ptr<string> contactName_ {};
     // The notification rules based on the event type. If you leave this parameter empty, the values of **MinInterval** and **ChannelType** prevail.
     // 
     // Specify this parameter in the following format: `{"silenced": {"Event type 1":Specifies whether to enable adaptive silence, "Event type 2":Specify whether to enable adaptive silence},"min_interval": {"Event type 1":Minimum interval between event notifications, "Event type 2":Minimum interval between event notifications},"alert_type": {"Event type 1":"Notification method", "Event type 2":"Notification method"}}`.
@@ -163,15 +163,15 @@ namespace Models
     //     *   **dingtalk**: DingTalk chatbot.
     //     *   **hdm_alarm_sms_and_email**: text message and email.
     //     *   **hdm_alarm_sms,dingtalk**: text message and DingTalk chatbot.
-    std::shared_ptr<string> dispatchRule_ = nullptr;
+    shared_ptr<string> dispatchRule_ {};
     // The supported event scenarios. You can set the value to **AllContext**, which indicates that all scenarios are supported.
-    std::shared_ptr<string> eventContext_ = nullptr;
+    shared_ptr<string> eventContext_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The language of event notifications. You can set the value to **zh-CN**, which indicates that event notifications are sent in Chinese.
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The risk level of the events. Valid values:
     // 
     // *   **Notice**: events that trigger notifications, including events at the **Notice**, **Optimization**, **Warn**, and **Critical** levels.
@@ -185,9 +185,9 @@ namespace Models
     // *   Optimization: events for which optimization suggestions are generated based on the status of the database.
     // *   Warn: events that may affect the running of the database.
     // *   Critical: events that affect the running of the database.
-    std::shared_ptr<string> level_ = nullptr;
+    shared_ptr<string> level_ {};
     // The minimum interval between consecutive event notifications. Unit: seconds.
-    std::shared_ptr<string> minInterval_ = nullptr;
+    shared_ptr<string> minInterval_ {};
     // The alert severity based on the event type.
     // 
     // Specify this parameter in the following format: `{"Event type 1":"Alert severity", "Event type 2":"Alert severity"}`.
@@ -206,7 +206,7 @@ namespace Models
     // *   **noticed**
     // *   **warning**
     // *   **critical**
-    std::shared_ptr<string> severity_ = nullptr;
+    shared_ptr<string> severity_ {};
   };
 
   } // namespace Models

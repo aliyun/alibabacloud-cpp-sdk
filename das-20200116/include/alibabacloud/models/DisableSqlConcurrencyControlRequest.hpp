@@ -34,41 +34,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleContext_ == nullptr
-        && return this->instanceId_ == nullptr && return this->itemId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->itemId_ == nullptr; };
     // consoleContext Field Functions 
     bool hasConsoleContext() const { return this->consoleContext_ != nullptr;};
     void deleteConsoleContext() { this->consoleContext_ = nullptr;};
-    inline string consoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
+    inline string getConsoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
     inline DisableSqlConcurrencyControlRequest& setConsoleContext(string consoleContext) { DARABONBA_PTR_SET_VALUE(consoleContext_, consoleContext) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DisableSqlConcurrencyControlRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // itemId Field Functions 
     bool hasItemId() const { return this->itemId_ != nullptr;};
     void deleteItemId() { this->itemId_ = nullptr;};
-    inline int64_t itemId() const { DARABONBA_PTR_GET_DEFAULT(itemId_, 0L) };
+    inline int64_t getItemId() const { DARABONBA_PTR_GET_DEFAULT(itemId_, 0L) };
     inline DisableSqlConcurrencyControlRequest& setItemId(int64_t itemId) { DARABONBA_PTR_SET_VALUE(itemId_, itemId) };
 
 
   protected:
     // The reserved parameter.
-    std::shared_ptr<string> consoleContext_ = nullptr;
+    shared_ptr<string> consoleContext_ {};
     // The instance ID.
     // 
     // >  The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the throttling rule that is applied to the instance. You can call the [GetRunningSqlConcurrencyControlRules](https://help.aliyun.com/document_detail/223538.html) operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> itemId_ = nullptr;
+    shared_ptr<int64_t> itemId_ {};
   };
 
   } // namespace Models

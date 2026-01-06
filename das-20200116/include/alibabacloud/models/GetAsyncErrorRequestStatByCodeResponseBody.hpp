@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETASYNCERRORREQUESTSTATBYCODERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETASYNCERRORREQUESTSTATBYCODERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetAsyncErrorRequestStatByCodeResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,61 +38,231 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(complete, complete_);
+        DARABONBA_PTR_TO_JSON(fail, fail_);
+        DARABONBA_PTR_TO_JSON(isFinish, isFinish_);
+        DARABONBA_PTR_TO_JSON(result, result_);
+        DARABONBA_PTR_TO_JSON(resultId, resultId_);
+        DARABONBA_PTR_TO_JSON(state, state_);
+        DARABONBA_PTR_TO_JSON(timestamp, timestamp_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(complete, complete_);
+        DARABONBA_PTR_FROM_JSON(fail, fail_);
+        DARABONBA_PTR_FROM_JSON(isFinish, isFinish_);
+        DARABONBA_PTR_FROM_JSON(result, result_);
+        DARABONBA_PTR_FROM_JSON(resultId, resultId_);
+        DARABONBA_PTR_FROM_JSON(state, state_);
+        DARABONBA_PTR_FROM_JSON(timestamp, timestamp_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Result : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Result& obj) { 
+          DARABONBA_PTR_TO_JSON(count, count_);
+          DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
+          DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+        };
+        friend void from_json(const Darabonba::Json& j, Result& obj) { 
+          DARABONBA_PTR_FROM_JSON(count, count_);
+          DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
+          DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+        };
+        Result() = default ;
+        Result(const Result &) = default ;
+        Result(Result &&) = default ;
+        Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Result() = default ;
+        Result& operator=(const Result &) = default ;
+        Result& operator=(Result &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->count_ == nullptr
+        && this->errorCode_ == nullptr && this->instanceId_ == nullptr; };
+        // count Field Functions 
+        bool hasCount() const { return this->count_ != nullptr;};
+        void deleteCount() { this->count_ = nullptr;};
+        inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+        inline Result& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+        // errorCode Field Functions 
+        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+        void deleteErrorCode() { this->errorCode_ = nullptr;};
+        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+        inline Result& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline Result& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      protected:
+        // The number of SQL queries corresponding to the error code.
+        shared_ptr<int32_t> count_ {};
+        // The error code returned if the request failed.
+        shared_ptr<string> errorCode_ {};
+        // The instance ID.
+        shared_ptr<string> instanceId_ {};
+      };
+
+      virtual bool empty() const override { return this->complete_ == nullptr
+        && this->fail_ == nullptr && this->isFinish_ == nullptr && this->result_ == nullptr && this->resultId_ == nullptr && this->state_ == nullptr
+        && this->timestamp_ == nullptr; };
+      // complete Field Functions 
+      bool hasComplete() const { return this->complete_ != nullptr;};
+      void deleteComplete() { this->complete_ = nullptr;};
+      inline bool getComplete() const { DARABONBA_PTR_GET_DEFAULT(complete_, false) };
+      inline Data& setComplete(bool complete) { DARABONBA_PTR_SET_VALUE(complete_, complete) };
+
+
+      // fail Field Functions 
+      bool hasFail() const { return this->fail_ != nullptr;};
+      void deleteFail() { this->fail_ = nullptr;};
+      inline bool getFail() const { DARABONBA_PTR_GET_DEFAULT(fail_, false) };
+      inline Data& setFail(bool fail) { DARABONBA_PTR_SET_VALUE(fail_, fail) };
+
+
+      // isFinish Field Functions 
+      bool hasIsFinish() const { return this->isFinish_ != nullptr;};
+      void deleteIsFinish() { this->isFinish_ = nullptr;};
+      inline bool getIsFinish() const { DARABONBA_PTR_GET_DEFAULT(isFinish_, false) };
+      inline Data& setIsFinish(bool isFinish) { DARABONBA_PTR_SET_VALUE(isFinish_, isFinish) };
+
+
+      // result Field Functions 
+      bool hasResult() const { return this->result_ != nullptr;};
+      void deleteResult() { this->result_ = nullptr;};
+      inline const vector<Data::Result> & getResult() const { DARABONBA_PTR_GET_CONST(result_, vector<Data::Result>) };
+      inline vector<Data::Result> getResult() { DARABONBA_PTR_GET(result_, vector<Data::Result>) };
+      inline Data& setResult(const vector<Data::Result> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+      inline Data& setResult(vector<Data::Result> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+
+
+      // resultId Field Functions 
+      bool hasResultId() const { return this->resultId_ != nullptr;};
+      void deleteResultId() { this->resultId_ = nullptr;};
+      inline string getResultId() const { DARABONBA_PTR_GET_DEFAULT(resultId_, "") };
+      inline Data& setResultId(string resultId) { DARABONBA_PTR_SET_VALUE(resultId_, resultId) };
+
+
+      // state Field Functions 
+      bool hasState() const { return this->state_ != nullptr;};
+      void deleteState() { this->state_ = nullptr;};
+      inline string getState() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
+      inline Data& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
+      // timestamp Field Functions 
+      bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+      void deleteTimestamp() { this->timestamp_ = nullptr;};
+      inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+      inline Data& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
+    protected:
+      // Indicates whether the asynchronous request was complete.
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> complete_ {};
+      // Indicates whether the asynchronous request failed. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> fail_ {};
+      // Indicates whether the asynchronous request was complete. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> isFinish_ {};
+      // The number of SQL queries corresponding to the error code.
+      shared_ptr<vector<Data::Result>> result_ {};
+      // The ID of the asynchronous request.
+      shared_ptr<string> resultId_ {};
+      // The state of the asynchronous request. Valid values:
+      // 
+      // *   **RUNNING**
+      // *   **SUCCESS**
+      // *   **FAIL**
+      shared_ptr<string> state_ {};
+      // The time when the asynchronous request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      shared_ptr<int64_t> timestamp_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int64_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
+    inline int64_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0L) };
     inline GetAsyncErrorRequestStatByCodeResponseBody& setCode(int64_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetAsyncErrorRequestStatByCodeResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetAsyncErrorRequestStatByCodeResponseBodyData) };
-    inline GetAsyncErrorRequestStatByCodeResponseBodyData data() { DARABONBA_PTR_GET(data_, GetAsyncErrorRequestStatByCodeResponseBodyData) };
-    inline GetAsyncErrorRequestStatByCodeResponseBody& setData(const GetAsyncErrorRequestStatByCodeResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetAsyncErrorRequestStatByCodeResponseBody& setData(GetAsyncErrorRequestStatByCodeResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetAsyncErrorRequestStatByCodeResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetAsyncErrorRequestStatByCodeResponseBody::Data) };
+    inline GetAsyncErrorRequestStatByCodeResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetAsyncErrorRequestStatByCodeResponseBody::Data) };
+    inline GetAsyncErrorRequestStatByCodeResponseBody& setData(const GetAsyncErrorRequestStatByCodeResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetAsyncErrorRequestStatByCodeResponseBody& setData(GetAsyncErrorRequestStatByCodeResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetAsyncErrorRequestStatByCodeResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetAsyncErrorRequestStatByCodeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetAsyncErrorRequestStatByCodeResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The HTTP status code returned.
-    std::shared_ptr<int64_t> code_ = nullptr;
+    shared_ptr<int64_t> code_ {};
     // The data returned.
-    std::shared_ptr<GetAsyncErrorRequestStatByCodeResponseBodyData> data_ = nullptr;
+    shared_ptr<GetAsyncErrorRequestStatByCodeResponseBody::Data> data_ {};
     // The returned message.
     // 
     // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

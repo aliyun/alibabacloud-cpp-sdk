@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeCount_ == nullptr
-        && return this->totalCount_ == nullptr; };
+        && this->totalCount_ == nullptr; };
     // activeCount Field Functions 
     bool hasActiveCount() const { return this->activeCount_ != nullptr;};
     void deleteActiveCount() { this->activeCount_ = nullptr;};
-    inline int64_t activeCount() const { DARABONBA_PTR_GET_DEFAULT(activeCount_, 0L) };
+    inline int64_t getActiveCount() const { DARABONBA_PTR_GET_DEFAULT(activeCount_, 0L) };
     inline DataSessionStatDbStatsValue& setActiveCount(int64_t activeCount) { DARABONBA_PTR_SET_VALUE(activeCount_, activeCount) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline DataSessionStatDbStatsValue& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The number of active namespaces.
-    std::shared_ptr<int64_t> activeCount_ = nullptr;
+    shared_ptr<int64_t> activeCount_ {};
     // The total number of namespaces.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sqlId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->count_ == nullptr; };
+        && this->instanceId_ == nullptr && this->count_ == nullptr; };
     // sqlId Field Functions 
     bool hasSqlId() const { return this->sqlId_ != nullptr;};
     void deleteSqlId() { this->sqlId_ = nullptr;};
-    inline string sqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, "") };
+    inline string getSqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, "") };
     inline DataResultValue& setSqlId(string sqlId) { DARABONBA_PTR_SET_VALUE(sqlId_, sqlId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DataResultValue& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline DataResultValue& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
   protected:
-    std::shared_ptr<string> sqlId_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<string> sqlId_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> count_ {};
   };
 
   } // namespace Models

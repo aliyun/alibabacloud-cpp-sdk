@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETQUERYOPTIMIZETAGRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETQUERYOPTIMIZETAGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetQueryOptimizeTagResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,61 +37,116 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Comments, comments_);
+        DARABONBA_PTR_TO_JSON(SqlId, sqlId_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Comments, comments_);
+        DARABONBA_PTR_FROM_JSON(SqlId, sqlId_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->comments_ == nullptr
+        && this->sqlId_ == nullptr && this->tags_ == nullptr; };
+      // comments Field Functions 
+      bool hasComments() const { return this->comments_ != nullptr;};
+      void deleteComments() { this->comments_ = nullptr;};
+      inline string getComments() const { DARABONBA_PTR_GET_DEFAULT(comments_, "") };
+      inline Data& setComments(string comments) { DARABONBA_PTR_SET_VALUE(comments_, comments) };
+
+
+      // sqlId Field Functions 
+      bool hasSqlId() const { return this->sqlId_ != nullptr;};
+      void deleteSqlId() { this->sqlId_ = nullptr;};
+      inline string getSqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, "") };
+      inline Data& setSqlId(string sqlId) { DARABONBA_PTR_SET_VALUE(sqlId_, sqlId) };
+
+
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+      inline Data& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+
+
+    protected:
+      // The remarks.
+      shared_ptr<string> comments_ {};
+      // The SQL template ID.
+      shared_ptr<string> sqlId_ {};
+      // The SQL tags. Multiple tags are separated by commas (,).
+      shared_ptr<string> tags_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetQueryOptimizeTagResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const GetQueryOptimizeTagResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetQueryOptimizeTagResponseBodyData) };
-    inline GetQueryOptimizeTagResponseBodyData data() { DARABONBA_PTR_GET(data_, GetQueryOptimizeTagResponseBodyData) };
-    inline GetQueryOptimizeTagResponseBody& setData(const GetQueryOptimizeTagResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline GetQueryOptimizeTagResponseBody& setData(GetQueryOptimizeTagResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetQueryOptimizeTagResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, GetQueryOptimizeTagResponseBody::Data) };
+    inline GetQueryOptimizeTagResponseBody::Data getData() { DARABONBA_PTR_GET(data_, GetQueryOptimizeTagResponseBody::Data) };
+    inline GetQueryOptimizeTagResponseBody& setData(const GetQueryOptimizeTagResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetQueryOptimizeTagResponseBody& setData(GetQueryOptimizeTagResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetQueryOptimizeTagResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetQueryOptimizeTagResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline GetQueryOptimizeTagResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The HTTP status code returned.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The returned SQL tag data.
-    std::shared_ptr<GetQueryOptimizeTagResponseBodyData> data_ = nullptr;
+    shared_ptr<GetQueryOptimizeTagResponseBody::Data> data_ {};
     // The returned message.
     // 
     // >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models

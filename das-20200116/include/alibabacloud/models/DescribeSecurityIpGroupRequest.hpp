@@ -33,13 +33,13 @@ namespace Models
     // regionName Field Functions 
     bool hasRegionName() const { return this->regionName_ != nullptr;};
     void deleteRegionName() { this->regionName_ = nullptr;};
-    inline string regionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
+    inline string getRegionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
     inline DescribeSecurityIPGroupRequest& setRegionName(string regionName) { DARABONBA_PTR_SET_VALUE(regionName_, regionName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> regionName_ = nullptr;
+    shared_ptr<string> regionName_ {};
   };
 
   } // namespace Models

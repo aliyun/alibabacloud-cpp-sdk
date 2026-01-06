@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->engine_ == nullptr
-        && return this->instanceId_ == nullptr && return this->scaleType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->scaleType_ == nullptr; };
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline DisableInstanceDasConfigRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DisableInstanceDasConfigRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // scaleType Field Functions 
     bool hasScaleType() const { return this->scaleType_ != nullptr;};
     void deleteScaleType() { this->scaleType_ = nullptr;};
-    inline string scaleType() const { DARABONBA_PTR_GET_DEFAULT(scaleType_, "") };
+    inline string getScaleType() const { DARABONBA_PTR_GET_DEFAULT(scaleType_, "") };
     inline DisableInstanceDasConfigRequest& setScaleType(string scaleType) { DARABONBA_PTR_SET_VALUE(scaleType_, scaleType) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The database engine. Set the value to Redis.
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The database instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The type of auto scaling. Valid values:
     // 
     // *   **specScale**: The specifications of a database instance are automatically scaled up or down.
@@ -72,7 +72,7 @@ namespace Models
     // *   **bandwidthScale**: The bandwidth of a database instance is automatically increased or decreased.
     // 
     // This parameter is required.
-    std::shared_ptr<string> scaleType_ = nullptr;
+    shared_ptr<string> scaleType_ {};
   };
 
   } // namespace Models

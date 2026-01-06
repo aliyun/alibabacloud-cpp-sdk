@@ -1479,7 +1479,7 @@ namespace DAS20200116
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDasAgentSSEResponse
        */
-      FutrueGenerator<Models::GetDasAgentSSEResponse> getDasAgentSSEWithSSE(const Models::GetDasAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::GetDasAgentSSEResponse> getDasAgentSSEWithSSE(const Models::GetDasAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary DAS大模型能力异步逻辑接口

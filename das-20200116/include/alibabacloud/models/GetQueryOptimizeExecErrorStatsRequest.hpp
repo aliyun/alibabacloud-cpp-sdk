@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->asc_ == nullptr
-        && return this->dbNames_ == nullptr && return this->engine_ == nullptr && return this->instanceIds_ == nullptr && return this->keywords_ == nullptr && return this->logicalOperator_ == nullptr
-        && return this->orderBy_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->region_ == nullptr && return this->time_ == nullptr; };
+        && this->dbNames_ == nullptr && this->engine_ == nullptr && this->instanceIds_ == nullptr && this->keywords_ == nullptr && this->logicalOperator_ == nullptr
+        && this->orderBy_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr && this->time_ == nullptr; };
     // asc Field Functions 
     bool hasAsc() const { return this->asc_ != nullptr;};
     void deleteAsc() { this->asc_ = nullptr;};
-    inline string asc() const { DARABONBA_PTR_GET_DEFAULT(asc_, "") };
+    inline string getAsc() const { DARABONBA_PTR_GET_DEFAULT(asc_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setAsc(string asc) { DARABONBA_PTR_SET_VALUE(asc_, asc) };
 
 
     // dbNames Field Functions 
     bool hasDbNames() const { return this->dbNames_ != nullptr;};
     void deleteDbNames() { this->dbNames_ = nullptr;};
-    inline string dbNames() const { DARABONBA_PTR_GET_DEFAULT(dbNames_, "") };
+    inline string getDbNames() const { DARABONBA_PTR_GET_DEFAULT(dbNames_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setDbNames(string dbNames) { DARABONBA_PTR_SET_VALUE(dbNames_, dbNames) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // keywords Field Functions 
     bool hasKeywords() const { return this->keywords_ != nullptr;};
     void deleteKeywords() { this->keywords_ = nullptr;};
-    inline string keywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
+    inline string getKeywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setKeywords(string keywords) { DARABONBA_PTR_SET_VALUE(keywords_, keywords) };
 
 
     // logicalOperator Field Functions 
     bool hasLogicalOperator() const { return this->logicalOperator_ != nullptr;};
     void deleteLogicalOperator() { this->logicalOperator_ = nullptr;};
-    inline string logicalOperator() const { DARABONBA_PTR_GET_DEFAULT(logicalOperator_, "") };
+    inline string getLogicalOperator() const { DARABONBA_PTR_GET_DEFAULT(logicalOperator_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setLogicalOperator(string logicalOperator) { DARABONBA_PTR_SET_VALUE(logicalOperator_, logicalOperator) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline string pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
+    inline string getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setPageNo(string pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // time Field Functions 
     bool hasTime() const { return this->time_ != nullptr;};
     void deleteTime() { this->time_ = nullptr;};
-    inline string time() const { DARABONBA_PTR_GET_DEFAULT(time_, "") };
+    inline string getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, "") };
     inline GetQueryOptimizeExecErrorStatsRequest& setTime(string time) { DARABONBA_PTR_SET_VALUE(time_, time) };
 
 
@@ -134,9 +134,9 @@ namespace Models
     // 
     // *   **true**: sorts the returned entries in ascending order.
     // *   **false**: does not sort the returned entries in ascending order.
-    std::shared_ptr<string> asc_ = nullptr;
+    shared_ptr<string> asc_ {};
     // The name of the database to be queried.
-    std::shared_ptr<string> dbNames_ = nullptr;
+    shared_ptr<string> dbNames_ {};
     // The database engine. Valid values:
     // 
     // *   **MySQL**
@@ -144,26 +144,26 @@ namespace Models
     // *   **PostgreSQL**
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The instance IDs. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // The keywords of the SQL template. Separate multiple keywords with spaces.
-    std::shared_ptr<string> keywords_ = nullptr;
+    shared_ptr<string> keywords_ {};
     // The logical relationship between multiple keywords. Valid values:
     // 
     // *   **or**
     // *   **and**
-    std::shared_ptr<string> logicalOperator_ = nullptr;
+    shared_ptr<string> logicalOperator_ {};
     // The field by which to sort the returned entries. Only error_count is supported, which specifies that the entries are sorted based on the number of failed executions.
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> orderBy_ {};
     // The page number. Pages start from page 1. Default value: 1.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pageNo_ = nullptr;
+    shared_ptr<string> pageNo_ {};
     // The number of entries per page. Default value: 10.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The region in which the instance resides. Valid values:
     // 
     // *   **cn-china**: Chinese mainland
@@ -173,11 +173,11 @@ namespace Models
     // This parameter takes effect only if **InstanceIds** is left empty. If you leave **InstanceIds** empty, the system obtains data from the region set by **Region**. By default, Region is set to **cn-china**. If you specify **InstanceIds**, **Region** does not take effect and the system obtains data from the region in which the first specified instance resides.****
     // 
     // >  Set this parameter to **cn-china** for the instances that are created in the regions in the Chinese mainland.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // The time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
     // 
     // This parameter is required.
-    std::shared_ptr<string> time_ = nullptr;
+    shared_ptr<string> time_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEQUERYEXPLAINRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeQueryExplainResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,52 +38,395 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Argument, argument_);
+        DARABONBA_PTR_TO_JSON(AvgRowSize, avgRowSize_);
+        DARABONBA_PTR_TO_JSON(DefinedValues, definedValues_);
+        DARABONBA_PTR_TO_JSON(EstimateCPU, estimateCPU_);
+        DARABONBA_PTR_TO_JSON(EstimateExecutions, estimateExecutions_);
+        DARABONBA_PTR_TO_JSON(EstimateIO, estimateIO_);
+        DARABONBA_PTR_TO_JSON(EstimateRows, estimateRows_);
+        DARABONBA_PTR_TO_JSON(Extra, extra_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(IndexList, indexList_);
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(KeyLen, keyLen_);
+        DARABONBA_PTR_TO_JSON(LogicalOp, logicalOp_);
+        DARABONBA_PTR_TO_JSON(LogicalPlanList, logicalPlanList_);
+        DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+        DARABONBA_PTR_TO_JSON(OutputList, outputList_);
+        DARABONBA_PTR_TO_JSON(Parallel, parallel_);
+        DARABONBA_PTR_TO_JSON(Parent, parent_);
+        DARABONBA_PTR_TO_JSON(PhysicalOp, physicalOp_);
+        DARABONBA_PTR_TO_JSON(PossibleKeys, possibleKeys_);
+        DARABONBA_PTR_TO_JSON(QueryPlan, queryPlan_);
+        DARABONBA_PTR_TO_JSON(Ref, ref_);
+        DARABONBA_PTR_TO_JSON(Rows, rows_);
+        DARABONBA_PTR_TO_JSON(SelectType, selectType_);
+        DARABONBA_PTR_TO_JSON(StmtId, stmtId_);
+        DARABONBA_PTR_TO_JSON(StmtText, stmtText_);
+        DARABONBA_PTR_TO_JSON(Table, table_);
+        DARABONBA_PTR_TO_JSON(TableList, tableList_);
+        DARABONBA_PTR_TO_JSON(TotalSubtreeCost, totalSubtreeCost_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+        DARABONBA_PTR_TO_JSON(Warnings, warnings_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Argument, argument_);
+        DARABONBA_PTR_FROM_JSON(AvgRowSize, avgRowSize_);
+        DARABONBA_PTR_FROM_JSON(DefinedValues, definedValues_);
+        DARABONBA_PTR_FROM_JSON(EstimateCPU, estimateCPU_);
+        DARABONBA_PTR_FROM_JSON(EstimateExecutions, estimateExecutions_);
+        DARABONBA_PTR_FROM_JSON(EstimateIO, estimateIO_);
+        DARABONBA_PTR_FROM_JSON(EstimateRows, estimateRows_);
+        DARABONBA_PTR_FROM_JSON(Extra, extra_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(IndexList, indexList_);
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(KeyLen, keyLen_);
+        DARABONBA_PTR_FROM_JSON(LogicalOp, logicalOp_);
+        DARABONBA_PTR_FROM_JSON(LogicalPlanList, logicalPlanList_);
+        DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+        DARABONBA_PTR_FROM_JSON(OutputList, outputList_);
+        DARABONBA_PTR_FROM_JSON(Parallel, parallel_);
+        DARABONBA_PTR_FROM_JSON(Parent, parent_);
+        DARABONBA_PTR_FROM_JSON(PhysicalOp, physicalOp_);
+        DARABONBA_PTR_FROM_JSON(PossibleKeys, possibleKeys_);
+        DARABONBA_PTR_FROM_JSON(QueryPlan, queryPlan_);
+        DARABONBA_PTR_FROM_JSON(Ref, ref_);
+        DARABONBA_PTR_FROM_JSON(Rows, rows_);
+        DARABONBA_PTR_FROM_JSON(SelectType, selectType_);
+        DARABONBA_PTR_FROM_JSON(StmtId, stmtId_);
+        DARABONBA_PTR_FROM_JSON(StmtText, stmtText_);
+        DARABONBA_PTR_FROM_JSON(Table, table_);
+        DARABONBA_PTR_FROM_JSON(TableList, tableList_);
+        DARABONBA_PTR_FROM_JSON(TotalSubtreeCost, totalSubtreeCost_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+        DARABONBA_PTR_FROM_JSON(Warnings, warnings_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->argument_ == nullptr
+        && this->avgRowSize_ == nullptr && this->definedValues_ == nullptr && this->estimateCPU_ == nullptr && this->estimateExecutions_ == nullptr && this->estimateIO_ == nullptr
+        && this->estimateRows_ == nullptr && this->extra_ == nullptr && this->id_ == nullptr && this->indexList_ == nullptr && this->key_ == nullptr
+        && this->keyLen_ == nullptr && this->logicalOp_ == nullptr && this->logicalPlanList_ == nullptr && this->nodeId_ == nullptr && this->outputList_ == nullptr
+        && this->parallel_ == nullptr && this->parent_ == nullptr && this->physicalOp_ == nullptr && this->possibleKeys_ == nullptr && this->queryPlan_ == nullptr
+        && this->ref_ == nullptr && this->rows_ == nullptr && this->selectType_ == nullptr && this->stmtId_ == nullptr && this->stmtText_ == nullptr
+        && this->table_ == nullptr && this->tableList_ == nullptr && this->totalSubtreeCost_ == nullptr && this->type_ == nullptr && this->warnings_ == nullptr; };
+      // argument Field Functions 
+      bool hasArgument() const { return this->argument_ != nullptr;};
+      void deleteArgument() { this->argument_ = nullptr;};
+      inline string getArgument() const { DARABONBA_PTR_GET_DEFAULT(argument_, "") };
+      inline Data& setArgument(string argument) { DARABONBA_PTR_SET_VALUE(argument_, argument) };
+
+
+      // avgRowSize Field Functions 
+      bool hasAvgRowSize() const { return this->avgRowSize_ != nullptr;};
+      void deleteAvgRowSize() { this->avgRowSize_ = nullptr;};
+      inline string getAvgRowSize() const { DARABONBA_PTR_GET_DEFAULT(avgRowSize_, "") };
+      inline Data& setAvgRowSize(string avgRowSize) { DARABONBA_PTR_SET_VALUE(avgRowSize_, avgRowSize) };
+
+
+      // definedValues Field Functions 
+      bool hasDefinedValues() const { return this->definedValues_ != nullptr;};
+      void deleteDefinedValues() { this->definedValues_ = nullptr;};
+      inline string getDefinedValues() const { DARABONBA_PTR_GET_DEFAULT(definedValues_, "") };
+      inline Data& setDefinedValues(string definedValues) { DARABONBA_PTR_SET_VALUE(definedValues_, definedValues) };
+
+
+      // estimateCPU Field Functions 
+      bool hasEstimateCPU() const { return this->estimateCPU_ != nullptr;};
+      void deleteEstimateCPU() { this->estimateCPU_ = nullptr;};
+      inline string getEstimateCPU() const { DARABONBA_PTR_GET_DEFAULT(estimateCPU_, "") };
+      inline Data& setEstimateCPU(string estimateCPU) { DARABONBA_PTR_SET_VALUE(estimateCPU_, estimateCPU) };
+
+
+      // estimateExecutions Field Functions 
+      bool hasEstimateExecutions() const { return this->estimateExecutions_ != nullptr;};
+      void deleteEstimateExecutions() { this->estimateExecutions_ = nullptr;};
+      inline string getEstimateExecutions() const { DARABONBA_PTR_GET_DEFAULT(estimateExecutions_, "") };
+      inline Data& setEstimateExecutions(string estimateExecutions) { DARABONBA_PTR_SET_VALUE(estimateExecutions_, estimateExecutions) };
+
+
+      // estimateIO Field Functions 
+      bool hasEstimateIO() const { return this->estimateIO_ != nullptr;};
+      void deleteEstimateIO() { this->estimateIO_ = nullptr;};
+      inline string getEstimateIO() const { DARABONBA_PTR_GET_DEFAULT(estimateIO_, "") };
+      inline Data& setEstimateIO(string estimateIO) { DARABONBA_PTR_SET_VALUE(estimateIO_, estimateIO) };
+
+
+      // estimateRows Field Functions 
+      bool hasEstimateRows() const { return this->estimateRows_ != nullptr;};
+      void deleteEstimateRows() { this->estimateRows_ = nullptr;};
+      inline string getEstimateRows() const { DARABONBA_PTR_GET_DEFAULT(estimateRows_, "") };
+      inline Data& setEstimateRows(string estimateRows) { DARABONBA_PTR_SET_VALUE(estimateRows_, estimateRows) };
+
+
+      // extra Field Functions 
+      bool hasExtra() const { return this->extra_ != nullptr;};
+      void deleteExtra() { this->extra_ = nullptr;};
+      inline string getExtra() const { DARABONBA_PTR_GET_DEFAULT(extra_, "") };
+      inline Data& setExtra(string extra) { DARABONBA_PTR_SET_VALUE(extra_, extra) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Data& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // indexList Field Functions 
+      bool hasIndexList() const { return this->indexList_ != nullptr;};
+      void deleteIndexList() { this->indexList_ = nullptr;};
+      inline const vector<string> & getIndexList() const { DARABONBA_PTR_GET_CONST(indexList_, vector<string>) };
+      inline vector<string> getIndexList() { DARABONBA_PTR_GET(indexList_, vector<string>) };
+      inline Data& setIndexList(const vector<string> & indexList) { DARABONBA_PTR_SET_VALUE(indexList_, indexList) };
+      inline Data& setIndexList(vector<string> && indexList) { DARABONBA_PTR_SET_RVALUE(indexList_, indexList) };
+
+
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Data& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // keyLen Field Functions 
+      bool hasKeyLen() const { return this->keyLen_ != nullptr;};
+      void deleteKeyLen() { this->keyLen_ = nullptr;};
+      inline string getKeyLen() const { DARABONBA_PTR_GET_DEFAULT(keyLen_, "") };
+      inline Data& setKeyLen(string keyLen) { DARABONBA_PTR_SET_VALUE(keyLen_, keyLen) };
+
+
+      // logicalOp Field Functions 
+      bool hasLogicalOp() const { return this->logicalOp_ != nullptr;};
+      void deleteLogicalOp() { this->logicalOp_ = nullptr;};
+      inline string getLogicalOp() const { DARABONBA_PTR_GET_DEFAULT(logicalOp_, "") };
+      inline Data& setLogicalOp(string logicalOp) { DARABONBA_PTR_SET_VALUE(logicalOp_, logicalOp) };
+
+
+      // logicalPlanList Field Functions 
+      bool hasLogicalPlanList() const { return this->logicalPlanList_ != nullptr;};
+      void deleteLogicalPlanList() { this->logicalPlanList_ = nullptr;};
+      inline const vector<string> & getLogicalPlanList() const { DARABONBA_PTR_GET_CONST(logicalPlanList_, vector<string>) };
+      inline vector<string> getLogicalPlanList() { DARABONBA_PTR_GET(logicalPlanList_, vector<string>) };
+      inline Data& setLogicalPlanList(const vector<string> & logicalPlanList) { DARABONBA_PTR_SET_VALUE(logicalPlanList_, logicalPlanList) };
+      inline Data& setLogicalPlanList(vector<string> && logicalPlanList) { DARABONBA_PTR_SET_RVALUE(logicalPlanList_, logicalPlanList) };
+
+
+      // nodeId Field Functions 
+      bool hasNodeId() const { return this->nodeId_ != nullptr;};
+      void deleteNodeId() { this->nodeId_ = nullptr;};
+      inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+      inline Data& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+      // outputList Field Functions 
+      bool hasOutputList() const { return this->outputList_ != nullptr;};
+      void deleteOutputList() { this->outputList_ = nullptr;};
+      inline string getOutputList() const { DARABONBA_PTR_GET_DEFAULT(outputList_, "") };
+      inline Data& setOutputList(string outputList) { DARABONBA_PTR_SET_VALUE(outputList_, outputList) };
+
+
+      // parallel Field Functions 
+      bool hasParallel() const { return this->parallel_ != nullptr;};
+      void deleteParallel() { this->parallel_ = nullptr;};
+      inline string getParallel() const { DARABONBA_PTR_GET_DEFAULT(parallel_, "") };
+      inline Data& setParallel(string parallel) { DARABONBA_PTR_SET_VALUE(parallel_, parallel) };
+
+
+      // parent Field Functions 
+      bool hasParent() const { return this->parent_ != nullptr;};
+      void deleteParent() { this->parent_ = nullptr;};
+      inline string getParent() const { DARABONBA_PTR_GET_DEFAULT(parent_, "") };
+      inline Data& setParent(string parent) { DARABONBA_PTR_SET_VALUE(parent_, parent) };
+
+
+      // physicalOp Field Functions 
+      bool hasPhysicalOp() const { return this->physicalOp_ != nullptr;};
+      void deletePhysicalOp() { this->physicalOp_ = nullptr;};
+      inline string getPhysicalOp() const { DARABONBA_PTR_GET_DEFAULT(physicalOp_, "") };
+      inline Data& setPhysicalOp(string physicalOp) { DARABONBA_PTR_SET_VALUE(physicalOp_, physicalOp) };
+
+
+      // possibleKeys Field Functions 
+      bool hasPossibleKeys() const { return this->possibleKeys_ != nullptr;};
+      void deletePossibleKeys() { this->possibleKeys_ = nullptr;};
+      inline string getPossibleKeys() const { DARABONBA_PTR_GET_DEFAULT(possibleKeys_, "") };
+      inline Data& setPossibleKeys(string possibleKeys) { DARABONBA_PTR_SET_VALUE(possibleKeys_, possibleKeys) };
+
+
+      // queryPlan Field Functions 
+      bool hasQueryPlan() const { return this->queryPlan_ != nullptr;};
+      void deleteQueryPlan() { this->queryPlan_ = nullptr;};
+      inline string getQueryPlan() const { DARABONBA_PTR_GET_DEFAULT(queryPlan_, "") };
+      inline Data& setQueryPlan(string queryPlan) { DARABONBA_PTR_SET_VALUE(queryPlan_, queryPlan) };
+
+
+      // ref Field Functions 
+      bool hasRef() const { return this->ref_ != nullptr;};
+      void deleteRef() { this->ref_ = nullptr;};
+      inline string getRef() const { DARABONBA_PTR_GET_DEFAULT(ref_, "") };
+      inline Data& setRef(string ref) { DARABONBA_PTR_SET_VALUE(ref_, ref) };
+
+
+      // rows Field Functions 
+      bool hasRows() const { return this->rows_ != nullptr;};
+      void deleteRows() { this->rows_ = nullptr;};
+      inline string getRows() const { DARABONBA_PTR_GET_DEFAULT(rows_, "") };
+      inline Data& setRows(string rows) { DARABONBA_PTR_SET_VALUE(rows_, rows) };
+
+
+      // selectType Field Functions 
+      bool hasSelectType() const { return this->selectType_ != nullptr;};
+      void deleteSelectType() { this->selectType_ = nullptr;};
+      inline string getSelectType() const { DARABONBA_PTR_GET_DEFAULT(selectType_, "") };
+      inline Data& setSelectType(string selectType) { DARABONBA_PTR_SET_VALUE(selectType_, selectType) };
+
+
+      // stmtId Field Functions 
+      bool hasStmtId() const { return this->stmtId_ != nullptr;};
+      void deleteStmtId() { this->stmtId_ = nullptr;};
+      inline string getStmtId() const { DARABONBA_PTR_GET_DEFAULT(stmtId_, "") };
+      inline Data& setStmtId(string stmtId) { DARABONBA_PTR_SET_VALUE(stmtId_, stmtId) };
+
+
+      // stmtText Field Functions 
+      bool hasStmtText() const { return this->stmtText_ != nullptr;};
+      void deleteStmtText() { this->stmtText_ = nullptr;};
+      inline string getStmtText() const { DARABONBA_PTR_GET_DEFAULT(stmtText_, "") };
+      inline Data& setStmtText(string stmtText) { DARABONBA_PTR_SET_VALUE(stmtText_, stmtText) };
+
+
+      // table Field Functions 
+      bool hasTable() const { return this->table_ != nullptr;};
+      void deleteTable() { this->table_ = nullptr;};
+      inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
+      inline Data& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
+
+
+      // tableList Field Functions 
+      bool hasTableList() const { return this->tableList_ != nullptr;};
+      void deleteTableList() { this->tableList_ = nullptr;};
+      inline const vector<string> & getTableList() const { DARABONBA_PTR_GET_CONST(tableList_, vector<string>) };
+      inline vector<string> getTableList() { DARABONBA_PTR_GET(tableList_, vector<string>) };
+      inline Data& setTableList(const vector<string> & tableList) { DARABONBA_PTR_SET_VALUE(tableList_, tableList) };
+      inline Data& setTableList(vector<string> && tableList) { DARABONBA_PTR_SET_RVALUE(tableList_, tableList) };
+
+
+      // totalSubtreeCost Field Functions 
+      bool hasTotalSubtreeCost() const { return this->totalSubtreeCost_ != nullptr;};
+      void deleteTotalSubtreeCost() { this->totalSubtreeCost_ = nullptr;};
+      inline string getTotalSubtreeCost() const { DARABONBA_PTR_GET_DEFAULT(totalSubtreeCost_, "") };
+      inline Data& setTotalSubtreeCost(string totalSubtreeCost) { DARABONBA_PTR_SET_VALUE(totalSubtreeCost_, totalSubtreeCost) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Data& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      // warnings Field Functions 
+      bool hasWarnings() const { return this->warnings_ != nullptr;};
+      void deleteWarnings() { this->warnings_ = nullptr;};
+      inline string getWarnings() const { DARABONBA_PTR_GET_DEFAULT(warnings_, "") };
+      inline Data& setWarnings(string warnings) { DARABONBA_PTR_SET_VALUE(warnings_, warnings) };
+
+
+    protected:
+      shared_ptr<string> argument_ {};
+      shared_ptr<string> avgRowSize_ {};
+      shared_ptr<string> definedValues_ {};
+      shared_ptr<string> estimateCPU_ {};
+      shared_ptr<string> estimateExecutions_ {};
+      shared_ptr<string> estimateIO_ {};
+      shared_ptr<string> estimateRows_ {};
+      shared_ptr<string> extra_ {};
+      shared_ptr<string> id_ {};
+      shared_ptr<vector<string>> indexList_ {};
+      shared_ptr<string> key_ {};
+      shared_ptr<string> keyLen_ {};
+      shared_ptr<string> logicalOp_ {};
+      shared_ptr<vector<string>> logicalPlanList_ {};
+      shared_ptr<string> nodeId_ {};
+      shared_ptr<string> outputList_ {};
+      shared_ptr<string> parallel_ {};
+      shared_ptr<string> parent_ {};
+      shared_ptr<string> physicalOp_ {};
+      shared_ptr<string> possibleKeys_ {};
+      shared_ptr<string> queryPlan_ {};
+      shared_ptr<string> ref_ {};
+      shared_ptr<string> rows_ {};
+      shared_ptr<string> selectType_ {};
+      shared_ptr<string> stmtId_ {};
+      shared_ptr<string> stmtText_ {};
+      shared_ptr<string> table_ {};
+      shared_ptr<vector<string>> tableList_ {};
+      shared_ptr<string> totalSubtreeCost_ {};
+      shared_ptr<string> type_ {};
+      shared_ptr<string> warnings_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DescribeQueryExplainResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<DescribeQueryExplainResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeQueryExplainResponseBodyData>) };
-    inline vector<DescribeQueryExplainResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<DescribeQueryExplainResponseBodyData>) };
-    inline DescribeQueryExplainResponseBody& setData(const vector<DescribeQueryExplainResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DescribeQueryExplainResponseBody& setData(vector<DescribeQueryExplainResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<DescribeQueryExplainResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<DescribeQueryExplainResponseBody::Data>) };
+    inline vector<DescribeQueryExplainResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<DescribeQueryExplainResponseBody::Data>) };
+    inline DescribeQueryExplainResponseBody& setData(const vector<DescribeQueryExplainResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DescribeQueryExplainResponseBody& setData(vector<DescribeQueryExplainResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeQueryExplainResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeQueryExplainResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline DescribeQueryExplainResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // List<ExplainedSqlDO>
-    std::shared_ptr<vector<DescribeQueryExplainResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<vector<DescribeQueryExplainResponseBody::Data>> data_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->engine_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->region_ == nullptr && return this->tagNames_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->region_ == nullptr && this->tagNames_ == nullptr; };
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline GetQueryOptimizeRuleListRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline GetQueryOptimizeRuleListRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline GetQueryOptimizeRuleListRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // tagNames Field Functions 
     bool hasTagNames() const { return this->tagNames_ != nullptr;};
     void deleteTagNames() { this->tagNames_ = nullptr;};
-    inline string tagNames() const { DARABONBA_PTR_GET_DEFAULT(tagNames_, "") };
+    inline string getTagNames() const { DARABONBA_PTR_GET_DEFAULT(tagNames_, "") };
     inline GetQueryOptimizeRuleListRequest& setTagNames(string tagNames) { DARABONBA_PTR_SET_VALUE(tagNames_, tagNames) };
 
 
@@ -73,9 +73,9 @@ namespace Models
     // *   **PostgreSQL**
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The instance IDs. Separate multiple IDs with commas (,).
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // The region in which the instance resides. Valid values:
     // 
     // *   **cn-china**: Chinese mainland
@@ -85,9 +85,9 @@ namespace Models
     // This parameter takes effect only if **InstanceIds** is left empty. If you leave **InstanceIds** empty, the system obtains data from the region set by **Region**. By default, Region is set to **cn-china**. If you specify **InstanceIds**, **Region** does not take effect and the system obtains data from the region in which the first specified instance resides.****
     // 
     // >  If your instances reside in the regions in the Chinese mainland, set this parameter to **cn-china**.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // A reserved parameter.
-    std::shared_ptr<string> tagNames_ = nullptr;
+    shared_ptr<string> tagNames_ {};
   };
 
   } // namespace Models

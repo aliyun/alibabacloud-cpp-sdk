@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instances_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->status_ == nullptr; };
     // instances Field Functions 
     bool hasInstances() const { return this->instances_ != nullptr;};
     void deleteInstances() { this->instances_ = nullptr;};
-    inline string instances() const { DARABONBA_PTR_GET_DEFAULT(instances_, "") };
+    inline string getInstances() const { DARABONBA_PTR_GET_DEFAULT(instances_, "") };
     inline UpdateAutoSqlOptimizeStatusRequest& setInstances(string instances) { DARABONBA_PTR_SET_VALUE(instances_, instances) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline UpdateAutoSqlOptimizeStatusRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -53,7 +53,7 @@ namespace Models
     // >  You can specify up to 50 instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instances_ = nullptr;
+    shared_ptr<string> instances_ {};
     // The status of the automatic SQL optimization feature. Valid values:
     // 
     // *   **0**: The automatic SQL optimization feature is disabled.
@@ -61,7 +61,7 @@ namespace Models
     // *   **3**: **SQL diagnosis only** is specified.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

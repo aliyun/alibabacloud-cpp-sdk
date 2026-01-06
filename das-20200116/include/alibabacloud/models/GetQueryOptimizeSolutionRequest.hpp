@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->engine_ == nullptr
-        && return this->instanceId_ == nullptr && return this->ruleIds_ == nullptr && return this->sqlId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->ruleIds_ == nullptr && this->sqlId_ == nullptr; };
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline GetQueryOptimizeSolutionRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetQueryOptimizeSolutionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ruleIds Field Functions 
     bool hasRuleIds() const { return this->ruleIds_ != nullptr;};
     void deleteRuleIds() { this->ruleIds_ = nullptr;};
-    inline string ruleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
+    inline string getRuleIds() const { DARABONBA_PTR_GET_DEFAULT(ruleIds_, "") };
     inline GetQueryOptimizeSolutionRequest& setRuleIds(string ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
 
 
     // sqlId Field Functions 
     bool hasSqlId() const { return this->sqlId_ != nullptr;};
     void deleteSqlId() { this->sqlId_ = nullptr;};
-    inline string sqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, "") };
+    inline string getSqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, "") };
     inline GetQueryOptimizeSolutionRequest& setSqlId(string sqlId) { DARABONBA_PTR_SET_VALUE(sqlId_, sqlId) };
 
 
@@ -73,17 +73,17 @@ namespace Models
     // *   **PostgreSQL**
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The instance ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The tag ID. For more information, see [Query governance](https://help.aliyun.com/document_detail/290038.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleIds_ = nullptr;
+    shared_ptr<string> ruleIds_ {};
     // The SQL template ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the SQL template ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sqlId_ = nullptr;
+    shared_ptr<string> sqlId_ {};
   };
 
   } // namespace Models

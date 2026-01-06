@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->nodeId_ == nullptr && return this->source_ == nullptr && return this->textId_ == nullptr; };
+        && this->nodeId_ == nullptr && this->source_ == nullptr && this->textId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetDeadLockDetailRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline GetDeadLockDetailRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline GetDeadLockDetailRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // textId Field Functions 
     bool hasTextId() const { return this->textId_ != nullptr;};
     void deleteTextId() { this->textId_ = nullptr;};
-    inline string textId() const { DARABONBA_PTR_GET_DEFAULT(textId_, "") };
+    inline string getTextId() const { DARABONBA_PTR_GET_DEFAULT(textId_, "") };
     inline GetDeadLockDetailRequest& setTextId(string textId) { DARABONBA_PTR_SET_VALUE(textId_, textId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> nodeId_ = nullptr;
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> nodeId_ {};
+    shared_ptr<string> source_ {};
     // This parameter is required.
-    std::shared_ptr<string> textId_ = nullptr;
+    shared_ptr<string> textId_ {};
   };
 
   } // namespace Models

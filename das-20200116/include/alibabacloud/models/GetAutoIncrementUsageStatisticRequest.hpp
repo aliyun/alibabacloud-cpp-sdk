@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbNames_ == nullptr
-        && return this->instanceId_ == nullptr && return this->ratioFilter_ == nullptr && return this->realTime_ == nullptr; };
+        && this->instanceId_ == nullptr && this->ratioFilter_ == nullptr && this->realTime_ == nullptr; };
     // dbNames Field Functions 
     bool hasDbNames() const { return this->dbNames_ != nullptr;};
     void deleteDbNames() { this->dbNames_ = nullptr;};
-    inline string dbNames() const { DARABONBA_PTR_GET_DEFAULT(dbNames_, "") };
+    inline string getDbNames() const { DARABONBA_PTR_GET_DEFAULT(dbNames_, "") };
     inline GetAutoIncrementUsageStatisticRequest& setDbNames(string dbNames) { DARABONBA_PTR_SET_VALUE(dbNames_, dbNames) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetAutoIncrementUsageStatisticRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ratioFilter Field Functions 
     bool hasRatioFilter() const { return this->ratioFilter_ != nullptr;};
     void deleteRatioFilter() { this->ratioFilter_ = nullptr;};
-    inline double ratioFilter() const { DARABONBA_PTR_GET_DEFAULT(ratioFilter_, 0.0) };
+    inline double getRatioFilter() const { DARABONBA_PTR_GET_DEFAULT(ratioFilter_, 0.0) };
     inline GetAutoIncrementUsageStatisticRequest& setRatioFilter(double ratioFilter) { DARABONBA_PTR_SET_VALUE(ratioFilter_, ratioFilter) };
 
 
     // realTime Field Functions 
     bool hasRealTime() const { return this->realTime_ != nullptr;};
     void deleteRealTime() { this->realTime_ = nullptr;};
-    inline bool realTime() const { DARABONBA_PTR_GET_DEFAULT(realTime_, false) };
+    inline bool getRealTime() const { DARABONBA_PTR_GET_DEFAULT(realTime_, false) };
     inline GetAutoIncrementUsageStatisticRequest& setRealTime(bool realTime) { DARABONBA_PTR_SET_VALUE(realTime_, realTime) };
 
 
@@ -69,22 +69,22 @@ namespace Models
     // The database name. If you specify a database, the operation queries the usage of auto-increment table IDs in the specified database. Otherwise, the operation queries the usage of auto-increment table IDs in all databases on the instance.
     // 
     // >  Specify the parameter value as a JSON array, such as [\\"db1\\",\\"db2\\"]. Separate multiple database names with commas (,).
-    std::shared_ptr<string> dbNames_ = nullptr;
+    shared_ptr<string> dbNames_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The usage threshold of auto-increment IDs. Only usage that exceeds the threshold can be returned. Valid values are decimals that range from 0 to 1.
     // 
     // This parameter is required.
-    std::shared_ptr<double> ratioFilter_ = nullptr;
+    shared_ptr<double> ratioFilter_ {};
     // Specifies whether to query real-time data. Valid values:
     // 
     // *   **true**: queries data in real time except for data generated in the last 10 minutes.****
     // *   **false**: queries data generated in the last 2 hours. If no such data exists, queries the latest data.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> realTime_ = nullptr;
+    shared_ptr<bool> realTime_ {};
   };
 
   } // namespace Models

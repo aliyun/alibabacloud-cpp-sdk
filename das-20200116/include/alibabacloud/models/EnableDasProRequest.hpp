@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->sqlRetention_ == nullptr && return this->userId_ == nullptr; };
+        && this->sqlRetention_ == nullptr && this->userId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline EnableDasProRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // sqlRetention Field Functions 
     bool hasSqlRetention() const { return this->sqlRetention_ != nullptr;};
     void deleteSqlRetention() { this->sqlRetention_ = nullptr;};
-    inline int32_t sqlRetention() const { DARABONBA_PTR_GET_DEFAULT(sqlRetention_, 0) };
+    inline int32_t getSqlRetention() const { DARABONBA_PTR_GET_DEFAULT(sqlRetention_, 0) };
     inline EnableDasProRequest& setSqlRetention(int32_t sqlRetention) { DARABONBA_PTR_SET_VALUE(sqlRetention_, sqlRetention) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline EnableDasProRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The database instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The storage duration of SQL Explorer data. Unit: day. Default value: **30**. Valid values:
     // 
     // *   **30**
@@ -68,11 +68,11 @@ namespace Models
     // *   **365**
     // *   **1095**
     // *   **1825**
-    std::shared_ptr<int32_t> sqlRetention_ = nullptr;
+    shared_ptr<int32_t> sqlRetention_ {};
     // The ID of the Alibaba Cloud account that is used to create the database instance.
     // 
     // >  This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId when you call this operation.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

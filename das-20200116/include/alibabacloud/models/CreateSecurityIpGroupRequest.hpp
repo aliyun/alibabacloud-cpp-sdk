@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->GIpList_ == nullptr
-        && return this->globalIgName_ == nullptr && return this->regionName_ == nullptr; };
+        && this->globalIgName_ == nullptr && this->regionName_ == nullptr; };
     // GIpList Field Functions 
     bool hasGIpList() const { return this->GIpList_ != nullptr;};
     void deleteGIpList() { this->GIpList_ = nullptr;};
-    inline string GIpList() const { DARABONBA_PTR_GET_DEFAULT(GIpList_, "") };
+    inline string getGIpList() const { DARABONBA_PTR_GET_DEFAULT(GIpList_, "") };
     inline CreateSecurityIPGroupRequest& setGIpList(string GIpList) { DARABONBA_PTR_SET_VALUE(GIpList_, GIpList) };
 
 
     // globalIgName Field Functions 
     bool hasGlobalIgName() const { return this->globalIgName_ != nullptr;};
     void deleteGlobalIgName() { this->globalIgName_ = nullptr;};
-    inline string globalIgName() const { DARABONBA_PTR_GET_DEFAULT(globalIgName_, "") };
+    inline string getGlobalIgName() const { DARABONBA_PTR_GET_DEFAULT(globalIgName_, "") };
     inline CreateSecurityIPGroupRequest& setGlobalIgName(string globalIgName) { DARABONBA_PTR_SET_VALUE(globalIgName_, globalIgName) };
 
 
     // regionName Field Functions 
     bool hasRegionName() const { return this->regionName_ != nullptr;};
     void deleteRegionName() { this->regionName_ = nullptr;};
-    inline string regionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
+    inline string getRegionName() const { DARABONBA_PTR_GET_DEFAULT(regionName_, "") };
     inline CreateSecurityIPGroupRequest& setRegionName(string regionName) { DARABONBA_PTR_SET_VALUE(regionName_, regionName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> GIpList_ = nullptr;
+    shared_ptr<string> GIpList_ {};
     // This parameter is required.
-    std::shared_ptr<string> globalIgName_ = nullptr;
+    shared_ptr<string> globalIgName_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionName_ = nullptr;
+    shared_ptr<string> regionName_ {};
   };
 
   } // namespace Models

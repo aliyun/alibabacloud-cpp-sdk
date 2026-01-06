@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->engine_ == nullptr
-        && return this->instanceId_ == nullptr && return this->sqlId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->sqlId_ == nullptr; };
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline GetQueryOptimizeTagRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetQueryOptimizeTagRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // sqlId Field Functions 
     bool hasSqlId() const { return this->sqlId_ != nullptr;};
     void deleteSqlId() { this->sqlId_ = nullptr;};
-    inline string sqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, "") };
+    inline string getSqlId() const { DARABONBA_PTR_GET_DEFAULT(sqlId_, "") };
     inline GetQueryOptimizeTagRequest& setSqlId(string sqlId) { DARABONBA_PTR_SET_VALUE(sqlId_, sqlId) };
 
 
@@ -64,15 +64,15 @@ namespace Models
     // *   **PostgreSQL**: ApsaraDB RDS for PostgreSQL
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The SQL template ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the SQL template ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sqlId_ = nullptr;
+    shared_ptr<string> sqlId_ {};
   };
 
   } // namespace Models

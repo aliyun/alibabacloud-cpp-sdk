@@ -38,63 +38,63 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consoleContext_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->resultId_ == nullptr && return this->tableFragmentationRatio_ == nullptr && return this->tableSpaceSize_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->resultId_ == nullptr && this->tableFragmentationRatio_ == nullptr && this->tableSpaceSize_ == nullptr; };
     // consoleContext Field Functions 
     bool hasConsoleContext() const { return this->consoleContext_ != nullptr;};
     void deleteConsoleContext() { this->consoleContext_ = nullptr;};
-    inline string consoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
+    inline string getConsoleContext() const { DARABONBA_PTR_GET_DEFAULT(consoleContext_, "") };
     inline UpdateAutoResourceOptimizeRulesAsyncRequest& setConsoleContext(string consoleContext) { DARABONBA_PTR_SET_VALUE(consoleContext_, consoleContext) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline UpdateAutoResourceOptimizeRulesAsyncRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // resultId Field Functions 
     bool hasResultId() const { return this->resultId_ != nullptr;};
     void deleteResultId() { this->resultId_ = nullptr;};
-    inline string resultId() const { DARABONBA_PTR_GET_DEFAULT(resultId_, "") };
+    inline string getResultId() const { DARABONBA_PTR_GET_DEFAULT(resultId_, "") };
     inline UpdateAutoResourceOptimizeRulesAsyncRequest& setResultId(string resultId) { DARABONBA_PTR_SET_VALUE(resultId_, resultId) };
 
 
     // tableFragmentationRatio Field Functions 
     bool hasTableFragmentationRatio() const { return this->tableFragmentationRatio_ != nullptr;};
     void deleteTableFragmentationRatio() { this->tableFragmentationRatio_ = nullptr;};
-    inline double tableFragmentationRatio() const { DARABONBA_PTR_GET_DEFAULT(tableFragmentationRatio_, 0.0) };
+    inline double getTableFragmentationRatio() const { DARABONBA_PTR_GET_DEFAULT(tableFragmentationRatio_, 0.0) };
     inline UpdateAutoResourceOptimizeRulesAsyncRequest& setTableFragmentationRatio(double tableFragmentationRatio) { DARABONBA_PTR_SET_VALUE(tableFragmentationRatio_, tableFragmentationRatio) };
 
 
     // tableSpaceSize Field Functions 
     bool hasTableSpaceSize() const { return this->tableSpaceSize_ != nullptr;};
     void deleteTableSpaceSize() { this->tableSpaceSize_ = nullptr;};
-    inline double tableSpaceSize() const { DARABONBA_PTR_GET_DEFAULT(tableSpaceSize_, 0.0) };
+    inline double getTableSpaceSize() const { DARABONBA_PTR_GET_DEFAULT(tableSpaceSize_, 0.0) };
     inline UpdateAutoResourceOptimizeRulesAsyncRequest& setTableSpaceSize(double tableSpaceSize) { DARABONBA_PTR_SET_VALUE(tableSpaceSize_, tableSpaceSize) };
 
 
   protected:
     // The reserved parameter.
-    std::shared_ptr<string> consoleContext_ = nullptr;
+    shared_ptr<string> consoleContext_ {};
     // The database instance IDs.
     // 
     // >  Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\\"Instance ID1\\", \\"Instance ID2\\"]`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // The ID of the asynchronous request.
     // 
     // >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
-    std::shared_ptr<string> resultId_ = nullptr;
+    shared_ptr<string> resultId_ {};
     // The fragmentation rate that triggers automatic fragment recycling of a single physical table. Valid values: **0.10** to **0.99**.
     // 
     // This parameter is required.
-    std::shared_ptr<double> tableFragmentationRatio_ = nullptr;
+    shared_ptr<double> tableFragmentationRatio_ {};
     // The minimum storage usage that triggers automatic fragment recycling of a single physical table. Valid values: **5** to **100**. Unit: GB.
     // 
     // This parameter is required.
-    std::shared_ptr<double> tableSpaceSize_ = nullptr;
+    shared_ptr<double> tableSpaceSize_ {};
   };
 
   } // namespace Models
