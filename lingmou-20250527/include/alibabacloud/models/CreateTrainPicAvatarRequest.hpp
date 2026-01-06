@@ -91,7 +91,6 @@ namespace Models
     shared_ptr<string> imageOssPath_ {};
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // This parameter is required.
     shared_ptr<string> templateId_ {};
     shared_ptr<bool> transparent_ {};
   };
