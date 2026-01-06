@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->tcpConnectionType_ == nullptr; };
+        && this->tcpConnectionType_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeHADiagnoseConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // tcpConnectionType Field Functions 
     bool hasTcpConnectionType() const { return this->tcpConnectionType_ != nullptr;};
     void deleteTcpConnectionType() { this->tcpConnectionType_ = nullptr;};
-    inline string tcpConnectionType() const { DARABONBA_PTR_GET_DEFAULT(tcpConnectionType_, "") };
+    inline string getTcpConnectionType() const { DARABONBA_PTR_GET_DEFAULT(tcpConnectionType_, "") };
     inline DescribeHADiagnoseConfigResponseBody& setTcpConnectionType(string tcpConnectionType) { DARABONBA_PTR_SET_VALUE(tcpConnectionType_, tcpConnectionType) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The availability check method of the instance. Valid values:
     // 
     // *   **LONG**: Alibaba Cloud uses persistent connections to check the availability of the instance.
     // *   **SHORT**: Alibaba Cloud uses short-lived connections to check the availability of the instance.
-    std::shared_ptr<string> tcpConnectionType_ = nullptr;
+    shared_ptr<string> tcpConnectionType_ {};
   };
 
   } // namespace Models

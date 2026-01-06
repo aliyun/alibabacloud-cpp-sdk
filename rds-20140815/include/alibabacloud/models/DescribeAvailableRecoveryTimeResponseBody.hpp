@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crossBackupId_ == nullptr
-        && return this->recoveryBeginTime_ == nullptr && return this->recoveryEndTime_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->recoveryBeginTime_ == nullptr && this->recoveryEndTime_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr; };
     // crossBackupId Field Functions 
     bool hasCrossBackupId() const { return this->crossBackupId_ != nullptr;};
     void deleteCrossBackupId() { this->crossBackupId_ = nullptr;};
-    inline int32_t crossBackupId() const { DARABONBA_PTR_GET_DEFAULT(crossBackupId_, 0) };
+    inline int32_t getCrossBackupId() const { DARABONBA_PTR_GET_DEFAULT(crossBackupId_, 0) };
     inline DescribeAvailableRecoveryTimeResponseBody& setCrossBackupId(int32_t crossBackupId) { DARABONBA_PTR_SET_VALUE(crossBackupId_, crossBackupId) };
 
 
     // recoveryBeginTime Field Functions 
     bool hasRecoveryBeginTime() const { return this->recoveryBeginTime_ != nullptr;};
     void deleteRecoveryBeginTime() { this->recoveryBeginTime_ = nullptr;};
-    inline string recoveryBeginTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryBeginTime_, "") };
+    inline string getRecoveryBeginTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryBeginTime_, "") };
     inline DescribeAvailableRecoveryTimeResponseBody& setRecoveryBeginTime(string recoveryBeginTime) { DARABONBA_PTR_SET_VALUE(recoveryBeginTime_, recoveryBeginTime) };
 
 
     // recoveryEndTime Field Functions 
     bool hasRecoveryEndTime() const { return this->recoveryEndTime_ != nullptr;};
     void deleteRecoveryEndTime() { this->recoveryEndTime_ = nullptr;};
-    inline string recoveryEndTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryEndTime_, "") };
+    inline string getRecoveryEndTime() const { DARABONBA_PTR_GET_DEFAULT(recoveryEndTime_, "") };
     inline DescribeAvailableRecoveryTimeResponseBody& setRecoveryEndTime(string recoveryEndTime) { DARABONBA_PTR_SET_VALUE(recoveryEndTime_, recoveryEndTime) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeAvailableRecoveryTimeResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAvailableRecoveryTimeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the cross-region data backup file.
-    std::shared_ptr<int32_t> crossBackupId_ = nullptr;
+    shared_ptr<int32_t> crossBackupId_ {};
     // The start time from which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-    std::shared_ptr<string> recoveryBeginTime_ = nullptr;
+    shared_ptr<string> recoveryBeginTime_ {};
     // The end time to which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-    std::shared_ptr<string> recoveryEndTime_ = nullptr;
+    shared_ptr<string> recoveryEndTime_ {};
     // The region where the source instance resides.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

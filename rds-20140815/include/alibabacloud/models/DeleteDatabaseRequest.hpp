@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->DBName_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->DBName_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DeleteDatabaseRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBName Field Functions 
     bool hasDBName() const { return this->DBName_ != nullptr;};
     void deleteDBName() { this->DBName_ = nullptr;};
-    inline string DBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+    inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline DeleteDatabaseRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DeleteDatabaseRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -60,12 +60,12 @@ namespace Models
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBName_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> DBName_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

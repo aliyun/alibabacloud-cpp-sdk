@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->internetMaxBandwidthOut_ == nullptr && return this->networkChargeType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->internetMaxBandwidthOut_ == nullptr && this->networkChargeType_ == nullptr && this->regionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyRCInstanceNetworkSpecRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // internetMaxBandwidthOut Field Functions 
     bool hasInternetMaxBandwidthOut() const { return this->internetMaxBandwidthOut_ != nullptr;};
     void deleteInternetMaxBandwidthOut() { this->internetMaxBandwidthOut_ = nullptr;};
-    inline string internetMaxBandwidthOut() const { DARABONBA_PTR_GET_DEFAULT(internetMaxBandwidthOut_, "") };
+    inline string getInternetMaxBandwidthOut() const { DARABONBA_PTR_GET_DEFAULT(internetMaxBandwidthOut_, "") };
     inline ModifyRCInstanceNetworkSpecRequest& setInternetMaxBandwidthOut(string internetMaxBandwidthOut) { DARABONBA_PTR_SET_VALUE(internetMaxBandwidthOut_, internetMaxBandwidthOut) };
 
 
     // networkChargeType Field Functions 
     bool hasNetworkChargeType() const { return this->networkChargeType_ != nullptr;};
     void deleteNetworkChargeType() { this->networkChargeType_ = nullptr;};
-    inline string networkChargeType() const { DARABONBA_PTR_GET_DEFAULT(networkChargeType_, "") };
+    inline string getNetworkChargeType() const { DARABONBA_PTR_GET_DEFAULT(networkChargeType_, "") };
     inline ModifyRCInstanceNetworkSpecRequest& setNetworkChargeType(string networkChargeType) { DARABONBA_PTR_SET_VALUE(networkChargeType_, networkChargeType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyRCInstanceNetworkSpecRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The ID of the RDS Custom instance.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The maximum outbound public bandwidth. Unit: Mbit/s.
     // 
     // Valid values: 0 to 1024. Default value: 0.
-    std::shared_ptr<string> internetMaxBandwidthOut_ = nullptr;
+    shared_ptr<string> internetMaxBandwidthOut_ {};
     // The billing method of the bandwidth. Only the **pay-by-traffic** billing method is supported.
     // 
     // >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be limited.
-    std::shared_ptr<string> networkChargeType_ = nullptr;
+    shared_ptr<string> networkChargeType_ {};
     // The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

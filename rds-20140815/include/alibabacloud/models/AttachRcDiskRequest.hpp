@@ -36,48 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deleteWithInstance_ == nullptr
-        && return this->diskId_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->diskId_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr; };
     // deleteWithInstance Field Functions 
     bool hasDeleteWithInstance() const { return this->deleteWithInstance_ != nullptr;};
     void deleteDeleteWithInstance() { this->deleteWithInstance_ = nullptr;};
-    inline bool deleteWithInstance() const { DARABONBA_PTR_GET_DEFAULT(deleteWithInstance_, false) };
+    inline bool getDeleteWithInstance() const { DARABONBA_PTR_GET_DEFAULT(deleteWithInstance_, false) };
     inline AttachRCDiskRequest& setDeleteWithInstance(bool deleteWithInstance) { DARABONBA_PTR_SET_VALUE(deleteWithInstance_, deleteWithInstance) };
 
 
     // diskId Field Functions 
     bool hasDiskId() const { return this->diskId_ != nullptr;};
     void deleteDiskId() { this->diskId_ = nullptr;};
-    inline string diskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
+    inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
     inline AttachRCDiskRequest& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline AttachRCDiskRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AttachRCDiskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<bool> deleteWithInstance_ = nullptr;
+    shared_ptr<bool> deleteWithInstance_ {};
     // The disk ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> diskId_ = nullptr;
+    shared_ptr<string> diskId_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The region ID
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

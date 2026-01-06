@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->DBProxyConnectStringNetType_ == nullptr && return this->DBProxyEndpointId_ == nullptr && return this->DBProxyEngineType_ == nullptr && return this->regionId_ == nullptr; };
+        && this->DBProxyConnectStringNetType_ == nullptr && this->DBProxyEndpointId_ == nullptr && this->DBProxyEngineType_ == nullptr && this->regionId_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DeleteDBProxyEndpointAddressRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBProxyConnectStringNetType Field Functions 
     bool hasDBProxyConnectStringNetType() const { return this->DBProxyConnectStringNetType_ != nullptr;};
     void deleteDBProxyConnectStringNetType() { this->DBProxyConnectStringNetType_ = nullptr;};
-    inline string DBProxyConnectStringNetType() const { DARABONBA_PTR_GET_DEFAULT(DBProxyConnectStringNetType_, "") };
+    inline string getDBProxyConnectStringNetType() const { DARABONBA_PTR_GET_DEFAULT(DBProxyConnectStringNetType_, "") };
     inline DeleteDBProxyEndpointAddressRequest& setDBProxyConnectStringNetType(string DBProxyConnectStringNetType) { DARABONBA_PTR_SET_VALUE(DBProxyConnectStringNetType_, DBProxyConnectStringNetType) };
 
 
     // DBProxyEndpointId Field Functions 
     bool hasDBProxyEndpointId() const { return this->DBProxyEndpointId_ != nullptr;};
     void deleteDBProxyEndpointId() { this->DBProxyEndpointId_ = nullptr;};
-    inline string DBProxyEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBProxyEndpointId_, "") };
+    inline string getDBProxyEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBProxyEndpointId_, "") };
     inline DeleteDBProxyEndpointAddressRequest& setDBProxyEndpointId(string DBProxyEndpointId) { DARABONBA_PTR_SET_VALUE(DBProxyEndpointId_, DBProxyEndpointId) };
 
 
     // DBProxyEngineType Field Functions 
     bool hasDBProxyEngineType() const { return this->DBProxyEngineType_ != nullptr;};
     void deleteDBProxyEngineType() { this->DBProxyEngineType_ = nullptr;};
-    inline string DBProxyEngineType() const { DARABONBA_PTR_GET_DEFAULT(DBProxyEngineType_, "") };
+    inline string getDBProxyEngineType() const { DARABONBA_PTR_GET_DEFAULT(DBProxyEngineType_, "") };
     inline DeleteDBProxyEndpointAddressRequest& setDBProxyEngineType(string DBProxyEngineType) { DARABONBA_PTR_SET_VALUE(DBProxyEngineType_, DBProxyEngineType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDBProxyEndpointAddressRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -78,7 +78,7 @@ namespace Models
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The network type of the proxy endpoint. Valid values:
     // 
     // *   **Public**: Internet
@@ -90,15 +90,15 @@ namespace Models
     // > If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBProxyConnectStringNetType_ = nullptr;
+    shared_ptr<string> DBProxyConnectStringNetType_ {};
     // The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBProxyEndpointId_ = nullptr;
+    shared_ptr<string> DBProxyEndpointId_ {};
     // A reserved parameter. You do not need to specify this parameter.
-    std::shared_ptr<string> DBProxyEngineType_ = nullptr;
+    shared_ptr<string> DBProxyEngineType_ {};
     // The region ID. You can call the DescribeRegions operation to query the most recent region list.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

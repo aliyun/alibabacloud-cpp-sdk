@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->keyPairName_ == nullptr && return this->reboot_ == nullptr && return this->regionId_ == nullptr; };
+        && this->keyPairName_ == nullptr && this->reboot_ == nullptr && this->regionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyRCInstanceKeyPairRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // keyPairName Field Functions 
     bool hasKeyPairName() const { return this->keyPairName_ != nullptr;};
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
-    inline string keyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
+    inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline ModifyRCInstanceKeyPairRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
 
 
     // reboot Field Functions 
     bool hasReboot() const { return this->reboot_ != nullptr;};
     void deleteReboot() { this->reboot_ = nullptr;};
-    inline bool reboot() const { DARABONBA_PTR_GET_DEFAULT(reboot_, false) };
+    inline bool getReboot() const { DARABONBA_PTR_GET_DEFAULT(reboot_, false) };
     inline ModifyRCInstanceKeyPairRequest& setReboot(bool reboot) { DARABONBA_PTR_SET_VALUE(reboot_, reboot) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyRCInstanceKeyPairRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the key pair.
-    std::shared_ptr<string> keyPairName_ = nullptr;
+    shared_ptr<string> keyPairName_ {};
     // Specifies whether to restart the instance.
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> reboot_ = nullptr;
+    shared_ptr<bool> reboot_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

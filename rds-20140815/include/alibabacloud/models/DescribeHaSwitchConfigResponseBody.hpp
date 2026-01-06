@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->HAConfig_ == nullptr
-        && return this->manualHATime_ == nullptr && return this->requestId_ == nullptr; };
+        && this->manualHATime_ == nullptr && this->requestId_ == nullptr; };
     // HAConfig Field Functions 
     bool hasHAConfig() const { return this->HAConfig_ != nullptr;};
     void deleteHAConfig() { this->HAConfig_ = nullptr;};
-    inline string HAConfig() const { DARABONBA_PTR_GET_DEFAULT(HAConfig_, "") };
+    inline string getHAConfig() const { DARABONBA_PTR_GET_DEFAULT(HAConfig_, "") };
     inline DescribeHASwitchConfigResponseBody& setHAConfig(string HAConfig) { DARABONBA_PTR_SET_VALUE(HAConfig_, HAConfig) };
 
 
     // manualHATime Field Functions 
     bool hasManualHATime() const { return this->manualHATime_ != nullptr;};
     void deleteManualHATime() { this->manualHATime_ = nullptr;};
-    inline string manualHATime() const { DARABONBA_PTR_GET_DEFAULT(manualHATime_, "") };
+    inline string getManualHATime() const { DARABONBA_PTR_GET_DEFAULT(manualHATime_, "") };
     inline DescribeHASwitchConfigResponseBody& setManualHATime(string manualHATime) { DARABONBA_PTR_SET_VALUE(manualHATime_, manualHATime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeHASwitchConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -61,11 +61,11 @@ namespace Models
     // 
     // *   **Auto:** The automatic primary/secondary switchover feature is enabled. The system automatically switches your workloads over from the instance to its secondary instance in the event of a fault.
     // *   **Manual:** The automatic primary/secondary switchover feature is temporarily disabled.
-    std::shared_ptr<string> HAConfig_ = nullptr;
+    shared_ptr<string> HAConfig_ {};
     // The time when the automatic primary/secondary switchover feature is enabled again. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-    std::shared_ptr<string> manualHATime_ = nullptr;
+    shared_ptr<string> manualHATime_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

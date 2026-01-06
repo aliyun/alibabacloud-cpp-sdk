@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->expiration_ == nullptr && return this->requestId_ == nullptr; };
+        && this->expiration_ == nullptr && this->requestId_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline DescribeRCClusterConfigResponseBody& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // expiration Field Functions 
     bool hasExpiration() const { return this->expiration_ != nullptr;};
     void deleteExpiration() { this->expiration_ = nullptr;};
-    inline string expiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+    inline string getExpiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
     inline DescribeRCClusterConfigResponseBody& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeRCClusterConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The kubeconfig file of the cluster.
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The expiration time of the kubeconfig file. Format: the UTC time in the RFC3339 format.
-    std::shared_ptr<string> expiration_ = nullptr;
+    shared_ptr<string> expiration_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

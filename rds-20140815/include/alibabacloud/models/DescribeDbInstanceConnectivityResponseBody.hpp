@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connCheckErrorCode_ == nullptr
-        && return this->connCheckErrorMessage_ == nullptr && return this->connCheckResult_ == nullptr && return this->dbInstanceName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->connCheckErrorMessage_ == nullptr && this->connCheckResult_ == nullptr && this->dbInstanceName_ == nullptr && this->requestId_ == nullptr; };
     // connCheckErrorCode Field Functions 
     bool hasConnCheckErrorCode() const { return this->connCheckErrorCode_ != nullptr;};
     void deleteConnCheckErrorCode() { this->connCheckErrorCode_ = nullptr;};
-    inline string connCheckErrorCode() const { DARABONBA_PTR_GET_DEFAULT(connCheckErrorCode_, "") };
+    inline string getConnCheckErrorCode() const { DARABONBA_PTR_GET_DEFAULT(connCheckErrorCode_, "") };
     inline DescribeDBInstanceConnectivityResponseBody& setConnCheckErrorCode(string connCheckErrorCode) { DARABONBA_PTR_SET_VALUE(connCheckErrorCode_, connCheckErrorCode) };
 
 
     // connCheckErrorMessage Field Functions 
     bool hasConnCheckErrorMessage() const { return this->connCheckErrorMessage_ != nullptr;};
     void deleteConnCheckErrorMessage() { this->connCheckErrorMessage_ = nullptr;};
-    inline string connCheckErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(connCheckErrorMessage_, "") };
+    inline string getConnCheckErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(connCheckErrorMessage_, "") };
     inline DescribeDBInstanceConnectivityResponseBody& setConnCheckErrorMessage(string connCheckErrorMessage) { DARABONBA_PTR_SET_VALUE(connCheckErrorMessage_, connCheckErrorMessage) };
 
 
     // connCheckResult Field Functions 
     bool hasConnCheckResult() const { return this->connCheckResult_ != nullptr;};
     void deleteConnCheckResult() { this->connCheckResult_ = nullptr;};
-    inline string connCheckResult() const { DARABONBA_PTR_GET_DEFAULT(connCheckResult_, "") };
+    inline string getConnCheckResult() const { DARABONBA_PTR_GET_DEFAULT(connCheckResult_, "") };
     inline DescribeDBInstanceConnectivityResponseBody& setConnCheckResult(string connCheckResult) { DARABONBA_PTR_SET_VALUE(connCheckResult_, connCheckResult) };
 
 
     // dbInstanceName Field Functions 
     bool hasDbInstanceName() const { return this->dbInstanceName_ != nullptr;};
     void deleteDbInstanceName() { this->dbInstanceName_ = nullptr;};
-    inline string dbInstanceName() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceName_, "") };
+    inline string getDbInstanceName() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceName_, "") };
     inline DescribeDBInstanceConnectivityResponseBody& setDbInstanceName(string dbInstanceName) { DARABONBA_PTR_SET_VALUE(dbInstanceName_, dbInstanceName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBInstanceConnectivityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -79,18 +79,18 @@ namespace Models
     // 
     // *   **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
     // *   **CONNECTION_ABNORMAL**: The connection to the cluster is normal.
-    std::shared_ptr<string> connCheckErrorCode_ = nullptr;
+    shared_ptr<string> connCheckErrorCode_ {};
     // The error message for connection diagnosis.
-    std::shared_ptr<string> connCheckErrorMessage_ = nullptr;
+    shared_ptr<string> connCheckErrorMessage_ {};
     // The connection diagnosis result. Valid values:
     // 
     // *   **Success**
     // *   **Failed**
-    std::shared_ptr<string> connCheckResult_ = nullptr;
+    shared_ptr<string> connCheckResult_ {};
     // The instance ID.
-    std::shared_ptr<string> dbInstanceName_ = nullptr;
+    shared_ptr<string> dbInstanceName_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

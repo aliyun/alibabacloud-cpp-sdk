@@ -38,61 +38,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionParams_ == nullptr
-        && return this->eventAction_ == nullptr && return this->eventId_ == nullptr && return this->regionId_ == nullptr && return this->securityToken_ == nullptr; };
+        && this->eventAction_ == nullptr && this->eventId_ == nullptr && this->regionId_ == nullptr && this->securityToken_ == nullptr; };
     // actionParams Field Functions 
     bool hasActionParams() const { return this->actionParams_ != nullptr;};
     void deleteActionParams() { this->actionParams_ = nullptr;};
-    inline string actionParams() const { DARABONBA_PTR_GET_DEFAULT(actionParams_, "") };
+    inline string getActionParams() const { DARABONBA_PTR_GET_DEFAULT(actionParams_, "") };
     inline ModifyEventInfoRequest& setActionParams(string actionParams) { DARABONBA_PTR_SET_VALUE(actionParams_, actionParams) };
 
 
     // eventAction Field Functions 
     bool hasEventAction() const { return this->eventAction_ != nullptr;};
     void deleteEventAction() { this->eventAction_ = nullptr;};
-    inline string eventAction() const { DARABONBA_PTR_GET_DEFAULT(eventAction_, "") };
+    inline string getEventAction() const { DARABONBA_PTR_GET_DEFAULT(eventAction_, "") };
     inline ModifyEventInfoRequest& setEventAction(string eventAction) { DARABONBA_PTR_SET_VALUE(eventAction_, eventAction) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline string eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
+    inline string getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
     inline ModifyEventInfoRequest& setEventId(string eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyEventInfoRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline ModifyEventInfoRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
     // The action-related parameters. You can add action-related parameters based on your business requirements. The parameter value varies with the value of the TaskAction parameter.
-    std::shared_ptr<string> actionParams_ = nullptr;
+    shared_ptr<string> actionParams_ {};
     // The event handling action. Valid values:
     // 
     // *   **archive**
     // *   **undo**
     // 
     // >  This parameter is required.
-    std::shared_ptr<string> eventAction_ = nullptr;
+    shared_ptr<string> eventAction_ {};
     // The event ID. You can call the DescribeEvents operation to obtain the IDs of the events. Separate multiple event IDs with commas (,). You can specify up to 20 event IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eventId_ = nullptr;
+    shared_ptr<string> eventId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> securityToken_ {};
   };
 
   } // namespace Models

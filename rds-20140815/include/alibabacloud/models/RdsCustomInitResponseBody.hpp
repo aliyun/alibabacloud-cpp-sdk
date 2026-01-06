@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->registerUidSuccess_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // registerUidSuccess Field Functions 
     bool hasRegisterUidSuccess() const { return this->registerUidSuccess_ != nullptr;};
     void deleteRegisterUidSuccess() { this->registerUidSuccess_ = nullptr;};
-    inline bool registerUidSuccess() const { DARABONBA_PTR_GET_DEFAULT(registerUidSuccess_, false) };
+    inline bool getRegisterUidSuccess() const { DARABONBA_PTR_GET_DEFAULT(registerUidSuccess_, false) };
     inline RdsCustomInitResponseBody& setRegisterUidSuccess(bool registerUidSuccess) { DARABONBA_PTR_SET_VALUE(registerUidSuccess_, registerUidSuccess) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline RdsCustomInitResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<bool> registerUidSuccess_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<bool> registerUidSuccess_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

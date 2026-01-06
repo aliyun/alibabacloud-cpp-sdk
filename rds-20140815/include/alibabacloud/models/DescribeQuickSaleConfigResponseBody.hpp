@@ -34,27 +34,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commodity_ == nullptr
-        && return this->items_ == nullptr && return this->requestId_ == nullptr; };
+        && this->items_ == nullptr && this->requestId_ == nullptr; };
     // commodity Field Functions 
     bool hasCommodity() const { return this->commodity_ != nullptr;};
     void deleteCommodity() { this->commodity_ = nullptr;};
-    inline string commodity() const { DARABONBA_PTR_GET_DEFAULT(commodity_, "") };
+    inline string getCommodity() const { DARABONBA_PTR_GET_DEFAULT(commodity_, "") };
     inline DescribeQuickSaleConfigResponseBody& setCommodity(string commodity) { DARABONBA_PTR_SET_VALUE(commodity_, commodity) };
 
 
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline     const Darabonba::Json & items() const { DARABONBA_GET(items_) };
-    Darabonba::Json & items() { DARABONBA_GET(items_) };
+    inline     const Darabonba::Json & getItems() const { DARABONBA_GET(items_) };
+    Darabonba::Json & getItems() { DARABONBA_GET(items_) };
     inline DescribeQuickSaleConfigResponseBody& setItems(const Darabonba::Json & items) { DARABONBA_SET_VALUE(items_, items) };
-    inline DescribeQuickSaleConfigResponseBody& setItems(Darabonba::Json & items) { DARABONBA_SET_RVALUE(items_, items) };
+    inline DescribeQuickSaleConfigResponseBody& setItems(Darabonba::Json && items) { DARABONBA_SET_RVALUE(items_, items) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeQuickSaleConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -63,11 +63,11 @@ namespace Models
     // 
     // *   rds: The instance is a subscription instance.
     // *   bards: The instance is a pay-as-you-go instance.
-    std::shared_ptr<string> commodity_ = nullptr;
+    shared_ptr<string> commodity_ {};
     // The configuration details of the product.
-    Darabonba::Json items_ = nullptr;
+    Darabonba::Json items_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

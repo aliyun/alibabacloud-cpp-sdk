@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionString_ == nullptr
-        && return this->dbInstanceName_ == nullptr && return this->requestId_ == nullptr; };
+        && this->dbInstanceName_ == nullptr && this->requestId_ == nullptr; };
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
-    inline string connectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+    inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
     inline AllocateInstancePublicConnectionResponseBody& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
 
 
     // dbInstanceName Field Functions 
     bool hasDbInstanceName() const { return this->dbInstanceName_ != nullptr;};
     void deleteDbInstanceName() { this->dbInstanceName_ = nullptr;};
-    inline string dbInstanceName() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceName_, "") };
+    inline string getDbInstanceName() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceName_, "") };
     inline AllocateInstancePublicConnectionResponseBody& setDbInstanceName(string dbInstanceName) { DARABONBA_PTR_SET_VALUE(dbInstanceName_, dbInstanceName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AllocateInstancePublicConnectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The endpoint that is used to connect to the database instance.
-    std::shared_ptr<string> connectionString_ = nullptr;
+    shared_ptr<string> connectionString_ {};
     // The ID of the instance.
-    std::shared_ptr<string> dbInstanceName_ = nullptr;
+    shared_ptr<string> dbInstanceName_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

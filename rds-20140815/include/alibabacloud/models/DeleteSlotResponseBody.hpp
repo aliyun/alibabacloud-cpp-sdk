@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->slotName_ == nullptr; };
+        && this->slotName_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteSlotResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // slotName Field Functions 
     bool hasSlotName() const { return this->slotName_ != nullptr;};
     void deleteSlotName() { this->slotName_ = nullptr;};
-    inline string slotName() const { DARABONBA_PTR_GET_DEFAULT(slotName_, "") };
+    inline string getSlotName() const { DARABONBA_PTR_GET_DEFAULT(slotName_, "") };
     inline DeleteSlotResponseBody& setSlotName(string slotName) { DARABONBA_PTR_SET_VALUE(slotName_, slotName) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The name of the replication slot.
-    std::shared_ptr<string> slotName_ = nullptr;
+    shared_ptr<string> slotName_ {};
   };
 
   } // namespace Models

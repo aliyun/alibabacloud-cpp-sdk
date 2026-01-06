@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commodityCode_ == nullptr
-        && return this->engine_ == nullptr && return this->instanceType_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->regionId_ == nullptr; };
+        && this->engine_ == nullptr && this->instanceType_ == nullptr && this->instanceTypeFamily_ == nullptr && this->regionId_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline DescribeRCInstanceTypesRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline DescribeRCInstanceTypesRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline const vector<string> & instanceType() const { DARABONBA_PTR_GET_CONST(instanceType_, vector<string>) };
-    inline vector<string> instanceType() { DARABONBA_PTR_GET(instanceType_, vector<string>) };
+    inline const vector<string> & getInstanceType() const { DARABONBA_PTR_GET_CONST(instanceType_, vector<string>) };
+    inline vector<string> getInstanceType() { DARABONBA_PTR_GET(instanceType_, vector<string>) };
     inline DescribeRCInstanceTypesRequest& setInstanceType(const vector<string> & instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
     inline DescribeRCInstanceTypesRequest& setInstanceType(vector<string> && instanceType) { DARABONBA_PTR_SET_RVALUE(instanceType_, instanceType) };
 
@@ -66,28 +66,28 @@ namespace Models
     // instanceTypeFamily Field Functions 
     bool hasInstanceTypeFamily() const { return this->instanceTypeFamily_ != nullptr;};
     void deleteInstanceTypeFamily() { this->instanceTypeFamily_ = nullptr;};
-    inline string instanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamily_, "") };
+    inline string getInstanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(instanceTypeFamily_, "") };
     inline DescribeRCInstanceTypesRequest& setInstanceTypeFamily(string instanceTypeFamily) { DARABONBA_PTR_SET_VALUE(instanceTypeFamily_, instanceTypeFamily) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeRCInstanceTypesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The commodity code of the instance.
-    std::shared_ptr<string> commodityCode_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
     // The database engine. Set the value to MySQL.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The instance types.
-    std::shared_ptr<vector<string>> instanceType_ = nullptr;
+    shared_ptr<vector<string>> instanceType_ {};
     // The instance family. You can call the **DescribeRCInstanceTypeFamilies** operation to query the instance families of instances.
-    std::shared_ptr<string> instanceTypeFamily_ = nullptr;
+    shared_ptr<string> instanceTypeFamily_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

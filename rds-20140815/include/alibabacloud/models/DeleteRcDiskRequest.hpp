@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diskId_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // diskId Field Functions 
     bool hasDiskId() const { return this->diskId_ != nullptr;};
     void deleteDiskId() { this->diskId_ = nullptr;};
-    inline string diskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
+    inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
     inline DeleteRCDiskRequest& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteRCDiskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the cloud disk that you want to release.
     // 
     // This parameter is required.
-    std::shared_ptr<string> diskId_ = nullptr;
+    shared_ptr<string> diskId_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

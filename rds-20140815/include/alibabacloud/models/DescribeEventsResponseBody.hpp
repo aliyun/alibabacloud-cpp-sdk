@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEEVENTSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEEVENTSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeEventsResponseBodyEventItems.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +38,245 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class EventItems : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EventItems& obj) { 
+        DARABONBA_PTR_TO_JSON(EventItems, eventItems_);
+      };
+      friend void from_json(const Darabonba::Json& j, EventItems& obj) { 
+        DARABONBA_PTR_FROM_JSON(EventItems, eventItems_);
+      };
+      EventItems() = default ;
+      EventItems(const EventItems &) = default ;
+      EventItems(EventItems &&) = default ;
+      EventItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EventItems() = default ;
+      EventItems& operator=(const EventItems &) = default ;
+      EventItems& operator=(EventItems &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class EventItemsItem : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const EventItemsItem& obj) { 
+          DARABONBA_PTR_TO_JSON(CallerUid, callerUid_);
+          DARABONBA_PTR_TO_JSON(EventId, eventId_);
+          DARABONBA_PTR_TO_JSON(EventName, eventName_);
+          DARABONBA_PTR_TO_JSON(EventPayload, eventPayload_);
+          DARABONBA_PTR_TO_JSON(EventReason, eventReason_);
+          DARABONBA_PTR_TO_JSON(EventRecordTime, eventRecordTime_);
+          DARABONBA_PTR_TO_JSON(EventTime, eventTime_);
+          DARABONBA_PTR_TO_JSON(EventType, eventType_);
+          DARABONBA_PTR_TO_JSON(EventUserType, eventUserType_);
+          DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+          DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
+          DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+        };
+        friend void from_json(const Darabonba::Json& j, EventItemsItem& obj) { 
+          DARABONBA_PTR_FROM_JSON(CallerUid, callerUid_);
+          DARABONBA_PTR_FROM_JSON(EventId, eventId_);
+          DARABONBA_PTR_FROM_JSON(EventName, eventName_);
+          DARABONBA_PTR_FROM_JSON(EventPayload, eventPayload_);
+          DARABONBA_PTR_FROM_JSON(EventReason, eventReason_);
+          DARABONBA_PTR_FROM_JSON(EventRecordTime, eventRecordTime_);
+          DARABONBA_PTR_FROM_JSON(EventTime, eventTime_);
+          DARABONBA_PTR_FROM_JSON(EventType, eventType_);
+          DARABONBA_PTR_FROM_JSON(EventUserType, eventUserType_);
+          DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+          DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
+          DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+        };
+        EventItemsItem() = default ;
+        EventItemsItem(const EventItemsItem &) = default ;
+        EventItemsItem(EventItemsItem &&) = default ;
+        EventItemsItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~EventItemsItem() = default ;
+        EventItemsItem& operator=(const EventItemsItem &) = default ;
+        EventItemsItem& operator=(EventItemsItem &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->callerUid_ == nullptr
+        && this->eventId_ == nullptr && this->eventName_ == nullptr && this->eventPayload_ == nullptr && this->eventReason_ == nullptr && this->eventRecordTime_ == nullptr
+        && this->eventTime_ == nullptr && this->eventType_ == nullptr && this->eventUserType_ == nullptr && this->regionId_ == nullptr && this->resourceName_ == nullptr
+        && this->resourceType_ == nullptr; };
+        // callerUid Field Functions 
+        bool hasCallerUid() const { return this->callerUid_ != nullptr;};
+        void deleteCallerUid() { this->callerUid_ = nullptr;};
+        inline int64_t getCallerUid() const { DARABONBA_PTR_GET_DEFAULT(callerUid_, 0L) };
+        inline EventItemsItem& setCallerUid(int64_t callerUid) { DARABONBA_PTR_SET_VALUE(callerUid_, callerUid) };
+
+
+        // eventId Field Functions 
+        bool hasEventId() const { return this->eventId_ != nullptr;};
+        void deleteEventId() { this->eventId_ = nullptr;};
+        inline int32_t getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0) };
+        inline EventItemsItem& setEventId(int32_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
+
+
+        // eventName Field Functions 
+        bool hasEventName() const { return this->eventName_ != nullptr;};
+        void deleteEventName() { this->eventName_ = nullptr;};
+        inline string getEventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
+        inline EventItemsItem& setEventName(string eventName) { DARABONBA_PTR_SET_VALUE(eventName_, eventName) };
+
+
+        // eventPayload Field Functions 
+        bool hasEventPayload() const { return this->eventPayload_ != nullptr;};
+        void deleteEventPayload() { this->eventPayload_ = nullptr;};
+        inline string getEventPayload() const { DARABONBA_PTR_GET_DEFAULT(eventPayload_, "") };
+        inline EventItemsItem& setEventPayload(string eventPayload) { DARABONBA_PTR_SET_VALUE(eventPayload_, eventPayload) };
+
+
+        // eventReason Field Functions 
+        bool hasEventReason() const { return this->eventReason_ != nullptr;};
+        void deleteEventReason() { this->eventReason_ = nullptr;};
+        inline string getEventReason() const { DARABONBA_PTR_GET_DEFAULT(eventReason_, "") };
+        inline EventItemsItem& setEventReason(string eventReason) { DARABONBA_PTR_SET_VALUE(eventReason_, eventReason) };
+
+
+        // eventRecordTime Field Functions 
+        bool hasEventRecordTime() const { return this->eventRecordTime_ != nullptr;};
+        void deleteEventRecordTime() { this->eventRecordTime_ = nullptr;};
+        inline string getEventRecordTime() const { DARABONBA_PTR_GET_DEFAULT(eventRecordTime_, "") };
+        inline EventItemsItem& setEventRecordTime(string eventRecordTime) { DARABONBA_PTR_SET_VALUE(eventRecordTime_, eventRecordTime) };
+
+
+        // eventTime Field Functions 
+        bool hasEventTime() const { return this->eventTime_ != nullptr;};
+        void deleteEventTime() { this->eventTime_ = nullptr;};
+        inline string getEventTime() const { DARABONBA_PTR_GET_DEFAULT(eventTime_, "") };
+        inline EventItemsItem& setEventTime(string eventTime) { DARABONBA_PTR_SET_VALUE(eventTime_, eventTime) };
+
+
+        // eventType Field Functions 
+        bool hasEventType() const { return this->eventType_ != nullptr;};
+        void deleteEventType() { this->eventType_ = nullptr;};
+        inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+        inline EventItemsItem& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
+
+
+        // eventUserType Field Functions 
+        bool hasEventUserType() const { return this->eventUserType_ != nullptr;};
+        void deleteEventUserType() { this->eventUserType_ = nullptr;};
+        inline string getEventUserType() const { DARABONBA_PTR_GET_DEFAULT(eventUserType_, "") };
+        inline EventItemsItem& setEventUserType(string eventUserType) { DARABONBA_PTR_SET_VALUE(eventUserType_, eventUserType) };
+
+
+        // regionId Field Functions 
+        bool hasRegionId() const { return this->regionId_ != nullptr;};
+        void deleteRegionId() { this->regionId_ = nullptr;};
+        inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+        inline EventItemsItem& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+        // resourceName Field Functions 
+        bool hasResourceName() const { return this->resourceName_ != nullptr;};
+        void deleteResourceName() { this->resourceName_ = nullptr;};
+        inline string getResourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+        inline EventItemsItem& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
+
+
+        // resourceType Field Functions 
+        bool hasResourceType() const { return this->resourceType_ != nullptr;};
+        void deleteResourceType() { this->resourceType_ = nullptr;};
+        inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+        inline EventItemsItem& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+      protected:
+        // The ID of the user who executed the event.
+        shared_ptr<int64_t> callerUid_ {};
+        // The event ID.
+        shared_ptr<int32_t> eventId_ {};
+        // The event name.
+        shared_ptr<string> eventName_ {};
+        // The request or context parameters of the event.
+        shared_ptr<string> eventPayload_ {};
+        // The source of the event.
+        shared_ptr<string> eventReason_ {};
+        // The time when the event was recorded. The time is slightly later than the time the event occurred.
+        shared_ptr<string> eventRecordTime_ {};
+        // The time when the event occurred.
+        shared_ptr<string> eventTime_ {};
+        // The event type.
+        shared_ptr<string> eventType_ {};
+        // The type of the user who executed the event.
+        shared_ptr<string> eventUserType_ {};
+        // The region ID.
+        shared_ptr<string> regionId_ {};
+        // The name of the resource associated with the event. Only instance IDs are supported for this parameter.
+        shared_ptr<string> resourceName_ {};
+        // The type of the resource associated with the event. Only instances are supported for this parameter.
+        shared_ptr<string> resourceType_ {};
+      };
+
+      virtual bool empty() const override { return this->eventItems_ == nullptr; };
+      // eventItems Field Functions 
+      bool hasEventItems() const { return this->eventItems_ != nullptr;};
+      void deleteEventItems() { this->eventItems_ = nullptr;};
+      inline const vector<EventItems::EventItemsItem> & getEventItems() const { DARABONBA_PTR_GET_CONST(eventItems_, vector<EventItems::EventItemsItem>) };
+      inline vector<EventItems::EventItemsItem> getEventItems() { DARABONBA_PTR_GET(eventItems_, vector<EventItems::EventItemsItem>) };
+      inline EventItems& setEventItems(const vector<EventItems::EventItemsItem> & eventItems) { DARABONBA_PTR_SET_VALUE(eventItems_, eventItems) };
+      inline EventItems& setEventItems(vector<EventItems::EventItemsItem> && eventItems) { DARABONBA_PTR_SET_RVALUE(eventItems_, eventItems) };
+
+
+    protected:
+      shared_ptr<vector<EventItems::EventItemsItem>> eventItems_ {};
+    };
+
     virtual bool empty() const override { return this->eventItems_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalRecordCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalRecordCount_ == nullptr; };
     // eventItems Field Functions 
     bool hasEventItems() const { return this->eventItems_ != nullptr;};
     void deleteEventItems() { this->eventItems_ = nullptr;};
-    inline const DescribeEventsResponseBodyEventItems & eventItems() const { DARABONBA_PTR_GET_CONST(eventItems_, DescribeEventsResponseBodyEventItems) };
-    inline DescribeEventsResponseBodyEventItems eventItems() { DARABONBA_PTR_GET(eventItems_, DescribeEventsResponseBodyEventItems) };
-    inline DescribeEventsResponseBody& setEventItems(const DescribeEventsResponseBodyEventItems & eventItems) { DARABONBA_PTR_SET_VALUE(eventItems_, eventItems) };
-    inline DescribeEventsResponseBody& setEventItems(DescribeEventsResponseBodyEventItems && eventItems) { DARABONBA_PTR_SET_RVALUE(eventItems_, eventItems) };
+    inline const DescribeEventsResponseBody::EventItems & getEventItems() const { DARABONBA_PTR_GET_CONST(eventItems_, DescribeEventsResponseBody::EventItems) };
+    inline DescribeEventsResponseBody::EventItems getEventItems() { DARABONBA_PTR_GET(eventItems_, DescribeEventsResponseBody::EventItems) };
+    inline DescribeEventsResponseBody& setEventItems(const DescribeEventsResponseBody::EventItems & eventItems) { DARABONBA_PTR_SET_VALUE(eventItems_, eventItems) };
+    inline DescribeEventsResponseBody& setEventItems(DescribeEventsResponseBody::EventItems && eventItems) { DARABONBA_PTR_SET_RVALUE(eventItems_, eventItems) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeEventsResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeEventsResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeEventsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalRecordCount Field Functions 
     bool hasTotalRecordCount() const { return this->totalRecordCount_ != nullptr;};
     void deleteTotalRecordCount() { this->totalRecordCount_ = nullptr;};
-    inline int32_t totalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, 0) };
+    inline int32_t getTotalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, 0) };
     inline DescribeEventsResponseBody& setTotalRecordCount(int32_t totalRecordCount) { DARABONBA_PTR_SET_VALUE(totalRecordCount_, totalRecordCount) };
 
 
   protected:
     // The events.
-    std::shared_ptr<DescribeEventsResponseBodyEventItems> eventItems_ = nullptr;
+    shared_ptr<DescribeEventsResponseBody::EventItems> eventItems_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalRecordCount_ = nullptr;
+    shared_ptr<int32_t> totalRecordCount_ {};
   };
 
   } // namespace Models

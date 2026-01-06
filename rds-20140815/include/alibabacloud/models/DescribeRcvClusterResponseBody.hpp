@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->VClusterStatus_ == nullptr; };
+        && this->VClusterStatus_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeRCVClusterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // VClusterStatus Field Functions 
     bool hasVClusterStatus() const { return this->VClusterStatus_ != nullptr;};
     void deleteVClusterStatus() { this->VClusterStatus_ = nullptr;};
-    inline string VClusterStatus() const { DARABONBA_PTR_GET_DEFAULT(VClusterStatus_, "") };
+    inline string getVClusterStatus() const { DARABONBA_PTR_GET_DEFAULT(VClusterStatus_, "") };
     inline DescribeRCVClusterResponseBody& setVClusterStatus(string VClusterStatus) { DARABONBA_PTR_SET_VALUE(VClusterStatus_, VClusterStatus) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> VClusterStatus_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> VClusterStatus_ {};
   };
 
   } // namespace Models

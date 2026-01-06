@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dryRun_ == nullptr
-        && return this->force_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->terminateSubscription_ == nullptr; };
+        && this->force_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->terminateSubscription_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline DeleteRCInstancesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline DeleteRCInstancesRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline const vector<string> & instanceId() const { DARABONBA_PTR_GET_CONST(instanceId_, vector<string>) };
-    inline vector<string> instanceId() { DARABONBA_PTR_GET(instanceId_, vector<string>) };
+    inline const vector<string> & getInstanceId() const { DARABONBA_PTR_GET_CONST(instanceId_, vector<string>) };
+    inline vector<string> getInstanceId() { DARABONBA_PTR_GET(instanceId_, vector<string>) };
     inline DeleteRCInstancesRequest& setInstanceId(const vector<string> & instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
     inline DeleteRCInstancesRequest& setInstanceId(vector<string> && instanceId) { DARABONBA_PTR_SET_RVALUE(instanceId_, instanceId) };
 
@@ -66,14 +66,14 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteRCInstancesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // terminateSubscription Field Functions 
     bool hasTerminateSubscription() const { return this->terminateSubscription_ != nullptr;};
     void deleteTerminateSubscription() { this->terminateSubscription_ = nullptr;};
-    inline bool terminateSubscription() const { DARABONBA_PTR_GET_DEFAULT(terminateSubscription_, false) };
+    inline bool getTerminateSubscription() const { DARABONBA_PTR_GET_DEFAULT(terminateSubscription_, false) };
     inline DeleteRCInstancesRequest& setTerminateSubscription(bool terminateSubscription) { DARABONBA_PTR_SET_VALUE(terminateSubscription_, terminateSubscription) };
 
 
@@ -82,23 +82,23 @@ namespace Models
     // 
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to forcefully release a running instance. Valid values:
     // 
     // *   **Yes**
     // *   **No** (default)
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // The details of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceId_ = nullptr;
+    shared_ptr<vector<string>> instanceId_ {};
     // The region ID of the instance.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to release an expired subscription instance. Valid values:
     // 
     // *   **true**
     // *   **false** (default)
-    std::shared_ptr<bool> terminateSubscription_ = nullptr;
+    shared_ptr<bool> terminateSubscription_ {};
   };
 
   } // namespace Models

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupMode_ == nullptr
-        && return this->DBInstanceId_ == nullptr && return this->DBName_ == nullptr && return this->migrateTaskId_ == nullptr && return this->requestId_ == nullptr && return this->taskId_ == nullptr; };
+        && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->migrateTaskId_ == nullptr && this->requestId_ == nullptr && this->taskId_ == nullptr; };
     // backupMode Field Functions 
     bool hasBackupMode() const { return this->backupMode_ != nullptr;};
     void deleteBackupMode() { this->backupMode_ = nullptr;};
-    inline string backupMode() const { DARABONBA_PTR_GET_DEFAULT(backupMode_, "") };
+    inline string getBackupMode() const { DARABONBA_PTR_GET_DEFAULT(backupMode_, "") };
     inline CreateMigrateTaskResponseBody& setBackupMode(string backupMode) { DARABONBA_PTR_SET_VALUE(backupMode_, backupMode) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateMigrateTaskResponseBody& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBName Field Functions 
     bool hasDBName() const { return this->DBName_ != nullptr;};
     void deleteDBName() { this->DBName_ = nullptr;};
-    inline string DBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+    inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline CreateMigrateTaskResponseBody& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
 
 
     // migrateTaskId Field Functions 
     bool hasMigrateTaskId() const { return this->migrateTaskId_ != nullptr;};
     void deleteMigrateTaskId() { this->migrateTaskId_ = nullptr;};
-    inline string migrateTaskId() const { DARABONBA_PTR_GET_DEFAULT(migrateTaskId_, "") };
+    inline string getMigrateTaskId() const { DARABONBA_PTR_GET_DEFAULT(migrateTaskId_, "") };
     inline CreateMigrateTaskResponseBody& setMigrateTaskId(string migrateTaskId) { DARABONBA_PTR_SET_VALUE(migrateTaskId_, migrateTaskId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateMigrateTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline CreateMigrateTaskResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
@@ -88,17 +88,17 @@ namespace Models
     // 
     // *   **FULL**: The migration task migrates full backup files.
     // *   **UPDF**: The migration task migrates incremental or log backup files.
-    std::shared_ptr<string> backupMode_ = nullptr;
+    shared_ptr<string> backupMode_ {};
     // The instance ID.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
-    std::shared_ptr<string> DBName_ = nullptr;
+    shared_ptr<string> DBName_ {};
     // The ID of the migration task.
-    std::shared_ptr<string> migrateTaskId_ = nullptr;
+    shared_ptr<string> migrateTaskId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The task ID.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

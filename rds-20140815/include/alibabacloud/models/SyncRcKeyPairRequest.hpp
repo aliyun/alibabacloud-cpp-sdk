@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyPairName_ == nullptr
-        && return this->regionId_ == nullptr && return this->syncMode_ == nullptr; };
+        && this->regionId_ == nullptr && this->syncMode_ == nullptr; };
     // keyPairName Field Functions 
     bool hasKeyPairName() const { return this->keyPairName_ != nullptr;};
     void deleteKeyPairName() { this->keyPairName_ = nullptr;};
-    inline string keyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
+    inline string getKeyPairName() const { DARABONBA_PTR_GET_DEFAULT(keyPairName_, "") };
     inline SyncRCKeyPairRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SyncRCKeyPairRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // syncMode Field Functions 
     bool hasSyncMode() const { return this->syncMode_ != nullptr;};
     void deleteSyncMode() { this->syncMode_ = nullptr;};
-    inline bool syncMode() const { DARABONBA_PTR_GET_DEFAULT(syncMode_, false) };
+    inline bool getSyncMode() const { DARABONBA_PTR_GET_DEFAULT(syncMode_, false) };
     inline SyncRCKeyPairRequest& setSyncMode(bool syncMode) { DARABONBA_PTR_SET_VALUE(syncMode_, syncMode) };
 
 
   protected:
     // The name of the key pair.
-    std::shared_ptr<string> keyPairName_ = nullptr;
+    shared_ptr<string> keyPairName_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<bool> syncMode_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<bool> syncMode_ {};
   };
 
   } // namespace Models

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->DBInstanceEndpointDescription_ == nullptr && return this->DBInstanceEndpointId_ == nullptr && return this->DBInstanceId_ == nullptr && return this->nodeItemsShrink_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->DBInstanceEndpointDescription_ == nullptr && this->DBInstanceEndpointId_ == nullptr && this->DBInstanceId_ == nullptr && this->nodeItemsShrink_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyDBInstanceEndpointShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // DBInstanceEndpointDescription Field Functions 
     bool hasDBInstanceEndpointDescription() const { return this->DBInstanceEndpointDescription_ != nullptr;};
     void deleteDBInstanceEndpointDescription() { this->DBInstanceEndpointDescription_ = nullptr;};
-    inline string DBInstanceEndpointDescription() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceEndpointDescription_, "") };
+    inline string getDBInstanceEndpointDescription() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceEndpointDescription_, "") };
     inline ModifyDBInstanceEndpointShrinkRequest& setDBInstanceEndpointDescription(string DBInstanceEndpointDescription) { DARABONBA_PTR_SET_VALUE(DBInstanceEndpointDescription_, DBInstanceEndpointDescription) };
 
 
     // DBInstanceEndpointId Field Functions 
     bool hasDBInstanceEndpointId() const { return this->DBInstanceEndpointId_ != nullptr;};
     void deleteDBInstanceEndpointId() { this->DBInstanceEndpointId_ = nullptr;};
-    inline string DBInstanceEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceEndpointId_, "") };
+    inline string getDBInstanceEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceEndpointId_, "") };
     inline ModifyDBInstanceEndpointShrinkRequest& setDBInstanceEndpointId(string DBInstanceEndpointId) { DARABONBA_PTR_SET_VALUE(DBInstanceEndpointId_, DBInstanceEndpointId) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifyDBInstanceEndpointShrinkRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // nodeItemsShrink Field Functions 
     bool hasNodeItemsShrink() const { return this->nodeItemsShrink_ != nullptr;};
     void deleteNodeItemsShrink() { this->nodeItemsShrink_ = nullptr;};
-    inline string nodeItemsShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeItemsShrink_, "") };
+    inline string getNodeItemsShrink() const { DARABONBA_PTR_GET_DEFAULT(nodeItemsShrink_, "") };
     inline ModifyDBInstanceEndpointShrinkRequest& setNodeItemsShrink(string nodeItemsShrink) { DARABONBA_PTR_SET_VALUE(nodeItemsShrink_, nodeItemsShrink) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyDBInstanceEndpointShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -87,20 +87,20 @@ namespace Models
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     // 
     // The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The user-defined description of the endpoint.
-    std::shared_ptr<string> DBInstanceEndpointDescription_ = nullptr;
+    shared_ptr<string> DBInstanceEndpointDescription_ {};
     // The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceEndpointId_ = nullptr;
+    shared_ptr<string> DBInstanceEndpointId_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The information about the endpoint.
-    std::shared_ptr<string> nodeItemsShrink_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> nodeItemsShrink_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbInstanceId_ == nullptr
-        && return this->HAMode_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->syncMode_ == nullptr; };
+        && this->HAMode_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->syncMode_ == nullptr; };
     // dbInstanceId Field Functions 
     bool hasDbInstanceId() const { return this->dbInstanceId_ != nullptr;};
     void deleteDbInstanceId() { this->dbInstanceId_ = nullptr;};
-    inline string dbInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceId_, "") };
+    inline string getDbInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceId_, "") };
     inline ModifyDBInstanceHAConfigRequest& setDbInstanceId(string dbInstanceId) { DARABONBA_PTR_SET_VALUE(dbInstanceId_, dbInstanceId) };
 
 
     // HAMode Field Functions 
     bool hasHAMode() const { return this->HAMode_ != nullptr;};
     void deleteHAMode() { this->HAMode_ = nullptr;};
-    inline string HAMode() const { DARABONBA_PTR_GET_DEFAULT(HAMode_, "") };
+    inline string getHAMode() const { DARABONBA_PTR_GET_DEFAULT(HAMode_, "") };
     inline ModifyDBInstanceHAConfigRequest& setHAMode(string HAMode) { DARABONBA_PTR_SET_VALUE(HAMode_, HAMode) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyDBInstanceHAConfigRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyDBInstanceHAConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyDBInstanceHAConfigRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyDBInstanceHAConfigRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // syncMode Field Functions 
     bool hasSyncMode() const { return this->syncMode_ != nullptr;};
     void deleteSyncMode() { this->syncMode_ = nullptr;};
-    inline string syncMode() const { DARABONBA_PTR_GET_DEFAULT(syncMode_, "") };
+    inline string getSyncMode() const { DARABONBA_PTR_GET_DEFAULT(syncMode_, "") };
     inline ModifyDBInstanceHAConfigRequest& setSyncMode(string syncMode) { DARABONBA_PTR_SET_VALUE(syncMode_, syncMode) };
 
 
@@ -97,18 +97,18 @@ namespace Models
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dbInstanceId_ = nullptr;
+    shared_ptr<string> dbInstanceId_ {};
     // The HA mode of the instance.
     // 
     // *   RPO: Data consistency is preferred. The instance ensures data reliability to minimize data losses. If you have high requirements on data consistency, select this mode.
     // *   RTO: Service availability is preferred. The instance restores the database service at the earliest opportunity to ensure service availability. If you have high requirements for service availability, select this mode.
     // 
     // This parameter is required.
-    std::shared_ptr<string> HAMode_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> HAMode_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The data replication mode of the instance. For more information, see [Data replication mode](https://help.aliyun.com/document_detail/96055.html).
     // 
     // *   Semi-sync: the semi-synchronous mode.
@@ -119,7 +119,7 @@ namespace Models
     // > This parameter is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
     // 
     // This parameter is required.
-    std::shared_ptr<string> syncMode_ = nullptr;
+    shared_ptr<string> syncMode_ {};
   };
 
   } // namespace Models

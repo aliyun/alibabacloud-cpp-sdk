@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->promoteToMaster_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->promoteToMaster_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DeleteReplicationLinkRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // promoteToMaster Field Functions 
     bool hasPromoteToMaster() const { return this->promoteToMaster_ != nullptr;};
     void deletePromoteToMaster() { this->promoteToMaster_ = nullptr;};
-    inline bool promoteToMaster() const { DARABONBA_PTR_GET_DEFAULT(promoteToMaster_, false) };
+    inline bool getPromoteToMaster() const { DARABONBA_PTR_GET_DEFAULT(promoteToMaster_, false) };
     inline DeleteReplicationLinkRequest& setPromoteToMaster(bool promoteToMaster) { DARABONBA_PTR_SET_VALUE(promoteToMaster_, promoteToMaster) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DeleteReplicationLinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the DR instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // Specifies whether to delete the data synchronization link between the DR instance and the primary instance and promote the DR instance to the primary instance. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // This parameter is required.
-    std::shared_ptr<bool> promoteToMaster_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<bool> promoteToMaster_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBECLOUDMIGRATIONRESULTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeCloudMigrationResultResponseBodyItems.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,56 +38,272 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Items : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(Detail, detail_);
+        DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_TO_JSON(MigrateStage, migrateStage_);
+        DARABONBA_PTR_TO_JSON(ReplicationInfo, replicationInfo_);
+        DARABONBA_PTR_TO_JSON(ReplicationState, replicationState_);
+        DARABONBA_PTR_TO_JSON(SourceAccount, sourceAccount_);
+        DARABONBA_PTR_TO_JSON(SourceCategory, sourceCategory_);
+        DARABONBA_PTR_TO_JSON(SourceIpAddress, sourceIpAddress_);
+        DARABONBA_PTR_TO_JSON(SourcePassword, sourcePassword_);
+        DARABONBA_PTR_TO_JSON(SourcePort, sourcePort_);
+        DARABONBA_PTR_TO_JSON(SwitchTime, switchTime_);
+        DARABONBA_PTR_TO_JSON(TargetEip, targetEip_);
+        DARABONBA_PTR_TO_JSON(TargetInstanceName, targetInstanceName_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+        DARABONBA_PTR_TO_JSON(TaskName, taskName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(Detail, detail_);
+        DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+        DARABONBA_PTR_FROM_JSON(MigrateStage, migrateStage_);
+        DARABONBA_PTR_FROM_JSON(ReplicationInfo, replicationInfo_);
+        DARABONBA_PTR_FROM_JSON(ReplicationState, replicationState_);
+        DARABONBA_PTR_FROM_JSON(SourceAccount, sourceAccount_);
+        DARABONBA_PTR_FROM_JSON(SourceCategory, sourceCategory_);
+        DARABONBA_PTR_FROM_JSON(SourceIpAddress, sourceIpAddress_);
+        DARABONBA_PTR_FROM_JSON(SourcePassword, sourcePassword_);
+        DARABONBA_PTR_FROM_JSON(SourcePort, sourcePort_);
+        DARABONBA_PTR_FROM_JSON(SwitchTime, switchTime_);
+        DARABONBA_PTR_FROM_JSON(TargetEip, targetEip_);
+        DARABONBA_PTR_FROM_JSON(TargetInstanceName, targetInstanceName_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
+      };
+      Items() = default ;
+      Items(const Items &) = default ;
+      Items(Items &&) = default ;
+      Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Items() = default ;
+      Items& operator=(const Items &) = default ;
+      Items& operator=(Items &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->detail_ == nullptr
+        && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->migrateStage_ == nullptr && this->replicationInfo_ == nullptr && this->replicationState_ == nullptr
+        && this->sourceAccount_ == nullptr && this->sourceCategory_ == nullptr && this->sourceIpAddress_ == nullptr && this->sourcePassword_ == nullptr && this->sourcePort_ == nullptr
+        && this->switchTime_ == nullptr && this->targetEip_ == nullptr && this->targetInstanceName_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
+      // detail Field Functions 
+      bool hasDetail() const { return this->detail_ != nullptr;};
+      void deleteDetail() { this->detail_ = nullptr;};
+      inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+      inline Items& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
+
+
+      // gmtCreated Field Functions 
+      bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
+      void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
+      inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
+      inline Items& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
+
+
+      // gmtModified Field Functions 
+      bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+      void deleteGmtModified() { this->gmtModified_ = nullptr;};
+      inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+      inline Items& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+      // migrateStage Field Functions 
+      bool hasMigrateStage() const { return this->migrateStage_ != nullptr;};
+      void deleteMigrateStage() { this->migrateStage_ = nullptr;};
+      inline string getMigrateStage() const { DARABONBA_PTR_GET_DEFAULT(migrateStage_, "") };
+      inline Items& setMigrateStage(string migrateStage) { DARABONBA_PTR_SET_VALUE(migrateStage_, migrateStage) };
+
+
+      // replicationInfo Field Functions 
+      bool hasReplicationInfo() const { return this->replicationInfo_ != nullptr;};
+      void deleteReplicationInfo() { this->replicationInfo_ = nullptr;};
+      inline string getReplicationInfo() const { DARABONBA_PTR_GET_DEFAULT(replicationInfo_, "") };
+      inline Items& setReplicationInfo(string replicationInfo) { DARABONBA_PTR_SET_VALUE(replicationInfo_, replicationInfo) };
+
+
+      // replicationState Field Functions 
+      bool hasReplicationState() const { return this->replicationState_ != nullptr;};
+      void deleteReplicationState() { this->replicationState_ = nullptr;};
+      inline string getReplicationState() const { DARABONBA_PTR_GET_DEFAULT(replicationState_, "") };
+      inline Items& setReplicationState(string replicationState) { DARABONBA_PTR_SET_VALUE(replicationState_, replicationState) };
+
+
+      // sourceAccount Field Functions 
+      bool hasSourceAccount() const { return this->sourceAccount_ != nullptr;};
+      void deleteSourceAccount() { this->sourceAccount_ = nullptr;};
+      inline string getSourceAccount() const { DARABONBA_PTR_GET_DEFAULT(sourceAccount_, "") };
+      inline Items& setSourceAccount(string sourceAccount) { DARABONBA_PTR_SET_VALUE(sourceAccount_, sourceAccount) };
+
+
+      // sourceCategory Field Functions 
+      bool hasSourceCategory() const { return this->sourceCategory_ != nullptr;};
+      void deleteSourceCategory() { this->sourceCategory_ = nullptr;};
+      inline string getSourceCategory() const { DARABONBA_PTR_GET_DEFAULT(sourceCategory_, "") };
+      inline Items& setSourceCategory(string sourceCategory) { DARABONBA_PTR_SET_VALUE(sourceCategory_, sourceCategory) };
+
+
+      // sourceIpAddress Field Functions 
+      bool hasSourceIpAddress() const { return this->sourceIpAddress_ != nullptr;};
+      void deleteSourceIpAddress() { this->sourceIpAddress_ = nullptr;};
+      inline string getSourceIpAddress() const { DARABONBA_PTR_GET_DEFAULT(sourceIpAddress_, "") };
+      inline Items& setSourceIpAddress(string sourceIpAddress) { DARABONBA_PTR_SET_VALUE(sourceIpAddress_, sourceIpAddress) };
+
+
+      // sourcePassword Field Functions 
+      bool hasSourcePassword() const { return this->sourcePassword_ != nullptr;};
+      void deleteSourcePassword() { this->sourcePassword_ = nullptr;};
+      inline string getSourcePassword() const { DARABONBA_PTR_GET_DEFAULT(sourcePassword_, "") };
+      inline Items& setSourcePassword(string sourcePassword) { DARABONBA_PTR_SET_VALUE(sourcePassword_, sourcePassword) };
+
+
+      // sourcePort Field Functions 
+      bool hasSourcePort() const { return this->sourcePort_ != nullptr;};
+      void deleteSourcePort() { this->sourcePort_ = nullptr;};
+      inline int64_t getSourcePort() const { DARABONBA_PTR_GET_DEFAULT(sourcePort_, 0L) };
+      inline Items& setSourcePort(int64_t sourcePort) { DARABONBA_PTR_SET_VALUE(sourcePort_, sourcePort) };
+
+
+      // switchTime Field Functions 
+      bool hasSwitchTime() const { return this->switchTime_ != nullptr;};
+      void deleteSwitchTime() { this->switchTime_ = nullptr;};
+      inline string getSwitchTime() const { DARABONBA_PTR_GET_DEFAULT(switchTime_, "") };
+      inline Items& setSwitchTime(string switchTime) { DARABONBA_PTR_SET_VALUE(switchTime_, switchTime) };
+
+
+      // targetEip Field Functions 
+      bool hasTargetEip() const { return this->targetEip_ != nullptr;};
+      void deleteTargetEip() { this->targetEip_ = nullptr;};
+      inline string getTargetEip() const { DARABONBA_PTR_GET_DEFAULT(targetEip_, "") };
+      inline Items& setTargetEip(string targetEip) { DARABONBA_PTR_SET_VALUE(targetEip_, targetEip) };
+
+
+      // targetInstanceName Field Functions 
+      bool hasTargetInstanceName() const { return this->targetInstanceName_ != nullptr;};
+      void deleteTargetInstanceName() { this->targetInstanceName_ = nullptr;};
+      inline string getTargetInstanceName() const { DARABONBA_PTR_GET_DEFAULT(targetInstanceName_, "") };
+      inline Items& setTargetInstanceName(string targetInstanceName) { DARABONBA_PTR_SET_VALUE(targetInstanceName_, targetInstanceName) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+      inline Items& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+      // taskName Field Functions 
+      bool hasTaskName() const { return this->taskName_ != nullptr;};
+      void deleteTaskName() { this->taskName_ = nullptr;};
+      inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+      inline Items& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
+
+
+    protected:
+      // The details about the migration task.
+      shared_ptr<string> detail_ {};
+      // The time when the task was created.
+      shared_ptr<string> gmtCreated_ {};
+      // The time when the task was modified.
+      shared_ptr<string> gmtModified_ {};
+      // The migration phase of the migration task.
+      // 
+      // *   **precheck**: precheck
+      // *   **basebackup**: full data backup
+      // *   **startup**: link establishment
+      // *   **increment**: incremental data synchronization
+      // *   **switch**: cloud migration-triggered switchover
+      // *   **success**: cloud migration completed
+      shared_ptr<string> migrateStage_ {};
+      // The information about the replication link.
+      shared_ptr<string> replicationInfo_ {};
+      // The status of data replication.
+      // 
+      // *   **unstarted**
+      // *   **catchup**
+      // *   **streaming**
+      // *   **disconnect**
+      // *   **finish**
+      shared_ptr<string> replicationState_ {};
+      // The username.
+      shared_ptr<string> sourceAccount_ {};
+      // The environment in which the self-managed PostgreSQL instance runs.
+      // 
+      // *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
+      // *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
+      shared_ptr<string> sourceCategory_ {};
+      // The private IP address that is used to connect to the self-managed PostgreSQL instance.
+      shared_ptr<string> sourceIpAddress_ {};
+      // The password.
+      shared_ptr<string> sourcePassword_ {};
+      // The port number that is used to connect to the self-managed PostgreSQL instance.
+      shared_ptr<int64_t> sourcePort_ {};
+      // The time when the switchover was performed.
+      shared_ptr<string> switchTime_ {};
+      // A reserved parameter. The return value of this parameter is empty.
+      shared_ptr<string> targetEip_ {};
+      // The ID of the destination instance.
+      shared_ptr<string> targetInstanceName_ {};
+      // The task ID.
+      shared_ptr<int64_t> taskId_ {};
+      // The task name.
+      shared_ptr<string> taskName_ {};
+    };
+
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalSize_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalSize_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<DescribeCloudMigrationResultResponseBodyItems> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeCloudMigrationResultResponseBodyItems>) };
-    inline vector<DescribeCloudMigrationResultResponseBodyItems> items() { DARABONBA_PTR_GET(items_, vector<DescribeCloudMigrationResultResponseBodyItems>) };
-    inline DescribeCloudMigrationResultResponseBody& setItems(const vector<DescribeCloudMigrationResultResponseBodyItems> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
-    inline DescribeCloudMigrationResultResponseBody& setItems(vector<DescribeCloudMigrationResultResponseBodyItems> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+    inline const vector<DescribeCloudMigrationResultResponseBody::Items> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeCloudMigrationResultResponseBody::Items>) };
+    inline vector<DescribeCloudMigrationResultResponseBody::Items> getItems() { DARABONBA_PTR_GET(items_, vector<DescribeCloudMigrationResultResponseBody::Items>) };
+    inline DescribeCloudMigrationResultResponseBody& setItems(const vector<DescribeCloudMigrationResultResponseBody::Items> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline DescribeCloudMigrationResultResponseBody& setItems(vector<DescribeCloudMigrationResultResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline DescribeCloudMigrationResultResponseBody& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline DescribeCloudMigrationResultResponseBody& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeCloudMigrationResultResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalSize Field Functions 
     bool hasTotalSize() const { return this->totalSize_ != nullptr;};
     void deleteTotalSize() { this->totalSize_ = nullptr;};
-    inline int32_t totalSize() const { DARABONBA_PTR_GET_DEFAULT(totalSize_, 0) };
+    inline int32_t getTotalSize() const { DARABONBA_PTR_GET_DEFAULT(totalSize_, 0) };
     inline DescribeCloudMigrationResultResponseBody& setTotalSize(int32_t totalSize) { DARABONBA_PTR_SET_VALUE(totalSize_, totalSize) };
 
 
   protected:
     // The details about the cloud migration task.
-    std::shared_ptr<vector<DescribeCloudMigrationResultResponseBodyItems>> items_ = nullptr;
+    shared_ptr<vector<DescribeCloudMigrationResultResponseBody::Items>> items_ {};
     // The page number.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalSize_ = nullptr;
+    shared_ptr<int32_t> totalSize_ {};
   };
 
   } // namespace Models

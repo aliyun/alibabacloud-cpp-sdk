@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->commodityCode_ == nullptr && return this->DBInstanceName_ == nullptr && return this->dispenseMode_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->commodityCode_ == nullptr && this->DBInstanceName_ == nullptr && this->dispenseMode_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerId_ == nullptr && this->zoneId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline DescribeAvailableZonesRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline DescribeAvailableZonesRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline DescribeAvailableZonesRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // dispenseMode Field Functions 
     bool hasDispenseMode() const { return this->dispenseMode_ != nullptr;};
     void deleteDispenseMode() { this->dispenseMode_ = nullptr;};
-    inline string dispenseMode() const { DARABONBA_PTR_GET_DEFAULT(dispenseMode_, "") };
+    inline string getDispenseMode() const { DARABONBA_PTR_GET_DEFAULT(dispenseMode_, "") };
     inline DescribeAvailableZonesRequest& setDispenseMode(string dispenseMode) { DARABONBA_PTR_SET_VALUE(dispenseMode_, dispenseMode) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline DescribeAvailableZonesRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
-    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline DescribeAvailableZonesRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeAvailableZonesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeAvailableZonesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline DescribeAvailableZonesRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -127,7 +127,7 @@ namespace Models
     //     *   **serverless_basic**: RDS Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
     //     *   **serverless_standard**: RDS High-availability Edition for ApsaraDB RDS for MySQL.
     //     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The commodity code of the instance. This operation can return the resources that you can purchase based on the specified commodity code. Valid values:
     // 
     // *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
@@ -140,7 +140,7 @@ namespace Models
     // *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available at the International site (alibabacloud.com).
     // *   **rds_serverless_public_cn**: The instance is a serverless instance. This value is available at the China site (aliyun.com).
     // *   **rds_serverless_public_intl**: The instance is a serverless instance. This value is available at the International site (alibabacloud.com).
-    std::shared_ptr<string> commodityCode_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
     // The ID of the primary instance. If you want to query the read-only instances that you can purchase for a primary instance, you can specify this parameter.
     // 
     // If you set **CommodityCode** to one of the following values, you must specify this parameter:
@@ -149,14 +149,14 @@ namespace Models
     // *   **rds_rordspre_public_intl**
     // *   **rords**
     // *   **rds_rordspre_public_cn**
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
     // Specifies whether to return the zones in which the single-zone deployment method is supported. Valid values:
     // 
     // *   **1** (default): returns the zones.
     // *   **0**: does not return the zones.
     // 
     // >  The single-zone deployment method allows you to deploy an instance that runs RDS Enterprise Edition in a single zone.
-    std::shared_ptr<string> dispenseMode_ = nullptr;
+    shared_ptr<string> dispenseMode_ {};
     // The database engine of the instance. Valid values:
     // 
     // *   **MySQL**
@@ -165,7 +165,7 @@ namespace Models
     // *   **MariaDB**
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The database engine version. Valid values:
     // 
     // *   Regular instance
@@ -184,14 +184,14 @@ namespace Models
     //     **
     // 
     //     **Note**ApsaraDB RDS for MariaDB does not support serverless instances.
-    std::shared_ptr<string> engineVersion_ = nullptr;
+    shared_ptr<string> engineVersion_ {};
     // The region ID. You can call the DescribeRegions operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The zone ID. If the instance spans more than one zone, the value of this parameter contains an `MAZ` part, such as `cn-hangzhou-MAZ6(b,f)` and `cn-hangzhou-MAZ5(b,e,f)`. You can call the DescribeRegions operation to query the most recent zone list.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->accountPrivilege_ == nullptr && return this->DBInstanceId_ == nullptr && return this->DBName_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->accountPrivilege_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline GrantAccountPrivilegeRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // accountPrivilege Field Functions 
     bool hasAccountPrivilege() const { return this->accountPrivilege_ != nullptr;};
     void deleteAccountPrivilege() { this->accountPrivilege_ = nullptr;};
-    inline string accountPrivilege() const { DARABONBA_PTR_GET_DEFAULT(accountPrivilege_, "") };
+    inline string getAccountPrivilege() const { DARABONBA_PTR_GET_DEFAULT(accountPrivilege_, "") };
     inline GrantAccountPrivilegeRequest& setAccountPrivilege(string accountPrivilege) { DARABONBA_PTR_SET_VALUE(accountPrivilege_, accountPrivilege) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline GrantAccountPrivilegeRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBName Field Functions 
     bool hasDBName() const { return this->DBName_ != nullptr;};
     void deleteDBName() { this->DBName_ = nullptr;};
-    inline string DBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+    inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline GrantAccountPrivilegeRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline GrantAccountPrivilegeRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -78,7 +78,7 @@ namespace Models
     // The username of the account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // The permissions that you want to grant to the account. The number of permissions must be the same as the number of databases that you specify for the DBName parameter. You can specify this parameter based on your business requirements. Valid values:
     // 
     // *   **ReadWrite**: read and write permissions
@@ -95,16 +95,16 @@ namespace Models
     // *   If the instance runs PostgreSQL and uses cloud disks, you can set this parameter to **DBOwner**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountPrivilege_ = nullptr;
+    shared_ptr<string> accountPrivilege_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the database on which you want to grant permissions. Separate multiple database names with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBName_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> DBName_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

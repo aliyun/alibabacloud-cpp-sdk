@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->migrationId_ == nullptr
-        && return this->requestId_ == nullptr && return this->taskId_ == nullptr; };
+        && this->requestId_ == nullptr && this->taskId_ == nullptr; };
     // migrationId Field Functions 
     bool hasMigrationId() const { return this->migrationId_ != nullptr;};
     void deleteMigrationId() { this->migrationId_ = nullptr;};
-    inline int32_t migrationId() const { DARABONBA_PTR_GET_DEFAULT(migrationId_, 0) };
+    inline int32_t getMigrationId() const { DARABONBA_PTR_GET_DEFAULT(migrationId_, 0) };
     inline StartDBInstanceResponseBody& setMigrationId(int32_t migrationId) { DARABONBA_PTR_SET_VALUE(migrationId_, migrationId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartDBInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int32_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0) };
+    inline int32_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0) };
     inline StartDBInstanceResponseBody& setTaskId(int32_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // The migration task ID. This parameter is available only for instances that are created in dedicated clusters.
-    std::shared_ptr<int32_t> migrationId_ = nullptr;
+    shared_ptr<int32_t> migrationId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the task.
-    std::shared_ptr<int32_t> taskId_ = nullptr;
+    shared_ptr<int32_t> taskId_ {};
   };
 
   } // namespace Models

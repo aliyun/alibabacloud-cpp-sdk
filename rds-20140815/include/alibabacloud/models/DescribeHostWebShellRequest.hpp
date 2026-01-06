@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->accountPassword_ == nullptr && return this->DBInstanceId_ == nullptr && return this->hostName_ == nullptr && return this->ownerId_ == nullptr && return this->regionID_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->accountPassword_ == nullptr && this->DBInstanceId_ == nullptr && this->hostName_ == nullptr && this->ownerId_ == nullptr && this->regionID_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline DescribeHostWebShellRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
-    inline string accountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
+    inline string getAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
     inline DescribeHostWebShellRequest& setAccountPassword(string accountPassword) { DARABONBA_PTR_SET_VALUE(accountPassword_, accountPassword) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeHostWebShellRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // hostName Field Functions 
     bool hasHostName() const { return this->hostName_ != nullptr;};
     void deleteHostName() { this->hostName_ = nullptr;};
-    inline string hostName() const { DARABONBA_PTR_GET_DEFAULT(hostName_, "") };
+    inline string getHostName() const { DARABONBA_PTR_GET_DEFAULT(hostName_, "") };
     inline DescribeHostWebShellRequest& setHostName(string hostName) { DARABONBA_PTR_SET_VALUE(hostName_, hostName) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeHostWebShellRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionID Field Functions 
     bool hasRegionID() const { return this->regionID_ != nullptr;};
     void deleteRegionID() { this->regionID_ = nullptr;};
-    inline string regionID() const { DARABONBA_PTR_GET_DEFAULT(regionID_, "") };
+    inline string getRegionID() const { DARABONBA_PTR_GET_DEFAULT(regionID_, "") };
     inline DescribeHostWebShellRequest& setRegionID(string regionID) { DARABONBA_PTR_SET_VALUE(regionID_, regionID) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeHostWebShellRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeHostWebShellRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -106,26 +106,26 @@ namespace Models
     // The username of the account that is used to log on to the host of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // The password of the host account.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accountPassword_ = nullptr;
+    shared_ptr<string> accountPassword_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The instance hostname. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
     // 
     // This parameter is required.
-    std::shared_ptr<string> hostName_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> hostName_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionID_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionID_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

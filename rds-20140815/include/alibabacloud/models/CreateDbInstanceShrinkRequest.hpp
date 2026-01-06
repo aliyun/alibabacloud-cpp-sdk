@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATEDBINSTANCESHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateDBInstanceShrinkRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -153,453 +152,506 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key. You can use this parameter to add tags to the instance.
+      // 
+      // *   If the specified tag key is an existing key, the system directly adds the tag key to the instance. You can call the ListTagResources to query the existing tag.
+      // *   If the specified tag key does not exist, the system creates the tag key and adds the tag key to the instance.
+      // *   The value cannot be an empty string.
+      // *   This parameter must be used together with the **Tag.Value** parameter.
+      shared_ptr<string> key_ {};
+      // The tag value. You can use this parameter to add tags to the instance.
+      // 
+      // *   If the specified tag value is found in the specified tag key, the system directly adds the tag value to the instance. You can call the ListTagResources to query the existing tag.
+      // *   If the specified tag value is not found in the specified tag key, the system creates the tag value and adds the tag value to the instance.
+      // *   This parameter must be used together with the **Tag.Key** parameter.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->amount_ == nullptr
-        && return this->autoCreateProxy_ == nullptr && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->autoUseCoupon_ == nullptr && return this->babelfishConfig_ == nullptr
-        && return this->bpeEnabled_ == nullptr && return this->burstingEnabled_ == nullptr && return this->businessInfo_ == nullptr && return this->category_ == nullptr && return this->clientToken_ == nullptr
-        && return this->coldDataEnabled_ == nullptr && return this->connectionMode_ == nullptr && return this->connectionString_ == nullptr && return this->createStrategy_ == nullptr && return this->customExtraInfo_ == nullptr
-        && return this->DBInstanceClass_ == nullptr && return this->DBInstanceDescription_ == nullptr && return this->DBInstanceNetType_ == nullptr && return this->DBInstanceStorage_ == nullptr && return this->DBInstanceStorageType_ == nullptr
-        && return this->DBIsIgnoreCase_ == nullptr && return this->DBParamGroupId_ == nullptr && return this->DBTimeZone_ == nullptr && return this->dedicatedHostGroupId_ == nullptr && return this->deletionProtection_ == nullptr
-        && return this->dryRun_ == nullptr && return this->encryptionKey_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr && return this->externalReplication_ == nullptr
-        && return this->instanceNetworkType_ == nullptr && return this->ioAccelerationEnabled_ == nullptr && return this->optimizedWrites_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr
-        && return this->port_ == nullptr && return this->privateIpAddress_ == nullptr && return this->promotionCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->roleARN_ == nullptr && return this->securityIPList_ == nullptr && return this->serverlessConfigShrink_ == nullptr && return this->storageAutoScale_ == nullptr
-        && return this->storageThreshold_ == nullptr && return this->storageUpperBound_ == nullptr && return this->systemDBCharset_ == nullptr && return this->tag_ == nullptr && return this->targetDedicatedHostIdForLog_ == nullptr
-        && return this->targetDedicatedHostIdForMaster_ == nullptr && return this->targetDedicatedHostIdForSlave_ == nullptr && return this->targetMinorVersion_ == nullptr && return this->usedTime_ == nullptr && return this->userBackupId_ == nullptr
-        && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->whitelistTemplateList_ == nullptr && return this->zoneId_ == nullptr && return this->zoneIdSlave1_ == nullptr
-        && return this->zoneIdSlave2_ == nullptr; };
+        && this->autoCreateProxy_ == nullptr && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->babelfishConfig_ == nullptr
+        && this->bpeEnabled_ == nullptr && this->burstingEnabled_ == nullptr && this->businessInfo_ == nullptr && this->category_ == nullptr && this->clientToken_ == nullptr
+        && this->coldDataEnabled_ == nullptr && this->connectionMode_ == nullptr && this->connectionString_ == nullptr && this->createStrategy_ == nullptr && this->customExtraInfo_ == nullptr
+        && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceNetType_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceStorageType_ == nullptr
+        && this->DBIsIgnoreCase_ == nullptr && this->DBParamGroupId_ == nullptr && this->DBTimeZone_ == nullptr && this->dedicatedHostGroupId_ == nullptr && this->deletionProtection_ == nullptr
+        && this->dryRun_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->externalReplication_ == nullptr
+        && this->instanceNetworkType_ == nullptr && this->ioAccelerationEnabled_ == nullptr && this->optimizedWrites_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
+        && this->port_ == nullptr && this->privateIpAddress_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->roleARN_ == nullptr && this->securityIPList_ == nullptr && this->serverlessConfigShrink_ == nullptr && this->storageAutoScale_ == nullptr
+        && this->storageThreshold_ == nullptr && this->storageUpperBound_ == nullptr && this->systemDBCharset_ == nullptr && this->tag_ == nullptr && this->targetDedicatedHostIdForLog_ == nullptr
+        && this->targetDedicatedHostIdForMaster_ == nullptr && this->targetDedicatedHostIdForSlave_ == nullptr && this->targetMinorVersion_ == nullptr && this->usedTime_ == nullptr && this->userBackupId_ == nullptr
+        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->whitelistTemplateList_ == nullptr && this->zoneId_ == nullptr && this->zoneIdSlave1_ == nullptr
+        && this->zoneIdSlave2_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
-    inline int32_t amount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
+    inline int32_t getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
     inline CreateDBInstanceShrinkRequest& setAmount(int32_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
     // autoCreateProxy Field Functions 
     bool hasAutoCreateProxy() const { return this->autoCreateProxy_ != nullptr;};
     void deleteAutoCreateProxy() { this->autoCreateProxy_ = nullptr;};
-    inline bool autoCreateProxy() const { DARABONBA_PTR_GET_DEFAULT(autoCreateProxy_, false) };
+    inline bool getAutoCreateProxy() const { DARABONBA_PTR_GET_DEFAULT(autoCreateProxy_, false) };
     inline CreateDBInstanceShrinkRequest& setAutoCreateProxy(bool autoCreateProxy) { DARABONBA_PTR_SET_VALUE(autoCreateProxy_, autoCreateProxy) };
 
 
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline CreateDBInstanceShrinkRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline string autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, "") };
+    inline string getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, "") };
     inline CreateDBInstanceShrinkRequest& setAutoRenew(string autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // autoUseCoupon Field Functions 
     bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
-    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline CreateDBInstanceShrinkRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
 
 
     // babelfishConfig Field Functions 
     bool hasBabelfishConfig() const { return this->babelfishConfig_ != nullptr;};
     void deleteBabelfishConfig() { this->babelfishConfig_ = nullptr;};
-    inline string babelfishConfig() const { DARABONBA_PTR_GET_DEFAULT(babelfishConfig_, "") };
+    inline string getBabelfishConfig() const { DARABONBA_PTR_GET_DEFAULT(babelfishConfig_, "") };
     inline CreateDBInstanceShrinkRequest& setBabelfishConfig(string babelfishConfig) { DARABONBA_PTR_SET_VALUE(babelfishConfig_, babelfishConfig) };
 
 
     // bpeEnabled Field Functions 
     bool hasBpeEnabled() const { return this->bpeEnabled_ != nullptr;};
     void deleteBpeEnabled() { this->bpeEnabled_ = nullptr;};
-    inline string bpeEnabled() const { DARABONBA_PTR_GET_DEFAULT(bpeEnabled_, "") };
+    inline string getBpeEnabled() const { DARABONBA_PTR_GET_DEFAULT(bpeEnabled_, "") };
     inline CreateDBInstanceShrinkRequest& setBpeEnabled(string bpeEnabled) { DARABONBA_PTR_SET_VALUE(bpeEnabled_, bpeEnabled) };
 
 
     // burstingEnabled Field Functions 
     bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
     void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
-    inline bool burstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, false) };
+    inline bool getBurstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, false) };
     inline CreateDBInstanceShrinkRequest& setBurstingEnabled(bool burstingEnabled) { DARABONBA_PTR_SET_VALUE(burstingEnabled_, burstingEnabled) };
 
 
     // businessInfo Field Functions 
     bool hasBusinessInfo() const { return this->businessInfo_ != nullptr;};
     void deleteBusinessInfo() { this->businessInfo_ = nullptr;};
-    inline string businessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
+    inline string getBusinessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
     inline CreateDBInstanceShrinkRequest& setBusinessInfo(string businessInfo) { DARABONBA_PTR_SET_VALUE(businessInfo_, businessInfo) };
 
 
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline CreateDBInstanceShrinkRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateDBInstanceShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // coldDataEnabled Field Functions 
     bool hasColdDataEnabled() const { return this->coldDataEnabled_ != nullptr;};
     void deleteColdDataEnabled() { this->coldDataEnabled_ = nullptr;};
-    inline bool coldDataEnabled() const { DARABONBA_PTR_GET_DEFAULT(coldDataEnabled_, false) };
+    inline bool getColdDataEnabled() const { DARABONBA_PTR_GET_DEFAULT(coldDataEnabled_, false) };
     inline CreateDBInstanceShrinkRequest& setColdDataEnabled(bool coldDataEnabled) { DARABONBA_PTR_SET_VALUE(coldDataEnabled_, coldDataEnabled) };
 
 
     // connectionMode Field Functions 
     bool hasConnectionMode() const { return this->connectionMode_ != nullptr;};
     void deleteConnectionMode() { this->connectionMode_ = nullptr;};
-    inline string connectionMode() const { DARABONBA_PTR_GET_DEFAULT(connectionMode_, "") };
+    inline string getConnectionMode() const { DARABONBA_PTR_GET_DEFAULT(connectionMode_, "") };
     inline CreateDBInstanceShrinkRequest& setConnectionMode(string connectionMode) { DARABONBA_PTR_SET_VALUE(connectionMode_, connectionMode) };
 
 
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
-    inline string connectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+    inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
     inline CreateDBInstanceShrinkRequest& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
 
 
     // createStrategy Field Functions 
     bool hasCreateStrategy() const { return this->createStrategy_ != nullptr;};
     void deleteCreateStrategy() { this->createStrategy_ = nullptr;};
-    inline string createStrategy() const { DARABONBA_PTR_GET_DEFAULT(createStrategy_, "") };
+    inline string getCreateStrategy() const { DARABONBA_PTR_GET_DEFAULT(createStrategy_, "") };
     inline CreateDBInstanceShrinkRequest& setCreateStrategy(string createStrategy) { DARABONBA_PTR_SET_VALUE(createStrategy_, createStrategy) };
 
 
     // customExtraInfo Field Functions 
     bool hasCustomExtraInfo() const { return this->customExtraInfo_ != nullptr;};
     void deleteCustomExtraInfo() { this->customExtraInfo_ = nullptr;};
-    inline string customExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(customExtraInfo_, "") };
+    inline string getCustomExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(customExtraInfo_, "") };
     inline CreateDBInstanceShrinkRequest& setCustomExtraInfo(string customExtraInfo) { DARABONBA_PTR_SET_VALUE(customExtraInfo_, customExtraInfo) };
 
 
     // DBInstanceClass Field Functions 
     bool hasDBInstanceClass() const { return this->DBInstanceClass_ != nullptr;};
     void deleteDBInstanceClass() { this->DBInstanceClass_ = nullptr;};
-    inline string DBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceClass_, "") };
+    inline string getDBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceClass_, "") };
     inline CreateDBInstanceShrinkRequest& setDBInstanceClass(string DBInstanceClass) { DARABONBA_PTR_SET_VALUE(DBInstanceClass_, DBInstanceClass) };
 
 
     // DBInstanceDescription Field Functions 
     bool hasDBInstanceDescription() const { return this->DBInstanceDescription_ != nullptr;};
     void deleteDBInstanceDescription() { this->DBInstanceDescription_ = nullptr;};
-    inline string DBInstanceDescription() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceDescription_, "") };
+    inline string getDBInstanceDescription() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceDescription_, "") };
     inline CreateDBInstanceShrinkRequest& setDBInstanceDescription(string DBInstanceDescription) { DARABONBA_PTR_SET_VALUE(DBInstanceDescription_, DBInstanceDescription) };
 
 
     // DBInstanceNetType Field Functions 
     bool hasDBInstanceNetType() const { return this->DBInstanceNetType_ != nullptr;};
     void deleteDBInstanceNetType() { this->DBInstanceNetType_ = nullptr;};
-    inline string DBInstanceNetType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceNetType_, "") };
+    inline string getDBInstanceNetType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceNetType_, "") };
     inline CreateDBInstanceShrinkRequest& setDBInstanceNetType(string DBInstanceNetType) { DARABONBA_PTR_SET_VALUE(DBInstanceNetType_, DBInstanceNetType) };
 
 
     // DBInstanceStorage Field Functions 
     bool hasDBInstanceStorage() const { return this->DBInstanceStorage_ != nullptr;};
     void deleteDBInstanceStorage() { this->DBInstanceStorage_ = nullptr;};
-    inline int32_t DBInstanceStorage() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorage_, 0) };
+    inline int32_t getDBInstanceStorage() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorage_, 0) };
     inline CreateDBInstanceShrinkRequest& setDBInstanceStorage(int32_t DBInstanceStorage) { DARABONBA_PTR_SET_VALUE(DBInstanceStorage_, DBInstanceStorage) };
 
 
     // DBInstanceStorageType Field Functions 
     bool hasDBInstanceStorageType() const { return this->DBInstanceStorageType_ != nullptr;};
     void deleteDBInstanceStorageType() { this->DBInstanceStorageType_ = nullptr;};
-    inline string DBInstanceStorageType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorageType_, "") };
+    inline string getDBInstanceStorageType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorageType_, "") };
     inline CreateDBInstanceShrinkRequest& setDBInstanceStorageType(string DBInstanceStorageType) { DARABONBA_PTR_SET_VALUE(DBInstanceStorageType_, DBInstanceStorageType) };
 
 
     // DBIsIgnoreCase Field Functions 
     bool hasDBIsIgnoreCase() const { return this->DBIsIgnoreCase_ != nullptr;};
     void deleteDBIsIgnoreCase() { this->DBIsIgnoreCase_ = nullptr;};
-    inline string DBIsIgnoreCase() const { DARABONBA_PTR_GET_DEFAULT(DBIsIgnoreCase_, "") };
+    inline string getDBIsIgnoreCase() const { DARABONBA_PTR_GET_DEFAULT(DBIsIgnoreCase_, "") };
     inline CreateDBInstanceShrinkRequest& setDBIsIgnoreCase(string DBIsIgnoreCase) { DARABONBA_PTR_SET_VALUE(DBIsIgnoreCase_, DBIsIgnoreCase) };
 
 
     // DBParamGroupId Field Functions 
     bool hasDBParamGroupId() const { return this->DBParamGroupId_ != nullptr;};
     void deleteDBParamGroupId() { this->DBParamGroupId_ = nullptr;};
-    inline string DBParamGroupId() const { DARABONBA_PTR_GET_DEFAULT(DBParamGroupId_, "") };
+    inline string getDBParamGroupId() const { DARABONBA_PTR_GET_DEFAULT(DBParamGroupId_, "") };
     inline CreateDBInstanceShrinkRequest& setDBParamGroupId(string DBParamGroupId) { DARABONBA_PTR_SET_VALUE(DBParamGroupId_, DBParamGroupId) };
 
 
     // DBTimeZone Field Functions 
     bool hasDBTimeZone() const { return this->DBTimeZone_ != nullptr;};
     void deleteDBTimeZone() { this->DBTimeZone_ = nullptr;};
-    inline string DBTimeZone() const { DARABONBA_PTR_GET_DEFAULT(DBTimeZone_, "") };
+    inline string getDBTimeZone() const { DARABONBA_PTR_GET_DEFAULT(DBTimeZone_, "") };
     inline CreateDBInstanceShrinkRequest& setDBTimeZone(string DBTimeZone) { DARABONBA_PTR_SET_VALUE(DBTimeZone_, DBTimeZone) };
 
 
     // dedicatedHostGroupId Field Functions 
     bool hasDedicatedHostGroupId() const { return this->dedicatedHostGroupId_ != nullptr;};
     void deleteDedicatedHostGroupId() { this->dedicatedHostGroupId_ = nullptr;};
-    inline string dedicatedHostGroupId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedHostGroupId_, "") };
+    inline string getDedicatedHostGroupId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedHostGroupId_, "") };
     inline CreateDBInstanceShrinkRequest& setDedicatedHostGroupId(string dedicatedHostGroupId) { DARABONBA_PTR_SET_VALUE(dedicatedHostGroupId_, dedicatedHostGroupId) };
 
 
     // deletionProtection Field Functions 
     bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
     void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
-    inline bool deletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
+    inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
     inline CreateDBInstanceShrinkRequest& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateDBInstanceShrinkRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // encryptionKey Field Functions 
     bool hasEncryptionKey() const { return this->encryptionKey_ != nullptr;};
     void deleteEncryptionKey() { this->encryptionKey_ = nullptr;};
-    inline string encryptionKey() const { DARABONBA_PTR_GET_DEFAULT(encryptionKey_, "") };
+    inline string getEncryptionKey() const { DARABONBA_PTR_GET_DEFAULT(encryptionKey_, "") };
     inline CreateDBInstanceShrinkRequest& setEncryptionKey(string encryptionKey) { DARABONBA_PTR_SET_VALUE(encryptionKey_, encryptionKey) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline CreateDBInstanceShrinkRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
-    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline CreateDBInstanceShrinkRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // externalReplication Field Functions 
     bool hasExternalReplication() const { return this->externalReplication_ != nullptr;};
     void deleteExternalReplication() { this->externalReplication_ = nullptr;};
-    inline bool externalReplication() const { DARABONBA_PTR_GET_DEFAULT(externalReplication_, false) };
+    inline bool getExternalReplication() const { DARABONBA_PTR_GET_DEFAULT(externalReplication_, false) };
     inline CreateDBInstanceShrinkRequest& setExternalReplication(bool externalReplication) { DARABONBA_PTR_SET_VALUE(externalReplication_, externalReplication) };
 
 
     // instanceNetworkType Field Functions 
     bool hasInstanceNetworkType() const { return this->instanceNetworkType_ != nullptr;};
     void deleteInstanceNetworkType() { this->instanceNetworkType_ = nullptr;};
-    inline string instanceNetworkType() const { DARABONBA_PTR_GET_DEFAULT(instanceNetworkType_, "") };
+    inline string getInstanceNetworkType() const { DARABONBA_PTR_GET_DEFAULT(instanceNetworkType_, "") };
     inline CreateDBInstanceShrinkRequest& setInstanceNetworkType(string instanceNetworkType) { DARABONBA_PTR_SET_VALUE(instanceNetworkType_, instanceNetworkType) };
 
 
     // ioAccelerationEnabled Field Functions 
     bool hasIoAccelerationEnabled() const { return this->ioAccelerationEnabled_ != nullptr;};
     void deleteIoAccelerationEnabled() { this->ioAccelerationEnabled_ = nullptr;};
-    inline string ioAccelerationEnabled() const { DARABONBA_PTR_GET_DEFAULT(ioAccelerationEnabled_, "") };
+    inline string getIoAccelerationEnabled() const { DARABONBA_PTR_GET_DEFAULT(ioAccelerationEnabled_, "") };
     inline CreateDBInstanceShrinkRequest& setIoAccelerationEnabled(string ioAccelerationEnabled) { DARABONBA_PTR_SET_VALUE(ioAccelerationEnabled_, ioAccelerationEnabled) };
 
 
     // optimizedWrites Field Functions 
     bool hasOptimizedWrites() const { return this->optimizedWrites_ != nullptr;};
     void deleteOptimizedWrites() { this->optimizedWrites_ = nullptr;};
-    inline string optimizedWrites() const { DARABONBA_PTR_GET_DEFAULT(optimizedWrites_, "") };
+    inline string getOptimizedWrites() const { DARABONBA_PTR_GET_DEFAULT(optimizedWrites_, "") };
     inline CreateDBInstanceShrinkRequest& setOptimizedWrites(string optimizedWrites) { DARABONBA_PTR_SET_VALUE(optimizedWrites_, optimizedWrites) };
 
 
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
-    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline CreateDBInstanceShrinkRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline CreateDBInstanceShrinkRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline string port() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+    inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
     inline CreateDBInstanceShrinkRequest& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // privateIpAddress Field Functions 
     bool hasPrivateIpAddress() const { return this->privateIpAddress_ != nullptr;};
     void deletePrivateIpAddress() { this->privateIpAddress_ = nullptr;};
-    inline string privateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
+    inline string getPrivateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
     inline CreateDBInstanceShrinkRequest& setPrivateIpAddress(string privateIpAddress) { DARABONBA_PTR_SET_VALUE(privateIpAddress_, privateIpAddress) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline CreateDBInstanceShrinkRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateDBInstanceShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateDBInstanceShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateDBInstanceShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // roleARN Field Functions 
     bool hasRoleARN() const { return this->roleARN_ != nullptr;};
     void deleteRoleARN() { this->roleARN_ = nullptr;};
-    inline string roleARN() const { DARABONBA_PTR_GET_DEFAULT(roleARN_, "") };
+    inline string getRoleARN() const { DARABONBA_PTR_GET_DEFAULT(roleARN_, "") };
     inline CreateDBInstanceShrinkRequest& setRoleARN(string roleARN) { DARABONBA_PTR_SET_VALUE(roleARN_, roleARN) };
 
 
     // securityIPList Field Functions 
     bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
     void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
-    inline string securityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
+    inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
     inline CreateDBInstanceShrinkRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
     // serverlessConfigShrink Field Functions 
     bool hasServerlessConfigShrink() const { return this->serverlessConfigShrink_ != nullptr;};
     void deleteServerlessConfigShrink() { this->serverlessConfigShrink_ = nullptr;};
-    inline string serverlessConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(serverlessConfigShrink_, "") };
+    inline string getServerlessConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(serverlessConfigShrink_, "") };
     inline CreateDBInstanceShrinkRequest& setServerlessConfigShrink(string serverlessConfigShrink) { DARABONBA_PTR_SET_VALUE(serverlessConfigShrink_, serverlessConfigShrink) };
 
 
     // storageAutoScale Field Functions 
     bool hasStorageAutoScale() const { return this->storageAutoScale_ != nullptr;};
     void deleteStorageAutoScale() { this->storageAutoScale_ = nullptr;};
-    inline string storageAutoScale() const { DARABONBA_PTR_GET_DEFAULT(storageAutoScale_, "") };
+    inline string getStorageAutoScale() const { DARABONBA_PTR_GET_DEFAULT(storageAutoScale_, "") };
     inline CreateDBInstanceShrinkRequest& setStorageAutoScale(string storageAutoScale) { DARABONBA_PTR_SET_VALUE(storageAutoScale_, storageAutoScale) };
 
 
     // storageThreshold Field Functions 
     bool hasStorageThreshold() const { return this->storageThreshold_ != nullptr;};
     void deleteStorageThreshold() { this->storageThreshold_ = nullptr;};
-    inline int32_t storageThreshold() const { DARABONBA_PTR_GET_DEFAULT(storageThreshold_, 0) };
+    inline int32_t getStorageThreshold() const { DARABONBA_PTR_GET_DEFAULT(storageThreshold_, 0) };
     inline CreateDBInstanceShrinkRequest& setStorageThreshold(int32_t storageThreshold) { DARABONBA_PTR_SET_VALUE(storageThreshold_, storageThreshold) };
 
 
     // storageUpperBound Field Functions 
     bool hasStorageUpperBound() const { return this->storageUpperBound_ != nullptr;};
     void deleteStorageUpperBound() { this->storageUpperBound_ = nullptr;};
-    inline int32_t storageUpperBound() const { DARABONBA_PTR_GET_DEFAULT(storageUpperBound_, 0) };
+    inline int32_t getStorageUpperBound() const { DARABONBA_PTR_GET_DEFAULT(storageUpperBound_, 0) };
     inline CreateDBInstanceShrinkRequest& setStorageUpperBound(int32_t storageUpperBound) { DARABONBA_PTR_SET_VALUE(storageUpperBound_, storageUpperBound) };
 
 
     // systemDBCharset Field Functions 
     bool hasSystemDBCharset() const { return this->systemDBCharset_ != nullptr;};
     void deleteSystemDBCharset() { this->systemDBCharset_ = nullptr;};
-    inline string systemDBCharset() const { DARABONBA_PTR_GET_DEFAULT(systemDBCharset_, "") };
+    inline string getSystemDBCharset() const { DARABONBA_PTR_GET_DEFAULT(systemDBCharset_, "") };
     inline CreateDBInstanceShrinkRequest& setSystemDBCharset(string systemDBCharset) { DARABONBA_PTR_SET_VALUE(systemDBCharset_, systemDBCharset) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateDBInstanceShrinkRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateDBInstanceShrinkRequestTag>) };
-    inline vector<CreateDBInstanceShrinkRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateDBInstanceShrinkRequestTag>) };
-    inline CreateDBInstanceShrinkRequest& setTag(const vector<CreateDBInstanceShrinkRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateDBInstanceShrinkRequest& setTag(vector<CreateDBInstanceShrinkRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateDBInstanceShrinkRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateDBInstanceShrinkRequest::Tag>) };
+    inline vector<CreateDBInstanceShrinkRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateDBInstanceShrinkRequest::Tag>) };
+    inline CreateDBInstanceShrinkRequest& setTag(const vector<CreateDBInstanceShrinkRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateDBInstanceShrinkRequest& setTag(vector<CreateDBInstanceShrinkRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // targetDedicatedHostIdForLog Field Functions 
     bool hasTargetDedicatedHostIdForLog() const { return this->targetDedicatedHostIdForLog_ != nullptr;};
     void deleteTargetDedicatedHostIdForLog() { this->targetDedicatedHostIdForLog_ = nullptr;};
-    inline string targetDedicatedHostIdForLog() const { DARABONBA_PTR_GET_DEFAULT(targetDedicatedHostIdForLog_, "") };
+    inline string getTargetDedicatedHostIdForLog() const { DARABONBA_PTR_GET_DEFAULT(targetDedicatedHostIdForLog_, "") };
     inline CreateDBInstanceShrinkRequest& setTargetDedicatedHostIdForLog(string targetDedicatedHostIdForLog) { DARABONBA_PTR_SET_VALUE(targetDedicatedHostIdForLog_, targetDedicatedHostIdForLog) };
 
 
     // targetDedicatedHostIdForMaster Field Functions 
     bool hasTargetDedicatedHostIdForMaster() const { return this->targetDedicatedHostIdForMaster_ != nullptr;};
     void deleteTargetDedicatedHostIdForMaster() { this->targetDedicatedHostIdForMaster_ = nullptr;};
-    inline string targetDedicatedHostIdForMaster() const { DARABONBA_PTR_GET_DEFAULT(targetDedicatedHostIdForMaster_, "") };
+    inline string getTargetDedicatedHostIdForMaster() const { DARABONBA_PTR_GET_DEFAULT(targetDedicatedHostIdForMaster_, "") };
     inline CreateDBInstanceShrinkRequest& setTargetDedicatedHostIdForMaster(string targetDedicatedHostIdForMaster) { DARABONBA_PTR_SET_VALUE(targetDedicatedHostIdForMaster_, targetDedicatedHostIdForMaster) };
 
 
     // targetDedicatedHostIdForSlave Field Functions 
     bool hasTargetDedicatedHostIdForSlave() const { return this->targetDedicatedHostIdForSlave_ != nullptr;};
     void deleteTargetDedicatedHostIdForSlave() { this->targetDedicatedHostIdForSlave_ = nullptr;};
-    inline string targetDedicatedHostIdForSlave() const { DARABONBA_PTR_GET_DEFAULT(targetDedicatedHostIdForSlave_, "") };
+    inline string getTargetDedicatedHostIdForSlave() const { DARABONBA_PTR_GET_DEFAULT(targetDedicatedHostIdForSlave_, "") };
     inline CreateDBInstanceShrinkRequest& setTargetDedicatedHostIdForSlave(string targetDedicatedHostIdForSlave) { DARABONBA_PTR_SET_VALUE(targetDedicatedHostIdForSlave_, targetDedicatedHostIdForSlave) };
 
 
     // targetMinorVersion Field Functions 
     bool hasTargetMinorVersion() const { return this->targetMinorVersion_ != nullptr;};
     void deleteTargetMinorVersion() { this->targetMinorVersion_ = nullptr;};
-    inline string targetMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(targetMinorVersion_, "") };
+    inline string getTargetMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(targetMinorVersion_, "") };
     inline CreateDBInstanceShrinkRequest& setTargetMinorVersion(string targetMinorVersion) { DARABONBA_PTR_SET_VALUE(targetMinorVersion_, targetMinorVersion) };
 
 
     // usedTime Field Functions 
     bool hasUsedTime() const { return this->usedTime_ != nullptr;};
     void deleteUsedTime() { this->usedTime_ = nullptr;};
-    inline string usedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, "") };
+    inline string getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, "") };
     inline CreateDBInstanceShrinkRequest& setUsedTime(string usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
 
 
     // userBackupId Field Functions 
     bool hasUserBackupId() const { return this->userBackupId_ != nullptr;};
     void deleteUserBackupId() { this->userBackupId_ = nullptr;};
-    inline string userBackupId() const { DARABONBA_PTR_GET_DEFAULT(userBackupId_, "") };
+    inline string getUserBackupId() const { DARABONBA_PTR_GET_DEFAULT(userBackupId_, "") };
     inline CreateDBInstanceShrinkRequest& setUserBackupId(string userBackupId) { DARABONBA_PTR_SET_VALUE(userBackupId_, userBackupId) };
 
 
     // VPCId Field Functions 
     bool hasVPCId() const { return this->VPCId_ != nullptr;};
     void deleteVPCId() { this->VPCId_ = nullptr;};
-    inline string VPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
+    inline string getVPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
     inline CreateDBInstanceShrinkRequest& setVPCId(string VPCId) { DARABONBA_PTR_SET_VALUE(VPCId_, VPCId) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateDBInstanceShrinkRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // whitelistTemplateList Field Functions 
     bool hasWhitelistTemplateList() const { return this->whitelistTemplateList_ != nullptr;};
     void deleteWhitelistTemplateList() { this->whitelistTemplateList_ = nullptr;};
-    inline string whitelistTemplateList() const { DARABONBA_PTR_GET_DEFAULT(whitelistTemplateList_, "") };
+    inline string getWhitelistTemplateList() const { DARABONBA_PTR_GET_DEFAULT(whitelistTemplateList_, "") };
     inline CreateDBInstanceShrinkRequest& setWhitelistTemplateList(string whitelistTemplateList) { DARABONBA_PTR_SET_VALUE(whitelistTemplateList_, whitelistTemplateList) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline CreateDBInstanceShrinkRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
     // zoneIdSlave1 Field Functions 
     bool hasZoneIdSlave1() const { return this->zoneIdSlave1_ != nullptr;};
     void deleteZoneIdSlave1() { this->zoneIdSlave1_ = nullptr;};
-    inline string zoneIdSlave1() const { DARABONBA_PTR_GET_DEFAULT(zoneIdSlave1_, "") };
+    inline string getZoneIdSlave1() const { DARABONBA_PTR_GET_DEFAULT(zoneIdSlave1_, "") };
     inline CreateDBInstanceShrinkRequest& setZoneIdSlave1(string zoneIdSlave1) { DARABONBA_PTR_SET_VALUE(zoneIdSlave1_, zoneIdSlave1) };
 
 
     // zoneIdSlave2 Field Functions 
     bool hasZoneIdSlave2() const { return this->zoneIdSlave2_ != nullptr;};
     void deleteZoneIdSlave2() { this->zoneIdSlave2_ = nullptr;};
-    inline string zoneIdSlave2() const { DARABONBA_PTR_GET_DEFAULT(zoneIdSlave2_, "") };
+    inline string getZoneIdSlave2() const { DARABONBA_PTR_GET_DEFAULT(zoneIdSlave2_, "") };
     inline CreateDBInstanceShrinkRequest& setZoneIdSlave2(string zoneIdSlave2) { DARABONBA_PTR_SET_VALUE(zoneIdSlave2_, zoneIdSlave2) };
 
 
@@ -611,19 +663,19 @@ namespace Models
     // > *   If you want to create multiple ApsaraDB RDS for MySQL instances at a time by using a single request, you can add tags to all the instances by using the **Tag.Key** parameter and the **Tag.Value** parameter. After the instances are created, you can manage the instances based on the tags.
     // > *   After you submit a request to create multiple ApsaraDB RDS for MySQL instances, this operation returns **TaskId**, **RequestId**, and **Message**. You can call the DescribeDBInstanceAttribute operation to query the information about an instance.
     // > *   If the value of the **Engine** parameter is not **MySQL** and the value of the Amount parameter is greater than **1**, this operation fails and returns an error code `InvalidParam.Engine`.
-    std::shared_ptr<int32_t> amount_ = nullptr;
+    shared_ptr<int32_t> amount_ {};
     // Specifies whether to automatically create a proxy. Valid values:
     // 
     // *   **true**: automatically creates a database proxy. By default, a general-purpose database proxy is created.
     // *   **false**: does not automatically create a database proxy.
-    std::shared_ptr<bool> autoCreateProxy_ = nullptr;
+    shared_ptr<bool> autoCreateProxy_ {};
     // Specifies whether to enable automatic payment. Valid values:
     // 
     // *   **true**: enables the feature. Make sure that your account balance is sufficient when you enable automatic payment.
     // *   **false**: does not automatically complete the payment. An unpaid order is generated.
     // 
     // >  Default value: true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. You must specify this parameter only if the instance uses the subscription billing method. Valid values:
     // 
     // *   **true**
@@ -631,14 +683,14 @@ namespace Models
     // 
     // > *   The auto-renewal cycle is one month for a monthly subscription.
     // > *   The auto-renewal cycle is one year for a yearly subscription.
-    std::shared_ptr<string> autoRenew_ = nullptr;
+    shared_ptr<string> autoRenew_ {};
     // Specifies whether to use a coupon. Default value: false. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // >  If you downgrade the specifications of an instance after you use coupons, the used coupons cannot be refunded.
-    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
+    shared_ptr<bool> autoUseCoupon_ {};
     // The configuration of the Babelfish feature for the instance that runs PostgreSQL.
     // 
     // Format:{"babelfishEnabled":"true","migrationMode":"xxxxxxx","masterUsername":"xxxxxxx","masterUserPassword":"xxxxxxxx"}
@@ -651,18 +703,18 @@ namespace Models
     // *   **masterUserPassword**: The password of the administrator account. The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. It must be 8 to 32 characters in length. The password can contain any of the following characters: `! @ # $ % ^ & * ( ) _ + - =`.
     // 
     // > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
-    std::shared_ptr<string> babelfishConfig_ = nullptr;
+    shared_ptr<string> babelfishConfig_ {};
     // A deprecated parameter. You do not need to specify this parameter.
-    std::shared_ptr<string> bpeEnabled_ = nullptr;
+    shared_ptr<string> bpeEnabled_ {};
     // Specifies whether to enable the I/O burst feature of Premium ESSDs. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // >  For more information about the I/O burst feature of general ESSDs, see [What are Premium ESSDs?](https://help.aliyun.com/document_detail/2340501.html)
-    std::shared_ptr<bool> burstingEnabled_ = nullptr;
+    shared_ptr<bool> burstingEnabled_ {};
     // The additional business information about the instance.
-    std::shared_ptr<string> businessInfo_ = nullptr;
+    shared_ptr<string> businessInfo_ {};
     // The RDS edition of the instance. Valid values:
     // 
     // *   Regular RDS instance
@@ -680,16 +732,16 @@ namespace Models
     //     *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
     // 
     // > This parameter is required if PayType is set to Serverless.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to enable the data archiving feature of Premium ESSDs. Valid values:
     // 
     // *   **true**
     // *   **false**
     // 
     // >  For more information about the data archiving feature of Premium ESSDs, see [Use the data archiving feature](https://help.aliyun.com/document_detail/2701832.html).
-    std::shared_ptr<bool> coldDataEnabled_ = nullptr;
+    shared_ptr<bool> coldDataEnabled_ {};
     // The connection mode of the instance. Valid values:
     // 
     // *   **Standard**: standard mode
@@ -698,15 +750,15 @@ namespace Models
     // ApsaraDB RDS automatically assigns a connection mode to the instance.
     // 
     // > SQL Server 2012, SQL Server 2016, and SQL Server 2017 support only the standard mode.
-    std::shared_ptr<string> connectionMode_ = nullptr;
+    shared_ptr<string> connectionMode_ {};
     // The internal endpoint that is used to connect to the instance.
-    std::shared_ptr<string> connectionString_ = nullptr;
+    shared_ptr<string> connectionString_ {};
     // The policy based on which multiple instances are created. The parameter takes effect only when the value of the **Amount** parameter is greater than 1. Valid values:
     // 
     // *   **Atomicity** (default): atomicity. The instances are all created together. If one instance cannot be created, none of the instances are created.
     // *   **Partial**: non-atomicity. Each instance is independently created. The failure in creating an instance does not affect the creation of the other instances.
-    std::shared_ptr<string> createStrategy_ = nullptr;
-    std::shared_ptr<string> customExtraInfo_ = nullptr;
+    shared_ptr<string> createStrategy_ {};
+    shared_ptr<string> customExtraInfo_ {};
     // The instance type of the instance. You can specify an instance type of the standard or YiTian product type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
     // 
     // To create a serverless instance, set this parameter to one of the following values:
@@ -718,19 +770,19 @@ namespace Models
     // *   If you want to create a serverless instance that runs PostgreSQL on RDS High-availability Edition, set this parameter to **pg.n2.serverless.2c**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceClass_ = nullptr;
+    shared_ptr<string> DBInstanceClass_ {};
     // The instance name. The value must be 2 to 255 characters in length The name can contain letters, digits, and hyphens (-) and must start with a letter.
     // 
     // >  The value cannot start with http:// or https://.
-    std::shared_ptr<string> DBInstanceDescription_ = nullptr;
+    shared_ptr<string> DBInstanceDescription_ {};
     // The network connection type of the instance. The value of this parameter is fixed as **Intranet**, indicating an internal network connection.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceNetType_ = nullptr;
+    shared_ptr<string> DBInstanceNetType_ {};
     // The storage capacity of the instance. Unit: GB. The storage capacity increases in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> DBInstanceStorage_ = nullptr;
+    shared_ptr<int32_t> DBInstanceStorage_ {};
     // The storage type of the instance. Valid values:
     // 
     // *   **local_ssd**: Premium Local SSD (recommended)
@@ -746,16 +798,16 @@ namespace Models
     // *   If the instance type specifies the cloud disk storage type, the default value of this parameter is **cloud_essd**.
     // 
     // >  Serverless instances support only PL1 ESSDs and Premium ESSDs.
-    std::shared_ptr<string> DBInstanceStorageType_ = nullptr;
+    shared_ptr<string> DBInstanceStorageType_ {};
     // Specifies whether the table name is case-sensitive. Valid values:
     // 
     // *   **true**: Table names are not case-sensitive. This is the default value.
     // *   **false**: Table names are case-sensitive.
-    std::shared_ptr<string> DBIsIgnoreCase_ = nullptr;
+    shared_ptr<string> DBIsIgnoreCase_ {};
     // The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
     // 
     // >  This parameter is available if you want to create an instance that runs MySQL or PostgreSQL. If you do not configure this parameter, the default parameter template is used. If you want to use a custom parameter template, you can customize a parameter template and set this parameter to the ID of the custom template.
-    std::shared_ptr<string> DBParamGroupId_ = nullptr;
+    shared_ptr<string> DBParamGroupId_ {};
     // The time zone of the instance. This parameter takes effect only when you set **Engine** to **MySQL** or **PostgreSQL**.
     // 
     // *   **Engine** is set to **MySQL**:
@@ -770,24 +822,24 @@ namespace Models
     // 
     // > *   You can specify the time zone when you create a primary instance. You cannot specify the time zone when you create a read-only instance. Read-only instances inherit the time zone of their primary instance.
     // > *   If you do not specify this parameter, the system automatically assigns the default time zone of the region in which the instance resides.
-    std::shared_ptr<string> DBTimeZone_ = nullptr;
+    shared_ptr<string> DBTimeZone_ {};
     // The ID of the dedicated cluster to which the instance belongs.
     // 
     // If you create the instance in a dedicated cluster, you must specify this parameter.
     // 
     // *   You can call the DescribeDedicatedHostGroups operation to query the information about the dedicated cluster.
     // *   If no dedicated clusters are created, you can call the CreateDedicatedHostGroup operation to create a dedicated cluster.
-    std::shared_ptr<string> dedicatedHostGroupId_ = nullptr;
+    shared_ptr<string> dedicatedHostGroupId_ {};
     // Specifies whether to enable the release protection feature for the instance. This feature is available only for pay-as-you-go instances. Valid values:
     // 
     // *   **true**: enables the feature.
     // *   **false** (default): disables the feature.
-    std::shared_ptr<bool> deletionProtection_ = nullptr;
+    shared_ptr<bool> deletionProtection_ {};
     // Specifies whether to perform a dry run. Default value: false. Valid values:
     // 
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
     // *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, the instance is created.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The ID of the key that is used for cloud disk encryption in the region in which the instance is deployed. If this parameter is specified, cloud disk encryption is enabled and you must also specify the **RoleARN** parameter. Cloud disk encryption cannot be disabled after it is enabled.
     // 
     // You can obtain the ID of the key in the Key Management Service (KMS) console or create a key. For more information, see [Create a key](https://help.aliyun.com/document_detail/181610.html).
@@ -797,7 +849,7 @@ namespace Models
     // 
     // 
     // >Warning: The configuration also affects the CreateOrder operation that is called to create instances in the console.
-    std::shared_ptr<string> encryptionKey_ = nullptr;
+    shared_ptr<string> encryptionKey_ {};
     // The database engine of the instance. Valid values:
     // 
     // *   **MySQL**
@@ -806,7 +858,7 @@ namespace Models
     // *   **MariaDB**
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The database engine version of the instance.
     // 
     // *   Regular RDS instance
@@ -833,8 +885,8 @@ namespace Models
     // *   Babelfish is supported only for RDS instances that run PostgreSQL 15.
     // 
     // This parameter is required.
-    std::shared_ptr<string> engineVersion_ = nullptr;
-    std::shared_ptr<bool> externalReplication_ = nullptr;
+    shared_ptr<string> engineVersion_ {};
+    shared_ptr<bool> externalReplication_ {};
     // The network type of the instance. Valid values:
     // 
     // *   **VPC**: virtual private cloud (VPC)
@@ -847,21 +899,21 @@ namespace Models
     // *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
     // 
     // *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engines, you must set this parameter to **VPC**.
-    std::shared_ptr<string> instanceNetworkType_ = nullptr;
+    shared_ptr<string> instanceNetworkType_ {};
     // Specifies whether to enable Buffer Pool Extension (BPE) of Premium ESSDs. Valid values:
     // 
     // *   **1**: enables BPE.
     // *   **0**: disables BPE.
     // 
     // >  For more information about Buffer Pool Extension(BPE) of Premium ESSDs, see [Buffer Pool Extension(BPE)](https://help.aliyun.com/document_detail/2527067.html).
-    std::shared_ptr<string> ioAccelerationEnabled_ = nullptr;
+    shared_ptr<string> ioAccelerationEnabled_ {};
     // Specifies whether to enable the 16K atomic write feature. Valid values:
     // 
     // *   **optimized**: enables the 16K atomic write feature.
     // *   **none** (default): does not enable the 16K atomic write feature.
     // 
     // >  For more information, see [Use the 16K atomic write feature](https://help.aliyun.com/document_detail/2858761.html).
-    std::shared_ptr<string> optimizedWrites_ = nullptr;
+    shared_ptr<string> optimizedWrites_ {};
     // The billing method of the instance. Valid values:
     // 
     // *   **Postpaid**: pay-as-you-go.
@@ -871,52 +923,52 @@ namespace Models
     // > The system automatically generates a purchase order and completes the payment.
     // 
     // This parameter is required.
-    std::shared_ptr<string> payType_ = nullptr;
+    shared_ptr<string> payType_ {};
     // The unit of the subscription duration. Valid values:
     // 
     // *   **Year**
     // *   **Month**
     // 
     // >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> period_ {};
     // The port. You can initialize the port when you create the instance.
     // 
     // *   Valid values if the instance runs MySQL: 1000 to 65534
     // *   Valid values if the instance runs PostgreSQL, SQL Server, or MariaDB: 1000 to 5999
-    std::shared_ptr<string> port_ = nullptr;
+    shared_ptr<string> port_ {};
     // The private IP address of the instance. The private IP address must be within the CIDR block that is supported by the specified vSwitch. ApsaraDB RDS automatically assigns a private IP address to the instance based on the values of the **VPCId** and **vSwitchId** parameters.
-    std::shared_ptr<string> privateIpAddress_ = nullptr;
+    shared_ptr<string> privateIpAddress_ {};
     // The coupon code.
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> promotionCode_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The Alibaba Cloud Resource Name (ARN) that is provided by your Alibaba Cloud account for Resource Access Management (RAM) users. RAM users can use the ARN to connect to ApsaraDB RDS to Key Management Service (KMS). You can call the CheckCloudResourceAuthorized operation to query the ARN.
     // 
     // >  When you enable the encryption, you must specify the RoleARN.
-    std::shared_ptr<string> roleARN_ = nullptr;
+    shared_ptr<string> roleARN_ {};
     // The IP address whitelist of the instance. For more information, see [Configure an IP address whitelist](https://help.aliyun.com/document_detail/43185.html). Separate multiple IP addresses or CIDR blocks with commas (,). You can add up to 1,000 IP addresses or CIDR blocks to the whitelist. The entries in the IP address whitelist must be in one of the following formats:
     // 
     // *   IP addresses, such as 10.10.XX.XX.
     // *   CIDR blocks, such as 10.10.XX.XX/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
     // 
     // This parameter is required.
-    std::shared_ptr<string> securityIPList_ = nullptr;
+    shared_ptr<string> securityIPList_ {};
     // The settings of the serverless instance. These parameters are required only when you create a serverless instance.
     // 
     // >  ApsaraDB RDS for MariaDB does not support serverless instances.
-    std::shared_ptr<string> serverlessConfigShrink_ = nullptr;
+    shared_ptr<string> serverlessConfigShrink_ {};
     // Specifies whether to enable the automatic storage expansion feature for the instance. This feature is supported if the instance runs MySQL or PostgreSQL. Valid values:
     // 
     // *   **Enable**: enables the feature.
     // *   **Disable** (default): disables the feature.
     // 
     // >  After the instance is created, you can call the ModifyDasInstanceConfig operation to adjust the settings. For more information, see [Configure automatic storage expansion](https://help.aliyun.com/document_detail/173826.html).
-    std::shared_ptr<string> storageAutoScale_ = nullptr;
+    shared_ptr<string> storageAutoScale_ {};
     // The threshold in percentage based on which automatic storage expansion is triggered.
     // 
     // *   **10**
@@ -926,37 +978,37 @@ namespace Models
     // *   **50**
     // 
     // >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
-    std::shared_ptr<int32_t> storageThreshold_ = nullptr;
+    shared_ptr<int32_t> storageThreshold_ {};
     // The maximum storage capacity that is allowed for automatic storage expansion. The storage capacity of the instance cannot exceed the maximum storage capacity. Unit: GB.
     // 
     // > *   Valid values: an integer greater than or equal to 0.
     // > *   If you set **StorageAutoScale** to **Enable**, you must specify this parameter.
-    std::shared_ptr<int32_t> storageUpperBound_ = nullptr;
+    shared_ptr<int32_t> storageUpperBound_ {};
     // A deprecated parameter. You do not need to specify this parameter.
-    std::shared_ptr<string> systemDBCharset_ = nullptr;
+    shared_ptr<string> systemDBCharset_ {};
     // The tags that are added to instances.
-    std::shared_ptr<vector<CreateDBInstanceShrinkRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<CreateDBInstanceShrinkRequest::Tag>> tag_ {};
     // The ID of the host to which the logger instance belongs in the specified dedicated cluster.
     // 
     // If you want to create an instance that runs RDS Enterprise Edition in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
     // 
     // *   You can call the DescribeDedicatedHosts operation to query the host in the dedicated cluster.
     // *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
-    std::shared_ptr<string> targetDedicatedHostIdForLog_ = nullptr;
+    shared_ptr<string> targetDedicatedHostIdForLog_ {};
     // The ID of the host to which the instance belongs in the specified dedicated cluster.
     // 
     // If you create the instance in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
     // 
     // *   You can call the DescribeDedicatedHosts operation to query the host in the dedicated cluster.
     // *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
-    std::shared_ptr<string> targetDedicatedHostIdForMaster_ = nullptr;
+    shared_ptr<string> targetDedicatedHostIdForMaster_ {};
     // The ID of the host to which the secondary instance belongs in the specified dedicated cluster.
     // 
     // If you want to create an instance that runs RDS High-availability Edition or RDS Enterprise Edition in a dedicated cluster, you must specify this parameter. If you do not specify this parameter, the system automatically assigns a host.
     // 
     // *   You can call the DescribeDedicatedHosts operation to query the host in the dedicated cluster.
     // *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
-    std::shared_ptr<string> targetDedicatedHostIdForSlave_ = nullptr;
+    shared_ptr<string> targetDedicatedHostIdForSlave_ {};
     // The minor engine version of the instance. This parameter is required only when you create an instance that runs MySQL or PostgreSQL. The value format varies based on the database engine of the instance.
     // 
     // *   If you create an instance that runs MySQL, the value is in the following format: `<RDS edition>_<Minor engine version>`. Examples: `rds_20200229`, `xcluster_20200229`, and `xcluster80_20200229`.
@@ -973,14 +1025,14 @@ namespace Models
     //     *   20220830: the AliPG version. You can call the DescribeDBMiniEngineVersions operation to query the AliPG version. For more information about minor engine versions, see [Release notes for AliPG](https://help.aliyun.com/document_detail/126002.html).
     // 
     //     > If you configure the **BabelfishConfig** parameter for your instance that runs PostgreSQL and set the babelfishEnabled field to true, the value of this parameter is in the following format: `rds_postgres_Major engine version00_AliPG version_babelfish`.
-    std::shared_ptr<string> targetMinorVersion_ = nullptr;
+    shared_ptr<string> targetMinorVersion_ {};
     // The subscription duration of the instance. Valid values:
     // 
     // *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1 to 5**.
     // *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from **1 to 11**.
     // 
     // >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
-    std::shared_ptr<string> usedTime_ = nullptr;
+    shared_ptr<string> usedTime_ {};
     // The ID of the full backup file. You can call the ListUserBackupFiles operation to query the ID of the full backup file. If you want to create an instance by using the data of a backup file, you must specify this parameter.
     // 
     // This parameter is supported only when the following requirements are met:
@@ -989,35 +1041,35 @@ namespace Models
     // *   The **Engine** parameter is set to **MySQL**.
     // *   The **EngineVersion** parameter is set to **5.7**.
     // *   The **Category** parameter is set to **Basic**.
-    std::shared_ptr<string> userBackupId_ = nullptr;
+    shared_ptr<string> userBackupId_ {};
     // The ID of the VPC to which the instance belongs.
     // 
     // > This parameter is available when you set the **InstanceNetworkType** parameter to **VPC**.
-    std::shared_ptr<string> VPCId_ = nullptr;
+    shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     // 
     // *   **Relations with zones**: Specify the vSwitch ID based on the zones in which the vSwitch belongs to. If you specify two vSwitch IDs, make sure that the vSwitch IDs match the zone IDs specified by the ZoneId and ZoneIdSlave1 parameters.
     // *   **Limits on the network type**: Set **InstanceNetworkType** to **VPC**.
     // *   **Limits on multiple vSwitch IDs**: If you set **ZoneSlaveId1** to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
     // *   **Limits on characters**: The value cannot contain `spaces` or the following characters: `!` `#` `￥` `&` `%`
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // The entries in the whitelist. If you enter multiple IP addresses or CIDR blocks, you must separate the IP addresses or CIDR blocks with commas (,). Do not add spaces preceding or following the commas. Example: `192.168.0.1,172.16.213.9`.
-    std::shared_ptr<string> whitelistTemplateList_ = nullptr;
+    shared_ptr<string> whitelistTemplateList_ {};
     // The zone ID of the primary instance.
     // 
     // *   If you specify a virtual private cloud (VPC) and a vSwitch, you must specify the ID of the zone to which the specified vSwitch belongs. Otherwise, the instance cannot be created.
     // *   If the instance runs RDS High-availability Edition, you must specify the **ZoneIdSlave1** parameter. The ZoneIdSlave1 parameter specifies whether to use the single-zone deployment method or the multi-zone deployment method.
     // *   If the instance runs RDS Enterprise Edition, you must specify the **ZoneIdSlave1** and **ZoneIdSlave2** parameters. The ZoneIdSlave1 and ZoneIdSlave2 parameters specify whether to use the single-zone deployment method or the multi-zone deployment method.
     // *   If the instance runs MySQL on RDS Cluster Edition, you must specify the **ZoneIdSlave1** parameter for the RDS cluster that has two nodes and the **ZoneIdSlave1** and **ZoneIdSlave2** parameters for the RDS cluster that has three nodes.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
     // The zone ID of the secondary instance.
     // 
     // *   If you set this parameter to **Auto**, the multi-zone deployment method is used and the zone of the secondary instance is automatically configured.
     // *   If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used.
     // *   If you set this parameter to a value that is different from the value of the **ZoneId** parameter, the multiple-zone deployment method is used.
-    std::shared_ptr<string> zoneIdSlave1_ = nullptr;
+    shared_ptr<string> zoneIdSlave1_ {};
     // The zone ID of the other secondary node. When you create an ApsaraDB RDS for MySQL cluster, you can create one to two secondary nodes for the cluster. This parameter applies if you create a cluster that contains two secondary nodes.
-    std::shared_ptr<string> zoneIdSlave2_ = nullptr;
+    shared_ptr<string> zoneIdSlave2_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attacksProtectionConfiguration_ == nullptr
-        && return this->persistentConnectionsConfiguration_ == nullptr && return this->requestId_ == nullptr && return this->transparentSwitchConfiguration_ == nullptr; };
+        && this->persistentConnectionsConfiguration_ == nullptr && this->requestId_ == nullptr && this->transparentSwitchConfiguration_ == nullptr; };
     // attacksProtectionConfiguration Field Functions 
     bool hasAttacksProtectionConfiguration() const { return this->attacksProtectionConfiguration_ != nullptr;};
     void deleteAttacksProtectionConfiguration() { this->attacksProtectionConfiguration_ = nullptr;};
-    inline string attacksProtectionConfiguration() const { DARABONBA_PTR_GET_DEFAULT(attacksProtectionConfiguration_, "") };
+    inline string getAttacksProtectionConfiguration() const { DARABONBA_PTR_GET_DEFAULT(attacksProtectionConfiguration_, "") };
     inline DescribeDBInstanceProxyConfigurationResponseBody& setAttacksProtectionConfiguration(string attacksProtectionConfiguration) { DARABONBA_PTR_SET_VALUE(attacksProtectionConfiguration_, attacksProtectionConfiguration) };
 
 
     // persistentConnectionsConfiguration Field Functions 
     bool hasPersistentConnectionsConfiguration() const { return this->persistentConnectionsConfiguration_ != nullptr;};
     void deletePersistentConnectionsConfiguration() { this->persistentConnectionsConfiguration_ = nullptr;};
-    inline string persistentConnectionsConfiguration() const { DARABONBA_PTR_GET_DEFAULT(persistentConnectionsConfiguration_, "") };
+    inline string getPersistentConnectionsConfiguration() const { DARABONBA_PTR_GET_DEFAULT(persistentConnectionsConfiguration_, "") };
     inline DescribeDBInstanceProxyConfigurationResponseBody& setPersistentConnectionsConfiguration(string persistentConnectionsConfiguration) { DARABONBA_PTR_SET_VALUE(persistentConnectionsConfiguration_, persistentConnectionsConfiguration) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBInstanceProxyConfigurationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // transparentSwitchConfiguration Field Functions 
     bool hasTransparentSwitchConfiguration() const { return this->transparentSwitchConfiguration_ != nullptr;};
     void deleteTransparentSwitchConfiguration() { this->transparentSwitchConfiguration_ = nullptr;};
-    inline string transparentSwitchConfiguration() const { DARABONBA_PTR_GET_DEFAULT(transparentSwitchConfiguration_, "") };
+    inline string getTransparentSwitchConfiguration() const { DARABONBA_PTR_GET_DEFAULT(transparentSwitchConfiguration_, "") };
     inline DescribeDBInstanceProxyConfigurationResponseBody& setTransparentSwitchConfiguration(string transparentSwitchConfiguration) { DARABONBA_PTR_SET_VALUE(transparentSwitchConfiguration_, transparentSwitchConfiguration) };
 
 
@@ -85,7 +85,7 @@ namespace Models
     //     *   check_interval_seconds: **30 to 600**. Unit: seconds.
     //     *   max_failed_login_attempts: **10 to 5000**. Unit: times.
     //     *   blocking_seconds: **30 to 3600**. Unit: seconds.
-    std::shared_ptr<string> attacksProtectionConfiguration_ = nullptr;
+    shared_ptr<string> attacksProtectionConfiguration_ {};
     // Indicates whether the short-lived connection optimization feature is enabled.
     // 
     // *   **Enable**
@@ -94,9 +94,9 @@ namespace Models
     // In this case, the return value is a JSON string. Examples:
     // 
     //     {"status":"Disable"}.
-    std::shared_ptr<string> persistentConnectionsConfiguration_ = nullptr;
+    shared_ptr<string> persistentConnectionsConfiguration_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the transparent switchover feature is enabled.
     // 
     // *   **Enable**
@@ -105,7 +105,7 @@ namespace Models
     // The return value is a JSON string. Example:
     // 
     //     {"status":"Enable"}
-    std::shared_ptr<string> transparentSwitchConfiguration_ = nullptr;
+    shared_ptr<string> transparentSwitchConfiguration_ {};
   };
 
   } // namespace Models

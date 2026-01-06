@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activationState_ == nullptr
-        && return this->DBInstanceId_ == nullptr && return this->licenseType_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->DBInstanceId_ == nullptr && this->licenseType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr; };
     // activationState Field Functions 
     bool hasActivationState() const { return this->activationState_ != nullptr;};
     void deleteActivationState() { this->activationState_ = nullptr;};
-    inline string activationState() const { DARABONBA_PTR_GET_DEFAULT(activationState_, "") };
+    inline string getActivationState() const { DARABONBA_PTR_GET_DEFAULT(activationState_, "") };
     inline DescribeDBInstanceDetailResponseBody& setActivationState(string activationState) { DARABONBA_PTR_SET_VALUE(activationState_, activationState) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeDBInstanceDetailResponseBody& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // licenseType Field Functions 
     bool hasLicenseType() const { return this->licenseType_ != nullptr;};
     void deleteLicenseType() { this->licenseType_ = nullptr;};
-    inline string licenseType() const { DARABONBA_PTR_GET_DEFAULT(licenseType_, "") };
+    inline string getLicenseType() const { DARABONBA_PTR_GET_DEFAULT(licenseType_, "") };
     inline DescribeDBInstanceDetailResponseBody& setLicenseType(string licenseType) { DARABONBA_PTR_SET_VALUE(licenseType_, licenseType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeDBInstanceDetailResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeDBInstanceDetailResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether the instance is in the active state.
-    std::shared_ptr<string> activationState_ = nullptr;
+    shared_ptr<string> activationState_ {};
     // The ID of the instance.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The type of the license.
-    std::shared_ptr<string> licenseType_ = nullptr;
+    shared_ptr<string> licenseType_ {};
     // The region ID of the instance.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

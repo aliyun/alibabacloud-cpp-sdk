@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceChargeType_ == nullptr
-        && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->regionId_ == nullptr && return this->supportCase_ == nullptr; };
+        && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->regionId_ == nullptr && this->supportCase_ == nullptr; };
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
-    inline string instanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline DescribeRCElasticScalingRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeRCElasticScalingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline DescribeRCElasticScalingRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeRCElasticScalingRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // supportCase Field Functions 
     bool hasSupportCase() const { return this->supportCase_ != nullptr;};
     void deleteSupportCase() { this->supportCase_ = nullptr;};
-    inline string supportCase() const { DARABONBA_PTR_GET_DEFAULT(supportCase_, "") };
+    inline string getSupportCase() const { DARABONBA_PTR_GET_DEFAULT(supportCase_, "") };
     inline DescribeRCElasticScalingRequest& setSupportCase(string supportCase) { DARABONBA_PTR_SET_VALUE(supportCase_, supportCase) };
 
 
   protected:
-    std::shared_ptr<string> instanceChargeType_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instanceType_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> supportCase_ = nullptr;
+    shared_ptr<string> instanceChargeType_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> instanceType_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> supportCase_ {};
   };
 
   } // namespace Models

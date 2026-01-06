@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gadInstanceName_ == nullptr
-        && return this->memberInstanceName_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr; };
+        && this->memberInstanceName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // gadInstanceName Field Functions 
     bool hasGadInstanceName() const { return this->gadInstanceName_ != nullptr;};
     void deleteGadInstanceName() { this->gadInstanceName_ = nullptr;};
-    inline string gadInstanceName() const { DARABONBA_PTR_GET_DEFAULT(gadInstanceName_, "") };
+    inline string getGadInstanceName() const { DARABONBA_PTR_GET_DEFAULT(gadInstanceName_, "") };
     inline DetachGadInstanceMemberRequest& setGadInstanceName(string gadInstanceName) { DARABONBA_PTR_SET_VALUE(gadInstanceName_, gadInstanceName) };
 
 
     // memberInstanceName Field Functions 
     bool hasMemberInstanceName() const { return this->memberInstanceName_ != nullptr;};
     void deleteMemberInstanceName() { this->memberInstanceName_ = nullptr;};
-    inline string memberInstanceName() const { DARABONBA_PTR_GET_DEFAULT(memberInstanceName_, "") };
+    inline string getMemberInstanceName() const { DARABONBA_PTR_GET_DEFAULT(memberInstanceName_, "") };
     inline DetachGadInstanceMemberRequest& setMemberInstanceName(string memberInstanceName) { DARABONBA_PTR_SET_VALUE(memberInstanceName_, memberInstanceName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DetachGadInstanceMemberRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DetachGadInstanceMemberRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
@@ -69,15 +69,15 @@ namespace Models
     // The ID of the global active database cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> gadInstanceName_ = nullptr;
+    shared_ptr<string> gadInstanceName_ {};
     // The ID of the instance that serves as the unit node you want to remove. You can call the DescribeGadInstances query the instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> memberInstanceName_ = nullptr;
+    shared_ptr<string> memberInstanceName_ {};
     // The region ID of the central node. You can call the DescribeGadInstances operation to query the region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

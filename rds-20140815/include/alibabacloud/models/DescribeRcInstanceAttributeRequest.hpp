@@ -38,50 +38,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->instanceName_ == nullptr && return this->maxDisksResults_ == nullptr && return this->privateIpAddress_ == nullptr && return this->regionId_ == nullptr; };
+        && this->instanceName_ == nullptr && this->maxDisksResults_ == nullptr && this->privateIpAddress_ == nullptr && this->regionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeRCInstanceAttributeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline DescribeRCInstanceAttributeRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // maxDisksResults Field Functions 
     bool hasMaxDisksResults() const { return this->maxDisksResults_ != nullptr;};
     void deleteMaxDisksResults() { this->maxDisksResults_ = nullptr;};
-    inline int64_t maxDisksResults() const { DARABONBA_PTR_GET_DEFAULT(maxDisksResults_, 0L) };
+    inline int64_t getMaxDisksResults() const { DARABONBA_PTR_GET_DEFAULT(maxDisksResults_, 0L) };
     inline DescribeRCInstanceAttributeRequest& setMaxDisksResults(int64_t maxDisksResults) { DARABONBA_PTR_SET_VALUE(maxDisksResults_, maxDisksResults) };
 
 
     // privateIpAddress Field Functions 
     bool hasPrivateIpAddress() const { return this->privateIpAddress_ != nullptr;};
     void deletePrivateIpAddress() { this->privateIpAddress_ = nullptr;};
-    inline string privateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
+    inline string getPrivateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
     inline DescribeRCInstanceAttributeRequest& setPrivateIpAddress(string privateIpAddress) { DARABONBA_PTR_SET_VALUE(privateIpAddress_, privateIpAddress) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeRCInstanceAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<int64_t> maxDisksResults_ = nullptr;
-    std::shared_ptr<string> privateIpAddress_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> instanceName_ {};
+    shared_ptr<int64_t> maxDisksResults_ {};
+    shared_ptr<string> privateIpAddress_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

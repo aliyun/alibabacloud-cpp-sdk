@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->direction_ == nullptr
-        && return this->regionId_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupPermissionsShrink_ == nullptr; };
+        && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupPermissionsShrink_ == nullptr; };
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline AuthorizeRCSecurityGroupPermissionShrinkRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline AuthorizeRCSecurityGroupPermissionShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline AuthorizeRCSecurityGroupPermissionShrinkRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
     // securityGroupPermissionsShrink Field Functions 
     bool hasSecurityGroupPermissionsShrink() const { return this->securityGroupPermissionsShrink_ != nullptr;};
     void deleteSecurityGroupPermissionsShrink() { this->securityGroupPermissionsShrink_ = nullptr;};
-    inline string securityGroupPermissionsShrink() const { DARABONBA_PTR_GET_DEFAULT(securityGroupPermissionsShrink_, "") };
+    inline string getSecurityGroupPermissionsShrink() const { DARABONBA_PTR_GET_DEFAULT(securityGroupPermissionsShrink_, "") };
     inline AuthorizeRCSecurityGroupPermissionShrinkRequest& setSecurityGroupPermissionsShrink(string securityGroupPermissionsShrink) { DARABONBA_PTR_SET_VALUE(securityGroupPermissionsShrink_, securityGroupPermissionsShrink) };
 
 
@@ -70,13 +70,13 @@ namespace Models
     // 
     // *   **ingress**: the inbound security group rule.
     // *   **egress**: the outbound security group rule.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the security group.
-    std::shared_ptr<string> securityGroupId_ = nullptr;
+    shared_ptr<string> securityGroupId_ {};
     // The information about the security group.
-    std::shared_ptr<string> securityGroupPermissionsShrink_ = nullptr;
+    shared_ptr<string> securityGroupPermissionsShrink_ {};
   };
 
   } // namespace Models

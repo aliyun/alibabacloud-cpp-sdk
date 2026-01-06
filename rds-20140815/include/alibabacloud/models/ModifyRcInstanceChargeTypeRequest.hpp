@@ -58,167 +58,167 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->autoUseCoupon_ == nullptr && return this->businessInfo_ == nullptr && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr
-        && return this->includeDataDisks_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIds_ == nullptr && return this->payType_ == nullptr
-        && return this->period_ == nullptr && return this->promotionCode_ == nullptr && return this->regionId_ == nullptr && return this->usedTime_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr
+        && this->includeDataDisks_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceIds_ == nullptr && this->payType_ == nullptr
+        && this->period_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->usedTime_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline ModifyRCInstanceChargeTypeRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline string autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, "") };
+    inline string getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setAutoRenew(string autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // autoUseCoupon Field Functions 
     bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
-    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline ModifyRCInstanceChargeTypeRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
 
 
     // businessInfo Field Functions 
     bool hasBusinessInfo() const { return this->businessInfo_ != nullptr;};
     void deleteBusinessInfo() { this->businessInfo_ = nullptr;};
-    inline string businessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
+    inline string getBusinessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setBusinessInfo(string businessInfo) { DARABONBA_PTR_SET_VALUE(businessInfo_, businessInfo) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ModifyRCInstanceChargeTypeRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // includeDataDisks Field Functions 
     bool hasIncludeDataDisks() const { return this->includeDataDisks_ != nullptr;};
     void deleteIncludeDataDisks() { this->includeDataDisks_ = nullptr;};
-    inline bool includeDataDisks() const { DARABONBA_PTR_GET_DEFAULT(includeDataDisks_, false) };
+    inline bool getIncludeDataDisks() const { DARABONBA_PTR_GET_DEFAULT(includeDataDisks_, false) };
     inline ModifyRCInstanceChargeTypeRequest& setIncludeDataDisks(bool includeDataDisks) { DARABONBA_PTR_SET_VALUE(includeDataDisks_, includeDataDisks) };
 
 
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
-    inline string instanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
-    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifyRCInstanceChargeTypeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // usedTime Field Functions 
     bool hasUsedTime() const { return this->usedTime_ != nullptr;};
     void deleteUsedTime() { this->usedTime_ = nullptr;};
-    inline int32_t usedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0) };
+    inline int32_t getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0) };
     inline ModifyRCInstanceChargeTypeRequest& setUsedTime(int32_t usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
 
 
   protected:
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable the auto-renewal feature. Valid values:
     // * **true**
     // * **false**
     // > *   This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
     // > *   All strings except **true** are considered **false**.
-    std::shared_ptr<string> autoRenew_ = nullptr;
+    shared_ptr<string> autoRenew_ {};
     // Specifies whether to use a coupon. Valid values:
     // * **true** (default)
     // * **false**
-    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
+    shared_ptr<bool> autoUseCoupon_ {};
     // The additional business information about the instance.
-    std::shared_ptr<string> businessInfo_ = nullptr;
+    shared_ptr<string> businessInfo_ {};
     // The custom client token that is used to ensure the idempotence of the request.
     // > The value can contain ASCII characters and can be up to 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<bool> includeDataDisks_ = nullptr;
+    shared_ptr<bool> includeDataDisks_ {};
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<string> instanceChargeType_ = nullptr;
+    shared_ptr<string> instanceChargeType_ {};
     // The ID of the instance or disk.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
     // The new billing method of the instance. Valid values:
     // * **Prepaid**: subscription.
     // * **Postpaid**: pay-as-you-go.
     // 
     // This parameter is required.
-    std::shared_ptr<string> payType_ = nullptr;
+    shared_ptr<string> payType_ {};
     // The renewal cycle of the instance. Valid values:
     // * **Year**
     // * **Month**
     // > This parameter must be specified if you set the PayType parameter to **Prepaid**.
-    std::shared_ptr<string> period_ = nullptr;
+    shared_ptr<string> period_ {};
     // The coupon code.
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The subscription duration of the instance.
     // *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1** to **5**.
     // *   If the **Period** parameter is set to **Month**, the value of the **UsedTime** parameter ranges from **1** to **11**.
     // 
     // > If you set the **PayType** parameter to **Prepaid**, you must specify this parameter.
-    std::shared_ptr<int32_t> usedTime_ = nullptr;
+    shared_ptr<int32_t> usedTime_ {};
   };
 
   } // namespace Models

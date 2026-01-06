@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_SYNCRCKEYPAIRRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_SYNCRCKEYPAIRRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/SyncRCKeyPairResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,64 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(IsSyncInfo, isSyncInfo_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(IsSyncInfo, isSyncInfo_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->isSyncInfo_ == nullptr; };
+      // isSyncInfo Field Functions 
+      bool hasIsSyncInfo() const { return this->isSyncInfo_ != nullptr;};
+      void deleteIsSyncInfo() { this->isSyncInfo_ = nullptr;};
+      inline bool getIsSyncInfo() const { DARABONBA_PTR_GET_DEFAULT(isSyncInfo_, false) };
+      inline Data& setIsSyncInfo(bool isSyncInfo) { DARABONBA_PTR_SET_VALUE(isSyncInfo_, isSyncInfo) };
+
+
+    protected:
+      // Indicates whether the synchronization succeeded. Valid values:
+      // 
+      // *   **true**
+      // *   **false**
+      shared_ptr<bool> isSyncInfo_ {};
+    };
+
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const SyncRCKeyPairResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, SyncRCKeyPairResponseBodyData) };
-    inline SyncRCKeyPairResponseBodyData data() { DARABONBA_PTR_GET(data_, SyncRCKeyPairResponseBodyData) };
-    inline SyncRCKeyPairResponseBody& setData(const SyncRCKeyPairResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline SyncRCKeyPairResponseBody& setData(SyncRCKeyPairResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const SyncRCKeyPairResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, SyncRCKeyPairResponseBody::Data) };
+    inline SyncRCKeyPairResponseBody::Data getData() { DARABONBA_PTR_GET(data_, SyncRCKeyPairResponseBody::Data) };
+    inline SyncRCKeyPairResponseBody& setData(const SyncRCKeyPairResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline SyncRCKeyPairResponseBody& setData(SyncRCKeyPairResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline SyncRCKeyPairResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The details of the result.
-    std::shared_ptr<SyncRCKeyPairResponseBodyData> data_ = nullptr;
+    shared_ptr<SyncRCKeyPairResponseBody::Data> data_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

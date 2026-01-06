@@ -2,10 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBERCINSTANCEHISTORYEVENTSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBERCINSTANCEHISTORYEVENTSREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeRCInstanceHistoryEventsRequestEventPublishTime.hpp>
-#include <alibabacloud/models/DescribeRCInstanceHistoryEventsRequestNotBefore.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeRCInstanceHistoryEventsRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -63,40 +60,172 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of the tag that is added to the resource.
+      shared_ptr<string> key_ {};
+      // The value of tag N of the port list.
+      shared_ptr<string> value_ {};
+    };
+
+    class NotBefore : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const NotBefore& obj) { 
+        DARABONBA_PTR_TO_JSON(End, end_);
+        DARABONBA_PTR_TO_JSON(Start, start_);
+      };
+      friend void from_json(const Darabonba::Json& j, NotBefore& obj) { 
+        DARABONBA_PTR_FROM_JSON(End, end_);
+        DARABONBA_PTR_FROM_JSON(Start, start_);
+      };
+      NotBefore() = default ;
+      NotBefore(const NotBefore &) = default ;
+      NotBefore(NotBefore &&) = default ;
+      NotBefore(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~NotBefore() = default ;
+      NotBefore& operator=(const NotBefore &) = default ;
+      NotBefore& operator=(NotBefore &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->end_ == nullptr
+        && this->start_ == nullptr; };
+      // end Field Functions 
+      bool hasEnd() const { return this->end_ != nullptr;};
+      void deleteEnd() { this->end_ = nullptr;};
+      inline string getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, "") };
+      inline NotBefore& setEnd(string end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+
+
+      // start Field Functions 
+      bool hasStart() const { return this->start_ != nullptr;};
+      void deleteStart() { this->start_ = nullptr;};
+      inline string getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
+      inline NotBefore& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
+
+
+    protected:
+      // The end time of the scheduled execution period for the system event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+      shared_ptr<string> end_ {};
+      // The start time of the scheduled execution period for the system event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+      shared_ptr<string> start_ {};
+    };
+
+    class EventPublishTime : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EventPublishTime& obj) { 
+        DARABONBA_PTR_TO_JSON(End, end_);
+        DARABONBA_PTR_TO_JSON(Start, start_);
+      };
+      friend void from_json(const Darabonba::Json& j, EventPublishTime& obj) { 
+        DARABONBA_PTR_FROM_JSON(End, end_);
+        DARABONBA_PTR_FROM_JSON(Start, start_);
+      };
+      EventPublishTime() = default ;
+      EventPublishTime(const EventPublishTime &) = default ;
+      EventPublishTime(EventPublishTime &&) = default ;
+      EventPublishTime(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EventPublishTime() = default ;
+      EventPublishTime& operator=(const EventPublishTime &) = default ;
+      EventPublishTime& operator=(EventPublishTime &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->end_ == nullptr
+        && this->start_ == nullptr; };
+      // end Field Functions 
+      bool hasEnd() const { return this->end_ != nullptr;};
+      void deleteEnd() { this->end_ = nullptr;};
+      inline string getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, "") };
+      inline EventPublishTime& setEnd(string end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+
+
+      // start Field Functions 
+      bool hasStart() const { return this->start_ != nullptr;};
+      void deleteStart() { this->start_ = nullptr;};
+      inline string getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
+      inline EventPublishTime& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
+
+
+    protected:
+      // The end of the time range in which to query published system events. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+      shared_ptr<string> end_ {};
+      // The beginning of the time range in which to query published system events. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+      shared_ptr<string> start_ {};
+    };
+
     virtual bool empty() const override { return this->eventPublishTime_ == nullptr
-        && return this->notBefore_ == nullptr && return this->eventCycleStatus_ == nullptr && return this->eventId_ == nullptr && return this->eventType_ == nullptr && return this->impactLevel_ == nullptr
-        && return this->instanceEventCycleStatus_ == nullptr && return this->instanceEventType_ == nullptr && return this->instanceId_ == nullptr && return this->maxResults_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceId_ == nullptr && return this->tag_ == nullptr; };
+        && this->notBefore_ == nullptr && this->eventCycleStatus_ == nullptr && this->eventId_ == nullptr && this->eventType_ == nullptr && this->impactLevel_ == nullptr
+        && this->instanceEventCycleStatus_ == nullptr && this->instanceEventType_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->tag_ == nullptr; };
     // eventPublishTime Field Functions 
     bool hasEventPublishTime() const { return this->eventPublishTime_ != nullptr;};
     void deleteEventPublishTime() { this->eventPublishTime_ = nullptr;};
-    inline const DescribeRCInstanceHistoryEventsRequestEventPublishTime & eventPublishTime() const { DARABONBA_PTR_GET_CONST(eventPublishTime_, DescribeRCInstanceHistoryEventsRequestEventPublishTime) };
-    inline DescribeRCInstanceHistoryEventsRequestEventPublishTime eventPublishTime() { DARABONBA_PTR_GET(eventPublishTime_, DescribeRCInstanceHistoryEventsRequestEventPublishTime) };
-    inline DescribeRCInstanceHistoryEventsRequest& setEventPublishTime(const DescribeRCInstanceHistoryEventsRequestEventPublishTime & eventPublishTime) { DARABONBA_PTR_SET_VALUE(eventPublishTime_, eventPublishTime) };
-    inline DescribeRCInstanceHistoryEventsRequest& setEventPublishTime(DescribeRCInstanceHistoryEventsRequestEventPublishTime && eventPublishTime) { DARABONBA_PTR_SET_RVALUE(eventPublishTime_, eventPublishTime) };
+    inline const DescribeRCInstanceHistoryEventsRequest::EventPublishTime & getEventPublishTime() const { DARABONBA_PTR_GET_CONST(eventPublishTime_, DescribeRCInstanceHistoryEventsRequest::EventPublishTime) };
+    inline DescribeRCInstanceHistoryEventsRequest::EventPublishTime getEventPublishTime() { DARABONBA_PTR_GET(eventPublishTime_, DescribeRCInstanceHistoryEventsRequest::EventPublishTime) };
+    inline DescribeRCInstanceHistoryEventsRequest& setEventPublishTime(const DescribeRCInstanceHistoryEventsRequest::EventPublishTime & eventPublishTime) { DARABONBA_PTR_SET_VALUE(eventPublishTime_, eventPublishTime) };
+    inline DescribeRCInstanceHistoryEventsRequest& setEventPublishTime(DescribeRCInstanceHistoryEventsRequest::EventPublishTime && eventPublishTime) { DARABONBA_PTR_SET_RVALUE(eventPublishTime_, eventPublishTime) };
 
 
     // notBefore Field Functions 
     bool hasNotBefore() const { return this->notBefore_ != nullptr;};
     void deleteNotBefore() { this->notBefore_ = nullptr;};
-    inline const DescribeRCInstanceHistoryEventsRequestNotBefore & notBefore() const { DARABONBA_PTR_GET_CONST(notBefore_, DescribeRCInstanceHistoryEventsRequestNotBefore) };
-    inline DescribeRCInstanceHistoryEventsRequestNotBefore notBefore() { DARABONBA_PTR_GET(notBefore_, DescribeRCInstanceHistoryEventsRequestNotBefore) };
-    inline DescribeRCInstanceHistoryEventsRequest& setNotBefore(const DescribeRCInstanceHistoryEventsRequestNotBefore & notBefore) { DARABONBA_PTR_SET_VALUE(notBefore_, notBefore) };
-    inline DescribeRCInstanceHistoryEventsRequest& setNotBefore(DescribeRCInstanceHistoryEventsRequestNotBefore && notBefore) { DARABONBA_PTR_SET_RVALUE(notBefore_, notBefore) };
+    inline const DescribeRCInstanceHistoryEventsRequest::NotBefore & getNotBefore() const { DARABONBA_PTR_GET_CONST(notBefore_, DescribeRCInstanceHistoryEventsRequest::NotBefore) };
+    inline DescribeRCInstanceHistoryEventsRequest::NotBefore getNotBefore() { DARABONBA_PTR_GET(notBefore_, DescribeRCInstanceHistoryEventsRequest::NotBefore) };
+    inline DescribeRCInstanceHistoryEventsRequest& setNotBefore(const DescribeRCInstanceHistoryEventsRequest::NotBefore & notBefore) { DARABONBA_PTR_SET_VALUE(notBefore_, notBefore) };
+    inline DescribeRCInstanceHistoryEventsRequest& setNotBefore(DescribeRCInstanceHistoryEventsRequest::NotBefore && notBefore) { DARABONBA_PTR_SET_RVALUE(notBefore_, notBefore) };
 
 
     // eventCycleStatus Field Functions 
     bool hasEventCycleStatus() const { return this->eventCycleStatus_ != nullptr;};
     void deleteEventCycleStatus() { this->eventCycleStatus_ = nullptr;};
-    inline string eventCycleStatus() const { DARABONBA_PTR_GET_DEFAULT(eventCycleStatus_, "") };
+    inline string getEventCycleStatus() const { DARABONBA_PTR_GET_DEFAULT(eventCycleStatus_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setEventCycleStatus(string eventCycleStatus) { DARABONBA_PTR_SET_VALUE(eventCycleStatus_, eventCycleStatus) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline const vector<string> & eventId() const { DARABONBA_PTR_GET_CONST(eventId_, vector<string>) };
-    inline vector<string> eventId() { DARABONBA_PTR_GET(eventId_, vector<string>) };
+    inline const vector<string> & getEventId() const { DARABONBA_PTR_GET_CONST(eventId_, vector<string>) };
+    inline vector<string> getEventId() { DARABONBA_PTR_GET(eventId_, vector<string>) };
     inline DescribeRCInstanceHistoryEventsRequest& setEventId(const vector<string> & eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
     inline DescribeRCInstanceHistoryEventsRequest& setEventId(vector<string> && eventId) { DARABONBA_PTR_SET_RVALUE(eventId_, eventId) };
 
@@ -104,22 +233,22 @@ namespace Models
     // eventType Field Functions 
     bool hasEventType() const { return this->eventType_ != nullptr;};
     void deleteEventType() { this->eventType_ = nullptr;};
-    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline string getEventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // impactLevel Field Functions 
     bool hasImpactLevel() const { return this->impactLevel_ != nullptr;};
     void deleteImpactLevel() { this->impactLevel_ = nullptr;};
-    inline string impactLevel() const { DARABONBA_PTR_GET_DEFAULT(impactLevel_, "") };
+    inline string getImpactLevel() const { DARABONBA_PTR_GET_DEFAULT(impactLevel_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setImpactLevel(string impactLevel) { DARABONBA_PTR_SET_VALUE(impactLevel_, impactLevel) };
 
 
     // instanceEventCycleStatus Field Functions 
     bool hasInstanceEventCycleStatus() const { return this->instanceEventCycleStatus_ != nullptr;};
     void deleteInstanceEventCycleStatus() { this->instanceEventCycleStatus_ = nullptr;};
-    inline const vector<string> & instanceEventCycleStatus() const { DARABONBA_PTR_GET_CONST(instanceEventCycleStatus_, vector<string>) };
-    inline vector<string> instanceEventCycleStatus() { DARABONBA_PTR_GET(instanceEventCycleStatus_, vector<string>) };
+    inline const vector<string> & getInstanceEventCycleStatus() const { DARABONBA_PTR_GET_CONST(instanceEventCycleStatus_, vector<string>) };
+    inline vector<string> getInstanceEventCycleStatus() { DARABONBA_PTR_GET(instanceEventCycleStatus_, vector<string>) };
     inline DescribeRCInstanceHistoryEventsRequest& setInstanceEventCycleStatus(const vector<string> & instanceEventCycleStatus) { DARABONBA_PTR_SET_VALUE(instanceEventCycleStatus_, instanceEventCycleStatus) };
     inline DescribeRCInstanceHistoryEventsRequest& setInstanceEventCycleStatus(vector<string> && instanceEventCycleStatus) { DARABONBA_PTR_SET_RVALUE(instanceEventCycleStatus_, instanceEventCycleStatus) };
 
@@ -127,8 +256,8 @@ namespace Models
     // instanceEventType Field Functions 
     bool hasInstanceEventType() const { return this->instanceEventType_ != nullptr;};
     void deleteInstanceEventType() { this->instanceEventType_ = nullptr;};
-    inline const vector<string> & instanceEventType() const { DARABONBA_PTR_GET_CONST(instanceEventType_, vector<string>) };
-    inline vector<string> instanceEventType() { DARABONBA_PTR_GET(instanceEventType_, vector<string>) };
+    inline const vector<string> & getInstanceEventType() const { DARABONBA_PTR_GET_CONST(instanceEventType_, vector<string>) };
+    inline vector<string> getInstanceEventType() { DARABONBA_PTR_GET(instanceEventType_, vector<string>) };
     inline DescribeRCInstanceHistoryEventsRequest& setInstanceEventType(const vector<string> & instanceEventType) { DARABONBA_PTR_SET_VALUE(instanceEventType_, instanceEventType) };
     inline DescribeRCInstanceHistoryEventsRequest& setInstanceEventType(vector<string> && instanceEventType) { DARABONBA_PTR_SET_RVALUE(instanceEventType_, instanceEventType) };
 
@@ -136,50 +265,50 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline string maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
+    inline string getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setMaxResults(string maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeRCInstanceHistoryEventsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline const vector<string> & resourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
-    inline vector<string> resourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
+    inline const vector<string> & getResourceId() const { DARABONBA_PTR_GET_CONST(resourceId_, vector<string>) };
+    inline vector<string> getResourceId() { DARABONBA_PTR_GET(resourceId_, vector<string>) };
     inline DescribeRCInstanceHistoryEventsRequest& setResourceId(const vector<string> & resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
     inline DescribeRCInstanceHistoryEventsRequest& setResourceId(vector<string> && resourceId) { DARABONBA_PTR_SET_RVALUE(resourceId_, resourceId) };
 
@@ -187,15 +316,15 @@ namespace Models
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<DescribeRCInstanceHistoryEventsRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<DescribeRCInstanceHistoryEventsRequestTag>) };
-    inline vector<DescribeRCInstanceHistoryEventsRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<DescribeRCInstanceHistoryEventsRequestTag>) };
-    inline DescribeRCInstanceHistoryEventsRequest& setTag(const vector<DescribeRCInstanceHistoryEventsRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline DescribeRCInstanceHistoryEventsRequest& setTag(vector<DescribeRCInstanceHistoryEventsRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<DescribeRCInstanceHistoryEventsRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<DescribeRCInstanceHistoryEventsRequest::Tag>) };
+    inline vector<DescribeRCInstanceHistoryEventsRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<DescribeRCInstanceHistoryEventsRequest::Tag>) };
+    inline DescribeRCInstanceHistoryEventsRequest& setTag(const vector<DescribeRCInstanceHistoryEventsRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline DescribeRCInstanceHistoryEventsRequest& setTag(vector<DescribeRCInstanceHistoryEventsRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
   protected:
-    std::shared_ptr<DescribeRCInstanceHistoryEventsRequestEventPublishTime> eventPublishTime_ = nullptr;
-    std::shared_ptr<DescribeRCInstanceHistoryEventsRequestNotBefore> notBefore_ = nullptr;
+    shared_ptr<DescribeRCInstanceHistoryEventsRequest::EventPublishTime> eventPublishTime_ {};
+    shared_ptr<DescribeRCInstanceHistoryEventsRequest::NotBefore> notBefore_ {};
     // The lifecycle state of the system event. This parameter is valid only when the **InstanceEventCycleStatus.N** parameter is not specified. Valid values:
     // 
     // *   **Scheduled**
@@ -205,9 +334,9 @@ namespace Models
     // *   **Canceled**
     // *   **Failed**
     // *   **Inquiring**
-    std::shared_ptr<string> eventCycleStatus_ = nullptr;
+    shared_ptr<string> eventCycleStatus_ {};
     // The IDs of one or more system events.
-    std::shared_ptr<vector<string>> eventId_ = nullptr;
+    shared_ptr<vector<string>> eventId_ {};
     // The system event type. This parameter is valid only when the **InstanceEventType.N** parameter is not specified. Valid values:
     // 
     // *   **SystemMaintenance.Reboot**: The instance was restarted due to system maintenance.
@@ -222,31 +351,31 @@ namespace Models
     // *   **AccountUnbalanced.Delete**: The pay-as-you-go instance was released due to an overdue payment.
     // 
     // >  The values of this parameter are applicable only to instance system events, but not to disk system events.
-    std::shared_ptr<string> eventType_ = nullptr;
+    shared_ptr<string> eventType_ {};
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<string> impactLevel_ = nullptr;
+    shared_ptr<string> impactLevel_ {};
     // The lifecycle states of system events.
-    std::shared_ptr<vector<string>> instanceEventCycleStatus_ = nullptr;
+    shared_ptr<vector<string>> instanceEventCycleStatus_ {};
     // The type of system event N.
-    std::shared_ptr<vector<string>> instanceEventType_ = nullptr;
+    shared_ptr<vector<string>> instanceEventType_ {};
     // The instance ID. If you do not specify an instance ID, system events of all instances in the specified region are queried.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The reserved parameter. This parameter is not supported.
-    std::shared_ptr<string> maxResults_ = nullptr;
+    shared_ptr<string> maxResults_ {};
     // The page number of the returned page.
-    std::shared_ptr<string> pageNumber_ = nullptr;
+    shared_ptr<string> pageNumber_ {};
     // The maximum number of entries returned per page.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The ID of the region where the instance resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group that you want to query.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The ID of resource N.
-    std::shared_ptr<vector<string>> resourceId_ = nullptr;
+    shared_ptr<vector<string>> resourceId_ {};
     // An array that consists of the tags that are supported by system events.
-    std::shared_ptr<vector<DescribeRCInstanceHistoryEventsRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<DescribeRCInstanceHistoryEventsRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

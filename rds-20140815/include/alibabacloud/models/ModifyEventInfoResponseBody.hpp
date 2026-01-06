@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorCode_ == nullptr
-        && return this->errorEventId_ == nullptr && return this->requestId_ == nullptr && return this->successCount_ == nullptr && return this->successEventId_ == nullptr; };
+        && this->errorEventId_ == nullptr && this->requestId_ == nullptr && this->successCount_ == nullptr && this->successEventId_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline ModifyEventInfoResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorEventId Field Functions 
     bool hasErrorEventId() const { return this->errorEventId_ != nullptr;};
     void deleteErrorEventId() { this->errorEventId_ = nullptr;};
-    inline string errorEventId() const { DARABONBA_PTR_GET_DEFAULT(errorEventId_, "") };
+    inline string getErrorEventId() const { DARABONBA_PTR_GET_DEFAULT(errorEventId_, "") };
     inline ModifyEventInfoResponseBody& setErrorEventId(string errorEventId) { DARABONBA_PTR_SET_VALUE(errorEventId_, errorEventId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyEventInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // successCount Field Functions 
     bool hasSuccessCount() const { return this->successCount_ != nullptr;};
     void deleteSuccessCount() { this->successCount_ = nullptr;};
-    inline int32_t successCount() const { DARABONBA_PTR_GET_DEFAULT(successCount_, 0) };
+    inline int32_t getSuccessCount() const { DARABONBA_PTR_GET_DEFAULT(successCount_, 0) };
     inline ModifyEventInfoResponseBody& setSuccessCount(int32_t successCount) { DARABONBA_PTR_SET_VALUE(successCount_, successCount) };
 
 
     // successEventId Field Functions 
     bool hasSuccessEventId() const { return this->successEventId_ != nullptr;};
     void deleteSuccessEventId() { this->successEventId_ = nullptr;};
-    inline string successEventId() const { DARABONBA_PTR_GET_DEFAULT(successEventId_, "") };
+    inline string getSuccessEventId() const { DARABONBA_PTR_GET_DEFAULT(successEventId_, "") };
     inline ModifyEventInfoResponseBody& setSuccessEventId(string successEventId) { DARABONBA_PTR_SET_VALUE(successEventId_, successEventId) };
 
 
   protected:
     // The error code.
-    std::shared_ptr<string> errorCode_ = nullptr;
+    shared_ptr<string> errorCode_ {};
     // The error ID.
-    std::shared_ptr<string> errorEventId_ = nullptr;
+    shared_ptr<string> errorEventId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The number of successful records.
-    std::shared_ptr<int32_t> successCount_ = nullptr;
+    shared_ptr<int32_t> successCount_ {};
     // The ID of the successful event.
-    std::shared_ptr<string> successEventId_ = nullptr;
+    shared_ptr<string> successEventId_ {};
   };
 
   } // namespace Models

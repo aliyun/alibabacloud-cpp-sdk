@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->connectionStringPrefix_ == nullptr && return this->DBInstanceEndpointId_ == nullptr && return this->DBInstanceId_ == nullptr && return this->ipType_ == nullptr && return this->port_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && this->connectionStringPrefix_ == nullptr && this->DBInstanceEndpointId_ == nullptr && this->DBInstanceId_ == nullptr && this->ipType_ == nullptr && this->port_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateDBInstanceEndpointAddressRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // connectionStringPrefix Field Functions 
     bool hasConnectionStringPrefix() const { return this->connectionStringPrefix_ != nullptr;};
     void deleteConnectionStringPrefix() { this->connectionStringPrefix_ = nullptr;};
-    inline string connectionStringPrefix() const { DARABONBA_PTR_GET_DEFAULT(connectionStringPrefix_, "") };
+    inline string getConnectionStringPrefix() const { DARABONBA_PTR_GET_DEFAULT(connectionStringPrefix_, "") };
     inline CreateDBInstanceEndpointAddressRequest& setConnectionStringPrefix(string connectionStringPrefix) { DARABONBA_PTR_SET_VALUE(connectionStringPrefix_, connectionStringPrefix) };
 
 
     // DBInstanceEndpointId Field Functions 
     bool hasDBInstanceEndpointId() const { return this->DBInstanceEndpointId_ != nullptr;};
     void deleteDBInstanceEndpointId() { this->DBInstanceEndpointId_ = nullptr;};
-    inline string DBInstanceEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceEndpointId_, "") };
+    inline string getDBInstanceEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceEndpointId_, "") };
     inline CreateDBInstanceEndpointAddressRequest& setDBInstanceEndpointId(string DBInstanceEndpointId) { DARABONBA_PTR_SET_VALUE(DBInstanceEndpointId_, DBInstanceEndpointId) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateDBInstanceEndpointAddressRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // ipType Field Functions 
     bool hasIpType() const { return this->ipType_ != nullptr;};
     void deleteIpType() { this->ipType_ = nullptr;};
-    inline string ipType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
+    inline string getIpType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
     inline CreateDBInstanceEndpointAddressRequest& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline string port() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+    inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
     inline CreateDBInstanceEndpointAddressRequest& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateDBInstanceEndpointAddressRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateDBInstanceEndpointAddressRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -106,30 +106,30 @@ namespace Models
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     // 
     // The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The prefix of the public endpoint.
     // 
     // This parameter is required.
-    std::shared_ptr<string> connectionStringPrefix_ = nullptr;
+    shared_ptr<string> connectionStringPrefix_ {};
     // The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceEndpointId_ = nullptr;
+    shared_ptr<string> DBInstanceEndpointId_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The network type of the endpoint. Only Internet is supported. Set the value to **Public**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ipType_ = nullptr;
+    shared_ptr<string> ipType_ {};
     // The port number of the public endpoint.
     // 
     // This parameter is required.
-    std::shared_ptr<string> port_ = nullptr;
+    shared_ptr<string> port_ {};
     // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

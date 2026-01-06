@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const map<string, string> & data() const { DARABONBA_PTR_GET_CONST(data_, map<string, string>) };
-    inline map<string, string> data() { DARABONBA_PTR_GET(data_, map<string, string>) };
+    inline const map<string, string> & getData() const { DARABONBA_PTR_GET_CONST(data_, map<string, string>) };
+    inline map<string, string> getData() { DARABONBA_PTR_GET(data_, map<string, string>) };
     inline ModifyMaskingRulesResponseBody& setData(const map<string, string> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline ModifyMaskingRulesResponseBody& setData(map<string, string> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -50,29 +50,29 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ModifyMaskingRulesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifyMaskingRulesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string success() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
     inline ModifyMaskingRulesResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> success_ = nullptr;
+    shared_ptr<map<string, string>> data_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> success_ {};
   };
 
   } // namespace Models

@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->requestId_ == nullptr && return this->securityIPMode_ == nullptr; };
+        && this->requestId_ == nullptr && this->securityIPMode_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline MigrateSecurityIPModeResponseBody& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline MigrateSecurityIPModeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityIPMode Field Functions 
     bool hasSecurityIPMode() const { return this->securityIPMode_ != nullptr;};
     void deleteSecurityIPMode() { this->securityIPMode_ = nullptr;};
-    inline string securityIPMode() const { DARABONBA_PTR_GET_DEFAULT(securityIPMode_, "") };
+    inline string getSecurityIPMode() const { DARABONBA_PTR_GET_DEFAULT(securityIPMode_, "") };
     inline MigrateSecurityIPModeResponseBody& setSecurityIPMode(string securityIPMode) { DARABONBA_PTR_SET_VALUE(securityIPMode_, securityIPMode) };
 
 
   protected:
     // The ID of the instance.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The whitelist mode after the change, which is the enhanced whitelist mode.
     // 
     // Valid values:
@@ -76,7 +76,7 @@ namespace Models
     //     enhanced whitelist mode
     // 
     //     <!-- -->
-    std::shared_ptr<string> securityIPMode_ = nullptr;
+    shared_ptr<string> securityIPMode_ {};
   };
 
   } // namespace Models

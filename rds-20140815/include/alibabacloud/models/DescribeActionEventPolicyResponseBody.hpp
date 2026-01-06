@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableEventLog_ == nullptr
-        && return this->regionId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->regionId_ == nullptr && this->requestId_ == nullptr; };
     // enableEventLog Field Functions 
     bool hasEnableEventLog() const { return this->enableEventLog_ != nullptr;};
     void deleteEnableEventLog() { this->enableEventLog_ = nullptr;};
-    inline string enableEventLog() const { DARABONBA_PTR_GET_DEFAULT(enableEventLog_, "") };
+    inline string getEnableEventLog() const { DARABONBA_PTR_GET_DEFAULT(enableEventLog_, "") };
     inline DescribeActionEventPolicyResponseBody& setEnableEventLog(string enableEventLog) { DARABONBA_PTR_SET_VALUE(enableEventLog_, enableEventLog) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeActionEventPolicyResponseBody& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeActionEventPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether the event history feature is enabled.
-    std::shared_ptr<string> enableEventLog_ = nullptr;
+    shared_ptr<string> enableEventLog_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

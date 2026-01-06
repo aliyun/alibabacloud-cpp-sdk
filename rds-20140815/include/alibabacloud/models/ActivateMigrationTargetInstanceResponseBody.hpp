@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->requestId_ == nullptr && return this->sourceIpAddress_ == nullptr && return this->sourcePort_ == nullptr && return this->taskId_ == nullptr; };
+        && this->requestId_ == nullptr && this->sourceIpAddress_ == nullptr && this->sourcePort_ == nullptr && this->taskId_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline ActivateMigrationTargetInstanceResponseBody& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ActivateMigrationTargetInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // sourceIpAddress Field Functions 
     bool hasSourceIpAddress() const { return this->sourceIpAddress_ != nullptr;};
     void deleteSourceIpAddress() { this->sourceIpAddress_ = nullptr;};
-    inline string sourceIpAddress() const { DARABONBA_PTR_GET_DEFAULT(sourceIpAddress_, "") };
+    inline string getSourceIpAddress() const { DARABONBA_PTR_GET_DEFAULT(sourceIpAddress_, "") };
     inline ActivateMigrationTargetInstanceResponseBody& setSourceIpAddress(string sourceIpAddress) { DARABONBA_PTR_SET_VALUE(sourceIpAddress_, sourceIpAddress) };
 
 
     // sourcePort Field Functions 
     bool hasSourcePort() const { return this->sourcePort_ != nullptr;};
     void deleteSourcePort() { this->sourcePort_ = nullptr;};
-    inline int64_t sourcePort() const { DARABONBA_PTR_GET_DEFAULT(sourcePort_, 0L) };
+    inline int64_t getSourcePort() const { DARABONBA_PTR_GET_DEFAULT(sourcePort_, 0L) };
     inline ActivateMigrationTargetInstanceResponseBody& setSourcePort(int64_t sourcePort) { DARABONBA_PTR_SET_VALUE(sourcePort_, sourcePort) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline ActivateMigrationTargetInstanceResponseBody& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // The name of the destination instance.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The private IP address that is used to connect to the self-managed PostgreSQL instance.
-    std::shared_ptr<string> sourceIpAddress_ = nullptr;
+    shared_ptr<string> sourceIpAddress_ {};
     // The port number that is used to connect to the self-managed PostgreSQL instance.
-    std::shared_ptr<int64_t> sourcePort_ = nullptr;
+    shared_ptr<int64_t> sourcePort_ {};
     // The ID of the identification task.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

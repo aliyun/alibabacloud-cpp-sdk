@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEMASKINGRULESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEMASKINGRULESREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateMaskingRulesRequestRuleConfig.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -48,94 +48,152 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class RuleConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RuleConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(Columns, columns_);
+        DARABONBA_PTR_TO_JSON(Databases, databases_);
+        DARABONBA_PTR_TO_JSON(Tables, tables_);
+      };
+      friend void from_json(const Darabonba::Json& j, RuleConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(Columns, columns_);
+        DARABONBA_PTR_FROM_JSON(Databases, databases_);
+        DARABONBA_PTR_FROM_JSON(Tables, tables_);
+      };
+      RuleConfig() = default ;
+      RuleConfig(const RuleConfig &) = default ;
+      RuleConfig(RuleConfig &&) = default ;
+      RuleConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RuleConfig() = default ;
+      RuleConfig& operator=(const RuleConfig &) = default ;
+      RuleConfig& operator=(RuleConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->columns_ == nullptr
+        && this->databases_ == nullptr && this->tables_ == nullptr; };
+      // columns Field Functions 
+      bool hasColumns() const { return this->columns_ != nullptr;};
+      void deleteColumns() { this->columns_ = nullptr;};
+      inline const vector<string> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<string>) };
+      inline vector<string> getColumns() { DARABONBA_PTR_GET(columns_, vector<string>) };
+      inline RuleConfig& setColumns(const vector<string> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
+      inline RuleConfig& setColumns(vector<string> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
+
+
+      // databases Field Functions 
+      bool hasDatabases() const { return this->databases_ != nullptr;};
+      void deleteDatabases() { this->databases_ = nullptr;};
+      inline const vector<string> & getDatabases() const { DARABONBA_PTR_GET_CONST(databases_, vector<string>) };
+      inline vector<string> getDatabases() { DARABONBA_PTR_GET(databases_, vector<string>) };
+      inline RuleConfig& setDatabases(const vector<string> & databases) { DARABONBA_PTR_SET_VALUE(databases_, databases) };
+      inline RuleConfig& setDatabases(vector<string> && databases) { DARABONBA_PTR_SET_RVALUE(databases_, databases) };
+
+
+      // tables Field Functions 
+      bool hasTables() const { return this->tables_ != nullptr;};
+      void deleteTables() { this->tables_ = nullptr;};
+      inline const vector<string> & getTables() const { DARABONBA_PTR_GET_CONST(tables_, vector<string>) };
+      inline vector<string> getTables() { DARABONBA_PTR_GET(tables_, vector<string>) };
+      inline RuleConfig& setTables(const vector<string> & tables) { DARABONBA_PTR_SET_VALUE(tables_, tables) };
+      inline RuleConfig& setTables(vector<string> && tables) { DARABONBA_PTR_SET_RVALUE(tables_, tables) };
+
+
+    protected:
+      shared_ptr<vector<string>> columns_ {};
+      shared_ptr<vector<string>> databases_ {};
+      shared_ptr<vector<string>> tables_ {};
+    };
+
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->DBName_ == nullptr && return this->defaultAlgo_ == nullptr && return this->maskingAlgo_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->ruleConfig_ == nullptr && return this->ruleName_ == nullptr; };
+        && this->DBName_ == nullptr && this->defaultAlgo_ == nullptr && this->maskingAlgo_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->ruleConfig_ == nullptr && this->ruleName_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline CreateMaskingRulesRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // DBName Field Functions 
     bool hasDBName() const { return this->DBName_ != nullptr;};
     void deleteDBName() { this->DBName_ = nullptr;};
-    inline string DBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+    inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline CreateMaskingRulesRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
 
 
     // defaultAlgo Field Functions 
     bool hasDefaultAlgo() const { return this->defaultAlgo_ != nullptr;};
     void deleteDefaultAlgo() { this->defaultAlgo_ = nullptr;};
-    inline string defaultAlgo() const { DARABONBA_PTR_GET_DEFAULT(defaultAlgo_, "") };
+    inline string getDefaultAlgo() const { DARABONBA_PTR_GET_DEFAULT(defaultAlgo_, "") };
     inline CreateMaskingRulesRequest& setDefaultAlgo(string defaultAlgo) { DARABONBA_PTR_SET_VALUE(defaultAlgo_, defaultAlgo) };
 
 
     // maskingAlgo Field Functions 
     bool hasMaskingAlgo() const { return this->maskingAlgo_ != nullptr;};
     void deleteMaskingAlgo() { this->maskingAlgo_ = nullptr;};
-    inline string maskingAlgo() const { DARABONBA_PTR_GET_DEFAULT(maskingAlgo_, "") };
+    inline string getMaskingAlgo() const { DARABONBA_PTR_GET_DEFAULT(maskingAlgo_, "") };
     inline CreateMaskingRulesRequest& setMaskingAlgo(string maskingAlgo) { DARABONBA_PTR_SET_VALUE(maskingAlgo_, maskingAlgo) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline CreateMaskingRulesRequest& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateMaskingRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateMaskingRulesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateMaskingRulesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // ruleConfig Field Functions 
     bool hasRuleConfig() const { return this->ruleConfig_ != nullptr;};
     void deleteRuleConfig() { this->ruleConfig_ = nullptr;};
-    inline const CreateMaskingRulesRequestRuleConfig & ruleConfig() const { DARABONBA_PTR_GET_CONST(ruleConfig_, CreateMaskingRulesRequestRuleConfig) };
-    inline CreateMaskingRulesRequestRuleConfig ruleConfig() { DARABONBA_PTR_GET(ruleConfig_, CreateMaskingRulesRequestRuleConfig) };
-    inline CreateMaskingRulesRequest& setRuleConfig(const CreateMaskingRulesRequestRuleConfig & ruleConfig) { DARABONBA_PTR_SET_VALUE(ruleConfig_, ruleConfig) };
-    inline CreateMaskingRulesRequest& setRuleConfig(CreateMaskingRulesRequestRuleConfig && ruleConfig) { DARABONBA_PTR_SET_RVALUE(ruleConfig_, ruleConfig) };
+    inline const CreateMaskingRulesRequest::RuleConfig & getRuleConfig() const { DARABONBA_PTR_GET_CONST(ruleConfig_, CreateMaskingRulesRequest::RuleConfig) };
+    inline CreateMaskingRulesRequest::RuleConfig getRuleConfig() { DARABONBA_PTR_GET(ruleConfig_, CreateMaskingRulesRequest::RuleConfig) };
+    inline CreateMaskingRulesRequest& setRuleConfig(const CreateMaskingRulesRequest::RuleConfig & ruleConfig) { DARABONBA_PTR_SET_VALUE(ruleConfig_, ruleConfig) };
+    inline CreateMaskingRulesRequest& setRuleConfig(CreateMaskingRulesRequest::RuleConfig && ruleConfig) { DARABONBA_PTR_SET_RVALUE(ruleConfig_, ruleConfig) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline CreateMaskingRulesRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
-    std::shared_ptr<string> DBName_ = nullptr;
-    std::shared_ptr<string> defaultAlgo_ = nullptr;
-    std::shared_ptr<string> maskingAlgo_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    std::shared_ptr<CreateMaskingRulesRequestRuleConfig> ruleConfig_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> DBName_ {};
+    shared_ptr<string> defaultAlgo_ {};
+    shared_ptr<string> maskingAlgo_ {};
+    shared_ptr<string> ownerId_ {};
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<CreateMaskingRulesRequest::RuleConfig> ruleConfig_ {};
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forceStop_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // forceStop Field Functions 
     bool hasForceStop() const { return this->forceStop_ != nullptr;};
     void deleteForceStop() { this->forceStop_ = nullptr;};
-    inline bool forceStop() const { DARABONBA_PTR_GET_DEFAULT(forceStop_, false) };
+    inline bool getForceStop() const { DARABONBA_PTR_GET_DEFAULT(forceStop_, false) };
     inline RedeployRCInstanceRequest& setForceStop(bool forceStop) { DARABONBA_PTR_SET_VALUE(forceStop_, forceStop) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RedeployRCInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // Specifies whether to forcefully stop the instance that is in the Running state. Default value: false.
     // 
     // >  A forced stop is equivalent to the shutdown operation for a physical database server and can result in loss of data that is not written to storage devices. We recommend that you redeploy instances when they are in the Stopped state.
-    std::shared_ptr<bool> forceStop_ = nullptr;
+    shared_ptr<bool> forceStop_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

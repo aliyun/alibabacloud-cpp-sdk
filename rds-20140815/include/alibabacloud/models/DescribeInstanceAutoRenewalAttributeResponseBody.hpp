@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEINSTANCEAUTORENEWALATTRIBUTERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEINSTANCEAUTORENEWALATTRIBUTERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DescribeInstanceAutoRenewalAttributeResponseBodyItems.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,56 +38,166 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Items : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(Item, item_);
+      };
+      friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(Item, item_);
+      };
+      Items() = default ;
+      Items(const Items &) = default ;
+      Items(Items &&) = default ;
+      Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Items() = default ;
+      Items& operator=(const Items &) = default ;
+      Items& operator=(Items &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Item : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Item& obj) { 
+          DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+          DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+          DARABONBA_PTR_TO_JSON(Duration, duration_);
+          DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, Item& obj) { 
+          DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+          DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+          DARABONBA_PTR_FROM_JSON(Duration, duration_);
+          DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        Item() = default ;
+        Item(const Item &) = default ;
+        Item(Item &&) = default ;
+        Item(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Item() = default ;
+        Item& operator=(const Item &) = default ;
+        Item& operator=(Item &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && this->DBInstanceId_ == nullptr && this->duration_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr; };
+        // autoRenew Field Functions 
+        bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
+        void deleteAutoRenew() { this->autoRenew_ = nullptr;};
+        inline string getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, "") };
+        inline Item& setAutoRenew(string autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+        // DBInstanceId Field Functions 
+        bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
+        void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
+        inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+        inline Item& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+        // duration Field Functions 
+        bool hasDuration() const { return this->duration_ != nullptr;};
+        void deleteDuration() { this->duration_ = nullptr;};
+        inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+        inline Item& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+        // regionId Field Functions 
+        bool hasRegionId() const { return this->regionId_ != nullptr;};
+        void deleteRegionId() { this->regionId_ = nullptr;};
+        inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+        inline Item& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline Item& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // Indicates whether to enable auto-renewal for the instance.
+        shared_ptr<string> autoRenew_ {};
+        // The instance ID.
+        shared_ptr<string> DBInstanceId_ {};
+        // The renewal period.
+        shared_ptr<int32_t> duration_ {};
+        // The region ID.
+        shared_ptr<string> regionId_ {};
+        // The instance status.
+        shared_ptr<string> status_ {};
+      };
+
+      virtual bool empty() const override { return this->item_ == nullptr; };
+      // item Field Functions 
+      bool hasItem() const { return this->item_ != nullptr;};
+      void deleteItem() { this->item_ = nullptr;};
+      inline const vector<Items::Item> & getItem() const { DARABONBA_PTR_GET_CONST(item_, vector<Items::Item>) };
+      inline vector<Items::Item> getItem() { DARABONBA_PTR_GET(item_, vector<Items::Item>) };
+      inline Items& setItem(const vector<Items::Item> & item) { DARABONBA_PTR_SET_VALUE(item_, item) };
+      inline Items& setItem(vector<Items::Item> && item) { DARABONBA_PTR_SET_RVALUE(item_, item) };
+
+
+    protected:
+      shared_ptr<vector<Items::Item>> item_ {};
+    };
+
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageRecordCount_ == nullptr && return this->requestId_ == nullptr && return this->totalRecordCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageRecordCount_ == nullptr && this->requestId_ == nullptr && this->totalRecordCount_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const DescribeInstanceAutoRenewalAttributeResponseBodyItems & items() const { DARABONBA_PTR_GET_CONST(items_, DescribeInstanceAutoRenewalAttributeResponseBodyItems) };
-    inline DescribeInstanceAutoRenewalAttributeResponseBodyItems items() { DARABONBA_PTR_GET(items_, DescribeInstanceAutoRenewalAttributeResponseBodyItems) };
-    inline DescribeInstanceAutoRenewalAttributeResponseBody& setItems(const DescribeInstanceAutoRenewalAttributeResponseBodyItems & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
-    inline DescribeInstanceAutoRenewalAttributeResponseBody& setItems(DescribeInstanceAutoRenewalAttributeResponseBodyItems && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+    inline const DescribeInstanceAutoRenewalAttributeResponseBody::Items & getItems() const { DARABONBA_PTR_GET_CONST(items_, DescribeInstanceAutoRenewalAttributeResponseBody::Items) };
+    inline DescribeInstanceAutoRenewalAttributeResponseBody::Items getItems() { DARABONBA_PTR_GET(items_, DescribeInstanceAutoRenewalAttributeResponseBody::Items) };
+    inline DescribeInstanceAutoRenewalAttributeResponseBody& setItems(const DescribeInstanceAutoRenewalAttributeResponseBody::Items & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline DescribeInstanceAutoRenewalAttributeResponseBody& setItems(DescribeInstanceAutoRenewalAttributeResponseBody::Items && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeInstanceAutoRenewalAttributeResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageRecordCount Field Functions 
     bool hasPageRecordCount() const { return this->pageRecordCount_ != nullptr;};
     void deletePageRecordCount() { this->pageRecordCount_ = nullptr;};
-    inline int32_t pageRecordCount() const { DARABONBA_PTR_GET_DEFAULT(pageRecordCount_, 0) };
+    inline int32_t getPageRecordCount() const { DARABONBA_PTR_GET_DEFAULT(pageRecordCount_, 0) };
     inline DescribeInstanceAutoRenewalAttributeResponseBody& setPageRecordCount(int32_t pageRecordCount) { DARABONBA_PTR_SET_VALUE(pageRecordCount_, pageRecordCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeInstanceAutoRenewalAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalRecordCount Field Functions 
     bool hasTotalRecordCount() const { return this->totalRecordCount_ != nullptr;};
     void deleteTotalRecordCount() { this->totalRecordCount_ = nullptr;};
-    inline int32_t totalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, 0) };
+    inline int32_t getTotalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, 0) };
     inline DescribeInstanceAutoRenewalAttributeResponseBody& setTotalRecordCount(int32_t totalRecordCount) { DARABONBA_PTR_SET_VALUE(totalRecordCount_, totalRecordCount) };
 
 
   protected:
     // The renewal information about the instance.
-    std::shared_ptr<DescribeInstanceAutoRenewalAttributeResponseBodyItems> items_ = nullptr;
+    shared_ptr<DescribeInstanceAutoRenewalAttributeResponseBody::Items> items_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageRecordCount_ = nullptr;
+    shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalRecordCount_ = nullptr;
+    shared_ptr<int32_t> totalRecordCount_ {};
   };
 
   } // namespace Models

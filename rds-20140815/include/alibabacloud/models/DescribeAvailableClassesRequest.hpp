@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->commodityCode_ == nullptr && return this->DBInstanceId_ == nullptr && return this->DBInstanceStorageType_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr
-        && return this->instanceChargeType_ == nullptr && return this->orderType_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->commodityCode_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceStorageType_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr
+        && this->instanceChargeType_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerId_ == nullptr && this->zoneId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline DescribeAvailableClassesRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline DescribeAvailableClassesRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeAvailableClassesRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBInstanceStorageType Field Functions 
     bool hasDBInstanceStorageType() const { return this->DBInstanceStorageType_ != nullptr;};
     void deleteDBInstanceStorageType() { this->DBInstanceStorageType_ = nullptr;};
-    inline string DBInstanceStorageType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorageType_, "") };
+    inline string getDBInstanceStorageType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorageType_, "") };
     inline DescribeAvailableClassesRequest& setDBInstanceStorageType(string DBInstanceStorageType) { DARABONBA_PTR_SET_VALUE(DBInstanceStorageType_, DBInstanceStorageType) };
 
 
     // engine Field Functions 
     bool hasEngine() const { return this->engine_ != nullptr;};
     void deleteEngine() { this->engine_ = nullptr;};
-    inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
+    inline string getEngine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline DescribeAvailableClassesRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
-    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline DescribeAvailableClassesRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // instanceChargeType Field Functions 
     bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
     void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
-    inline string instanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
     inline DescribeAvailableClassesRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline DescribeAvailableClassesRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeAvailableClassesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeAvailableClassesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline DescribeAvailableClassesRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -149,7 +149,7 @@ namespace Models
     //     > If you create a serverless instance, you must specify this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The commodity code of the instance. Valid values:
     // 
     // *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
@@ -164,9 +164,9 @@ namespace Models
     // *   **rds_serverless_public_intl**: The instance is a serverless instance. This value is available at the International site (alibabacloud.com).
     // 
     // > If you want to query the price of a read-only instance, you must specify this parameter.
-    std::shared_ptr<string> commodityCode_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
     // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The storage type of the instance. Valid values:
     // 
     // *   **local_ssd**: local SSD. This is the recommended storage type.
@@ -178,7 +178,7 @@ namespace Models
     // >  Serverless instances use only PL1 ESSDs. If you want to create a serverless instance, you must set this parameter to **cloud_essd**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceStorageType_ = nullptr;
+    shared_ptr<string> DBInstanceStorageType_ {};
     // The database engine that is run by the instance. Valid values:
     // 
     // * **MySQL**
@@ -187,7 +187,7 @@ namespace Models
     // * **MariaDB**
     // 
     // This parameter is required.
-    std::shared_ptr<string> engine_ = nullptr;
+    shared_ptr<string> engine_ {};
     // The database engine version of the instance. Valid values:
     // 
     // *   Regular instance
@@ -206,7 +206,7 @@ namespace Models
     //     > ApsaraDB RDS for MariaDB does not support serverless instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> engineVersion_ = nullptr;
+    shared_ptr<string> engineVersion_ {};
     // The billing method of the instance. Valid values:
     // 
     // *   **Prepaid**: subscription
@@ -214,20 +214,20 @@ namespace Models
     // *   **Serverless**: serverless
     // 
     // > ApsaraDB RDS for MariaDB does not support serverless instances.
-    std::shared_ptr<string> instanceChargeType_ = nullptr;
+    shared_ptr<string> instanceChargeType_ {};
     // The type of order. Set the value to **BUY**
-    std::shared_ptr<string> orderType_ = nullptr;
+    shared_ptr<string> orderType_ {};
     // The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The zone ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the zone ID of the instance.
     // 
     // >  If the DescribeDBInstanceAttribute operation returns multiple zones, you must specify only one of the returned zones. For example, if the DescribeDBInstanceAttribute operation returns `cn-hangzhou-MAZ9(g,h)`, you can set this parameter to `cn-hangzhou-g` or `cn-hangzhou-h`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

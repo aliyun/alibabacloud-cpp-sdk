@@ -92,234 +92,234 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowMajorVersionUpgrade_ == nullptr
-        && return this->autoUseCoupon_ == nullptr && return this->burstingEnabled_ == nullptr && return this->category_ == nullptr && return this->coldDataEnabled_ == nullptr && return this->compressionMode_ == nullptr
-        && return this->DBInstanceClass_ == nullptr && return this->DBInstanceId_ == nullptr && return this->DBInstanceStorage_ == nullptr && return this->DBInstanceStorageType_ == nullptr && return this->dedicatedHostGroupId_ == nullptr
-        && return this->direction_ == nullptr && return this->effectiveTime_ == nullptr && return this->engineVersion_ == nullptr && return this->ioAccelerationEnabled_ == nullptr && return this->optimizedWrites_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->payType_ == nullptr && return this->promotionCode_ == nullptr && return this->readOnlyDBInstanceClass_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->serverlessConfigurationShrink_ == nullptr && return this->sourceBiz_ == nullptr
-        && return this->switchTime_ == nullptr && return this->targetMinorVersion_ == nullptr && return this->usedTime_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr
-        && return this->zoneIdSlave1_ == nullptr; };
+        && this->autoUseCoupon_ == nullptr && this->burstingEnabled_ == nullptr && this->category_ == nullptr && this->coldDataEnabled_ == nullptr && this->compressionMode_ == nullptr
+        && this->DBInstanceClass_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceStorageType_ == nullptr && this->dedicatedHostGroupId_ == nullptr
+        && this->direction_ == nullptr && this->effectiveTime_ == nullptr && this->engineVersion_ == nullptr && this->ioAccelerationEnabled_ == nullptr && this->optimizedWrites_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->payType_ == nullptr && this->promotionCode_ == nullptr && this->readOnlyDBInstanceClass_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->serverlessConfigurationShrink_ == nullptr && this->sourceBiz_ == nullptr
+        && this->switchTime_ == nullptr && this->targetMinorVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr
+        && this->zoneIdSlave1_ == nullptr; };
     // allowMajorVersionUpgrade Field Functions 
     bool hasAllowMajorVersionUpgrade() const { return this->allowMajorVersionUpgrade_ != nullptr;};
     void deleteAllowMajorVersionUpgrade() { this->allowMajorVersionUpgrade_ = nullptr;};
-    inline bool allowMajorVersionUpgrade() const { DARABONBA_PTR_GET_DEFAULT(allowMajorVersionUpgrade_, false) };
+    inline bool getAllowMajorVersionUpgrade() const { DARABONBA_PTR_GET_DEFAULT(allowMajorVersionUpgrade_, false) };
     inline ModifyDBInstanceSpecShrinkRequest& setAllowMajorVersionUpgrade(bool allowMajorVersionUpgrade) { DARABONBA_PTR_SET_VALUE(allowMajorVersionUpgrade_, allowMajorVersionUpgrade) };
 
 
     // autoUseCoupon Field Functions 
     bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
-    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline ModifyDBInstanceSpecShrinkRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
 
 
     // burstingEnabled Field Functions 
     bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
     void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
-    inline bool burstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, false) };
+    inline bool getBurstingEnabled() const { DARABONBA_PTR_GET_DEFAULT(burstingEnabled_, false) };
     inline ModifyDBInstanceSpecShrinkRequest& setBurstingEnabled(bool burstingEnabled) { DARABONBA_PTR_SET_VALUE(burstingEnabled_, burstingEnabled) };
 
 
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // coldDataEnabled Field Functions 
     bool hasColdDataEnabled() const { return this->coldDataEnabled_ != nullptr;};
     void deleteColdDataEnabled() { this->coldDataEnabled_ = nullptr;};
-    inline bool coldDataEnabled() const { DARABONBA_PTR_GET_DEFAULT(coldDataEnabled_, false) };
+    inline bool getColdDataEnabled() const { DARABONBA_PTR_GET_DEFAULT(coldDataEnabled_, false) };
     inline ModifyDBInstanceSpecShrinkRequest& setColdDataEnabled(bool coldDataEnabled) { DARABONBA_PTR_SET_VALUE(coldDataEnabled_, coldDataEnabled) };
 
 
     // compressionMode Field Functions 
     bool hasCompressionMode() const { return this->compressionMode_ != nullptr;};
     void deleteCompressionMode() { this->compressionMode_ = nullptr;};
-    inline string compressionMode() const { DARABONBA_PTR_GET_DEFAULT(compressionMode_, "") };
+    inline string getCompressionMode() const { DARABONBA_PTR_GET_DEFAULT(compressionMode_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setCompressionMode(string compressionMode) { DARABONBA_PTR_SET_VALUE(compressionMode_, compressionMode) };
 
 
     // DBInstanceClass Field Functions 
     bool hasDBInstanceClass() const { return this->DBInstanceClass_ != nullptr;};
     void deleteDBInstanceClass() { this->DBInstanceClass_ = nullptr;};
-    inline string DBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceClass_, "") };
+    inline string getDBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceClass_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setDBInstanceClass(string DBInstanceClass) { DARABONBA_PTR_SET_VALUE(DBInstanceClass_, DBInstanceClass) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBInstanceStorage Field Functions 
     bool hasDBInstanceStorage() const { return this->DBInstanceStorage_ != nullptr;};
     void deleteDBInstanceStorage() { this->DBInstanceStorage_ = nullptr;};
-    inline int32_t DBInstanceStorage() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorage_, 0) };
+    inline int32_t getDBInstanceStorage() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorage_, 0) };
     inline ModifyDBInstanceSpecShrinkRequest& setDBInstanceStorage(int32_t DBInstanceStorage) { DARABONBA_PTR_SET_VALUE(DBInstanceStorage_, DBInstanceStorage) };
 
 
     // DBInstanceStorageType Field Functions 
     bool hasDBInstanceStorageType() const { return this->DBInstanceStorageType_ != nullptr;};
     void deleteDBInstanceStorageType() { this->DBInstanceStorageType_ = nullptr;};
-    inline string DBInstanceStorageType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorageType_, "") };
+    inline string getDBInstanceStorageType() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStorageType_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setDBInstanceStorageType(string DBInstanceStorageType) { DARABONBA_PTR_SET_VALUE(DBInstanceStorageType_, DBInstanceStorageType) };
 
 
     // dedicatedHostGroupId Field Functions 
     bool hasDedicatedHostGroupId() const { return this->dedicatedHostGroupId_ != nullptr;};
     void deleteDedicatedHostGroupId() { this->dedicatedHostGroupId_ = nullptr;};
-    inline string dedicatedHostGroupId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedHostGroupId_, "") };
+    inline string getDedicatedHostGroupId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedHostGroupId_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setDedicatedHostGroupId(string dedicatedHostGroupId) { DARABONBA_PTR_SET_VALUE(dedicatedHostGroupId_, dedicatedHostGroupId) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // effectiveTime Field Functions 
     bool hasEffectiveTime() const { return this->effectiveTime_ != nullptr;};
     void deleteEffectiveTime() { this->effectiveTime_ = nullptr;};
-    inline string effectiveTime() const { DARABONBA_PTR_GET_DEFAULT(effectiveTime_, "") };
+    inline string getEffectiveTime() const { DARABONBA_PTR_GET_DEFAULT(effectiveTime_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setEffectiveTime(string effectiveTime) { DARABONBA_PTR_SET_VALUE(effectiveTime_, effectiveTime) };
 
 
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
-    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // ioAccelerationEnabled Field Functions 
     bool hasIoAccelerationEnabled() const { return this->ioAccelerationEnabled_ != nullptr;};
     void deleteIoAccelerationEnabled() { this->ioAccelerationEnabled_ = nullptr;};
-    inline string ioAccelerationEnabled() const { DARABONBA_PTR_GET_DEFAULT(ioAccelerationEnabled_, "") };
+    inline string getIoAccelerationEnabled() const { DARABONBA_PTR_GET_DEFAULT(ioAccelerationEnabled_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setIoAccelerationEnabled(string ioAccelerationEnabled) { DARABONBA_PTR_SET_VALUE(ioAccelerationEnabled_, ioAccelerationEnabled) };
 
 
     // optimizedWrites Field Functions 
     bool hasOptimizedWrites() const { return this->optimizedWrites_ != nullptr;};
     void deleteOptimizedWrites() { this->optimizedWrites_ = nullptr;};
-    inline string optimizedWrites() const { DARABONBA_PTR_GET_DEFAULT(optimizedWrites_, "") };
+    inline string getOptimizedWrites() const { DARABONBA_PTR_GET_DEFAULT(optimizedWrites_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setOptimizedWrites(string optimizedWrites) { DARABONBA_PTR_SET_VALUE(optimizedWrites_, optimizedWrites) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyDBInstanceSpecShrinkRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
-    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // readOnlyDBInstanceClass Field Functions 
     bool hasReadOnlyDBInstanceClass() const { return this->readOnlyDBInstanceClass_ != nullptr;};
     void deleteReadOnlyDBInstanceClass() { this->readOnlyDBInstanceClass_ = nullptr;};
-    inline string readOnlyDBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(readOnlyDBInstanceClass_, "") };
+    inline string getReadOnlyDBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(readOnlyDBInstanceClass_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setReadOnlyDBInstanceClass(string readOnlyDBInstanceClass) { DARABONBA_PTR_SET_VALUE(readOnlyDBInstanceClass_, readOnlyDBInstanceClass) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyDBInstanceSpecShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // serverlessConfigurationShrink Field Functions 
     bool hasServerlessConfigurationShrink() const { return this->serverlessConfigurationShrink_ != nullptr;};
     void deleteServerlessConfigurationShrink() { this->serverlessConfigurationShrink_ = nullptr;};
-    inline string serverlessConfigurationShrink() const { DARABONBA_PTR_GET_DEFAULT(serverlessConfigurationShrink_, "") };
+    inline string getServerlessConfigurationShrink() const { DARABONBA_PTR_GET_DEFAULT(serverlessConfigurationShrink_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setServerlessConfigurationShrink(string serverlessConfigurationShrink) { DARABONBA_PTR_SET_VALUE(serverlessConfigurationShrink_, serverlessConfigurationShrink) };
 
 
     // sourceBiz Field Functions 
     bool hasSourceBiz() const { return this->sourceBiz_ != nullptr;};
     void deleteSourceBiz() { this->sourceBiz_ = nullptr;};
-    inline string sourceBiz() const { DARABONBA_PTR_GET_DEFAULT(sourceBiz_, "") };
+    inline string getSourceBiz() const { DARABONBA_PTR_GET_DEFAULT(sourceBiz_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setSourceBiz(string sourceBiz) { DARABONBA_PTR_SET_VALUE(sourceBiz_, sourceBiz) };
 
 
     // switchTime Field Functions 
     bool hasSwitchTime() const { return this->switchTime_ != nullptr;};
     void deleteSwitchTime() { this->switchTime_ = nullptr;};
-    inline string switchTime() const { DARABONBA_PTR_GET_DEFAULT(switchTime_, "") };
+    inline string getSwitchTime() const { DARABONBA_PTR_GET_DEFAULT(switchTime_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setSwitchTime(string switchTime) { DARABONBA_PTR_SET_VALUE(switchTime_, switchTime) };
 
 
     // targetMinorVersion Field Functions 
     bool hasTargetMinorVersion() const { return this->targetMinorVersion_ != nullptr;};
     void deleteTargetMinorVersion() { this->targetMinorVersion_ = nullptr;};
-    inline string targetMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(targetMinorVersion_, "") };
+    inline string getTargetMinorVersion() const { DARABONBA_PTR_GET_DEFAULT(targetMinorVersion_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setTargetMinorVersion(string targetMinorVersion) { DARABONBA_PTR_SET_VALUE(targetMinorVersion_, targetMinorVersion) };
 
 
     // usedTime Field Functions 
     bool hasUsedTime() const { return this->usedTime_ != nullptr;};
     void deleteUsedTime() { this->usedTime_ = nullptr;};
-    inline int64_t usedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0L) };
+    inline int64_t getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, 0L) };
     inline ModifyDBInstanceSpecShrinkRequest& setUsedTime(int64_t usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
     // zoneIdSlave1 Field Functions 
     bool hasZoneIdSlave1() const { return this->zoneIdSlave1_ != nullptr;};
     void deleteZoneIdSlave1() { this->zoneIdSlave1_ = nullptr;};
-    inline string zoneIdSlave1() const { DARABONBA_PTR_GET_DEFAULT(zoneIdSlave1_, "") };
+    inline string getZoneIdSlave1() const { DARABONBA_PTR_GET_DEFAULT(zoneIdSlave1_, "") };
     inline ModifyDBInstanceSpecShrinkRequest& setZoneIdSlave1(string zoneIdSlave1) { DARABONBA_PTR_SET_VALUE(zoneIdSlave1_, zoneIdSlave1) };
 
 
@@ -331,14 +331,14 @@ namespace Models
     // 
     // > *   When you upgrade the major engine version, you must also specify the required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, Category, ZoneId, and VSwitchId.
     // > *   If you want to upgrade the instance edition to RDS High-availability Edition or RDS Cluster Edition, you must specify ZoneIdSlave1.
-    std::shared_ptr<bool> allowMajorVersionUpgrade_ = nullptr;
+    shared_ptr<bool> allowMajorVersionUpgrade_ {};
     // Specifies whether to use vouchers to offset fees. Valid values:
     // 
     // *   **true**
     // *   **false** (default)
-    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
+    shared_ptr<bool> autoUseCoupon_ {};
     // An invalid parameter. You do not need to specify this parameter.
-    std::shared_ptr<bool> burstingEnabled_ = nullptr;
+    shared_ptr<bool> burstingEnabled_ {};
     // The RDS edition of the instance. Valid values:
     // 
     // >  If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
@@ -355,28 +355,28 @@ namespace Models
     // *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
     // *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
     // *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // A reserved parameter.
-    std::shared_ptr<bool> coldDataEnabled_ = nullptr;
+    shared_ptr<bool> coldDataEnabled_ {};
     // Specifies whether to enable the storage compression feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the storage compression feature](https://help.aliyun.com/document_detail/2861985.html). Valid values:
     // 
     // *   **on**
     // *   **off**
-    std::shared_ptr<string> compressionMode_ = nullptr;
+    shared_ptr<string> compressionMode_ {};
     // The instance type of the new instance. For more information, see [Specifications](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the instance types.
     // 
     // > *   You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
     // > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current instance type of the instance.
-    std::shared_ptr<string> DBInstanceClass_ = nullptr;
+    shared_ptr<string> DBInstanceClass_ {};
     // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the instance IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The storage capacity of the new instance. Unit: GB. For more information, see [Storage types](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the storage capacity range that is supported by the new instance type.
     // 
     // > *   You must specify at least one of DBInstanceStorage and **DBInstanceClass**.
     // > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current storage capacity of the instance.
-    std::shared_ptr<int32_t> DBInstanceStorage_ = nullptr;
+    shared_ptr<int32_t> DBInstanceStorage_ {};
     // The storage type of the new instance. Valid values:
     // 
     // *   **local_ssd**: local SSD.
@@ -388,9 +388,9 @@ namespace Models
     // To change the storage type, take note of the following items:
     // 
     // If the instance runs PostgreSQL, you can upgrade the storage type of the instance from standard SSDs to ESSDs. However, you cannot downgrade the storage type of the instance from ESSDs to standard SSDs. ESSDs provide the following PLs: ESSDs of PL1, ESSDs of PL2, and ESSDs of PL3. You can upgrade or downgrade the storage type between ESSD of PL1, ESSD of PL2, and ESSD of PL3. For more information, see [Configuration items](https://help.aliyun.com/document_detail/96750.html).
-    std::shared_ptr<string> DBInstanceStorageType_ = nullptr;
+    shared_ptr<string> DBInstanceStorageType_ {};
     // The ID of the dedicated cluster.
-    std::shared_ptr<string> dedicatedHostGroupId_ = nullptr;
+    shared_ptr<string> dedicatedHostGroupId_ {};
     // The type of change that you want to perform on the instance. Valid values:
     // 
     // *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
@@ -399,7 +399,7 @@ namespace Models
     // *   **Serverless**: modifies the auto scaling settings of a serverless instance.
     // 
     // >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to Enterprise SSD (ESSD), you do not need to specify Direction.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The time when the new specifications take effect. Valid values:
     // 
     // >  **Specific changes may affect the instance**. Read the [Impact](https://help.aliyun.com/document_detail/96061.html) section before you specify this parameter. We recommend that you specify this parameter during off-peak hours.
@@ -407,7 +407,7 @@ namespace Models
     // *   **Immediate** (default): The changes immediately take effect.
     // *   **MaintainTime**: The changes take effect during the [maintenance window](https://help.aliyun.com/document_detail/610402.html) of the instance.
     // *   **ScheduleTime**: The changes take effect at the point in time that you specify. This time must be at least 12 hours later than the current time. The actual effective time is calculated based on the following formula: EffectiveTime = ScheduleTime + SwitchTime.
-    std::shared_ptr<string> effectiveTime_ = nullptr;
+    shared_ptr<string> effectiveTime_ {};
     // The database engine version of the instance. Valid values:
     // 
     // **Regular RDS instances**
@@ -422,16 +422,16 @@ namespace Models
     // *   Valid values when Engine is set to MySQL: 5.7 and 8.0.
     // *   Valid values when Engine is set to SQL Server: 2016_std_sl, 2017_std_sl, and 2019_std_sl.
     // *   Valid values when Engine is set to PostgreSQL: 14.0, 15.0, and 16.0.
-    std::shared_ptr<string> engineVersion_ = nullptr;
+    shared_ptr<string> engineVersion_ {};
     // A reserved parameter.
-    std::shared_ptr<string> ioAccelerationEnabled_ = nullptr;
+    shared_ptr<string> ioAccelerationEnabled_ {};
     // Specifies whether to enable the write optimization feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the write optimization feature](https://help.aliyun.com/document_detail/2858761.html). Valid values:
     // 
     // *   **optimized**: enables the feature.
     // *   **none**: disables the feature.
-    std::shared_ptr<string> optimizedWrites_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> optimizedWrites_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The billing method of the instance. Valid values:
     // 
     // *   **Postpaid**: pay-as-you-go.
@@ -439,39 +439,39 @@ namespace Models
     // *   **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances.
     // 
     // >  If you want to set this parameter to Serverless, **you must specify **AutoPause, MaxCapacity, MinCapacity, and SwitchForce. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
-    std::shared_ptr<string> payType_ = nullptr;
+    shared_ptr<string> payType_ {};
     // The coupon code.
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> promotionCode_ {};
     // The specification of the read-only instance when you change the storage type of the ApsaraDB RDS for MySQL instance that runs RDS High-availability Edition from cloud disk to local disk.
-    std::shared_ptr<string> readOnlyDBInstanceClass_ = nullptr;
+    shared_ptr<string> readOnlyDBInstanceClass_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The specifications that you want to change for a serverless instance.
-    std::shared_ptr<string> serverlessConfigurationShrink_ = nullptr;
+    shared_ptr<string> serverlessConfigurationShrink_ {};
     // A deprecated parameter. You do not need to specify this parameter.
-    std::shared_ptr<string> sourceBiz_ = nullptr;
+    shared_ptr<string> sourceBiz_ {};
     // The time at which you want to change the specifications. **We recommend that you perform the specification changes during off-peak hours.**
     // 
     // Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // > *   The time at which you want to change the specifications **must be later than the current time**. Otherwise, the specification change task fails. If the specification change task fails, you must wait for the order to be automatically canceled, and then call this operation again.
     // > *   If you want to increase the storage capacity or change the ESSD storage type between different PLs, the specification change immediately takes effect and does not affect your workloads. You do not need to specify this parameter.
-    std::shared_ptr<string> switchTime_ = nullptr;
+    shared_ptr<string> switchTime_ {};
     // The minor engine version number of the ApsaraDB RDS for PostgreSQL instance. For more information, see [Update the minor engine version](https://help.aliyun.com/document_detail/126002.html). If the minor engine version does not support changing the instance type, you must specify the minor engine version to **update the minor engine version when you change the instance type**.
     // 
     // Format: `rds_postgres_<Major engine version>00_<Minor engine version>`. For example, if the instance runs PostgreSQL 12, set this parameter to `rds_postgres_1200_20200830`.
-    std::shared_ptr<string> targetMinorVersion_ = nullptr;
+    shared_ptr<string> targetMinorVersion_ {};
     // The validity period of the specification changes on an ApsaraDB RDS for SQL Server instance. At the end of the validity period, the specifications of the instance are restored to the specifications that are used before an [elastic upgrade](https://help.aliyun.com/document_detail/95665.html) is performed. Unit: days.
-    std::shared_ptr<int64_t> usedTime_ = nullptr;
+    shared_ptr<int64_t> usedTime_ {};
     // The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
     // 
     // *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
     // *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
     // 
     // >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the vSwitch, you must specify this parameter.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // The RDS edition of the instance. Valid values:
     // 
     // *   **Basic**: RDS Basic Edition.
@@ -480,11 +480,11 @@ namespace Models
     // *   **Finance**: RDS Enterprise Edition. This edition is available only on the China site (aliyun.com).
     // 
     // > If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
     // The zone ID of the secondary instance. If you set this parameter to the same value as **ZoneId**, the single-zone deployment method is used. If you set this parameter to a different value from **ZoneId**, the multi-zone deployment method is used.
     // 
     // >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the secondary zone, you must specify this parameter.
-    std::shared_ptr<string> zoneIdSlave1_ = nullptr;
+    shared_ptr<string> zoneIdSlave1_ {};
   };
 
   } // namespace Models

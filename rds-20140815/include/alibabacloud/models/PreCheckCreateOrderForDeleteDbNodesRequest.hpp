@@ -59,49 +59,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->businessInfo_ == nullptr && return this->clientToken_ == nullptr && return this->commodityCode_ == nullptr && return this->DBInstanceId_ == nullptr && return this->DBNodeId_ == nullptr
-        && return this->engineVersion_ == nullptr && return this->nodeType_ == nullptr && return this->ownerId_ == nullptr && return this->promotionCode_ == nullptr && return this->regionId_ == nullptr
-        && return this->resource_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->commodityCode_ == nullptr && this->DBInstanceId_ == nullptr && this->DBNodeId_ == nullptr
+        && this->engineVersion_ == nullptr && this->nodeType_ == nullptr && this->ownerId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resource_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->zoneId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // businessInfo Field Functions 
     bool hasBusinessInfo() const { return this->businessInfo_ != nullptr;};
     void deleteBusinessInfo() { this->businessInfo_ = nullptr;};
-    inline string businessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
+    inline string getBusinessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setBusinessInfo(string businessInfo) { DARABONBA_PTR_SET_VALUE(businessInfo_, businessInfo) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-    inline string commodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+    inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // DBNodeId Field Functions 
     bool hasDBNodeId() const { return this->DBNodeId_ != nullptr;};
     void deleteDBNodeId() { this->DBNodeId_ = nullptr;};
-    inline const vector<string> & DBNodeId() const { DARABONBA_PTR_GET_CONST(DBNodeId_, vector<string>) };
-    inline vector<string> DBNodeId() { DARABONBA_PTR_GET(DBNodeId_, vector<string>) };
+    inline const vector<string> & getDBNodeId() const { DARABONBA_PTR_GET_CONST(DBNodeId_, vector<string>) };
+    inline vector<string> getDBNodeId() { DARABONBA_PTR_GET(DBNodeId_, vector<string>) };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setDBNodeId(const vector<string> & DBNodeId) { DARABONBA_PTR_SET_VALUE(DBNodeId_, DBNodeId) };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setDBNodeId(vector<string> && DBNodeId) { DARABONBA_PTR_SET_RVALUE(DBNodeId_, DBNodeId) };
 
@@ -109,63 +109,63 @@ namespace Models
     // engineVersion Field Functions 
     bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
-    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
-    inline string resource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+    inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline PreCheckCreateOrderForDeleteDBNodesRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
@@ -176,11 +176,11 @@ namespace Models
     // 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
     // 
     // >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // The additional business information about the instance.
-    std::shared_ptr<string> businessInfo_ = nullptr;
+    shared_ptr<string> businessInfo_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The commodity code. Valid value:
     // 
     // *   **bards**: The instance is a pay-as-you-go primary instance.
@@ -193,33 +193,33 @@ namespace Models
     // *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> commodityCode_ = nullptr;
+    shared_ptr<string> commodityCode_ {};
     // The instance ID.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The node IDs.
-    std::shared_ptr<vector<string>> DBNodeId_ = nullptr;
+    shared_ptr<vector<string>> DBNodeId_ {};
     // The major engine version of the destination instance. The value of this parameter varies based on the value of **Engine**.
     // 
     // *   Valid values when Engine is set to MySQL: **5.5, 5.6, 5.7, and 8.0**
     // *   Valid values when Engine is set to SQLServer: **2008r2, 08r2_ent_ha, 2012, 2012_ent_ha, 2012_std_ha, 2012_web, 2014_std_ha, 2016_ent_ha, 2016_std_ha, 2016_web, 2017_std_ha, 2017_ent, 2019_std_ha, and 2019_ent**
     // *   Valid values when Engine is set to PostgreSQL: **10.0, 11.0, 12.0, 13.0, 14.0, and 15.0**
-    std::shared_ptr<string> engineVersion_ = nullptr;
+    shared_ptr<string> engineVersion_ {};
     // The type of the database node. Valid value:
     // 
     // *   **Master**: the primary node
     // *   **Slave**: the secondary node
-    std::shared_ptr<string> nodeType_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> nodeType_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The coupon code.
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> promotionCode_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource of the instance.
-    std::shared_ptr<string> resource_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resource_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The zone ID.
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

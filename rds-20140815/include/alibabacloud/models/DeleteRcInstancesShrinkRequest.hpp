@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dryRun_ == nullptr
-        && return this->force_ == nullptr && return this->instanceIdShrink_ == nullptr && return this->regionId_ == nullptr && return this->terminateSubscription_ == nullptr; };
+        && this->force_ == nullptr && this->instanceIdShrink_ == nullptr && this->regionId_ == nullptr && this->terminateSubscription_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline DeleteRCInstancesShrinkRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline DeleteRCInstancesShrinkRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // instanceIdShrink Field Functions 
     bool hasInstanceIdShrink() const { return this->instanceIdShrink_ != nullptr;};
     void deleteInstanceIdShrink() { this->instanceIdShrink_ = nullptr;};
-    inline string instanceIdShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdShrink_, "") };
+    inline string getInstanceIdShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdShrink_, "") };
     inline DeleteRCInstancesShrinkRequest& setInstanceIdShrink(string instanceIdShrink) { DARABONBA_PTR_SET_VALUE(instanceIdShrink_, instanceIdShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteRCInstancesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // terminateSubscription Field Functions 
     bool hasTerminateSubscription() const { return this->terminateSubscription_ != nullptr;};
     void deleteTerminateSubscription() { this->terminateSubscription_ = nullptr;};
-    inline bool terminateSubscription() const { DARABONBA_PTR_GET_DEFAULT(terminateSubscription_, false) };
+    inline bool getTerminateSubscription() const { DARABONBA_PTR_GET_DEFAULT(terminateSubscription_, false) };
     inline DeleteRCInstancesShrinkRequest& setTerminateSubscription(bool terminateSubscription) { DARABONBA_PTR_SET_VALUE(terminateSubscription_, terminateSubscription) };
 
 
@@ -79,23 +79,23 @@ namespace Models
     // 
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to forcefully release a running instance. Valid values:
     // 
     // *   **Yes**
     // *   **No** (default)
-    std::shared_ptr<bool> force_ = nullptr;
+    shared_ptr<bool> force_ {};
     // The details of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIdShrink_ = nullptr;
+    shared_ptr<string> instanceIdShrink_ {};
     // The region ID of the instance.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to release an expired subscription instance. Valid values:
     // 
     // *   **true**
     // *   **false** (default)
-    std::shared_ptr<bool> terminateSubscription_ = nullptr;
+    shared_ptr<bool> terminateSubscription_ {};
   };
 
   } // namespace Models

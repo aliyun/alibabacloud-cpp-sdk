@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fuzzySearch_ == nullptr
-        && return this->maxRecordsPerPage_ == nullptr && return this->pageNumbers_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->templateName_ == nullptr; };
+        && this->maxRecordsPerPage_ == nullptr && this->pageNumbers_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->templateName_ == nullptr; };
     // fuzzySearch Field Functions 
     bool hasFuzzySearch() const { return this->fuzzySearch_ != nullptr;};
     void deleteFuzzySearch() { this->fuzzySearch_ = nullptr;};
-    inline bool fuzzySearch() const { DARABONBA_PTR_GET_DEFAULT(fuzzySearch_, false) };
+    inline bool getFuzzySearch() const { DARABONBA_PTR_GET_DEFAULT(fuzzySearch_, false) };
     inline DescribeAllWhitelistTemplateRequest& setFuzzySearch(bool fuzzySearch) { DARABONBA_PTR_SET_VALUE(fuzzySearch_, fuzzySearch) };
 
 
     // maxRecordsPerPage Field Functions 
     bool hasMaxRecordsPerPage() const { return this->maxRecordsPerPage_ != nullptr;};
     void deleteMaxRecordsPerPage() { this->maxRecordsPerPage_ = nullptr;};
-    inline int32_t maxRecordsPerPage() const { DARABONBA_PTR_GET_DEFAULT(maxRecordsPerPage_, 0) };
+    inline int32_t getMaxRecordsPerPage() const { DARABONBA_PTR_GET_DEFAULT(maxRecordsPerPage_, 0) };
     inline DescribeAllWhitelistTemplateRequest& setMaxRecordsPerPage(int32_t maxRecordsPerPage) { DARABONBA_PTR_SET_VALUE(maxRecordsPerPage_, maxRecordsPerPage) };
 
 
     // pageNumbers Field Functions 
     bool hasPageNumbers() const { return this->pageNumbers_ != nullptr;};
     void deletePageNumbers() { this->pageNumbers_ = nullptr;};
-    inline int32_t pageNumbers() const { DARABONBA_PTR_GET_DEFAULT(pageNumbers_, 0) };
+    inline int32_t getPageNumbers() const { DARABONBA_PTR_GET_DEFAULT(pageNumbers_, 0) };
     inline DescribeAllWhitelistTemplateRequest& setPageNumbers(int32_t pageNumbers) { DARABONBA_PTR_SET_VALUE(pageNumbers_, pageNumbers) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeAllWhitelistTemplateRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeAllWhitelistTemplateRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeAllWhitelistTemplateRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeAllWhitelistTemplateRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline DescribeAllWhitelistTemplateRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
@@ -107,23 +107,23 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> fuzzySearch_ = nullptr;
+    shared_ptr<bool> fuzzySearch_ {};
     // The number of entries to return on each page. Enumerated valid values: 10, 30, and 50.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> maxRecordsPerPage_ = nullptr;
+    shared_ptr<int32_t> maxRecordsPerPage_ {};
     // The page number.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumbers_ = nullptr;
+    shared_ptr<int32_t> pageNumbers_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource group ID. For more information about resource groups, see related documentation.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The name of the IP whitelist template. If you specify this parameter when you perform a fuzzy search, you can call the DescribeWhitelistTemplate operation to query the name of the whitelist template during the fuzzy search.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
   };
 
   } // namespace Models

@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIdSets_ == nullptr
-        && return this->nodePoolId_ == nullptr && return this->orderId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->nodePoolId_ == nullptr && this->orderId_ == nullptr && this->requestId_ == nullptr; };
     // instanceIdSets Field Functions 
     bool hasInstanceIdSets() const { return this->instanceIdSets_ != nullptr;};
     void deleteInstanceIdSets() { this->instanceIdSets_ = nullptr;};
-    inline const vector<string> & instanceIdSets() const { DARABONBA_PTR_GET_CONST(instanceIdSets_, vector<string>) };
-    inline vector<string> instanceIdSets() { DARABONBA_PTR_GET(instanceIdSets_, vector<string>) };
+    inline const vector<string> & getInstanceIdSets() const { DARABONBA_PTR_GET_CONST(instanceIdSets_, vector<string>) };
+    inline vector<string> getInstanceIdSets() { DARABONBA_PTR_GET(instanceIdSets_, vector<string>) };
     inline CreateRCNodePoolResponseBody& setInstanceIdSets(const vector<string> & instanceIdSets) { DARABONBA_PTR_SET_VALUE(instanceIdSets_, instanceIdSets) };
     inline CreateRCNodePoolResponseBody& setInstanceIdSets(vector<string> && instanceIdSets) { DARABONBA_PTR_SET_RVALUE(instanceIdSets_, instanceIdSets) };
 
@@ -50,33 +50,33 @@ namespace Models
     // nodePoolId Field Functions 
     bool hasNodePoolId() const { return this->nodePoolId_ != nullptr;};
     void deleteNodePoolId() { this->nodePoolId_ = nullptr;};
-    inline string nodePoolId() const { DARABONBA_PTR_GET_DEFAULT(nodePoolId_, "") };
+    inline string getNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(nodePoolId_, "") };
     inline CreateRCNodePoolResponseBody& setNodePoolId(string nodePoolId) { DARABONBA_PTR_SET_VALUE(nodePoolId_, nodePoolId) };
 
 
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline CreateRCNodePoolResponseBody& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateRCNodePoolResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The instance IDs.
-    std::shared_ptr<vector<string>> instanceIdSets_ = nullptr;
+    shared_ptr<vector<string>> instanceIdSets_ {};
     // The node pool ID.
-    std::shared_ptr<string> nodePoolId_ = nullptr;
+    shared_ptr<string> nodePoolId_ {};
     // The order ID.
-    std::shared_ptr<string> orderId_ = nullptr;
+    shared_ptr<string> orderId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

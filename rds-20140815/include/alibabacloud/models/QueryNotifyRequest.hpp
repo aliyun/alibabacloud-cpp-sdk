@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->to_ == nullptr && return this->withConfirmed_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->to_ == nullptr && this->withConfirmed_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
-    inline string from() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
+    inline string getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, "") };
     inline QueryNotifyRequest& setFrom(string from) { DARABONBA_PTR_SET_VALUE(from_, from) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline QueryNotifyRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryNotifyRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // to Field Functions 
     bool hasTo() const { return this->to_ != nullptr;};
     void deleteTo() { this->to_ = nullptr;};
-    inline string to() const { DARABONBA_PTR_GET_DEFAULT(to_, "") };
+    inline string getTo() const { DARABONBA_PTR_GET_DEFAULT(to_, "") };
     inline QueryNotifyRequest& setTo(string to) { DARABONBA_PTR_SET_VALUE(to_, to) };
 
 
     // withConfirmed Field Functions 
     bool hasWithConfirmed() const { return this->withConfirmed_ != nullptr;};
     void deleteWithConfirmed() { this->withConfirmed_ = nullptr;};
-    inline bool withConfirmed() const { DARABONBA_PTR_GET_DEFAULT(withConfirmed_, false) };
+    inline bool getWithConfirmed() const { DARABONBA_PTR_GET_DEFAULT(withConfirmed_, false) };
     inline QueryNotifyRequest& setWithConfirmed(bool withConfirmed) { DARABONBA_PTR_SET_VALUE(withConfirmed_, withConfirmed) };
 
 
@@ -78,11 +78,11 @@ namespace Models
     // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> from_ = nullptr;
+    shared_ptr<string> from_ {};
     // The page number. Pages start from page 1. Default value: 1.****
     // 
     // Default value: **1**.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
     // *   **30**
@@ -90,11 +90,11 @@ namespace Models
     // *   **100**
     // 
     // Default value: **30**.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> to_ = nullptr;
+    shared_ptr<string> to_ {};
     // Specifies whether the query results contain confirmed notifications. Valid values:
     // 
     // *   **true**
@@ -103,7 +103,7 @@ namespace Models
     // >  A confirmed notification is a notification that has been marked as confirmed by calling the ConfirmNotify operation.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> withConfirmed_ = nullptr;
+    shared_ptr<bool> withConfirmed_ {};
   };
 
   } // namespace Models
