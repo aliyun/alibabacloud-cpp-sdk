@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->jobId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->status_ == nullptr; };
+        && this->jobId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline ListRecycleBinJobsRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
-    inline string jobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
+    inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
     inline ListRecycleBinJobsRequest& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListRecycleBinJobsRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListRecycleBinJobsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListRecycleBinJobsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
@@ -78,19 +78,19 @@ namespace Models
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The job ID.
-    std::shared_ptr<string> jobId_ = nullptr;
+    shared_ptr<string> jobId_ {};
     // The page number.
     // 
     // Pages start from page 1. Default value: 1.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 10.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The job status. Valid values:
     // 
     // *   Running: The job is running.
@@ -100,7 +100,7 @@ namespace Models
     // *   Fail: The job failed.
     // *   Cancelled: The job is canceled.
     // *   all (default)
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

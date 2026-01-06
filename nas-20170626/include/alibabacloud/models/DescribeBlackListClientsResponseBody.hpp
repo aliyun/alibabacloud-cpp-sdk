@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clients_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // clients Field Functions 
     bool hasClients() const { return this->clients_ != nullptr;};
     void deleteClients() { this->clients_ = nullptr;};
-    inline string clients() const { DARABONBA_PTR_GET_DEFAULT(clients_, "") };
+    inline string getClients() const { DARABONBA_PTR_GET_DEFAULT(clients_, "") };
     inline DescribeBlackListClientsResponseBody& setClients(string clients) { DARABONBA_PTR_SET_VALUE(clients_, clients) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeBlackListClientsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -56,9 +56,9 @@ namespace Models
     // *   EVICTED: The client is evicted.
     // *   ACCEPTING: The write access to the file system is being granted to the client.
     // *   ACCEPTABLE: The write access to the file system is granted to the client.
-    std::shared_ptr<string> clients_ = nullptr;
+    shared_ptr<string> clients_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

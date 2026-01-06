@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->fileSystemId_ == nullptr && return this->protocolServiceId_ == nullptr; };
+        && this->description_ == nullptr && this->dryRun_ == nullptr && this->fileSystemId_ == nullptr && this->protocolServiceId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyProtocolServiceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyProtocolServiceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ModifyProtocolServiceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline ModifyProtocolServiceRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // protocolServiceId Field Functions 
     bool hasProtocolServiceId() const { return this->protocolServiceId_ != nullptr;};
     void deleteProtocolServiceId() { this->protocolServiceId_ = nullptr;};
-    inline string protocolServiceId() const { DARABONBA_PTR_GET_DEFAULT(protocolServiceId_, "") };
+    inline string getProtocolServiceId() const { DARABONBA_PTR_GET_DEFAULT(protocolServiceId_, "") };
     inline ModifyProtocolServiceRequest& setProtocolServiceId(string protocolServiceId) { DARABONBA_PTR_SET_VALUE(protocolServiceId_, protocolServiceId) };
 
 
@@ -80,7 +80,7 @@ namespace Models
     // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
     // 
     // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The description of the protocol service.
     // 
     // Limits:
@@ -88,22 +88,22 @@ namespace Models
     // *   The description must be 2 to 128 characters in length.
     // *   The description must start with a letter and cannot start with `http://` or `https://`.
     // *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. The dry run checks parameter validity and prerequisites. The dry run does not modify a file system or incur fees.
     // 
     // Valid values:
     // 
     // *   true: performs only a dry run and does not modify the protocol service. The system checks the request format, service limits, prerequisites, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, a 200 HTTP status code is returned.
     // *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, the service protocol is modified.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The ID of the protocol service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> protocolServiceId_ = nullptr;
+    shared_ptr<string> protocolServiceId_ {};
   };
 
   } // namespace Models

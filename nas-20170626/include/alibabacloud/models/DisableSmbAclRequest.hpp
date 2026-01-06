@@ -33,7 +33,7 @@ namespace Models
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline DisableSmbAclRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
   };
 
   } // namespace Models

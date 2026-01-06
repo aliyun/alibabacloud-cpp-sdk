@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->path_ == nullptr; };
+        && this->path_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline GetDirectoryOrFilePropertiesRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline GetDirectoryOrFilePropertiesRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The absolute path of the directory.
     // 
     // The path must start with a forward slash (/) and must be a path that exists in the mount target.
     // 
     // This parameter is required.
-    std::shared_ptr<string> path_ = nullptr;
+    shared_ptr<string> path_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->keytab_ == nullptr && return this->keytabMd5_ == nullptr; };
+        && this->keytab_ == nullptr && this->keytabMd5_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline EnableSmbAclRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // keytab Field Functions 
     bool hasKeytab() const { return this->keytab_ != nullptr;};
     void deleteKeytab() { this->keytab_ = nullptr;};
-    inline string keytab() const { DARABONBA_PTR_GET_DEFAULT(keytab_, "") };
+    inline string getKeytab() const { DARABONBA_PTR_GET_DEFAULT(keytab_, "") };
     inline EnableSmbAclRequest& setKeytab(string keytab) { DARABONBA_PTR_SET_VALUE(keytab_, keytab) };
 
 
     // keytabMd5 Field Functions 
     bool hasKeytabMd5() const { return this->keytabMd5_ != nullptr;};
     void deleteKeytabMd5() { this->keytabMd5_ = nullptr;};
-    inline string keytabMd5() const { DARABONBA_PTR_GET_DEFAULT(keytabMd5_, "") };
+    inline string getKeytabMd5() const { DARABONBA_PTR_GET_DEFAULT(keytabMd5_, "") };
     inline EnableSmbAclRequest& setKeytabMd5(string keytabMd5) { DARABONBA_PTR_SET_VALUE(keytabMd5_, keytabMd5) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The string that is generated after the system encodes the keytab file by using Base64.
-    std::shared_ptr<string> keytab_ = nullptr;
+    shared_ptr<string> keytab_ {};
     // The string that is generated after the system encodes the keytab file by using MD5.
-    std::shared_ptr<string> keytabMd5_ = nullptr;
+    shared_ptr<string> keytabMd5_ {};
   };
 
   } // namespace Models

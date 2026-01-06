@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->lifecyclePolicyName_ == nullptr; };
+        && this->lifecyclePolicyName_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline DeleteLifecyclePolicyRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // lifecyclePolicyName Field Functions 
     bool hasLifecyclePolicyName() const { return this->lifecyclePolicyName_ != nullptr;};
     void deleteLifecyclePolicyName() { this->lifecyclePolicyName_ = nullptr;};
-    inline string lifecyclePolicyName() const { DARABONBA_PTR_GET_DEFAULT(lifecyclePolicyName_, "") };
+    inline string getLifecyclePolicyName() const { DARABONBA_PTR_GET_DEFAULT(lifecyclePolicyName_, "") };
     inline DeleteLifecyclePolicyRequest& setLifecyclePolicyName(string lifecyclePolicyName) { DARABONBA_PTR_SET_VALUE(lifecyclePolicyName_, lifecyclePolicyName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The name of the lifecycle policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> lifecyclePolicyName_ = nullptr;
+    shared_ptr<string> lifecyclePolicyName_ {};
   };
 
   } // namespace Models

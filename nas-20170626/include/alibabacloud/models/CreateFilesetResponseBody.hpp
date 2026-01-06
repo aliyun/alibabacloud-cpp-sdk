@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fsetId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // fsetId Field Functions 
     bool hasFsetId() const { return this->fsetId_ != nullptr;};
     void deleteFsetId() { this->fsetId_ = nullptr;};
-    inline string fsetId() const { DARABONBA_PTR_GET_DEFAULT(fsetId_, "") };
+    inline string getFsetId() const { DARABONBA_PTR_GET_DEFAULT(fsetId_, "") };
     inline CreateFilesetResponseBody& setFsetId(string fsetId) { DARABONBA_PTR_SET_VALUE(fsetId_, fsetId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateFilesetResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The fileset ID.
-    std::shared_ptr<string> fsetId_ = nullptr;
+    shared_ptr<string> fsetId_ {};
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

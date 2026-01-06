@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoSnapshotPolicyName_ == nullptr
-        && return this->fileSystemType_ == nullptr && return this->repeatWeekdays_ == nullptr && return this->retentionDays_ == nullptr && return this->timePoints_ == nullptr; };
+        && this->fileSystemType_ == nullptr && this->repeatWeekdays_ == nullptr && this->retentionDays_ == nullptr && this->timePoints_ == nullptr; };
     // autoSnapshotPolicyName Field Functions 
     bool hasAutoSnapshotPolicyName() const { return this->autoSnapshotPolicyName_ != nullptr;};
     void deleteAutoSnapshotPolicyName() { this->autoSnapshotPolicyName_ = nullptr;};
-    inline string autoSnapshotPolicyName() const { DARABONBA_PTR_GET_DEFAULT(autoSnapshotPolicyName_, "") };
+    inline string getAutoSnapshotPolicyName() const { DARABONBA_PTR_GET_DEFAULT(autoSnapshotPolicyName_, "") };
     inline CreateAutoSnapshotPolicyRequest& setAutoSnapshotPolicyName(string autoSnapshotPolicyName) { DARABONBA_PTR_SET_VALUE(autoSnapshotPolicyName_, autoSnapshotPolicyName) };
 
 
     // fileSystemType Field Functions 
     bool hasFileSystemType() const { return this->fileSystemType_ != nullptr;};
     void deleteFileSystemType() { this->fileSystemType_ = nullptr;};
-    inline string fileSystemType() const { DARABONBA_PTR_GET_DEFAULT(fileSystemType_, "") };
+    inline string getFileSystemType() const { DARABONBA_PTR_GET_DEFAULT(fileSystemType_, "") };
     inline CreateAutoSnapshotPolicyRequest& setFileSystemType(string fileSystemType) { DARABONBA_PTR_SET_VALUE(fileSystemType_, fileSystemType) };
 
 
     // repeatWeekdays Field Functions 
     bool hasRepeatWeekdays() const { return this->repeatWeekdays_ != nullptr;};
     void deleteRepeatWeekdays() { this->repeatWeekdays_ = nullptr;};
-    inline string repeatWeekdays() const { DARABONBA_PTR_GET_DEFAULT(repeatWeekdays_, "") };
+    inline string getRepeatWeekdays() const { DARABONBA_PTR_GET_DEFAULT(repeatWeekdays_, "") };
     inline CreateAutoSnapshotPolicyRequest& setRepeatWeekdays(string repeatWeekdays) { DARABONBA_PTR_SET_VALUE(repeatWeekdays_, repeatWeekdays) };
 
 
     // retentionDays Field Functions 
     bool hasRetentionDays() const { return this->retentionDays_ != nullptr;};
     void deleteRetentionDays() { this->retentionDays_ = nullptr;};
-    inline int32_t retentionDays() const { DARABONBA_PTR_GET_DEFAULT(retentionDays_, 0) };
+    inline int32_t getRetentionDays() const { DARABONBA_PTR_GET_DEFAULT(retentionDays_, 0) };
     inline CreateAutoSnapshotPolicyRequest& setRetentionDays(int32_t retentionDays) { DARABONBA_PTR_SET_VALUE(retentionDays_, retentionDays) };
 
 
     // timePoints Field Functions 
     bool hasTimePoints() const { return this->timePoints_ != nullptr;};
     void deleteTimePoints() { this->timePoints_ = nullptr;};
-    inline string timePoints() const { DARABONBA_PTR_GET_DEFAULT(timePoints_, "") };
+    inline string getTimePoints() const { DARABONBA_PTR_GET_DEFAULT(timePoints_, "") };
     inline CreateAutoSnapshotPolicyRequest& setTimePoints(string timePoints) { DARABONBA_PTR_SET_VALUE(timePoints_, timePoints) };
 
 
@@ -83,13 +83,13 @@ namespace Models
     // *   The name must start with a letter.
     // *   The name can contain digits, colons (:), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
     // *   This parameter is empty by default.
-    std::shared_ptr<string> autoSnapshotPolicyName_ = nullptr;
+    shared_ptr<string> autoSnapshotPolicyName_ {};
     // The type of the file system.
     // 
     // Valid value: extreme, which indicates Extreme NAS file systems.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemType_ = nullptr;
+    shared_ptr<string> fileSystemType_ {};
     // The days of a week on which to create automatic snapshots.
     // 
     // Cycle: week.
@@ -99,7 +99,7 @@ namespace Models
     // If you want to create multiple auto snapshots within a week, you can specify multiple days from Monday to Sunday and separate the days with commas (,). You can specify a maximum of seven days.
     // 
     // This parameter is required.
-    std::shared_ptr<string> repeatWeekdays_ = nullptr;
+    shared_ptr<string> repeatWeekdays_ {};
     // The retention period of auto snapshots.
     // 
     // Unit: days.
@@ -108,7 +108,7 @@ namespace Models
     // 
     // *   \\-1 (default). Auto snapshots are permanently retained. After the number of auto snapshots exceeds the upper limit, the earliest auto snapshot is automatically deleted.
     // *   1 to 65536: Auto snapshots are retained for the specified days. After the retention period of auto snapshots expires, the auto snapshots are automatically deleted.
-    std::shared_ptr<int32_t> retentionDays_ = nullptr;
+    shared_ptr<int32_t> retentionDays_ {};
     // The points in time at which auto snapshots were created.
     // 
     // Unit: hours.
@@ -118,7 +118,7 @@ namespace Models
     // If you want to create multiple auto snapshots within a day, you can specify multiple points in time and separate the points in time with commas (,). You can specify a maximum of 24 points in time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> timePoints_ = nullptr;
+    shared_ptr<string> timePoints_ {};
   };
 
   } // namespace Models

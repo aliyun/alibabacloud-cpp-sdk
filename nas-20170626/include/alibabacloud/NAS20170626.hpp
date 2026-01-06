@@ -2074,6 +2074,40 @@ namespace NAS20170626
       Models::GetDirectoryOrFilePropertiesResponse getDirectoryOrFileProperties(const Models::GetDirectoryOrFilePropertiesRequest &request);
 
       /**
+       * @summary 查询特定智能目录
+       *
+       * @param request GetFilesetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFilesetResponse
+       */
+      Models::GetFilesetResponse getFilesetWithOptions(const Models::GetFilesetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询特定智能目录
+       *
+       * @param request GetFilesetRequest
+       * @return GetFilesetResponse
+       */
+      Models::GetFilesetResponse getFileset(const Models::GetFilesetRequest &request);
+
+      /**
+       * @summary 查询协议机挂载点
+       *
+       * @param request GetProtocolMountTargetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProtocolMountTargetResponse
+       */
+      Models::GetProtocolMountTargetResponse getProtocolMountTargetWithOptions(const Models::GetProtocolMountTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询协议机挂载点
+       *
+       * @param request GetProtocolMountTargetRequest
+       * @return GetProtocolMountTargetResponse
+       */
+      Models::GetProtocolMountTargetResponse getProtocolMountTarget(const Models::GetProtocolMountTargetRequest &request);
+
+      /**
        * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
        *
        * @description Only General-purpose File Storage NAS (NAS) file systems support this operation.

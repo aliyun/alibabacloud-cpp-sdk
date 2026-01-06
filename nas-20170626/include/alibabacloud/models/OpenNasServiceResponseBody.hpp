@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->orderId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->orderId_ == nullptr && this->requestId_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline OpenNASServiceResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
     inline OpenNASServiceResponseBody& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline OpenNASServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The details about the failed permission verification.
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
     // The order ID.
-    std::shared_ptr<string> orderId_ = nullptr;
+    shared_ptr<string> orderId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // fileSystemIds Field Functions 
     bool hasFileSystemIds() const { return this->fileSystemIds_ != nullptr;};
     void deleteFileSystemIds() { this->fileSystemIds_ = nullptr;};
-    inline string fileSystemIds() const { DARABONBA_PTR_GET_DEFAULT(fileSystemIds_, "") };
+    inline string getFileSystemIds() const { DARABONBA_PTR_GET_DEFAULT(fileSystemIds_, "") };
     inline CancelAutoSnapshotPolicyRequest& setFileSystemIds(string fileSystemIds) { DARABONBA_PTR_SET_VALUE(fileSystemIds_, fileSystemIds) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // You can specify a maximum of 100 file system IDs. If you want to remove automatic snapshot policies from multiple file systems, separate the file system IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemIds_ = nullptr;
+    shared_ptr<string> fileSystemIds_ {};
   };
 
   } // namespace Models

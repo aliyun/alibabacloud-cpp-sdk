@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEFILESETREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEFILESETREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateFilesetRequestQuota.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -42,58 +41,110 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Quota : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Quota& obj) { 
+        DARABONBA_PTR_TO_JSON(FileCountLimit, fileCountLimit_);
+        DARABONBA_PTR_TO_JSON(SizeLimit, sizeLimit_);
+      };
+      friend void from_json(const Darabonba::Json& j, Quota& obj) { 
+        DARABONBA_PTR_FROM_JSON(FileCountLimit, fileCountLimit_);
+        DARABONBA_PTR_FROM_JSON(SizeLimit, sizeLimit_);
+      };
+      Quota() = default ;
+      Quota(const Quota &) = default ;
+      Quota(Quota &&) = default ;
+      Quota(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Quota() = default ;
+      Quota& operator=(const Quota &) = default ;
+      Quota& operator=(Quota &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->fileCountLimit_ == nullptr
+        && this->sizeLimit_ == nullptr; };
+      // fileCountLimit Field Functions 
+      bool hasFileCountLimit() const { return this->fileCountLimit_ != nullptr;};
+      void deleteFileCountLimit() { this->fileCountLimit_ = nullptr;};
+      inline int64_t getFileCountLimit() const { DARABONBA_PTR_GET_DEFAULT(fileCountLimit_, 0L) };
+      inline Quota& setFileCountLimit(int64_t fileCountLimit) { DARABONBA_PTR_SET_VALUE(fileCountLimit_, fileCountLimit) };
+
+
+      // sizeLimit Field Functions 
+      bool hasSizeLimit() const { return this->sizeLimit_ != nullptr;};
+      void deleteSizeLimit() { this->sizeLimit_ = nullptr;};
+      inline int64_t getSizeLimit() const { DARABONBA_PTR_GET_DEFAULT(sizeLimit_, 0L) };
+      inline Quota& setSizeLimit(int64_t sizeLimit) { DARABONBA_PTR_SET_VALUE(sizeLimit_, sizeLimit) };
+
+
+    protected:
+      // The file quantity quota. Valid values:
+      // 
+      // *   Minimum value: 100000.
+      // *   Maximum value: 10000000000.
+      shared_ptr<int64_t> fileCountLimit_ {};
+      // The total quota capacity limit. Unit: bytes.
+      // 
+      // Valid values:
+      // 
+      // *   Minimum value: 10,737,418,240 (10 GiB).
+      // *   Step size: 1073741824 (1 GiB).
+      shared_ptr<int64_t> sizeLimit_ {};
+    };
+
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->deletionProtection_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->fileSystemId_ == nullptr && return this->fileSystemPath_ == nullptr
-        && return this->quota_ == nullptr; };
+        && this->deletionProtection_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->fileSystemId_ == nullptr && this->fileSystemPath_ == nullptr
+        && this->quota_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateFilesetRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // deletionProtection Field Functions 
     bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
     void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
-    inline bool deletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
+    inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
     inline CreateFilesetRequest& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateFilesetRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateFilesetRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline CreateFilesetRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // fileSystemPath Field Functions 
     bool hasFileSystemPath() const { return this->fileSystemPath_ != nullptr;};
     void deleteFileSystemPath() { this->fileSystemPath_ = nullptr;};
-    inline string fileSystemPath() const { DARABONBA_PTR_GET_DEFAULT(fileSystemPath_, "") };
+    inline string getFileSystemPath() const { DARABONBA_PTR_GET_DEFAULT(fileSystemPath_, "") };
     inline CreateFilesetRequest& setFileSystemPath(string fileSystemPath) { DARABONBA_PTR_SET_VALUE(fileSystemPath_, fileSystemPath) };
 
 
     // quota Field Functions 
     bool hasQuota() const { return this->quota_ != nullptr;};
     void deleteQuota() { this->quota_ = nullptr;};
-    inline const CreateFilesetRequestQuota & quota() const { DARABONBA_PTR_GET_CONST(quota_, CreateFilesetRequestQuota) };
-    inline CreateFilesetRequestQuota quota() { DARABONBA_PTR_GET(quota_, CreateFilesetRequestQuota) };
-    inline CreateFilesetRequest& setQuota(const CreateFilesetRequestQuota & quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
-    inline CreateFilesetRequest& setQuota(CreateFilesetRequestQuota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
+    inline const CreateFilesetRequest::Quota & getQuota() const { DARABONBA_PTR_GET_CONST(quota_, CreateFilesetRequest::Quota) };
+    inline CreateFilesetRequest::Quota getQuota() { DARABONBA_PTR_GET(quota_, CreateFilesetRequest::Quota) };
+    inline CreateFilesetRequest& setQuota(const CreateFilesetRequest::Quota & quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
+    inline CreateFilesetRequest& setQuota(CreateFilesetRequest::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
 
 
   protected:
@@ -102,20 +153,20 @@ namespace Models
     // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
     // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
     // 
     // *   true: enables release protection.
     // *   false (default): disables release protection.
     // 
     // >  This parameter can protect filesets only against manual releases, but not against automatic releases.
-    std::shared_ptr<bool> deletionProtection_ = nullptr;
+    shared_ptr<bool> deletionProtection_ {};
     // The description of the fileset.
     // 
     // *   The description must be 2 to 128 characters in length.
     // *   The name must start with a letter and cannot start with http:// or https://.
     // *   The description can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // Specifies whether to perform a dry run.
     // 
     // During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no fileset is created and no fee is incurred.
@@ -124,14 +175,14 @@ namespace Models
     // 
     // *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available Apsara File Storage NAS (NAS) resources. Otherwise, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the FsetId parameter.
     // *   false (default): performs a dry run and sends the request. If the request passes the dry run, a fileset is created.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The ID of the file system.
     // 
     // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
     // *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The absolute path of the fileset.
     // 
     // *   CPFS path limits.
@@ -151,11 +202,11 @@ namespace Models
     //     *   The path cannot exceed 990 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemPath_ = nullptr;
+    shared_ptr<string> fileSystemPath_ {};
     // The quota information.
     // 
     // >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
-    std::shared_ptr<CreateFilesetRequestQuota> quota_ = nullptr;
+    shared_ptr<CreateFilesetRequest::Quota> quota_ {};
   };
 
   } // namespace Models

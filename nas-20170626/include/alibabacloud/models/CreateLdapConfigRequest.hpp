@@ -36,50 +36,50 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindDN_ == nullptr
-        && return this->fileSystemId_ == nullptr && return this->searchBase_ == nullptr && return this->URI_ == nullptr; };
+        && this->fileSystemId_ == nullptr && this->searchBase_ == nullptr && this->URI_ == nullptr; };
     // bindDN Field Functions 
     bool hasBindDN() const { return this->bindDN_ != nullptr;};
     void deleteBindDN() { this->bindDN_ = nullptr;};
-    inline string bindDN() const { DARABONBA_PTR_GET_DEFAULT(bindDN_, "") };
+    inline string getBindDN() const { DARABONBA_PTR_GET_DEFAULT(bindDN_, "") };
     inline CreateLDAPConfigRequest& setBindDN(string bindDN) { DARABONBA_PTR_SET_VALUE(bindDN_, bindDN) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline CreateLDAPConfigRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // searchBase Field Functions 
     bool hasSearchBase() const { return this->searchBase_ != nullptr;};
     void deleteSearchBase() { this->searchBase_ = nullptr;};
-    inline string searchBase() const { DARABONBA_PTR_GET_DEFAULT(searchBase_, "") };
+    inline string getSearchBase() const { DARABONBA_PTR_GET_DEFAULT(searchBase_, "") };
     inline CreateLDAPConfigRequest& setSearchBase(string searchBase) { DARABONBA_PTR_SET_VALUE(searchBase_, searchBase) };
 
 
     // URI Field Functions 
     bool hasURI() const { return this->URI_ != nullptr;};
     void deleteURI() { this->URI_ = nullptr;};
-    inline string URI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
+    inline string getURI() const { DARABONBA_PTR_GET_DEFAULT(URI_, "") };
     inline CreateLDAPConfigRequest& setURI(string URI) { DARABONBA_PTR_SET_VALUE(URI_, URI) };
 
 
   protected:
     // An LDAP entry.
-    std::shared_ptr<string> bindDN_ = nullptr;
+    shared_ptr<string> bindDN_ {};
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // An LDAP search base.
     // 
     // This parameter is required.
-    std::shared_ptr<string> searchBase_ = nullptr;
+    shared_ptr<string> searchBase_ {};
     // An LDAP URI.
     // 
     // This parameter is required.
-    std::shared_ptr<string> URI_ = nullptr;
+    shared_ptr<string> URI_ {};
   };
 
   } // namespace Models

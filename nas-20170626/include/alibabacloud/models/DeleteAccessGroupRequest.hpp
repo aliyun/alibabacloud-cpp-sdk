@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessGroupName_ == nullptr
-        && return this->fileSystemType_ == nullptr; };
+        && this->fileSystemType_ == nullptr; };
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};
-    inline string accessGroupName() const { DARABONBA_PTR_GET_DEFAULT(accessGroupName_, "") };
+    inline string getAccessGroupName() const { DARABONBA_PTR_GET_DEFAULT(accessGroupName_, "") };
     inline DeleteAccessGroupRequest& setAccessGroupName(string accessGroupName) { DARABONBA_PTR_SET_VALUE(accessGroupName_, accessGroupName) };
 
 
     // fileSystemType Field Functions 
     bool hasFileSystemType() const { return this->fileSystemType_ != nullptr;};
     void deleteFileSystemType() { this->fileSystemType_ = nullptr;};
-    inline string fileSystemType() const { DARABONBA_PTR_GET_DEFAULT(fileSystemType_, "") };
+    inline string getFileSystemType() const { DARABONBA_PTR_GET_DEFAULT(fileSystemType_, "") };
     inline DeleteAccessGroupRequest& setFileSystemType(string fileSystemType) { DARABONBA_PTR_SET_VALUE(fileSystemType_, fileSystemType) };
 
 
@@ -51,14 +51,14 @@ namespace Models
     // The name of the permission group to be deleted.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessGroupName_ = nullptr;
+    shared_ptr<string> accessGroupName_ {};
     // The type of the file system.
     // 
     // Valid values:
     // 
     // *   standard (default): General-purpose NAS file system
     // *   extreme: Extreme NAS file system
-    std::shared_ptr<string> fileSystemType_ = nullptr;
+    shared_ptr<string> fileSystemType_ {};
   };
 
   } // namespace Models

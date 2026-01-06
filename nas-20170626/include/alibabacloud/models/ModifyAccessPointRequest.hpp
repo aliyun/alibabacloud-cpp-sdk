@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessGroup_ == nullptr
-        && return this->accessPointId_ == nullptr && return this->accessPointName_ == nullptr && return this->enabledRam_ == nullptr && return this->fileSystemId_ == nullptr; };
+        && this->accessPointId_ == nullptr && this->accessPointName_ == nullptr && this->enabledRam_ == nullptr && this->fileSystemId_ == nullptr; };
     // accessGroup Field Functions 
     bool hasAccessGroup() const { return this->accessGroup_ != nullptr;};
     void deleteAccessGroup() { this->accessGroup_ = nullptr;};
-    inline string accessGroup() const { DARABONBA_PTR_GET_DEFAULT(accessGroup_, "") };
+    inline string getAccessGroup() const { DARABONBA_PTR_GET_DEFAULT(accessGroup_, "") };
     inline ModifyAccessPointRequest& setAccessGroup(string accessGroup) { DARABONBA_PTR_SET_VALUE(accessGroup_, accessGroup) };
 
 
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};
-    inline string accessPointId() const { DARABONBA_PTR_GET_DEFAULT(accessPointId_, "") };
+    inline string getAccessPointId() const { DARABONBA_PTR_GET_DEFAULT(accessPointId_, "") };
     inline ModifyAccessPointRequest& setAccessPointId(string accessPointId) { DARABONBA_PTR_SET_VALUE(accessPointId_, accessPointId) };
 
 
     // accessPointName Field Functions 
     bool hasAccessPointName() const { return this->accessPointName_ != nullptr;};
     void deleteAccessPointName() { this->accessPointName_ = nullptr;};
-    inline string accessPointName() const { DARABONBA_PTR_GET_DEFAULT(accessPointName_, "") };
+    inline string getAccessPointName() const { DARABONBA_PTR_GET_DEFAULT(accessPointName_, "") };
     inline ModifyAccessPointRequest& setAccessPointName(string accessPointName) { DARABONBA_PTR_SET_VALUE(accessPointName_, accessPointName) };
 
 
     // enabledRam Field Functions 
     bool hasEnabledRam() const { return this->enabledRam_ != nullptr;};
     void deleteEnabledRam() { this->enabledRam_ = nullptr;};
-    inline bool enabledRam() const { DARABONBA_PTR_GET_DEFAULT(enabledRam_, false) };
+    inline bool getEnabledRam() const { DARABONBA_PTR_GET_DEFAULT(enabledRam_, false) };
     inline ModifyAccessPointRequest& setEnabledRam(bool enabledRam) { DARABONBA_PTR_SET_VALUE(enabledRam_, enabledRam) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline ModifyAccessPointRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
@@ -80,24 +80,24 @@ namespace Models
     // This parameter is required for a General-purpose File Storage NAS (NAS) file system.
     // 
     // The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
-    std::shared_ptr<string> accessGroup_ = nullptr;
+    shared_ptr<string> accessGroup_ {};
     // The ID of the access point.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessPointId_ = nullptr;
+    shared_ptr<string> accessPointId_ {};
     // The name of the access point.
-    std::shared_ptr<string> accessPointName_ = nullptr;
+    shared_ptr<string> accessPointName_ {};
     // Specifies whether to enable the Resource Access Management (RAM) policy. Valid values:
     // 
     // *   true: The RAM policy is enabled.
     // *   false (default): The RAM policy is disabled.
     // 
     // >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted.
-    std::shared_ptr<bool> enabledRam_ = nullptr;
+    shared_ptr<bool> enabledRam_ {};
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
   };
 
   } // namespace Models

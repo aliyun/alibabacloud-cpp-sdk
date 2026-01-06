@@ -33,7 +33,7 @@ namespace Models
     // autoSnapshotPolicyId Field Functions 
     bool hasAutoSnapshotPolicyId() const { return this->autoSnapshotPolicyId_ != nullptr;};
     void deleteAutoSnapshotPolicyId() { this->autoSnapshotPolicyId_ = nullptr;};
-    inline string autoSnapshotPolicyId() const { DARABONBA_PTR_GET_DEFAULT(autoSnapshotPolicyId_, "") };
+    inline string getAutoSnapshotPolicyId() const { DARABONBA_PTR_GET_DEFAULT(autoSnapshotPolicyId_, "") };
     inline DeleteAutoSnapshotPolicyRequest& setAutoSnapshotPolicyId(string autoSnapshotPolicyId) { DARABONBA_PTR_SET_VALUE(autoSnapshotPolicyId_, autoSnapshotPolicyId) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // You can call the [DescribeAutoSnapshotPolicies](https://help.aliyun.com/document_detail/126583.html) operation to view available automatic snapshot policies.
     // 
     // This parameter is required.
-    std::shared_ptr<string> autoSnapshotPolicyId_ = nullptr;
+    shared_ptr<string> autoSnapshotPolicyId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->snapshotId_ == nullptr; };
+        && this->snapshotId_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline ResetFileSystemRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // snapshotId Field Functions 
     bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
     void deleteSnapshotId() { this->snapshotId_ = nullptr;};
-    inline string snapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
+    inline string getSnapshotId() const { DARABONBA_PTR_GET_DEFAULT(snapshotId_, "") };
     inline ResetFileSystemRequest& setSnapshotId(string snapshotId) { DARABONBA_PTR_SET_VALUE(snapshotId_, snapshotId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the advanced Extreme NAS file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The snapshot ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> snapshotId_ = nullptr;
+    shared_ptr<string> snapshotId_ {};
   };
 
   } // namespace Models

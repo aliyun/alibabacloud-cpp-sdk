@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessPointId_ == nullptr
-        && return this->fileSystemId_ == nullptr; };
+        && this->fileSystemId_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};
-    inline string accessPointId() const { DARABONBA_PTR_GET_DEFAULT(accessPointId_, "") };
+    inline string getAccessPointId() const { DARABONBA_PTR_GET_DEFAULT(accessPointId_, "") };
     inline DeleteAccessPointRequest& setAccessPointId(string accessPointId) { DARABONBA_PTR_SET_VALUE(accessPointId_, accessPointId) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline DeleteAccessPointRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the access point.
     // 
     // This parameter is required.
-    std::shared_ptr<string> accessPointId_ = nullptr;
+    shared_ptr<string> accessPointId_ {};
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
   };
 
   } // namespace Models

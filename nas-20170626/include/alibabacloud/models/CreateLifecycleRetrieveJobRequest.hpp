@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->paths_ == nullptr && return this->storageType_ == nullptr; };
+        && this->paths_ == nullptr && this->storageType_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline CreateLifecycleRetrieveJobRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // paths Field Functions 
     bool hasPaths() const { return this->paths_ != nullptr;};
     void deletePaths() { this->paths_ = nullptr;};
-    inline const vector<string> & paths() const { DARABONBA_PTR_GET_CONST(paths_, vector<string>) };
-    inline vector<string> paths() { DARABONBA_PTR_GET(paths_, vector<string>) };
+    inline const vector<string> & getPaths() const { DARABONBA_PTR_GET_CONST(paths_, vector<string>) };
+    inline vector<string> getPaths() { DARABONBA_PTR_GET(paths_, vector<string>) };
     inline CreateLifecycleRetrieveJobRequest& setPaths(const vector<string> & paths) { DARABONBA_PTR_SET_VALUE(paths_, paths) };
     inline CreateLifecycleRetrieveJobRequest& setPaths(vector<string> && paths) { DARABONBA_PTR_SET_RVALUE(paths_, paths) };
 
@@ -55,7 +55,7 @@ namespace Models
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline CreateLifecycleRetrieveJobRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
@@ -63,16 +63,16 @@ namespace Models
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The directories or files that you want to retrieve. You can specify a maximum of 10 paths.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> paths_ = nullptr;
+    shared_ptr<vector<string>> paths_ {};
     // The storage class.
     // 
     // *   InfrequentAccess (default): the Infrequent Access (IA) storage class.
     // *   Archive: the Archive storage class.
-    std::shared_ptr<string> storageType_ = nullptr;
+    shared_ptr<string> storageType_ {};
   };
 
   } // namespace Models

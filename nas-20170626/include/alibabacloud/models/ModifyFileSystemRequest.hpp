@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_MODIFYFILESYSTEMREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_MODIFYFILESYSTEMREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ModifyFileSystemRequestOptions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,29 +33,66 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Options : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Options& obj) { 
+        DARABONBA_PTR_TO_JSON(EnableOplock, enableOplock_);
+      };
+      friend void from_json(const Darabonba::Json& j, Options& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnableOplock, enableOplock_);
+      };
+      Options() = default ;
+      Options(const Options &) = default ;
+      Options(Options &&) = default ;
+      Options(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Options() = default ;
+      Options& operator=(const Options &) = default ;
+      Options& operator=(Options &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->enableOplock_ == nullptr; };
+      // enableOplock Field Functions 
+      bool hasEnableOplock() const { return this->enableOplock_ != nullptr;};
+      void deleteEnableOplock() { this->enableOplock_ = nullptr;};
+      inline bool getEnableOplock() const { DARABONBA_PTR_GET_DEFAULT(enableOplock_, false) };
+      inline Options& setEnableOplock(bool enableOplock) { DARABONBA_PTR_SET_VALUE(enableOplock_, enableOplock) };
+
+
+    protected:
+      // Specifies whether to enable the oplock feature. Valid values:
+      // 
+      // *   true: enables the feature.
+      // *   false: disables the feature.
+      // 
+      // >  Only Server Message Block (SMB) file systems support this feature.
+      shared_ptr<bool> enableOplock_ {};
+    };
+
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->fileSystemId_ == nullptr && return this->options_ == nullptr; };
+        && this->fileSystemId_ == nullptr && this->options_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyFileSystemRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline ModifyFileSystemRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline const ModifyFileSystemRequestOptions & options() const { DARABONBA_PTR_GET_CONST(options_, ModifyFileSystemRequestOptions) };
-    inline ModifyFileSystemRequestOptions options() { DARABONBA_PTR_GET(options_, ModifyFileSystemRequestOptions) };
-    inline ModifyFileSystemRequest& setOptions(const ModifyFileSystemRequestOptions & options) { DARABONBA_PTR_SET_VALUE(options_, options) };
-    inline ModifyFileSystemRequest& setOptions(ModifyFileSystemRequestOptions && options) { DARABONBA_PTR_SET_RVALUE(options_, options) };
+    inline const ModifyFileSystemRequest::Options & getOptions() const { DARABONBA_PTR_GET_CONST(options_, ModifyFileSystemRequest::Options) };
+    inline ModifyFileSystemRequest::Options getOptions() { DARABONBA_PTR_GET(options_, ModifyFileSystemRequest::Options) };
+    inline ModifyFileSystemRequest& setOptions(const ModifyFileSystemRequest::Options & options) { DARABONBA_PTR_SET_VALUE(options_, options) };
+    inline ModifyFileSystemRequest& setOptions(ModifyFileSystemRequest::Options && options) { DARABONBA_PTR_SET_RVALUE(options_, options) };
 
 
   protected:
@@ -67,7 +103,7 @@ namespace Models
     // *   The description must be 2 to 128 characters in length.
     // *   It must start with a letter but cannot start with `http://` or `https://`.
     // *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the file system.
     // 
     // *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
@@ -75,9 +111,9 @@ namespace Models
     // *   The IDs of Cloud Paralleled File System (CPFS) file systems must start with `cpfs-`. Example: `cpfs-125487****`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The options.
-    std::shared_ptr<ModifyFileSystemRequestOptions> options_ = nullptr;
+    shared_ptr<ModifyFileSystemRequest::Options> options_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBELIFECYCLEPOLICIESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeLifecyclePoliciesResponseBodyLifecyclePolicies.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,56 +38,169 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class LifecyclePolicies : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const LifecyclePolicies& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
+        DARABONBA_PTR_TO_JSON(LifecyclePolicyName, lifecyclePolicyName_);
+        DARABONBA_PTR_TO_JSON(LifecycleRuleName, lifecycleRuleName_);
+        DARABONBA_PTR_TO_JSON(Path, path_);
+        DARABONBA_PTR_TO_JSON(Paths, paths_);
+        DARABONBA_PTR_TO_JSON(StorageType, storageType_);
+      };
+      friend void from_json(const Darabonba::Json& j, LifecyclePolicies& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
+        DARABONBA_PTR_FROM_JSON(LifecyclePolicyName, lifecyclePolicyName_);
+        DARABONBA_PTR_FROM_JSON(LifecycleRuleName, lifecycleRuleName_);
+        DARABONBA_PTR_FROM_JSON(Path, path_);
+        DARABONBA_PTR_FROM_JSON(Paths, paths_);
+        DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
+      };
+      LifecyclePolicies() = default ;
+      LifecyclePolicies(const LifecyclePolicies &) = default ;
+      LifecyclePolicies(LifecyclePolicies &&) = default ;
+      LifecyclePolicies(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~LifecyclePolicies() = default ;
+      LifecyclePolicies& operator=(const LifecyclePolicies &) = default ;
+      LifecyclePolicies& operator=(LifecyclePolicies &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->fileSystemId_ == nullptr && this->lifecyclePolicyName_ == nullptr && this->lifecycleRuleName_ == nullptr && this->path_ == nullptr && this->paths_ == nullptr
+        && this->storageType_ == nullptr; };
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline LifecyclePolicies& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // fileSystemId Field Functions 
+      bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
+      void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
+      inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+      inline LifecyclePolicies& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
+
+
+      // lifecyclePolicyName Field Functions 
+      bool hasLifecyclePolicyName() const { return this->lifecyclePolicyName_ != nullptr;};
+      void deleteLifecyclePolicyName() { this->lifecyclePolicyName_ = nullptr;};
+      inline string getLifecyclePolicyName() const { DARABONBA_PTR_GET_DEFAULT(lifecyclePolicyName_, "") };
+      inline LifecyclePolicies& setLifecyclePolicyName(string lifecyclePolicyName) { DARABONBA_PTR_SET_VALUE(lifecyclePolicyName_, lifecyclePolicyName) };
+
+
+      // lifecycleRuleName Field Functions 
+      bool hasLifecycleRuleName() const { return this->lifecycleRuleName_ != nullptr;};
+      void deleteLifecycleRuleName() { this->lifecycleRuleName_ = nullptr;};
+      inline string getLifecycleRuleName() const { DARABONBA_PTR_GET_DEFAULT(lifecycleRuleName_, "") };
+      inline LifecyclePolicies& setLifecycleRuleName(string lifecycleRuleName) { DARABONBA_PTR_SET_VALUE(lifecycleRuleName_, lifecycleRuleName) };
+
+
+      // path Field Functions 
+      bool hasPath() const { return this->path_ != nullptr;};
+      void deletePath() { this->path_ = nullptr;};
+      inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+      inline LifecyclePolicies& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+      // paths Field Functions 
+      bool hasPaths() const { return this->paths_ != nullptr;};
+      void deletePaths() { this->paths_ = nullptr;};
+      inline const vector<string> & getPaths() const { DARABONBA_PTR_GET_CONST(paths_, vector<string>) };
+      inline vector<string> getPaths() { DARABONBA_PTR_GET(paths_, vector<string>) };
+      inline LifecyclePolicies& setPaths(const vector<string> & paths) { DARABONBA_PTR_SET_VALUE(paths_, paths) };
+      inline LifecyclePolicies& setPaths(vector<string> && paths) { DARABONBA_PTR_SET_RVALUE(paths_, paths) };
+
+
+      // storageType Field Functions 
+      bool hasStorageType() const { return this->storageType_ != nullptr;};
+      void deleteStorageType() { this->storageType_ = nullptr;};
+      inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+      inline LifecyclePolicies& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
+    protected:
+      // The time when the lifecycle policy was created.
+      // 
+      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+      shared_ptr<string> createTime_ {};
+      // The ID of the file system.
+      shared_ptr<string> fileSystemId_ {};
+      // The name of the lifecycle policy.
+      shared_ptr<string> lifecyclePolicyName_ {};
+      // The management rule that is associated with the lifecycle policy.
+      // 
+      // Valid values:
+      // 
+      // *   DEFAULT_ATIME_14: Files that are not accessed in the last 14 days are dumped to the IA storage medium.
+      // *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days are dumped to the IA storage medium.
+      // *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days are dumped to the IA storage medium.
+      // *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days are dumped to the IA storage medium.
+      shared_ptr<string> lifecycleRuleName_ {};
+      // The absolute path of a directory with which the lifecycle policy is associated.
+      shared_ptr<string> path_ {};
+      // The absolute paths to multiple directories associated with the lifecycle policy.
+      shared_ptr<vector<string>> paths_ {};
+      // The storage type of the data that is dumped to the IA storage medium.
+      // 
+      // Default value: InfrequentAccess (IA).
+      shared_ptr<string> storageType_ {};
+    };
+
     virtual bool empty() const override { return this->lifecyclePolicies_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // lifecyclePolicies Field Functions 
     bool hasLifecyclePolicies() const { return this->lifecyclePolicies_ != nullptr;};
     void deleteLifecyclePolicies() { this->lifecyclePolicies_ = nullptr;};
-    inline const vector<DescribeLifecyclePoliciesResponseBodyLifecyclePolicies> & lifecyclePolicies() const { DARABONBA_PTR_GET_CONST(lifecyclePolicies_, vector<DescribeLifecyclePoliciesResponseBodyLifecyclePolicies>) };
-    inline vector<DescribeLifecyclePoliciesResponseBodyLifecyclePolicies> lifecyclePolicies() { DARABONBA_PTR_GET(lifecyclePolicies_, vector<DescribeLifecyclePoliciesResponseBodyLifecyclePolicies>) };
-    inline DescribeLifecyclePoliciesResponseBody& setLifecyclePolicies(const vector<DescribeLifecyclePoliciesResponseBodyLifecyclePolicies> & lifecyclePolicies) { DARABONBA_PTR_SET_VALUE(lifecyclePolicies_, lifecyclePolicies) };
-    inline DescribeLifecyclePoliciesResponseBody& setLifecyclePolicies(vector<DescribeLifecyclePoliciesResponseBodyLifecyclePolicies> && lifecyclePolicies) { DARABONBA_PTR_SET_RVALUE(lifecyclePolicies_, lifecyclePolicies) };
+    inline const vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies> & getLifecyclePolicies() const { DARABONBA_PTR_GET_CONST(lifecyclePolicies_, vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies>) };
+    inline vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies> getLifecyclePolicies() { DARABONBA_PTR_GET(lifecyclePolicies_, vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies>) };
+    inline DescribeLifecyclePoliciesResponseBody& setLifecyclePolicies(const vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies> & lifecyclePolicies) { DARABONBA_PTR_SET_VALUE(lifecyclePolicies_, lifecyclePolicies) };
+    inline DescribeLifecyclePoliciesResponseBody& setLifecyclePolicies(vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies> && lifecyclePolicies) { DARABONBA_PTR_SET_RVALUE(lifecyclePolicies_, lifecyclePolicies) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeLifecyclePoliciesResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeLifecyclePoliciesResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeLifecyclePoliciesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline DescribeLifecyclePoliciesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The queried lifecycle policies.
-    std::shared_ptr<vector<DescribeLifecyclePoliciesResponseBodyLifecyclePolicies>> lifecyclePolicies_ = nullptr;
+    shared_ptr<vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies>> lifecyclePolicies_ {};
     // The page number.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of lifecycle policies.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

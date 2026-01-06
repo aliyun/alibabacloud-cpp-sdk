@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemType_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // fileSystemType Field Functions 
     bool hasFileSystemType() const { return this->fileSystemType_ != nullptr;};
     void deleteFileSystemType() { this->fileSystemType_ = nullptr;};
-    inline string fileSystemType() const { DARABONBA_PTR_GET_DEFAULT(fileSystemType_, "") };
+    inline string getFileSystemType() const { DARABONBA_PTR_GET_DEFAULT(fileSystemType_, "") };
     inline DescribeZonesRequest& setFileSystemType(string fileSystemType) { DARABONBA_PTR_SET_VALUE(fileSystemType_, fileSystemType) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeZonesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -55,13 +55,13 @@ namespace Models
     // *   standard: General-purpose Apsara File Storage NAS (NAS) file system
     // *   extreme: Extreme NAS file system.
     // *   cpfs: CPFS file system.
-    std::shared_ptr<string> fileSystemType_ = nullptr;
+    shared_ptr<string> fileSystemType_ {};
     // The ID of the region where you want to query zones.
     // 
     // You can call the DescribeRegions operation to query the latest region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->reservedDays_ == nullptr; };
+        && this->reservedDays_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline EnableRecycleBinRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // reservedDays Field Functions 
     bool hasReservedDays() const { return this->reservedDays_ != nullptr;};
     void deleteReservedDays() { this->reservedDays_ = nullptr;};
-    inline int64_t reservedDays() const { DARABONBA_PTR_GET_DEFAULT(reservedDays_, 0L) };
+    inline int64_t getReservedDays() const { DARABONBA_PTR_GET_DEFAULT(reservedDays_, 0L) };
     inline EnableRecycleBinRequest& setReservedDays(int64_t reservedDays) { DARABONBA_PTR_SET_VALUE(reservedDays_, reservedDays) };
 
 
@@ -51,13 +51,13 @@ namespace Models
     // The ID of the file system for which you want to enable the recycle bin feature.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The retention period of the files in the recycle bin. Unit: days.
     // 
     // Valid values: 1 to 180.
     // 
     // Default value: 3.
-    std::shared_ptr<int64_t> reservedDays_ = nullptr;
+    shared_ptr<int64_t> reservedDays_ {};
   };
 
   } // namespace Models

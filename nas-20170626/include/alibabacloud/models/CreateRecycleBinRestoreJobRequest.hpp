@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->fileId_ == nullptr && return this->fileSystemId_ == nullptr && return this->targetFileId_ == nullptr; };
+        && this->fileId_ == nullptr && this->fileSystemId_ == nullptr && this->targetFileId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateRecycleBinRestoreJobRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
-    inline string fileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
+    inline string getFileId() const { DARABONBA_PTR_GET_DEFAULT(fileId_, "") };
     inline CreateRecycleBinRestoreJobRequest& setFileId(string fileId) { DARABONBA_PTR_SET_VALUE(fileId_, fileId) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline CreateRecycleBinRestoreJobRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // targetFileId Field Functions 
     bool hasTargetFileId() const { return this->targetFileId_ != nullptr;};
     void deleteTargetFileId() { this->targetFileId_ = nullptr;};
-    inline string targetFileId() const { DARABONBA_PTR_GET_DEFAULT(targetFileId_, "") };
+    inline string getTargetFileId() const { DARABONBA_PTR_GET_DEFAULT(targetFileId_, "") };
     inline CreateRecycleBinRestoreJobRequest& setTargetFileId(string targetFileId) { DARABONBA_PTR_SET_VALUE(targetFileId_, targetFileId) };
 
 
@@ -71,24 +71,24 @@ namespace Models
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
     // > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The ID of the file or directory that you want to restore.
     // 
     // You can call the [ListRecycledDirectoriesAndFiles](https://help.aliyun.com/document_detail/2412174.html) operation to query the FileId of the deleted data.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileId_ = nullptr;
+    shared_ptr<string> fileId_ {};
     // The ID of the file system.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The ID of the directory to which the file is restored.
     // 
     // *   You can call the [ListRecentlyRecycledDirectories](https://help.aliyun.com/document_detail/2412173.html) operation to query the TargetFileId for recently deleted directories.
     // *   You can call the [ListDirectoriesAndFiles](https://help.aliyun.com/document_detail/2412163.html) operation to query the TargetFileId for existing directories.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetFileId_ = nullptr;
+    shared_ptr<string> targetFileId_ {};
   };
 
   } // namespace Models

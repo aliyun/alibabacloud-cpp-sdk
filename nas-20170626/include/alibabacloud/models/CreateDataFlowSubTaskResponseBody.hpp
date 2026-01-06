@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataFlowSubTaskId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // dataFlowSubTaskId Field Functions 
     bool hasDataFlowSubTaskId() const { return this->dataFlowSubTaskId_ != nullptr;};
     void deleteDataFlowSubTaskId() { this->dataFlowSubTaskId_ = nullptr;};
-    inline string dataFlowSubTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataFlowSubTaskId_, "") };
+    inline string getDataFlowSubTaskId() const { DARABONBA_PTR_GET_DEFAULT(dataFlowSubTaskId_, "") };
     inline CreateDataFlowSubTaskResponseBody& setDataFlowSubTaskId(string dataFlowSubTaskId) { DARABONBA_PTR_SET_VALUE(dataFlowSubTaskId_, dataFlowSubTaskId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDataFlowSubTaskResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the data streaming task.
-    std::shared_ptr<string> dataFlowSubTaskId_ = nullptr;
+    shared_ptr<string> dataFlowSubTaskId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

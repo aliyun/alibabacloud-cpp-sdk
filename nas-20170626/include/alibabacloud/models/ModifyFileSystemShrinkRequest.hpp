@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->fileSystemId_ == nullptr && return this->optionsShrink_ == nullptr; };
+        && this->fileSystemId_ == nullptr && this->optionsShrink_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyFileSystemShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline ModifyFileSystemShrinkRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // optionsShrink Field Functions 
     bool hasOptionsShrink() const { return this->optionsShrink_ != nullptr;};
     void deleteOptionsShrink() { this->optionsShrink_ = nullptr;};
-    inline string optionsShrink() const { DARABONBA_PTR_GET_DEFAULT(optionsShrink_, "") };
+    inline string getOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(optionsShrink_, "") };
     inline ModifyFileSystemShrinkRequest& setOptionsShrink(string optionsShrink) { DARABONBA_PTR_SET_VALUE(optionsShrink_, optionsShrink) };
 
 
@@ -64,7 +64,7 @@ namespace Models
     // *   The description must be 2 to 128 characters in length.
     // *   It must start with a letter but cannot start with `http://` or `https://`.
     // *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the file system.
     // 
     // *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
@@ -72,9 +72,9 @@ namespace Models
     // *   The IDs of Cloud Paralleled File System (CPFS) file systems must start with `cpfs-`. Example: `cpfs-125487****`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // The options.
-    std::shared_ptr<string> optionsShrink_ = nullptr;
+    shared_ptr<string> optionsShrink_ {};
   };
 
   } // namespace Models
