@@ -46,6 +46,14 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 ChatBIConfigCreateResponse Client::chatBIConfigCreateWithOptions(const ChatBIConfigCreateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -92,6 +100,14 @@ ChatBIConfigCreateResponse Client::chatBIConfigCreate(const ChatBIConfigCreateRe
 ChatBIConfigDeleteResponse Client::chatBIConfigDeleteWithOptions(const ChatBIConfigDeleteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -138,6 +154,14 @@ ChatBIConfigDeleteResponse Client::chatBIConfigDelete(const ChatBIConfigDeleteRe
 ChatBIConfigDeleteEntryResponse Client::chatBIConfigDeleteEntryWithOptions(const ChatBIConfigDeleteEntryRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -188,6 +212,14 @@ ChatBIConfigDeleteEntryResponse Client::chatBIConfigDeleteEntry(const ChatBIConf
 ChatBIConfigQueryEntriesResponse Client::chatBIConfigQueryEntriesWithOptions(const ChatBIConfigQueryEntriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -246,6 +278,14 @@ ChatBIConfigQueryEntriesResponse Client::chatBIConfigQueryEntries(const ChatBICo
 ChatBIConfigQueryTablesResponse Client::chatBIConfigQueryTablesWithOptions(const ChatBIConfigQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -296,6 +336,14 @@ ChatBIConfigQueryTablesResponse Client::chatBIConfigQueryTables(const ChatBIConf
 ChatBIConfigUpdateEntryResponse Client::chatBIConfigUpdateEntryWithOptions(const ChatBIConfigUpdateEntryRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -370,6 +418,14 @@ ChatBIConfigUpdateEntryResponse Client::chatBIConfigUpdateEntry(const ChatBIConf
 ChatBIFileTemplateDownloadResponse Client::chatBIFileTemplateDownloadWithOptions(const ChatBIFileTemplateDownloadRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
   }
@@ -416,6 +472,14 @@ ChatBIFileTemplateDownloadResponse Client::chatBIFileTemplateDownload(const Chat
 ChatBIFileUploadResponse Client::chatBIFileUploadWithOptions(const ChatBIFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasFileName()) {
     query["FileName"] = request.getFileName();
   }
@@ -462,6 +526,14 @@ ChatBIFileUploadResponse Client::chatBIFileUpload(const ChatBIFileUploadRequest 
 ChatBIFileUploadCallbackResponse Client::chatBIFileUploadCallbackWithOptions(const ChatBIFileUploadCallbackRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasCharacterSetName()) {
     query["CharacterSetName"] = request.getCharacterSetName();
   }
@@ -524,6 +596,14 @@ ChatBIFileUploadCallbackResponse Client::chatBIFileUploadCallback(const ChatBIFi
 ChatBIPatternCreateResponse Client::chatBIPatternCreateWithOptions(const ChatBIPatternCreateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -574,6 +654,14 @@ ChatBIPatternCreateResponse Client::chatBIPatternCreate(const ChatBIPatternCreat
 ChatBIPatternDeleteResponse Client::chatBIPatternDeleteWithOptions(const ChatBIPatternDeleteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -624,6 +712,14 @@ ChatBIPatternDeleteResponse Client::chatBIPatternDelete(const ChatBIPatternDelet
 ChatBIPatternDeleteEntryResponse Client::chatBIPatternDeleteEntryWithOptions(const ChatBIPatternDeleteEntryRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -678,6 +774,14 @@ ChatBIPatternDeleteEntryResponse Client::chatBIPatternDeleteEntry(const ChatBIPa
 ChatBIPatternIndexCreateResponse Client::chatBIPatternIndexCreateWithOptions(const ChatBIPatternIndexCreateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -732,6 +836,14 @@ ChatBIPatternIndexCreateResponse Client::chatBIPatternIndexCreate(const ChatBIPa
 ChatBIPatternIndexDeleteResponse Client::chatBIPatternIndexDeleteWithOptions(const ChatBIPatternIndexDeleteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -782,6 +894,14 @@ ChatBIPatternIndexDeleteResponse Client::chatBIPatternIndexDelete(const ChatBIPa
 ChatBIPatternIndexQueryTablesResponse Client::chatBIPatternIndexQueryTablesWithOptions(const ChatBIPatternIndexQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -840,6 +960,14 @@ ChatBIPatternIndexQueryTablesResponse Client::chatBIPatternIndexQueryTables(cons
 ChatBIPatternQueryEntriesResponse Client::chatBIPatternQueryEntriesWithOptions(const ChatBIPatternQueryEntriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -902,6 +1030,14 @@ ChatBIPatternQueryEntriesResponse Client::chatBIPatternQueryEntries(const ChatBI
 ChatBIPatternQueryTablesResponse Client::chatBIPatternQueryTablesWithOptions(const ChatBIPatternQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -960,6 +1096,14 @@ ChatBIPatternQueryTablesResponse Client::chatBIPatternQueryTables(const ChatBIPa
 ChatBIPatternUpdateEntryResponse Client::chatBIPatternUpdateEntryWithOptions(const ChatBIPatternUpdateEntryRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -1036,6 +1180,14 @@ FutureGenerator<ChatBIPredictSseResponse> Client::chatBIPredictSseWithSSE(const 
   }
 
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -1070,6 +1222,10 @@ FutureGenerator<ChatBIPredictSseResponse> Client::chatBIPredictSseWithSSE(const 
 
   if (!!request.hasSelectData()) {
     query["SelectData"] = request.getSelectData();
+  }
+
+  if (!!request.hasThinkingMode()) {
+    query["ThinkingMode"] = request.getThinkingMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1117,6 +1273,14 @@ ChatBIPredictSseResponse Client::chatBIPredictSseWithOptions(const ChatBIPredict
   }
 
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -1151,6 +1315,10 @@ ChatBIPredictSseResponse Client::chatBIPredictSseWithOptions(const ChatBIPredict
 
   if (!!request.hasSelectData()) {
     query["SelectData"] = request.getSelectData();
+  }
+
+  if (!!request.hasThinkingMode()) {
+    query["ThinkingMode"] = request.getThinkingMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1191,6 +1359,14 @@ ChatBIPredictSseResponse Client::chatBIPredictSse(const ChatBIPredictSseRequest 
 ChatBISchemaIndexCreateResponse Client::chatBISchemaIndexCreateWithOptions(const ChatBISchemaIndexCreateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasColumnsExcluded()) {
     query["ColumnsExcluded"] = request.getColumnsExcluded();
   }
@@ -1253,6 +1429,14 @@ ChatBISchemaIndexCreateResponse Client::chatBISchemaIndexCreate(const ChatBISche
 ChatBISchemaIndexDeleteResponse Client::chatBISchemaIndexDeleteWithOptions(const ChatBISchemaIndexDeleteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -1303,6 +1487,14 @@ ChatBISchemaIndexDeleteResponse Client::chatBISchemaIndexDelete(const ChatBISche
 ChatBISchemaIndexQueryTablesResponse Client::chatBISchemaIndexQueryTablesWithOptions(const ChatBISchemaIndexQueryTablesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -1361,6 +1553,14 @@ ChatBISchemaIndexQueryTablesResponse Client::chatBISchemaIndexQueryTables(const 
 ChatBIUpdateTableValidationColumnsResponse Client::chatBIUpdateTableValidationColumnsWithOptions(const ChatBIUpdateTableValidationColumnsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
   if (!!request.hasDbName()) {
     query["DbName"] = request.getDbName();
   }
@@ -1712,6 +1912,56 @@ DownloadMultimodalSearchTaskResultMetadataResponse Client::downloadMultimodalSea
 }
 
 /**
+ * @summary 获得鉴权token
+ *
+ * @param request GetUserTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserTokenResponse
+ */
+GetUserTokenResponse Client::getUserTokenWithOptions(const GetUserTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUserToken"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserTokenResponse>();
+}
+
+/**
+ * @summary 获得鉴权token
+ *
+ * @param request GetUserTokenRequest
+ * @return GetUserTokenResponse
+ */
+GetUserTokenResponse Client::getUserToken(const GetUserTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserTokenWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询多模态数据集列表
  *
  * @param request ListMultimodalDatasetRequest
@@ -1866,6 +2116,60 @@ ListMultimodalSearchTaskResponse Client::listMultimodalSearchTask(const ListMult
 }
 
 /**
+ * @summary 查询search task结果列表
+ *
+ * @param request ListMultimodalSearchTaskResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMultimodalSearchTaskResultResponse
+ */
+ListMultimodalSearchTaskResultResponse Client::listMultimodalSearchTaskResultWithOptions(const ListMultimodalSearchTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMultimodalSearchTaskResult"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMultimodalSearchTaskResultResponse>();
+}
+
+/**
+ * @summary 查询search task结果列表
+ *
+ * @param request ListMultimodalSearchTaskResultRequest
+ * @return ListMultimodalSearchTaskResultResponse
+ */
+ListMultimodalSearchTaskResultResponse Client::listMultimodalSearchTaskResult(const ListMultimodalSearchTaskResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMultimodalSearchTaskResultWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新数据集信息
  *
  * @param request UpdateMultimodalDatasetRequest
@@ -1967,6 +2271,110 @@ UploadOSSMultimodalDatasetResponse Client::uploadOSSMultimodalDatasetWithOptions
 UploadOSSMultimodalDatasetResponse Client::uploadOSSMultimodalDataset(const UploadOSSMultimodalDatasetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uploadOSSMultimodalDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 预检验鉴权token
+ *
+ * @param request ValidateDatabaseUserTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidateDatabaseUserTokenResponse
+ */
+ValidateDatabaseUserTokenResponse Client::validateDatabaseUserTokenWithOptions(const ValidateDatabaseUserTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.getDBName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ValidateDatabaseUserToken"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ValidateDatabaseUserTokenResponse>();
+}
+
+/**
+ * @summary 预检验鉴权token
+ *
+ * @param request ValidateDatabaseUserTokenRequest
+ * @return ValidateDatabaseUserTokenResponse
+ */
+ValidateDatabaseUserTokenResponse Client::validateDatabaseUserToken(const ValidateDatabaseUserTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return validateDatabaseUserTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary 预检验鉴权token
+ *
+ * @param request ValidateUserTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidateUserTokenResponse
+ */
+ValidateUserTokenResponse Client::validateUserTokenWithOptions(const ValidateUserTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthMessage()) {
+    query["AuthMessage"] = request.getAuthMessage();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ValidateUserToken"},
+    {"version" , "2025-10-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ValidateUserTokenResponse>();
+}
+
+/**
+ * @summary 预检验鉴权token
+ *
+ * @param request ValidateUserTokenRequest
+ * @return ValidateUserTokenResponse
+ */
+ValidateUserTokenResponse Client::validateUserToken(const ValidateUserTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return validateUserTokenWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace PolardbAI20251013

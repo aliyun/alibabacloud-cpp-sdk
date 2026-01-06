@@ -91,6 +91,9 @@
 #include <alibabacloud/models/DownloadMultimodalSearchTaskResultMetadataRequest.hpp>
 #include <alibabacloud/models/DownloadMultimodalSearchTaskResultMetadataResponseBody.hpp>
 #include <alibabacloud/models/DownloadMultimodalSearchTaskResultMetadataResponse.hpp>
+#include <alibabacloud/models/GetUserTokenRequest.hpp>
+#include <alibabacloud/models/GetUserTokenResponseBody.hpp>
+#include <alibabacloud/models/GetUserTokenResponse.hpp>
 #include <alibabacloud/models/ListMultimodalDatasetRequest.hpp>
 #include <alibabacloud/models/ListMultimodalDatasetResponseBody.hpp>
 #include <alibabacloud/models/ListMultimodalDatasetResponse.hpp>
@@ -100,11 +103,20 @@
 #include <alibabacloud/models/ListMultimodalSearchTaskRequest.hpp>
 #include <alibabacloud/models/ListMultimodalSearchTaskResponseBody.hpp>
 #include <alibabacloud/models/ListMultimodalSearchTaskResponse.hpp>
+#include <alibabacloud/models/ListMultimodalSearchTaskResultRequest.hpp>
+#include <alibabacloud/models/ListMultimodalSearchTaskResultResponseBody.hpp>
+#include <alibabacloud/models/ListMultimodalSearchTaskResultResponse.hpp>
 #include <alibabacloud/models/UpdateMultimodalDatasetRequest.hpp>
 #include <alibabacloud/models/UpdateMultimodalDatasetResponseBody.hpp>
 #include <alibabacloud/models/UpdateMultimodalDatasetResponse.hpp>
 #include <alibabacloud/models/UploadOssMultimodalDatasetRequest.hpp>
 #include <alibabacloud/models/UploadOssMultimodalDatasetResponseBody.hpp>
 #include <alibabacloud/models/UploadOssMultimodalDatasetResponse.hpp>
+#include <alibabacloud/models/ValidateDatabaseUserTokenRequest.hpp>
+#include <alibabacloud/models/ValidateDatabaseUserTokenResponseBody.hpp>
+#include <alibabacloud/models/ValidateDatabaseUserTokenResponse.hpp>
+#include <alibabacloud/models/ValidateUserTokenRequest.hpp>
+#include <alibabacloud/models/ValidateUserTokenResponseBody.hpp>
+#include <alibabacloud/models/ValidateUserTokenResponse.hpp>
 
 #endif

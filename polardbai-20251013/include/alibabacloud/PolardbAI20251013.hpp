@@ -523,6 +523,23 @@ namespace PolardbAI20251013
       Models::DownloadMultimodalSearchTaskResultMetadataResponse downloadMultimodalSearchTaskResultMetadata(const Models::DownloadMultimodalSearchTaskResultMetadataRequest &request);
 
       /**
+       * @summary 获得鉴权token
+       *
+       * @param request GetUserTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserTokenResponse
+       */
+      Models::GetUserTokenResponse getUserTokenWithOptions(const Models::GetUserTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获得鉴权token
+       *
+       * @param request GetUserTokenRequest
+       * @return GetUserTokenResponse
+       */
+      Models::GetUserTokenResponse getUserToken(const Models::GetUserTokenRequest &request);
+
+      /**
        * @summary 查询多模态数据集列表
        *
        * @param request ListMultimodalDatasetRequest
@@ -574,6 +591,23 @@ namespace PolardbAI20251013
       Models::ListMultimodalSearchTaskResponse listMultimodalSearchTask(const Models::ListMultimodalSearchTaskRequest &request);
 
       /**
+       * @summary 查询search task结果列表
+       *
+       * @param request ListMultimodalSearchTaskResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultimodalSearchTaskResultResponse
+       */
+      Models::ListMultimodalSearchTaskResultResponse listMultimodalSearchTaskResultWithOptions(const Models::ListMultimodalSearchTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询search task结果列表
+       *
+       * @param request ListMultimodalSearchTaskResultRequest
+       * @return ListMultimodalSearchTaskResultResponse
+       */
+      Models::ListMultimodalSearchTaskResultResponse listMultimodalSearchTaskResult(const Models::ListMultimodalSearchTaskResultRequest &request);
+
+      /**
        * @summary 更新数据集信息
        *
        * @param request UpdateMultimodalDatasetRequest
@@ -606,6 +640,40 @@ namespace PolardbAI20251013
        * @return UploadOSSMultimodalDatasetResponse
        */
       Models::UploadOSSMultimodalDatasetResponse uploadOSSMultimodalDataset(const Models::UploadOSSMultimodalDatasetRequest &request);
+
+      /**
+       * @summary 预检验鉴权token
+       *
+       * @param request ValidateDatabaseUserTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateDatabaseUserTokenResponse
+       */
+      Models::ValidateDatabaseUserTokenResponse validateDatabaseUserTokenWithOptions(const Models::ValidateDatabaseUserTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预检验鉴权token
+       *
+       * @param request ValidateDatabaseUserTokenRequest
+       * @return ValidateDatabaseUserTokenResponse
+       */
+      Models::ValidateDatabaseUserTokenResponse validateDatabaseUserToken(const Models::ValidateDatabaseUserTokenRequest &request);
+
+      /**
+       * @summary 预检验鉴权token
+       *
+       * @param request ValidateUserTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateUserTokenResponse
+       */
+      Models::ValidateUserTokenResponse validateUserTokenWithOptions(const Models::ValidateUserTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预检验鉴权token
+       *
+       * @param request ValidateUserTokenRequest
+       * @return ValidateUserTokenResponse
+       */
+      Models::ValidateUserTokenResponse validateUserToken(const Models::ValidateUserTokenRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace PolardbAI20251013

@@ -13,6 +13,8 @@ namespace Models
   class ChatBIConfigQueryEntriesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ChatBIConfigQueryEntriesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthMessage, authMessage_);
+      DARABONBA_PTR_TO_JSON(AuthType, authType_);
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -20,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ChatBIConfigQueryEntriesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthMessage, authMessage_);
+      DARABONBA_PTR_FROM_JSON(AuthType, authType_);
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -37,8 +41,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dbName_ == nullptr
-        && this->id_ == nullptr && this->instanceName_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->authMessage_ == nullptr
+        && this->authType_ == nullptr && this->dbName_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr; };
+    // authMessage Field Functions 
+    bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
+    void deleteAuthMessage() { this->authMessage_ = nullptr;};
+    inline string getAuthMessage() const { DARABONBA_PTR_GET_DEFAULT(authMessage_, "") };
+    inline ChatBIConfigQueryEntriesRequest& setAuthMessage(string authMessage) { DARABONBA_PTR_SET_VALUE(authMessage_, authMessage) };
+
+
+    // authType Field Functions 
+    bool hasAuthType() const { return this->authType_ != nullptr;};
+    void deleteAuthType() { this->authType_ = nullptr;};
+    inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+    inline ChatBIConfigQueryEntriesRequest& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
+
+
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
@@ -75,6 +94,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> authMessage_ {};
+    shared_ptr<string> authType_ {};
     // This parameter is required.
     shared_ptr<string> dbName_ {};
     shared_ptr<int32_t> id_ {};

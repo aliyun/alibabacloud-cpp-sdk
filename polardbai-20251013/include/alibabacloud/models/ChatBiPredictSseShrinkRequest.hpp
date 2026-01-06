@@ -13,6 +13,8 @@ namespace Models
   class ChatBIPredictSseShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ChatBIPredictSseShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthMessage, authMessage_);
+      DARABONBA_PTR_TO_JSON(AuthType, authType_);
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
       DARABONBA_PTR_TO_JSON(GenerateChart, generateChart_);
       DARABONBA_PTR_TO_JSON(GenerateSummary, generateSummary_);
@@ -22,8 +24,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Question, question_);
       DARABONBA_PTR_TO_JSON(SchemaIndexTableName, schemaIndexTableName_);
       DARABONBA_PTR_TO_JSON(SelectData, selectData_);
+      DARABONBA_PTR_TO_JSON(ThinkingMode, thinkingMode_);
     };
     friend void from_json(const Darabonba::Json& j, ChatBIPredictSseShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthMessage, authMessage_);
+      DARABONBA_PTR_FROM_JSON(AuthType, authType_);
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
       DARABONBA_PTR_FROM_JSON(GenerateChart, generateChart_);
       DARABONBA_PTR_FROM_JSON(GenerateSummary, generateSummary_);
@@ -33,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Question, question_);
       DARABONBA_PTR_FROM_JSON(SchemaIndexTableName, schemaIndexTableName_);
       DARABONBA_PTR_FROM_JSON(SelectData, selectData_);
+      DARABONBA_PTR_FROM_JSON(ThinkingMode, thinkingMode_);
     };
     ChatBIPredictSseShrinkRequest() = default ;
     ChatBIPredictSseShrinkRequest(const ChatBIPredictSseShrinkRequest &) = default ;
@@ -45,9 +51,24 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dbName_ == nullptr
-        && this->generateChart_ == nullptr && this->generateSummary_ == nullptr && this->instanceName_ == nullptr && this->parametersShrink_ == nullptr && this->patternIndexTableName_ == nullptr
-        && this->question_ == nullptr && this->schemaIndexTableName_ == nullptr && this->selectData_ == nullptr; };
+    virtual bool empty() const override { return this->authMessage_ == nullptr
+        && this->authType_ == nullptr && this->dbName_ == nullptr && this->generateChart_ == nullptr && this->generateSummary_ == nullptr && this->instanceName_ == nullptr
+        && this->parametersShrink_ == nullptr && this->patternIndexTableName_ == nullptr && this->question_ == nullptr && this->schemaIndexTableName_ == nullptr && this->selectData_ == nullptr
+        && this->thinkingMode_ == nullptr; };
+    // authMessage Field Functions 
+    bool hasAuthMessage() const { return this->authMessage_ != nullptr;};
+    void deleteAuthMessage() { this->authMessage_ = nullptr;};
+    inline string getAuthMessage() const { DARABONBA_PTR_GET_DEFAULT(authMessage_, "") };
+    inline ChatBIPredictSseShrinkRequest& setAuthMessage(string authMessage) { DARABONBA_PTR_SET_VALUE(authMessage_, authMessage) };
+
+
+    // authType Field Functions 
+    bool hasAuthType() const { return this->authType_ != nullptr;};
+    void deleteAuthType() { this->authType_ = nullptr;};
+    inline string getAuthType() const { DARABONBA_PTR_GET_DEFAULT(authType_, "") };
+    inline ChatBIPredictSseShrinkRequest& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
+
+
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
@@ -111,7 +132,16 @@ namespace Models
     inline ChatBIPredictSseShrinkRequest& setSelectData(bool selectData) { DARABONBA_PTR_SET_VALUE(selectData_, selectData) };
 
 
+    // thinkingMode Field Functions 
+    bool hasThinkingMode() const { return this->thinkingMode_ != nullptr;};
+    void deleteThinkingMode() { this->thinkingMode_ = nullptr;};
+    inline bool getThinkingMode() const { DARABONBA_PTR_GET_DEFAULT(thinkingMode_, false) };
+    inline ChatBIPredictSseShrinkRequest& setThinkingMode(bool thinkingMode) { DARABONBA_PTR_SET_VALUE(thinkingMode_, thinkingMode) };
+
+
   protected:
+    shared_ptr<string> authMessage_ {};
+    shared_ptr<string> authType_ {};
     // This parameter is required.
     shared_ptr<string> dbName_ {};
     shared_ptr<bool> generateChart_ {};
@@ -124,6 +154,7 @@ namespace Models
     shared_ptr<string> question_ {};
     shared_ptr<string> schemaIndexTableName_ {};
     shared_ptr<bool> selectData_ {};
+    shared_ptr<bool> thinkingMode_ {};
   };
 
   } // namespace Models
