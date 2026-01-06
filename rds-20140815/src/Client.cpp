@@ -25352,6 +25352,10 @@ ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterG
 ModifyRCDiskChargeTypeResponse Client::modifyRCDiskChargeTypeWithOptions(const ModifyRCDiskChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
   if (!!request.hasAutoRenew()) {
     query["AutoRenew"] = request.getAutoRenew();
   }
@@ -29954,6 +29958,10 @@ StopRCInstanceResponse Client::stopRCInstanceWithOptions(const StopRCInstanceReq
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasStoppedMode()) {
+    query["StoppedMode"] = request.getStoppedMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -30019,6 +30027,10 @@ StopRCInstancesResponse Client::stopRCInstancesWithOptions(const StopRCInstances
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStoppedMode()) {
+    query["StoppedMode"] = request.getStoppedMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
