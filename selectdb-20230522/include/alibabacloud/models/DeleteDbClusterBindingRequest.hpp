@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->DBClusterIdBak_ == nullptr && return this->DBInstanceId_ == nullptr && return this->regionId_ == nullptr; };
+        && this->DBClusterIdBak_ == nullptr && this->DBInstanceId_ == nullptr && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DeleteDBClusterBindingRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // DBClusterIdBak Field Functions 
     bool hasDBClusterIdBak() const { return this->DBClusterIdBak_ != nullptr;};
     void deleteDBClusterIdBak() { this->DBClusterIdBak_ = nullptr;};
-    inline string DBClusterIdBak() const { DARABONBA_PTR_GET_DEFAULT(DBClusterIdBak_, "") };
+    inline string getDBClusterIdBak() const { DARABONBA_PTR_GET_DEFAULT(DBClusterIdBak_, "") };
     inline DeleteDBClusterBindingRequest& setDBClusterIdBak(string DBClusterIdBak) { DARABONBA_PTR_SET_VALUE(DBClusterIdBak_, DBClusterIdBak) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DeleteDBClusterBindingRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteDBClusterBindingRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The ID of Cluster 1.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The ID of Cluster 2.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterIdBak_ = nullptr;
+    shared_ptr<string> DBClusterIdBak_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

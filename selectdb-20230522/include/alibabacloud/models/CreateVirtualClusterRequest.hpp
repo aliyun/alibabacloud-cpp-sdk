@@ -38,53 +38,53 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeClusterId_ == nullptr
-        && return this->clusterName_ == nullptr && return this->DBInstanceId_ == nullptr && return this->regionId_ == nullptr && return this->standbyClusterId_ == nullptr; };
+        && this->clusterName_ == nullptr && this->DBInstanceId_ == nullptr && this->regionId_ == nullptr && this->standbyClusterId_ == nullptr; };
     // activeClusterId Field Functions 
     bool hasActiveClusterId() const { return this->activeClusterId_ != nullptr;};
     void deleteActiveClusterId() { this->activeClusterId_ = nullptr;};
-    inline string activeClusterId() const { DARABONBA_PTR_GET_DEFAULT(activeClusterId_, "") };
+    inline string getActiveClusterId() const { DARABONBA_PTR_GET_DEFAULT(activeClusterId_, "") };
     inline CreateVirtualClusterRequest& setActiveClusterId(string activeClusterId) { DARABONBA_PTR_SET_VALUE(activeClusterId_, activeClusterId) };
 
 
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
-    inline string clusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
+    inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline CreateVirtualClusterRequest& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
 
 
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline CreateVirtualClusterRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateVirtualClusterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // standbyClusterId Field Functions 
     bool hasStandbyClusterId() const { return this->standbyClusterId_ != nullptr;};
     void deleteStandbyClusterId() { this->standbyClusterId_ = nullptr;};
-    inline string standbyClusterId() const { DARABONBA_PTR_GET_DEFAULT(standbyClusterId_, "") };
+    inline string getStandbyClusterId() const { DARABONBA_PTR_GET_DEFAULT(standbyClusterId_, "") };
     inline CreateVirtualClusterRequest& setStandbyClusterId(string standbyClusterId) { DARABONBA_PTR_SET_VALUE(standbyClusterId_, standbyClusterId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> activeClusterId_ = nullptr;
+    shared_ptr<string> activeClusterId_ {};
     // This parameter is required.
-    std::shared_ptr<string> clusterName_ = nullptr;
+    shared_ptr<string> clusterName_ {};
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> standbyClusterId_ = nullptr;
+    shared_ptr<string> standbyClusterId_ {};
   };
 
   } // namespace Models

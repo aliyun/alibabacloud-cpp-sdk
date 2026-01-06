@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterClass_ == nullptr
-        && return this->clusterId_ == nullptr && return this->dbInstanceId_ == nullptr && return this->elasticRuleStartTime_ == nullptr && return this->executionPeriod_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceOwnerId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->dbInstanceId_ == nullptr && this->elasticRuleStartTime_ == nullptr && this->executionPeriod_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerId_ == nullptr; };
     // clusterClass Field Functions 
     bool hasClusterClass() const { return this->clusterClass_ != nullptr;};
     void deleteClusterClass() { this->clusterClass_ = nullptr;};
-    inline string clusterClass() const { DARABONBA_PTR_GET_DEFAULT(clusterClass_, "") };
+    inline string getClusterClass() const { DARABONBA_PTR_GET_DEFAULT(clusterClass_, "") };
     inline CreateElasticRuleRequest& setClusterClass(string clusterClass) { DARABONBA_PTR_SET_VALUE(clusterClass_, clusterClass) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateElasticRuleRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // dbInstanceId Field Functions 
     bool hasDbInstanceId() const { return this->dbInstanceId_ != nullptr;};
     void deleteDbInstanceId() { this->dbInstanceId_ = nullptr;};
-    inline string dbInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceId_, "") };
+    inline string getDbInstanceId() const { DARABONBA_PTR_GET_DEFAULT(dbInstanceId_, "") };
     inline CreateElasticRuleRequest& setDbInstanceId(string dbInstanceId) { DARABONBA_PTR_SET_VALUE(dbInstanceId_, dbInstanceId) };
 
 
     // elasticRuleStartTime Field Functions 
     bool hasElasticRuleStartTime() const { return this->elasticRuleStartTime_ != nullptr;};
     void deleteElasticRuleStartTime() { this->elasticRuleStartTime_ = nullptr;};
-    inline string elasticRuleStartTime() const { DARABONBA_PTR_GET_DEFAULT(elasticRuleStartTime_, "") };
+    inline string getElasticRuleStartTime() const { DARABONBA_PTR_GET_DEFAULT(elasticRuleStartTime_, "") };
     inline CreateElasticRuleRequest& setElasticRuleStartTime(string elasticRuleStartTime) { DARABONBA_PTR_SET_VALUE(elasticRuleStartTime_, elasticRuleStartTime) };
 
 
     // executionPeriod Field Functions 
     bool hasExecutionPeriod() const { return this->executionPeriod_ != nullptr;};
     void deleteExecutionPeriod() { this->executionPeriod_ = nullptr;};
-    inline string executionPeriod() const { DARABONBA_PTR_GET_DEFAULT(executionPeriod_, "") };
+    inline string getExecutionPeriod() const { DARABONBA_PTR_GET_DEFAULT(executionPeriod_, "") };
     inline CreateElasticRuleRequest& setExecutionPeriod(string executionPeriod) { DARABONBA_PTR_SET_VALUE(executionPeriod_, executionPeriod) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateElasticRuleRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateElasticRuleRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
@@ -97,19 +97,19 @@ namespace Models
     // The rule for computing resources of the required cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterClass_ = nullptr;
+    shared_ptr<string> clusterClass_ {};
     // The cluster ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dbInstanceId_ = nullptr;
+    shared_ptr<string> dbInstanceId_ {};
     // The time when you want to execute the scheduled scaling rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> elasticRuleStartTime_ = nullptr;
+    shared_ptr<string> elasticRuleStartTime_ {};
     // The execution cycle.
     // 
     // Valid value:
@@ -117,12 +117,12 @@ namespace Models
     // *   Day
     // 
     // This parameter is required.
-    std::shared_ptr<string> executionPeriod_ = nullptr;
+    shared_ptr<string> executionPeriod_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
   };
 
   } // namespace Models

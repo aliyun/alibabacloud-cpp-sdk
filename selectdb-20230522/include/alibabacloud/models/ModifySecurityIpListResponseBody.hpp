@@ -44,81 +44,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && return this->groupName_ == nullptr && return this->groupTag_ == nullptr && return this->requestId_ == nullptr && return this->securityIPList_ == nullptr && return this->securityIPType_ == nullptr
-        && return this->taskId_ == nullptr && return this->whitelistNetType_ == nullptr; };
+        && this->groupName_ == nullptr && this->groupTag_ == nullptr && this->requestId_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr
+        && this->taskId_ == nullptr && this->whitelistNetType_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
-    inline string DBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline ModifySecurityIPListResponseBody& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline ModifySecurityIPListResponseBody& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // groupTag Field Functions 
     bool hasGroupTag() const { return this->groupTag_ != nullptr;};
     void deleteGroupTag() { this->groupTag_ = nullptr;};
-    inline string groupTag() const { DARABONBA_PTR_GET_DEFAULT(groupTag_, "") };
+    inline string getGroupTag() const { DARABONBA_PTR_GET_DEFAULT(groupTag_, "") };
     inline ModifySecurityIPListResponseBody& setGroupTag(string groupTag) { DARABONBA_PTR_SET_VALUE(groupTag_, groupTag) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ModifySecurityIPListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityIPList Field Functions 
     bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
     void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
-    inline string securityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
+    inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
     inline ModifySecurityIPListResponseBody& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
     // securityIPType Field Functions 
     bool hasSecurityIPType() const { return this->securityIPType_ != nullptr;};
     void deleteSecurityIPType() { this->securityIPType_ = nullptr;};
-    inline string securityIPType() const { DARABONBA_PTR_GET_DEFAULT(securityIPType_, "") };
+    inline string getSecurityIPType() const { DARABONBA_PTR_GET_DEFAULT(securityIPType_, "") };
     inline ModifySecurityIPListResponseBody& setSecurityIPType(string securityIPType) { DARABONBA_PTR_SET_VALUE(securityIPType_, securityIPType) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline ModifySecurityIPListResponseBody& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // whitelistNetType Field Functions 
     bool hasWhitelistNetType() const { return this->whitelistNetType_ != nullptr;};
     void deleteWhitelistNetType() { this->whitelistNetType_ = nullptr;};
-    inline string whitelistNetType() const { DARABONBA_PTR_GET_DEFAULT(whitelistNetType_, "") };
+    inline string getWhitelistNetType() const { DARABONBA_PTR_GET_DEFAULT(whitelistNetType_, "") };
     inline ModifySecurityIPListResponseBody& setWhitelistNetType(string whitelistNetType) { DARABONBA_PTR_SET_VALUE(whitelistNetType_, whitelistNetType) };
 
 
   protected:
     // The name of the instance.
-    std::shared_ptr<string> DBInstanceName_ = nullptr;
+    shared_ptr<string> DBInstanceName_ {};
     // The name of the whitelist.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The tag of the whitelist.
-    std::shared_ptr<string> groupTag_ = nullptr;
+    shared_ptr<string> groupTag_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The IP addresses in the whitelist of the instance. Multiple IP addresses are separated by commas (,).
-    std::shared_ptr<string> securityIPList_ = nullptr;
+    shared_ptr<string> securityIPList_ {};
     // The IP address type.
-    std::shared_ptr<string> securityIPType_ = nullptr;
+    shared_ptr<string> securityIPType_ {};
     // The task ID.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
     // The network type of the whitelist.
-    std::shared_ptr<string> whitelistNetType_ = nullptr;
+    shared_ptr<string> whitelistNetType_ {};
   };
 
   } // namespace Models

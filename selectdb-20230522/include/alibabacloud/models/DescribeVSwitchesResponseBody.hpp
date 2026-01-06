@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEVSWITCHESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeVSwitchesResponseBodyItems.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,69 +42,121 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Items : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_TO_JSON(VSwitchName, vSwitchName_);
+        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_FROM_JSON(VSwitchName, vSwitchName_);
+        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+      };
+      Items() = default ;
+      Items(const Items &) = default ;
+      Items(Items &&) = default ;
+      Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Items() = default ;
+      Items& operator=(const Items &) = default ;
+      Items& operator=(Items &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->vSwitchId_ == nullptr
+        && this->vSwitchName_ == nullptr && this->zoneId_ == nullptr; };
+      // vSwitchId Field Functions 
+      bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+      void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+      inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+      inline Items& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+      // vSwitchName Field Functions 
+      bool hasVSwitchName() const { return this->vSwitchName_ != nullptr;};
+      void deleteVSwitchName() { this->vSwitchName_ = nullptr;};
+      inline string getVSwitchName() const { DARABONBA_PTR_GET_DEFAULT(vSwitchName_, "") };
+      inline Items& setVSwitchName(string vSwitchName) { DARABONBA_PTR_SET_VALUE(vSwitchName_, vSwitchName) };
+
+
+      // zoneId Field Functions 
+      bool hasZoneId() const { return this->zoneId_ != nullptr;};
+      void deleteZoneId() { this->zoneId_ = nullptr;};
+      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+      inline Items& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+    protected:
+      shared_ptr<string> vSwitchId_ {};
+      shared_ptr<string> vSwitchName_ {};
+      shared_ptr<string> zoneId_ {};
+    };
+
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
-        && return this->totalRecordCount_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr
+        && this->totalRecordCount_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<DescribeVSwitchesResponseBodyItems> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeVSwitchesResponseBodyItems>) };
-    inline vector<DescribeVSwitchesResponseBodyItems> items() { DARABONBA_PTR_GET(items_, vector<DescribeVSwitchesResponseBodyItems>) };
-    inline DescribeVSwitchesResponseBody& setItems(const vector<DescribeVSwitchesResponseBodyItems> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
-    inline DescribeVSwitchesResponseBody& setItems(vector<DescribeVSwitchesResponseBodyItems> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+    inline const vector<DescribeVSwitchesResponseBody::Items> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<DescribeVSwitchesResponseBody::Items>) };
+    inline vector<DescribeVSwitchesResponseBody::Items> getItems() { DARABONBA_PTR_GET(items_, vector<DescribeVSwitchesResponseBody::Items>) };
+    inline DescribeVSwitchesResponseBody& setItems(const vector<DescribeVSwitchesResponseBody::Items> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline DescribeVSwitchesResponseBody& setItems(vector<DescribeVSwitchesResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeVSwitchesResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeVSwitchesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline DescribeVSwitchesResponseBody& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeVSwitchesResponseBody& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVSwitchesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalRecordCount Field Functions 
     bool hasTotalRecordCount() const { return this->totalRecordCount_ != nullptr;};
     void deleteTotalRecordCount() { this->totalRecordCount_ = nullptr;};
-    inline string totalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, "") };
+    inline string getTotalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, "") };
     inline DescribeVSwitchesResponseBody& setTotalRecordCount(string totalRecordCount) { DARABONBA_PTR_SET_VALUE(totalRecordCount_, totalRecordCount) };
 
 
   protected:
-    std::shared_ptr<vector<DescribeVSwitchesResponseBodyItems>> items_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> pageNumber_ = nullptr;
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<vector<DescribeVSwitchesResponseBody::Items>> items_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> pageNumber_ {};
+    shared_ptr<string> pageSize_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> totalRecordCount_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> totalRecordCount_ {};
   };
 
   } // namespace Models

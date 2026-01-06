@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && return this->groupName_ == nullptr && return this->modifyMode_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityIPList_ == nullptr; };
+        && this->groupName_ == nullptr && this->modifyMode_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityIPList_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
-    inline string DBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
+    inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifySecurityIPListRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline ModifySecurityIPListRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // modifyMode Field Functions 
     bool hasModifyMode() const { return this->modifyMode_ != nullptr;};
     void deleteModifyMode() { this->modifyMode_ = nullptr;};
-    inline string modifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
+    inline string getModifyMode() const { DARABONBA_PTR_GET_DEFAULT(modifyMode_, "") };
     inline ModifySecurityIPListRequest& setModifyMode(string modifyMode) { DARABONBA_PTR_SET_VALUE(modifyMode_, modifyMode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ModifySecurityIPListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifySecurityIPListRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityIPList Field Functions 
     bool hasSecurityIPList() const { return this->securityIPList_ != nullptr;};
     void deleteSecurityIPList() { this->securityIPList_ = nullptr;};
-    inline string securityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
+    inline string getSecurityIPList() const { DARABONBA_PTR_GET_DEFAULT(securityIPList_, "") };
     inline ModifySecurityIPListRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
@@ -87,11 +87,11 @@ namespace Models
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBInstanceId_ = nullptr;
+    shared_ptr<string> DBInstanceId_ {};
     // The name of the whitelist. Default value: **Default**.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The mode in which you want to modify the whitelist. Valid values:
     // 
     // *   **0**: overwrites the IP addresses in the whitelist.
@@ -99,16 +99,16 @@ namespace Models
     // *   **2**: removes IP addresses from the whitelist.
     // 
     // This parameter is required.
-    std::shared_ptr<string> modifyMode_ = nullptr;
+    shared_ptr<string> modifyMode_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> securityIPList_ = nullptr;
+    shared_ptr<string> securityIPList_ {};
   };
 
   } // namespace Models

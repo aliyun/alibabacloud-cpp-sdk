@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->headers_ == nullptr
-        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
+        && this->statusCode_ == nullptr && this->body_ == nullptr; };
     // headers Field Functions 
     bool hasHeaders() const { return this->headers_ != nullptr;};
     void deleteHeaders() { this->headers_ = nullptr;};
-    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
-    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
     inline DeleteDBInstanceResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
     inline DeleteDBInstanceResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
@@ -49,23 +49,23 @@ namespace Models
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
-    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
     inline DeleteDBInstanceResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const DeleteDBInstanceResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, DeleteDBInstanceResponseBody) };
-    inline DeleteDBInstanceResponseBody body() { DARABONBA_PTR_GET(body_, DeleteDBInstanceResponseBody) };
+    inline const DeleteDBInstanceResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, DeleteDBInstanceResponseBody) };
+    inline DeleteDBInstanceResponseBody getBody() { DARABONBA_PTR_GET(body_, DeleteDBInstanceResponseBody) };
     inline DeleteDBInstanceResponse& setBody(const DeleteDBInstanceResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline DeleteDBInstanceResponse& setBody(DeleteDBInstanceResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> headers_ = nullptr;
-    std::shared_ptr<int32_t> statusCode_ = nullptr;
-    std::shared_ptr<DeleteDBInstanceResponseBody> body_ = nullptr;
+    shared_ptr<map<string, string>> headers_ {};
+    shared_ptr<int32_t> statusCode_ {};
+    shared_ptr<DeleteDBInstanceResponseBody> body_ {};
   };
 
   } // namespace Models
