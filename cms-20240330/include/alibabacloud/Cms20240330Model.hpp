@@ -107,6 +107,8 @@
 #include <alibabacloud/models/CreateServiceRequest.hpp>
 #include <alibabacloud/models/CreateServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceResponse.hpp>
+#include <alibabacloud/models/CreateServiceObservabilityResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceObservabilityResponse.hpp>
 #include <alibabacloud/models/CreateThreadRequest.hpp>
 #include <alibabacloud/models/CreateThreadResponseBody.hpp>
 #include <alibabacloud/models/CreateThreadResponse.hpp>

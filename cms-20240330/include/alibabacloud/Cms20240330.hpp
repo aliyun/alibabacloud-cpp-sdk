@@ -277,6 +277,22 @@ namespace Cms20240330
       Models::CreateServiceResponse createService(const string &workspace, const Models::CreateServiceRequest &request);
 
       /**
+       * @summary 创建应用可观测实例
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceObservabilityResponse
+       */
+      Models::CreateServiceObservabilityResponse createServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建应用可观测实例
+       *
+       * @return CreateServiceObservabilityResponse
+       */
+      Models::CreateServiceObservabilityResponse createServiceObservability(const string &workspace, const string &type);
+
+      /**
        * @summary 创建会话
        *
        * @param request CreateThreadRequest

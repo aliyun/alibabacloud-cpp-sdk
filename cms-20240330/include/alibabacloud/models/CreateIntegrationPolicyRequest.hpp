@@ -89,6 +89,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const EntityGroup& obj) { 
         DARABONBA_PTR_TO_JSON(clusterEntityType, clusterEntityType_);
         DARABONBA_PTR_TO_JSON(clusterId, clusterId_);
+        DARABONBA_PTR_TO_JSON(clusterNamespace, clusterNamespace_);
         DARABONBA_PTR_TO_JSON(disablePolicyShare, disablePolicyShare_);
         DARABONBA_PTR_TO_JSON(entityGroupId, entityGroupId_);
         DARABONBA_PTR_TO_JSON(entityUserId, entityUserId_);
@@ -97,6 +98,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, EntityGroup& obj) { 
         DARABONBA_PTR_FROM_JSON(clusterEntityType, clusterEntityType_);
         DARABONBA_PTR_FROM_JSON(clusterId, clusterId_);
+        DARABONBA_PTR_FROM_JSON(clusterNamespace, clusterNamespace_);
         DARABONBA_PTR_FROM_JSON(disablePolicyShare, disablePolicyShare_);
         DARABONBA_PTR_FROM_JSON(entityGroupId, entityGroupId_);
         DARABONBA_PTR_FROM_JSON(entityUserId, entityUserId_);
@@ -114,7 +116,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->clusterEntityType_ == nullptr
-        && this->clusterId_ == nullptr && this->disablePolicyShare_ == nullptr && this->entityGroupId_ == nullptr && this->entityUserId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->clusterNamespace_ == nullptr && this->disablePolicyShare_ == nullptr && this->entityGroupId_ == nullptr && this->entityUserId_ == nullptr
+        && this->vpcId_ == nullptr; };
       // clusterEntityType Field Functions 
       bool hasClusterEntityType() const { return this->clusterEntityType_ != nullptr;};
       void deleteClusterEntityType() { this->clusterEntityType_ = nullptr;};
@@ -127,6 +130,13 @@ namespace Models
       void deleteClusterId() { this->clusterId_ = nullptr;};
       inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
       inline EntityGroup& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+      // clusterNamespace Field Functions 
+      bool hasClusterNamespace() const { return this->clusterNamespace_ != nullptr;};
+      void deleteClusterNamespace() { this->clusterNamespace_ = nullptr;};
+      inline string getClusterNamespace() const { DARABONBA_PTR_GET_DEFAULT(clusterNamespace_, "") };
+      inline EntityGroup& setClusterNamespace(string clusterNamespace) { DARABONBA_PTR_SET_VALUE(clusterNamespace_, clusterNamespace) };
 
 
       // disablePolicyShare Field Functions 
@@ -162,6 +172,7 @@ namespace Models
       shared_ptr<string> clusterEntityType_ {};
       // Cluster ID.
       shared_ptr<string> clusterId_ {};
+      shared_ptr<string> clusterNamespace_ {};
       // Whether to disable the unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
       shared_ptr<bool> disablePolicyShare_ {};
       // Entity group ID.

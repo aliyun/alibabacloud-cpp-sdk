@@ -977,6 +977,42 @@ CreateServiceResponse Client::createService(const string &workspace, const Creat
 }
 
 /**
+ * @summary 创建应用可观测实例
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServiceObservabilityResponse
+ */
+CreateServiceObservabilityResponse Client::createServiceObservabilityWithOptions(const string &workspace, const string &type, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateServiceObservability"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/service-observability/" , Darabonba::Encode::Encoder::percentEncode(type))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServiceObservabilityResponse>();
+}
+
+/**
+ * @summary 创建应用可观测实例
+ *
+ * @return CreateServiceObservabilityResponse
+ */
+CreateServiceObservabilityResponse Client::createServiceObservability(const string &workspace, const string &type) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createServiceObservabilityWithOptions(workspace, type, headers, runtime);
+}
+
+/**
  * @summary 创建会话
  *
  * @param request CreateThreadRequest
@@ -3191,6 +3227,10 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
 ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListDigitalEmployeesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEmployeeType()) {
+    query["employeeType"] = request.getEmployeeType();
+  }
+
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
   }

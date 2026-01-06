@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
+      DARABONBA_PTR_TO_JSON(employeeType, employeeType_);
       DARABONBA_PTR_TO_JSON(knowledges, knowledges_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
+      DARABONBA_PTR_FROM_JSON(employeeType, employeeType_);
       DARABONBA_PTR_FROM_JSON(knowledges, knowledges_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
@@ -144,8 +146,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->knowledges_ == nullptr && this->name_ == nullptr
-        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->roleArn_ == nullptr && this->updateTime_ == nullptr; };
+        && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->employeeType_ == nullptr && this->knowledges_ == nullptr
+        && this->name_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->roleArn_ == nullptr && this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -172,6 +174,13 @@ namespace Models
     void deleteDisplayName() { this->displayName_ = nullptr;};
     inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline GetDigitalEmployeeResponseBody& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+    // employeeType Field Functions 
+    bool hasEmployeeType() const { return this->employeeType_ != nullptr;};
+    void deleteEmployeeType() { this->employeeType_ = nullptr;};
+    inline string getEmployeeType() const { DARABONBA_PTR_GET_DEFAULT(employeeType_, "") };
+    inline GetDigitalEmployeeResponseBody& setEmployeeType(string employeeType) { DARABONBA_PTR_SET_VALUE(employeeType_, employeeType) };
 
 
     // knowledges Field Functions 
@@ -224,6 +233,7 @@ namespace Models
     shared_ptr<string> defaultRule_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> displayName_ {};
+    shared_ptr<string> employeeType_ {};
     shared_ptr<GetDigitalEmployeeResponseBody::Knowledges> knowledges_ {};
     shared_ptr<string> name_ {};
     shared_ptr<string> regionId_ {};
