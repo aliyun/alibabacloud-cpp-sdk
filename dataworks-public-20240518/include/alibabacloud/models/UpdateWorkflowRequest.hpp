@@ -110,16 +110,16 @@ namespace Models
 
 
     protected:
-      // The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+      // The Cron expression. This parameter takes effect only if the Type parameter is set to Scheduler.
       shared_ptr<string> cron_ {};
-      // The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
+      // The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
       shared_ptr<string> endTime_ {};
-      // The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
+      // The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
       shared_ptr<string> startTime_ {};
       // The trigger type. Valid values:
       // 
-      // *   Scheduler: scheduling cycle-based trigger
-      // *   Manual: manual trigger
+      // *   Scheduler: periodically triggered
+      // *   Manual
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -230,8 +230,8 @@ namespace Models
         shared_ptr<string> recurrence_ {};
         // The trigger type. Valid values:
         // 
-        // *   Scheduler: scheduling cycle-based trigger
-        // *   Manual: manual trigger
+        // *   Scheduler: periodically triggered
+        // *   Manual
         shared_ptr<string> type_ {};
       };
 
@@ -273,11 +273,11 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of a tag.
         // 
         // This parameter is required.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of a tag.
         shared_ptr<string> value_ {};
       };
 
@@ -321,7 +321,7 @@ namespace Models
       protected:
         // The script content.
         shared_ptr<string> content_ {};
-        // The script parameters.
+        // The script parameter list.
         shared_ptr<string> parameters_ {};
       };
 
@@ -374,9 +374,9 @@ namespace Models
       protected:
         // The default number of compute units (CUs) configured for task running.
         shared_ptr<string> cu_ {};
-        // The ID of the image configured for task running.
+        // The image ID used in the task runtime configuration.
         shared_ptr<string> image_ {};
-        // The ID of the resource group for scheduling configured for task running.
+        // The identifier of the scheduling resource group used in the task runtime configuration.
         // 
         // This parameter is required.
         shared_ptr<string> resourceGroupId_ {};
@@ -454,10 +454,10 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
-          // *   Constant: constant
-          // *   PassThrough: node output
-          // *   System: variable
-          // *   NodeOutput: script output
+          // *   Constant: constant value.
+          // *   PassThrough: node output.
+          // *   System: variable.
+          // *   NodeOutput: script output.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -518,9 +518,9 @@ namespace Models
 
 
       protected:
-        // The task outputs.
+        // The task outputs. By default, all task output information is deleted if this parameter is set to null or not specified.
         shared_ptr<vector<Outputs::TaskOutputs>> taskOutputs_ {};
-        // The variables.
+        // The variables. Note: The settings of all output variables are deleted if this parameter is set to null or not specified.
         shared_ptr<vector<Outputs::Variables>> variables_ {};
       };
 
@@ -594,10 +594,10 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
-          // *   Constant: constant
-          // *   PassThrough: node output
-          // *   System: variable
-          // *   NodeOutput: script output
+          // *   Constant: constant value.
+          // *   PassThrough: node output.
+          // *   System: variable.
+          // *   NodeOutput: script output.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -616,7 +616,7 @@ namespace Models
 
 
       protected:
-        // The variables.
+        // The variables. By default, the settings of all input variables are deleted if this parameter is set to null or not specified.
         shared_ptr<vector<Inputs::Variables>> variables_ {};
       };
 
@@ -669,16 +669,16 @@ namespace Models
       protected:
         // The dependency type. Valid values:
         // 
-        // *   CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
-        // *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
-        // *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-        // *   Normal: same-cycle scheduling dependency
+        // *   CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
+        // *   CrossCycleDependsOnSelf: Depends on itself across cycles.
+        // *   CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
+        // *   Normal: Depends on nodes in the same cycle.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
-        // The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
+        // The output identifier of the upstream task. (This parameter is returned only if `Normal` is set and the node input is configured.)
         shared_ptr<string> upstreamOutput_ {};
-        // The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
+        // The ID of the upstream task. (This parameter is returned only if `Normal` or `CrossCycleDependsOnOtherNode` is set and the node input is not configured.)
         shared_ptr<int64_t> upstreamTaskId_ {};
       };
 
@@ -710,7 +710,7 @@ namespace Models
 
 
       protected:
-        // The name of the data source.
+        // The data source name.
         shared_ptr<string> name_ {};
       };
 
@@ -878,54 +878,54 @@ namespace Models
     protected:
       // The baseline ID.
       shared_ptr<int64_t> baseLineId_ {};
-      // The unique code of the client. This parameter is used to create a task asynchronously and implement the idempotence of the task. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+      // The client-side unique token for the task, used to ensure asynchronous processing and idempotency. If not specified during creation, the system will automatically generate one. This token is uniquely associated with the resource ID. If provided when updating or deleting resources, this parameter must match the client token used during creation.
       shared_ptr<string> clientUniqueCode_ {};
       // The information about the associated data source.
       shared_ptr<Tasks::DataSource> dataSource_ {};
-      // The dependency information.
+      // The dependency information. Note: If this parameter is left empty or set to an empty array, all dependency configurations will be deleted.
       shared_ptr<vector<Tasks::Dependencies>> dependencies_ {};
-      // The description.
+      // The description of the task.
       shared_ptr<string> description_ {};
-      // The environment of the workspace. Valid values:
+      // The project environment.
       // 
       // *   Prod
       // *   Dev
       shared_ptr<string> envType_ {};
-      // The task ID. If you configure this parameter, full update is performed on the task. If you do not configure this parameter, another task is created.
+      // The ID of the task. Specifying this field triggers a full update for the corresponding task. If left unspecified, a new task will be created.
       shared_ptr<int64_t> id_ {};
-      // The input information.
+      // The input information. By default, all input information is deleted if this parameter is set to null.
       shared_ptr<Tasks::Inputs> inputs_ {};
       // The name of the task.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The output information.
+      // The output information. By default, all output information is deleted if this parameter is set to null.
       shared_ptr<Tasks::Outputs> outputs_ {};
       // The account ID of the owner.
       // 
       // This parameter is required.
       shared_ptr<string> owner_ {};
-      // The rerun interval. Unit: seconds.
+      // The retry interval in seconds.
       shared_ptr<int32_t> rerunInterval_ {};
-      // The rerun mode. Valid values:
+      // Configuration for whether the task can be rerun.
       // 
-      // *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-      // *   FailureAllowed: The task can be rerun only after it fails to run.
-      // *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+      // *   AllDenied: The task cannot be rerun.
+      // *   FailureAllowed: The task can be rerun only after it fails.
+      // *   AllAllowed: The task can always be rerun.
       // 
       // This parameter is required.
       shared_ptr<string> rerunMode_ {};
-      // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+      // The number of retry attempts. Takes effect when the task is configured to allow reruns.
       shared_ptr<int32_t> rerunTimes_ {};
-      // The configurations of the runtime environment, such as the resource group information.
+      // Runtime environment configurations, such as resource group information.
       // 
       // This parameter is required.
       shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
-      // The script information.
+      // The run script information.
       shared_ptr<Tasks::Script> script_ {};
-      // The tags.
+      // The list of task tags. Note: If this field is unspecified or set to an empty array, all existing Tag configurations will be deleted by default.
       shared_ptr<vector<Tasks::Tags>> tags_ {};
-      // The timeout period of task running. Unit: seconds.
+      // The task execution timeout in seconds.
       shared_ptr<int32_t> timeout_ {};
       // The trigger method.
       // 
@@ -1098,16 +1098,16 @@ namespace Models
     protected:
       // The dependency type. Valid values:
       // 
-      // *   CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
-      // *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
-      // *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-      // *   Normal: same-cycle scheduling dependency
+      // *   CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
+      // *   CrossCycleDependsOnSelf: Depends on itself across cycles.
+      // *   CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
+      // *   Normal: Depends on nodes in the same cycle.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
+      // The output identifier of the upstream task. (This parameter is returned only if `Normal` is set and the node input is configured.)
       shared_ptr<string> upstreamOutput_ {};
-      // The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
+      // The ID of the upstream task. (This parameter is returned only if `Normal` or `CrossCycleDependsOnOtherNode` is set and the node input is not configured.)
       shared_ptr<int64_t> upstreamTaskId_ {};
     };
 
@@ -1223,15 +1223,19 @@ namespace Models
     shared_ptr<vector<UpdateWorkflowRequest::Dependencies>> dependencies_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The environment of the workspace. Valid values:
+    // The project environment.
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // *   Prod
+    // *   Dev
     shared_ptr<string> envType_ {};
     // The workflow ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The instance generation mode.
+    // 
+    // *   T+1: the next day
+    // *   Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
     shared_ptr<string> instanceMode_ {};
     // The name of the workflow.
     // 
@@ -1247,7 +1251,7 @@ namespace Models
     shared_ptr<string> parameters_ {};
     // The tags.
     shared_ptr<vector<UpdateWorkflowRequest::Tags>> tags_ {};
-    // The tasks.
+    // Details about tasks.
     shared_ptr<vector<UpdateWorkflowRequest::Tasks>> tasks_ {};
     // The trigger method.
     // 

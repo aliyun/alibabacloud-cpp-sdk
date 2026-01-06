@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> owner_ {};
     // The page number. Default value: 1. Minimum value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The page number. Default value: 1. Minimum value: 1.
     shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
     // 

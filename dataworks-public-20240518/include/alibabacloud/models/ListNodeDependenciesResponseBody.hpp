@@ -198,9 +198,9 @@ namespace Models
           // 
           // Valid values:
           // 
-          // *   Scheduler: periodic scheduling.
-          // *   Manual: manual scheduling.
-          // *   Streaming: streaming scheduler.
+          // *   Scheduler: Periodic scheduling.
+          // *   Manual: Manual scheduling.
+          // *   Streaming: Streaming scheduler.
           shared_ptr<string> type_ {};
         };
 
@@ -313,14 +313,14 @@ namespace Models
 
 
         protected:
-          // The instance generation mode. Valid values:
+          // The instance generation mode.
           // 
           // *   T+1
           // *   Immediately
           shared_ptr<string> instanceMode_ {};
           // The interval between retries after failure. Unit: milliseconds.
           shared_ptr<int32_t> rerunInterval_ {};
-          // The rerun mode. Valid values:
+          // The rerun mode.
           // 
           // *   Allowed
           // *   Denied
@@ -415,11 +415,11 @@ namespace Models
         protected:
           // The ID of the script.
           // 
-          // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+          // >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
           shared_ptr<string> id_ {};
           // The script path.
           shared_ptr<string> path_ {};
-          // The runtime.
+          // Runtime
           shared_ptr<Script::Runtime> runtime_ {};
         };
 
@@ -621,7 +621,7 @@ namespace Models
             // *   System
             // *   NodeOutput
             shared_ptr<string> type_ {};
-            // The value of the variable.
+            // The variable name.
             shared_ptr<string> value_ {};
           };
 
@@ -719,11 +719,11 @@ namespace Models
 
 
         protected:
-          // The list of node outputs.
+          // The node output list.
           shared_ptr<vector<Outputs::NodeOutputs>> nodeOutputs_ {};
           // The table list.
           shared_ptr<vector<Outputs::Tables>> tables_ {};
-          // The variable list.
+          // The variables.
           shared_ptr<vector<Outputs::Variables>> variables_ {};
         };
 
@@ -874,7 +874,7 @@ namespace Models
             // 
             // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
             shared_ptr<string> id_ {};
-            // The variable name.
+            // The name of the variable.
             shared_ptr<string> name_ {};
             // The node to which the variable belongs.
             shared_ptr<Variables::Node> node_ {};
@@ -885,7 +885,7 @@ namespace Models
             // *   Workflow
             // *   Workspace
             shared_ptr<string> scope_ {};
-            // The type of the variable. Valid values:
+            // The type of the variable.
             // 
             // *   NoKvVariableExpression
             // *   Constant
@@ -957,7 +957,7 @@ namespace Models
 
 
           protected:
-            // The node output.
+            // The output of the node.
             shared_ptr<string> data_ {};
           };
 
@@ -991,7 +991,7 @@ namespace Models
 
 
         protected:
-          // The list of node outputs.
+          // The node output list.
           shared_ptr<vector<Inputs::NodeOutputs>> nodeOutputs_ {};
           // The table list.
           shared_ptr<vector<Inputs::Tables>> tables_ {};
@@ -1222,7 +1222,7 @@ namespace Models
         shared_ptr<Nodes::Strategy> strategy_ {};
         // The tags. This parameter is not in use.
         shared_ptr<vector<Nodes::Tags>> tags_ {};
-        // The scheduling task ID.
+        // The ID of the scheduling task.
         shared_ptr<int64_t> taskId_ {};
         // The trigger.
         shared_ptr<Nodes::Trigger> trigger_ {};

@@ -182,7 +182,7 @@ namespace Models
 
 
         protected:
-          // The cron expression for scheduling
+          // The cron expression for scheduling.
           shared_ptr<string> cron_ {};
           // The end time of the validity period of the trigger.
           shared_ptr<string> endTime_ {};
@@ -198,9 +198,9 @@ namespace Models
           // 
           // Valid values:
           // 
-          // *   Scheduler: periodic scheduling
-          // *   Manual: manual trigger
-          // *   Streaming: streaming task
+          // *   Scheduler: Periodic scheduling
+          // *   Manual: Manual trigger
+          // *   Streaming: Streaming task
           shared_ptr<string> type_ {};
         };
 
@@ -415,7 +415,7 @@ namespace Models
         protected:
           // The ID of the script.
           // 
-          // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+          // >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
           shared_ptr<string> id_ {};
           // The script path.
           shared_ptr<string> path_ {};
@@ -549,7 +549,7 @@ namespace Models
 
 
             protected:
-              // The node output.
+              // The output of the node.
               shared_ptr<string> output_ {};
             };
 
@@ -697,7 +697,7 @@ namespace Models
 
 
           protected:
-            // The node output.
+            // The output of the node.
             shared_ptr<string> data_ {};
           };
 
@@ -821,7 +821,7 @@ namespace Models
 
 
             protected:
-              // The node output.
+              // The output of the node.
               shared_ptr<string> output_ {};
             };
 
@@ -969,7 +969,7 @@ namespace Models
 
 
           protected:
-            // The node output.
+            // The output of the node.
             shared_ptr<string> data_ {};
           };
 
@@ -1196,7 +1196,7 @@ namespace Models
 
 
       protected:
-        // The timestamp when the node in DataStudio was created.
+        // The timestamp when the node in Data Studio was created.
         shared_ptr<int64_t> createTime_ {};
         // The data source.
         shared_ptr<Nodes::DataSource> dataSource_ {};
@@ -1204,7 +1204,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The unique identifier of the Data Studio node.
         // 
-        // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+        // >  This field is of the Long type in SDK versions prior to 8.0.0, and of the String type in SDK versions 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
         shared_ptr<string> id_ {};
         // The node input.
         shared_ptr<Nodes::Inputs> inputs_ {};
@@ -1214,7 +1214,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The output of the node.
         shared_ptr<Nodes::Outputs> outputs_ {};
-        // The owner of nodes in DataStudio.
+        // The owner of nodes in Data Studio.
         shared_ptr<string> owner_ {};
         // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
         shared_ptr<int64_t> projectId_ {};
@@ -1234,7 +1234,7 @@ namespace Models
         shared_ptr<Nodes::Strategy> strategy_ {};
         // The tag information (not in use).
         shared_ptr<vector<Nodes::Tags>> tags_ {};
-        // The scheduling task ID.
+        // The ID of the scheduling task.
         shared_ptr<int64_t> taskId_ {};
         // The trigger.
         shared_ptr<Nodes::Trigger> trigger_ {};

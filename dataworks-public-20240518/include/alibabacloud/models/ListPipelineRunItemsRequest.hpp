@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The page number, for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The number of entries per page. Default: 10. Maximum: 100.
+    // The requested page number, used for pagination.
     shared_ptr<int32_t> pageSize_ {};
     // The workflow task ID. To obtain the ID, see [ListPipelineRuns](https://help.aliyun.com/document_detail/438042.html).
     // 

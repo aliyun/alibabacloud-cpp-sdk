@@ -118,6 +118,9 @@ namespace Models
     shared_ptr<int64_t> createTimeTo_ {};
     // The ID of the data quality monitor.
     shared_ptr<int64_t> dataQualityScanId_ {};
+    // The extended query filter. Supported parameters:
+    // 
+    // *   TaskInstanceId
     shared_ptr<string> filterShrink_ {};
     // The page number of the results. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

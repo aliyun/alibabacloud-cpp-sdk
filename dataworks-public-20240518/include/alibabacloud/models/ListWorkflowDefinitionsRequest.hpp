@@ -86,11 +86,16 @@ namespace Models
   protected:
     // The name of the workflow. Fuzzy search is supported.
     shared_ptr<string> name_ {};
-    // The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page.
+    // Filter condition: The type of the workflow. The default value is CycleWorkflow.
+    // 
+    // Valid values:
+    // 
+    // *   CycleWorkflow
+    // *   ManualWorkflow
     shared_ptr<string> owner_ {};
     // The page number of the data to retrieve, used for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The page number of the data to retrieve, used for pagination.
     shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
     // 

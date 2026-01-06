@@ -181,9 +181,9 @@ namespace Models
 
 
         protected:
-          // Script ID.
+          // The ID of the script.
           // 
-          // >  Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+          // >  This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
           shared_ptr<string> id_ {};
           // The script path.
           shared_ptr<string> path_ {};
@@ -229,7 +229,7 @@ namespace Models
 
 
         protected:
-          // The data source name.
+          // The name of the data source.
           shared_ptr<string> name_ {};
           // The type of the data source.
           shared_ptr<string> type_ {};
@@ -359,10 +359,10 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   Local: Local storage
-        // *   OSS: Object Storage Service
+        // *   Local
+        // *   OSS
         shared_ptr<string> sourceType_ {};
-        // The destination storage path
+        // The destination storage path.
         shared_ptr<string> targetPath_ {};
         // The destination storage type.
         // 

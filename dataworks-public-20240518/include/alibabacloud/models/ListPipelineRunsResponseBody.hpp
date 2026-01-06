@@ -62,6 +62,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const PipelineRuns& obj) { 
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(Creator, creator_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(Message, message_);
           DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
@@ -72,6 +73,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, PipelineRuns& obj) { 
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(Creator, creator_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(Message, message_);
           DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
@@ -221,8 +223,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->creator_ == nullptr && this->id_ == nullptr && this->message_ == nullptr && this->modifyTime_ == nullptr && this->projectId_ == nullptr
-        && this->stages_ == nullptr && this->status_ == nullptr; };
+        && this->creator_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->message_ == nullptr && this->modifyTime_ == nullptr
+        && this->projectId_ == nullptr && this->stages_ == nullptr && this->status_ == nullptr; };
         // createTime Field Functions 
         bool hasCreateTime() const { return this->createTime_ != nullptr;};
         void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -235,6 +237,13 @@ namespace Models
         void deleteCreator() { this->creator_ = nullptr;};
         inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
         inline PipelineRuns& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline PipelineRuns& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
         // id Field Functions 
@@ -286,6 +295,7 @@ namespace Models
         shared_ptr<int64_t> createTime_ {};
         // The creator of the process.
         shared_ptr<string> creator_ {};
+        shared_ptr<string> description_ {};
         // The process ID.
         shared_ptr<string> id_ {};
         // The error message returned during the stage.

@@ -155,15 +155,19 @@ namespace Models
     shared_ptr<string> dependenciesShrink_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // The environment of the workspace. Valid values:
+    // The project environment.
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // *   Prod
+    // *   Dev
     shared_ptr<string> envType_ {};
     // The workflow ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The instance generation mode.
+    // 
+    // *   T+1: the next day
+    // *   Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
     shared_ptr<string> instanceMode_ {};
     // The name of the workflow.
     // 
@@ -179,7 +183,7 @@ namespace Models
     shared_ptr<string> parameters_ {};
     // The tags.
     shared_ptr<string> tagsShrink_ {};
-    // The tasks.
+    // Details about tasks.
     shared_ptr<string> tasksShrink_ {};
     // The trigger method.
     // 

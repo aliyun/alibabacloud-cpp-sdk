@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListPipelineRunsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Creator, creator_);
+      DARABONBA_PTR_TO_JSON(ObjectId, objectId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListPipelineRunsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
+      DARABONBA_PTR_FROM_JSON(ObjectId, objectId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creator_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->status_ == nullptr; };
+        && this->objectId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->status_ == nullptr; };
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
     inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline ListPipelineRunsRequest& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+    // objectId Field Functions 
+    bool hasObjectId() const { return this->objectId_ != nullptr;};
+    void deleteObjectId() { this->objectId_ = nullptr;};
+    inline string getObjectId() const { DARABONBA_PTR_GET_DEFAULT(objectId_, "") };
+    inline ListPipelineRunsRequest& setObjectId(string objectId) { DARABONBA_PTR_SET_VALUE(objectId_, objectId) };
 
 
     // pageNumber Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     // The ID of the user who creates the processes. This parameter specifies a filter condition.
     shared_ptr<string> creator_ {};
+    shared_ptr<string> objectId_ {};
     // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
