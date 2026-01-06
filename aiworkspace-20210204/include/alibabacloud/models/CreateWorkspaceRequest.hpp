@@ -39,26 +39,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->displayName_ == nullptr && return this->envTypes_ == nullptr && return this->resourceGroupId_ == nullptr && return this->workspaceName_ == nullptr; };
+        && this->displayName_ == nullptr && this->envTypes_ == nullptr && this->resourceGroupId_ == nullptr && this->workspaceName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateWorkspaceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline CreateWorkspaceRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // envTypes Field Functions 
     bool hasEnvTypes() const { return this->envTypes_ != nullptr;};
     void deleteEnvTypes() { this->envTypes_ = nullptr;};
-    inline const vector<string> & envTypes() const { DARABONBA_PTR_GET_CONST(envTypes_, vector<string>) };
-    inline vector<string> envTypes() { DARABONBA_PTR_GET(envTypes_, vector<string>) };
+    inline const vector<string> & getEnvTypes() const { DARABONBA_PTR_GET_CONST(envTypes_, vector<string>) };
+    inline vector<string> getEnvTypes() { DARABONBA_PTR_GET(envTypes_, vector<string>) };
     inline CreateWorkspaceRequest& setEnvTypes(const vector<string> & envTypes) { DARABONBA_PTR_SET_VALUE(envTypes_, envTypes) };
     inline CreateWorkspaceRequest& setEnvTypes(vector<string> && envTypes) { DARABONBA_PTR_SET_RVALUE(envTypes_, envTypes) };
 
@@ -66,14 +66,14 @@ namespace Models
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateWorkspaceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // workspaceName Field Functions 
     bool hasWorkspaceName() const { return this->workspaceName_ != nullptr;};
     void deleteWorkspaceName() { this->workspaceName_ = nullptr;};
-    inline string workspaceName() const { DARABONBA_PTR_GET_DEFAULT(workspaceName_, "") };
+    inline string getWorkspaceName() const { DARABONBA_PTR_GET_DEFAULT(workspaceName_, "") };
     inline CreateWorkspaceRequest& setWorkspaceName(string workspaceName) { DARABONBA_PTR_SET_VALUE(workspaceName_, workspaceName) };
 
 
@@ -81,17 +81,17 @@ namespace Models
     // The description of the workspace. The description can be up to 80 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The display name of the workspace. You can set it based on the purpose of the workspace. If left empty, the name of the workspace is used.
-    std::shared_ptr<string> displayName_ = nullptr;
+    shared_ptr<string> displayName_ {};
     // The environment of the workspace.
     // 
     // *   Workspaces in basic mode can run only in the production environment (prod).
     // *   Workspaces in standard mode can run in both the development and production environments (dev and prod).
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> envTypes_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<vector<string>> envTypes_ {};
+    shared_ptr<string> resourceGroupId_ {};
     // The name of the workspace. Format:
     // 
     // *   The name must be 3 to 23 characters in length, and can contain letters, underscores (_), and digits.
@@ -99,7 +99,7 @@ namespace Models
     // *   It must be unique in the current region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> workspaceName_ = nullptr;
+    shared_ptr<string> workspaceName_ {};
   };
 
   } // namespace Models

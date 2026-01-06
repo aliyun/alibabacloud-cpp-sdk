@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetFileMetaIds_ == nullptr
-        && return this->datasetVersion_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->datasetVersion_ == nullptr && this->workspaceId_ == nullptr; };
     // datasetFileMetaIds Field Functions 
     bool hasDatasetFileMetaIds() const { return this->datasetFileMetaIds_ != nullptr;};
     void deleteDatasetFileMetaIds() { this->datasetFileMetaIds_ = nullptr;};
-    inline string datasetFileMetaIds() const { DARABONBA_PTR_GET_DEFAULT(datasetFileMetaIds_, "") };
+    inline string getDatasetFileMetaIds() const { DARABONBA_PTR_GET_DEFAULT(datasetFileMetaIds_, "") };
     inline DeleteDatasetFileMetasRequest& setDatasetFileMetaIds(string datasetFileMetaIds) { DARABONBA_PTR_SET_VALUE(datasetFileMetaIds_, datasetFileMetaIds) };
 
 
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
-    inline string datasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
+    inline string getDatasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
     inline DeleteDatasetFileMetasRequest& setDatasetVersion(string datasetVersion) { DARABONBA_PTR_SET_VALUE(datasetVersion_, datasetVersion) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DeleteDatasetFileMetasRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The metadata ID of the dataset file.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetFileMetaIds_ = nullptr;
+    shared_ptr<string> datasetFileMetaIds_ {};
     // The dataset version.
-    std::shared_ptr<string> datasetVersion_ = nullptr;
+    shared_ptr<string> datasetVersion_ {};
     // The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

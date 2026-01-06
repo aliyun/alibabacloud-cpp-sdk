@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->key_ == nullptr
-        && return this->maxResults_ == nullptr && return this->pageToken_ == nullptr; };
+        && this->maxResults_ == nullptr && this->pageToken_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline ListRunMetricsRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int64_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
+    inline int64_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0L) };
     inline ListRunMetricsRequest& setMaxResults(int64_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // pageToken Field Functions 
     bool hasPageToken() const { return this->pageToken_ != nullptr;};
     void deletePageToken() { this->pageToken_ = nullptr;};
-    inline int64_t pageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, 0L) };
+    inline int64_t getPageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, 0L) };
     inline ListRunMetricsRequest& setPageToken(int64_t pageToken) { DARABONBA_PTR_SET_VALUE(pageToken_, pageToken) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The metric key of the run.
     // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<string> key_ {};
     // The maximum number of entries in the request. Default value: 10.
-    std::shared_ptr<int64_t> maxResults_ = nullptr;
+    shared_ptr<int64_t> maxResults_ {};
     // The pagination token, which starts from 0. Default value: 0.
-    std::shared_ptr<int64_t> pageToken_ = nullptr;
+    shared_ptr<int64_t> pageToken_ {};
   };
 
   } // namespace Models

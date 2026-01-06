@@ -38,41 +38,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && return this->creator_ == nullptr && return this->labels_ == nullptr && return this->option_ == nullptr && return this->resource_ == nullptr; };
+        && this->creator_ == nullptr && this->labels_ == nullptr && this->option_ == nullptr && this->resource_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
-    inline string accessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline GetPermissionRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline string creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline GetPermissionRequest& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline     const Darabonba::Json & labels() const { DARABONBA_GET(labels_) };
-    Darabonba::Json & labels() { DARABONBA_GET(labels_) };
+    inline     const Darabonba::Json & getLabels() const { DARABONBA_GET(labels_) };
+    Darabonba::Json & getLabels() { DARABONBA_GET(labels_) };
     inline GetPermissionRequest& setLabels(const Darabonba::Json & labels) { DARABONBA_SET_VALUE(labels_, labels) };
-    inline GetPermissionRequest& setLabels(Darabonba::Json & labels) { DARABONBA_SET_RVALUE(labels_, labels) };
+    inline GetPermissionRequest& setLabels(Darabonba::Json && labels) { DARABONBA_SET_RVALUE(labels_, labels) };
 
 
     // option Field Functions 
     bool hasOption() const { return this->option_ != nullptr;};
     void deleteOption() { this->option_ = nullptr;};
-    inline string option() const { DARABONBA_PTR_GET_DEFAULT(option_, "") };
+    inline string getOption() const { DARABONBA_PTR_GET_DEFAULT(option_, "") };
     inline GetPermissionRequest& setOption(string option) { DARABONBA_PTR_SET_VALUE(option_, option) };
 
 
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
-    inline string resource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+    inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
     inline GetPermissionRequest& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
 
 
@@ -81,17 +81,17 @@ namespace Models
     // 
     // *   PUBLIC: All members in the workspace can access the workspace.
     // *   PRIVATE: Only the creator can access the workspace.
-    std::shared_ptr<string> accessibility_ = nullptr;
+    shared_ptr<string> accessibility_ {};
     // The UID of the Alibaba Cloud account that is used to create the workspace.
-    std::shared_ptr<string> creator_ = nullptr;
-    Darabonba::Json labels_ = nullptr;
+    shared_ptr<string> creator_ {};
+    Darabonba::Json labels_ {};
     // The configuration. Separate multiple configurations with commas (,). Valid values:
     // 
     // *   ResourceEmpty: The Resource parameter is not configured.
     // *   DisableRam: The RAM check is not performed.
-    std::shared_ptr<string> option_ = nullptr;
+    shared_ptr<string> option_ {};
     // The resource.
-    std::shared_ptr<string> resource_ = nullptr;
+    shared_ptr<string> resource_ {};
   };
 
   } // namespace Models

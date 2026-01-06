@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageBuildId_ == nullptr
-        && return this->imageBuildJobId_ == nullptr; };
+        && this->imageBuildJobId_ == nullptr; };
     // imageBuildId Field Functions 
     bool hasImageBuildId() const { return this->imageBuildId_ != nullptr;};
     void deleteImageBuildId() { this->imageBuildId_ = nullptr;};
-    inline string imageBuildId() const { DARABONBA_PTR_GET_DEFAULT(imageBuildId_, "") };
+    inline string getImageBuildId() const { DARABONBA_PTR_GET_DEFAULT(imageBuildId_, "") };
     inline CreateImageBuildResponseBody& setImageBuildId(string imageBuildId) { DARABONBA_PTR_SET_VALUE(imageBuildId_, imageBuildId) };
 
 
     // imageBuildJobId Field Functions 
     bool hasImageBuildJobId() const { return this->imageBuildJobId_ != nullptr;};
     void deleteImageBuildJobId() { this->imageBuildJobId_ = nullptr;};
-    inline string imageBuildJobId() const { DARABONBA_PTR_GET_DEFAULT(imageBuildJobId_, "") };
+    inline string getImageBuildJobId() const { DARABONBA_PTR_GET_DEFAULT(imageBuildJobId_, "") };
     inline CreateImageBuildResponseBody& setImageBuildJobId(string imageBuildJobId) { DARABONBA_PTR_SET_VALUE(imageBuildJobId_, imageBuildJobId) };
 
 
   protected:
     // 代表资源一级ID的资源属性字段
-    std::shared_ptr<string> imageBuildId_ = nullptr;
-    std::shared_ptr<string> imageBuildJobId_ = nullptr;
+    shared_ptr<string> imageBuildId_ {};
+    shared_ptr<string> imageBuildJobId_ {};
   };
 
   } // namespace Models

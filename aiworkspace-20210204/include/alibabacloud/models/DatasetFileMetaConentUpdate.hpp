@@ -54,118 +54,118 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->contentType_ == nullptr && return this->dataSize_ == nullptr && return this->datasetFileMetaId_ == nullptr && return this->fileCreateTime_ == nullptr && return this->fileFingerPrint_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->fileUpdateTime_ == nullptr && return this->metaAttributes_ == nullptr && return this->semanticIndexJobId_ == nullptr
-        && return this->semanticIndexUpdateTime_ == nullptr && return this->tags_ == nullptr; };
+        && this->contentType_ == nullptr && this->dataSize_ == nullptr && this->datasetFileMetaId_ == nullptr && this->fileCreateTime_ == nullptr && this->fileFingerPrint_ == nullptr
+        && this->fileName_ == nullptr && this->fileType_ == nullptr && this->fileUpdateTime_ == nullptr && this->metaAttributes_ == nullptr && this->semanticIndexJobId_ == nullptr
+        && this->semanticIndexUpdateTime_ == nullptr && this->tags_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
-    inline string comment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+    inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
     inline DatasetFileMetaConentUpdate& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
 
 
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
-    inline string contentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
+    inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
     inline DatasetFileMetaConentUpdate& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
 
 
     // dataSize Field Functions 
     bool hasDataSize() const { return this->dataSize_ != nullptr;};
     void deleteDataSize() { this->dataSize_ = nullptr;};
-    inline int64_t dataSize() const { DARABONBA_PTR_GET_DEFAULT(dataSize_, 0L) };
+    inline int64_t getDataSize() const { DARABONBA_PTR_GET_DEFAULT(dataSize_, 0L) };
     inline DatasetFileMetaConentUpdate& setDataSize(int64_t dataSize) { DARABONBA_PTR_SET_VALUE(dataSize_, dataSize) };
 
 
     // datasetFileMetaId Field Functions 
     bool hasDatasetFileMetaId() const { return this->datasetFileMetaId_ != nullptr;};
     void deleteDatasetFileMetaId() { this->datasetFileMetaId_ = nullptr;};
-    inline string datasetFileMetaId() const { DARABONBA_PTR_GET_DEFAULT(datasetFileMetaId_, "") };
+    inline string getDatasetFileMetaId() const { DARABONBA_PTR_GET_DEFAULT(datasetFileMetaId_, "") };
     inline DatasetFileMetaConentUpdate& setDatasetFileMetaId(string datasetFileMetaId) { DARABONBA_PTR_SET_VALUE(datasetFileMetaId_, datasetFileMetaId) };
 
 
     // fileCreateTime Field Functions 
     bool hasFileCreateTime() const { return this->fileCreateTime_ != nullptr;};
     void deleteFileCreateTime() { this->fileCreateTime_ = nullptr;};
-    inline string fileCreateTime() const { DARABONBA_PTR_GET_DEFAULT(fileCreateTime_, "") };
+    inline string getFileCreateTime() const { DARABONBA_PTR_GET_DEFAULT(fileCreateTime_, "") };
     inline DatasetFileMetaConentUpdate& setFileCreateTime(string fileCreateTime) { DARABONBA_PTR_SET_VALUE(fileCreateTime_, fileCreateTime) };
 
 
     // fileFingerPrint Field Functions 
     bool hasFileFingerPrint() const { return this->fileFingerPrint_ != nullptr;};
     void deleteFileFingerPrint() { this->fileFingerPrint_ = nullptr;};
-    inline string fileFingerPrint() const { DARABONBA_PTR_GET_DEFAULT(fileFingerPrint_, "") };
+    inline string getFileFingerPrint() const { DARABONBA_PTR_GET_DEFAULT(fileFingerPrint_, "") };
     inline DatasetFileMetaConentUpdate& setFileFingerPrint(string fileFingerPrint) { DARABONBA_PTR_SET_VALUE(fileFingerPrint_, fileFingerPrint) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline DatasetFileMetaConentUpdate& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline DatasetFileMetaConentUpdate& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // fileUpdateTime Field Functions 
     bool hasFileUpdateTime() const { return this->fileUpdateTime_ != nullptr;};
     void deleteFileUpdateTime() { this->fileUpdateTime_ = nullptr;};
-    inline string fileUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(fileUpdateTime_, "") };
+    inline string getFileUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(fileUpdateTime_, "") };
     inline DatasetFileMetaConentUpdate& setFileUpdateTime(string fileUpdateTime) { DARABONBA_PTR_SET_VALUE(fileUpdateTime_, fileUpdateTime) };
 
 
     // metaAttributes Field Functions 
     bool hasMetaAttributes() const { return this->metaAttributes_ != nullptr;};
     void deleteMetaAttributes() { this->metaAttributes_ = nullptr;};
-    inline string metaAttributes() const { DARABONBA_PTR_GET_DEFAULT(metaAttributes_, "") };
+    inline string getMetaAttributes() const { DARABONBA_PTR_GET_DEFAULT(metaAttributes_, "") };
     inline DatasetFileMetaConentUpdate& setMetaAttributes(string metaAttributes) { DARABONBA_PTR_SET_VALUE(metaAttributes_, metaAttributes) };
 
 
     // semanticIndexJobId Field Functions 
     bool hasSemanticIndexJobId() const { return this->semanticIndexJobId_ != nullptr;};
     void deleteSemanticIndexJobId() { this->semanticIndexJobId_ = nullptr;};
-    inline string semanticIndexJobId() const { DARABONBA_PTR_GET_DEFAULT(semanticIndexJobId_, "") };
+    inline string getSemanticIndexJobId() const { DARABONBA_PTR_GET_DEFAULT(semanticIndexJobId_, "") };
     inline DatasetFileMetaConentUpdate& setSemanticIndexJobId(string semanticIndexJobId) { DARABONBA_PTR_SET_VALUE(semanticIndexJobId_, semanticIndexJobId) };
 
 
     // semanticIndexUpdateTime Field Functions 
     bool hasSemanticIndexUpdateTime() const { return this->semanticIndexUpdateTime_ != nullptr;};
     void deleteSemanticIndexUpdateTime() { this->semanticIndexUpdateTime_ = nullptr;};
-    inline string semanticIndexUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(semanticIndexUpdateTime_, "") };
+    inline string getSemanticIndexUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(semanticIndexUpdateTime_, "") };
     inline DatasetFileMetaConentUpdate& setSemanticIndexUpdateTime(string semanticIndexUpdateTime) { DARABONBA_PTR_SET_VALUE(semanticIndexUpdateTime_, semanticIndexUpdateTime) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline DatasetFileMetaConentUpdate& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
   protected:
-    std::shared_ptr<string> comment_ = nullptr;
-    std::shared_ptr<string> contentType_ = nullptr;
-    std::shared_ptr<int64_t> dataSize_ = nullptr;
+    shared_ptr<string> comment_ {};
+    shared_ptr<string> contentType_ {};
+    shared_ptr<int64_t> dataSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> datasetFileMetaId_ = nullptr;
+    shared_ptr<string> datasetFileMetaId_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> fileCreateTime_ = nullptr;
-    std::shared_ptr<string> fileFingerPrint_ = nullptr;
-    std::shared_ptr<string> fileName_ = nullptr;
-    std::shared_ptr<string> fileType_ = nullptr;
+    shared_ptr<string> fileCreateTime_ {};
+    shared_ptr<string> fileFingerPrint_ {};
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> fileType_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> fileUpdateTime_ = nullptr;
-    std::shared_ptr<string> metaAttributes_ = nullptr;
-    std::shared_ptr<string> semanticIndexJobId_ = nullptr;
+    shared_ptr<string> fileUpdateTime_ {};
+    shared_ptr<string> metaAttributes_ {};
+    shared_ptr<string> semanticIndexJobId_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> semanticIndexUpdateTime_ = nullptr;
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> semanticIndexUpdateTime_ {};
+    shared_ptr<string> tags_ {};
   };
 
   } // namespace Models

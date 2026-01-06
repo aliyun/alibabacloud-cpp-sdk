@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetJobConfigId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // datasetJobConfigId Field Functions 
     bool hasDatasetJobConfigId() const { return this->datasetJobConfigId_ != nullptr;};
     void deleteDatasetJobConfigId() { this->datasetJobConfigId_ = nullptr;};
-    inline string datasetJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(datasetJobConfigId_, "") };
+    inline string getDatasetJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(datasetJobConfigId_, "") };
     inline CreateDatasetJobConfigResponseBody& setDatasetJobConfigId(string datasetJobConfigId) { DARABONBA_PTR_SET_VALUE(datasetJobConfigId_, datasetJobConfigId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDatasetJobConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The configuration ID.
-    std::shared_ptr<string> datasetJobConfigId_ = nullptr;
+    shared_ptr<string> datasetJobConfigId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

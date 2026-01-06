@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collectionName_ == nullptr
-        && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->ownerId_ == nullptr && return this->userId_ == nullptr; };
+        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->ownerId_ == nullptr && this->userId_ == nullptr; };
     // collectionName Field Functions 
     bool hasCollectionName() const { return this->collectionName_ != nullptr;};
     void deleteCollectionName() { this->collectionName_ = nullptr;};
-    inline string collectionName() const { DARABONBA_PTR_GET_DEFAULT(collectionName_, "") };
+    inline string getCollectionName() const { DARABONBA_PTR_GET_DEFAULT(collectionName_, "") };
     inline Collection& setCollectionName(string collectionName) { DARABONBA_PTR_SET_VALUE(collectionName_, collectionName) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline Collection& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-    inline string gmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
+    inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline Collection& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline Collection& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline Collection& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> collectionName_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtModifiedTime_ = nullptr;
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> collectionName_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtModifiedTime_ {};
+    shared_ptr<string> ownerId_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

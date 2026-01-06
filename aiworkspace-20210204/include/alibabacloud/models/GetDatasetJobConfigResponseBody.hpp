@@ -42,54 +42,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->configType_ == nullptr && return this->createTime_ == nullptr && return this->datasetId_ == nullptr && return this->modifyTime_ == nullptr && return this->requestId_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->configType_ == nullptr && this->createTime_ == nullptr && this->datasetId_ == nullptr && this->modifyTime_ == nullptr && this->requestId_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline GetDatasetJobConfigResponseBody& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline GetDatasetJobConfigResponseBody& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline GetDatasetJobConfigResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
-    inline string datasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
+    inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
     inline GetDatasetJobConfigResponseBody& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline GetDatasetJobConfigResponseBody& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDatasetJobConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline GetDatasetJobConfigResponseBody& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -101,22 +101,22 @@ namespace Models
     // MultimodalSemanticIndex
     // 
     // { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The configuration type. Valid values:
     // 
     // *   MultimodalIntelligentTag
     // *   MultimodalSemanticIndex
-    std::shared_ptr<string> configType_ = nullptr;
+    shared_ptr<string> configType_ {};
     // The time when the configuration is created.
-    std::shared_ptr<string> createTime_ = nullptr;
+    shared_ptr<string> createTime_ {};
     // The dataset ID.
-    std::shared_ptr<string> datasetId_ = nullptr;
+    shared_ptr<string> datasetId_ {};
     // The time when the configuration is modified.
-    std::shared_ptr<string> modifyTime_ = nullptr;
+    shared_ptr<string> modifyTime_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

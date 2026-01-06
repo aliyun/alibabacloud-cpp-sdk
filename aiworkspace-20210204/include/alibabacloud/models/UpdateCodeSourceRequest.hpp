@@ -44,81 +44,81 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeBranch_ == nullptr
-        && return this->codeCommit_ == nullptr && return this->codeRepo_ == nullptr && return this->codeRepoAccessToken_ == nullptr && return this->codeRepoUserName_ == nullptr && return this->description_ == nullptr
-        && return this->displayName_ == nullptr && return this->mountPath_ == nullptr; };
+        && this->codeCommit_ == nullptr && this->codeRepo_ == nullptr && this->codeRepoAccessToken_ == nullptr && this->codeRepoUserName_ == nullptr && this->description_ == nullptr
+        && this->displayName_ == nullptr && this->mountPath_ == nullptr; };
     // codeBranch Field Functions 
     bool hasCodeBranch() const { return this->codeBranch_ != nullptr;};
     void deleteCodeBranch() { this->codeBranch_ = nullptr;};
-    inline string codeBranch() const { DARABONBA_PTR_GET_DEFAULT(codeBranch_, "") };
+    inline string getCodeBranch() const { DARABONBA_PTR_GET_DEFAULT(codeBranch_, "") };
     inline UpdateCodeSourceRequest& setCodeBranch(string codeBranch) { DARABONBA_PTR_SET_VALUE(codeBranch_, codeBranch) };
 
 
     // codeCommit Field Functions 
     bool hasCodeCommit() const { return this->codeCommit_ != nullptr;};
     void deleteCodeCommit() { this->codeCommit_ = nullptr;};
-    inline string codeCommit() const { DARABONBA_PTR_GET_DEFAULT(codeCommit_, "") };
+    inline string getCodeCommit() const { DARABONBA_PTR_GET_DEFAULT(codeCommit_, "") };
     inline UpdateCodeSourceRequest& setCodeCommit(string codeCommit) { DARABONBA_PTR_SET_VALUE(codeCommit_, codeCommit) };
 
 
     // codeRepo Field Functions 
     bool hasCodeRepo() const { return this->codeRepo_ != nullptr;};
     void deleteCodeRepo() { this->codeRepo_ = nullptr;};
-    inline string codeRepo() const { DARABONBA_PTR_GET_DEFAULT(codeRepo_, "") };
+    inline string getCodeRepo() const { DARABONBA_PTR_GET_DEFAULT(codeRepo_, "") };
     inline UpdateCodeSourceRequest& setCodeRepo(string codeRepo) { DARABONBA_PTR_SET_VALUE(codeRepo_, codeRepo) };
 
 
     // codeRepoAccessToken Field Functions 
     bool hasCodeRepoAccessToken() const { return this->codeRepoAccessToken_ != nullptr;};
     void deleteCodeRepoAccessToken() { this->codeRepoAccessToken_ = nullptr;};
-    inline string codeRepoAccessToken() const { DARABONBA_PTR_GET_DEFAULT(codeRepoAccessToken_, "") };
+    inline string getCodeRepoAccessToken() const { DARABONBA_PTR_GET_DEFAULT(codeRepoAccessToken_, "") };
     inline UpdateCodeSourceRequest& setCodeRepoAccessToken(string codeRepoAccessToken) { DARABONBA_PTR_SET_VALUE(codeRepoAccessToken_, codeRepoAccessToken) };
 
 
     // codeRepoUserName Field Functions 
     bool hasCodeRepoUserName() const { return this->codeRepoUserName_ != nullptr;};
     void deleteCodeRepoUserName() { this->codeRepoUserName_ = nullptr;};
-    inline string codeRepoUserName() const { DARABONBA_PTR_GET_DEFAULT(codeRepoUserName_, "") };
+    inline string getCodeRepoUserName() const { DARABONBA_PTR_GET_DEFAULT(codeRepoUserName_, "") };
     inline UpdateCodeSourceRequest& setCodeRepoUserName(string codeRepoUserName) { DARABONBA_PTR_SET_VALUE(codeRepoUserName_, codeRepoUserName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateCodeSourceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline UpdateCodeSourceRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // mountPath Field Functions 
     bool hasMountPath() const { return this->mountPath_ != nullptr;};
     void deleteMountPath() { this->mountPath_ = nullptr;};
-    inline string mountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+    inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
     inline UpdateCodeSourceRequest& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
 
 
   protected:
     // The name of the code branch.
-    std::shared_ptr<string> codeBranch_ = nullptr;
+    shared_ptr<string> codeBranch_ {};
     // The code commit ID.
-    std::shared_ptr<string> codeCommit_ = nullptr;
+    shared_ptr<string> codeCommit_ {};
     // The address of the code repository.
-    std::shared_ptr<string> codeRepo_ = nullptr;
+    shared_ptr<string> codeRepo_ {};
     // The access token corresponding to the username.
-    std::shared_ptr<string> codeRepoAccessToken_ = nullptr;
+    shared_ptr<string> codeRepoAccessToken_ {};
     // The username used to access the code repository.
-    std::shared_ptr<string> codeRepoUserName_ = nullptr;
+    shared_ptr<string> codeRepoUserName_ {};
     // The description of the code build.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The name of the code build.
-    std::shared_ptr<string> displayName_ = nullptr;
+    shared_ptr<string> displayName_ {};
     // The default mount path.
-    std::shared_ptr<string> mountPath_ = nullptr;
+    shared_ptr<string> mountPath_ {};
   };
 
   } // namespace Models

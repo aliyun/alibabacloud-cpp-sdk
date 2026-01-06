@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->frameworkContent_ == nullptr && return this->frameworkType_ == nullptr && return this->modifyTime_ == nullptr
-        && return this->promptId_ == nullptr && return this->promptName_ == nullptr; };
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->frameworkContent_ == nullptr && this->frameworkType_ == nullptr && this->modifyTime_ == nullptr
+        && this->promptId_ == nullptr && this->promptName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
-    inline string accessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline Prompt& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline Prompt& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline Prompt& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // frameworkContent Field Functions 
     bool hasFrameworkContent() const { return this->frameworkContent_ != nullptr;};
     void deleteFrameworkContent() { this->frameworkContent_ = nullptr;};
-    inline string frameworkContent() const { DARABONBA_PTR_GET_DEFAULT(frameworkContent_, "") };
+    inline string getFrameworkContent() const { DARABONBA_PTR_GET_DEFAULT(frameworkContent_, "") };
     inline Prompt& setFrameworkContent(string frameworkContent) { DARABONBA_PTR_SET_VALUE(frameworkContent_, frameworkContent) };
 
 
     // frameworkType Field Functions 
     bool hasFrameworkType() const { return this->frameworkType_ != nullptr;};
     void deleteFrameworkType() { this->frameworkType_ = nullptr;};
-    inline string frameworkType() const { DARABONBA_PTR_GET_DEFAULT(frameworkType_, "") };
+    inline string getFrameworkType() const { DARABONBA_PTR_GET_DEFAULT(frameworkType_, "") };
     inline Prompt& setFrameworkType(string frameworkType) { DARABONBA_PTR_SET_VALUE(frameworkType_, frameworkType) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline Prompt& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // promptId Field Functions 
     bool hasPromptId() const { return this->promptId_ != nullptr;};
     void deletePromptId() { this->promptId_ = nullptr;};
-    inline string promptId() const { DARABONBA_PTR_GET_DEFAULT(promptId_, "") };
+    inline string getPromptId() const { DARABONBA_PTR_GET_DEFAULT(promptId_, "") };
     inline Prompt& setPromptId(string promptId) { DARABONBA_PTR_SET_VALUE(promptId_, promptId) };
 
 
     // promptName Field Functions 
     bool hasPromptName() const { return this->promptName_ != nullptr;};
     void deletePromptName() { this->promptName_ = nullptr;};
-    inline string promptName() const { DARABONBA_PTR_GET_DEFAULT(promptName_, "") };
+    inline string getPromptName() const { DARABONBA_PTR_GET_DEFAULT(promptName_, "") };
     inline Prompt& setPromptName(string promptName) { DARABONBA_PTR_SET_VALUE(promptName_, promptName) };
 
 
   protected:
-    std::shared_ptr<string> accessibility_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> frameworkContent_ = nullptr;
-    std::shared_ptr<string> frameworkType_ = nullptr;
-    std::shared_ptr<string> modifyTime_ = nullptr;
-    std::shared_ptr<string> promptId_ = nullptr;
-    std::shared_ptr<string> promptName_ = nullptr;
+    shared_ptr<string> accessibility_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> frameworkContent_ {};
+    shared_ptr<string> frameworkType_ {};
+    shared_ptr<string> modifyTime_ {};
+    shared_ptr<string> promptId_ {};
+    shared_ptr<string> promptName_ {};
   };
 
   } // namespace Models

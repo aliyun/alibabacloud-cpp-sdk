@@ -57,84 +57,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->completedFileCount_ == nullptr
-        && return this->createTime_ == nullptr && return this->datasetJobId_ == nullptr && return this->datasetVersion_ == nullptr && return this->description_ == nullptr && return this->failedFileCount_ == nullptr
-        && return this->finishTime_ == nullptr && return this->jobAction_ == nullptr && return this->jobMode_ == nullptr && return this->jobSpec_ == nullptr && return this->logs_ == nullptr
-        && return this->status_ == nullptr && return this->totalFileCount_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->createTime_ == nullptr && this->datasetJobId_ == nullptr && this->datasetVersion_ == nullptr && this->description_ == nullptr && this->failedFileCount_ == nullptr
+        && this->finishTime_ == nullptr && this->jobAction_ == nullptr && this->jobMode_ == nullptr && this->jobSpec_ == nullptr && this->logs_ == nullptr
+        && this->status_ == nullptr && this->totalFileCount_ == nullptr && this->workspaceId_ == nullptr; };
     // completedFileCount Field Functions 
     bool hasCompletedFileCount() const { return this->completedFileCount_ != nullptr;};
     void deleteCompletedFileCount() { this->completedFileCount_ = nullptr;};
-    inline int64_t completedFileCount() const { DARABONBA_PTR_GET_DEFAULT(completedFileCount_, 0L) };
+    inline int64_t getCompletedFileCount() const { DARABONBA_PTR_GET_DEFAULT(completedFileCount_, 0L) };
     inline DatasetJob& setCompletedFileCount(int64_t completedFileCount) { DARABONBA_PTR_SET_VALUE(completedFileCount_, completedFileCount) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DatasetJob& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // datasetJobId Field Functions 
     bool hasDatasetJobId() const { return this->datasetJobId_ != nullptr;};
     void deleteDatasetJobId() { this->datasetJobId_ = nullptr;};
-    inline string datasetJobId() const { DARABONBA_PTR_GET_DEFAULT(datasetJobId_, "") };
+    inline string getDatasetJobId() const { DARABONBA_PTR_GET_DEFAULT(datasetJobId_, "") };
     inline DatasetJob& setDatasetJobId(string datasetJobId) { DARABONBA_PTR_SET_VALUE(datasetJobId_, datasetJobId) };
 
 
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
-    inline string datasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
+    inline string getDatasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
     inline DatasetJob& setDatasetVersion(string datasetVersion) { DARABONBA_PTR_SET_VALUE(datasetVersion_, datasetVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DatasetJob& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // failedFileCount Field Functions 
     bool hasFailedFileCount() const { return this->failedFileCount_ != nullptr;};
     void deleteFailedFileCount() { this->failedFileCount_ = nullptr;};
-    inline int64_t failedFileCount() const { DARABONBA_PTR_GET_DEFAULT(failedFileCount_, 0L) };
+    inline int64_t getFailedFileCount() const { DARABONBA_PTR_GET_DEFAULT(failedFileCount_, 0L) };
     inline DatasetJob& setFailedFileCount(int64_t failedFileCount) { DARABONBA_PTR_SET_VALUE(failedFileCount_, failedFileCount) };
 
 
     // finishTime Field Functions 
     bool hasFinishTime() const { return this->finishTime_ != nullptr;};
     void deleteFinishTime() { this->finishTime_ = nullptr;};
-    inline string finishTime() const { DARABONBA_PTR_GET_DEFAULT(finishTime_, "") };
+    inline string getFinishTime() const { DARABONBA_PTR_GET_DEFAULT(finishTime_, "") };
     inline DatasetJob& setFinishTime(string finishTime) { DARABONBA_PTR_SET_VALUE(finishTime_, finishTime) };
 
 
     // jobAction Field Functions 
     bool hasJobAction() const { return this->jobAction_ != nullptr;};
     void deleteJobAction() { this->jobAction_ = nullptr;};
-    inline string jobAction() const { DARABONBA_PTR_GET_DEFAULT(jobAction_, "") };
+    inline string getJobAction() const { DARABONBA_PTR_GET_DEFAULT(jobAction_, "") };
     inline DatasetJob& setJobAction(string jobAction) { DARABONBA_PTR_SET_VALUE(jobAction_, jobAction) };
 
 
     // jobMode Field Functions 
     bool hasJobMode() const { return this->jobMode_ != nullptr;};
     void deleteJobMode() { this->jobMode_ = nullptr;};
-    inline string jobMode() const { DARABONBA_PTR_GET_DEFAULT(jobMode_, "") };
+    inline string getJobMode() const { DARABONBA_PTR_GET_DEFAULT(jobMode_, "") };
     inline DatasetJob& setJobMode(string jobMode) { DARABONBA_PTR_SET_VALUE(jobMode_, jobMode) };
 
 
     // jobSpec Field Functions 
     bool hasJobSpec() const { return this->jobSpec_ != nullptr;};
     void deleteJobSpec() { this->jobSpec_ = nullptr;};
-    inline string jobSpec() const { DARABONBA_PTR_GET_DEFAULT(jobSpec_, "") };
+    inline string getJobSpec() const { DARABONBA_PTR_GET_DEFAULT(jobSpec_, "") };
     inline DatasetJob& setJobSpec(string jobSpec) { DARABONBA_PTR_SET_VALUE(jobSpec_, jobSpec) };
 
 
     // logs Field Functions 
     bool hasLogs() const { return this->logs_ != nullptr;};
     void deleteLogs() { this->logs_ = nullptr;};
-    inline const vector<string> & logs() const { DARABONBA_PTR_GET_CONST(logs_, vector<string>) };
-    inline vector<string> logs() { DARABONBA_PTR_GET(logs_, vector<string>) };
+    inline const vector<string> & getLogs() const { DARABONBA_PTR_GET_CONST(logs_, vector<string>) };
+    inline vector<string> getLogs() { DARABONBA_PTR_GET(logs_, vector<string>) };
     inline DatasetJob& setLogs(const vector<string> & logs) { DARABONBA_PTR_SET_VALUE(logs_, logs) };
     inline DatasetJob& setLogs(vector<string> && logs) { DARABONBA_PTR_SET_RVALUE(logs_, logs) };
 
@@ -142,39 +142,39 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DatasetJob& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // totalFileCount Field Functions 
     bool hasTotalFileCount() const { return this->totalFileCount_ != nullptr;};
     void deleteTotalFileCount() { this->totalFileCount_ = nullptr;};
-    inline int64_t totalFileCount() const { DARABONBA_PTR_GET_DEFAULT(totalFileCount_, 0L) };
+    inline int64_t getTotalFileCount() const { DARABONBA_PTR_GET_DEFAULT(totalFileCount_, 0L) };
     inline DatasetJob& setTotalFileCount(int64_t totalFileCount) { DARABONBA_PTR_SET_VALUE(totalFileCount_, totalFileCount) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DatasetJob& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<int64_t> completedFileCount_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> datasetJobId_ = nullptr;
-    std::shared_ptr<string> datasetVersion_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<int64_t> failedFileCount_ = nullptr;
-    std::shared_ptr<string> finishTime_ = nullptr;
-    std::shared_ptr<string> jobAction_ = nullptr;
-    std::shared_ptr<string> jobMode_ = nullptr;
-    std::shared_ptr<string> jobSpec_ = nullptr;
-    std::shared_ptr<vector<string>> logs_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<int64_t> totalFileCount_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<int64_t> completedFileCount_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> datasetJobId_ {};
+    shared_ptr<string> datasetVersion_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<int64_t> failedFileCount_ {};
+    shared_ptr<string> finishTime_ {};
+    shared_ptr<string> jobAction_ {};
+    shared_ptr<string> jobMode_ {};
+    shared_ptr<string> jobSpec_ {};
+    shared_ptr<vector<string>> logs_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<int64_t> totalFileCount_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

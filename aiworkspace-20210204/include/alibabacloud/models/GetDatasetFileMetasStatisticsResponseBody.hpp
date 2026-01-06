@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetFileMetasStats_ == nullptr
-        && return this->totalCount_ == nullptr && return this->requestId_ == nullptr; };
+        && this->totalCount_ == nullptr && this->requestId_ == nullptr; };
     // datasetFileMetasStats Field Functions 
     bool hasDatasetFileMetasStats() const { return this->datasetFileMetasStats_ != nullptr;};
     void deleteDatasetFileMetasStats() { this->datasetFileMetasStats_ = nullptr;};
-    inline const vector<DatasetFileMetasStat> & datasetFileMetasStats() const { DARABONBA_PTR_GET_CONST(datasetFileMetasStats_, vector<DatasetFileMetasStat>) };
-    inline vector<DatasetFileMetasStat> datasetFileMetasStats() { DARABONBA_PTR_GET(datasetFileMetasStats_, vector<DatasetFileMetasStat>) };
+    inline const vector<DatasetFileMetasStat> & getDatasetFileMetasStats() const { DARABONBA_PTR_GET_CONST(datasetFileMetasStats_, vector<DatasetFileMetasStat>) };
+    inline vector<DatasetFileMetasStat> getDatasetFileMetasStats() { DARABONBA_PTR_GET(datasetFileMetasStats_, vector<DatasetFileMetasStat>) };
     inline GetDatasetFileMetasStatisticsResponseBody& setDatasetFileMetasStats(const vector<DatasetFileMetasStat> & datasetFileMetasStats) { DARABONBA_PTR_SET_VALUE(datasetFileMetasStats_, datasetFileMetasStats) };
     inline GetDatasetFileMetasStatisticsResponseBody& setDatasetFileMetasStats(vector<DatasetFileMetasStat> && datasetFileMetasStats) { DARABONBA_PTR_SET_RVALUE(datasetFileMetasStats_, datasetFileMetasStats) };
 
@@ -49,24 +49,24 @@ namespace Models
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline GetDatasetFileMetasStatisticsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDatasetFileMetasStatisticsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The details of the returned aggregation list, including the number of each aggregate item. The list is by default sorted in descending order based on the count number.
-    std::shared_ptr<vector<DatasetFileMetasStat>> datasetFileMetasStats_ = nullptr;
+    shared_ptr<vector<DatasetFileMetasStat>> datasetFileMetasStats_ {};
     // The returned number. Example: the number of metadata records or the number of user-defined tags.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

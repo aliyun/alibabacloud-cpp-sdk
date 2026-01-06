@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetFileMetaId_ == nullptr
-        && return this->result_ == nullptr && return this->uri_ == nullptr; };
+        && this->result_ == nullptr && this->uri_ == nullptr; };
     // datasetFileMetaId Field Functions 
     bool hasDatasetFileMetaId() const { return this->datasetFileMetaId_ != nullptr;};
     void deleteDatasetFileMetaId() { this->datasetFileMetaId_ = nullptr;};
-    inline string datasetFileMetaId() const { DARABONBA_PTR_GET_DEFAULT(datasetFileMetaId_, "") };
+    inline string getDatasetFileMetaId() const { DARABONBA_PTR_GET_DEFAULT(datasetFileMetaId_, "") };
     inline DatasetFileMetaResponse& setDatasetFileMetaId(string datasetFileMetaId) { DARABONBA_PTR_SET_VALUE(datasetFileMetaId_, datasetFileMetaId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline string result() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+    inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
     inline DatasetFileMetaResponse& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // uri Field Functions 
     bool hasUri() const { return this->uri_ != nullptr;};
     void deleteUri() { this->uri_ = nullptr;};
-    inline string uri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+    inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
     inline DatasetFileMetaResponse& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> datasetFileMetaId_ = nullptr;
+    shared_ptr<string> datasetFileMetaId_ {};
     // This parameter is required.
-    std::shared_ptr<string> result_ = nullptr;
-    std::shared_ptr<string> uri_ = nullptr;
+    shared_ptr<string> result_ {};
+    shared_ptr<string> uri_ {};
   };
 
   } // namespace Models

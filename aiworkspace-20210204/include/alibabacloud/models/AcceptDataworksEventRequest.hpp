@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->messageId_ == nullptr; };
+        && this->messageId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline     const Darabonba::Json & data() const { DARABONBA_GET(data_) };
-    Darabonba::Json & data() { DARABONBA_GET(data_) };
+    inline     const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+    Darabonba::Json & getData() { DARABONBA_GET(data_) };
     inline AcceptDataworksEventRequest& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
-    inline AcceptDataworksEventRequest& setData(Darabonba::Json & data) { DARABONBA_SET_RVALUE(data_, data) };
+    inline AcceptDataworksEventRequest& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
 
 
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
     inline AcceptDataworksEventRequest& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
   protected:
     // The event content in the message.
-    Darabonba::Json data_ = nullptr;
+    Darabonba::Json data_ {};
     // The message ID. You can obtain the ID from the message received when an extension point event is triggered. For more information about the message format, see [Message formats](https://help.aliyun.com/document_detail/436911.html).
-    std::shared_ptr<string> messageId_ = nullptr;
+    shared_ptr<string> messageId_ {};
   };
 
   } // namespace Models

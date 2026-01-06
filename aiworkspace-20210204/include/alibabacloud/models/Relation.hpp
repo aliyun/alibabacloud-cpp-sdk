@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errMsg_ == nullptr
-        && return this->lineageRelation_ == nullptr && return this->result_ == nullptr; };
+        && this->lineageRelation_ == nullptr && this->result_ == nullptr; };
     // errMsg Field Functions 
     bool hasErrMsg() const { return this->errMsg_ != nullptr;};
     void deleteErrMsg() { this->errMsg_ = nullptr;};
-    inline string errMsg() const { DARABONBA_PTR_GET_DEFAULT(errMsg_, "") };
+    inline string getErrMsg() const { DARABONBA_PTR_GET_DEFAULT(errMsg_, "") };
     inline Relation& setErrMsg(string errMsg) { DARABONBA_PTR_SET_VALUE(errMsg_, errMsg) };
 
 
     // lineageRelation Field Functions 
     bool hasLineageRelation() const { return this->lineageRelation_ != nullptr;};
     void deleteLineageRelation() { this->lineageRelation_ = nullptr;};
-    inline const LineageRelation & lineageRelation() const { DARABONBA_PTR_GET_CONST(lineageRelation_, LineageRelation) };
-    inline LineageRelation lineageRelation() { DARABONBA_PTR_GET(lineageRelation_, LineageRelation) };
+    inline const LineageRelation & getLineageRelation() const { DARABONBA_PTR_GET_CONST(lineageRelation_, LineageRelation) };
+    inline LineageRelation getLineageRelation() { DARABONBA_PTR_GET(lineageRelation_, LineageRelation) };
     inline Relation& setLineageRelation(const LineageRelation & lineageRelation) { DARABONBA_PTR_SET_VALUE(lineageRelation_, lineageRelation) };
     inline Relation& setLineageRelation(LineageRelation && lineageRelation) { DARABONBA_PTR_SET_RVALUE(lineageRelation_, lineageRelation) };
 
@@ -55,14 +55,14 @@ namespace Models
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline bool result() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
+    inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
     inline Relation& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
   protected:
-    std::shared_ptr<string> errMsg_ = nullptr;
-    std::shared_ptr<LineageRelation> lineageRelation_ = nullptr;
-    std::shared_ptr<bool> result_ = nullptr;
+    shared_ptr<string> errMsg_ {};
+    shared_ptr<LineageRelation> lineageRelation_ {};
+    shared_ptr<bool> result_ {};
   };
 
   } // namespace Models

@@ -75,60 +75,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && return this->domain_ == nullptr && return this->extraInfo_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtLatestVersionModifiedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr
-        && return this->labels_ == nullptr && return this->latestVersion_ == nullptr && return this->modelDescription_ == nullptr && return this->modelDoc_ == nullptr && return this->modelId_ == nullptr
-        && return this->modelName_ == nullptr && return this->modelType_ == nullptr && return this->orderNumber_ == nullptr && return this->origin_ == nullptr && return this->ownerId_ == nullptr
-        && return this->parameterSize_ == nullptr && return this->provider_ == nullptr && return this->requestId_ == nullptr && return this->task_ == nullptr && return this->userId_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->domain_ == nullptr && this->extraInfo_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtLatestVersionModifiedTime_ == nullptr && this->gmtModifiedTime_ == nullptr
+        && this->labels_ == nullptr && this->latestVersion_ == nullptr && this->modelDescription_ == nullptr && this->modelDoc_ == nullptr && this->modelId_ == nullptr
+        && this->modelName_ == nullptr && this->modelType_ == nullptr && this->orderNumber_ == nullptr && this->origin_ == nullptr && this->ownerId_ == nullptr
+        && this->parameterSize_ == nullptr && this->provider_ == nullptr && this->requestId_ == nullptr && this->task_ == nullptr && this->userId_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
-    inline string accessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline GetModelResponseBody& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline GetModelResponseBody& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // extraInfo Field Functions 
     bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
     void deleteExtraInfo() { this->extraInfo_ = nullptr;};
-    inline     const Darabonba::Json & extraInfo() const { DARABONBA_GET(extraInfo_) };
-    Darabonba::Json & extraInfo() { DARABONBA_GET(extraInfo_) };
+    inline     const Darabonba::Json & getExtraInfo() const { DARABONBA_GET(extraInfo_) };
+    Darabonba::Json & getExtraInfo() { DARABONBA_GET(extraInfo_) };
     inline GetModelResponseBody& setExtraInfo(const Darabonba::Json & extraInfo) { DARABONBA_SET_VALUE(extraInfo_, extraInfo) };
-    inline GetModelResponseBody& setExtraInfo(Darabonba::Json & extraInfo) { DARABONBA_SET_RVALUE(extraInfo_, extraInfo) };
+    inline GetModelResponseBody& setExtraInfo(Darabonba::Json && extraInfo) { DARABONBA_SET_RVALUE(extraInfo_, extraInfo) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline GetModelResponseBody& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtLatestVersionModifiedTime Field Functions 
     bool hasGmtLatestVersionModifiedTime() const { return this->gmtLatestVersionModifiedTime_ != nullptr;};
     void deleteGmtLatestVersionModifiedTime() { this->gmtLatestVersionModifiedTime_ = nullptr;};
-    inline string gmtLatestVersionModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtLatestVersionModifiedTime_, "") };
+    inline string getGmtLatestVersionModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtLatestVersionModifiedTime_, "") };
     inline GetModelResponseBody& setGmtLatestVersionModifiedTime(string gmtLatestVersionModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtLatestVersionModifiedTime_, gmtLatestVersionModifiedTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-    inline string gmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
+    inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline GetModelResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const vector<Label> & labels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
-    inline vector<Label> labels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
+    inline const vector<Label> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
+    inline vector<Label> getLabels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
     inline GetModelResponseBody& setLabels(const vector<Label> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline GetModelResponseBody& setLabels(vector<Label> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
@@ -136,8 +136,8 @@ namespace Models
     // latestVersion Field Functions 
     bool hasLatestVersion() const { return this->latestVersion_ != nullptr;};
     void deleteLatestVersion() { this->latestVersion_ = nullptr;};
-    inline const ModelVersion & latestVersion() const { DARABONBA_PTR_GET_CONST(latestVersion_, ModelVersion) };
-    inline ModelVersion latestVersion() { DARABONBA_PTR_GET(latestVersion_, ModelVersion) };
+    inline const ModelVersion & getLatestVersion() const { DARABONBA_PTR_GET_CONST(latestVersion_, ModelVersion) };
+    inline ModelVersion getLatestVersion() { DARABONBA_PTR_GET(latestVersion_, ModelVersion) };
     inline GetModelResponseBody& setLatestVersion(const ModelVersion & latestVersion) { DARABONBA_PTR_SET_VALUE(latestVersion_, latestVersion) };
     inline GetModelResponseBody& setLatestVersion(ModelVersion && latestVersion) { DARABONBA_PTR_SET_RVALUE(latestVersion_, latestVersion) };
 
@@ -145,98 +145,98 @@ namespace Models
     // modelDescription Field Functions 
     bool hasModelDescription() const { return this->modelDescription_ != nullptr;};
     void deleteModelDescription() { this->modelDescription_ = nullptr;};
-    inline string modelDescription() const { DARABONBA_PTR_GET_DEFAULT(modelDescription_, "") };
+    inline string getModelDescription() const { DARABONBA_PTR_GET_DEFAULT(modelDescription_, "") };
     inline GetModelResponseBody& setModelDescription(string modelDescription) { DARABONBA_PTR_SET_VALUE(modelDescription_, modelDescription) };
 
 
     // modelDoc Field Functions 
     bool hasModelDoc() const { return this->modelDoc_ != nullptr;};
     void deleteModelDoc() { this->modelDoc_ = nullptr;};
-    inline string modelDoc() const { DARABONBA_PTR_GET_DEFAULT(modelDoc_, "") };
+    inline string getModelDoc() const { DARABONBA_PTR_GET_DEFAULT(modelDoc_, "") };
     inline GetModelResponseBody& setModelDoc(string modelDoc) { DARABONBA_PTR_SET_VALUE(modelDoc_, modelDoc) };
 
 
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline GetModelResponseBody& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
-    inline string modelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline GetModelResponseBody& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
     // modelType Field Functions 
     bool hasModelType() const { return this->modelType_ != nullptr;};
     void deleteModelType() { this->modelType_ = nullptr;};
-    inline string modelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
     inline GetModelResponseBody& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
 
 
     // orderNumber Field Functions 
     bool hasOrderNumber() const { return this->orderNumber_ != nullptr;};
     void deleteOrderNumber() { this->orderNumber_ = nullptr;};
-    inline int64_t orderNumber() const { DARABONBA_PTR_GET_DEFAULT(orderNumber_, 0L) };
+    inline int64_t getOrderNumber() const { DARABONBA_PTR_GET_DEFAULT(orderNumber_, 0L) };
     inline GetModelResponseBody& setOrderNumber(int64_t orderNumber) { DARABONBA_PTR_SET_VALUE(orderNumber_, orderNumber) };
 
 
     // origin Field Functions 
     bool hasOrigin() const { return this->origin_ != nullptr;};
     void deleteOrigin() { this->origin_ = nullptr;};
-    inline string origin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
+    inline string getOrigin() const { DARABONBA_PTR_GET_DEFAULT(origin_, "") };
     inline GetModelResponseBody& setOrigin(string origin) { DARABONBA_PTR_SET_VALUE(origin_, origin) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline string ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+    inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
     inline GetModelResponseBody& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // parameterSize Field Functions 
     bool hasParameterSize() const { return this->parameterSize_ != nullptr;};
     void deleteParameterSize() { this->parameterSize_ = nullptr;};
-    inline int64_t parameterSize() const { DARABONBA_PTR_GET_DEFAULT(parameterSize_, 0L) };
+    inline int64_t getParameterSize() const { DARABONBA_PTR_GET_DEFAULT(parameterSize_, 0L) };
     inline GetModelResponseBody& setParameterSize(int64_t parameterSize) { DARABONBA_PTR_SET_VALUE(parameterSize_, parameterSize) };
 
 
     // provider Field Functions 
     bool hasProvider() const { return this->provider_ != nullptr;};
     void deleteProvider() { this->provider_ = nullptr;};
-    inline string provider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+    inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
     inline GetModelResponseBody& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetModelResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // task Field Functions 
     bool hasTask() const { return this->task_ != nullptr;};
     void deleteTask() { this->task_ = nullptr;};
-    inline string task() const { DARABONBA_PTR_GET_DEFAULT(task_, "") };
+    inline string getTask() const { DARABONBA_PTR_GET_DEFAULT(task_, "") };
     inline GetModelResponseBody& setTask(string task) { DARABONBA_PTR_SET_VALUE(task_, task) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GetModelResponseBody& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline GetModelResponseBody& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -245,47 +245,47 @@ namespace Models
     // 
     // *   PRIVATE: The workspace is visible only to you and the administrator of the workspace.
     // *   PUBLIC: The workspace is visible to all users.
-    std::shared_ptr<string> accessibility_ = nullptr;
+    shared_ptr<string> accessibility_ {};
     // The domain. This parameter specifies the domain for which the model is developed. Valid values: nlp and cv. nlp indicates natural language processing and cv indicates computer vision.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // Other information about the model.
-    Darabonba::Json extraInfo_ = nullptr;
+    Darabonba::Json extraInfo_ {};
     // The time when the model is created, in UTC. The time follows the ISO 8601 standard.
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtLatestVersionModifiedTime_ = nullptr;
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtLatestVersionModifiedTime_ {};
     // The time when the model is last modified, in UTC. The time follows the ISO 8601 standard.
-    std::shared_ptr<string> gmtModifiedTime_ = nullptr;
+    shared_ptr<string> gmtModifiedTime_ {};
     // The model tags.
-    std::shared_ptr<vector<Label>> labels_ = nullptr;
+    shared_ptr<vector<Label>> labels_ {};
     // The latest version of the model.
-    std::shared_ptr<ModelVersion> latestVersion_ = nullptr;
+    shared_ptr<ModelVersion> latestVersion_ {};
     // The model description.
-    std::shared_ptr<string> modelDescription_ = nullptr;
+    shared_ptr<string> modelDescription_ {};
     // The documentation of the model.
-    std::shared_ptr<string> modelDoc_ = nullptr;
+    shared_ptr<string> modelDoc_ {};
     // The model ID.
-    std::shared_ptr<string> modelId_ = nullptr;
+    shared_ptr<string> modelId_ {};
     // The model name.
-    std::shared_ptr<string> modelName_ = nullptr;
+    shared_ptr<string> modelName_ {};
     // The model type.
-    std::shared_ptr<string> modelType_ = nullptr;
+    shared_ptr<string> modelType_ {};
     // The sequence number of the model.
-    std::shared_ptr<int64_t> orderNumber_ = nullptr;
+    shared_ptr<int64_t> orderNumber_ {};
     // The source of the model. The community or organization to which the model belongs, such as ModelScope or HuggingFace.
-    std::shared_ptr<string> origin_ = nullptr;
+    shared_ptr<string> origin_ {};
     // The ID of the Alibaba Cloud account.
-    std::shared_ptr<string> ownerId_ = nullptr;
-    std::shared_ptr<int64_t> parameterSize_ = nullptr;
+    shared_ptr<string> ownerId_ {};
+    shared_ptr<int64_t> parameterSize_ {};
     // The provider.
-    std::shared_ptr<string> provider_ = nullptr;
+    shared_ptr<string> provider_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The task of the model. This parameter describes specific issues that the model solves, such as text-classification.
-    std::shared_ptr<string> task_ = nullptr;
+    shared_ptr<string> task_ {};
     // The user ID.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
     // The workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

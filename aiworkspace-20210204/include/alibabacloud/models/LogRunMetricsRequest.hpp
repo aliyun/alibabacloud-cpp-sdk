@@ -35,15 +35,15 @@ namespace Models
     // metrics Field Functions 
     bool hasMetrics() const { return this->metrics_ != nullptr;};
     void deleteMetrics() { this->metrics_ = nullptr;};
-    inline const vector<RunMetric> & metrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<RunMetric>) };
-    inline vector<RunMetric> metrics() { DARABONBA_PTR_GET(metrics_, vector<RunMetric>) };
+    inline const vector<RunMetric> & getMetrics() const { DARABONBA_PTR_GET_CONST(metrics_, vector<RunMetric>) };
+    inline vector<RunMetric> getMetrics() { DARABONBA_PTR_GET(metrics_, vector<RunMetric>) };
     inline LogRunMetricsRequest& setMetrics(const vector<RunMetric> & metrics) { DARABONBA_PTR_SET_VALUE(metrics_, metrics) };
     inline LogRunMetricsRequest& setMetrics(vector<RunMetric> && metrics) { DARABONBA_PTR_SET_RVALUE(metrics_, metrics) };
 
 
   protected:
     // The metrics.
-    std::shared_ptr<vector<RunMetric>> metrics_ = nullptr;
+    shared_ptr<vector<RunMetric>> metrics_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataCount_ == nullptr
-        && return this->dataSize_ == nullptr && return this->description_ == nullptr && return this->options_ == nullptr; };
+        && this->dataSize_ == nullptr && this->description_ == nullptr && this->options_ == nullptr; };
     // dataCount Field Functions 
     bool hasDataCount() const { return this->dataCount_ != nullptr;};
     void deleteDataCount() { this->dataCount_ = nullptr;};
-    inline int64_t dataCount() const { DARABONBA_PTR_GET_DEFAULT(dataCount_, 0L) };
+    inline int64_t getDataCount() const { DARABONBA_PTR_GET_DEFAULT(dataCount_, 0L) };
     inline UpdateDatasetVersionRequest& setDataCount(int64_t dataCount) { DARABONBA_PTR_SET_VALUE(dataCount_, dataCount) };
 
 
     // dataSize Field Functions 
     bool hasDataSize() const { return this->dataSize_ != nullptr;};
     void deleteDataSize() { this->dataSize_ = nullptr;};
-    inline int64_t dataSize() const { DARABONBA_PTR_GET_DEFAULT(dataSize_, 0L) };
+    inline int64_t getDataSize() const { DARABONBA_PTR_GET_DEFAULT(dataSize_, 0L) };
     inline UpdateDatasetVersionRequest& setDataSize(int64_t dataSize) { DARABONBA_PTR_SET_VALUE(dataSize_, dataSize) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateDatasetVersionRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline string options() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
     inline UpdateDatasetVersionRequest& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
   protected:
-    std::shared_ptr<int64_t> dataCount_ = nullptr;
-    std::shared_ptr<int64_t> dataSize_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> options_ = nullptr;
+    shared_ptr<int64_t> dataCount_ {};
+    shared_ptr<int64_t> dataSize_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> options_ {};
   };
 
   } // namespace Models

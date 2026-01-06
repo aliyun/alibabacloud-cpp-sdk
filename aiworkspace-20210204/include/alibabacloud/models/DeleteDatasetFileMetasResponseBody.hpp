@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failedDetails_ == nullptr
-        && return this->requestId_ == nullptr && return this->status_ == nullptr; };
+        && this->requestId_ == nullptr && this->status_ == nullptr; };
     // failedDetails Field Functions 
     bool hasFailedDetails() const { return this->failedDetails_ != nullptr;};
     void deleteFailedDetails() { this->failedDetails_ = nullptr;};
-    inline const vector<DatasetFileMetaResponse> & failedDetails() const { DARABONBA_PTR_GET_CONST(failedDetails_, vector<DatasetFileMetaResponse>) };
-    inline vector<DatasetFileMetaResponse> failedDetails() { DARABONBA_PTR_GET(failedDetails_, vector<DatasetFileMetaResponse>) };
+    inline const vector<DatasetFileMetaResponse> & getFailedDetails() const { DARABONBA_PTR_GET_CONST(failedDetails_, vector<DatasetFileMetaResponse>) };
+    inline vector<DatasetFileMetaResponse> getFailedDetails() { DARABONBA_PTR_GET(failedDetails_, vector<DatasetFileMetaResponse>) };
     inline DeleteDatasetFileMetasResponseBody& setFailedDetails(const vector<DatasetFileMetaResponse> & failedDetails) { DARABONBA_PTR_SET_VALUE(failedDetails_, failedDetails) };
     inline DeleteDatasetFileMetasResponseBody& setFailedDetails(vector<DatasetFileMetaResponse> && failedDetails) { DARABONBA_PTR_SET_RVALUE(failedDetails_, failedDetails) };
 
@@ -49,24 +49,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeleteDatasetFileMetasResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline bool status() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
+    inline bool getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
     inline DeleteDatasetFileMetasResponseBody& setStatus(bool status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The metadata records that fail to be deleted for the dataset files.
-    std::shared_ptr<vector<DatasetFileMetaResponse>> failedDetails_ = nullptr;
+    shared_ptr<vector<DatasetFileMetaResponse>> failedDetails_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the metadata records of all dataset files were deleted. The value true indicates that the metadata records of all dataset files are deleted. If the value is false, view the failure details specified by FailedDetails.
-    std::shared_ptr<bool> status_ = nullptr;
+    shared_ptr<bool> status_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // labelKeys Field Functions 
     bool hasLabelKeys() const { return this->labelKeys_ != nullptr;};
     void deleteLabelKeys() { this->labelKeys_ = nullptr;};
-    inline string labelKeys() const { DARABONBA_PTR_GET_DEFAULT(labelKeys_, "") };
+    inline string getLabelKeys() const { DARABONBA_PTR_GET_DEFAULT(labelKeys_, "") };
     inline DeleteDatasetLabelsRequest& setLabelKeys(string labelKeys) { DARABONBA_PTR_SET_VALUE(labelKeys_, labelKeys) };
 
 
   protected:
     // The tag key. You can call [GetDataset](https://help.aliyun.com/document_detail/457218.html) to obtain the tag key. Multiple tag keys are separated by commas (,).
-    std::shared_ptr<string> labelKeys_ = nullptr;
+    shared_ptr<string> labelKeys_ {};
   };
 
   } // namespace Models

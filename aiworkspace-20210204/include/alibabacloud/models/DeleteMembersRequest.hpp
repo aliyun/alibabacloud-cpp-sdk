@@ -33,7 +33,7 @@ namespace Models
     // memberIds Field Functions 
     bool hasMemberIds() const { return this->memberIds_ != nullptr;};
     void deleteMemberIds() { this->memberIds_ = nullptr;};
-    inline string memberIds() const { DARABONBA_PTR_GET_DEFAULT(memberIds_, "") };
+    inline string getMemberIds() const { DARABONBA_PTR_GET_DEFAULT(memberIds_, "") };
     inline DeleteMembersRequest& setMemberIds(string memberIds) { DARABONBA_PTR_SET_VALUE(memberIds_, memberIds) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The list of member IDs. Separate multiple member IDs with commas (,). You can call [ListMembers](https://help.aliyun.com/document_detail/449135.html) to obtain the member ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> memberIds_ = nullptr;
+    shared_ptr<string> memberIds_ {};
   };
 
   } // namespace Models

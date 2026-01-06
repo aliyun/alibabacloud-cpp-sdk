@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryName_ == nullptr
-        && return this->configKey_ == nullptr && return this->verbose_ == nullptr; };
+        && this->configKey_ == nullptr && this->verbose_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
-    inline string categoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
+    inline string getCategoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
     inline GetConfigRequest& setCategoryName(string categoryName) { DARABONBA_PTR_SET_VALUE(categoryName_, categoryName) };
 
 
     // configKey Field Functions 
     bool hasConfigKey() const { return this->configKey_ != nullptr;};
     void deleteConfigKey() { this->configKey_ = nullptr;};
-    inline string configKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
+    inline string getConfigKey() const { DARABONBA_PTR_GET_DEFAULT(configKey_, "") };
     inline GetConfigRequest& setConfigKey(string configKey) { DARABONBA_PTR_SET_VALUE(configKey_, configKey) };
 
 
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
-    inline string verbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, "") };
+    inline string getVerbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, "") };
     inline GetConfigRequest& setVerbose(string verbose) { DARABONBA_PTR_SET_VALUE(verbose_, verbose) };
 
 
@@ -65,7 +65,7 @@ namespace Models
     // *   DSWPriorityConfig
     // *   QuotaMaximumDuration
     // *   CommonTagConfig
-    std::shared_ptr<string> categoryName_ = nullptr;
+    shared_ptr<string> categoryName_ {};
     // The key of the configuration item. Valid values:
     // 
     // *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
@@ -73,9 +73,9 @@ namespace Models
     // *   priorityConfig: Priority configuration. This key can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
     // *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
     // *   predefinedTags: Predefined tags of the workspace. Created resources must include tags.
-    std::shared_ptr<string> configKey_ = nullptr;
+    shared_ptr<string> configKey_ {};
     // The value of the configuration item.
-    std::shared_ptr<string> verbose_ = nullptr;
+    shared_ptr<string> verbose_ {};
   };
 
   } // namespace Models

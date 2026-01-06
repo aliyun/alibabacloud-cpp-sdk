@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetFileMetas_ == nullptr
-        && return this->datasetVersion_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->datasetVersion_ == nullptr && this->workspaceId_ == nullptr; };
     // datasetFileMetas Field Functions 
     bool hasDatasetFileMetas() const { return this->datasetFileMetas_ != nullptr;};
     void deleteDatasetFileMetas() { this->datasetFileMetas_ = nullptr;};
-    inline const vector<DatasetFileMetaContentCreate> & datasetFileMetas() const { DARABONBA_PTR_GET_CONST(datasetFileMetas_, vector<DatasetFileMetaContentCreate>) };
-    inline vector<DatasetFileMetaContentCreate> datasetFileMetas() { DARABONBA_PTR_GET(datasetFileMetas_, vector<DatasetFileMetaContentCreate>) };
+    inline const vector<DatasetFileMetaContentCreate> & getDatasetFileMetas() const { DARABONBA_PTR_GET_CONST(datasetFileMetas_, vector<DatasetFileMetaContentCreate>) };
+    inline vector<DatasetFileMetaContentCreate> getDatasetFileMetas() { DARABONBA_PTR_GET(datasetFileMetas_, vector<DatasetFileMetaContentCreate>) };
     inline CreateDatasetFileMetasRequest& setDatasetFileMetas(const vector<DatasetFileMetaContentCreate> & datasetFileMetas) { DARABONBA_PTR_SET_VALUE(datasetFileMetas_, datasetFileMetas) };
     inline CreateDatasetFileMetasRequest& setDatasetFileMetas(vector<DatasetFileMetaContentCreate> && datasetFileMetas) { DARABONBA_PTR_SET_RVALUE(datasetFileMetas_, datasetFileMetas) };
 
@@ -49,14 +49,14 @@ namespace Models
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
-    inline string datasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
+    inline string getDatasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
     inline CreateDatasetFileMetasRequest& setDatasetVersion(string datasetVersion) { DARABONBA_PTR_SET_VALUE(datasetVersion_, datasetVersion) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateDatasetFileMetasRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -64,15 +64,15 @@ namespace Models
     // The metadata of the file.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<DatasetFileMetaContentCreate>> datasetFileMetas_ = nullptr;
+    shared_ptr<vector<DatasetFileMetaContentCreate>> datasetFileMetas_ {};
     // The dataset version name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> datasetVersion_ = nullptr;
+    shared_ptr<string> datasetVersion_ {};
     // The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
-    inline string accessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
+    inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline UpdateExperimentRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateExperimentRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -52,13 +52,13 @@ namespace Models
     // 
     // *   PRIVATE: The experiment is accessible only to you and the administrator of the workspace.
     // *   PUBLIC: The experiment is accessible to all users in the workspace.
-    std::shared_ptr<string> accessibility_ = nullptr;
+    shared_ptr<string> accessibility_ {};
     // The experiment name. The name must meet the following requirements:
     // 
     // *   The name must start with a letter.
     // *   The name can contain letters, digits, underscores (_), and hyphens (-).
     // *   The name must be 1 to 63 characters in length.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

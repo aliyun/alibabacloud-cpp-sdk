@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetJobConfigs_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // datasetJobConfigs Field Functions 
     bool hasDatasetJobConfigs() const { return this->datasetJobConfigs_ != nullptr;};
     void deleteDatasetJobConfigs() { this->datasetJobConfigs_ = nullptr;};
-    inline const vector<DatasetJobConfig> & datasetJobConfigs() const { DARABONBA_PTR_GET_CONST(datasetJobConfigs_, vector<DatasetJobConfig>) };
-    inline vector<DatasetJobConfig> datasetJobConfigs() { DARABONBA_PTR_GET(datasetJobConfigs_, vector<DatasetJobConfig>) };
+    inline const vector<DatasetJobConfig> & getDatasetJobConfigs() const { DARABONBA_PTR_GET_CONST(datasetJobConfigs_, vector<DatasetJobConfig>) };
+    inline vector<DatasetJobConfig> getDatasetJobConfigs() { DARABONBA_PTR_GET(datasetJobConfigs_, vector<DatasetJobConfig>) };
     inline ListDatasetJobConfigsResponseBody& setDatasetJobConfigs(const vector<DatasetJobConfig> & datasetJobConfigs) { DARABONBA_PTR_SET_VALUE(datasetJobConfigs_, datasetJobConfigs) };
     inline ListDatasetJobConfigsResponseBody& setDatasetJobConfigs(vector<DatasetJobConfig> && datasetJobConfigs) { DARABONBA_PTR_SET_RVALUE(datasetJobConfigs_, datasetJobConfigs) };
 
@@ -49,24 +49,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListDatasetJobConfigsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListDatasetJobConfigsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The dataset job configurations.
-    std::shared_ptr<vector<DatasetJobConfig>> datasetJobConfigs_ = nullptr;
+    shared_ptr<vector<DatasetJobConfig>> datasetJobConfigs_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of entries.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

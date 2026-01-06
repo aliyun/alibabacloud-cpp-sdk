@@ -40,54 +40,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetVersion_ == nullptr
-        && return this->description_ == nullptr && return this->jobAction_ == nullptr && return this->jobMode_ == nullptr && return this->jobSpec_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->jobAction_ == nullptr && this->jobMode_ == nullptr && this->jobSpec_ == nullptr && this->workspaceId_ == nullptr; };
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
-    inline string datasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
+    inline string getDatasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
     inline CreateDatasetJobRequest& setDatasetVersion(string datasetVersion) { DARABONBA_PTR_SET_VALUE(datasetVersion_, datasetVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateDatasetJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // jobAction Field Functions 
     bool hasJobAction() const { return this->jobAction_ != nullptr;};
     void deleteJobAction() { this->jobAction_ = nullptr;};
-    inline string jobAction() const { DARABONBA_PTR_GET_DEFAULT(jobAction_, "") };
+    inline string getJobAction() const { DARABONBA_PTR_GET_DEFAULT(jobAction_, "") };
     inline CreateDatasetJobRequest& setJobAction(string jobAction) { DARABONBA_PTR_SET_VALUE(jobAction_, jobAction) };
 
 
     // jobMode Field Functions 
     bool hasJobMode() const { return this->jobMode_ != nullptr;};
     void deleteJobMode() { this->jobMode_ = nullptr;};
-    inline string jobMode() const { DARABONBA_PTR_GET_DEFAULT(jobMode_, "") };
+    inline string getJobMode() const { DARABONBA_PTR_GET_DEFAULT(jobMode_, "") };
     inline CreateDatasetJobRequest& setJobMode(string jobMode) { DARABONBA_PTR_SET_VALUE(jobMode_, jobMode) };
 
 
     // jobSpec Field Functions 
     bool hasJobSpec() const { return this->jobSpec_ != nullptr;};
     void deleteJobSpec() { this->jobSpec_ = nullptr;};
-    inline string jobSpec() const { DARABONBA_PTR_GET_DEFAULT(jobSpec_, "") };
+    inline string getJobSpec() const { DARABONBA_PTR_GET_DEFAULT(jobSpec_, "") };
     inline CreateDatasetJobRequest& setJobSpec(string jobSpec) { DARABONBA_PTR_SET_VALUE(jobSpec_, jobSpec) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateDatasetJobRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // The dataset version.
-    std::shared_ptr<string> datasetVersion_ = nullptr;
+    shared_ptr<string> datasetVersion_ {};
     // The job description.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The job action.
     // 
     // Valid values:
@@ -97,21 +97,21 @@ namespace Models
     // *   FileMetaExport
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobAction_ = nullptr;
+    shared_ptr<string> jobAction_ {};
     // The job mode.
     // 
     // Valid values:
     // 
     // *   Full: full mode.
-    std::shared_ptr<string> jobMode_ = nullptr;
+    shared_ptr<string> jobMode_ {};
     // The job configuration.
     // 
     // This parameter is required.
-    std::shared_ptr<string> jobSpec_ = nullptr;
+    shared_ptr<string> jobSpec_ {};
     // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

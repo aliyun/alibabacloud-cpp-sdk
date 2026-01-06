@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->key_ == nullptr; };
+        && this->key_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline DatasetFileMetasStat& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline DatasetFileMetasStat& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
   protected:
-    std::shared_ptr<int32_t> count_ = nullptr;
-    std::shared_ptr<string> key_ = nullptr;
+    shared_ptr<int32_t> count_ {};
+    shared_ptr<string> key_ {};
   };
 
   } // namespace Models

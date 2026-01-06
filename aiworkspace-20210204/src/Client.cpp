@@ -92,11 +92,11 @@ AcceptDataworksEventResponse Client::acceptDataworksEventWithOptions(const Accep
   request.validate();
   json body = {};
   if (!!request.hasData()) {
-    body["Data"] = request.data();
+    body["Data"] = request.getData();
   }
 
   if (!!request.hasMessageId()) {
-    body["MessageId"] = request.messageId();
+    body["MessageId"] = request.getMessageId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -143,43 +143,43 @@ AddImageResponse Client::addImageWithOptions(const AddImageRequest &request, con
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasImageId()) {
-    body["ImageId"] = request.imageId();
+    body["ImageId"] = request.getImageId();
   }
 
   if (!!request.hasImageUri()) {
-    body["ImageUri"] = request.imageUri();
+    body["ImageUri"] = request.getImageUri();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasSize()) {
-    body["Size"] = request.size();
+    body["Size"] = request.getSize();
   }
 
   if (!!request.hasSourceId()) {
-    body["SourceId"] = request.sourceId();
+    body["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -224,7 +224,7 @@ AddImageLabelsResponse Client::addImageLabelsWithOptions(const string &ImageId, 
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -305,15 +305,15 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
   request.validate();
   json body = {};
   if (!!request.hasNewResourceGroupId()) {
-    body["NewResourceGroupId"] = request.newResourceGroupId();
+    body["NewResourceGroupId"] = request.getNewResourceGroupId();
   }
 
   if (!!request.hasResourceId()) {
-    body["ResourceId"] = request.resourceId();
+    body["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -358,43 +358,43 @@ CreateCodeSourceResponse Client::createCodeSourceWithOptions(const CreateCodeSou
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasCodeBranch()) {
-    body["CodeBranch"] = request.codeBranch();
+    body["CodeBranch"] = request.getCodeBranch();
   }
 
   if (!!request.hasCodeCommit()) {
-    body["CodeCommit"] = request.codeCommit();
+    body["CodeCommit"] = request.getCodeCommit();
   }
 
   if (!!request.hasCodeRepo()) {
-    body["CodeRepo"] = request.codeRepo();
+    body["CodeRepo"] = request.getCodeRepo();
   }
 
   if (!!request.hasCodeRepoAccessToken()) {
-    body["CodeRepoAccessToken"] = request.codeRepoAccessToken();
+    body["CodeRepoAccessToken"] = request.getCodeRepoAccessToken();
   }
 
   if (!!request.hasCodeRepoUserName()) {
-    body["CodeRepoUserName"] = request.codeRepoUserName();
+    body["CodeRepoUserName"] = request.getCodeRepoUserName();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasMountPath()) {
-    body["MountPath"] = request.mountPath();
+    body["MountPath"] = request.getMountPath();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -439,39 +439,39 @@ CreateConnectionResponse Client::createConnectionWithOptions(const CreateConnect
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasConfigs()) {
-    body["Configs"] = request.configs();
+    body["Configs"] = request.getConfigs();
   }
 
   if (!!request.hasConnectionName()) {
-    body["ConnectionName"] = request.connectionName();
+    body["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasConnectionType()) {
-    body["ConnectionType"] = request.connectionType();
+    body["ConnectionType"] = request.getConnectionType();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasModels()) {
-    body["Models"] = request.models();
+    body["Models"] = request.getModels();
   }
 
   if (!!request.hasResourceMeta()) {
-    body["ResourceMeta"] = request.resourceMeta();
+    body["ResourceMeta"] = request.getResourceMeta();
   }
 
   if (!!request.hasSecrets()) {
-    body["Secrets"] = request.secrets();
+    body["Secrets"] = request.getSecrets();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -516,99 +516,99 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasDataCount()) {
-    body["DataCount"] = request.dataCount();
+    body["DataCount"] = request.getDataCount();
   }
 
   if (!!request.hasDataSize()) {
-    body["DataSize"] = request.dataSize();
+    body["DataSize"] = request.getDataSize();
   }
 
   if (!!request.hasDataSourceType()) {
-    body["DataSourceType"] = request.dataSourceType();
+    body["DataSourceType"] = request.getDataSourceType();
   }
 
   if (!!request.hasDataType()) {
-    body["DataType"] = request.dataType();
+    body["DataType"] = request.getDataType();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEdition()) {
-    body["Edition"] = request.edition();
+    body["Edition"] = request.getEdition();
   }
 
   if (!!request.hasImportInfo()) {
-    body["ImportInfo"] = request.importInfo();
+    body["ImportInfo"] = request.getImportInfo();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasMountAccessReadWriteRoleIdList()) {
-    body["MountAccessReadWriteRoleIdList"] = request.mountAccessReadWriteRoleIdList();
+    body["MountAccessReadWriteRoleIdList"] = request.getMountAccessReadWriteRoleIdList();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOptions()) {
-    body["Options"] = request.options();
+    body["Options"] = request.getOptions();
   }
 
   if (!!request.hasProperty()) {
-    body["Property"] = request.property();
+    body["Property"] = request.getProperty();
   }
 
   if (!!request.hasProvider()) {
-    body["Provider"] = request.provider();
+    body["Provider"] = request.getProvider();
   }
 
   if (!!request.hasProviderType()) {
-    body["ProviderType"] = request.providerType();
+    body["ProviderType"] = request.getProviderType();
   }
 
   if (!!request.hasSourceDatasetId()) {
-    body["SourceDatasetId"] = request.sourceDatasetId();
+    body["SourceDatasetId"] = request.getSourceDatasetId();
   }
 
   if (!!request.hasSourceDatasetVersion()) {
-    body["SourceDatasetVersion"] = request.sourceDatasetVersion();
+    body["SourceDatasetVersion"] = request.getSourceDatasetVersion();
   }
 
   if (!!request.hasSourceId()) {
-    body["SourceId"] = request.sourceId();
+    body["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasUri()) {
-    body["Uri"] = request.uri();
+    body["Uri"] = request.getUri();
   }
 
   if (!!request.hasUserId()) {
-    body["UserId"] = request.userId();
+    body["UserId"] = request.getUserId();
   }
 
   if (!!request.hasVersionDescription()) {
-    body["VersionDescription"] = request.versionDescription();
+    body["VersionDescription"] = request.getVersionDescription();
   }
 
   if (!!request.hasVersionLabels()) {
-    body["VersionLabels"] = request.versionLabels();
+    body["VersionLabels"] = request.getVersionLabels();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -653,15 +653,15 @@ CreateDatasetFileMetasResponse Client::createDatasetFileMetasWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasDatasetFileMetas()) {
-    body["DatasetFileMetas"] = request.datasetFileMetas();
+    body["DatasetFileMetas"] = request.getDatasetFileMetas();
   }
 
   if (!!request.hasDatasetVersion()) {
-    body["DatasetVersion"] = request.datasetVersion();
+    body["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -706,27 +706,27 @@ CreateDatasetJobResponse Client::createDatasetJobWithOptions(const string &Datas
   request.validate();
   json body = {};
   if (!!request.hasDatasetVersion()) {
-    body["DatasetVersion"] = request.datasetVersion();
+    body["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasJobAction()) {
-    body["JobAction"] = request.jobAction();
+    body["JobAction"] = request.getJobAction();
   }
 
   if (!!request.hasJobMode()) {
-    body["JobMode"] = request.jobMode();
+    body["JobMode"] = request.getJobMode();
   }
 
   if (!!request.hasJobSpec()) {
-    body["JobSpec"] = request.jobSpec();
+    body["JobSpec"] = request.getJobSpec();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -771,19 +771,19 @@ CreateDatasetJobConfigResponse Client::createDatasetJobConfigWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["Config"] = request.config();
+    body["Config"] = request.getConfig();
   }
 
   if (!!request.hasConfigType()) {
-    body["ConfigType"] = request.configType();
+    body["ConfigType"] = request.getConfigType();
   }
 
   if (!!request.hasDatasetVersion()) {
-    body["DatasetVersion"] = request.datasetVersion();
+    body["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -832,7 +832,7 @@ CreateDatasetLabelsResponse Client::createDatasetLabelsWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -881,47 +881,47 @@ CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const strin
   request.validate();
   json body = {};
   if (!!request.hasDataCount()) {
-    body["DataCount"] = request.dataCount();
+    body["DataCount"] = request.getDataCount();
   }
 
   if (!!request.hasDataSize()) {
-    body["DataSize"] = request.dataSize();
+    body["DataSize"] = request.getDataSize();
   }
 
   if (!!request.hasDataSourceType()) {
-    body["DataSourceType"] = request.dataSourceType();
+    body["DataSourceType"] = request.getDataSourceType();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasImportInfo()) {
-    body["ImportInfo"] = request.importInfo();
+    body["ImportInfo"] = request.getImportInfo();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasOptions()) {
-    body["Options"] = request.options();
+    body["Options"] = request.getOptions();
   }
 
   if (!!request.hasProperty()) {
-    body["Property"] = request.property();
+    body["Property"] = request.getProperty();
   }
 
   if (!!request.hasSourceId()) {
-    body["SourceId"] = request.sourceId();
+    body["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasUri()) {
-    body["Uri"] = request.uri();
+    body["Uri"] = request.getUri();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -966,7 +966,7 @@ CreateDatasetVersionLabelsResponse Client::createDatasetVersionLabelsWithOptions
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1011,23 +1011,23 @@ CreateExperimentResponse Client::createExperimentWithOptions(const CreateExperim
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasArtifactUri()) {
-    body["ArtifactUri"] = request.artifactUri();
+    body["ArtifactUri"] = request.getArtifactUri();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1072,48 +1072,48 @@ CreateImageBuildResponse Client::createImageBuildWithOptions(const CreateImageBu
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasBuildConfig()) {
-    body["BuildConfig"] = request.buildConfig();
+    body["BuildConfig"] = request.getBuildConfig();
   }
 
   if (!!request.hasImage()) {
-    body["Image"] = request.image();
+    body["Image"] = request.getImage();
   }
 
   if (!!request.hasImageBuildJobName()) {
-    body["ImageBuildJobName"] = request.imageBuildJobName();
+    body["ImageBuildJobName"] = request.getImageBuildJobName();
   }
 
   if (!!request.hasOverwriteImageTag()) {
-    body["OverwriteImageTag"] = request.overwriteImageTag();
+    body["OverwriteImageTag"] = request.getOverwriteImageTag();
   }
 
   if (!!request.hasRegionId()) {
-    body["RegionId"] = request.regionId();
+    body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResource()) {
-    body["Resource"] = request.resource();
+    body["Resource"] = request.getResource();
   }
 
   if (!!request.hasTargetRegistry()) {
-    body["TargetRegistry"] = request.targetRegistry();
+    body["TargetRegistry"] = request.getTargetRegistry();
   }
 
   if (!!request.hasUserVpc()) {
-    body["UserVpc"] = request.userVpc();
+    body["UserVpc"] = request.getUserVpc();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1159,7 +1159,7 @@ CreateMemberResponse Client::createMemberWithOptions(const string &WorkspaceId, 
   request.validate();
   json body = {};
   if (!!request.hasMembers()) {
-    body["Members"] = request.members();
+    body["Members"] = request.getMembers();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1204,59 +1204,59 @@ CreateModelResponse Client::createModelWithOptions(const CreateModelRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasDomain()) {
-    body["Domain"] = request.domain();
+    body["Domain"] = request.getDomain();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["ExtraInfo"] = request.extraInfo();
+    body["ExtraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasModelDescription()) {
-    body["ModelDescription"] = request.modelDescription();
+    body["ModelDescription"] = request.getModelDescription();
   }
 
   if (!!request.hasModelDoc()) {
-    body["ModelDoc"] = request.modelDoc();
+    body["ModelDoc"] = request.getModelDoc();
   }
 
   if (!!request.hasModelName()) {
-    body["ModelName"] = request.modelName();
+    body["ModelName"] = request.getModelName();
   }
 
   if (!!request.hasModelType()) {
-    body["ModelType"] = request.modelType();
+    body["ModelType"] = request.getModelType();
   }
 
   if (!!request.hasOrderNumber()) {
-    body["OrderNumber"] = request.orderNumber();
+    body["OrderNumber"] = request.getOrderNumber();
   }
 
   if (!!request.hasOrigin()) {
-    body["Origin"] = request.origin();
+    body["Origin"] = request.getOrigin();
   }
 
   if (!!request.hasParameterSize()) {
-    body["ParameterSize"] = request.parameterSize();
+    body["ParameterSize"] = request.getParameterSize();
   }
 
   if (!!request.hasTag()) {
-    body["Tag"] = request.tag();
+    body["Tag"] = request.getTag();
   }
 
   if (!!request.hasTask()) {
-    body["Task"] = request.task();
+    body["Task"] = request.getTask();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1301,7 +1301,7 @@ CreateModelLabelsResponse Client::createModelLabelsWithOptions(const string &Mod
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1346,71 +1346,71 @@ CreateModelVersionResponse Client::createModelVersionWithOptions(const string &M
   request.validate();
   json body = {};
   if (!!request.hasApprovalStatus()) {
-    body["ApprovalStatus"] = request.approvalStatus();
+    body["ApprovalStatus"] = request.getApprovalStatus();
   }
 
   if (!!request.hasCompressionSpec()) {
-    body["CompressionSpec"] = request.compressionSpec();
+    body["CompressionSpec"] = request.getCompressionSpec();
   }
 
   if (!!request.hasDistillationSpec()) {
-    body["DistillationSpec"] = request.distillationSpec();
+    body["DistillationSpec"] = request.getDistillationSpec();
   }
 
   if (!!request.hasEvaluationSpec()) {
-    body["EvaluationSpec"] = request.evaluationSpec();
+    body["EvaluationSpec"] = request.getEvaluationSpec();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["ExtraInfo"] = request.extraInfo();
+    body["ExtraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasFormatType()) {
-    body["FormatType"] = request.formatType();
+    body["FormatType"] = request.getFormatType();
   }
 
   if (!!request.hasFrameworkType()) {
-    body["FrameworkType"] = request.frameworkType();
+    body["FrameworkType"] = request.getFrameworkType();
   }
 
   if (!!request.hasInferenceSpec()) {
-    body["InferenceSpec"] = request.inferenceSpec();
+    body["InferenceSpec"] = request.getInferenceSpec();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasMetrics()) {
-    body["Metrics"] = request.metrics();
+    body["Metrics"] = request.getMetrics();
   }
 
   if (!!request.hasOptions()) {
-    body["Options"] = request.options();
+    body["Options"] = request.getOptions();
   }
 
   if (!!request.hasSourceId()) {
-    body["SourceId"] = request.sourceId();
+    body["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasTrainingSpec()) {
-    body["TrainingSpec"] = request.trainingSpec();
+    body["TrainingSpec"] = request.getTrainingSpec();
   }
 
   if (!!request.hasUri()) {
-    body["Uri"] = request.uri();
+    body["Uri"] = request.getUri();
   }
 
   if (!!request.hasVersionDescription()) {
-    body["VersionDescription"] = request.versionDescription();
+    body["VersionDescription"] = request.getVersionDescription();
   }
 
   if (!!request.hasVersionName()) {
-    body["VersionName"] = request.versionName();
+    body["VersionName"] = request.getVersionName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1455,7 +1455,7 @@ CreateModelVersionLabelsResponse Client::createModelVersionLabelsWithOptions(con
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1500,11 +1500,11 @@ CreateProductOrdersResponse Client::createProductOrdersWithOptions(const CreateP
   request.validate();
   json body = {};
   if (!!request.hasAutoPay()) {
-    body["AutoPay"] = request.autoPay();
+    body["AutoPay"] = request.getAutoPay();
   }
 
   if (!!request.hasProducts()) {
-    body["Products"] = request.products();
+    body["Products"] = request.getProducts();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1549,27 +1549,27 @@ CreateRunResponse Client::createRunWithOptions(const CreateRunRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasExperimentId()) {
-    body["ExperimentId"] = request.experimentId();
+    body["ExperimentId"] = request.getExperimentId();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasParams()) {
-    body["Params"] = request.params();
+    body["Params"] = request.getParams();
   }
 
   if (!!request.hasSourceId()) {
-    body["SourceId"] = request.sourceId();
+    body["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1614,23 +1614,23 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasEnvTypes()) {
-    body["EnvTypes"] = request.envTypes();
+    body["EnvTypes"] = request.getEnvTypes();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasWorkspaceName()) {
-    body["WorkspaceName"] = request.workspaceName();
+    body["WorkspaceName"] = request.getWorkspaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1675,11 +1675,11 @@ CreateWorkspaceResourceResponse Client::createWorkspaceResourceWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasOption()) {
-    body["Option"] = request.option();
+    body["Option"] = request.getOption();
   }
 
   if (!!request.hasResources()) {
-    body["Resources"] = request.resources();
+    body["Resources"] = request.getResources();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1760,11 +1760,11 @@ DeleteConfigResponse Client::deleteConfigWithOptions(const string &WorkspaceId, 
   request.validate();
   json query = {};
   if (!!request.hasCategoryName()) {
-    query["CategoryName"] = request.categoryName();
+    query["CategoryName"] = request.getCategoryName();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1881,15 +1881,15 @@ DeleteDatasetFileMetasResponse Client::deleteDatasetFileMetasWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasDatasetFileMetaIds()) {
-    query["DatasetFileMetaIds"] = request.datasetFileMetaIds();
+    query["DatasetFileMetaIds"] = request.getDatasetFileMetaIds();
   }
 
   if (!!request.hasDatasetVersion()) {
-    query["DatasetVersion"] = request.datasetVersion();
+    query["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1970,7 +1970,7 @@ DeleteDatasetJobConfigResponse Client::deleteDatasetJobConfigWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2015,7 +2015,7 @@ DeleteDatasetLabelsResponse Client::deleteDatasetLabelsWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasLabelKeys()) {
-    query["LabelKeys"] = request.labelKeys();
+    query["LabelKeys"] = request.getLabelKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2096,7 +2096,7 @@ DeleteDatasetVersionLabelsResponse Client::deleteDatasetVersionLabelsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasKeys()) {
-    query["Keys"] = request.keys();
+    query["Keys"] = request.getKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2213,7 +2213,7 @@ DeleteMembersResponse Client::deleteMembersWithOptions(const string &WorkspaceId
   request.validate();
   json query = {};
   if (!!request.hasMemberIds()) {
-    query["MemberIds"] = request.memberIds();
+    query["MemberIds"] = request.getMemberIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2294,7 +2294,7 @@ DeleteModelLabelsResponse Client::deleteModelLabelsWithOptions(const string &Mod
   request.validate();
   json query = {};
   if (!!request.hasLabelKeys()) {
-    query["LabelKeys"] = request.labelKeys();
+    query["LabelKeys"] = request.getLabelKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2375,7 +2375,7 @@ DeleteModelVersionLabelsResponse Client::deleteModelVersionLabelsWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasLabelKeys()) {
-    query["LabelKeys"] = request.labelKeys();
+    query["LabelKeys"] = request.getLabelKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2492,11 +2492,11 @@ DeleteUserConfigResponse Client::deleteUserConfigWithOptions(const string &Categ
   request.validate();
   json query = {};
   if (!!request.hasConfigKey()) {
-    query["ConfigKey"] = request.configKey();
+    query["ConfigKey"] = request.getConfigKey();
   }
 
   if (!!request.hasScope()) {
-    query["Scope"] = request.scope();
+    query["Scope"] = request.getScope();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2577,27 +2577,27 @@ DeleteWorkspaceResourceResponse Client::deleteWorkspaceResourceWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasOption()) {
-    query["Option"] = request.option();
+    query["Option"] = request.getOption();
   }
 
   if (!!request.hasProductType()) {
-    query["ProductType"] = request.productType();
+    query["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2678,15 +2678,15 @@ GetConfigResponse Client::getConfigWithOptions(const string &WorkspaceId, const 
   request.validate();
   json query = {};
   if (!!request.hasCategoryName()) {
-    query["CategoryName"] = request.categoryName();
+    query["CategoryName"] = request.getCategoryName();
   }
 
   if (!!request.hasConfigKey()) {
-    query["ConfigKey"] = request.configKey();
+    query["ConfigKey"] = request.getConfigKey();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2731,7 +2731,7 @@ GetConnectionResponse Client::getConnectionWithOptions(const string &ConnectionI
   request.validate();
   json query = {};
   if (!!request.hasEncryptOption()) {
-    query["EncryptOption"] = request.encryptOption();
+    query["EncryptOption"] = request.getEncryptOption();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2812,11 +2812,11 @@ GetDatasetFileMetaResponse Client::getDatasetFileMetaWithOptions(const string &D
   request.validate();
   json query = {};
   if (!!request.hasDatasetVersion()) {
-    query["DatasetVersion"] = request.datasetVersion();
+    query["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2861,19 +2861,19 @@ GetDatasetFileMetasStatisticsResponse Client::getDatasetFileMetasStatisticsWithO
   request.validate();
   json query = {};
   if (!!request.hasAggregateBy()) {
-    query["AggregateBy"] = request.aggregateBy();
+    query["AggregateBy"] = request.getAggregateBy();
   }
 
   if (!!request.hasDatasetVersion()) {
-    query["DatasetVersion"] = request.datasetVersion();
+    query["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2918,11 +2918,11 @@ GetDatasetJobResponse Client::getDatasetJobWithOptions(const string &DatasetId, 
   request.validate();
   json query = {};
   if (!!request.hasDatasetVersion()) {
-    query["DatasetVersion"] = request.datasetVersion();
+    query["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2967,7 +2967,7 @@ GetDatasetJobConfigResponse Client::getDatasetJobConfigWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3048,7 +3048,7 @@ GetDefaultWorkspaceResponse Client::getDefaultWorkspaceWithOptions(const GetDefa
   request.validate();
   json query = {};
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3093,7 +3093,7 @@ GetExperimentResponse Client::getExperimentWithOptions(const string &ExperimentI
   request.validate();
   json query = {};
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3138,7 +3138,7 @@ GetImageResponse Client::getImageWithOptions(const string &ImageId, const GetIma
   request.validate();
   json query = {};
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3183,11 +3183,11 @@ GetMemberResponse Client::getMemberWithOptions(const string &WorkspaceId, const 
   request.validate();
   json query = {};
   if (!!request.hasMemberId()) {
-    query["MemberId"] = request.memberId();
+    query["MemberId"] = request.getMemberId();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3305,28 +3305,28 @@ GetPermissionResponse Client::getPermissionWithOptions(const string &WorkspaceId
   GetPermissionShrinkRequest request = GetPermissionShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLabels()) {
-    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.labels(), "Labels", "json"));
+    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "Labels", "json"));
   }
 
   json query = {};
   if (!!request.hasAccessibility()) {
-    query["Accessibility"] = request.accessibility();
+    query["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasCreator()) {
-    query["Creator"] = request.creator();
+    query["Creator"] = request.getCreator();
   }
 
   if (!!request.hasLabelsShrink()) {
-    query["Labels"] = request.labelsShrink();
+    query["Labels"] = request.getLabelsShrink();
   }
 
   if (!!request.hasOption()) {
-    query["Option"] = request.option();
+    query["Option"] = request.getOption();
   }
 
   if (!!request.hasResource()) {
-    query["Resource"] = request.resource();
+    query["Resource"] = request.getResource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3371,7 +3371,7 @@ GetRunResponse Client::getRunWithOptions(const string &RunId, const GetRunReques
   request.validate();
   json query = {};
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3416,7 +3416,7 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &WorkspaceId, 
   request.validate();
   json query = {};
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3461,27 +3461,27 @@ ListCodeSourcesResponse Client::listCodeSourcesWithOptions(const ListCodeSources
   request.validate();
   json query = {};
   if (!!request.hasDisplayName()) {
-    query["DisplayName"] = request.displayName();
+    query["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3526,19 +3526,19 @@ ListConfigsResponse Client::listConfigsWithOptions(const string &WorkspaceId, co
   request.validate();
   json query = {};
   if (!!request.hasCategoryName()) {
-    query["CategoryName"] = request.categoryName();
+    query["CategoryName"] = request.getCategoryName();
   }
 
   if (!!request.hasConfigKeys()) {
-    query["ConfigKeys"] = request.configKeys();
+    query["ConfigKeys"] = request.getConfigKeys();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3584,68 +3584,68 @@ ListConnectionsResponse Client::listConnectionsWithOptions(const ListConnections
   ListConnectionsShrinkRequest request = ListConnectionsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasConnectionIds()) {
-    request.setConnectionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.connectionIds(), "ConnectionIds", "simple"));
+    request.setConnectionIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConnectionIds(), "ConnectionIds", "simple"));
   }
 
   if (!!tmpReq.hasConnectionTypes()) {
-    request.setConnectionTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.connectionTypes(), "ConnectionTypes", "simple"));
+    request.setConnectionTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConnectionTypes(), "ConnectionTypes", "simple"));
   }
 
   if (!!tmpReq.hasModelTypes()) {
-    request.setModelTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modelTypes(), "ModelTypes", "simple"));
+    request.setModelTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModelTypes(), "ModelTypes", "simple"));
   }
 
   json query = {};
   if (!!request.hasConnectionIdsShrink()) {
-    query["ConnectionIds"] = request.connectionIdsShrink();
+    query["ConnectionIds"] = request.getConnectionIdsShrink();
   }
 
   if (!!request.hasConnectionName()) {
-    query["ConnectionName"] = request.connectionName();
+    query["ConnectionName"] = request.getConnectionName();
   }
 
   if (!!request.hasConnectionTypesShrink()) {
-    query["ConnectionTypes"] = request.connectionTypesShrink();
+    query["ConnectionTypes"] = request.getConnectionTypesShrink();
   }
 
   if (!!request.hasCreator()) {
-    query["Creator"] = request.creator();
+    query["Creator"] = request.getCreator();
   }
 
   if (!!request.hasEncryptOption()) {
-    query["EncryptOption"] = request.encryptOption();
+    query["EncryptOption"] = request.getEncryptOption();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasModel()) {
-    query["Model"] = request.model();
+    query["Model"] = request.getModel();
   }
 
   if (!!request.hasModelTypesShrink()) {
-    query["ModelTypes"] = request.modelTypesShrink();
+    query["ModelTypes"] = request.getModelTypesShrink();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasToolCall()) {
-    query["ToolCall"] = request.toolCall();
+    query["ToolCall"] = request.getToolCall();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3691,128 +3691,132 @@ ListDatasetFileMetasResponse Client::listDatasetFileMetasWithOptions(const strin
   ListDatasetFileMetasShrinkRequest request = ListDatasetFileMetasShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasQueryContentTypeIncludeAny()) {
-    request.setQueryContentTypeIncludeAnyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryContentTypeIncludeAny(), "QueryContentTypeIncludeAny", "simple"));
+    request.setQueryContentTypeIncludeAnyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryContentTypeIncludeAny(), "QueryContentTypeIncludeAny", "simple"));
   }
 
   if (!!tmpReq.hasQueryFileTypeIncludeAny()) {
-    request.setQueryFileTypeIncludeAnyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryFileTypeIncludeAny(), "QueryFileTypeIncludeAny", "simple"));
+    request.setQueryFileTypeIncludeAnyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryFileTypeIncludeAny(), "QueryFileTypeIncludeAny", "simple"));
   }
 
   if (!!tmpReq.hasQueryTagsExclude()) {
-    request.setQueryTagsExcludeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryTagsExclude(), "QueryTagsExclude", "simple"));
+    request.setQueryTagsExcludeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryTagsExclude(), "QueryTagsExclude", "simple"));
   }
 
   if (!!tmpReq.hasQueryTagsIncludeAll()) {
-    request.setQueryTagsIncludeAllShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryTagsIncludeAll(), "QueryTagsIncludeAll", "simple"));
+    request.setQueryTagsIncludeAllShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryTagsIncludeAll(), "QueryTagsIncludeAll", "simple"));
   }
 
   if (!!tmpReq.hasQueryTagsIncludeAny()) {
-    request.setQueryTagsIncludeAnyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryTagsIncludeAny(), "QueryTagsIncludeAny", "simple"));
+    request.setQueryTagsIncludeAnyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryTagsIncludeAny(), "QueryTagsIncludeAny", "simple"));
   }
 
   json query = {};
   if (!!request.hasDatasetVersion()) {
-    query["DatasetVersion"] = request.datasetVersion();
+    query["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasEndFileUpdateTime()) {
-    query["EndFileUpdateTime"] = request.endFileUpdateTime();
+    query["EndFileUpdateTime"] = request.getEndFileUpdateTime();
   }
 
   if (!!request.hasEndTagUpdateTime()) {
-    query["EndTagUpdateTime"] = request.endTagUpdateTime();
+    query["EndTagUpdateTime"] = request.getEndTagUpdateTime();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryContentTypeIncludeAnyShrink()) {
-    query["QueryContentTypeIncludeAny"] = request.queryContentTypeIncludeAnyShrink();
+    query["QueryContentTypeIncludeAny"] = request.getQueryContentTypeIncludeAnyShrink();
   }
 
   if (!!request.hasQueryExpression()) {
-    query["QueryExpression"] = request.queryExpression();
+    query["QueryExpression"] = request.getQueryExpression();
   }
 
   if (!!request.hasQueryFileDir()) {
-    query["QueryFileDir"] = request.queryFileDir();
+    query["QueryFileDir"] = request.getQueryFileDir();
   }
 
   if (!!request.hasQueryFileName()) {
-    query["QueryFileName"] = request.queryFileName();
+    query["QueryFileName"] = request.getQueryFileName();
   }
 
   if (!!request.hasQueryFileTypeIncludeAnyShrink()) {
-    query["QueryFileTypeIncludeAny"] = request.queryFileTypeIncludeAnyShrink();
+    query["QueryFileTypeIncludeAny"] = request.getQueryFileTypeIncludeAnyShrink();
   }
 
   if (!!request.hasQueryImage()) {
-    query["QueryImage"] = request.queryImage();
+    query["QueryImage"] = request.getQueryImage();
   }
 
   if (!!request.hasQueryTagsExcludeShrink()) {
-    query["QueryTagsExclude"] = request.queryTagsExcludeShrink();
+    query["QueryTagsExclude"] = request.getQueryTagsExcludeShrink();
   }
 
   if (!!request.hasQueryTagsIncludeAllShrink()) {
-    query["QueryTagsIncludeAll"] = request.queryTagsIncludeAllShrink();
+    query["QueryTagsIncludeAll"] = request.getQueryTagsIncludeAllShrink();
   }
 
   if (!!request.hasQueryTagsIncludeAnyShrink()) {
-    query["QueryTagsIncludeAny"] = request.queryTagsIncludeAnyShrink();
+    query["QueryTagsIncludeAny"] = request.getQueryTagsIncludeAnyShrink();
   }
 
   if (!!request.hasQueryText()) {
-    query["QueryText"] = request.queryText();
+    query["QueryText"] = request.getQueryText();
   }
 
   if (!!request.hasQueryType()) {
-    query["QueryType"] = request.queryType();
+    query["QueryType"] = request.getQueryType();
+  }
+
+  if (!!request.hasQueryVideo()) {
+    query["QueryVideo"] = request.getQueryVideo();
   }
 
   if (!!request.hasScoreThreshold()) {
-    query["ScoreThreshold"] = request.scoreThreshold();
+    query["ScoreThreshold"] = request.getScoreThreshold();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStartFileUpdateTime()) {
-    query["StartFileUpdateTime"] = request.startFileUpdateTime();
+    query["StartFileUpdateTime"] = request.getStartFileUpdateTime();
   }
 
   if (!!request.hasStartTagUpdateTime()) {
-    query["StartTagUpdateTime"] = request.startTagUpdateTime();
+    query["StartTagUpdateTime"] = request.getStartTagUpdateTime();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasThumbnailMode()) {
-    query["ThumbnailMode"] = request.thumbnailMode();
+    query["ThumbnailMode"] = request.getThumbnailMode();
   }
 
   if (!!request.hasTopK()) {
-    query["TopK"] = request.topK();
+    query["TopK"] = request.getTopK();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3857,23 +3861,23 @@ ListDatasetJobConfigsResponse Client::listDatasetJobConfigsWithOptions(const str
   request.validate();
   json query = {};
   if (!!request.hasConfigType()) {
-    query["ConfigType"] = request.configType();
+    query["ConfigType"] = request.getConfigType();
   }
 
   if (!!request.hasDatasetVersion()) {
-    query["DatasetVersion"] = request.datasetVersion();
+    query["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3918,35 +3922,35 @@ ListDatasetJobsResponse Client::listDatasetJobsWithOptions(const string &Dataset
   request.validate();
   json query = {};
   if (!!request.hasDatasetVersion()) {
-    query["DatasetVersion"] = request.datasetVersion();
+    query["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasJobAction()) {
-    query["JobAction"] = request.jobAction();
+    query["JobAction"] = request.getJobAction();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3991,39 +3995,39 @@ ListDatasetVersionsResponse Client::listDatasetVersionsWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasLabelKeys()) {
-    query["LabelKeys"] = request.labelKeys();
+    query["LabelKeys"] = request.getLabelKeys();
   }
 
   if (!!request.hasLabelValues()) {
-    query["LabelValues"] = request.labelValues();
+    query["LabelValues"] = request.getLabelValues();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProperties()) {
-    query["Properties"] = request.properties();
+    query["Properties"] = request.getProperties();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasSourceId()) {
-    query["SourceId"] = request.sourceId();
+    query["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceTypes()) {
-    query["SourceTypes"] = request.sourceTypes();
+    query["SourceTypes"] = request.getSourceTypes();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4068,71 +4072,71 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
   request.validate();
   json query = {};
   if (!!request.hasAccessibility()) {
-    query["Accessibility"] = request.accessibility();
+    query["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasDataSourceTypes()) {
-    query["DataSourceTypes"] = request.dataSourceTypes();
+    query["DataSourceTypes"] = request.getDataSourceTypes();
   }
 
   if (!!request.hasDataTypes()) {
-    query["DataTypes"] = request.dataTypes();
+    query["DataTypes"] = request.getDataTypes();
   }
 
   if (!!request.hasEdition()) {
-    query["Edition"] = request.edition();
+    query["Edition"] = request.getEdition();
   }
 
   if (!!request.hasLabel()) {
-    query["Label"] = request.label();
+    query["Label"] = request.getLabel();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProperties()) {
-    query["Properties"] = request.properties();
+    query["Properties"] = request.getProperties();
   }
 
   if (!!request.hasProvider()) {
-    query["Provider"] = request.provider();
+    query["Provider"] = request.getProvider();
   }
 
   if (!!request.hasShareScope()) {
-    query["ShareScope"] = request.shareScope();
+    query["ShareScope"] = request.getShareScope();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasSourceDatasetId()) {
-    query["SourceDatasetId"] = request.sourceDatasetId();
+    query["SourceDatasetId"] = request.getSourceDatasetId();
   }
 
   if (!!request.hasSourceId()) {
-    query["SourceId"] = request.sourceId();
+    query["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceTypes()) {
-    query["SourceTypes"] = request.sourceTypes();
+    query["SourceTypes"] = request.getSourceTypes();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4178,56 +4182,56 @@ ListExperimentResponse Client::listExperimentWithOptions(const ListExperimentReq
   ListExperimentShrinkRequest request = ListExperimentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOptions()) {
-    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "Options", "json"));
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "Options", "json"));
   }
 
   json query = {};
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOptionsShrink()) {
-    query["Options"] = request.optionsShrink();
+    query["Options"] = request.getOptionsShrink();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPageToken()) {
-    query["PageToken"] = request.pageToken();
+    query["PageToken"] = request.getPageToken();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4272,7 +4276,7 @@ ListFeaturesResponse Client::listFeaturesWithOptions(const ListFeaturesRequest &
   request.validate();
   json query = {};
   if (!!request.hasNames()) {
-    query["Names"] = request.names();
+    query["Names"] = request.getNames();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4317,23 +4321,23 @@ ListImageLabelsResponse Client::listImageLabelsWithOptions(const ListImageLabels
   request.validate();
   json query = {};
   if (!!request.hasImageId()) {
-    query["ImageId"] = request.imageId();
+    query["ImageId"] = request.getImageId();
   }
 
   if (!!request.hasLabelFilter()) {
-    query["LabelFilter"] = request.labelFilter();
+    query["LabelFilter"] = request.getLabelFilter();
   }
 
   if (!!request.hasLabelKeys()) {
-    query["LabelKeys"] = request.labelKeys();
+    query["LabelKeys"] = request.getLabelKeys();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4378,47 +4382,47 @@ ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAccessibility()) {
-    query["Accessibility"] = request.accessibility();
+    query["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasImageUri()) {
-    query["ImageUri"] = request.imageUri();
+    query["ImageUri"] = request.getImageUri();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQuery()) {
-    query["Query"] = request.query();
+    query["Query"] = request.getQuery();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4463,19 +4467,19 @@ ListMembersResponse Client::listMembersWithOptions(const string &WorkspaceId, co
   request.validate();
   json query = {};
   if (!!request.hasMemberName()) {
-    query["MemberName"] = request.memberName();
+    query["MemberName"] = request.getMemberName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRoles()) {
-    query["Roles"] = request.roles();
+    query["Roles"] = request.getRoles();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4520,47 +4524,47 @@ ListModelVersionsResponse Client::listModelVersionsWithOptions(const string &Mod
   request.validate();
   json query = {};
   if (!!request.hasApprovalStatus()) {
-    query["ApprovalStatus"] = request.approvalStatus();
+    query["ApprovalStatus"] = request.getApprovalStatus();
   }
 
   if (!!request.hasFormatType()) {
-    query["FormatType"] = request.formatType();
+    query["FormatType"] = request.getFormatType();
   }
 
   if (!!request.hasFrameworkType()) {
-    query["FrameworkType"] = request.frameworkType();
+    query["FrameworkType"] = request.getFrameworkType();
   }
 
   if (!!request.hasLabel()) {
-    query["Label"] = request.label();
+    query["Label"] = request.getLabel();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasSourceId()) {
-    query["SourceId"] = request.sourceId();
+    query["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    query["SourceType"] = request.sourceType();
+    query["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasVersionName()) {
-    query["VersionName"] = request.versionName();
+    query["VersionName"] = request.getVersionName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4606,76 +4610,76 @@ ListModelsResponse Client::listModelsWithOptions(const ListModelsRequest &tmpReq
   ListModelsShrinkRequest request = ListModelsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasConditions()) {
-    request.setConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.conditions(), "Conditions", "json"));
+    request.setConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConditions(), "Conditions", "json"));
   }
 
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "Tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
   }
 
   json query = {};
   if (!!request.hasCollections()) {
-    query["Collections"] = request.collections();
+    query["Collections"] = request.getCollections();
   }
 
   if (!!request.hasConditionsShrink()) {
-    query["Conditions"] = request.conditionsShrink();
+    query["Conditions"] = request.getConditionsShrink();
   }
 
   if (!!request.hasDomain()) {
-    query["Domain"] = request.domain();
+    query["Domain"] = request.getDomain();
   }
 
   if (!!request.hasLabel()) {
-    query["Label"] = request.label();
+    query["Label"] = request.getLabel();
   }
 
   if (!!request.hasModelName()) {
-    query["ModelName"] = request.modelName();
+    query["ModelName"] = request.getModelName();
   }
 
   if (!!request.hasModelType()) {
-    query["ModelType"] = request.modelType();
+    query["ModelType"] = request.getModelType();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrigin()) {
-    query["Origin"] = request.origin();
+    query["Origin"] = request.getOrigin();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProvider()) {
-    query["Provider"] = request.provider();
+    query["Provider"] = request.getProvider();
   }
 
   if (!!request.hasQuery()) {
-    query["Query"] = request.query();
+    query["Query"] = request.getQuery();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasTagShrink()) {
-    query["Tag"] = request.tagShrink();
+    query["Tag"] = request.getTagShrink();
   }
 
   if (!!request.hasTask()) {
-    query["Task"] = request.task();
+    query["Task"] = request.getTask();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4756,15 +4760,15 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
   request.validate();
   json query = {};
   if (!!request.hasProductCodes()) {
-    query["ProductCodes"] = request.productCodes();
+    query["ProductCodes"] = request.getProductCodes();
   }
 
   if (!!request.hasServiceCodes()) {
-    query["ServiceCodes"] = request.serviceCodes();
+    query["ServiceCodes"] = request.getServiceCodes();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4809,7 +4813,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4854,51 +4858,51 @@ ListResourcesResponse Client::listResourcesWithOptions(const ListResourcesReques
   request.validate();
   json query = {};
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasOption()) {
-    query["Option"] = request.option();
+    query["Option"] = request.getOption();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProductTypes()) {
-    query["ProductTypes"] = request.productTypes();
+    query["ProductTypes"] = request.getProductTypes();
   }
 
   if (!!request.hasQuotaIds()) {
-    query["QuotaIds"] = request.quotaIds();
+    query["QuotaIds"] = request.getQuotaIds();
   }
 
   if (!!request.hasResourceName()) {
-    query["ResourceName"] = request.resourceName();
+    query["ResourceName"] = request.getResourceName();
   }
 
   if (!!request.hasResourceTypes()) {
-    query["ResourceTypes"] = request.resourceTypes();
+    query["ResourceTypes"] = request.getResourceTypes();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasVerboseFields()) {
-    query["VerboseFields"] = request.verboseFields();
+    query["VerboseFields"] = request.getVerboseFields();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4943,15 +4947,15 @@ ListRunMetricsResponse Client::listRunMetricsWithOptions(const string &RunId, co
   request.validate();
   json query = {};
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasPageToken()) {
-    query["PageToken"] = request.pageToken();
+    query["PageToken"] = request.getPageToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4996,63 +5000,63 @@ ListRunsResponse Client::listRunsWithOptions(const ListRunsRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasExperimentId()) {
-    query["ExperimentId"] = request.experimentId();
+    query["ExperimentId"] = request.getExperimentId();
   }
 
   if (!!request.hasGmtCreateTime()) {
-    query["GmtCreateTime"] = request.gmtCreateTime();
+    query["GmtCreateTime"] = request.getGmtCreateTime();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasOrderBy()) {
-    query["OrderBy"] = request.orderBy();
+    query["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPageToken()) {
-    query["PageToken"] = request.pageToken();
+    query["PageToken"] = request.getPageToken();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasSourceId()) {
-    query["SourceId"] = request.sourceId();
+    query["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    query["SourceType"] = request.sourceType();
+    query["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasWorkspaceId()) {
-    query["WorkspaceId"] = request.workspaceId();
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5097,11 +5101,11 @@ ListUserConfigsResponse Client::listUserConfigsWithOptions(const ListUserConfigs
   request.validate();
   json query = {};
   if (!!request.hasCategoryNames()) {
-    query["CategoryNames"] = request.categoryNames();
+    query["CategoryNames"] = request.getCategoryNames();
   }
 
   if (!!request.hasConfigKeys()) {
-    query["ConfigKeys"] = request.configKeys();
+    query["ConfigKeys"] = request.getConfigKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5146,11 +5150,11 @@ ListWorkspaceUsersResponse Client::listWorkspaceUsersWithOptions(const string &W
   request.validate();
   json query = {};
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   if (!!request.hasUserName()) {
-    query["UserName"] = request.userName();
+    query["UserName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5197,55 +5201,55 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
   request.validate();
   json query = {};
   if (!!request.hasFields()) {
-    query["Fields"] = request.fields();
+    query["Fields"] = request.getFields();
   }
 
   if (!!request.hasModuleList()) {
-    query["ModuleList"] = request.moduleList();
+    query["ModuleList"] = request.getModuleList();
   }
 
   if (!!request.hasOption()) {
-    query["Option"] = request.option();
+    query["Option"] = request.getOption();
   }
 
   if (!!request.hasOrder()) {
-    query["Order"] = request.order();
+    query["Order"] = request.getOrder();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasSortBy()) {
-    query["SortBy"] = request.sortBy();
+    query["SortBy"] = request.getSortBy();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   if (!!request.hasVerbose()) {
-    query["Verbose"] = request.verbose();
+    query["Verbose"] = request.getVerbose();
   }
 
   if (!!request.hasWorkspaceIds()) {
-    query["WorkspaceIds"] = request.workspaceIds();
+    query["WorkspaceIds"] = request.getWorkspaceIds();
   }
 
   if (!!request.hasWorkspaceName()) {
-    query["WorkspaceName"] = request.workspaceName();
+    query["WorkspaceName"] = request.getWorkspaceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5292,7 +5296,7 @@ LogRunMetricsResponse Client::logRunMetricsWithOptions(const string &RunId, cons
   request.validate();
   json body = {};
   if (!!request.hasMetrics()) {
-    body["Metrics"] = request.metrics();
+    body["Metrics"] = request.getMetrics();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5553,7 +5557,7 @@ SetExperimentLabelsResponse Client::setExperimentLabelsWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5598,7 +5602,7 @@ SetUserConfigsResponse Client::setUserConfigsWithOptions(const SetUserConfigsReq
   request.validate();
   json body = {};
   if (!!request.hasConfigs()) {
-    body["Configs"] = request.configs();
+    body["Configs"] = request.getConfigs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5643,11 +5647,11 @@ StopDatasetJobResponse Client::stopDatasetJobWithOptions(const string &DatasetId
   request.validate();
   json body = {};
   if (!!request.hasDatasetVersion()) {
-    body["DatasetVersion"] = request.datasetVersion();
+    body["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5692,35 +5696,35 @@ UpdateCodeSourceResponse Client::updateCodeSourceWithOptions(const string &CodeS
   request.validate();
   json body = {};
   if (!!request.hasCodeBranch()) {
-    body["CodeBranch"] = request.codeBranch();
+    body["CodeBranch"] = request.getCodeBranch();
   }
 
   if (!!request.hasCodeCommit()) {
-    body["CodeCommit"] = request.codeCommit();
+    body["CodeCommit"] = request.getCodeCommit();
   }
 
   if (!!request.hasCodeRepo()) {
-    body["CodeRepo"] = request.codeRepo();
+    body["CodeRepo"] = request.getCodeRepo();
   }
 
   if (!!request.hasCodeRepoAccessToken()) {
-    body["CodeRepoAccessToken"] = request.codeRepoAccessToken();
+    body["CodeRepoAccessToken"] = request.getCodeRepoAccessToken();
   }
 
   if (!!request.hasCodeRepoUserName()) {
-    body["CodeRepoUserName"] = request.codeRepoUserName();
+    body["CodeRepoUserName"] = request.getCodeRepoUserName();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   if (!!request.hasMountPath()) {
-    body["MountPath"] = request.mountPath();
+    body["MountPath"] = request.getMountPath();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5765,19 +5769,19 @@ UpdateConfigResponse Client::updateConfigWithOptions(const string &WorkspaceId, 
   request.validate();
   json body = {};
   if (!!request.hasCategoryName()) {
-    body["CategoryName"] = request.categoryName();
+    body["CategoryName"] = request.getCategoryName();
   }
 
   if (!!request.hasConfigKey()) {
-    body["ConfigKey"] = request.configKey();
+    body["ConfigKey"] = request.getConfigKey();
   }
 
   if (!!request.hasConfigValue()) {
-    body["ConfigValue"] = request.configValue();
+    body["ConfigValue"] = request.getConfigValue();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5822,7 +5826,7 @@ UpdateConfigsResponse Client::updateConfigsWithOptions(const string &WorkspaceId
   request.validate();
   json body = {};
   if (!!request.hasConfigs()) {
-    body["Configs"] = request.configs();
+    body["Configs"] = request.getConfigs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5867,19 +5871,19 @@ UpdateConnectionResponse Client::updateConnectionWithOptions(const string &Conne
   request.validate();
   json body = {};
   if (!!request.hasConfigs()) {
-    body["Configs"] = request.configs();
+    body["Configs"] = request.getConfigs();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasModels()) {
-    body["Models"] = request.models();
+    body["Models"] = request.getModels();
   }
 
   if (!!request.hasSecrets()) {
-    body["Secrets"] = request.secrets();
+    body["Secrets"] = request.getSecrets();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5924,27 +5928,27 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const string &DatasetId, 
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEdition()) {
-    body["Edition"] = request.edition();
+    body["Edition"] = request.getEdition();
   }
 
   if (!!request.hasMountAccessReadWriteRoleIdList()) {
-    body["MountAccessReadWriteRoleIdList"] = request.mountAccessReadWriteRoleIdList();
+    body["MountAccessReadWriteRoleIdList"] = request.getMountAccessReadWriteRoleIdList();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOptions()) {
-    body["Options"] = request.options();
+    body["Options"] = request.getOptions();
   }
 
   if (!!request.hasSharingConfig()) {
-    body["SharingConfig"] = request.sharingConfig();
+    body["SharingConfig"] = request.getSharingConfig();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5989,19 +5993,19 @@ UpdateDatasetFileMetasResponse Client::updateDatasetFileMetasWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasDatasetFileMetas()) {
-    body["DatasetFileMetas"] = request.datasetFileMetas();
+    body["DatasetFileMetas"] = request.getDatasetFileMetas();
   }
 
   if (!!request.hasDatasetVersion()) {
-    body["DatasetVersion"] = request.datasetVersion();
+    body["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasTagJobId()) {
-    body["TagJobId"] = request.tagJobId();
+    body["TagJobId"] = request.getTagJobId();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6046,15 +6050,15 @@ UpdateDatasetJobResponse Client::updateDatasetJobWithOptions(const string &Datas
   request.validate();
   json body = {};
   if (!!request.hasDatasetVersion()) {
-    body["DatasetVersion"] = request.datasetVersion();
+    body["DatasetVersion"] = request.getDatasetVersion();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6099,15 +6103,15 @@ UpdateDatasetJobConfigResponse Client::updateDatasetJobConfigWithOptions(const s
   request.validate();
   json body = {};
   if (!!request.hasConfig()) {
-    body["Config"] = request.config();
+    body["Config"] = request.getConfig();
   }
 
   if (!!request.hasConfigType()) {
-    body["ConfigType"] = request.configType();
+    body["ConfigType"] = request.getConfigType();
   }
 
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6152,19 +6156,19 @@ UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const strin
   request.validate();
   json body = {};
   if (!!request.hasDataCount()) {
-    body["DataCount"] = request.dataCount();
+    body["DataCount"] = request.getDataCount();
   }
 
   if (!!request.hasDataSize()) {
-    body["DataSize"] = request.dataSize();
+    body["DataSize"] = request.getDataSize();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasOptions()) {
-    body["Options"] = request.options();
+    body["Options"] = request.getOptions();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6209,7 +6213,7 @@ UpdateDefaultWorkspaceResponse Client::updateDefaultWorkspaceWithOptions(const U
   request.validate();
   json body = {};
   if (!!request.hasWorkspaceId()) {
-    body["WorkspaceId"] = request.workspaceId();
+    body["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6254,11 +6258,11 @@ UpdateExperimentResponse Client::updateExperimentWithOptions(const string &Exper
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6303,47 +6307,47 @@ UpdateModelResponse Client::updateModelWithOptions(const string &ModelId, const 
   request.validate();
   json body = {};
   if (!!request.hasAccessibility()) {
-    body["Accessibility"] = request.accessibility();
+    body["Accessibility"] = request.getAccessibility();
   }
 
   if (!!request.hasDomain()) {
-    body["Domain"] = request.domain();
+    body["Domain"] = request.getDomain();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["ExtraInfo"] = request.extraInfo();
+    body["ExtraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasModelDescription()) {
-    body["ModelDescription"] = request.modelDescription();
+    body["ModelDescription"] = request.getModelDescription();
   }
 
   if (!!request.hasModelDoc()) {
-    body["ModelDoc"] = request.modelDoc();
+    body["ModelDoc"] = request.getModelDoc();
   }
 
   if (!!request.hasModelName()) {
-    body["ModelName"] = request.modelName();
+    body["ModelName"] = request.getModelName();
   }
 
   if (!!request.hasModelType()) {
-    body["ModelType"] = request.modelType();
+    body["ModelType"] = request.getModelType();
   }
 
   if (!!request.hasOrderNumber()) {
-    body["OrderNumber"] = request.orderNumber();
+    body["OrderNumber"] = request.getOrderNumber();
   }
 
   if (!!request.hasOrigin()) {
-    body["Origin"] = request.origin();
+    body["Origin"] = request.getOrigin();
   }
 
   if (!!request.hasParameterSize()) {
-    body["ParameterSize"] = request.parameterSize();
+    body["ParameterSize"] = request.getParameterSize();
   }
 
   if (!!request.hasTask()) {
-    body["Task"] = request.task();
+    body["Task"] = request.getTask();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6388,51 +6392,51 @@ UpdateModelVersionResponse Client::updateModelVersionWithOptions(const string &M
   request.validate();
   json body = {};
   if (!!request.hasApprovalStatus()) {
-    body["ApprovalStatus"] = request.approvalStatus();
+    body["ApprovalStatus"] = request.getApprovalStatus();
   }
 
   if (!!request.hasCompressionSpec()) {
-    body["CompressionSpec"] = request.compressionSpec();
+    body["CompressionSpec"] = request.getCompressionSpec();
   }
 
   if (!!request.hasDistillationSpec()) {
-    body["DistillationSpec"] = request.distillationSpec();
+    body["DistillationSpec"] = request.getDistillationSpec();
   }
 
   if (!!request.hasEvaluationSpec()) {
-    body["EvaluationSpec"] = request.evaluationSpec();
+    body["EvaluationSpec"] = request.getEvaluationSpec();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["ExtraInfo"] = request.extraInfo();
+    body["ExtraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasInferenceSpec()) {
-    body["InferenceSpec"] = request.inferenceSpec();
+    body["InferenceSpec"] = request.getInferenceSpec();
   }
 
   if (!!request.hasMetrics()) {
-    body["Metrics"] = request.metrics();
+    body["Metrics"] = request.getMetrics();
   }
 
   if (!!request.hasOptions()) {
-    body["Options"] = request.options();
+    body["Options"] = request.getOptions();
   }
 
   if (!!request.hasSourceId()) {
-    body["SourceId"] = request.sourceId();
+    body["SourceId"] = request.getSourceId();
   }
 
   if (!!request.hasSourceType()) {
-    body["SourceType"] = request.sourceType();
+    body["SourceType"] = request.getSourceType();
   }
 
   if (!!request.hasTrainingSpec()) {
-    body["TrainingSpec"] = request.trainingSpec();
+    body["TrainingSpec"] = request.getTrainingSpec();
   }
 
   if (!!request.hasVersionDescription()) {
-    body["VersionDescription"] = request.versionDescription();
+    body["VersionDescription"] = request.getVersionDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6477,15 +6481,15 @@ UpdateRunResponse Client::updateRunWithOptions(const string &RunId, const Update
   request.validate();
   json body = {};
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasParams()) {
-    body["Params"] = request.params();
+    body["Params"] = request.getParams();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6530,11 +6534,11 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const string &Workspa
   request.validate();
   json body = {};
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasDisplayName()) {
-    body["DisplayName"] = request.displayName();
+    body["DisplayName"] = request.getDisplayName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6579,31 +6583,31 @@ UpdateWorkspaceResourceResponse Client::updateWorkspaceResourceWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasGroupName()) {
-    body["GroupName"] = request.groupName();
+    body["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasIsDefault()) {
-    body["IsDefault"] = request.isDefault();
+    body["IsDefault"] = request.getIsDefault();
   }
 
   if (!!request.hasLabels()) {
-    body["Labels"] = request.labels();
+    body["Labels"] = request.getLabels();
   }
 
   if (!!request.hasProductType()) {
-    body["ProductType"] = request.productType();
+    body["ProductType"] = request.getProductType();
   }
 
   if (!!request.hasResourceIds()) {
-    body["ResourceIds"] = request.resourceIds();
+    body["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceType()) {
-    body["ResourceType"] = request.resourceType();
+    body["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasSpec()) {
-    body["Spec"] = request.spec();
+    body["Spec"] = request.getSpec();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

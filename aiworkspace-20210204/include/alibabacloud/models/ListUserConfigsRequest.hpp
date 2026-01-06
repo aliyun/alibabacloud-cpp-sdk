@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryNames_ == nullptr
-        && return this->configKeys_ == nullptr; };
+        && this->configKeys_ == nullptr; };
     // categoryNames Field Functions 
     bool hasCategoryNames() const { return this->categoryNames_ != nullptr;};
     void deleteCategoryNames() { this->categoryNames_ = nullptr;};
-    inline string categoryNames() const { DARABONBA_PTR_GET_DEFAULT(categoryNames_, "") };
+    inline string getCategoryNames() const { DARABONBA_PTR_GET_DEFAULT(categoryNames_, "") };
     inline ListUserConfigsRequest& setCategoryNames(string categoryNames) { DARABONBA_PTR_SET_VALUE(categoryNames_, categoryNames) };
 
 
     // configKeys Field Functions 
     bool hasConfigKeys() const { return this->configKeys_ != nullptr;};
     void deleteConfigKeys() { this->configKeys_ = nullptr;};
-    inline string configKeys() const { DARABONBA_PTR_GET_DEFAULT(configKeys_, "") };
+    inline string getConfigKeys() const { DARABONBA_PTR_GET_DEFAULT(configKeys_, "") };
     inline ListUserConfigsRequest& setConfigKeys(string configKeys) { DARABONBA_PTR_SET_VALUE(configKeys_, configKeys) };
 
 
   protected:
     // The category. Currently, only DataPrivacyConfig is supported.
-    std::shared_ptr<string> categoryNames_ = nullptr;
+    shared_ptr<string> categoryNames_ {};
     // The configuration item keys. Currently, only customizePAIAssumedRole is supported.
-    std::shared_ptr<string> configKeys_ = nullptr;
+    shared_ptr<string> configKeys_ {};
   };
 
   } // namespace Models

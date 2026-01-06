@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failedDetails_ == nullptr
-        && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->succeedDetails_ == nullptr; };
+        && this->requestId_ == nullptr && this->status_ == nullptr && this->succeedDetails_ == nullptr; };
     // failedDetails Field Functions 
     bool hasFailedDetails() const { return this->failedDetails_ != nullptr;};
     void deleteFailedDetails() { this->failedDetails_ = nullptr;};
-    inline const vector<DatasetFileMetaResponse> & failedDetails() const { DARABONBA_PTR_GET_CONST(failedDetails_, vector<DatasetFileMetaResponse>) };
-    inline vector<DatasetFileMetaResponse> failedDetails() { DARABONBA_PTR_GET(failedDetails_, vector<DatasetFileMetaResponse>) };
+    inline const vector<DatasetFileMetaResponse> & getFailedDetails() const { DARABONBA_PTR_GET_CONST(failedDetails_, vector<DatasetFileMetaResponse>) };
+    inline vector<DatasetFileMetaResponse> getFailedDetails() { DARABONBA_PTR_GET(failedDetails_, vector<DatasetFileMetaResponse>) };
     inline CreateDatasetFileMetasResponseBody& setFailedDetails(const vector<DatasetFileMetaResponse> & failedDetails) { DARABONBA_PTR_SET_VALUE(failedDetails_, failedDetails) };
     inline CreateDatasetFileMetasResponseBody& setFailedDetails(vector<DatasetFileMetaResponse> && failedDetails) { DARABONBA_PTR_SET_RVALUE(failedDetails_, failedDetails) };
 
@@ -51,40 +51,40 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateDatasetFileMetasResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline bool status() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
+    inline bool getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, false) };
     inline CreateDatasetFileMetasResponseBody& setStatus(bool status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // succeedDetails Field Functions 
     bool hasSucceedDetails() const { return this->succeedDetails_ != nullptr;};
     void deleteSucceedDetails() { this->succeedDetails_ = nullptr;};
-    inline const vector<DatasetFileMetaResponse> & succeedDetails() const { DARABONBA_PTR_GET_CONST(succeedDetails_, vector<DatasetFileMetaResponse>) };
-    inline vector<DatasetFileMetaResponse> succeedDetails() { DARABONBA_PTR_GET(succeedDetails_, vector<DatasetFileMetaResponse>) };
+    inline const vector<DatasetFileMetaResponse> & getSucceedDetails() const { DARABONBA_PTR_GET_CONST(succeedDetails_, vector<DatasetFileMetaResponse>) };
+    inline vector<DatasetFileMetaResponse> getSucceedDetails() { DARABONBA_PTR_GET(succeedDetails_, vector<DatasetFileMetaResponse>) };
     inline CreateDatasetFileMetasResponseBody& setSucceedDetails(const vector<DatasetFileMetaResponse> & succeedDetails) { DARABONBA_PTR_SET_VALUE(succeedDetails_, succeedDetails) };
     inline CreateDatasetFileMetasResponseBody& setSucceedDetails(vector<DatasetFileMetaResponse> && succeedDetails) { DARABONBA_PTR_SET_RVALUE(succeedDetails_, succeedDetails) };
 
 
   protected:
     // The metadata that failed to be created.
-    std::shared_ptr<vector<DatasetFileMetaResponse>> failedDetails_ = nullptr;
+    shared_ptr<vector<DatasetFileMetaResponse>> failedDetails_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the metadata records of all dataset files were created. The value true indicates that the metadata records of all dataset files are created. If the value is false, view the failure details specified by FailedDetails.
     // 
     // Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> status_ = nullptr;
+    shared_ptr<bool> status_ {};
     // The metadata that is created.
-    std::shared_ptr<vector<DatasetFileMetaResponse>> succeedDetails_ = nullptr;
+    shared_ptr<vector<DatasetFileMetaResponse>> succeedDetails_ {};
   };
 
   } // namespace Models

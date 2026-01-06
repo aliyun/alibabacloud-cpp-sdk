@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributes_ == nullptr
-        && return this->entityType_ == nullptr && return this->name_ == nullptr && return this->qualifiedName_ == nullptr; };
+        && this->entityType_ == nullptr && this->name_ == nullptr && this->qualifiedName_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
-    inline     const Darabonba::Json & attributes() const { DARABONBA_GET(attributes_) };
-    Darabonba::Json & attributes() { DARABONBA_GET(attributes_) };
+    inline     const Darabonba::Json & getAttributes() const { DARABONBA_GET(attributes_) };
+    Darabonba::Json & getAttributes() { DARABONBA_GET(attributes_) };
     inline LineageEntity& setAttributes(const Darabonba::Json & attributes) { DARABONBA_SET_VALUE(attributes_, attributes) };
-    inline LineageEntity& setAttributes(Darabonba::Json & attributes) { DARABONBA_SET_RVALUE(attributes_, attributes) };
+    inline LineageEntity& setAttributes(Darabonba::Json && attributes) { DARABONBA_SET_RVALUE(attributes_, attributes) };
 
 
     // entityType Field Functions 
     bool hasEntityType() const { return this->entityType_ != nullptr;};
     void deleteEntityType() { this->entityType_ = nullptr;};
-    inline string entityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
+    inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
     inline LineageEntity& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline LineageEntity& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // qualifiedName Field Functions 
     bool hasQualifiedName() const { return this->qualifiedName_ != nullptr;};
     void deleteQualifiedName() { this->qualifiedName_ = nullptr;};
-    inline string qualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
+    inline string getQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(qualifiedName_, "") };
     inline LineageEntity& setQualifiedName(string qualifiedName) { DARABONBA_PTR_SET_VALUE(qualifiedName_, qualifiedName) };
 
 
   protected:
-    Darabonba::Json attributes_ = nullptr;
-    std::shared_ptr<string> entityType_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> qualifiedName_ = nullptr;
+    Darabonba::Json attributes_ {};
+    shared_ptr<string> entityType_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> qualifiedName_ {};
   };
 
   } // namespace Models

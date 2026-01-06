@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->configType_ == nullptr && return this->createTime_ == nullptr && return this->datasetJobConfigId_ == nullptr && return this->datasetVersion_ == nullptr && return this->modifyTime_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && this->configType_ == nullptr && this->createTime_ == nullptr && this->datasetJobConfigId_ == nullptr && this->datasetVersion_ == nullptr && this->modifyTime_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline DatasetJobConfig& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline DatasetJobConfig& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DatasetJobConfig& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // datasetJobConfigId Field Functions 
     bool hasDatasetJobConfigId() const { return this->datasetJobConfigId_ != nullptr;};
     void deleteDatasetJobConfigId() { this->datasetJobConfigId_ = nullptr;};
-    inline string datasetJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(datasetJobConfigId_, "") };
+    inline string getDatasetJobConfigId() const { DARABONBA_PTR_GET_DEFAULT(datasetJobConfigId_, "") };
     inline DatasetJobConfig& setDatasetJobConfigId(string datasetJobConfigId) { DARABONBA_PTR_SET_VALUE(datasetJobConfigId_, datasetJobConfigId) };
 
 
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
-    inline string datasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
+    inline string getDatasetVersion() const { DARABONBA_PTR_GET_DEFAULT(datasetVersion_, "") };
     inline DatasetJobConfig& setDatasetVersion(string datasetVersion) { DARABONBA_PTR_SET_VALUE(datasetVersion_, datasetVersion) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline DatasetJobConfig& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline DatasetJobConfig& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<string> configType_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<string> datasetJobConfigId_ = nullptr;
-    std::shared_ptr<string> datasetVersion_ = nullptr;
-    std::shared_ptr<string> modifyTime_ = nullptr;
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> config_ {};
+    shared_ptr<string> configType_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<string> datasetJobConfigId_ {};
+    shared_ptr<string> datasetVersion_ {};
+    shared_ptr<string> modifyTime_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -54,137 +54,137 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionIdsShrink_ == nullptr
-        && return this->connectionName_ == nullptr && return this->connectionTypesShrink_ == nullptr && return this->creator_ == nullptr && return this->encryptOption_ == nullptr && return this->maxResults_ == nullptr
-        && return this->model_ == nullptr && return this->modelTypesShrink_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr && return this->sortBy_ == nullptr
-        && return this->toolCall_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->connectionName_ == nullptr && this->connectionTypesShrink_ == nullptr && this->creator_ == nullptr && this->encryptOption_ == nullptr && this->maxResults_ == nullptr
+        && this->model_ == nullptr && this->modelTypesShrink_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->sortBy_ == nullptr
+        && this->toolCall_ == nullptr && this->workspaceId_ == nullptr; };
     // connectionIdsShrink Field Functions 
     bool hasConnectionIdsShrink() const { return this->connectionIdsShrink_ != nullptr;};
     void deleteConnectionIdsShrink() { this->connectionIdsShrink_ = nullptr;};
-    inline string connectionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(connectionIdsShrink_, "") };
+    inline string getConnectionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(connectionIdsShrink_, "") };
     inline ListConnectionsShrinkRequest& setConnectionIdsShrink(string connectionIdsShrink) { DARABONBA_PTR_SET_VALUE(connectionIdsShrink_, connectionIdsShrink) };
 
 
     // connectionName Field Functions 
     bool hasConnectionName() const { return this->connectionName_ != nullptr;};
     void deleteConnectionName() { this->connectionName_ = nullptr;};
-    inline string connectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
+    inline string getConnectionName() const { DARABONBA_PTR_GET_DEFAULT(connectionName_, "") };
     inline ListConnectionsShrinkRequest& setConnectionName(string connectionName) { DARABONBA_PTR_SET_VALUE(connectionName_, connectionName) };
 
 
     // connectionTypesShrink Field Functions 
     bool hasConnectionTypesShrink() const { return this->connectionTypesShrink_ != nullptr;};
     void deleteConnectionTypesShrink() { this->connectionTypesShrink_ = nullptr;};
-    inline string connectionTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(connectionTypesShrink_, "") };
+    inline string getConnectionTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(connectionTypesShrink_, "") };
     inline ListConnectionsShrinkRequest& setConnectionTypesShrink(string connectionTypesShrink) { DARABONBA_PTR_SET_VALUE(connectionTypesShrink_, connectionTypesShrink) };
 
 
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
-    inline string creator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline ListConnectionsShrinkRequest& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
     // encryptOption Field Functions 
     bool hasEncryptOption() const { return this->encryptOption_ != nullptr;};
     void deleteEncryptOption() { this->encryptOption_ = nullptr;};
-    inline string encryptOption() const { DARABONBA_PTR_GET_DEFAULT(encryptOption_, "") };
+    inline string getEncryptOption() const { DARABONBA_PTR_GET_DEFAULT(encryptOption_, "") };
     inline ListConnectionsShrinkRequest& setEncryptOption(string encryptOption) { DARABONBA_PTR_SET_VALUE(encryptOption_, encryptOption) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListConnectionsShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
-    inline string model() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
     inline ListConnectionsShrinkRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // modelTypesShrink Field Functions 
     bool hasModelTypesShrink() const { return this->modelTypesShrink_ != nullptr;};
     void deleteModelTypesShrink() { this->modelTypesShrink_ = nullptr;};
-    inline string modelTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(modelTypesShrink_, "") };
+    inline string getModelTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(modelTypesShrink_, "") };
     inline ListConnectionsShrinkRequest& setModelTypesShrink(string modelTypesShrink) { DARABONBA_PTR_SET_VALUE(modelTypesShrink_, modelTypesShrink) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListConnectionsShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListConnectionsShrinkRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListConnectionsShrinkRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // toolCall Field Functions 
     bool hasToolCall() const { return this->toolCall_ != nullptr;};
     void deleteToolCall() { this->toolCall_ = nullptr;};
-    inline bool toolCall() const { DARABONBA_PTR_GET_DEFAULT(toolCall_, false) };
+    inline bool getToolCall() const { DARABONBA_PTR_GET_DEFAULT(toolCall_, false) };
     inline ListConnectionsShrinkRequest& setToolCall(bool toolCall) { DARABONBA_PTR_SET_VALUE(toolCall_, toolCall) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline ListConnectionsShrinkRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
   protected:
     // The list of connection IDs.
-    std::shared_ptr<string> connectionIdsShrink_ = nullptr;
+    shared_ptr<string> connectionIdsShrink_ {};
     // The connection name.
-    std::shared_ptr<string> connectionName_ = nullptr;
+    shared_ptr<string> connectionName_ {};
     // The list of connection types.
-    std::shared_ptr<string> connectionTypesShrink_ = nullptr;
-    std::shared_ptr<string> creator_ = nullptr;
+    shared_ptr<string> connectionTypesShrink_ {};
+    shared_ptr<string> creator_ {};
     // The encryption settings. Valid values:
     // 
     // *   PlainText
     // *   Secret
-    std::shared_ptr<string> encryptOption_ = nullptr;
+    shared_ptr<string> encryptOption_ {};
     // The maximum number of entries per page.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The model identifier.
-    std::shared_ptr<string> model_ = nullptr;
+    shared_ptr<string> model_ {};
     // The list of model types.
-    std::shared_ptr<string> modelTypesShrink_ = nullptr;
+    shared_ptr<string> modelTypesShrink_ {};
     // The pagination token that indicates the start position from which to retrieve data on the next page.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy.
     // 
     // *   ASC: ascending order.
     // *   DESC: descending order. This is the default value.
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // The field used to sort the results in queries by page. Default value: GmtCreateTime. Valid value:
     // 
     // *   GmtCreateTime: The results are sorted by creation time. This is the default value.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // Specifies whether a tool can be called by using ToolCall. Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> toolCall_ = nullptr;
+    shared_ptr<bool> toolCall_ {};
     // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

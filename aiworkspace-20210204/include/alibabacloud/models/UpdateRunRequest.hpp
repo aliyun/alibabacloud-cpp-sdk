@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->labels_ == nullptr
-        && return this->name_ == nullptr && return this->params_ == nullptr; };
+        && this->name_ == nullptr && this->params_ == nullptr; };
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const vector<Label> & labels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
-    inline vector<Label> labels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
+    inline const vector<Label> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
+    inline vector<Label> getLabels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
     inline UpdateRunRequest& setLabels(const vector<Label> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline UpdateRunRequest& setLabels(vector<Label> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
@@ -50,30 +50,30 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateRunRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline const vector<RunParam> & params() const { DARABONBA_PTR_GET_CONST(params_, vector<RunParam>) };
-    inline vector<RunParam> params() { DARABONBA_PTR_GET(params_, vector<RunParam>) };
+    inline const vector<RunParam> & getParams() const { DARABONBA_PTR_GET_CONST(params_, vector<RunParam>) };
+    inline vector<RunParam> getParams() { DARABONBA_PTR_GET(params_, vector<RunParam>) };
     inline UpdateRunRequest& setParams(const vector<RunParam> & params) { DARABONBA_PTR_SET_VALUE(params_, params) };
     inline UpdateRunRequest& setParams(vector<RunParam> && params) { DARABONBA_PTR_SET_RVALUE(params_, params) };
 
 
   protected:
     // The labels.
-    std::shared_ptr<vector<Label>> labels_ = nullptr;
+    shared_ptr<vector<Label>> labels_ {};
     // The run name. The name must meet the following requirements:
     // 
     // *   The name must start with a letter.
     // *   The name can contain letters, digits, underscores (_), and hyphens (-).
     // *   The name must be 1 to 63 characters in length.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The parameters.
-    std::shared_ptr<vector<RunParam>> params_ = nullptr;
+    shared_ptr<vector<RunParam>> params_ {};
   };
 
   } // namespace Models

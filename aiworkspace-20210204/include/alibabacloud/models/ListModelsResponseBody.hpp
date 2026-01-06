@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->models_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // models Field Functions 
     bool hasModels() const { return this->models_ != nullptr;};
     void deleteModels() { this->models_ = nullptr;};
-    inline const vector<Model> & models() const { DARABONBA_PTR_GET_CONST(models_, vector<Model>) };
-    inline vector<Model> models() { DARABONBA_PTR_GET(models_, vector<Model>) };
+    inline const vector<Model> & getModels() const { DARABONBA_PTR_GET_CONST(models_, vector<Model>) };
+    inline vector<Model> getModels() { DARABONBA_PTR_GET(models_, vector<Model>) };
     inline ListModelsResponseBody& setModels(const vector<Model> & models) { DARABONBA_PTR_SET_VALUE(models_, models) };
     inline ListModelsResponseBody& setModels(vector<Model> && models) { DARABONBA_PTR_SET_RVALUE(models_, models) };
 
@@ -49,24 +49,24 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListModelsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline ListModelsResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The models.
-    std::shared_ptr<vector<Model>> models_ = nullptr;
+    shared_ptr<vector<Model>> models_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total number of models.
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
+    shared_ptr<int64_t> totalCount_ {};
   };
 
   } // namespace Models

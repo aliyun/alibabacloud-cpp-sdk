@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->configType_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->configType_ == nullptr && this->workspaceId_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline UpdateDatasetJobConfigRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // configType Field Functions 
     bool hasConfigType() const { return this->configType_ != nullptr;};
     void deleteConfigType() { this->configType_ = nullptr;};
-    inline string configType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
     inline UpdateDatasetJobConfigRequest& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline UpdateDatasetJobConfigRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -66,14 +66,14 @@ namespace Models
     // *   MultimodalSemanticIndex
     // 
     // { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
-    std::shared_ptr<string> config_ = nullptr;
+    shared_ptr<string> config_ {};
     // The configuration type.
     // 
     // *   MultimodalIntelligentTag
     // *   MultimodalSemanticIndex
-    std::shared_ptr<string> configType_ = nullptr;
+    shared_ptr<string> configType_ {};
     // The workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

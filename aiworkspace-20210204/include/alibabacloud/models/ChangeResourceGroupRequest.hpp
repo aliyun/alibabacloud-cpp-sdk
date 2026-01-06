@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->newResourceGroupId_ == nullptr
-        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr; };
+        && this->resourceId_ == nullptr && this->resourceType_ == nullptr; };
     // newResourceGroupId Field Functions 
     bool hasNewResourceGroupId() const { return this->newResourceGroupId_ != nullptr;};
     void deleteNewResourceGroupId() { this->newResourceGroupId_ = nullptr;};
-    inline string newResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(newResourceGroupId_, "") };
+    inline string getNewResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(newResourceGroupId_, "") };
     inline ChangeResourceGroupRequest& setNewResourceGroupId(string newResourceGroupId) { DARABONBA_PTR_SET_VALUE(newResourceGroupId_, newResourceGroupId) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline ChangeResourceGroupRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline ChangeResourceGroupRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
     // The ID of the target resource group. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
-    std::shared_ptr<string> newResourceGroupId_ = nullptr;
+    shared_ptr<string> newResourceGroupId_ {};
     // The resource ID, which is the workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
-    std::shared_ptr<string> resourceId_ = nullptr;
+    shared_ptr<string> resourceId_ {};
     // The resource group type, which must be set to workspace.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

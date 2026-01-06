@@ -35,15 +35,15 @@ namespace Models
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const vector<Label> & labels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
-    inline vector<Label> labels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
+    inline const vector<Label> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Label>) };
+    inline vector<Label> getLabels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
     inline CreateModelVersionLabelsRequest& setLabels(const vector<Label> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline CreateModelVersionLabelsRequest& setLabels(vector<Label> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
 
   protected:
     // The tags.
-    std::shared_ptr<vector<Label>> labels_ = nullptr;
+    shared_ptr<vector<Label>> labels_ {};
   };
 
   } // namespace Models

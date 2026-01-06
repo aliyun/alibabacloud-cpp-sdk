@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->memberId_ == nullptr
-        && return this->userId_ == nullptr; };
+        && this->userId_ == nullptr; };
     // memberId Field Functions 
     bool hasMemberId() const { return this->memberId_ != nullptr;};
     void deleteMemberId() { this->memberId_ = nullptr;};
-    inline string memberId() const { DARABONBA_PTR_GET_DEFAULT(memberId_, "") };
+    inline string getMemberId() const { DARABONBA_PTR_GET_DEFAULT(memberId_, "") };
     inline GetMemberRequest& setMemberId(string memberId) { DARABONBA_PTR_SET_VALUE(memberId_, memberId) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline GetMemberRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
     // The member ID. You must specify only one of the following parameters: UserId and MemberId.
-    std::shared_ptr<string> memberId_ = nullptr;
+    shared_ptr<string> memberId_ {};
     // The ID of the Alibaba Cloud account. You can call [ListWorkspaceUsers](https://help.aliyun.com/document_detail/449133.html) to obtain the ID of the Alibaba Cloud account. You must specify only one of the following parameters: UserId and MemberId.
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // encryptOption Field Functions 
     bool hasEncryptOption() const { return this->encryptOption_ != nullptr;};
     void deleteEncryptOption() { this->encryptOption_ = nullptr;};
-    inline string encryptOption() const { DARABONBA_PTR_GET_DEFAULT(encryptOption_, "") };
+    inline string getEncryptOption() const { DARABONBA_PTR_GET_DEFAULT(encryptOption_, "") };
     inline GetConnectionRequest& setEncryptOption(string encryptOption) { DARABONBA_PTR_SET_VALUE(encryptOption_, encryptOption) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   PlainText
     // *   Secret
-    std::shared_ptr<string> encryptOption_ = nullptr;
+    shared_ptr<string> encryptOption_ {};
   };
 
   } // namespace Models

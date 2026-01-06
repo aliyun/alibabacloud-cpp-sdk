@@ -33,7 +33,7 @@ namespace Models
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
-    inline bool verbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
+    inline bool getVerbose() const { DARABONBA_PTR_GET_DEFAULT(verbose_, false) };
     inline GetImageRequest& setVerbose(bool verbose) { DARABONBA_PTR_SET_VALUE(verbose_, verbose) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   false (default)
     // *   true
-    std::shared_ptr<bool> verbose_ = nullptr;
+    shared_ptr<bool> verbose_ {};
   };
 
   } // namespace Models
