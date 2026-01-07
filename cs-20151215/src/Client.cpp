@@ -4941,6 +4941,10 @@ ListClusterInspectReportsResponse Client::listClusterInspectReports(const string
 ListClusterKubeconfigStatesResponse Client::listClusterKubeconfigStatesWithOptions(const string &ClusterId, const ListClusterKubeconfigStatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCloudServiceKubeConfig()) {
+    query["cloudServiceKubeConfig"] = request.getCloudServiceKubeConfig();
+  }
+
   if (!!request.hasPageNumber()) {
     query["pageNumber"] = request.getPageNumber();
   }

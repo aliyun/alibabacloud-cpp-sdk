@@ -13,10 +13,12 @@ namespace Models
   class ListClusterKubeconfigStatesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListClusterKubeconfigStatesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(cloudServiceKubeConfig, cloudServiceKubeConfig_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ListClusterKubeconfigStatesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(cloudServiceKubeConfig, cloudServiceKubeConfig_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->cloudServiceKubeConfig_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    // cloudServiceKubeConfig Field Functions 
+    bool hasCloudServiceKubeConfig() const { return this->cloudServiceKubeConfig_ != nullptr;};
+    void deleteCloudServiceKubeConfig() { this->cloudServiceKubeConfig_ = nullptr;};
+    inline bool getCloudServiceKubeConfig() const { DARABONBA_PTR_GET_DEFAULT(cloudServiceKubeConfig_, false) };
+    inline ListClusterKubeconfigStatesRequest& setCloudServiceKubeConfig(bool cloudServiceKubeConfig) { DARABONBA_PTR_SET_VALUE(cloudServiceKubeConfig_, cloudServiceKubeConfig) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> cloudServiceKubeConfig_ {};
     // The page number.
     // 
     // *   Valid values: ≥ 1.
