@@ -33,28 +33,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->zones_ == nullptr; };
+        && this->zones_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListGatewayIntranetSupportedZoneResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // zones Field Functions 
     bool hasZones() const { return this->zones_ != nullptr;};
     void deleteZones() { this->zones_ = nullptr;};
-    inline const vector<string> & zones() const { DARABONBA_PTR_GET_CONST(zones_, vector<string>) };
-    inline vector<string> zones() { DARABONBA_PTR_GET(zones_, vector<string>) };
+    inline const vector<string> & getZones() const { DARABONBA_PTR_GET_CONST(zones_, vector<string>) };
+    inline vector<string> getZones() { DARABONBA_PTR_GET(zones_, vector<string>) };
     inline ListGatewayIntranetSupportedZoneResponseBody& setZones(const vector<string> & zones) { DARABONBA_PTR_SET_VALUE(zones_, zones) };
     inline ListGatewayIntranetSupportedZoneResponseBody& setZones(vector<string> && zones) { DARABONBA_PTR_SET_RVALUE(zones_, zones) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The zones that are supported by the region.
-    std::shared_ptr<vector<string>> zones_ = nullptr;
+    shared_ptr<vector<string>> zones_ {};
   };
 
   } // namespace Models

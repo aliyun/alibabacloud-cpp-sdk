@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->enableAuthoritativeDns_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->enableAuthoritativeDns_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
-    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
     inline CreateGatewayIntranetLinkedVpcRequest& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
     // enableAuthoritativeDns Field Functions 
     bool hasEnableAuthoritativeDns() const { return this->enableAuthoritativeDns_ != nullptr;};
     void deleteEnableAuthoritativeDns() { this->enableAuthoritativeDns_ = nullptr;};
-    inline bool enableAuthoritativeDns() const { DARABONBA_PTR_GET_DEFAULT(enableAuthoritativeDns_, false) };
+    inline bool getEnableAuthoritativeDns() const { DARABONBA_PTR_GET_DEFAULT(enableAuthoritativeDns_, false) };
     inline CreateGatewayIntranetLinkedVpcRequest& setEnableAuthoritativeDns(bool enableAuthoritativeDns) { DARABONBA_PTR_SET_VALUE(enableAuthoritativeDns_, enableAuthoritativeDns) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateGatewayIntranetLinkedVpcRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateGatewayIntranetLinkedVpcRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
-    std::shared_ptr<string> accountId_ = nullptr;
-    std::shared_ptr<bool> enableAuthoritativeDns_ = nullptr;
+    shared_ptr<string> accountId_ {};
+    shared_ptr<bool> enableAuthoritativeDns_ {};
     // The vSwitch ID.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // The virtual private cloud (VPC) ID.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

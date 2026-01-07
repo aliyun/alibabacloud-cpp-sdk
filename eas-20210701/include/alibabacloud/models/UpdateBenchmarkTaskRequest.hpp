@@ -33,13 +33,13 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline UpdateBenchmarkTaskRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
   protected:
     // The request body. The body includes the parameters that are set to create a stress testing task. For more information, see **Table 1. Fields in the base parameter**.
-    std::shared_ptr<string> body_ = nullptr;
+    shared_ptr<string> body_ {};
   };
 
   } // namespace Models

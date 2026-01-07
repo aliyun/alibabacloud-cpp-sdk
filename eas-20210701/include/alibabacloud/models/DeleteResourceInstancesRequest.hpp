@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allFailed_ == nullptr
-        && return this->instanceList_ == nullptr; };
+        && this->instanceList_ == nullptr; };
     // allFailed Field Functions 
     bool hasAllFailed() const { return this->allFailed_ != nullptr;};
     void deleteAllFailed() { this->allFailed_ = nullptr;};
-    inline bool allFailed() const { DARABONBA_PTR_GET_DEFAULT(allFailed_, false) };
+    inline bool getAllFailed() const { DARABONBA_PTR_GET_DEFAULT(allFailed_, false) };
     inline DeleteResourceInstancesRequest& setAllFailed(bool allFailed) { DARABONBA_PTR_SET_VALUE(allFailed_, allFailed) };
 
 
     // instanceList Field Functions 
     bool hasInstanceList() const { return this->instanceList_ != nullptr;};
     void deleteInstanceList() { this->instanceList_ = nullptr;};
-    inline string instanceList() const { DARABONBA_PTR_GET_DEFAULT(instanceList_, "") };
+    inline string getInstanceList() const { DARABONBA_PTR_GET_DEFAULT(instanceList_, "") };
     inline DeleteResourceInstancesRequest& setInstanceList(string instanceList) { DARABONBA_PTR_SET_VALUE(instanceList_, instanceList) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> allFailed_ = nullptr;
+    shared_ptr<bool> allFailed_ {};
     // The instances. Separate multiple instances with commas (,), such as `instanceId1,instanceId2`. For more information about how to query the instances, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
-    std::shared_ptr<string> instanceList_ = nullptr;
+    shared_ptr<string> instanceList_ {};
   };
 
   } // namespace Models

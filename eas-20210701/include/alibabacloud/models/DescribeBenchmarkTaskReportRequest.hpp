@@ -33,13 +33,13 @@ namespace Models
     // reportType Field Functions 
     bool hasReportType() const { return this->reportType_ != nullptr;};
     void deleteReportType() { this->reportType_ = nullptr;};
-    inline string reportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
+    inline string getReportType() const { DARABONBA_PTR_GET_DEFAULT(reportType_, "") };
     inline DescribeBenchmarkTaskReportRequest& setReportType(string reportType) { DARABONBA_PTR_SET_VALUE(reportType_, reportType) };
 
 
   protected:
     // The report type of the stress testing task. Valid values: RAW and Report.
-    std::shared_ptr<string> reportType_ = nullptr;
+    shared_ptr<string> reportType_ {};
   };
 
   } // namespace Models

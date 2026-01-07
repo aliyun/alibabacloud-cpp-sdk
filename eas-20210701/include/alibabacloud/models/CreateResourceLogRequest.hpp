@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logStore_ == nullptr
-        && return this->projectName_ == nullptr; };
+        && this->projectName_ == nullptr; };
     // logStore Field Functions 
     bool hasLogStore() const { return this->logStore_ != nullptr;};
     void deleteLogStore() { this->logStore_ = nullptr;};
-    inline string logStore() const { DARABONBA_PTR_GET_DEFAULT(logStore_, "") };
+    inline string getLogStore() const { DARABONBA_PTR_GET_DEFAULT(logStore_, "") };
     inline CreateResourceLogRequest& setLogStore(string logStore) { DARABONBA_PTR_SET_VALUE(logStore_, logStore) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CreateResourceLogRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The Logstore of Log Service. For more information about how to query a Logstore, see [ListLogStores](https://help.aliyun.com/document_detail/426970.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> logStore_ = nullptr;
+    shared_ptr<string> logStore_ {};
     // The Log Service project that is associated with the resource group. For more information about how to query the project, see [ListProject](https://help.aliyun.com/document_detail/74955.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
   };
 
   } // namespace Models

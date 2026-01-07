@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allInstances_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->labels_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->labels_ == nullptr; };
     // allInstances Field Functions 
     bool hasAllInstances() const { return this->allInstances_ != nullptr;};
     void deleteAllInstances() { this->allInstances_ = nullptr;};
-    inline bool allInstances() const { DARABONBA_PTR_GET_DEFAULT(allInstances_, false) };
+    inline bool getAllInstances() const { DARABONBA_PTR_GET_DEFAULT(allInstances_, false) };
     inline UpdateResourceInstanceLabelRequest& setAllInstances(bool allInstances) { DARABONBA_PTR_SET_VALUE(allInstances_, allInstances) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline UpdateResourceInstanceLabelRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline UpdateResourceInstanceLabelRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -56,19 +56,19 @@ namespace Models
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const map<string, string> & labels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
-    inline map<string, string> labels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
+    inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
+    inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
     inline UpdateResourceInstanceLabelRequest& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline UpdateResourceInstanceLabelRequest& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
 
   protected:
     // Specifies whether the modification takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
-    std::shared_ptr<bool> allInstances_ = nullptr;
+    shared_ptr<bool> allInstances_ {};
     // The instance IDs.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
     // The custom tag.
-    std::shared_ptr<map<string, string>> labels_ = nullptr;
+    shared_ptr<map<string, string>> labels_ {};
   };
 
   } // namespace Models

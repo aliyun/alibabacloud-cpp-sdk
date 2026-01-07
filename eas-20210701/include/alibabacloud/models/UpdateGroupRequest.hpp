@@ -33,13 +33,13 @@ namespace Models
     // trafficMode Field Functions 
     bool hasTrafficMode() const { return this->trafficMode_ != nullptr;};
     void deleteTrafficMode() { this->trafficMode_ = nullptr;};
-    inline string trafficMode() const { DARABONBA_PTR_GET_DEFAULT(trafficMode_, "") };
+    inline string getTrafficMode() const { DARABONBA_PTR_GET_DEFAULT(trafficMode_, "") };
     inline UpdateGroupRequest& setTrafficMode(string trafficMode) { DARABONBA_PTR_SET_VALUE(trafficMode_, trafficMode) };
 
 
   protected:
     // The traffic mode. Valid values: auto and customized. auto: The traffic is automatically allocated based on the proportion of the number of instances to the total number of instances. customized: The traffic is allocated based on a custom weight.
-    std::shared_ptr<string> trafficMode_ = nullptr;
+    shared_ptr<string> trafficMode_ {};
   };
 
   } // namespace Models

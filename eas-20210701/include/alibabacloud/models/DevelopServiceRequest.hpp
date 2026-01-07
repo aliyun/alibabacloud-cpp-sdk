@@ -33,7 +33,7 @@ namespace Models
     // exit Field Functions 
     bool hasExit() const { return this->exit_ != nullptr;};
     void deleteExit() { this->exit_ = nullptr;};
-    inline string exit() const { DARABONBA_PTR_GET_DEFAULT(exit_, "") };
+    inline string getExit() const { DARABONBA_PTR_GET_DEFAULT(exit_, "") };
     inline DevelopServiceRequest& setExit(string exit) { DARABONBA_PTR_SET_VALUE(exit_, exit) };
 
 
@@ -42,7 +42,7 @@ namespace Models
     // 
     // *   true: exits development mode.
     // *   false (default): enters development mode.
-    std::shared_ptr<string> exit_ = nullptr;
+    shared_ptr<string> exit_ {};
   };
 
   } // namespace Models

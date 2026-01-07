@@ -34,15 +34,15 @@ namespace Models
     // labelKeys Field Functions 
     bool hasLabelKeys() const { return this->labelKeys_ != nullptr;};
     void deleteLabelKeys() { this->labelKeys_ = nullptr;};
-    inline const vector<string> & labelKeys() const { DARABONBA_PTR_GET_CONST(labelKeys_, vector<string>) };
-    inline vector<string> labelKeys() { DARABONBA_PTR_GET(labelKeys_, vector<string>) };
+    inline const vector<string> & getLabelKeys() const { DARABONBA_PTR_GET_CONST(labelKeys_, vector<string>) };
+    inline vector<string> getLabelKeys() { DARABONBA_PTR_GET(labelKeys_, vector<string>) };
     inline DeleteGatewayLabelRequest& setLabelKeys(const vector<string> & labelKeys) { DARABONBA_PTR_SET_VALUE(labelKeys_, labelKeys) };
     inline DeleteGatewayLabelRequest& setLabelKeys(vector<string> && labelKeys) { DARABONBA_PTR_SET_RVALUE(labelKeys_, labelKeys) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> labelKeys_ = nullptr;
+    shared_ptr<vector<string>> labelKeys_ {};
   };
 
   } // namespace Models

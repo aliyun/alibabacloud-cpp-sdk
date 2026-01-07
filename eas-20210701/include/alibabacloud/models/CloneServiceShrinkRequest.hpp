@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->labelsShrink_ == nullptr
-        && return this->body_ == nullptr; };
+        && this->body_ == nullptr; };
     // labelsShrink Field Functions 
     bool hasLabelsShrink() const { return this->labelsShrink_ != nullptr;};
     void deleteLabelsShrink() { this->labelsShrink_ = nullptr;};
-    inline string labelsShrink() const { DARABONBA_PTR_GET_DEFAULT(labelsShrink_, "") };
+    inline string getLabelsShrink() const { DARABONBA_PTR_GET_DEFAULT(labelsShrink_, "") };
     inline CloneServiceShrinkRequest& setLabelsShrink(string labelsShrink) { DARABONBA_PTR_SET_VALUE(labelsShrink_, labelsShrink) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline CloneServiceShrinkRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
   protected:
     // The label of the service to be cloned.
-    std::shared_ptr<string> labelsShrink_ = nullptr;
+    shared_ptr<string> labelsShrink_ {};
     // The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
-    std::shared_ptr<string> body_ = nullptr;
+    shared_ptr<string> body_ {};
   };
 
   } // namespace Models

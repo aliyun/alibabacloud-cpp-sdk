@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->peerVpcsShrink_ == nullptr
-        && return this->vpcId_ == nullptr; };
+        && this->vpcId_ == nullptr; };
     // peerVpcsShrink Field Functions 
     bool hasPeerVpcsShrink() const { return this->peerVpcsShrink_ != nullptr;};
     void deletePeerVpcsShrink() { this->peerVpcsShrink_ = nullptr;};
-    inline string peerVpcsShrink() const { DARABONBA_PTR_GET_DEFAULT(peerVpcsShrink_, "") };
+    inline string getPeerVpcsShrink() const { DARABONBA_PTR_GET_DEFAULT(peerVpcsShrink_, "") };
     inline CreateGatewayIntranetLinkedVpcPeerShrinkRequest& setPeerVpcsShrink(string peerVpcsShrink) { DARABONBA_PTR_SET_VALUE(peerVpcsShrink_, peerVpcsShrink) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateGatewayIntranetLinkedVpcPeerShrinkRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
     // The list of VPC peers.
-    std::shared_ptr<string> peerVpcsShrink_ = nullptr;
+    shared_ptr<string> peerVpcsShrink_ {};
     // The VPC ID. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

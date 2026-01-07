@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->message_ == nullptr
-        && return this->requestId_ == nullptr && return this->virtualResourceId_ == nullptr; };
+        && this->requestId_ == nullptr && this->virtualResourceId_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline CreateVirtualResourceResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateVirtualResourceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // virtualResourceId Field Functions 
     bool hasVirtualResourceId() const { return this->virtualResourceId_ != nullptr;};
     void deleteVirtualResourceId() { this->virtualResourceId_ = nullptr;};
-    inline string virtualResourceId() const { DARABONBA_PTR_GET_DEFAULT(virtualResourceId_, "") };
+    inline string getVirtualResourceId() const { DARABONBA_PTR_GET_DEFAULT(virtualResourceId_, "") };
     inline CreateVirtualResourceResponseBody& setVirtualResourceId(string virtualResourceId) { DARABONBA_PTR_SET_VALUE(virtualResourceId_, virtualResourceId) };
 
 
   protected:
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the virtual resource group.
-    std::shared_ptr<string> virtualResourceId_ = nullptr;
+    shared_ptr<string> virtualResourceId_ {};
   };
 
   } // namespace Models

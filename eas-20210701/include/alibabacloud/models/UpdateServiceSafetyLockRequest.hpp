@@ -33,7 +33,7 @@ namespace Models
     // lock Field Functions 
     bool hasLock() const { return this->lock_ != nullptr;};
     void deleteLock() { this->lock_ = nullptr;};
-    inline string lock() const { DARABONBA_PTR_GET_DEFAULT(lock_, "") };
+    inline string getLock() const { DARABONBA_PTR_GET_DEFAULT(lock_, "") };
     inline UpdateServiceSafetyLockRequest& setLock(string lock) { DARABONBA_PTR_SET_VALUE(lock_, lock) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   none: locks no operations.
     // 
     // This parameter is required.
-    std::shared_ptr<string> lock_ = nullptr;
+    shared_ptr<string> lock_ {};
   };
 
   } // namespace Models

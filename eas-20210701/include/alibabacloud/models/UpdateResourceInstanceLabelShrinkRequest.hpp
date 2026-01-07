@@ -35,37 +35,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allInstances_ == nullptr
-        && return this->instanceIdsShrink_ == nullptr && return this->labels_ == nullptr; };
+        && this->instanceIdsShrink_ == nullptr && this->labels_ == nullptr; };
     // allInstances Field Functions 
     bool hasAllInstances() const { return this->allInstances_ != nullptr;};
     void deleteAllInstances() { this->allInstances_ = nullptr;};
-    inline bool allInstances() const { DARABONBA_PTR_GET_DEFAULT(allInstances_, false) };
+    inline bool getAllInstances() const { DARABONBA_PTR_GET_DEFAULT(allInstances_, false) };
     inline UpdateResourceInstanceLabelShrinkRequest& setAllInstances(bool allInstances) { DARABONBA_PTR_SET_VALUE(allInstances_, allInstances) };
 
 
     // instanceIdsShrink Field Functions 
     bool hasInstanceIdsShrink() const { return this->instanceIdsShrink_ != nullptr;};
     void deleteInstanceIdsShrink() { this->instanceIdsShrink_ = nullptr;};
-    inline string instanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
+    inline string getInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
     inline UpdateResourceInstanceLabelShrinkRequest& setInstanceIdsShrink(string instanceIdsShrink) { DARABONBA_PTR_SET_VALUE(instanceIdsShrink_, instanceIdsShrink) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const map<string, string> & labels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
-    inline map<string, string> labels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
+    inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
+    inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
     inline UpdateResourceInstanceLabelShrinkRequest& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline UpdateResourceInstanceLabelShrinkRequest& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
 
   protected:
     // Specifies whether the modification takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
-    std::shared_ptr<bool> allInstances_ = nullptr;
+    shared_ptr<bool> allInstances_ {};
     // The instance IDs.
-    std::shared_ptr<string> instanceIdsShrink_ = nullptr;
+    shared_ptr<string> instanceIdsShrink_ {};
     // The custom tag.
-    std::shared_ptr<map<string, string>> labels_ = nullptr;
+    shared_ptr<map<string, string>> labels_ {};
   };
 
   } // namespace Models

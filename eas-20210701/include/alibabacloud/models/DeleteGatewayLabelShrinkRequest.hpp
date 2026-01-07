@@ -33,13 +33,13 @@ namespace Models
     // labelKeysShrink Field Functions 
     bool hasLabelKeysShrink() const { return this->labelKeysShrink_ != nullptr;};
     void deleteLabelKeysShrink() { this->labelKeysShrink_ = nullptr;};
-    inline string labelKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(labelKeysShrink_, "") };
+    inline string getLabelKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(labelKeysShrink_, "") };
     inline DeleteGatewayLabelShrinkRequest& setLabelKeysShrink(string labelKeysShrink) { DARABONBA_PTR_SET_VALUE(labelKeysShrink_, labelKeysShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> labelKeysShrink_ = nullptr;
+    shared_ptr<string> labelKeysShrink_ {};
   };
 
   } // namespace Models

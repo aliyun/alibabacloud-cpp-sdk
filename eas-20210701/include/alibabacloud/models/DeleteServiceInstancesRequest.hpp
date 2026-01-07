@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->container_ == nullptr
-        && return this->instanceList_ == nullptr && return this->isReplica_ == nullptr && return this->softRestart_ == nullptr; };
+        && this->instanceList_ == nullptr && this->isReplica_ == nullptr && this->softRestart_ == nullptr; };
     // container Field Functions 
     bool hasContainer() const { return this->container_ != nullptr;};
     void deleteContainer() { this->container_ = nullptr;};
-    inline string container() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
+    inline string getContainer() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
     inline DeleteServiceInstancesRequest& setContainer(string container) { DARABONBA_PTR_SET_VALUE(container_, container) };
 
 
     // instanceList Field Functions 
     bool hasInstanceList() const { return this->instanceList_ != nullptr;};
     void deleteInstanceList() { this->instanceList_ = nullptr;};
-    inline string instanceList() const { DARABONBA_PTR_GET_DEFAULT(instanceList_, "") };
+    inline string getInstanceList() const { DARABONBA_PTR_GET_DEFAULT(instanceList_, "") };
     inline DeleteServiceInstancesRequest& setInstanceList(string instanceList) { DARABONBA_PTR_SET_VALUE(instanceList_, instanceList) };
 
 
     // isReplica Field Functions 
     bool hasIsReplica() const { return this->isReplica_ != nullptr;};
     void deleteIsReplica() { this->isReplica_ = nullptr;};
-    inline bool isReplica() const { DARABONBA_PTR_GET_DEFAULT(isReplica_, false) };
+    inline bool getIsReplica() const { DARABONBA_PTR_GET_DEFAULT(isReplica_, false) };
     inline DeleteServiceInstancesRequest& setIsReplica(bool isReplica) { DARABONBA_PTR_SET_VALUE(isReplica_, isReplica) };
 
 
     // softRestart Field Functions 
     bool hasSoftRestart() const { return this->softRestart_ != nullptr;};
     void deleteSoftRestart() { this->softRestart_ = nullptr;};
-    inline bool softRestart() const { DARABONBA_PTR_GET_DEFAULT(softRestart_, false) };
+    inline bool getSoftRestart() const { DARABONBA_PTR_GET_DEFAULT(softRestart_, false) };
     inline DeleteServiceInstancesRequest& setSoftRestart(bool softRestart) { DARABONBA_PTR_SET_VALUE(softRestart_, softRestart) };
 
 
   protected:
     // The name of the container whose process needs to be restarted. This parameter takes effect only if the SoftRestart parameter is set to true.
-    std::shared_ptr<string> container_ = nullptr;
+    shared_ptr<string> container_ {};
     // The instances that you want to restart. Separate multiple instance names with commas (,). For more information about how to query the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
-    std::shared_ptr<string> instanceList_ = nullptr;
-    std::shared_ptr<bool> isReplica_ = nullptr;
+    shared_ptr<string> instanceList_ {};
+    shared_ptr<bool> isReplica_ {};
     // Specifies whether to restart only the container process without recreating the instance. Default value: false. Valid values: true and false.
-    std::shared_ptr<bool> softRestart_ = nullptr;
+    shared_ptr<bool> softRestart_ {};
   };
 
   } // namespace Models

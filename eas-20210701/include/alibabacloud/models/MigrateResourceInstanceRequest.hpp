@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destResourceId_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->migrateToHybrid_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->migrateToHybrid_ == nullptr; };
     // destResourceId Field Functions 
     bool hasDestResourceId() const { return this->destResourceId_ != nullptr;};
     void deleteDestResourceId() { this->destResourceId_ = nullptr;};
-    inline string destResourceId() const { DARABONBA_PTR_GET_DEFAULT(destResourceId_, "") };
+    inline string getDestResourceId() const { DARABONBA_PTR_GET_DEFAULT(destResourceId_, "") };
     inline MigrateResourceInstanceRequest& setDestResourceId(string destResourceId) { DARABONBA_PTR_SET_VALUE(destResourceId_, destResourceId) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline MigrateResourceInstanceRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline MigrateResourceInstanceRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -55,7 +55,7 @@ namespace Models
     // migrateToHybrid Field Functions 
     bool hasMigrateToHybrid() const { return this->migrateToHybrid_ != nullptr;};
     void deleteMigrateToHybrid() { this->migrateToHybrid_ = nullptr;};
-    inline bool migrateToHybrid() const { DARABONBA_PTR_GET_DEFAULT(migrateToHybrid_, false) };
+    inline bool getMigrateToHybrid() const { DARABONBA_PTR_GET_DEFAULT(migrateToHybrid_, false) };
     inline MigrateResourceInstanceRequest& setMigrateToHybrid(bool migrateToHybrid) { DARABONBA_PTR_SET_VALUE(migrateToHybrid_, migrateToHybrid) };
 
 
@@ -63,12 +63,12 @@ namespace Models
     // The ID of the destination resource group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destResourceId_ = nullptr;
+    shared_ptr<string> destResourceId_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
-    std::shared_ptr<bool> migrateToHybrid_ = nullptr;
+    shared_ptr<vector<string>> instanceIds_ {};
+    shared_ptr<bool> migrateToHybrid_ {};
   };
 
   } // namespace Models

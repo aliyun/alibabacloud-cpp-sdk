@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->trafficState_ == nullptr
-        && return this->weight_ == nullptr; };
+        && this->weight_ == nullptr; };
     // trafficState Field Functions 
     bool hasTrafficState() const { return this->trafficState_ != nullptr;};
     void deleteTrafficState() { this->trafficState_ = nullptr;};
-    inline string trafficState() const { DARABONBA_PTR_GET_DEFAULT(trafficState_, "") };
+    inline string getTrafficState() const { DARABONBA_PTR_GET_DEFAULT(trafficState_, "") };
     inline ReleaseServiceRequest& setTrafficState(string trafficState) { DARABONBA_PTR_SET_VALUE(trafficState_, trafficState) };
 
 
     // weight Field Functions 
     bool hasWeight() const { return this->weight_ != nullptr;};
     void deleteWeight() { this->weight_ = nullptr;};
-    inline int32_t weight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+    inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
     inline ReleaseServiceRequest& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   standalone: independent traffic.
     // *   grouping: grouped traffic.
-    std::shared_ptr<string> trafficState_ = nullptr;
+    shared_ptr<string> trafficState_ {};
     // The weight of the service. Valid values: [-1, 1000].
-    std::shared_ptr<int32_t> weight_ = nullptr;
+    shared_ptr<int32_t> weight_ {};
   };
 
   } // namespace Models

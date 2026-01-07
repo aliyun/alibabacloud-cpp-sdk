@@ -34,8 +34,8 @@ namespace Models
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const map<string, string> & labels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
-    inline map<string, string> labels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
+    inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
+    inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
     inline UpdateServiceLabelRequest& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline UpdateServiceLabelRequest& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The custom service tags.
     // 
     // This parameter is required.
-    std::shared_ptr<map<string, string>> labels_ = nullptr;
+    shared_ptr<map<string, string>> labels_ {};
   };
 
   } // namespace Models

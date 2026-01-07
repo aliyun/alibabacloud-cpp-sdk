@@ -33,7 +33,7 @@ namespace Models
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline int32_t version() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
+    inline int32_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
     inline UpdateServiceVersionRequest& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The destination version of the service. The value must be of the INT type. The value must be greater than 0 and smaller than the current version of the service.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> version_ = nullptr;
+    shared_ptr<int32_t> version_ {};
   };
 
   } // namespace Models

@@ -45,41 +45,41 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenewal_ == nullptr
-        && return this->chargeType_ == nullptr && return this->ecsInstanceCount_ == nullptr && return this->ecsInstanceType_ == nullptr && return this->labels_ == nullptr && return this->systemDiskSize_ == nullptr
-        && return this->userData_ == nullptr && return this->zone_ == nullptr; };
+        && this->chargeType_ == nullptr && this->ecsInstanceCount_ == nullptr && this->ecsInstanceType_ == nullptr && this->labels_ == nullptr && this->systemDiskSize_ == nullptr
+        && this->userData_ == nullptr && this->zone_ == nullptr; };
     // autoRenewal Field Functions 
     bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
     void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};
-    inline bool autoRenewal() const { DARABONBA_PTR_GET_DEFAULT(autoRenewal_, false) };
+    inline bool getAutoRenewal() const { DARABONBA_PTR_GET_DEFAULT(autoRenewal_, false) };
     inline CreateResourceInstancesRequest& setAutoRenewal(bool autoRenewal) { DARABONBA_PTR_SET_VALUE(autoRenewal_, autoRenewal) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline CreateResourceInstancesRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // ecsInstanceCount Field Functions 
     bool hasEcsInstanceCount() const { return this->ecsInstanceCount_ != nullptr;};
     void deleteEcsInstanceCount() { this->ecsInstanceCount_ = nullptr;};
-    inline int32_t ecsInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceCount_, 0) };
+    inline int32_t getEcsInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceCount_, 0) };
     inline CreateResourceInstancesRequest& setEcsInstanceCount(int32_t ecsInstanceCount) { DARABONBA_PTR_SET_VALUE(ecsInstanceCount_, ecsInstanceCount) };
 
 
     // ecsInstanceType Field Functions 
     bool hasEcsInstanceType() const { return this->ecsInstanceType_ != nullptr;};
     void deleteEcsInstanceType() { this->ecsInstanceType_ = nullptr;};
-    inline string ecsInstanceType() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceType_, "") };
+    inline string getEcsInstanceType() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceType_, "") };
     inline CreateResourceInstancesRequest& setEcsInstanceType(string ecsInstanceType) { DARABONBA_PTR_SET_VALUE(ecsInstanceType_, ecsInstanceType) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const map<string, string> & labels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
-    inline map<string, string> labels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
+    inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
+    inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
     inline CreateResourceInstancesRequest& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline CreateResourceInstancesRequest& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
@@ -87,21 +87,21 @@ namespace Models
     // systemDiskSize Field Functions 
     bool hasSystemDiskSize() const { return this->systemDiskSize_ != nullptr;};
     void deleteSystemDiskSize() { this->systemDiskSize_ = nullptr;};
-    inline int32_t systemDiskSize() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSize_, 0) };
+    inline int32_t getSystemDiskSize() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSize_, 0) };
     inline CreateResourceInstancesRequest& setSystemDiskSize(int32_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
 
 
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
-    inline string userData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
+    inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
     inline CreateResourceInstancesRequest& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
 
 
     // zone Field Functions 
     bool hasZone() const { return this->zone_ != nullptr;};
     void deleteZone() { this->zone_ = nullptr;};
-    inline string zone() const { DARABONBA_PTR_GET_DEFAULT(zone_, "") };
+    inline string getZone() const { DARABONBA_PTR_GET_DEFAULT(zone_, "") };
     inline CreateResourceInstancesRequest& setZone(string zone) { DARABONBA_PTR_SET_VALUE(zone_, zone) };
 
 
@@ -110,30 +110,30 @@ namespace Models
     // 
     // *   false (default)
     // *   true
-    std::shared_ptr<bool> autoRenewal_ = nullptr;
+    shared_ptr<bool> autoRenewal_ {};
     // The billing method of the instance. Valid values:
     // 
     // *   PrePaid: subscription.
     // *   PostPaid: pay-as-you-go.
     // 
     // This parameter is required.
-    std::shared_ptr<string> chargeType_ = nullptr;
+    shared_ptr<string> chargeType_ {};
     // The number of instances that you want to create. Valid values: 1 to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ecsInstanceCount_ = nullptr;
+    shared_ptr<int32_t> ecsInstanceCount_ {};
     // The type of the Elastic Compute Service (ECS) instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ecsInstanceType_ = nullptr;
+    shared_ptr<string> ecsInstanceType_ {};
     // The custom service tag.
-    std::shared_ptr<map<string, string>> labels_ = nullptr;
+    shared_ptr<map<string, string>> labels_ {};
     // The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
-    std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
+    shared_ptr<int32_t> systemDiskSize_ {};
     // The user-defined information. This parameter is not in use.
-    std::shared_ptr<string> userData_ = nullptr;
+    shared_ptr<string> userData_ {};
     // The zone to which the instance belongs.
-    std::shared_ptr<string> zone_ = nullptr;
+    shared_ptr<string> zone_ {};
   };
 
   } // namespace Models

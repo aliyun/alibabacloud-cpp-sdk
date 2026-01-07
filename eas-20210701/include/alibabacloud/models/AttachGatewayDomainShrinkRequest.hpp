@@ -33,7 +33,7 @@ namespace Models
     // customDomainShrink Field Functions 
     bool hasCustomDomainShrink() const { return this->customDomainShrink_ != nullptr;};
     void deleteCustomDomainShrink() { this->customDomainShrink_ = nullptr;};
-    inline string customDomainShrink() const { DARABONBA_PTR_GET_DEFAULT(customDomainShrink_, "") };
+    inline string getCustomDomainShrink() const { DARABONBA_PTR_GET_DEFAULT(customDomainShrink_, "") };
     inline AttachGatewayDomainShrinkRequest& setCustomDomainShrink(string customDomainShrink) { DARABONBA_PTR_SET_VALUE(customDomainShrink_, customDomainShrink) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The custom domain name information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> customDomainShrink_ = nullptr;
+    shared_ptr<string> customDomainShrink_ {};
   };
 
   } // namespace Models

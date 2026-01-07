@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->develop_ == nullptr
-        && return this->labels_ == nullptr && return this->workspaceId_ == nullptr && return this->body_ == nullptr; };
+        && this->labels_ == nullptr && this->workspaceId_ == nullptr && this->body_ == nullptr; };
     // develop Field Functions 
     bool hasDevelop() const { return this->develop_ != nullptr;};
     void deleteDevelop() { this->develop_ = nullptr;};
-    inline string develop() const { DARABONBA_PTR_GET_DEFAULT(develop_, "") };
+    inline string getDevelop() const { DARABONBA_PTR_GET_DEFAULT(develop_, "") };
     inline CreateServiceRequest& setDevelop(string develop) { DARABONBA_PTR_SET_VALUE(develop_, develop) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline const map<string, string> & labels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
-    inline map<string, string> labels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
+    inline const map<string, string> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, string>) };
+    inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
     inline CreateServiceRequest& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline CreateServiceRequest& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
@@ -57,14 +57,14 @@ namespace Models
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
     inline CreateServiceRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline string body() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
+    inline string getBody() const { DARABONBA_PTR_GET_DEFAULT(body_, "") };
     inline CreateServiceRequest& setBody(string body) { DARABONBA_PTR_SET_VALUE(body_, body) };
 
 
@@ -88,13 +88,13 @@ namespace Models
     //     <!-- -->
     // 
     //     <!-- -->
-    std::shared_ptr<string> develop_ = nullptr;
+    shared_ptr<string> develop_ {};
     // The custom label.
-    std::shared_ptr<map<string, string>> labels_ = nullptr;
+    shared_ptr<map<string, string>> labels_ {};
     // The workspace ID.
-    std::shared_ptr<string> workspaceId_ = nullptr;
+    shared_ptr<string> workspaceId_ {};
     // The request body. For more information about the key request parameters, see **Table 1. Request body parameters** and **Table 2. Metadata parameters**. For more information about all related parameters, see [Parameters of model services](https://help.aliyun.com/document_detail/450525.html).
-    std::shared_ptr<string> body_ = nullptr;
+    shared_ptr<string> body_ {};
   };
 
   } // namespace Models

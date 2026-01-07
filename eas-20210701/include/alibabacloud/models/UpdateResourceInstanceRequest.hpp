@@ -33,7 +33,7 @@ namespace Models
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
-    inline string action() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
     inline UpdateResourceInstanceRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   Drain: evicts the service that has been scheduled to this instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> action_ = nullptr;
+    shared_ptr<string> action_ {};
   };
 
   } // namespace Models

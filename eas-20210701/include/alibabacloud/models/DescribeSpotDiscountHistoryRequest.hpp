@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceType_ == nullptr
-        && return this->isProtect_ == nullptr; };
+        && this->isProtect_ == nullptr; };
     // instanceType Field Functions 
     bool hasInstanceType() const { return this->instanceType_ != nullptr;};
     void deleteInstanceType() { this->instanceType_ = nullptr;};
-    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline DescribeSpotDiscountHistoryRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // isProtect Field Functions 
     bool hasIsProtect() const { return this->isProtect_ != nullptr;};
     void deleteIsProtect() { this->isProtect_ = nullptr;};
-    inline bool isProtect() const { DARABONBA_PTR_GET_DEFAULT(isProtect_, false) };
+    inline bool getIsProtect() const { DARABONBA_PTR_GET_DEFAULT(isProtect_, false) };
     inline DescribeSpotDiscountHistoryRequest& setIsProtect(bool isProtect) { DARABONBA_PTR_SET_VALUE(isProtect_, isProtect) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The type of the Elastic Algorithm Service (EAS) instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceType_ = nullptr;
+    shared_ptr<string> instanceType_ {};
     // Specifies whether the preemptible instance has a protection period. During the 1-hour protection period of the preemptible instance, the preemptible instance will not be released.
-    std::shared_ptr<bool> isProtect_ = nullptr;
+    shared_ptr<bool> isProtect_ {};
   };
 
   } // namespace Models

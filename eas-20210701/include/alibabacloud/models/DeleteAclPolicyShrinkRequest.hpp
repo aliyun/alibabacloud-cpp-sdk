@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclPolicyListShrink_ == nullptr
-        && return this->vpcId_ == nullptr; };
+        && this->vpcId_ == nullptr; };
     // aclPolicyListShrink Field Functions 
     bool hasAclPolicyListShrink() const { return this->aclPolicyListShrink_ != nullptr;};
     void deleteAclPolicyListShrink() { this->aclPolicyListShrink_ = nullptr;};
-    inline string aclPolicyListShrink() const { DARABONBA_PTR_GET_DEFAULT(aclPolicyListShrink_, "") };
+    inline string getAclPolicyListShrink() const { DARABONBA_PTR_GET_DEFAULT(aclPolicyListShrink_, "") };
     inline DeleteAclPolicyShrinkRequest& setAclPolicyListShrink(string aclPolicyListShrink) { DARABONBA_PTR_SET_VALUE(aclPolicyListShrink_, aclPolicyListShrink) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline DeleteAclPolicyShrinkRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
     // The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
-    std::shared_ptr<string> aclPolicyListShrink_ = nullptr;
+    shared_ptr<string> aclPolicyListShrink_ {};
     // The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

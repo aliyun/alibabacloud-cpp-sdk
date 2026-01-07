@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->faultArgs_ == nullptr
-        && return this->faultType_ == nullptr; };
+        && this->faultType_ == nullptr; };
     // faultArgs Field Functions 
     bool hasFaultArgs() const { return this->faultArgs_ != nullptr;};
     void deleteFaultArgs() { this->faultArgs_ = nullptr;};
-    inline     const Darabonba::Json & faultArgs() const { DARABONBA_GET(faultArgs_) };
-    Darabonba::Json & faultArgs() { DARABONBA_GET(faultArgs_) };
+    inline     const Darabonba::Json & getFaultArgs() const { DARABONBA_GET(faultArgs_) };
+    Darabonba::Json & getFaultArgs() { DARABONBA_GET(faultArgs_) };
     inline CreateFaultInjectionRequest& setFaultArgs(const Darabonba::Json & faultArgs) { DARABONBA_SET_VALUE(faultArgs_, faultArgs) };
-    inline CreateFaultInjectionRequest& setFaultArgs(Darabonba::Json & faultArgs) { DARABONBA_SET_RVALUE(faultArgs_, faultArgs) };
+    inline CreateFaultInjectionRequest& setFaultArgs(Darabonba::Json && faultArgs) { DARABONBA_SET_RVALUE(faultArgs_, faultArgs) };
 
 
     // faultType Field Functions 
     bool hasFaultType() const { return this->faultType_ != nullptr;};
     void deleteFaultType() { this->faultType_ = nullptr;};
-    inline string faultType() const { DARABONBA_PTR_GET_DEFAULT(faultType_, "") };
+    inline string getFaultType() const { DARABONBA_PTR_GET_DEFAULT(faultType_, "") };
     inline CreateFaultInjectionRequest& setFaultType(string faultType) { DARABONBA_PTR_SET_VALUE(faultType_, faultType) };
 
 
   protected:
-    Darabonba::Json faultArgs_ = nullptr;
-    std::shared_ptr<string> faultType_ = nullptr;
+    Darabonba::Json faultArgs_ {};
+    shared_ptr<string> faultType_ {};
   };
 
   } // namespace Models
