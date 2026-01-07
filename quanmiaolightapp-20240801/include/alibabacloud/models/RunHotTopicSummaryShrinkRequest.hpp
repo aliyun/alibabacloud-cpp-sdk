@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hotTopicVersion_ == nullptr
-        && return this->stepForCustomSummaryStyleConfigShrink_ == nullptr && return this->topicIdsShrink_ == nullptr; };
+        && this->stepForCustomSummaryStyleConfigShrink_ == nullptr && this->topicIdsShrink_ == nullptr; };
     // hotTopicVersion Field Functions 
     bool hasHotTopicVersion() const { return this->hotTopicVersion_ != nullptr;};
     void deleteHotTopicVersion() { this->hotTopicVersion_ = nullptr;};
-    inline string hotTopicVersion() const { DARABONBA_PTR_GET_DEFAULT(hotTopicVersion_, "") };
+    inline string getHotTopicVersion() const { DARABONBA_PTR_GET_DEFAULT(hotTopicVersion_, "") };
     inline RunHotTopicSummaryShrinkRequest& setHotTopicVersion(string hotTopicVersion) { DARABONBA_PTR_SET_VALUE(hotTopicVersion_, hotTopicVersion) };
 
 
     // stepForCustomSummaryStyleConfigShrink Field Functions 
     bool hasStepForCustomSummaryStyleConfigShrink() const { return this->stepForCustomSummaryStyleConfigShrink_ != nullptr;};
     void deleteStepForCustomSummaryStyleConfigShrink() { this->stepForCustomSummaryStyleConfigShrink_ = nullptr;};
-    inline string stepForCustomSummaryStyleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(stepForCustomSummaryStyleConfigShrink_, "") };
+    inline string getStepForCustomSummaryStyleConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(stepForCustomSummaryStyleConfigShrink_, "") };
     inline RunHotTopicSummaryShrinkRequest& setStepForCustomSummaryStyleConfigShrink(string stepForCustomSummaryStyleConfigShrink) { DARABONBA_PTR_SET_VALUE(stepForCustomSummaryStyleConfigShrink_, stepForCustomSummaryStyleConfigShrink) };
 
 
     // topicIdsShrink Field Functions 
     bool hasTopicIdsShrink() const { return this->topicIdsShrink_ != nullptr;};
     void deleteTopicIdsShrink() { this->topicIdsShrink_ = nullptr;};
-    inline string topicIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(topicIdsShrink_, "") };
+    inline string getTopicIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(topicIdsShrink_, "") };
     inline RunHotTopicSummaryShrinkRequest& setTopicIdsShrink(string topicIdsShrink) { DARABONBA_PTR_SET_VALUE(topicIdsShrink_, topicIdsShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> hotTopicVersion_ = nullptr;
+    shared_ptr<string> hotTopicVersion_ {};
     // This parameter is required.
-    std::shared_ptr<string> stepForCustomSummaryStyleConfigShrink_ = nullptr;
+    shared_ptr<string> stepForCustomSummaryStyleConfigShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> topicIdsShrink_ = nullptr;
+    shared_ptr<string> topicIdsShrink_ {};
   };
 
   } // namespace Models

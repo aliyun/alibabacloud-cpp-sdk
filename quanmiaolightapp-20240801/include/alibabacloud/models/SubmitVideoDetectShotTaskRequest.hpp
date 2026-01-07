@@ -59,63 +59,63 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deduplicationId_ == nullptr
-        && return this->intelliSimpPrompt_ == nullptr && return this->intelliSimpPromptTemplateId_ == nullptr && return this->language_ == nullptr && return this->modelCustomPromptTemplateId_ == nullptr && return this->modelId_ == nullptr
-        && return this->modelVlCustomPromptTemplateId_ == nullptr && return this->options_ == nullptr && return this->originalSessionId_ == nullptr && return this->preModelId_ == nullptr && return this->prompt_ == nullptr
-        && return this->recognitionOptions_ == nullptr && return this->taskId_ == nullptr && return this->videoUrl_ == nullptr && return this->vlPrompt_ == nullptr; };
+        && this->intelliSimpPrompt_ == nullptr && this->intelliSimpPromptTemplateId_ == nullptr && this->language_ == nullptr && this->modelCustomPromptTemplateId_ == nullptr && this->modelId_ == nullptr
+        && this->modelVlCustomPromptTemplateId_ == nullptr && this->options_ == nullptr && this->originalSessionId_ == nullptr && this->preModelId_ == nullptr && this->prompt_ == nullptr
+        && this->recognitionOptions_ == nullptr && this->taskId_ == nullptr && this->videoUrl_ == nullptr && this->vlPrompt_ == nullptr; };
     // deduplicationId Field Functions 
     bool hasDeduplicationId() const { return this->deduplicationId_ != nullptr;};
     void deleteDeduplicationId() { this->deduplicationId_ = nullptr;};
-    inline string deduplicationId() const { DARABONBA_PTR_GET_DEFAULT(deduplicationId_, "") };
+    inline string getDeduplicationId() const { DARABONBA_PTR_GET_DEFAULT(deduplicationId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setDeduplicationId(string deduplicationId) { DARABONBA_PTR_SET_VALUE(deduplicationId_, deduplicationId) };
 
 
     // intelliSimpPrompt Field Functions 
     bool hasIntelliSimpPrompt() const { return this->intelliSimpPrompt_ != nullptr;};
     void deleteIntelliSimpPrompt() { this->intelliSimpPrompt_ = nullptr;};
-    inline string intelliSimpPrompt() const { DARABONBA_PTR_GET_DEFAULT(intelliSimpPrompt_, "") };
+    inline string getIntelliSimpPrompt() const { DARABONBA_PTR_GET_DEFAULT(intelliSimpPrompt_, "") };
     inline SubmitVideoDetectShotTaskRequest& setIntelliSimpPrompt(string intelliSimpPrompt) { DARABONBA_PTR_SET_VALUE(intelliSimpPrompt_, intelliSimpPrompt) };
 
 
     // intelliSimpPromptTemplateId Field Functions 
     bool hasIntelliSimpPromptTemplateId() const { return this->intelliSimpPromptTemplateId_ != nullptr;};
     void deleteIntelliSimpPromptTemplateId() { this->intelliSimpPromptTemplateId_ = nullptr;};
-    inline string intelliSimpPromptTemplateId() const { DARABONBA_PTR_GET_DEFAULT(intelliSimpPromptTemplateId_, "") };
+    inline string getIntelliSimpPromptTemplateId() const { DARABONBA_PTR_GET_DEFAULT(intelliSimpPromptTemplateId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setIntelliSimpPromptTemplateId(string intelliSimpPromptTemplateId) { DARABONBA_PTR_SET_VALUE(intelliSimpPromptTemplateId_, intelliSimpPromptTemplateId) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline SubmitVideoDetectShotTaskRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // modelCustomPromptTemplateId Field Functions 
     bool hasModelCustomPromptTemplateId() const { return this->modelCustomPromptTemplateId_ != nullptr;};
     void deleteModelCustomPromptTemplateId() { this->modelCustomPromptTemplateId_ = nullptr;};
-    inline string modelCustomPromptTemplateId() const { DARABONBA_PTR_GET_DEFAULT(modelCustomPromptTemplateId_, "") };
+    inline string getModelCustomPromptTemplateId() const { DARABONBA_PTR_GET_DEFAULT(modelCustomPromptTemplateId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setModelCustomPromptTemplateId(string modelCustomPromptTemplateId) { DARABONBA_PTR_SET_VALUE(modelCustomPromptTemplateId_, modelCustomPromptTemplateId) };
 
 
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // modelVlCustomPromptTemplateId Field Functions 
     bool hasModelVlCustomPromptTemplateId() const { return this->modelVlCustomPromptTemplateId_ != nullptr;};
     void deleteModelVlCustomPromptTemplateId() { this->modelVlCustomPromptTemplateId_ = nullptr;};
-    inline string modelVlCustomPromptTemplateId() const { DARABONBA_PTR_GET_DEFAULT(modelVlCustomPromptTemplateId_, "") };
+    inline string getModelVlCustomPromptTemplateId() const { DARABONBA_PTR_GET_DEFAULT(modelVlCustomPromptTemplateId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setModelVlCustomPromptTemplateId(string modelVlCustomPromptTemplateId) { DARABONBA_PTR_SET_VALUE(modelVlCustomPromptTemplateId_, modelVlCustomPromptTemplateId) };
 
 
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline const vector<string> & options() const { DARABONBA_PTR_GET_CONST(options_, vector<string>) };
-    inline vector<string> options() { DARABONBA_PTR_GET(options_, vector<string>) };
+    inline const vector<string> & getOptions() const { DARABONBA_PTR_GET_CONST(options_, vector<string>) };
+    inline vector<string> getOptions() { DARABONBA_PTR_GET(options_, vector<string>) };
     inline SubmitVideoDetectShotTaskRequest& setOptions(const vector<string> & options) { DARABONBA_PTR_SET_VALUE(options_, options) };
     inline SubmitVideoDetectShotTaskRequest& setOptions(vector<string> && options) { DARABONBA_PTR_SET_RVALUE(options_, options) };
 
@@ -123,29 +123,29 @@ namespace Models
     // originalSessionId Field Functions 
     bool hasOriginalSessionId() const { return this->originalSessionId_ != nullptr;};
     void deleteOriginalSessionId() { this->originalSessionId_ = nullptr;};
-    inline string originalSessionId() const { DARABONBA_PTR_GET_DEFAULT(originalSessionId_, "") };
+    inline string getOriginalSessionId() const { DARABONBA_PTR_GET_DEFAULT(originalSessionId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setOriginalSessionId(string originalSessionId) { DARABONBA_PTR_SET_VALUE(originalSessionId_, originalSessionId) };
 
 
     // preModelId Field Functions 
     bool hasPreModelId() const { return this->preModelId_ != nullptr;};
     void deletePreModelId() { this->preModelId_ = nullptr;};
-    inline string preModelId() const { DARABONBA_PTR_GET_DEFAULT(preModelId_, "") };
+    inline string getPreModelId() const { DARABONBA_PTR_GET_DEFAULT(preModelId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setPreModelId(string preModelId) { DARABONBA_PTR_SET_VALUE(preModelId_, preModelId) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline SubmitVideoDetectShotTaskRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // recognitionOptions Field Functions 
     bool hasRecognitionOptions() const { return this->recognitionOptions_ != nullptr;};
     void deleteRecognitionOptions() { this->recognitionOptions_ = nullptr;};
-    inline const vector<string> & recognitionOptions() const { DARABONBA_PTR_GET_CONST(recognitionOptions_, vector<string>) };
-    inline vector<string> recognitionOptions() { DARABONBA_PTR_GET(recognitionOptions_, vector<string>) };
+    inline const vector<string> & getRecognitionOptions() const { DARABONBA_PTR_GET_CONST(recognitionOptions_, vector<string>) };
+    inline vector<string> getRecognitionOptions() { DARABONBA_PTR_GET(recognitionOptions_, vector<string>) };
     inline SubmitVideoDetectShotTaskRequest& setRecognitionOptions(const vector<string> & recognitionOptions) { DARABONBA_PTR_SET_VALUE(recognitionOptions_, recognitionOptions) };
     inline SubmitVideoDetectShotTaskRequest& setRecognitionOptions(vector<string> && recognitionOptions) { DARABONBA_PTR_SET_RVALUE(recognitionOptions_, recognitionOptions) };
 
@@ -153,41 +153,41 @@ namespace Models
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline SubmitVideoDetectShotTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // videoUrl Field Functions 
     bool hasVideoUrl() const { return this->videoUrl_ != nullptr;};
     void deleteVideoUrl() { this->videoUrl_ = nullptr;};
-    inline string videoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
+    inline string getVideoUrl() const { DARABONBA_PTR_GET_DEFAULT(videoUrl_, "") };
     inline SubmitVideoDetectShotTaskRequest& setVideoUrl(string videoUrl) { DARABONBA_PTR_SET_VALUE(videoUrl_, videoUrl) };
 
 
     // vlPrompt Field Functions 
     bool hasVlPrompt() const { return this->vlPrompt_ != nullptr;};
     void deleteVlPrompt() { this->vlPrompt_ = nullptr;};
-    inline string vlPrompt() const { DARABONBA_PTR_GET_DEFAULT(vlPrompt_, "") };
+    inline string getVlPrompt() const { DARABONBA_PTR_GET_DEFAULT(vlPrompt_, "") };
     inline SubmitVideoDetectShotTaskRequest& setVlPrompt(string vlPrompt) { DARABONBA_PTR_SET_VALUE(vlPrompt_, vlPrompt) };
 
 
   protected:
-    std::shared_ptr<string> deduplicationId_ = nullptr;
-    std::shared_ptr<string> intelliSimpPrompt_ = nullptr;
-    std::shared_ptr<string> intelliSimpPromptTemplateId_ = nullptr;
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<string> modelCustomPromptTemplateId_ = nullptr;
-    std::shared_ptr<string> modelId_ = nullptr;
-    std::shared_ptr<string> modelVlCustomPromptTemplateId_ = nullptr;
-    std::shared_ptr<vector<string>> options_ = nullptr;
-    std::shared_ptr<string> originalSessionId_ = nullptr;
-    std::shared_ptr<string> preModelId_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<vector<string>> recognitionOptions_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> deduplicationId_ {};
+    shared_ptr<string> intelliSimpPrompt_ {};
+    shared_ptr<string> intelliSimpPromptTemplateId_ {};
+    shared_ptr<string> language_ {};
+    shared_ptr<string> modelCustomPromptTemplateId_ {};
+    shared_ptr<string> modelId_ {};
+    shared_ptr<string> modelVlCustomPromptTemplateId_ {};
+    shared_ptr<vector<string>> options_ {};
+    shared_ptr<string> originalSessionId_ {};
+    shared_ptr<string> preModelId_ {};
+    shared_ptr<string> prompt_ {};
+    shared_ptr<vector<string>> recognitionOptions_ {};
+    shared_ptr<string> taskId_ {};
     // This parameter is required.
-    std::shared_ptr<string> videoUrl_ = nullptr;
-    std::shared_ptr<string> vlPrompt_ = nullptr;
+    shared_ptr<string> videoUrl_ {};
+    shared_ptr<string> vlPrompt_ {};
   };
 
   } // namespace Models

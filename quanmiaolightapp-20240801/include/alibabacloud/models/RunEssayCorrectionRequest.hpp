@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->answer_ == nullptr
-        && return this->grade_ == nullptr && return this->modelId_ == nullptr && return this->otherReviewPoints_ == nullptr && return this->question_ == nullptr && return this->subject_ == nullptr
-        && return this->totalScore_ == nullptr; };
+        && this->grade_ == nullptr && this->modelId_ == nullptr && this->otherReviewPoints_ == nullptr && this->question_ == nullptr && this->subject_ == nullptr
+        && this->totalScore_ == nullptr; };
     // answer Field Functions 
     bool hasAnswer() const { return this->answer_ != nullptr;};
     void deleteAnswer() { this->answer_ = nullptr;};
-    inline string answer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
+    inline string getAnswer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
     inline RunEssayCorrectionRequest& setAnswer(string answer) { DARABONBA_PTR_SET_VALUE(answer_, answer) };
 
 
     // grade Field Functions 
     bool hasGrade() const { return this->grade_ != nullptr;};
     void deleteGrade() { this->grade_ = nullptr;};
-    inline string grade() const { DARABONBA_PTR_GET_DEFAULT(grade_, "") };
+    inline string getGrade() const { DARABONBA_PTR_GET_DEFAULT(grade_, "") };
     inline RunEssayCorrectionRequest& setGrade(string grade) { DARABONBA_PTR_SET_VALUE(grade_, grade) };
 
 
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline RunEssayCorrectionRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // otherReviewPoints Field Functions 
     bool hasOtherReviewPoints() const { return this->otherReviewPoints_ != nullptr;};
     void deleteOtherReviewPoints() { this->otherReviewPoints_ = nullptr;};
-    inline string otherReviewPoints() const { DARABONBA_PTR_GET_DEFAULT(otherReviewPoints_, "") };
+    inline string getOtherReviewPoints() const { DARABONBA_PTR_GET_DEFAULT(otherReviewPoints_, "") };
     inline RunEssayCorrectionRequest& setOtherReviewPoints(string otherReviewPoints) { DARABONBA_PTR_SET_VALUE(otherReviewPoints_, otherReviewPoints) };
 
 
     // question Field Functions 
     bool hasQuestion() const { return this->question_ != nullptr;};
     void deleteQuestion() { this->question_ = nullptr;};
-    inline string question() const { DARABONBA_PTR_GET_DEFAULT(question_, "") };
+    inline string getQuestion() const { DARABONBA_PTR_GET_DEFAULT(question_, "") };
     inline RunEssayCorrectionRequest& setQuestion(string question) { DARABONBA_PTR_SET_VALUE(question_, question) };
 
 
     // subject Field Functions 
     bool hasSubject() const { return this->subject_ != nullptr;};
     void deleteSubject() { this->subject_ = nullptr;};
-    inline string subject() const { DARABONBA_PTR_GET_DEFAULT(subject_, "") };
+    inline string getSubject() const { DARABONBA_PTR_GET_DEFAULT(subject_, "") };
     inline RunEssayCorrectionRequest& setSubject(string subject) { DARABONBA_PTR_SET_VALUE(subject_, subject) };
 
 
     // totalScore Field Functions 
     bool hasTotalScore() const { return this->totalScore_ != nullptr;};
     void deleteTotalScore() { this->totalScore_ = nullptr;};
-    inline int32_t totalScore() const { DARABONBA_PTR_GET_DEFAULT(totalScore_, 0) };
+    inline int32_t getTotalScore() const { DARABONBA_PTR_GET_DEFAULT(totalScore_, 0) };
     inline RunEssayCorrectionRequest& setTotalScore(int32_t totalScore) { DARABONBA_PTR_SET_VALUE(totalScore_, totalScore) };
 
 
   protected:
-    std::shared_ptr<string> answer_ = nullptr;
-    std::shared_ptr<string> grade_ = nullptr;
-    std::shared_ptr<string> modelId_ = nullptr;
-    std::shared_ptr<string> otherReviewPoints_ = nullptr;
-    std::shared_ptr<string> question_ = nullptr;
-    std::shared_ptr<string> subject_ = nullptr;
-    std::shared_ptr<int32_t> totalScore_ = nullptr;
+    shared_ptr<string> answer_ {};
+    shared_ptr<string> grade_ {};
+    shared_ptr<string> modelId_ {};
+    shared_ptr<string> otherReviewPoints_ {};
+    shared_ptr<string> question_ {};
+    shared_ptr<string> subject_ {};
+    shared_ptr<int32_t> totalScore_ {};
   };
 
   } // namespace Models

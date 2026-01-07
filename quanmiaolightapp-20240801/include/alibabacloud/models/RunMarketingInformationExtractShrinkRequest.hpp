@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customPrompt_ == nullptr
-        && return this->extractType_ == nullptr && return this->modelId_ == nullptr && return this->sourceMaterialsShrink_ == nullptr; };
+        && this->extractType_ == nullptr && this->modelId_ == nullptr && this->sourceMaterialsShrink_ == nullptr; };
     // customPrompt Field Functions 
     bool hasCustomPrompt() const { return this->customPrompt_ != nullptr;};
     void deleteCustomPrompt() { this->customPrompt_ = nullptr;};
-    inline string customPrompt() const { DARABONBA_PTR_GET_DEFAULT(customPrompt_, "") };
+    inline string getCustomPrompt() const { DARABONBA_PTR_GET_DEFAULT(customPrompt_, "") };
     inline RunMarketingInformationExtractShrinkRequest& setCustomPrompt(string customPrompt) { DARABONBA_PTR_SET_VALUE(customPrompt_, customPrompt) };
 
 
     // extractType Field Functions 
     bool hasExtractType() const { return this->extractType_ != nullptr;};
     void deleteExtractType() { this->extractType_ = nullptr;};
-    inline string extractType() const { DARABONBA_PTR_GET_DEFAULT(extractType_, "") };
+    inline string getExtractType() const { DARABONBA_PTR_GET_DEFAULT(extractType_, "") };
     inline RunMarketingInformationExtractShrinkRequest& setExtractType(string extractType) { DARABONBA_PTR_SET_VALUE(extractType_, extractType) };
 
 
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline RunMarketingInformationExtractShrinkRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // sourceMaterialsShrink Field Functions 
     bool hasSourceMaterialsShrink() const { return this->sourceMaterialsShrink_ != nullptr;};
     void deleteSourceMaterialsShrink() { this->sourceMaterialsShrink_ = nullptr;};
-    inline string sourceMaterialsShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceMaterialsShrink_, "") };
+    inline string getSourceMaterialsShrink() const { DARABONBA_PTR_GET_DEFAULT(sourceMaterialsShrink_, "") };
     inline RunMarketingInformationExtractShrinkRequest& setSourceMaterialsShrink(string sourceMaterialsShrink) { DARABONBA_PTR_SET_VALUE(sourceMaterialsShrink_, sourceMaterialsShrink) };
 
 
   protected:
-    std::shared_ptr<string> customPrompt_ = nullptr;
-    std::shared_ptr<string> extractType_ = nullptr;
-    std::shared_ptr<string> modelId_ = nullptr;
-    std::shared_ptr<string> sourceMaterialsShrink_ = nullptr;
+    shared_ptr<string> customPrompt_ {};
+    shared_ptr<string> extractType_ {};
+    shared_ptr<string> modelId_ {};
+    shared_ptr<string> sourceMaterialsShrink_ {};
   };
 
   } // namespace Models

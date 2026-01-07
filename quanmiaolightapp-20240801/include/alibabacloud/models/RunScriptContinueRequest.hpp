@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->scriptSummary_ == nullptr
-        && return this->scriptTypeKeyword_ == nullptr && return this->userProvidedContent_ == nullptr; };
+        && this->scriptTypeKeyword_ == nullptr && this->userProvidedContent_ == nullptr; };
     // scriptSummary Field Functions 
     bool hasScriptSummary() const { return this->scriptSummary_ != nullptr;};
     void deleteScriptSummary() { this->scriptSummary_ = nullptr;};
-    inline string scriptSummary() const { DARABONBA_PTR_GET_DEFAULT(scriptSummary_, "") };
+    inline string getScriptSummary() const { DARABONBA_PTR_GET_DEFAULT(scriptSummary_, "") };
     inline RunScriptContinueRequest& setScriptSummary(string scriptSummary) { DARABONBA_PTR_SET_VALUE(scriptSummary_, scriptSummary) };
 
 
     // scriptTypeKeyword Field Functions 
     bool hasScriptTypeKeyword() const { return this->scriptTypeKeyword_ != nullptr;};
     void deleteScriptTypeKeyword() { this->scriptTypeKeyword_ = nullptr;};
-    inline string scriptTypeKeyword() const { DARABONBA_PTR_GET_DEFAULT(scriptTypeKeyword_, "") };
+    inline string getScriptTypeKeyword() const { DARABONBA_PTR_GET_DEFAULT(scriptTypeKeyword_, "") };
     inline RunScriptContinueRequest& setScriptTypeKeyword(string scriptTypeKeyword) { DARABONBA_PTR_SET_VALUE(scriptTypeKeyword_, scriptTypeKeyword) };
 
 
     // userProvidedContent Field Functions 
     bool hasUserProvidedContent() const { return this->userProvidedContent_ != nullptr;};
     void deleteUserProvidedContent() { this->userProvidedContent_ = nullptr;};
-    inline string userProvidedContent() const { DARABONBA_PTR_GET_DEFAULT(userProvidedContent_, "") };
+    inline string getUserProvidedContent() const { DARABONBA_PTR_GET_DEFAULT(userProvidedContent_, "") };
     inline RunScriptContinueRequest& setUserProvidedContent(string userProvidedContent) { DARABONBA_PTR_SET_VALUE(userProvidedContent_, userProvidedContent) };
 
 
   protected:
-    std::shared_ptr<string> scriptSummary_ = nullptr;
-    std::shared_ptr<string> scriptTypeKeyword_ = nullptr;
+    shared_ptr<string> scriptSummary_ {};
+    shared_ptr<string> scriptTypeKeyword_ {};
     // This parameter is required.
-    std::shared_ptr<string> userProvidedContent_ = nullptr;
+    shared_ptr<string> userProvidedContent_ {};
   };
 
   } // namespace Models

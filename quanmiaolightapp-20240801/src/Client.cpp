@@ -49,7 +49,7 @@ CancelAsyncTaskResponse Client::cancelAsyncTaskWithOptions(const string &workspa
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -95,20 +95,20 @@ ExportAnalysisTagDetailByTaskIdResponse Client::exportAnalysisTagDetailByTaskIdW
   ExportAnalysisTagDetailByTaskIdShrinkRequest request = ExportAnalysisTagDetailByTaskIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCategories()) {
-    request.setCategoriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.categories(), "categories", "json"));
+    request.setCategoriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCategories(), "categories", "json"));
   }
 
   json body = {};
   if (!!request.hasCategoriesShrink()) {
-    body["categories"] = request.categoriesShrink();
+    body["categories"] = request.getCategoriesShrink();
   }
 
   if (!!request.hasCategory()) {
-    body["category"] = request.category();
+    body["category"] = request.getCategory();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -153,7 +153,7 @@ GenerateBroadcastNewsResponse Client::generateBroadcastNewsWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -199,28 +199,28 @@ GenerateOutputFormatResponse Client::generateOutputFormatWithOptions(const strin
   GenerateOutputFormatShrinkRequest request = GenerateOutputFormatShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasBusinessType()) {
-    body["businessType"] = request.businessType();
+    body["businessType"] = request.getBusinessType();
   }
 
   if (!!request.hasContent()) {
-    body["content"] = request.content();
+    body["content"] = request.getContent();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -265,7 +265,7 @@ GetEnterpriseVocAnalysisTaskResponse Client::getEnterpriseVocAnalysisTaskWithOpt
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -310,7 +310,7 @@ GetEssayCorrectionTaskResponse Client::getEssayCorrectionTaskWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -355,7 +355,7 @@ GetFileContentResponse Client::getFileContentWithOptions(const string &workspace
   request.validate();
   json body = {};
   if (!!request.hasFileKey()) {
-    body["fileKey"] = request.fileKey();
+    body["fileKey"] = request.getFileKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -400,7 +400,7 @@ GetTagMiningAnalysisTaskResponse Client::getTagMiningAnalysisTaskWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -481,7 +481,7 @@ GetVideoAnalysisTaskResponse Client::getVideoAnalysisTaskWithOptions(const strin
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -562,7 +562,7 @@ GetVideoDetectShotTaskResponse Client::getVideoDetectShotTaskWithOptions(const s
   request.validate();
   json query = {};
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -607,7 +607,7 @@ HotNewsRecommendResponse Client::hotNewsRecommendWithOptions(const string &works
   request.validate();
   json body = {};
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -652,15 +652,15 @@ ListAnalysisTagDetailByTaskIdResponse Client::listAnalysisTagDetailByTaskIdWithO
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasTaskId()) {
-    query["taskId"] = request.taskId();
+    query["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -705,23 +705,23 @@ ListHotTopicSummariesResponse Client::listHotTopicSummariesWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasCategory()) {
-    body["category"] = request.category();
+    body["category"] = request.getCategory();
   }
 
   if (!!request.hasHotTopic()) {
-    body["hotTopic"] = request.hotTopic();
+    body["hotTopic"] = request.getHotTopic();
   }
 
   if (!!request.hasHotTopicVersion()) {
-    body["hotTopicVersion"] = request.hotTopicVersion();
+    body["hotTopicVersion"] = request.getHotTopicVersion();
   }
 
   if (!!request.hasMaxResults()) {
-    body["maxResults"] = request.maxResults();
+    body["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    body["nextToken"] = request.nextToken();
+    body["nextToken"] = request.getNextToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -762,57 +762,57 @@ ListHotTopicSummariesResponse Client::listHotTopicSummaries(const string &worksp
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunEnterpriseVocAnalysisResponse
  */
-FutrueGenerator<RunEnterpriseVocAnalysisResponse> Client::runEnterpriseVocAnalysisWithSSE(const string &workspaceId, const RunEnterpriseVocAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunEnterpriseVocAnalysisResponse> Client::runEnterpriseVocAnalysisWithSSE(const string &workspaceId, const RunEnterpriseVocAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunEnterpriseVocAnalysisShrinkRequest request = RunEnterpriseVocAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilterTags()) {
-    request.setFilterTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterTags(), "filterTags", "json"));
+    request.setFilterTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterTags(), "filterTags", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasAkProxy()) {
-    body["akProxy"] = request.akProxy();
+    body["akProxy"] = request.getAkProxy();
   }
 
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasContent()) {
-    body["content"] = request.content();
+    body["content"] = request.getContent();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasFilterTagsShrink()) {
-    body["filterTags"] = request.filterTagsShrink();
+    body["filterTags"] = request.getFilterTagsShrink();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasSourceTrace()) {
-    body["sourceTrace"] = request.sourceTrace();
+    body["sourceTrace"] = request.getSourceTrace();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -830,18 +830,18 @@ FutrueGenerator<RunEnterpriseVocAnalysisResponse> Client::runEnterpriseVocAnalys
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunEnterpriseVocAnalysisResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -858,52 +858,52 @@ RunEnterpriseVocAnalysisResponse Client::runEnterpriseVocAnalysisWithOptions(con
   RunEnterpriseVocAnalysisShrinkRequest request = RunEnterpriseVocAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilterTags()) {
-    request.setFilterTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterTags(), "filterTags", "json"));
+    request.setFilterTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterTags(), "filterTags", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasAkProxy()) {
-    body["akProxy"] = request.akProxy();
+    body["akProxy"] = request.getAkProxy();
   }
 
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasContent()) {
-    body["content"] = request.content();
+    body["content"] = request.getContent();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasFilterTagsShrink()) {
-    body["filterTags"] = request.filterTagsShrink();
+    body["filterTags"] = request.getFilterTagsShrink();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasSourceTrace()) {
-    body["sourceTrace"] = request.sourceTrace();
+    body["sourceTrace"] = request.getSourceTrace();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -944,35 +944,35 @@ RunEnterpriseVocAnalysisResponse Client::runEnterpriseVocAnalysis(const string &
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunEssayCorrectionResponse
  */
-FutrueGenerator<RunEssayCorrectionResponse> Client::runEssayCorrectionWithSSE(const string &workspaceId, const RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunEssayCorrectionResponse> Client::runEssayCorrectionWithSSE(const string &workspaceId, const RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasAnswer()) {
-    body["answer"] = request.answer();
+    body["answer"] = request.getAnswer();
   }
 
   if (!!request.hasGrade()) {
-    body["grade"] = request.grade();
+    body["grade"] = request.getGrade();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOtherReviewPoints()) {
-    body["otherReviewPoints"] = request.otherReviewPoints();
+    body["otherReviewPoints"] = request.getOtherReviewPoints();
   }
 
   if (!!request.hasQuestion()) {
-    body["question"] = request.question();
+    body["question"] = request.getQuestion();
   }
 
   if (!!request.hasSubject()) {
-    body["subject"] = request.subject();
+    body["subject"] = request.getSubject();
   }
 
   if (!!request.hasTotalScore()) {
-    body["totalScore"] = request.totalScore();
+    body["totalScore"] = request.getTotalScore();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -990,18 +990,18 @@ FutrueGenerator<RunEssayCorrectionResponse> Client::runEssayCorrectionWithSSE(co
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunEssayCorrectionResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1017,31 +1017,31 @@ RunEssayCorrectionResponse Client::runEssayCorrectionWithOptions(const string &w
   request.validate();
   json body = {};
   if (!!request.hasAnswer()) {
-    body["answer"] = request.answer();
+    body["answer"] = request.getAnswer();
   }
 
   if (!!request.hasGrade()) {
-    body["grade"] = request.grade();
+    body["grade"] = request.getGrade();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOtherReviewPoints()) {
-    body["otherReviewPoints"] = request.otherReviewPoints();
+    body["otherReviewPoints"] = request.getOtherReviewPoints();
   }
 
   if (!!request.hasQuestion()) {
-    body["question"] = request.question();
+    body["question"] = request.getQuestion();
   }
 
   if (!!request.hasSubject()) {
-    body["subject"] = request.subject();
+    body["subject"] = request.getSubject();
   }
 
   if (!!request.hasTotalScore()) {
-    body["totalScore"] = request.totalScore();
+    body["totalScore"] = request.getTotalScore();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1082,73 +1082,73 @@ RunEssayCorrectionResponse Client::runEssayCorrection(const string &workspaceId,
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunHotTopicChatResponse
  */
-FutrueGenerator<RunHotTopicChatResponse> Client::runHotTopicChatWithSSE(const string &workspaceId, const RunHotTopicChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunHotTopicChatResponse> Client::runHotTopicChatWithSSE(const string &workspaceId, const RunHotTopicChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunHotTopicChatShrinkRequest request = RunHotTopicChatShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasGenerateOptions()) {
-    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.generateOptions(), "generateOptions", "json"));
+    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGenerateOptions(), "generateOptions", "json"));
   }
 
   if (!!tmpReq.hasHotTopics()) {
-    request.setHotTopicsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hotTopics(), "hotTopics", "json"));
+    request.setHotTopicsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHotTopics(), "hotTopics", "json"));
   }
 
   if (!!tmpReq.hasMessages()) {
-    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.messages(), "messages", "json"));
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessages(), "messages", "json"));
   }
 
   if (!!tmpReq.hasStepForBroadcastContentConfig()) {
-    request.setStepForBroadcastContentConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stepForBroadcastContentConfig(), "stepForBroadcastContentConfig", "json"));
+    request.setStepForBroadcastContentConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStepForBroadcastContentConfig(), "stepForBroadcastContentConfig", "json"));
   }
 
   json body = {};
   if (!!request.hasCategory()) {
-    body["category"] = request.category();
+    body["category"] = request.getCategory();
   }
 
   if (!!request.hasGenerateOptionsShrink()) {
-    body["generateOptions"] = request.generateOptionsShrink();
+    body["generateOptions"] = request.getGenerateOptionsShrink();
   }
 
   if (!!request.hasHotTopicVersion()) {
-    body["hotTopicVersion"] = request.hotTopicVersion();
+    body["hotTopicVersion"] = request.getHotTopicVersion();
   }
 
   if (!!request.hasHotTopicsShrink()) {
-    body["hotTopics"] = request.hotTopicsShrink();
+    body["hotTopics"] = request.getHotTopicsShrink();
   }
 
   if (!!request.hasImageCount()) {
-    body["imageCount"] = request.imageCount();
+    body["imageCount"] = request.getImageCount();
   }
 
   if (!!request.hasMessagesShrink()) {
-    body["messages"] = request.messagesShrink();
+    body["messages"] = request.getMessagesShrink();
   }
 
   if (!!request.hasModelCustomPromptTemplate()) {
-    body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate();
+    body["modelCustomPromptTemplate"] = request.getModelCustomPromptTemplate();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOriginalSessionId()) {
-    body["originalSessionId"] = request.originalSessionId();
+    body["originalSessionId"] = request.getOriginalSessionId();
   }
 
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasStepForBroadcastContentConfigShrink()) {
-    body["stepForBroadcastContentConfig"] = request.stepForBroadcastContentConfigShrink();
+    body["stepForBroadcastContentConfig"] = request.getStepForBroadcastContentConfigShrink();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1166,18 +1166,18 @@ FutrueGenerator<RunHotTopicChatResponse> Client::runHotTopicChatWithSSE(const st
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunHotTopicChatResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1194,68 +1194,68 @@ RunHotTopicChatResponse Client::runHotTopicChatWithOptions(const string &workspa
   RunHotTopicChatShrinkRequest request = RunHotTopicChatShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasGenerateOptions()) {
-    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.generateOptions(), "generateOptions", "json"));
+    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGenerateOptions(), "generateOptions", "json"));
   }
 
   if (!!tmpReq.hasHotTopics()) {
-    request.setHotTopicsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.hotTopics(), "hotTopics", "json"));
+    request.setHotTopicsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHotTopics(), "hotTopics", "json"));
   }
 
   if (!!tmpReq.hasMessages()) {
-    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.messages(), "messages", "json"));
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessages(), "messages", "json"));
   }
 
   if (!!tmpReq.hasStepForBroadcastContentConfig()) {
-    request.setStepForBroadcastContentConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stepForBroadcastContentConfig(), "stepForBroadcastContentConfig", "json"));
+    request.setStepForBroadcastContentConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStepForBroadcastContentConfig(), "stepForBroadcastContentConfig", "json"));
   }
 
   json body = {};
   if (!!request.hasCategory()) {
-    body["category"] = request.category();
+    body["category"] = request.getCategory();
   }
 
   if (!!request.hasGenerateOptionsShrink()) {
-    body["generateOptions"] = request.generateOptionsShrink();
+    body["generateOptions"] = request.getGenerateOptionsShrink();
   }
 
   if (!!request.hasHotTopicVersion()) {
-    body["hotTopicVersion"] = request.hotTopicVersion();
+    body["hotTopicVersion"] = request.getHotTopicVersion();
   }
 
   if (!!request.hasHotTopicsShrink()) {
-    body["hotTopics"] = request.hotTopicsShrink();
+    body["hotTopics"] = request.getHotTopicsShrink();
   }
 
   if (!!request.hasImageCount()) {
-    body["imageCount"] = request.imageCount();
+    body["imageCount"] = request.getImageCount();
   }
 
   if (!!request.hasMessagesShrink()) {
-    body["messages"] = request.messagesShrink();
+    body["messages"] = request.getMessagesShrink();
   }
 
   if (!!request.hasModelCustomPromptTemplate()) {
-    body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate();
+    body["modelCustomPromptTemplate"] = request.getModelCustomPromptTemplate();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOriginalSessionId()) {
-    body["originalSessionId"] = request.originalSessionId();
+    body["originalSessionId"] = request.getOriginalSessionId();
   }
 
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasStepForBroadcastContentConfigShrink()) {
-    body["stepForBroadcastContentConfig"] = request.stepForBroadcastContentConfigShrink();
+    body["stepForBroadcastContentConfig"] = request.getStepForBroadcastContentConfigShrink();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1296,29 +1296,29 @@ RunHotTopicChatResponse Client::runHotTopicChat(const string &workspaceId, const
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunHotTopicSummaryResponse
  */
-FutrueGenerator<RunHotTopicSummaryResponse> Client::runHotTopicSummaryWithSSE(const string &workspaceId, const RunHotTopicSummaryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunHotTopicSummaryResponse> Client::runHotTopicSummaryWithSSE(const string &workspaceId, const RunHotTopicSummaryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunHotTopicSummaryShrinkRequest request = RunHotTopicSummaryShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStepForCustomSummaryStyleConfig()) {
-    request.setStepForCustomSummaryStyleConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stepForCustomSummaryStyleConfig(), "stepForCustomSummaryStyleConfig", "json"));
+    request.setStepForCustomSummaryStyleConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStepForCustomSummaryStyleConfig(), "stepForCustomSummaryStyleConfig", "json"));
   }
 
   if (!!tmpReq.hasTopicIds()) {
-    request.setTopicIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.topicIds(), "topicIds", "json"));
+    request.setTopicIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTopicIds(), "topicIds", "json"));
   }
 
   json body = {};
   if (!!request.hasHotTopicVersion()) {
-    body["hotTopicVersion"] = request.hotTopicVersion();
+    body["hotTopicVersion"] = request.getHotTopicVersion();
   }
 
   if (!!request.hasStepForCustomSummaryStyleConfigShrink()) {
-    body["stepForCustomSummaryStyleConfig"] = request.stepForCustomSummaryStyleConfigShrink();
+    body["stepForCustomSummaryStyleConfig"] = request.getStepForCustomSummaryStyleConfigShrink();
   }
 
   if (!!request.hasTopicIdsShrink()) {
-    body["topicIds"] = request.topicIdsShrink();
+    body["topicIds"] = request.getTopicIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1336,18 +1336,18 @@ FutrueGenerator<RunHotTopicSummaryResponse> Client::runHotTopicSummaryWithSSE(co
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunHotTopicSummaryResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1364,24 +1364,24 @@ RunHotTopicSummaryResponse Client::runHotTopicSummaryWithOptions(const string &w
   RunHotTopicSummaryShrinkRequest request = RunHotTopicSummaryShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasStepForCustomSummaryStyleConfig()) {
-    request.setStepForCustomSummaryStyleConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stepForCustomSummaryStyleConfig(), "stepForCustomSummaryStyleConfig", "json"));
+    request.setStepForCustomSummaryStyleConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStepForCustomSummaryStyleConfig(), "stepForCustomSummaryStyleConfig", "json"));
   }
 
   if (!!tmpReq.hasTopicIds()) {
-    request.setTopicIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.topicIds(), "topicIds", "json"));
+    request.setTopicIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTopicIds(), "topicIds", "json"));
   }
 
   json body = {};
   if (!!request.hasHotTopicVersion()) {
-    body["hotTopicVersion"] = request.hotTopicVersion();
+    body["hotTopicVersion"] = request.getHotTopicVersion();
   }
 
   if (!!request.hasStepForCustomSummaryStyleConfigShrink()) {
-    body["stepForCustomSummaryStyleConfig"] = request.stepForCustomSummaryStyleConfigShrink();
+    body["stepForCustomSummaryStyleConfig"] = request.getStepForCustomSummaryStyleConfigShrink();
   }
 
   if (!!request.hasTopicIdsShrink()) {
-    body["topicIds"] = request.topicIdsShrink();
+    body["topicIds"] = request.getTopicIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1422,29 +1422,29 @@ RunHotTopicSummaryResponse Client::runHotTopicSummary(const string &workspaceId,
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunMarketingInformationExtractResponse
  */
-FutrueGenerator<RunMarketingInformationExtractResponse> Client::runMarketingInformationExtractWithSSE(const string &workspaceId, const RunMarketingInformationExtractRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunMarketingInformationExtractResponse> Client::runMarketingInformationExtractWithSSE(const string &workspaceId, const RunMarketingInformationExtractRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunMarketingInformationExtractShrinkRequest request = RunMarketingInformationExtractShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSourceMaterials()) {
-    request.setSourceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMaterials(), "sourceMaterials", "json"));
+    request.setSourceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceMaterials(), "sourceMaterials", "json"));
   }
 
   json body = {};
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasExtractType()) {
-    body["extractType"] = request.extractType();
+    body["extractType"] = request.getExtractType();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasSourceMaterialsShrink()) {
-    body["sourceMaterials"] = request.sourceMaterialsShrink();
+    body["sourceMaterials"] = request.getSourceMaterialsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1462,18 +1462,18 @@ FutrueGenerator<RunMarketingInformationExtractResponse> Client::runMarketingInfo
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunMarketingInformationExtractResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1490,24 +1490,24 @@ RunMarketingInformationExtractResponse Client::runMarketingInformationExtractWit
   RunMarketingInformationExtractShrinkRequest request = RunMarketingInformationExtractShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSourceMaterials()) {
-    request.setSourceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceMaterials(), "sourceMaterials", "json"));
+    request.setSourceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceMaterials(), "sourceMaterials", "json"));
   }
 
   json body = {};
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasExtractType()) {
-    body["extractType"] = request.extractType();
+    body["extractType"] = request.getExtractType();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasSourceMaterialsShrink()) {
-    body["sourceMaterials"] = request.sourceMaterialsShrink();
+    body["sourceMaterials"] = request.getSourceMaterialsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1548,39 +1548,39 @@ RunMarketingInformationExtractResponse Client::runMarketingInformationExtract(co
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunMarketingInformationWritingResponse
  */
-FutrueGenerator<RunMarketingInformationWritingResponse> Client::runMarketingInformationWritingWithSSE(const string &workspaceId, const RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunMarketingInformationWritingResponse> Client::runMarketingInformationWritingWithSSE(const string &workspaceId, const RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasCustomLimitation()) {
-    body["customLimitation"] = request.customLimitation();
+    body["customLimitation"] = request.getCustomLimitation();
   }
 
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasInputExample()) {
-    body["inputExample"] = request.inputExample();
+    body["inputExample"] = request.getInputExample();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputExample()) {
-    body["outputExample"] = request.outputExample();
+    body["outputExample"] = request.getOutputExample();
   }
 
   if (!!request.hasSourceMaterial()) {
-    body["sourceMaterial"] = request.sourceMaterial();
+    body["sourceMaterial"] = request.getSourceMaterial();
   }
 
   if (!!request.hasWritingType()) {
-    body["writingType"] = request.writingType();
+    body["writingType"] = request.getWritingType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1598,18 +1598,18 @@ FutrueGenerator<RunMarketingInformationWritingResponse> Client::runMarketingInfo
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunMarketingInformationWritingResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1625,35 +1625,35 @@ RunMarketingInformationWritingResponse Client::runMarketingInformationWritingWit
   request.validate();
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasCustomLimitation()) {
-    body["customLimitation"] = request.customLimitation();
+    body["customLimitation"] = request.getCustomLimitation();
   }
 
   if (!!request.hasCustomPrompt()) {
-    body["customPrompt"] = request.customPrompt();
+    body["customPrompt"] = request.getCustomPrompt();
   }
 
   if (!!request.hasInputExample()) {
-    body["inputExample"] = request.inputExample();
+    body["inputExample"] = request.getInputExample();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputExample()) {
-    body["outputExample"] = request.outputExample();
+    body["outputExample"] = request.getOutputExample();
   }
 
   if (!!request.hasSourceMaterial()) {
-    body["sourceMaterial"] = request.sourceMaterial();
+    body["sourceMaterial"] = request.getSourceMaterial();
   }
 
   if (!!request.hasWritingType()) {
-    body["writingType"] = request.writingType();
+    body["writingType"] = request.getWritingType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1694,45 +1694,45 @@ RunMarketingInformationWritingResponse Client::runMarketingInformationWriting(co
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunNetworkContentAuditResponse
  */
-FutrueGenerator<RunNetworkContentAuditResponse> Client::runNetworkContentAuditWithSSE(const string &workspaceId, const RunNetworkContentAuditRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunNetworkContentAuditResponse> Client::runNetworkContentAuditWithSSE(const string &workspaceId, const RunNetworkContentAuditRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunNetworkContentAuditShrinkRequest request = RunNetworkContentAuditShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasBusinessType()) {
-    body["businessType"] = request.businessType();
+    body["businessType"] = request.getBusinessType();
   }
 
   if (!!request.hasContent()) {
-    body["content"] = request.content();
+    body["content"] = request.getContent();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1750,18 +1750,18 @@ FutrueGenerator<RunNetworkContentAuditResponse> Client::runNetworkContentAuditWi
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunNetworkContentAuditResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1778,40 +1778,40 @@ RunNetworkContentAuditResponse Client::runNetworkContentAuditWithOptions(const s
   RunNetworkContentAuditShrinkRequest request = RunNetworkContentAuditShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasBusinessType()) {
-    body["businessType"] = request.businessType();
+    body["businessType"] = request.getBusinessType();
   }
 
   if (!!request.hasContent()) {
-    body["content"] = request.content();
+    body["content"] = request.getContent();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1852,19 +1852,19 @@ RunNetworkContentAuditResponse Client::runNetworkContentAudit(const string &work
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunOcrParseResponse
  */
-FutrueGenerator<RunOcrParseResponse> Client::runOcrParseWithSSE(const string &workspaceId, const RunOcrParseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunOcrParseResponse> Client::runOcrParseWithSSE(const string &workspaceId, const RunOcrParseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasFileKey()) {
-    body["fileKey"] = request.fileKey();
+    body["fileKey"] = request.getFileKey();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasUrl()) {
-    body["url"] = request.url();
+    body["url"] = request.getUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1882,18 +1882,18 @@ FutrueGenerator<RunOcrParseResponse> Client::runOcrParseWithSSE(const string &wo
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunOcrParseResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -1909,15 +1909,15 @@ RunOcrParseResponse Client::runOcrParseWithOptions(const string &workspaceId, co
   request.validate();
   json body = {};
   if (!!request.hasFileKey()) {
-    body["fileKey"] = request.fileKey();
+    body["fileKey"] = request.getFileKey();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasUrl()) {
-    body["url"] = request.url();
+    body["url"] = request.getUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1958,15 +1958,15 @@ RunOcrParseResponse Client::runOcrParse(const string &workspaceId, const RunOcrP
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunScriptChatResponse
  */
-FutrueGenerator<RunScriptChatResponse> Client::runScriptChatWithSSE(const string &workspaceId, const RunScriptChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunScriptChatResponse> Client::runScriptChatWithSSE(const string &workspaceId, const RunScriptChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1984,18 +1984,18 @@ FutrueGenerator<RunScriptChatResponse> Client::runScriptChatWithSSE(const string
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunScriptChatResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -2011,11 +2011,11 @@ RunScriptChatResponse Client::runScriptChatWithOptions(const string &workspaceId
   request.validate();
   json body = {};
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2056,19 +2056,19 @@ RunScriptChatResponse Client::runScriptChat(const string &workspaceId, const Run
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunScriptContinueResponse
  */
-FutrueGenerator<RunScriptContinueResponse> Client::runScriptContinueWithSSE(const string &workspaceId, const RunScriptContinueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunScriptContinueResponse> Client::runScriptContinueWithSSE(const string &workspaceId, const RunScriptContinueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasScriptSummary()) {
-    body["scriptSummary"] = request.scriptSummary();
+    body["scriptSummary"] = request.getScriptSummary();
   }
 
   if (!!request.hasScriptTypeKeyword()) {
-    body["scriptTypeKeyword"] = request.scriptTypeKeyword();
+    body["scriptTypeKeyword"] = request.getScriptTypeKeyword();
   }
 
   if (!!request.hasUserProvidedContent()) {
-    body["userProvidedContent"] = request.userProvidedContent();
+    body["userProvidedContent"] = request.getUserProvidedContent();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2086,18 +2086,18 @@ FutrueGenerator<RunScriptContinueResponse> Client::runScriptContinueWithSSE(cons
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunScriptContinueResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -2113,15 +2113,15 @@ RunScriptContinueResponse Client::runScriptContinueWithOptions(const string &wor
   request.validate();
   json body = {};
   if (!!request.hasScriptSummary()) {
-    body["scriptSummary"] = request.scriptSummary();
+    body["scriptSummary"] = request.getScriptSummary();
   }
 
   if (!!request.hasScriptTypeKeyword()) {
-    body["scriptTypeKeyword"] = request.scriptTypeKeyword();
+    body["scriptTypeKeyword"] = request.getScriptTypeKeyword();
   }
 
   if (!!request.hasUserProvidedContent()) {
-    body["userProvidedContent"] = request.userProvidedContent();
+    body["userProvidedContent"] = request.getUserProvidedContent();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2162,35 +2162,35 @@ RunScriptContinueResponse Client::runScriptContinue(const string &workspaceId, c
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunScriptPlanningResponse
  */
-FutrueGenerator<RunScriptPlanningResponse> Client::runScriptPlanningWithSSE(const string &workspaceId, const RunScriptPlanningRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunScriptPlanningResponse> Client::runScriptPlanningWithSSE(const string &workspaceId, const RunScriptPlanningRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasAdditionalNote()) {
-    body["additionalNote"] = request.additionalNote();
+    body["additionalNote"] = request.getAdditionalNote();
   }
 
   if (!!request.hasDialogueInScene()) {
-    body["dialogueInScene"] = request.dialogueInScene();
+    body["dialogueInScene"] = request.getDialogueInScene();
   }
 
   if (!!request.hasPlotConflict()) {
-    body["plotConflict"] = request.plotConflict();
+    body["plotConflict"] = request.getPlotConflict();
   }
 
   if (!!request.hasScriptName()) {
-    body["scriptName"] = request.scriptName();
+    body["scriptName"] = request.getScriptName();
   }
 
   if (!!request.hasScriptShotCount()) {
-    body["scriptShotCount"] = request.scriptShotCount();
+    body["scriptShotCount"] = request.getScriptShotCount();
   }
 
   if (!!request.hasScriptSummary()) {
-    body["scriptSummary"] = request.scriptSummary();
+    body["scriptSummary"] = request.getScriptSummary();
   }
 
   if (!!request.hasScriptTypeKeyword()) {
-    body["scriptTypeKeyword"] = request.scriptTypeKeyword();
+    body["scriptTypeKeyword"] = request.getScriptTypeKeyword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2208,18 +2208,18 @@ FutrueGenerator<RunScriptPlanningResponse> Client::runScriptPlanningWithSSE(cons
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunScriptPlanningResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -2235,31 +2235,31 @@ RunScriptPlanningResponse Client::runScriptPlanningWithOptions(const string &wor
   request.validate();
   json body = {};
   if (!!request.hasAdditionalNote()) {
-    body["additionalNote"] = request.additionalNote();
+    body["additionalNote"] = request.getAdditionalNote();
   }
 
   if (!!request.hasDialogueInScene()) {
-    body["dialogueInScene"] = request.dialogueInScene();
+    body["dialogueInScene"] = request.getDialogueInScene();
   }
 
   if (!!request.hasPlotConflict()) {
-    body["plotConflict"] = request.plotConflict();
+    body["plotConflict"] = request.getPlotConflict();
   }
 
   if (!!request.hasScriptName()) {
-    body["scriptName"] = request.scriptName();
+    body["scriptName"] = request.getScriptName();
   }
 
   if (!!request.hasScriptShotCount()) {
-    body["scriptShotCount"] = request.scriptShotCount();
+    body["scriptShotCount"] = request.getScriptShotCount();
   }
 
   if (!!request.hasScriptSummary()) {
-    body["scriptSummary"] = request.scriptSummary();
+    body["scriptSummary"] = request.getScriptSummary();
   }
 
   if (!!request.hasScriptTypeKeyword()) {
-    body["scriptTypeKeyword"] = request.scriptTypeKeyword();
+    body["scriptTypeKeyword"] = request.getScriptTypeKeyword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2300,11 +2300,11 @@ RunScriptPlanningResponse Client::runScriptPlanning(const string &workspaceId, c
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunScriptRefineResponse
  */
-FutrueGenerator<RunScriptRefineResponse> Client::runScriptRefineWithSSE(const string &workspaceId, const RunScriptRefineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunScriptRefineResponse> Client::runScriptRefineWithSSE(const string &workspaceId, const RunScriptRefineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2322,18 +2322,18 @@ FutrueGenerator<RunScriptRefineResponse> Client::runScriptRefineWithSSE(const st
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunScriptRefineResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -2349,7 +2349,7 @@ RunScriptRefineResponse Client::runScriptRefineWithOptions(const string &workspa
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2390,41 +2390,41 @@ RunScriptRefineResponse Client::runScriptRefine(const string &workspaceId, const
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunStyleWritingResponse
  */
-FutrueGenerator<RunStyleWritingResponse> Client::runStyleWritingWithSSE(const string &workspaceId, const RunStyleWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunStyleWritingResponse> Client::runStyleWritingWithSSE(const string &workspaceId, const RunStyleWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunStyleWritingShrinkRequest request = RunStyleWritingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLearningSamples()) {
-    request.setLearningSamplesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.learningSamples(), "learningSamples", "json"));
+    request.setLearningSamplesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLearningSamples(), "learningSamples", "json"));
   }
 
   if (!!tmpReq.hasReferenceMaterials()) {
-    request.setReferenceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceMaterials(), "referenceMaterials", "json"));
+    request.setReferenceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReferenceMaterials(), "referenceMaterials", "json"));
   }
 
   json body = {};
   if (!!request.hasLearningSamplesShrink()) {
-    body["learningSamples"] = request.learningSamplesShrink();
+    body["learningSamples"] = request.getLearningSamplesShrink();
   }
 
   if (!!request.hasProcessStage()) {
-    body["processStage"] = request.processStage();
+    body["processStage"] = request.getProcessStage();
   }
 
   if (!!request.hasReferenceMaterialsShrink()) {
-    body["referenceMaterials"] = request.referenceMaterialsShrink();
+    body["referenceMaterials"] = request.getReferenceMaterialsShrink();
   }
 
   if (!!request.hasStyleFeature()) {
-    body["styleFeature"] = request.styleFeature();
+    body["styleFeature"] = request.getStyleFeature();
   }
 
   if (!!request.hasUseSearch()) {
-    body["useSearch"] = request.useSearch();
+    body["useSearch"] = request.getUseSearch();
   }
 
   if (!!request.hasWritingTheme()) {
-    body["writingTheme"] = request.writingTheme();
+    body["writingTheme"] = request.getWritingTheme();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2442,18 +2442,18 @@ FutrueGenerator<RunStyleWritingResponse> Client::runStyleWritingWithSSE(const st
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunStyleWritingResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -2470,36 +2470,36 @@ RunStyleWritingResponse Client::runStyleWritingWithOptions(const string &workspa
   RunStyleWritingShrinkRequest request = RunStyleWritingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLearningSamples()) {
-    request.setLearningSamplesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.learningSamples(), "learningSamples", "json"));
+    request.setLearningSamplesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLearningSamples(), "learningSamples", "json"));
   }
 
   if (!!tmpReq.hasReferenceMaterials()) {
-    request.setReferenceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.referenceMaterials(), "referenceMaterials", "json"));
+    request.setReferenceMaterialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReferenceMaterials(), "referenceMaterials", "json"));
   }
 
   json body = {};
   if (!!request.hasLearningSamplesShrink()) {
-    body["learningSamples"] = request.learningSamplesShrink();
+    body["learningSamples"] = request.getLearningSamplesShrink();
   }
 
   if (!!request.hasProcessStage()) {
-    body["processStage"] = request.processStage();
+    body["processStage"] = request.getProcessStage();
   }
 
   if (!!request.hasReferenceMaterialsShrink()) {
-    body["referenceMaterials"] = request.referenceMaterialsShrink();
+    body["referenceMaterials"] = request.getReferenceMaterialsShrink();
   }
 
   if (!!request.hasStyleFeature()) {
-    body["styleFeature"] = request.styleFeature();
+    body["styleFeature"] = request.getStyleFeature();
   }
 
   if (!!request.hasUseSearch()) {
-    body["useSearch"] = request.useSearch();
+    body["useSearch"] = request.getUseSearch();
   }
 
   if (!!request.hasWritingTheme()) {
-    body["writingTheme"] = request.writingTheme();
+    body["writingTheme"] = request.getWritingTheme();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2540,45 +2540,45 @@ RunStyleWritingResponse Client::runStyleWriting(const string &workspaceId, const
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunTagMiningAnalysisResponse
  */
-FutrueGenerator<RunTagMiningAnalysisResponse> Client::runTagMiningAnalysisWithSSE(const string &workspaceId, const RunTagMiningAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunTagMiningAnalysisResponse> Client::runTagMiningAnalysisWithSSE(const string &workspaceId, const RunTagMiningAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunTagMiningAnalysisShrinkRequest request = RunTagMiningAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasBusinessType()) {
-    body["businessType"] = request.businessType();
+    body["businessType"] = request.getBusinessType();
   }
 
   if (!!request.hasContent()) {
-    body["content"] = request.content();
+    body["content"] = request.getContent();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2596,18 +2596,18 @@ FutrueGenerator<RunTagMiningAnalysisResponse> Client::runTagMiningAnalysisWithSS
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunTagMiningAnalysisResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -2624,40 +2624,40 @@ RunTagMiningAnalysisResponse Client::runTagMiningAnalysisWithOptions(const strin
   RunTagMiningAnalysisShrinkRequest request = RunTagMiningAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasBusinessType()) {
-    body["businessType"] = request.businessType();
+    body["businessType"] = request.getBusinessType();
   }
 
   if (!!request.hasContent()) {
-    body["content"] = request.content();
+    body["content"] = request.getContent();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2698,129 +2698,129 @@ RunTagMiningAnalysisResponse Client::runTagMiningAnalysis(const string &workspac
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunVideoAnalysisResponse
  */
-FutrueGenerator<RunVideoAnalysisResponse> Client::runVideoAnalysisWithSSE(const string &workspaceId, const RunVideoAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunVideoAnalysisResponse> Client::runVideoAnalysisWithSSE(const string &workspaceId, const RunVideoAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunVideoAnalysisShrinkRequest request = RunVideoAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddDocumentParam()) {
-    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam(), "addDocumentParam", "json"));
+    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddDocumentParam(), "addDocumentParam", "json"));
   }
 
   if (!!tmpReq.hasExcludeGenerateOptions()) {
-    request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions(), "excludeGenerateOptions", "json"));
+    request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeGenerateOptions(), "excludeGenerateOptions", "json"));
   }
 
   if (!!tmpReq.hasFrameSampleMethod()) {
-    request.setFrameSampleMethodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod(), "frameSampleMethod", "json"));
+    request.setFrameSampleMethodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFrameSampleMethod(), "frameSampleMethod", "json"));
   }
 
   if (!!tmpReq.hasGenerateOptions()) {
-    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.generateOptions(), "generateOptions", "json"));
+    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGenerateOptions(), "generateOptions", "json"));
   }
 
   if (!!tmpReq.hasTextProcessTasks()) {
-    request.setTextProcessTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks(), "textProcessTasks", "json"));
+    request.setTextProcessTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTextProcessTasks(), "textProcessTasks", "json"));
   }
 
   if (!!tmpReq.hasVideoCaptionInfo()) {
-    request.setVideoCaptionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoCaptionInfo(), "videoCaptionInfo", "json"));
+    request.setVideoCaptionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoCaptionInfo(), "videoCaptionInfo", "json"));
   }
 
   if (!!tmpReq.hasVideoRoles()) {
-    request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoRoles(), "videoRoles", "json"));
+    request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoRoles(), "videoRoles", "json"));
   }
 
   json body = {};
   if (!!request.hasAddDocumentParamShrink()) {
-    body["addDocumentParam"] = request.addDocumentParamShrink();
+    body["addDocumentParam"] = request.getAddDocumentParamShrink();
   }
 
   if (!!request.hasAutoRoleRecognitionVideoUrl()) {
-    body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl();
+    body["autoRoleRecognitionVideoUrl"] = request.getAutoRoleRecognitionVideoUrl();
   }
 
   if (!!request.hasExcludeGenerateOptionsShrink()) {
-    body["excludeGenerateOptions"] = request.excludeGenerateOptionsShrink();
+    body["excludeGenerateOptions"] = request.getExcludeGenerateOptionsShrink();
   }
 
   if (!!request.hasFaceIdentitySimilarityMinScore()) {
-    body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore();
+    body["faceIdentitySimilarityMinScore"] = request.getFaceIdentitySimilarityMinScore();
   }
 
   if (!!request.hasFrameSampleMethodShrink()) {
-    body["frameSampleMethod"] = request.frameSampleMethodShrink();
+    body["frameSampleMethod"] = request.getFrameSampleMethodShrink();
   }
 
   if (!!request.hasGenerateOptionsShrink()) {
-    body["generateOptions"] = request.generateOptionsShrink();
+    body["generateOptions"] = request.getGenerateOptionsShrink();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelCustomPromptTemplate()) {
-    body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate();
+    body["modelCustomPromptTemplate"] = request.getModelCustomPromptTemplate();
   }
 
   if (!!request.hasModelCustomPromptTemplateId()) {
-    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+    body["modelCustomPromptTemplateId"] = request.getModelCustomPromptTemplateId();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOriginalSessionId()) {
-    body["originalSessionId"] = request.originalSessionId();
+    body["originalSessionId"] = request.getOriginalSessionId();
   }
 
   if (!!request.hasSnapshotInterval()) {
-    body["snapshotInterval"] = request.snapshotInterval();
+    body["snapshotInterval"] = request.getSnapshotInterval();
   }
 
   if (!!request.hasSplitInterval()) {
-    body["splitInterval"] = request.splitInterval();
+    body["splitInterval"] = request.getSplitInterval();
   }
 
   if (!!request.hasSplitType()) {
-    body["splitType"] = request.splitType();
+    body["splitType"] = request.getSplitType();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasTextProcessTasksShrink()) {
-    body["textProcessTasks"] = request.textProcessTasksShrink();
+    body["textProcessTasks"] = request.getTextProcessTasksShrink();
   }
 
   if (!!request.hasVideoCaptionInfoShrink()) {
-    body["videoCaptionInfo"] = request.videoCaptionInfoShrink();
+    body["videoCaptionInfo"] = request.getVideoCaptionInfoShrink();
   }
 
   if (!!request.hasVideoExtraInfo()) {
-    body["videoExtraInfo"] = request.videoExtraInfo();
+    body["videoExtraInfo"] = request.getVideoExtraInfo();
   }
 
   if (!!request.hasVideoModelCustomPromptTemplate()) {
-    body["videoModelCustomPromptTemplate"] = request.videoModelCustomPromptTemplate();
+    body["videoModelCustomPromptTemplate"] = request.getVideoModelCustomPromptTemplate();
   }
 
   if (!!request.hasVideoModelId()) {
-    body["videoModelId"] = request.videoModelId();
+    body["videoModelId"] = request.getVideoModelId();
   }
 
   if (!!request.hasVideoRolesShrink()) {
-    body["videoRoles"] = request.videoRolesShrink();
+    body["videoRoles"] = request.getVideoRolesShrink();
   }
 
   if (!!request.hasVideoShotFaceIdentityCount()) {
-    body["videoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount();
+    body["videoShotFaceIdentityCount"] = request.getVideoShotFaceIdentityCount();
   }
 
   if (!!request.hasVideoUrl()) {
-    body["videoUrl"] = request.videoUrl();
+    body["videoUrl"] = request.getVideoUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2838,18 +2838,18 @@ FutrueGenerator<RunVideoAnalysisResponse> Client::runVideoAnalysisWithSSE(const 
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunVideoAnalysisResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -2866,124 +2866,124 @@ RunVideoAnalysisResponse Client::runVideoAnalysisWithOptions(const string &works
   RunVideoAnalysisShrinkRequest request = RunVideoAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddDocumentParam()) {
-    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam(), "addDocumentParam", "json"));
+    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddDocumentParam(), "addDocumentParam", "json"));
   }
 
   if (!!tmpReq.hasExcludeGenerateOptions()) {
-    request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions(), "excludeGenerateOptions", "json"));
+    request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeGenerateOptions(), "excludeGenerateOptions", "json"));
   }
 
   if (!!tmpReq.hasFrameSampleMethod()) {
-    request.setFrameSampleMethodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod(), "frameSampleMethod", "json"));
+    request.setFrameSampleMethodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFrameSampleMethod(), "frameSampleMethod", "json"));
   }
 
   if (!!tmpReq.hasGenerateOptions()) {
-    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.generateOptions(), "generateOptions", "json"));
+    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGenerateOptions(), "generateOptions", "json"));
   }
 
   if (!!tmpReq.hasTextProcessTasks()) {
-    request.setTextProcessTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks(), "textProcessTasks", "json"));
+    request.setTextProcessTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTextProcessTasks(), "textProcessTasks", "json"));
   }
 
   if (!!tmpReq.hasVideoCaptionInfo()) {
-    request.setVideoCaptionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoCaptionInfo(), "videoCaptionInfo", "json"));
+    request.setVideoCaptionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoCaptionInfo(), "videoCaptionInfo", "json"));
   }
 
   if (!!tmpReq.hasVideoRoles()) {
-    request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoRoles(), "videoRoles", "json"));
+    request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoRoles(), "videoRoles", "json"));
   }
 
   json body = {};
   if (!!request.hasAddDocumentParamShrink()) {
-    body["addDocumentParam"] = request.addDocumentParamShrink();
+    body["addDocumentParam"] = request.getAddDocumentParamShrink();
   }
 
   if (!!request.hasAutoRoleRecognitionVideoUrl()) {
-    body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl();
+    body["autoRoleRecognitionVideoUrl"] = request.getAutoRoleRecognitionVideoUrl();
   }
 
   if (!!request.hasExcludeGenerateOptionsShrink()) {
-    body["excludeGenerateOptions"] = request.excludeGenerateOptionsShrink();
+    body["excludeGenerateOptions"] = request.getExcludeGenerateOptionsShrink();
   }
 
   if (!!request.hasFaceIdentitySimilarityMinScore()) {
-    body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore();
+    body["faceIdentitySimilarityMinScore"] = request.getFaceIdentitySimilarityMinScore();
   }
 
   if (!!request.hasFrameSampleMethodShrink()) {
-    body["frameSampleMethod"] = request.frameSampleMethodShrink();
+    body["frameSampleMethod"] = request.getFrameSampleMethodShrink();
   }
 
   if (!!request.hasGenerateOptionsShrink()) {
-    body["generateOptions"] = request.generateOptionsShrink();
+    body["generateOptions"] = request.getGenerateOptionsShrink();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelCustomPromptTemplate()) {
-    body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate();
+    body["modelCustomPromptTemplate"] = request.getModelCustomPromptTemplate();
   }
 
   if (!!request.hasModelCustomPromptTemplateId()) {
-    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+    body["modelCustomPromptTemplateId"] = request.getModelCustomPromptTemplateId();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOriginalSessionId()) {
-    body["originalSessionId"] = request.originalSessionId();
+    body["originalSessionId"] = request.getOriginalSessionId();
   }
 
   if (!!request.hasSnapshotInterval()) {
-    body["snapshotInterval"] = request.snapshotInterval();
+    body["snapshotInterval"] = request.getSnapshotInterval();
   }
 
   if (!!request.hasSplitInterval()) {
-    body["splitInterval"] = request.splitInterval();
+    body["splitInterval"] = request.getSplitInterval();
   }
 
   if (!!request.hasSplitType()) {
-    body["splitType"] = request.splitType();
+    body["splitType"] = request.getSplitType();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasTextProcessTasksShrink()) {
-    body["textProcessTasks"] = request.textProcessTasksShrink();
+    body["textProcessTasks"] = request.getTextProcessTasksShrink();
   }
 
   if (!!request.hasVideoCaptionInfoShrink()) {
-    body["videoCaptionInfo"] = request.videoCaptionInfoShrink();
+    body["videoCaptionInfo"] = request.getVideoCaptionInfoShrink();
   }
 
   if (!!request.hasVideoExtraInfo()) {
-    body["videoExtraInfo"] = request.videoExtraInfo();
+    body["videoExtraInfo"] = request.getVideoExtraInfo();
   }
 
   if (!!request.hasVideoModelCustomPromptTemplate()) {
-    body["videoModelCustomPromptTemplate"] = request.videoModelCustomPromptTemplate();
+    body["videoModelCustomPromptTemplate"] = request.getVideoModelCustomPromptTemplate();
   }
 
   if (!!request.hasVideoModelId()) {
-    body["videoModelId"] = request.videoModelId();
+    body["videoModelId"] = request.getVideoModelId();
   }
 
   if (!!request.hasVideoRolesShrink()) {
-    body["videoRoles"] = request.videoRolesShrink();
+    body["videoRoles"] = request.getVideoRolesShrink();
   }
 
   if (!!request.hasVideoShotFaceIdentityCount()) {
-    body["videoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount();
+    body["videoShotFaceIdentityCount"] = request.getVideoShotFaceIdentityCount();
   }
 
   if (!!request.hasVideoUrl()) {
-    body["videoUrl"] = request.videoUrl();
+    body["videoUrl"] = request.getVideoUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3024,73 +3024,73 @@ RunVideoAnalysisResponse Client::runVideoAnalysis(const string &workspaceId, con
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunVideoDetectShotResponse
  */
-FutrueGenerator<RunVideoDetectShotResponse> Client::runVideoDetectShotWithSSE(const string &workspaceId, const RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+FutureGenerator<RunVideoDetectShotResponse> Client::runVideoDetectShotWithSSE(const string &workspaceId, const RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   tmpReq.validate();
   RunVideoDetectShotShrinkRequest request = RunVideoDetectShotShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOptions()) {
-    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "options", "json"));
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "options", "json"));
   }
 
   if (!!tmpReq.hasRecognitionOptions()) {
-    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions(), "recognitionOptions", "json"));
+    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecognitionOptions(), "recognitionOptions", "json"));
   }
 
   json body = {};
   if (!!request.hasIntelliSimpPrompt()) {
-    body["intelliSimpPrompt"] = request.intelliSimpPrompt();
+    body["intelliSimpPrompt"] = request.getIntelliSimpPrompt();
   }
 
   if (!!request.hasIntelliSimpPromptTemplateId()) {
-    body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId();
+    body["intelliSimpPromptTemplateId"] = request.getIntelliSimpPromptTemplateId();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelCustomPromptTemplateId()) {
-    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+    body["modelCustomPromptTemplateId"] = request.getModelCustomPromptTemplateId();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasModelVlCustomPromptTemplateId()) {
-    body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId();
+    body["modelVlCustomPromptTemplateId"] = request.getModelVlCustomPromptTemplateId();
   }
 
   if (!!request.hasOptionsShrink()) {
-    body["options"] = request.optionsShrink();
+    body["options"] = request.getOptionsShrink();
   }
 
   if (!!request.hasOriginalSessionId()) {
-    body["originalSessionId"] = request.originalSessionId();
+    body["originalSessionId"] = request.getOriginalSessionId();
   }
 
   if (!!request.hasPreModelId()) {
-    body["preModelId"] = request.preModelId();
+    body["preModelId"] = request.getPreModelId();
   }
 
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasRecognitionOptionsShrink()) {
-    body["recognitionOptions"] = request.recognitionOptionsShrink();
+    body["recognitionOptions"] = request.getRecognitionOptionsShrink();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasVideoUrl()) {
-    body["videoUrl"] = request.videoUrl();
+    body["videoUrl"] = request.getVideoUrl();
   }
 
   if (!!request.hasVlPrompt()) {
-    body["vlPrompt"] = request.vlPrompt();
+    body["vlPrompt"] = request.getVlPrompt();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3108,18 +3108,18 @@ FutrueGenerator<RunVideoDetectShotResponse> Client::runVideoDetectShotWithSSE(co
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.event().data()));
+    json data = json(json::parse(resp.getEvent().getData()));
 json     __retrun = json(json({
-      {"statusCode" , resp.statusCode()},
-      {"headers" , resp.headers()},
+      {"statusCode" , resp.getStatusCode()},
+      {"headers" , resp.getHeaders()},
       {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.event().id()},
-          {"Message" , resp.event().event()}
+          {"RequestId" , resp.getEvent().getId()},
+          {"Message" , resp.getEvent().getEvent()}
       )}
     })).get<RunVideoDetectShotResponse>();
-return Darbaonba::FutureGenerator<json>(__retrun);
+return Darabonba::FutureGenerator<json>(__retrun);
   }
 }
 
@@ -3136,68 +3136,68 @@ RunVideoDetectShotResponse Client::runVideoDetectShotWithOptions(const string &w
   RunVideoDetectShotShrinkRequest request = RunVideoDetectShotShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOptions()) {
-    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "options", "json"));
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "options", "json"));
   }
 
   if (!!tmpReq.hasRecognitionOptions()) {
-    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions(), "recognitionOptions", "json"));
+    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecognitionOptions(), "recognitionOptions", "json"));
   }
 
   json body = {};
   if (!!request.hasIntelliSimpPrompt()) {
-    body["intelliSimpPrompt"] = request.intelliSimpPrompt();
+    body["intelliSimpPrompt"] = request.getIntelliSimpPrompt();
   }
 
   if (!!request.hasIntelliSimpPromptTemplateId()) {
-    body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId();
+    body["intelliSimpPromptTemplateId"] = request.getIntelliSimpPromptTemplateId();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelCustomPromptTemplateId()) {
-    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+    body["modelCustomPromptTemplateId"] = request.getModelCustomPromptTemplateId();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasModelVlCustomPromptTemplateId()) {
-    body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId();
+    body["modelVlCustomPromptTemplateId"] = request.getModelVlCustomPromptTemplateId();
   }
 
   if (!!request.hasOptionsShrink()) {
-    body["options"] = request.optionsShrink();
+    body["options"] = request.getOptionsShrink();
   }
 
   if (!!request.hasOriginalSessionId()) {
-    body["originalSessionId"] = request.originalSessionId();
+    body["originalSessionId"] = request.getOriginalSessionId();
   }
 
   if (!!request.hasPreModelId()) {
-    body["preModelId"] = request.preModelId();
+    body["preModelId"] = request.getPreModelId();
   }
 
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasRecognitionOptionsShrink()) {
-    body["recognitionOptions"] = request.recognitionOptionsShrink();
+    body["recognitionOptions"] = request.getRecognitionOptionsShrink();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasVideoUrl()) {
-    body["videoUrl"] = request.videoUrl();
+    body["videoUrl"] = request.getVideoUrl();
   }
 
   if (!!request.hasVlPrompt()) {
-    body["vlPrompt"] = request.vlPrompt();
+    body["vlPrompt"] = request.getVlPrompt();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3243,60 +3243,60 @@ SubmitEnterpriseVocAnalysisTaskResponse Client::submitEnterpriseVocAnalysisTaskW
   SubmitEnterpriseVocAnalysisTaskShrinkRequest request = SubmitEnterpriseVocAnalysisTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContents()) {
-    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contents(), "contents", "json"));
+    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContents(), "contents", "json"));
   }
 
   if (!!tmpReq.hasFilterTags()) {
-    request.setFilterTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filterTags(), "filterTags", "json"));
+    request.setFilterTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilterTags(), "filterTags", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasContentsShrink()) {
-    body["contents"] = request.contentsShrink();
+    body["contents"] = request.getContentsShrink();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasFileKey()) {
-    body["fileKey"] = request.fileKey();
+    body["fileKey"] = request.getFileKey();
   }
 
   if (!!request.hasFilterTagsShrink()) {
-    body["filterTags"] = request.filterTagsShrink();
+    body["filterTags"] = request.getFilterTagsShrink();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasSourceTrace()) {
-    body["sourceTrace"] = request.sourceTrace();
+    body["sourceTrace"] = request.getSourceTrace();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   if (!!request.hasUrl()) {
-    body["url"] = request.url();
+    body["url"] = request.getUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3342,36 +3342,36 @@ SubmitEssayCorrectionTaskResponse Client::submitEssayCorrectionTaskWithOptions(c
   SubmitEssayCorrectionTaskShrinkRequest request = SubmitEssayCorrectionTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTasks()) {
-    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tasks(), "tasks", "json"));
+    request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTasks(), "tasks", "json"));
   }
 
   json body = {};
   if (!!request.hasGrade()) {
-    body["grade"] = request.grade();
+    body["grade"] = request.getGrade();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOtherReviewPoints()) {
-    body["otherReviewPoints"] = request.otherReviewPoints();
+    body["otherReviewPoints"] = request.getOtherReviewPoints();
   }
 
   if (!!request.hasQuestion()) {
-    body["question"] = request.question();
+    body["question"] = request.getQuestion();
   }
 
   if (!!request.hasSubject()) {
-    body["subject"] = request.subject();
+    body["subject"] = request.getSubject();
   }
 
   if (!!request.hasTasksShrink()) {
-    body["tasks"] = request.tasksShrink();
+    body["tasks"] = request.getTasksShrink();
   }
 
   if (!!request.hasTotalScore()) {
-    body["totalScore"] = request.totalScore();
+    body["totalScore"] = request.getTotalScore();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3417,48 +3417,48 @@ SubmitTagMiningAnalysisTaskResponse Client::submitTagMiningAnalysisTaskWithOptio
   SubmitTagMiningAnalysisTaskShrinkRequest request = SubmitTagMiningAnalysisTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContents()) {
-    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contents(), "contents", "json"));
+    request.setContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContents(), "contents", "json"));
   }
 
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
   }
 
   json body = {};
   if (!!request.hasApiKey()) {
-    body["apiKey"] = request.apiKey();
+    body["apiKey"] = request.getApiKey();
   }
 
   if (!!request.hasBusinessType()) {
-    body["businessType"] = request.businessType();
+    body["businessType"] = request.getBusinessType();
   }
 
   if (!!request.hasContentsShrink()) {
-    body["contents"] = request.contentsShrink();
+    body["contents"] = request.getContentsShrink();
   }
 
   if (!!request.hasExtraInfo()) {
-    body["extraInfo"] = request.extraInfo();
+    body["extraInfo"] = request.getExtraInfo();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasOutputFormat()) {
-    body["outputFormat"] = request.outputFormat();
+    body["outputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasTagsShrink()) {
-    body["tags"] = request.tagsShrink();
+    body["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTaskDescription()) {
-    body["taskDescription"] = request.taskDescription();
+    body["taskDescription"] = request.getTaskDescription();
   }
 
   if (!!request.hasUrl()) {
-    body["url"] = request.url();
+    body["url"] = request.getUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3504,120 +3504,120 @@ SubmitVideoAnalysisTaskResponse Client::submitVideoAnalysisTaskWithOptions(const
   SubmitVideoAnalysisTaskShrinkRequest request = SubmitVideoAnalysisTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddDocumentParam()) {
-    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam(), "addDocumentParam", "json"));
+    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddDocumentParam(), "addDocumentParam", "json"));
   }
 
   if (!!tmpReq.hasExcludeGenerateOptions()) {
-    request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions(), "excludeGenerateOptions", "json"));
+    request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeGenerateOptions(), "excludeGenerateOptions", "json"));
   }
 
   if (!!tmpReq.hasFrameSampleMethod()) {
-    request.setFrameSampleMethodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod(), "frameSampleMethod", "json"));
+    request.setFrameSampleMethodShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFrameSampleMethod(), "frameSampleMethod", "json"));
   }
 
   if (!!tmpReq.hasGenerateOptions()) {
-    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.generateOptions(), "generateOptions", "json"));
+    request.setGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGenerateOptions(), "generateOptions", "json"));
   }
 
   if (!!tmpReq.hasTextProcessTasks()) {
-    request.setTextProcessTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks(), "textProcessTasks", "json"));
+    request.setTextProcessTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTextProcessTasks(), "textProcessTasks", "json"));
   }
 
   if (!!tmpReq.hasVideoCaptionInfo()) {
-    request.setVideoCaptionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoCaptionInfo(), "videoCaptionInfo", "json"));
+    request.setVideoCaptionInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoCaptionInfo(), "videoCaptionInfo", "json"));
   }
 
   if (!!tmpReq.hasVideoRoles()) {
-    request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoRoles(), "videoRoles", "json"));
+    request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVideoRoles(), "videoRoles", "json"));
   }
 
   json body = {};
   if (!!request.hasAddDocumentParamShrink()) {
-    body["addDocumentParam"] = request.addDocumentParamShrink();
+    body["addDocumentParam"] = request.getAddDocumentParamShrink();
   }
 
   if (!!request.hasAutoRoleRecognitionVideoUrl()) {
-    body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl();
+    body["autoRoleRecognitionVideoUrl"] = request.getAutoRoleRecognitionVideoUrl();
   }
 
   if (!!request.hasDeduplicationId()) {
-    body["deduplicationId"] = request.deduplicationId();
+    body["deduplicationId"] = request.getDeduplicationId();
   }
 
   if (!!request.hasExcludeGenerateOptionsShrink()) {
-    body["excludeGenerateOptions"] = request.excludeGenerateOptionsShrink();
+    body["excludeGenerateOptions"] = request.getExcludeGenerateOptionsShrink();
   }
 
   if (!!request.hasFaceIdentitySimilarityMinScore()) {
-    body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore();
+    body["faceIdentitySimilarityMinScore"] = request.getFaceIdentitySimilarityMinScore();
   }
 
   if (!!request.hasFrameSampleMethodShrink()) {
-    body["frameSampleMethod"] = request.frameSampleMethodShrink();
+    body["frameSampleMethod"] = request.getFrameSampleMethodShrink();
   }
 
   if (!!request.hasGenerateOptionsShrink()) {
-    body["generateOptions"] = request.generateOptionsShrink();
+    body["generateOptions"] = request.getGenerateOptionsShrink();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelCustomPromptTemplate()) {
-    body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate();
+    body["modelCustomPromptTemplate"] = request.getModelCustomPromptTemplate();
   }
 
   if (!!request.hasModelCustomPromptTemplateId()) {
-    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+    body["modelCustomPromptTemplateId"] = request.getModelCustomPromptTemplateId();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasSnapshotInterval()) {
-    body["snapshotInterval"] = request.snapshotInterval();
+    body["snapshotInterval"] = request.getSnapshotInterval();
   }
 
   if (!!request.hasSplitInterval()) {
-    body["splitInterval"] = request.splitInterval();
+    body["splitInterval"] = request.getSplitInterval();
   }
 
   if (!!request.hasSplitType()) {
-    body["splitType"] = request.splitType();
+    body["splitType"] = request.getSplitType();
   }
 
   if (!!request.hasTextProcessTasksShrink()) {
-    body["textProcessTasks"] = request.textProcessTasksShrink();
+    body["textProcessTasks"] = request.getTextProcessTasksShrink();
   }
 
   if (!!request.hasVideoCaptionInfoShrink()) {
-    body["videoCaptionInfo"] = request.videoCaptionInfoShrink();
+    body["videoCaptionInfo"] = request.getVideoCaptionInfoShrink();
   }
 
   if (!!request.hasVideoExtraInfo()) {
-    body["videoExtraInfo"] = request.videoExtraInfo();
+    body["videoExtraInfo"] = request.getVideoExtraInfo();
   }
 
   if (!!request.hasVideoModelCustomPromptTemplate()) {
-    body["videoModelCustomPromptTemplate"] = request.videoModelCustomPromptTemplate();
+    body["videoModelCustomPromptTemplate"] = request.getVideoModelCustomPromptTemplate();
   }
 
   if (!!request.hasVideoModelId()) {
-    body["videoModelId"] = request.videoModelId();
+    body["videoModelId"] = request.getVideoModelId();
   }
 
   if (!!request.hasVideoRolesShrink()) {
-    body["videoRoles"] = request.videoRolesShrink();
+    body["videoRoles"] = request.getVideoRolesShrink();
   }
 
   if (!!request.hasVideoShotFaceIdentityCount()) {
-    body["videoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount();
+    body["videoShotFaceIdentityCount"] = request.getVideoShotFaceIdentityCount();
   }
 
   if (!!request.hasVideoUrl()) {
-    body["videoUrl"] = request.videoUrl();
+    body["videoUrl"] = request.getVideoUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3663,72 +3663,72 @@ SubmitVideoDetectShotTaskResponse Client::submitVideoDetectShotTaskWithOptions(c
   SubmitVideoDetectShotTaskShrinkRequest request = SubmitVideoDetectShotTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasOptions()) {
-    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.options(), "options", "json"));
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "options", "json"));
   }
 
   if (!!tmpReq.hasRecognitionOptions()) {
-    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions(), "recognitionOptions", "json"));
+    request.setRecognitionOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecognitionOptions(), "recognitionOptions", "json"));
   }
 
   json body = {};
   if (!!request.hasDeduplicationId()) {
-    body["deduplicationId"] = request.deduplicationId();
+    body["deduplicationId"] = request.getDeduplicationId();
   }
 
   if (!!request.hasIntelliSimpPrompt()) {
-    body["intelliSimpPrompt"] = request.intelliSimpPrompt();
+    body["intelliSimpPrompt"] = request.getIntelliSimpPrompt();
   }
 
   if (!!request.hasIntelliSimpPromptTemplateId()) {
-    body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId();
+    body["intelliSimpPromptTemplateId"] = request.getIntelliSimpPromptTemplateId();
   }
 
   if (!!request.hasLanguage()) {
-    body["language"] = request.language();
+    body["language"] = request.getLanguage();
   }
 
   if (!!request.hasModelCustomPromptTemplateId()) {
-    body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId();
+    body["modelCustomPromptTemplateId"] = request.getModelCustomPromptTemplateId();
   }
 
   if (!!request.hasModelId()) {
-    body["modelId"] = request.modelId();
+    body["modelId"] = request.getModelId();
   }
 
   if (!!request.hasModelVlCustomPromptTemplateId()) {
-    body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId();
+    body["modelVlCustomPromptTemplateId"] = request.getModelVlCustomPromptTemplateId();
   }
 
   if (!!request.hasOptionsShrink()) {
-    body["options"] = request.optionsShrink();
+    body["options"] = request.getOptionsShrink();
   }
 
   if (!!request.hasOriginalSessionId()) {
-    body["originalSessionId"] = request.originalSessionId();
+    body["originalSessionId"] = request.getOriginalSessionId();
   }
 
   if (!!request.hasPreModelId()) {
-    body["preModelId"] = request.preModelId();
+    body["preModelId"] = request.getPreModelId();
   }
 
   if (!!request.hasPrompt()) {
-    body["prompt"] = request.prompt();
+    body["prompt"] = request.getPrompt();
   }
 
   if (!!request.hasRecognitionOptionsShrink()) {
-    body["recognitionOptions"] = request.recognitionOptionsShrink();
+    body["recognitionOptions"] = request.getRecognitionOptionsShrink();
   }
 
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasVideoUrl()) {
-    body["videoUrl"] = request.videoUrl();
+    body["videoUrl"] = request.getVideoUrl();
   }
 
   if (!!request.hasVlPrompt()) {
-    body["vlPrompt"] = request.vlPrompt();
+    body["vlPrompt"] = request.getVlPrompt();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3773,7 +3773,7 @@ UpdateVideoAnalysisConfigResponse Client::updateVideoAnalysisConfigWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasAsyncConcurrency()) {
-    body["asyncConcurrency"] = request.asyncConcurrency();
+    body["asyncConcurrency"] = request.getAsyncConcurrency();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3818,11 +3818,11 @@ UpdateVideoAnalysisTaskResponse Client::updateVideoAnalysisTaskWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskStatus()) {
-    body["taskStatus"] = request.taskStatus();
+    body["taskStatus"] = request.getTaskStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3868,16 +3868,16 @@ UpdateVideoAnalysisTasksResponse Client::updateVideoAnalysisTasksWithOptions(con
   UpdateVideoAnalysisTasksShrinkRequest request = UpdateVideoAnalysisTasksShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTaskIds()) {
-    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.taskIds(), "taskIds", "json"));
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "taskIds", "json"));
   }
 
   json body = {};
   if (!!request.hasTaskIdsShrink()) {
-    body["taskIds"] = request.taskIdsShrink();
+    body["taskIds"] = request.getTaskIdsShrink();
   }
 
   if (!!request.hasTaskStatus()) {
-    body["taskStatus"] = request.taskStatus();
+    body["taskStatus"] = request.getTaskStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3922,7 +3922,7 @@ UpdateVideoDetectShotConfigResponse Client::updateVideoDetectShotConfigWithOptio
   request.validate();
   json body = {};
   if (!!request.hasAsyncConcurrency()) {
-    body["asyncConcurrency"] = request.asyncConcurrency();
+    body["asyncConcurrency"] = request.getAsyncConcurrency();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3967,11 +3967,11 @@ UpdateVideoDetectShotTaskResponse Client::updateVideoDetectShotTaskWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasTaskId()) {
-    body["taskId"] = request.taskId();
+    body["taskId"] = request.getTaskId();
   }
 
   if (!!request.hasTaskStatus()) {
-    body["taskStatus"] = request.taskStatus();
+    body["taskStatus"] = request.getTaskStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

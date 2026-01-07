@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->taskIdsShrink_ == nullptr
-        && return this->taskStatus_ == nullptr; };
+        && this->taskStatus_ == nullptr; };
     // taskIdsShrink Field Functions 
     bool hasTaskIdsShrink() const { return this->taskIdsShrink_ != nullptr;};
     void deleteTaskIdsShrink() { this->taskIdsShrink_ = nullptr;};
-    inline string taskIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdsShrink_, "") };
+    inline string getTaskIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(taskIdsShrink_, "") };
     inline UpdateVideoAnalysisTasksShrinkRequest& setTaskIdsShrink(string taskIdsShrink) { DARABONBA_PTR_SET_VALUE(taskIdsShrink_, taskIdsShrink) };
 
 
     // taskStatus Field Functions 
     bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
     void deleteTaskStatus() { this->taskStatus_ = nullptr;};
-    inline string taskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
+    inline string getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
     inline UpdateVideoAnalysisTasksShrinkRequest& setTaskStatus(string taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> taskIdsShrink_ = nullptr;
+    shared_ptr<string> taskIdsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskStatus_ = nullptr;
+    shared_ptr<string> taskStatus_ {};
   };
 
   } // namespace Models

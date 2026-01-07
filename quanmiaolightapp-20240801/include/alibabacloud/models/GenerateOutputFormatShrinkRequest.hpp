@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessType_ == nullptr
-        && return this->content_ == nullptr && return this->extraInfo_ == nullptr && return this->tagsShrink_ == nullptr && return this->taskDescription_ == nullptr; };
+        && this->content_ == nullptr && this->extraInfo_ == nullptr && this->tagsShrink_ == nullptr && this->taskDescription_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
-    inline string businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
+    inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
     inline GenerateOutputFormatShrinkRequest& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
 
 
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline GenerateOutputFormatShrinkRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // extraInfo Field Functions 
     bool hasExtraInfo() const { return this->extraInfo_ != nullptr;};
     void deleteExtraInfo() { this->extraInfo_ = nullptr;};
-    inline string extraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
+    inline string getExtraInfo() const { DARABONBA_PTR_GET_DEFAULT(extraInfo_, "") };
     inline GenerateOutputFormatShrinkRequest& setExtraInfo(string extraInfo) { DARABONBA_PTR_SET_VALUE(extraInfo_, extraInfo) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline GenerateOutputFormatShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
     // taskDescription Field Functions 
     bool hasTaskDescription() const { return this->taskDescription_ != nullptr;};
     void deleteTaskDescription() { this->taskDescription_ = nullptr;};
-    inline string taskDescription() const { DARABONBA_PTR_GET_DEFAULT(taskDescription_, "") };
+    inline string getTaskDescription() const { DARABONBA_PTR_GET_DEFAULT(taskDescription_, "") };
     inline GenerateOutputFormatShrinkRequest& setTaskDescription(string taskDescription) { DARABONBA_PTR_SET_VALUE(taskDescription_, taskDescription) };
 
 
   protected:
-    std::shared_ptr<string> businessType_ = nullptr;
-    std::shared_ptr<string> content_ = nullptr;
-    std::shared_ptr<string> extraInfo_ = nullptr;
+    shared_ptr<string> businessType_ {};
+    shared_ptr<string> content_ {};
+    shared_ptr<string> extraInfo_ {};
     // This parameter is required.
-    std::shared_ptr<string> tagsShrink_ = nullptr;
-    std::shared_ptr<string> taskDescription_ = nullptr;
+    shared_ptr<string> tagsShrink_ {};
+    shared_ptr<string> taskDescription_ {};
   };
 
   } // namespace Models

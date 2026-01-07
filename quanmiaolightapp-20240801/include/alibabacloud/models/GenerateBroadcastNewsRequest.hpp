@@ -33,13 +33,13 @@ namespace Models
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline GenerateBroadcastNewsRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> prompt_ = nullptr;
+    shared_ptr<string> prompt_ {};
   };
 
   } // namespace Models

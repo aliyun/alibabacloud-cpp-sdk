@@ -33,13 +33,13 @@ namespace Models
     // asyncConcurrency Field Functions 
     bool hasAsyncConcurrency() const { return this->asyncConcurrency_ != nullptr;};
     void deleteAsyncConcurrency() { this->asyncConcurrency_ = nullptr;};
-    inline int32_t asyncConcurrency() const { DARABONBA_PTR_GET_DEFAULT(asyncConcurrency_, 0) };
+    inline int32_t getAsyncConcurrency() const { DARABONBA_PTR_GET_DEFAULT(asyncConcurrency_, 0) };
     inline UpdateVideoAnalysisConfigRequest& setAsyncConcurrency(int32_t asyncConcurrency) { DARABONBA_PTR_SET_VALUE(asyncConcurrency_, asyncConcurrency) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> asyncConcurrency_ = nullptr;
+    shared_ptr<int32_t> asyncConcurrency_ {};
   };
 
   } // namespace Models

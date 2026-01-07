@@ -52,106 +52,106 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->generateOptionsShrink_ == nullptr && return this->hotTopicVersion_ == nullptr && return this->hotTopicsShrink_ == nullptr && return this->imageCount_ == nullptr && return this->messagesShrink_ == nullptr
-        && return this->modelCustomPromptTemplate_ == nullptr && return this->modelId_ == nullptr && return this->originalSessionId_ == nullptr && return this->prompt_ == nullptr && return this->stepForBroadcastContentConfigShrink_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && this->generateOptionsShrink_ == nullptr && this->hotTopicVersion_ == nullptr && this->hotTopicsShrink_ == nullptr && this->imageCount_ == nullptr && this->messagesShrink_ == nullptr
+        && this->modelCustomPromptTemplate_ == nullptr && this->modelId_ == nullptr && this->originalSessionId_ == nullptr && this->prompt_ == nullptr && this->stepForBroadcastContentConfigShrink_ == nullptr
+        && this->taskId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline RunHotTopicChatShrinkRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // generateOptionsShrink Field Functions 
     bool hasGenerateOptionsShrink() const { return this->generateOptionsShrink_ != nullptr;};
     void deleteGenerateOptionsShrink() { this->generateOptionsShrink_ = nullptr;};
-    inline string generateOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(generateOptionsShrink_, "") };
+    inline string getGenerateOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(generateOptionsShrink_, "") };
     inline RunHotTopicChatShrinkRequest& setGenerateOptionsShrink(string generateOptionsShrink) { DARABONBA_PTR_SET_VALUE(generateOptionsShrink_, generateOptionsShrink) };
 
 
     // hotTopicVersion Field Functions 
     bool hasHotTopicVersion() const { return this->hotTopicVersion_ != nullptr;};
     void deleteHotTopicVersion() { this->hotTopicVersion_ = nullptr;};
-    inline string hotTopicVersion() const { DARABONBA_PTR_GET_DEFAULT(hotTopicVersion_, "") };
+    inline string getHotTopicVersion() const { DARABONBA_PTR_GET_DEFAULT(hotTopicVersion_, "") };
     inline RunHotTopicChatShrinkRequest& setHotTopicVersion(string hotTopicVersion) { DARABONBA_PTR_SET_VALUE(hotTopicVersion_, hotTopicVersion) };
 
 
     // hotTopicsShrink Field Functions 
     bool hasHotTopicsShrink() const { return this->hotTopicsShrink_ != nullptr;};
     void deleteHotTopicsShrink() { this->hotTopicsShrink_ = nullptr;};
-    inline string hotTopicsShrink() const { DARABONBA_PTR_GET_DEFAULT(hotTopicsShrink_, "") };
+    inline string getHotTopicsShrink() const { DARABONBA_PTR_GET_DEFAULT(hotTopicsShrink_, "") };
     inline RunHotTopicChatShrinkRequest& setHotTopicsShrink(string hotTopicsShrink) { DARABONBA_PTR_SET_VALUE(hotTopicsShrink_, hotTopicsShrink) };
 
 
     // imageCount Field Functions 
     bool hasImageCount() const { return this->imageCount_ != nullptr;};
     void deleteImageCount() { this->imageCount_ = nullptr;};
-    inline int32_t imageCount() const { DARABONBA_PTR_GET_DEFAULT(imageCount_, 0) };
+    inline int32_t getImageCount() const { DARABONBA_PTR_GET_DEFAULT(imageCount_, 0) };
     inline RunHotTopicChatShrinkRequest& setImageCount(int32_t imageCount) { DARABONBA_PTR_SET_VALUE(imageCount_, imageCount) };
 
 
     // messagesShrink Field Functions 
     bool hasMessagesShrink() const { return this->messagesShrink_ != nullptr;};
     void deleteMessagesShrink() { this->messagesShrink_ = nullptr;};
-    inline string messagesShrink() const { DARABONBA_PTR_GET_DEFAULT(messagesShrink_, "") };
+    inline string getMessagesShrink() const { DARABONBA_PTR_GET_DEFAULT(messagesShrink_, "") };
     inline RunHotTopicChatShrinkRequest& setMessagesShrink(string messagesShrink) { DARABONBA_PTR_SET_VALUE(messagesShrink_, messagesShrink) };
 
 
     // modelCustomPromptTemplate Field Functions 
     bool hasModelCustomPromptTemplate() const { return this->modelCustomPromptTemplate_ != nullptr;};
     void deleteModelCustomPromptTemplate() { this->modelCustomPromptTemplate_ = nullptr;};
-    inline string modelCustomPromptTemplate() const { DARABONBA_PTR_GET_DEFAULT(modelCustomPromptTemplate_, "") };
+    inline string getModelCustomPromptTemplate() const { DARABONBA_PTR_GET_DEFAULT(modelCustomPromptTemplate_, "") };
     inline RunHotTopicChatShrinkRequest& setModelCustomPromptTemplate(string modelCustomPromptTemplate) { DARABONBA_PTR_SET_VALUE(modelCustomPromptTemplate_, modelCustomPromptTemplate) };
 
 
     // modelId Field Functions 
     bool hasModelId() const { return this->modelId_ != nullptr;};
     void deleteModelId() { this->modelId_ = nullptr;};
-    inline string modelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+    inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
     inline RunHotTopicChatShrinkRequest& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
     // originalSessionId Field Functions 
     bool hasOriginalSessionId() const { return this->originalSessionId_ != nullptr;};
     void deleteOriginalSessionId() { this->originalSessionId_ = nullptr;};
-    inline string originalSessionId() const { DARABONBA_PTR_GET_DEFAULT(originalSessionId_, "") };
+    inline string getOriginalSessionId() const { DARABONBA_PTR_GET_DEFAULT(originalSessionId_, "") };
     inline RunHotTopicChatShrinkRequest& setOriginalSessionId(string originalSessionId) { DARABONBA_PTR_SET_VALUE(originalSessionId_, originalSessionId) };
 
 
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
-    inline string prompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
+    inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline RunHotTopicChatShrinkRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
 
 
     // stepForBroadcastContentConfigShrink Field Functions 
     bool hasStepForBroadcastContentConfigShrink() const { return this->stepForBroadcastContentConfigShrink_ != nullptr;};
     void deleteStepForBroadcastContentConfigShrink() { this->stepForBroadcastContentConfigShrink_ = nullptr;};
-    inline string stepForBroadcastContentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(stepForBroadcastContentConfigShrink_, "") };
+    inline string getStepForBroadcastContentConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(stepForBroadcastContentConfigShrink_, "") };
     inline RunHotTopicChatShrinkRequest& setStepForBroadcastContentConfigShrink(string stepForBroadcastContentConfigShrink) { DARABONBA_PTR_SET_VALUE(stepForBroadcastContentConfigShrink_, stepForBroadcastContentConfigShrink) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline RunHotTopicChatShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<string> category_ = nullptr;
-    std::shared_ptr<string> generateOptionsShrink_ = nullptr;
-    std::shared_ptr<string> hotTopicVersion_ = nullptr;
-    std::shared_ptr<string> hotTopicsShrink_ = nullptr;
-    std::shared_ptr<int32_t> imageCount_ = nullptr;
-    std::shared_ptr<string> messagesShrink_ = nullptr;
-    std::shared_ptr<string> modelCustomPromptTemplate_ = nullptr;
-    std::shared_ptr<string> modelId_ = nullptr;
-    std::shared_ptr<string> originalSessionId_ = nullptr;
-    std::shared_ptr<string> prompt_ = nullptr;
-    std::shared_ptr<string> stepForBroadcastContentConfigShrink_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> category_ {};
+    shared_ptr<string> generateOptionsShrink_ {};
+    shared_ptr<string> hotTopicVersion_ {};
+    shared_ptr<string> hotTopicsShrink_ {};
+    shared_ptr<int32_t> imageCount_ {};
+    shared_ptr<string> messagesShrink_ {};
+    shared_ptr<string> modelCustomPromptTemplate_ {};
+    shared_ptr<string> modelId_ {};
+    shared_ptr<string> originalSessionId_ {};
+    shared_ptr<string> prompt_ {};
+    shared_ptr<string> stepForBroadcastContentConfigShrink_ {};
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

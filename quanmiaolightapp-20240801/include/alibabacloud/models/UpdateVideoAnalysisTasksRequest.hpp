@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->taskIds_ == nullptr
-        && return this->taskStatus_ == nullptr; };
+        && this->taskStatus_ == nullptr; };
     // taskIds Field Functions 
     bool hasTaskIds() const { return this->taskIds_ != nullptr;};
     void deleteTaskIds() { this->taskIds_ = nullptr;};
-    inline const vector<string> & taskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
-    inline vector<string> taskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
+    inline const vector<string> & getTaskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
+    inline vector<string> getTaskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
     inline UpdateVideoAnalysisTasksRequest& setTaskIds(const vector<string> & taskIds) { DARABONBA_PTR_SET_VALUE(taskIds_, taskIds) };
     inline UpdateVideoAnalysisTasksRequest& setTaskIds(vector<string> && taskIds) { DARABONBA_PTR_SET_RVALUE(taskIds_, taskIds) };
 
@@ -46,15 +46,15 @@ namespace Models
     // taskStatus Field Functions 
     bool hasTaskStatus() const { return this->taskStatus_ != nullptr;};
     void deleteTaskStatus() { this->taskStatus_ = nullptr;};
-    inline string taskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
+    inline string getTaskStatus() const { DARABONBA_PTR_GET_DEFAULT(taskStatus_, "") };
     inline UpdateVideoAnalysisTasksRequest& setTaskStatus(string taskStatus) { DARABONBA_PTR_SET_VALUE(taskStatus_, taskStatus) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> taskIds_ = nullptr;
+    shared_ptr<vector<string>> taskIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskStatus_ = nullptr;
+    shared_ptr<string> taskStatus_ {};
   };
 
   } // namespace Models

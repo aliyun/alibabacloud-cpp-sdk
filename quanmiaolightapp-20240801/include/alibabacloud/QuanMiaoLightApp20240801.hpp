@@ -294,7 +294,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunEnterpriseVocAnalysisResponse
        */
-      FutrueGenerator<Models::RunEnterpriseVocAnalysisResponse> runEnterpriseVocAnalysisWithSSE(const string &workspaceId, const Models::RunEnterpriseVocAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunEnterpriseVocAnalysisResponse> runEnterpriseVocAnalysisWithSSE(const string &workspaceId, const Models::RunEnterpriseVocAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 企业VOC分析
@@ -322,7 +322,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunEssayCorrectionResponse
        */
-      FutrueGenerator<Models::RunEssayCorrectionResponse> runEssayCorrectionWithSSE(const string &workspaceId, const Models::RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunEssayCorrectionResponse> runEssayCorrectionWithSSE(const string &workspaceId, const Models::RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 作业批改
@@ -350,7 +350,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunHotTopicChatResponse
        */
-      FutrueGenerator<Models::RunHotTopicChatResponse> runHotTopicChatWithSSE(const string &workspaceId, const Models::RunHotTopicChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunHotTopicChatResponse> runHotTopicChatWithSSE(const string &workspaceId, const Models::RunHotTopicChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 轻应用-热点播报-问答
@@ -378,7 +378,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunHotTopicSummaryResponse
        */
-      FutrueGenerator<Models::RunHotTopicSummaryResponse> runHotTopicSummaryWithSSE(const string &workspaceId, const Models::RunHotTopicSummaryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunHotTopicSummaryResponse> runHotTopicSummaryWithSSE(const string &workspaceId, const Models::RunHotTopicSummaryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 轻应用-热点播报-热点摘要生成
@@ -406,7 +406,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunMarketingInformationExtractResponse
        */
-      FutrueGenerator<Models::RunMarketingInformationExtractResponse> runMarketingInformationExtractWithSSE(const string &workspaceId, const Models::RunMarketingInformationExtractRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunMarketingInformationExtractResponse> runMarketingInformationExtractWithSSE(const string &workspaceId, const Models::RunMarketingInformationExtractRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 营销信息抽取服务
@@ -434,7 +434,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunMarketingInformationWritingResponse
        */
-      FutrueGenerator<Models::RunMarketingInformationWritingResponse> runMarketingInformationWritingWithSSE(const string &workspaceId, const Models::RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunMarketingInformationWritingResponse> runMarketingInformationWritingWithSSE(const string &workspaceId, const Models::RunMarketingInformationWritingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 营销文案写作服务
@@ -462,7 +462,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunNetworkContentAuditResponse
        */
-      FutrueGenerator<Models::RunNetworkContentAuditResponse> runNetworkContentAuditWithSSE(const string &workspaceId, const Models::RunNetworkContentAuditRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunNetworkContentAuditResponse> runNetworkContentAuditWithSSE(const string &workspaceId, const Models::RunNetworkContentAuditRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 轻应用-网络内容审核
@@ -490,7 +490,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunOcrParseResponse
        */
-      FutrueGenerator<Models::RunOcrParseResponse> runOcrParseWithSSE(const string &workspaceId, const Models::RunOcrParseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunOcrParseResponse> runOcrParseWithSSE(const string &workspaceId, const Models::RunOcrParseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 作业批改
@@ -518,7 +518,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunScriptChatResponse
        */
-      FutrueGenerator<Models::RunScriptChatResponse> runScriptChatWithSSE(const string &workspaceId, const Models::RunScriptChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunScriptChatResponse> runScriptChatWithSSE(const string &workspaceId, const Models::RunScriptChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 长剧本创作
@@ -546,7 +546,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunScriptContinueResponse
        */
-      FutrueGenerator<Models::RunScriptContinueResponse> runScriptContinueWithSSE(const string &workspaceId, const Models::RunScriptContinueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunScriptContinueResponse> runScriptContinueWithSSE(const string &workspaceId, const Models::RunScriptContinueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 剧本续写
@@ -574,7 +574,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunScriptPlanningResponse
        */
-      FutrueGenerator<Models::RunScriptPlanningResponse> runScriptPlanningWithSSE(const string &workspaceId, const Models::RunScriptPlanningRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunScriptPlanningResponse> runScriptPlanningWithSSE(const string &workspaceId, const Models::RunScriptPlanningRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 剧本策划
@@ -602,7 +602,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunScriptRefineResponse
        */
-      FutrueGenerator<Models::RunScriptRefineResponse> runScriptRefineWithSSE(const string &workspaceId, const Models::RunScriptRefineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunScriptRefineResponse> runScriptRefineWithSSE(const string &workspaceId, const Models::RunScriptRefineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 剧本对话内容的整理
@@ -630,7 +630,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunStyleWritingResponse
        */
-      FutrueGenerator<Models::RunStyleWritingResponse> runStyleWritingWithSSE(const string &workspaceId, const Models::RunStyleWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunStyleWritingResponse> runStyleWritingWithSSE(const string &workspaceId, const Models::RunStyleWritingRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 文体学习和写作推理服务
@@ -658,7 +658,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunTagMiningAnalysisResponse
        */
-      FutrueGenerator<Models::RunTagMiningAnalysisResponse> runTagMiningAnalysisWithSSE(const string &workspaceId, const Models::RunTagMiningAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunTagMiningAnalysisResponse> runTagMiningAnalysisWithSSE(const string &workspaceId, const Models::RunTagMiningAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 轻应用-标签挖掘
@@ -686,7 +686,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunVideoAnalysisResponse
        */
-      FutrueGenerator<Models::RunVideoAnalysisResponse> runVideoAnalysisWithSSE(const string &workspaceId, const Models::RunVideoAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunVideoAnalysisResponse> runVideoAnalysisWithSSE(const string &workspaceId, const Models::RunVideoAnalysisRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 轻应用-视频理解
@@ -714,7 +714,7 @@ namespace QuanMiaoLightApp20240801
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunVideoDetectShotResponse
        */
-      FutrueGenerator<Models::RunVideoDetectShotResponse> runVideoDetectShotWithSSE(const string &workspaceId, const Models::RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunVideoDetectShotResponse> runVideoDetectShotWithSSE(const string &workspaceId, const Models::RunVideoDetectShotRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 轻应用-视频拆条

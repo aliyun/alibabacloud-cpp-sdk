@@ -33,12 +33,12 @@ namespace Models
     // fileKey Field Functions 
     bool hasFileKey() const { return this->fileKey_ != nullptr;};
     void deleteFileKey() { this->fileKey_ = nullptr;};
-    inline string fileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
+    inline string getFileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
     inline GetFileContentRequest& setFileKey(string fileKey) { DARABONBA_PTR_SET_VALUE(fileKey_, fileKey) };
 
 
   protected:
-    std::shared_ptr<string> fileKey_ = nullptr;
+    shared_ptr<string> fileKey_ {};
   };
 
   } // namespace Models

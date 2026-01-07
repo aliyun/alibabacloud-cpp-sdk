@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoriesShrink_ == nullptr
-        && return this->category_ == nullptr && return this->taskId_ == nullptr; };
+        && this->category_ == nullptr && this->taskId_ == nullptr; };
     // categoriesShrink Field Functions 
     bool hasCategoriesShrink() const { return this->categoriesShrink_ != nullptr;};
     void deleteCategoriesShrink() { this->categoriesShrink_ = nullptr;};
-    inline string categoriesShrink() const { DARABONBA_PTR_GET_DEFAULT(categoriesShrink_, "") };
+    inline string getCategoriesShrink() const { DARABONBA_PTR_GET_DEFAULT(categoriesShrink_, "") };
     inline ExportAnalysisTagDetailByTaskIdShrinkRequest& setCategoriesShrink(string categoriesShrink) { DARABONBA_PTR_SET_VALUE(categoriesShrink_, categoriesShrink) };
 
 
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline ExportAnalysisTagDetailByTaskIdShrinkRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline ExportAnalysisTagDetailByTaskIdShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<string> categoriesShrink_ = nullptr;
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> categoriesShrink_ {};
+    shared_ptr<string> category_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models
