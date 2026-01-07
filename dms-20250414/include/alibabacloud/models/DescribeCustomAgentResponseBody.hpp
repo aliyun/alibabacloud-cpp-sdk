@@ -101,10 +101,16 @@ namespace Models
       class ExecutionConfig : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ExecutionConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(SkipAskHuman, skipAskHuman_);
           DARABONBA_PTR_TO_JSON(SkipPlan, skipPlan_);
+          DARABONBA_PTR_TO_JSON(SkipSqlConfirm, skipSqlConfirm_);
+          DARABONBA_PTR_TO_JSON(SkipWebReportConfirm, skipWebReportConfirm_);
         };
         friend void from_json(const Darabonba::Json& j, ExecutionConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(SkipAskHuman, skipAskHuman_);
           DARABONBA_PTR_FROM_JSON(SkipPlan, skipPlan_);
+          DARABONBA_PTR_FROM_JSON(SkipSqlConfirm, skipSqlConfirm_);
+          DARABONBA_PTR_FROM_JSON(SkipWebReportConfirm, skipWebReportConfirm_);
         };
         ExecutionConfig() = default ;
         ExecutionConfig(const ExecutionConfig &) = default ;
@@ -117,7 +123,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->skipPlan_ == nullptr; };
+        virtual bool empty() const override { return this->skipAskHuman_ == nullptr
+        && this->skipPlan_ == nullptr && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr; };
+        // skipAskHuman Field Functions 
+        bool hasSkipAskHuman() const { return this->skipAskHuman_ != nullptr;};
+        void deleteSkipAskHuman() { this->skipAskHuman_ = nullptr;};
+        inline bool getSkipAskHuman() const { DARABONBA_PTR_GET_DEFAULT(skipAskHuman_, false) };
+        inline ExecutionConfig& setSkipAskHuman(bool skipAskHuman) { DARABONBA_PTR_SET_VALUE(skipAskHuman_, skipAskHuman) };
+
+
         // skipPlan Field Functions 
         bool hasSkipPlan() const { return this->skipPlan_ != nullptr;};
         void deleteSkipPlan() { this->skipPlan_ = nullptr;};
@@ -125,8 +139,25 @@ namespace Models
         inline ExecutionConfig& setSkipPlan(bool skipPlan) { DARABONBA_PTR_SET_VALUE(skipPlan_, skipPlan) };
 
 
+        // skipSqlConfirm Field Functions 
+        bool hasSkipSqlConfirm() const { return this->skipSqlConfirm_ != nullptr;};
+        void deleteSkipSqlConfirm() { this->skipSqlConfirm_ = nullptr;};
+        inline bool getSkipSqlConfirm() const { DARABONBA_PTR_GET_DEFAULT(skipSqlConfirm_, false) };
+        inline ExecutionConfig& setSkipSqlConfirm(bool skipSqlConfirm) { DARABONBA_PTR_SET_VALUE(skipSqlConfirm_, skipSqlConfirm) };
+
+
+        // skipWebReportConfirm Field Functions 
+        bool hasSkipWebReportConfirm() const { return this->skipWebReportConfirm_ != nullptr;};
+        void deleteSkipWebReportConfirm() { this->skipWebReportConfirm_ = nullptr;};
+        inline bool getSkipWebReportConfirm() const { DARABONBA_PTR_GET_DEFAULT(skipWebReportConfirm_, false) };
+        inline ExecutionConfig& setSkipWebReportConfirm(bool skipWebReportConfirm) { DARABONBA_PTR_SET_VALUE(skipWebReportConfirm_, skipWebReportConfirm) };
+
+
       protected:
+        shared_ptr<bool> skipAskHuman_ {};
         shared_ptr<bool> skipPlan_ {};
+        shared_ptr<bool> skipSqlConfirm_ {};
+        shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
       virtual bool empty() const override { return this->aliyunParentUid_ == nullptr
