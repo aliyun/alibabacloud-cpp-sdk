@@ -21,6 +21,23 @@ namespace Dms20250414
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 为空间添加用户
+       *
+       * @param request AddUserToDataAgentWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddUserToDataAgentWorkspaceResponse
+       */
+      Models::AddUserToDataAgentWorkspaceResponse addUserToDataAgentWorkspaceWithOptions(const Models::AddUserToDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为空间添加用户
+       *
+       * @param request AddUserToDataAgentWorkspaceRequest
+       * @return AddUserToDataAgentWorkspaceResponse
+       */
+      Models::AddUserToDataAgentWorkspaceResponse addUserToDataAgentWorkspace(const Models::AddUserToDataAgentWorkspaceRequest &request);
+
+      /**
        * @summary 批量新建湖仓表分区
        *
        * @param tmpReq BatchCreateDataLakePartitionsRequest
@@ -123,6 +140,23 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSession(const Models::CreateDataAgentSessionRequest &request);
 
       /**
+       * @summary 创建DataAgent工作空间
+       *
+       * @param request CreateDataAgentWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataAgentWorkspaceResponse
+       */
+      Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspaceWithOptions(const Models::CreateDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建DataAgent工作空间
+       *
+       * @param request CreateDataAgentWorkspaceRequest
+       * @return CreateDataAgentWorkspaceResponse
+       */
+      Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspace(const Models::CreateDataAgentWorkspaceRequest &request);
+
+      /**
        * @summary 新建湖仓数据库
        *
        * @param tmpReq CreateDataLakeDatabaseRequest
@@ -206,6 +240,23 @@ namespace Dms20250414
        * @return DeleteAirflowResponse
        */
       Models::DeleteAirflowResponse deleteAirflow(const Models::DeleteAirflowRequest &request);
+
+      /**
+       * @summary 删除DataAgent工作空间
+       *
+       * @param request DeleteDataAgentWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataAgentWorkspaceResponse
+       */
+      Models::DeleteDataAgentWorkspaceResponse deleteDataAgentWorkspaceWithOptions(const Models::DeleteDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除DataAgent工作空间
+       *
+       * @param request DeleteDataAgentWorkspaceRequest
+       * @return DeleteDataAgentWorkspaceResponse
+       */
+      Models::DeleteDataAgentWorkspaceResponse deleteDataAgentWorkspace(const Models::DeleteDataAgentWorkspaceRequest &request);
 
       /**
        * @summary 删除湖仓数据库
@@ -404,6 +455,40 @@ namespace Dms20250414
       Models::GetChatContentResponse getChatContent(const Models::GetChatContentRequest &request);
 
       /**
+       * @summary 获取主账号下的子账号信息
+       *
+       * @param request GetDataAgentSubAccountInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataAgentSubAccountInfoResponse
+       */
+      Models::GetDataAgentSubAccountInfoResponse getDataAgentSubAccountInfoWithOptions(const Models::GetDataAgentSubAccountInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取主账号下的子账号信息
+       *
+       * @param request GetDataAgentSubAccountInfoRequest
+       * @return GetDataAgentSubAccountInfoResponse
+       */
+      Models::GetDataAgentSubAccountInfoResponse getDataAgentSubAccountInfo(const Models::GetDataAgentSubAccountInfoRequest &request);
+
+      /**
+       * @summary 获取空间信息
+       *
+       * @param request GetDataAgentWorkspaceInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataAgentWorkspaceInfoResponse
+       */
+      Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfoWithOptions(const Models::GetDataAgentWorkspaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取空间信息
+       *
+       * @param request GetDataAgentWorkspaceInfoRequest
+       * @return GetDataAgentWorkspaceInfoResponse
+       */
+      Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfo(const Models::GetDataAgentWorkspaceInfoRequest &request);
+
+      /**
        * @summary 获取uc的数据库目录
        *
        * @param request GetDataLakeCatalogRequest
@@ -555,6 +640,40 @@ namespace Dms20250414
        * @return ListCustomAgentResponse
        */
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
+
+      /**
+       * @summary 获取主账号下的空间（分页）
+       *
+       * @param request ListDataAgentWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentWorkspaceResponse
+       */
+      Models::ListDataAgentWorkspaceResponse listDataAgentWorkspaceWithOptions(const Models::ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取主账号下的空间（分页）
+       *
+       * @param request ListDataAgentWorkspaceRequest
+       * @return ListDataAgentWorkspaceResponse
+       */
+      Models::ListDataAgentWorkspaceResponse listDataAgentWorkspace(const Models::ListDataAgentWorkspaceRequest &request);
+
+      /**
+       * @summary 获取空间所有成员
+       *
+       * @param request ListDataAgentWorkspaceMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentWorkspaceMemberResponse
+       */
+      Models::ListDataAgentWorkspaceMemberResponse listDataAgentWorkspaceMemberWithOptions(const Models::ListDataAgentWorkspaceMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取空间所有成员
+       *
+       * @param request ListDataAgentWorkspaceMemberRequest
+       * @return ListDataAgentWorkspaceMemberResponse
+       */
+      Models::ListDataAgentWorkspaceMemberResponse listDataAgentWorkspaceMember(const Models::ListDataAgentWorkspaceMemberRequest &request);
 
       /**
        * @summary 获取uc的数据库目录列表
@@ -744,6 +863,23 @@ namespace Dms20250414
       Models::ListFileUploadResponse listFileUpload(const Models::ListFileUploadRequest &request);
 
       /**
+       * @summary 从空间中移除用户
+       *
+       * @param request RemoveUserToDataAgentWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveUserToDataAgentWorkspaceResponse
+       */
+      Models::RemoveUserToDataAgentWorkspaceResponse removeUserToDataAgentWorkspaceWithOptions(const Models::RemoveUserToDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从空间中移除用户
+       *
+       * @param request RemoveUserToDataAgentWorkspaceRequest
+       * @return RemoveUserToDataAgentWorkspaceResponse
+       */
+      Models::RemoveUserToDataAgentWorkspaceResponse removeUserToDataAgentWorkspace(const Models::RemoveUserToDataAgentWorkspaceRequest &request);
+
+      /**
        * @summary SendChatMessage
        *
        * @param tmpReq SendChatMessageRequest
@@ -776,6 +912,40 @@ namespace Dms20250414
        * @return UpdateAirflowResponse
        */
       Models::UpdateAirflowResponse updateAirflow(const Models::UpdateAirflowRequest &request);
+
+      /**
+       * @summary 更新空间的信息
+       *
+       * @param request UpdateDataAgentSpaceInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataAgentSpaceInfoResponse
+       */
+      Models::UpdateDataAgentSpaceInfoResponse updateDataAgentSpaceInfoWithOptions(const Models::UpdateDataAgentSpaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新空间的信息
+       *
+       * @param request UpdateDataAgentSpaceInfoRequest
+       * @return UpdateDataAgentSpaceInfoResponse
+       */
+      Models::UpdateDataAgentSpaceInfoResponse updateDataAgentSpaceInfo(const Models::UpdateDataAgentSpaceInfoRequest &request);
+
+      /**
+       * @summary 调整空间成员的角色
+       *
+       * @param request UpdateDataAgentWorkspaceMemberRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataAgentWorkspaceMemberRoleResponse
+       */
+      Models::UpdateDataAgentWorkspaceMemberRoleResponse updateDataAgentWorkspaceMemberRoleWithOptions(const Models::UpdateDataAgentWorkspaceMemberRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调整空间成员的角色
+       *
+       * @param request UpdateDataAgentWorkspaceMemberRoleRequest
+       * @return UpdateDataAgentWorkspaceMemberRoleResponse
+       */
+      Models::UpdateDataAgentWorkspaceMemberRoleResponse updateDataAgentWorkspaceMemberRole(const Models::UpdateDataAgentWorkspaceMemberRoleRequest &request);
 
       /**
        * @summary 更新湖仓数据库

@@ -37,6 +37,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 为空间添加用户
+ *
+ * @param request AddUserToDataAgentWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddUserToDataAgentWorkspaceResponse
+ */
+AddUserToDataAgentWorkspaceResponse Client::addUserToDataAgentWorkspaceWithOptions(const AddUserToDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasRoleName()) {
+    query["RoleName"] = request.getRoleName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddUserToDataAgentWorkspace"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddUserToDataAgentWorkspaceResponse>();
+}
+
+/**
+ * @summary 为空间添加用户
+ *
+ * @param request AddUserToDataAgentWorkspaceRequest
+ * @return AddUserToDataAgentWorkspaceResponse
+ */
+AddUserToDataAgentWorkspaceResponse Client::addUserToDataAgentWorkspace(const AddUserToDataAgentWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addUserToDataAgentWorkspaceWithOptions(request, runtime);
+}
+
+/**
  * @summary 批量新建湖仓表分区
  *
  * @param tmpReq BatchCreateDataLakePartitionsRequest
@@ -459,6 +513,56 @@ CreateDataAgentSessionResponse Client::createDataAgentSession(const CreateDataAg
 }
 
 /**
+ * @summary 创建DataAgent工作空间
+ *
+ * @param request CreateDataAgentWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataAgentWorkspaceResponse
+ */
+CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspaceWithOptions(const CreateDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasWorkspaceDesc()) {
+    query["WorkspaceDesc"] = request.getWorkspaceDesc();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["WorkspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataAgentWorkspace"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataAgentWorkspaceResponse>();
+}
+
+/**
+ * @summary 创建DataAgent工作空间
+ *
+ * @param request CreateDataAgentWorkspaceRequest
+ * @return CreateDataAgentWorkspaceResponse
+ */
+CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspace(const CreateDataAgentWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataAgentWorkspaceWithOptions(request, runtime);
+}
+
+/**
  * @summary 新建湖仓数据库
  *
  * @param tmpReq CreateDataLakeDatabaseRequest
@@ -788,6 +892,52 @@ DeleteAirflowResponse Client::deleteAirflowWithOptions(const DeleteAirflowReques
 DeleteAirflowResponse Client::deleteAirflow(const DeleteAirflowRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAirflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除DataAgent工作空间
+ *
+ * @param request DeleteDataAgentWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataAgentWorkspaceResponse
+ */
+DeleteDataAgentWorkspaceResponse Client::deleteDataAgentWorkspaceWithOptions(const DeleteDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataAgentWorkspace"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataAgentWorkspaceResponse>();
+}
+
+/**
+ * @summary 删除DataAgent工作空间
+ *
+ * @param request DeleteDataAgentWorkspaceRequest
+ * @return DeleteDataAgentWorkspaceResponse
+ */
+DeleteDataAgentWorkspaceResponse Client::deleteDataAgentWorkspace(const DeleteDataAgentWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataAgentWorkspaceWithOptions(request, runtime);
 }
 
 /**
@@ -1438,6 +1588,98 @@ GetChatContentResponse Client::getChatContent(const GetChatContentRequest &reque
 }
 
 /**
+ * @summary 获取主账号下的子账号信息
+ *
+ * @param request GetDataAgentSubAccountInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataAgentSubAccountInfoResponse
+ */
+GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfoWithOptions(const GetDataAgentSubAccountInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasSubAccountId()) {
+    query["SubAccountId"] = request.getSubAccountId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataAgentSubAccountInfo"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataAgentSubAccountInfoResponse>();
+}
+
+/**
+ * @summary 获取主账号下的子账号信息
+ *
+ * @param request GetDataAgentSubAccountInfoRequest
+ * @return GetDataAgentSubAccountInfoResponse
+ */
+GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfo(const GetDataAgentSubAccountInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataAgentSubAccountInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取空间信息
+ *
+ * @param request GetDataAgentWorkspaceInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataAgentWorkspaceInfoResponse
+ */
+GetDataAgentWorkspaceInfoResponse Client::getDataAgentWorkspaceInfoWithOptions(const GetDataAgentWorkspaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataAgentWorkspaceInfo"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataAgentWorkspaceInfoResponse>();
+}
+
+/**
+ * @summary 获取空间信息
+ *
+ * @param request GetDataAgentWorkspaceInfoRequest
+ * @return GetDataAgentWorkspaceInfoResponse
+ */
+GetDataAgentWorkspaceInfoResponse Client::getDataAgentWorkspaceInfo(const GetDataAgentWorkspaceInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataAgentWorkspaceInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取uc的数据库目录
  *
  * @param request GetDataLakeCatalogRequest
@@ -1953,6 +2195,158 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取主账号下的空间（分页）
+ *
+ * @param request ListDataAgentWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentWorkspaceResponse
+ */
+ListDataAgentWorkspaceResponse Client::listDataAgentWorkspaceWithOptions(const ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["WorkspaceName"] = request.getWorkspaceName();
+  }
+
+  if (!!request.hasWorkspaceType()) {
+    query["WorkspaceType"] = request.getWorkspaceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentWorkspace"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentWorkspaceResponse>();
+}
+
+/**
+ * @summary 获取主账号下的空间（分页）
+ *
+ * @param request ListDataAgentWorkspaceRequest
+ * @return ListDataAgentWorkspaceResponse
+ */
+ListDataAgentWorkspaceResponse Client::listDataAgentWorkspace(const ListDataAgentWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取空间所有成员
+ *
+ * @param request ListDataAgentWorkspaceMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentWorkspaceMemberResponse
+ */
+ListDataAgentWorkspaceMemberResponse Client::listDataAgentWorkspaceMemberWithOptions(const ListDataAgentWorkspaceMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSearchMemberId()) {
+    query["SearchMemberId"] = request.getSearchMemberId();
+  }
+
+  if (!!request.hasSearchRoleName()) {
+    query["SearchRoleName"] = request.getSearchRoleName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentWorkspaceMember"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentWorkspaceMemberResponse>();
+}
+
+/**
+ * @summary 获取空间所有成员
+ *
+ * @param request ListDataAgentWorkspaceMemberRequest
+ * @return ListDataAgentWorkspaceMemberResponse
+ */
+ListDataAgentWorkspaceMemberResponse Client::listDataAgentWorkspaceMember(const ListDataAgentWorkspaceMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentWorkspaceMemberWithOptions(request, runtime);
 }
 
 /**
@@ -2692,6 +3086,56 @@ ListFileUploadResponse Client::listFileUpload(const ListFileUploadRequest &reque
 }
 
 /**
+ * @summary 从空间中移除用户
+ *
+ * @param request RemoveUserToDataAgentWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveUserToDataAgentWorkspaceResponse
+ */
+RemoveUserToDataAgentWorkspaceResponse Client::removeUserToDataAgentWorkspaceWithOptions(const RemoveUserToDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveUserToDataAgentWorkspace"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveUserToDataAgentWorkspaceResponse>();
+}
+
+/**
+ * @summary 从空间中移除用户
+ *
+ * @param request RemoveUserToDataAgentWorkspaceRequest
+ * @return RemoveUserToDataAgentWorkspaceResponse
+ */
+RemoveUserToDataAgentWorkspaceResponse Client::removeUserToDataAgentWorkspace(const RemoveUserToDataAgentWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeUserToDataAgentWorkspaceWithOptions(request, runtime);
+}
+
+/**
  * @summary SendChatMessage
  *
  * @param tmpReq SendChatMessageRequest
@@ -2859,6 +3303,114 @@ UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowReques
 UpdateAirflowResponse Client::updateAirflow(const UpdateAirflowRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAirflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新空间的信息
+ *
+ * @param request UpdateDataAgentSpaceInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataAgentSpaceInfoResponse
+ */
+UpdateDataAgentSpaceInfoResponse Client::updateDataAgentSpaceInfoWithOptions(const UpdateDataAgentSpaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasWorkspaceDesc()) {
+    query["WorkspaceDesc"] = request.getWorkspaceDesc();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["WorkspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataAgentSpaceInfo"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataAgentSpaceInfoResponse>();
+}
+
+/**
+ * @summary 更新空间的信息
+ *
+ * @param request UpdateDataAgentSpaceInfoRequest
+ * @return UpdateDataAgentSpaceInfoResponse
+ */
+UpdateDataAgentSpaceInfoResponse Client::updateDataAgentSpaceInfo(const UpdateDataAgentSpaceInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataAgentSpaceInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 调整空间成员的角色
+ *
+ * @param request UpdateDataAgentWorkspaceMemberRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataAgentWorkspaceMemberRoleResponse
+ */
+UpdateDataAgentWorkspaceMemberRoleResponse Client::updateDataAgentWorkspaceMemberRoleWithOptions(const UpdateDataAgentWorkspaceMemberRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasRoleName()) {
+    query["RoleName"] = request.getRoleName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataAgentWorkspaceMemberRole"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataAgentWorkspaceMemberRoleResponse>();
+}
+
+/**
+ * @summary 调整空间成员的角色
+ *
+ * @param request UpdateDataAgentWorkspaceMemberRoleRequest
+ * @return UpdateDataAgentWorkspaceMemberRoleResponse
+ */
+UpdateDataAgentWorkspaceMemberRoleResponse Client::updateDataAgentWorkspaceMemberRole(const UpdateDataAgentWorkspaceMemberRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataAgentWorkspaceMemberRoleWithOptions(request, runtime);
 }
 
 /**
