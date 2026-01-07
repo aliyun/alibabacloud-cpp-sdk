@@ -21,7 +21,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(hangUpDialog, hangUpDialog_);
       DARABONBA_ANY_TO_JSON(metaData, metaData_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(scriptContentPlayed, scriptContentPlayed_);
       DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(userVad, userVad_);
     };
     friend void from_json(const Darabonba::Json& j, RealtimeDialogAssistRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(analysis, analysis_);
@@ -31,7 +33,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(hangUpDialog, hangUpDialog_);
       DARABONBA_ANY_FROM_JSON(metaData, metaData_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(scriptContentPlayed, scriptContentPlayed_);
       DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(userVad, userVad_);
     };
     RealtimeDialogAssistRequest() = default ;
     RealtimeDialogAssistRequest(const RealtimeDialogAssistRequest &) = default ;
@@ -47,18 +51,24 @@ namespace Models
     class ConversationModel : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ConversationModel& obj) { 
+        DARABONBA_PTR_TO_JSON(begin, begin_);
+        DARABONBA_PTR_TO_JSON(beginTime, beginTime_);
         DARABONBA_PTR_TO_JSON(content, content_);
         DARABONBA_PTR_TO_JSON(customerId, customerId_);
         DARABONBA_PTR_TO_JSON(customerServiceId, customerServiceId_);
         DARABONBA_PTR_TO_JSON(customerServiceType, customerServiceType_);
+        DARABONBA_PTR_TO_JSON(end, end_);
         DARABONBA_PTR_TO_JSON(role, role_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, ConversationModel& obj) { 
+        DARABONBA_PTR_FROM_JSON(begin, begin_);
+        DARABONBA_PTR_FROM_JSON(beginTime, beginTime_);
         DARABONBA_PTR_FROM_JSON(content, content_);
         DARABONBA_PTR_FROM_JSON(customerId, customerId_);
         DARABONBA_PTR_FROM_JSON(customerServiceId, customerServiceId_);
         DARABONBA_PTR_FROM_JSON(customerServiceType, customerServiceType_);
+        DARABONBA_PTR_FROM_JSON(end, end_);
         DARABONBA_PTR_FROM_JSON(role, role_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
@@ -73,8 +83,23 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->content_ == nullptr
-        && this->customerId_ == nullptr && this->customerServiceId_ == nullptr && this->customerServiceType_ == nullptr && this->role_ == nullptr && this->type_ == nullptr; };
+      virtual bool empty() const override { return this->begin_ == nullptr
+        && this->beginTime_ == nullptr && this->content_ == nullptr && this->customerId_ == nullptr && this->customerServiceId_ == nullptr && this->customerServiceType_ == nullptr
+        && this->end_ == nullptr && this->role_ == nullptr && this->type_ == nullptr; };
+      // begin Field Functions 
+      bool hasBegin() const { return this->begin_ != nullptr;};
+      void deleteBegin() { this->begin_ = nullptr;};
+      inline int32_t getBegin() const { DARABONBA_PTR_GET_DEFAULT(begin_, 0) };
+      inline ConversationModel& setBegin(int32_t begin) { DARABONBA_PTR_SET_VALUE(begin_, begin) };
+
+
+      // beginTime Field Functions 
+      bool hasBeginTime() const { return this->beginTime_ != nullptr;};
+      void deleteBeginTime() { this->beginTime_ = nullptr;};
+      inline string getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, "") };
+      inline ConversationModel& setBeginTime(string beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
+
+
       // content Field Functions 
       bool hasContent() const { return this->content_ != nullptr;};
       void deleteContent() { this->content_ = nullptr;};
@@ -103,6 +128,13 @@ namespace Models
       inline ConversationModel& setCustomerServiceType(string customerServiceType) { DARABONBA_PTR_SET_VALUE(customerServiceType_, customerServiceType) };
 
 
+      // end Field Functions 
+      bool hasEnd() const { return this->end_ != nullptr;};
+      void deleteEnd() { this->end_ = nullptr;};
+      inline int32_t getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0) };
+      inline ConversationModel& setEnd(int32_t end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+
+
       // role Field Functions 
       bool hasRole() const { return this->role_ != nullptr;};
       void deleteRole() { this->role_ = nullptr;};
@@ -118,11 +150,14 @@ namespace Models
 
 
     protected:
+      shared_ptr<int32_t> begin_ {};
+      shared_ptr<string> beginTime_ {};
       // This parameter is required.
       shared_ptr<string> content_ {};
       shared_ptr<string> customerId_ {};
       shared_ptr<string> customerServiceId_ {};
       shared_ptr<string> customerServiceType_ {};
+      shared_ptr<int32_t> end_ {};
       // This parameter is required.
       shared_ptr<int32_t> role_ {};
       shared_ptr<string> type_ {};
@@ -130,7 +165,7 @@ namespace Models
 
     virtual bool empty() const override { return this->analysis_ == nullptr
         && this->bizType_ == nullptr && this->conversationModel_ == nullptr && this->dialogMemoryTurns_ == nullptr && this->hangUpDialog_ == nullptr && this->metaData_ == nullptr
-        && this->requestId_ == nullptr && this->sessionId_ == nullptr; };
+        && this->requestId_ == nullptr && this->scriptContentPlayed_ == nullptr && this->sessionId_ == nullptr && this->userVad_ == nullptr; };
     // analysis Field Functions 
     bool hasAnalysis() const { return this->analysis_ != nullptr;};
     void deleteAnalysis() { this->analysis_ = nullptr;};
@@ -184,11 +219,25 @@ namespace Models
     inline RealtimeDialogAssistRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // scriptContentPlayed Field Functions 
+    bool hasScriptContentPlayed() const { return this->scriptContentPlayed_ != nullptr;};
+    void deleteScriptContentPlayed() { this->scriptContentPlayed_ = nullptr;};
+    inline string getScriptContentPlayed() const { DARABONBA_PTR_GET_DEFAULT(scriptContentPlayed_, "") };
+    inline RealtimeDialogAssistRequest& setScriptContentPlayed(string scriptContentPlayed) { DARABONBA_PTR_SET_VALUE(scriptContentPlayed_, scriptContentPlayed) };
+
+
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
     inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline RealtimeDialogAssistRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
+    // userVad Field Functions 
+    bool hasUserVad() const { return this->userVad_ != nullptr;};
+    void deleteUserVad() { this->userVad_ = nullptr;};
+    inline bool getUserVad() const { DARABONBA_PTR_GET_DEFAULT(userVad_, false) };
+    inline RealtimeDialogAssistRequest& setUserVad(bool userVad) { DARABONBA_PTR_SET_VALUE(userVad_, userVad) };
 
 
   protected:
@@ -203,8 +252,10 @@ namespace Models
     Darabonba::Json metaData_ {};
     // This parameter is required.
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> scriptContentPlayed_ {};
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    shared_ptr<bool> userVad_ {};
   };
 
   } // namespace Models

@@ -2400,8 +2400,16 @@ RealtimeDialogAssistResponse Client::realtimeDialogAssistWithOptions(const strin
     body["requestId"] = request.getRequestId();
   }
 
+  if (!!request.hasScriptContentPlayed()) {
+    body["scriptContentPlayed"] = request.getScriptContentPlayed();
+  }
+
   if (!!request.hasSessionId()) {
     body["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUserVad()) {
+    body["userVad"] = request.getUserVad();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

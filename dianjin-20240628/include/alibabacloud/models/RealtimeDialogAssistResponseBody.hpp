@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(assistScripts, assistScripts_);
         DARABONBA_PTR_TO_JSON(assistSop, assistSop_);
         DARABONBA_PTR_TO_JSON(conversationModel, conversationModel_);
+        DARABONBA_PTR_TO_JSON(interrupt, interrupt_);
         DARABONBA_PTR_TO_JSON(requestId, requestId_);
         DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       };
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(assistScripts, assistScripts_);
         DARABONBA_PTR_FROM_JSON(assistSop, assistSop_);
         DARABONBA_PTR_FROM_JSON(conversationModel, conversationModel_);
+        DARABONBA_PTR_FROM_JSON(interrupt, interrupt_);
         DARABONBA_PTR_FROM_JSON(requestId, requestId_);
         DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       };
@@ -290,7 +292,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->analysisProcess_ == nullptr
-        && this->assistScripts_ == nullptr && this->assistSop_ == nullptr && this->conversationModel_ == nullptr && this->requestId_ == nullptr && this->sessionId_ == nullptr; };
+        && this->assistScripts_ == nullptr && this->assistSop_ == nullptr && this->conversationModel_ == nullptr && this->interrupt_ == nullptr && this->requestId_ == nullptr
+        && this->sessionId_ == nullptr; };
       // analysisProcess Field Functions 
       bool hasAnalysisProcess() const { return this->analysisProcess_ != nullptr;};
       void deleteAnalysisProcess() { this->analysisProcess_ = nullptr;};
@@ -325,6 +328,13 @@ namespace Models
       inline Data& setConversationModel(vector<Data::ConversationModel> && conversationModel) { DARABONBA_PTR_SET_RVALUE(conversationModel_, conversationModel) };
 
 
+      // interrupt Field Functions 
+      bool hasInterrupt() const { return this->interrupt_ != nullptr;};
+      void deleteInterrupt() { this->interrupt_ = nullptr;};
+      inline bool getInterrupt() const { DARABONBA_PTR_GET_DEFAULT(interrupt_, false) };
+      inline Data& setInterrupt(bool interrupt) { DARABONBA_PTR_SET_VALUE(interrupt_, interrupt) };
+
+
       // requestId Field Functions 
       bool hasRequestId() const { return this->requestId_ != nullptr;};
       void deleteRequestId() { this->requestId_ = nullptr;};
@@ -344,6 +354,7 @@ namespace Models
       shared_ptr<vector<Data::AssistScripts>> assistScripts_ {};
       shared_ptr<vector<Data::AssistSop>> assistSop_ {};
       shared_ptr<vector<Data::ConversationModel>> conversationModel_ {};
+      shared_ptr<bool> interrupt_ {};
       shared_ptr<string> requestId_ {};
       shared_ptr<string> sessionId_ {};
     };
