@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BlackWhiteListEnable, blackWhiteListEnable_);
         DARABONBA_PTR_TO_JSON(CcCustomRuleEnable, ccCustomRuleEnable_);
         DARABONBA_PTR_TO_JSON(CcEnable, ccEnable_);
+        DARABONBA_PTR_TO_JSON(CcGlobalSwitch, ccGlobalSwitch_);
         DARABONBA_PTR_TO_JSON(CcTemplate, ccTemplate_);
         DARABONBA_PTR_TO_JSON(Domain, domain_);
         DARABONBA_PTR_TO_JSON(PreciseRuleEnable, preciseRuleEnable_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BlackWhiteListEnable, blackWhiteListEnable_);
         DARABONBA_PTR_FROM_JSON(CcCustomRuleEnable, ccCustomRuleEnable_);
         DARABONBA_PTR_FROM_JSON(CcEnable, ccEnable_);
+        DARABONBA_PTR_FROM_JSON(CcGlobalSwitch, ccGlobalSwitch_);
         DARABONBA_PTR_FROM_JSON(CcTemplate, ccTemplate_);
         DARABONBA_PTR_FROM_JSON(Domain, domain_);
         DARABONBA_PTR_FROM_JSON(PreciseRuleEnable, preciseRuleEnable_);
@@ -71,7 +73,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->aiMode_ == nullptr
         && this->aiRuleEnable_ == nullptr && this->aiTemplate_ == nullptr && this->blackWhiteListEnable_ == nullptr && this->ccCustomRuleEnable_ == nullptr && this->ccEnable_ == nullptr
-        && this->ccTemplate_ == nullptr && this->domain_ == nullptr && this->preciseRuleEnable_ == nullptr && this->regionBlockEnable_ == nullptr; };
+        && this->ccGlobalSwitch_ == nullptr && this->ccTemplate_ == nullptr && this->domain_ == nullptr && this->preciseRuleEnable_ == nullptr && this->regionBlockEnable_ == nullptr; };
       // aiMode Field Functions 
       bool hasAiMode() const { return this->aiMode_ != nullptr;};
       void deleteAiMode() { this->aiMode_ = nullptr;};
@@ -114,6 +116,13 @@ namespace Models
       inline ProtectSwitchList& setCcEnable(int32_t ccEnable) { DARABONBA_PTR_SET_VALUE(ccEnable_, ccEnable) };
 
 
+      // ccGlobalSwitch Field Functions 
+      bool hasCcGlobalSwitch() const { return this->ccGlobalSwitch_ != nullptr;};
+      void deleteCcGlobalSwitch() { this->ccGlobalSwitch_ = nullptr;};
+      inline string getCcGlobalSwitch() const { DARABONBA_PTR_GET_DEFAULT(ccGlobalSwitch_, "") };
+      inline ProtectSwitchList& setCcGlobalSwitch(string ccGlobalSwitch) { DARABONBA_PTR_SET_VALUE(ccGlobalSwitch_, ccGlobalSwitch) };
+
+
       // ccTemplate Field Functions 
       bool hasCcTemplate() const { return this->ccTemplate_ != nullptr;};
       void deleteCcTemplate() { this->ccTemplate_ = nullptr;};
@@ -149,6 +158,7 @@ namespace Models
       shared_ptr<int32_t> blackWhiteListEnable_ {};
       shared_ptr<int32_t> ccCustomRuleEnable_ {};
       shared_ptr<int32_t> ccEnable_ {};
+      shared_ptr<string> ccGlobalSwitch_ {};
       shared_ptr<string> ccTemplate_ {};
       shared_ptr<string> domain_ {};
       shared_ptr<int32_t> preciseRuleEnable_ {};
