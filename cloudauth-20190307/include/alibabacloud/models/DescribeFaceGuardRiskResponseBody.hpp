@@ -39,11 +39,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ResultObject& obj) { 
         DARABONBA_PTR_TO_JSON(CertifyId, certifyId_);
+        DARABONBA_PTR_TO_JSON(GuardRiskScore, guardRiskScore_);
         DARABONBA_PTR_TO_JSON(RiskExtends, riskExtends_);
         DARABONBA_PTR_TO_JSON(RiskTags, riskTags_);
       };
       friend void from_json(const Darabonba::Json& j, ResultObject& obj) { 
         DARABONBA_PTR_FROM_JSON(CertifyId, certifyId_);
+        DARABONBA_PTR_FROM_JSON(GuardRiskScore, guardRiskScore_);
         DARABONBA_PTR_FROM_JSON(RiskExtends, riskExtends_);
         DARABONBA_PTR_FROM_JSON(RiskTags, riskTags_);
       };
@@ -59,12 +61,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->certifyId_ == nullptr
-        && this->riskExtends_ == nullptr && this->riskTags_ == nullptr; };
+        && this->guardRiskScore_ == nullptr && this->riskExtends_ == nullptr && this->riskTags_ == nullptr; };
       // certifyId Field Functions 
       bool hasCertifyId() const { return this->certifyId_ != nullptr;};
       void deleteCertifyId() { this->certifyId_ = nullptr;};
       inline string getCertifyId() const { DARABONBA_PTR_GET_DEFAULT(certifyId_, "") };
       inline ResultObject& setCertifyId(string certifyId) { DARABONBA_PTR_SET_VALUE(certifyId_, certifyId) };
+
+
+      // guardRiskScore Field Functions 
+      bool hasGuardRiskScore() const { return this->guardRiskScore_ != nullptr;};
+      void deleteGuardRiskScore() { this->guardRiskScore_ = nullptr;};
+      inline double getGuardRiskScore() const { DARABONBA_PTR_GET_DEFAULT(guardRiskScore_, 0.0) };
+      inline ResultObject& setGuardRiskScore(double guardRiskScore) { DARABONBA_PTR_SET_VALUE(guardRiskScore_, guardRiskScore) };
 
 
       // riskExtends Field Functions 
@@ -84,6 +93,7 @@ namespace Models
     protected:
       // Unique real-person authentication identifier.
       shared_ptr<string> certifyId_ {};
+      shared_ptr<double> guardRiskScore_ {};
       // Extended information, in JSON format. (Customized return based on tenant requirements)
       shared_ptr<string> riskExtends_ {};
       // Device risk tags.
