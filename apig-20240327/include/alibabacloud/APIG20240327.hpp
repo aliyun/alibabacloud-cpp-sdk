@@ -339,6 +339,24 @@ namespace APIG20240327
       Models::CreatePolicyAttachmentResponse createPolicyAttachment(const Models::CreatePolicyAttachmentRequest &request);
 
       /**
+       * @summary 创建密钥
+       *
+       * @param request CreateSecretRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecretResponse
+       */
+      Models::CreateSecretResponse createSecretWithOptions(const Models::CreateSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建密钥
+       *
+       * @param request CreateSecretRequest
+       * @return CreateSecretResponse
+       */
+      Models::CreateSecretResponse createSecret(const Models::CreateSecretRequest &request);
+
+      /**
        * @summary Creates a service.
        *
        * @description You can call this operation to create multiple services at a time.
@@ -609,6 +627,22 @@ namespace APIG20240327
        * @return DeletePolicyAttachmentResponse
        */
       Models::DeletePolicyAttachmentResponse deletePolicyAttachment(const string &policyAttachmentId);
+
+      /**
+       * @summary 删除密钥
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecretResponse
+       */
+      Models::DeleteSecretResponse deleteSecretWithOptions(const string &secretId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除密钥
+       *
+       * @return DeleteSecretResponse
+       */
+      Models::DeleteSecretResponse deleteSecret(const string &secretId);
 
       /**
        * @summary Deletes a service.
@@ -947,6 +981,22 @@ namespace APIG20240327
        * @return GetResourceOverviewResponse
        */
       Models::GetResourceOverviewResponse getResourceOverview(const Models::GetResourceOverviewRequest &request);
+
+      /**
+       * @summary 查询密钥值
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecretValueResponse
+       */
+      Models::GetSecretValueResponse getSecretValueWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询密钥值
+       *
+       * @return GetSecretValueResponse
+       */
+      Models::GetSecretValueResponse getSecretValue(const string &name);
 
       /**
        * @summary Queries the details of a service.
@@ -1309,6 +1359,42 @@ namespace APIG20240327
        * @return ListPolicyClassesResponse
        */
       Models::ListPolicyClassesResponse listPolicyClasses(const Models::ListPolicyClassesRequest &request);
+
+      /**
+       * @summary 查询密钥的引用详情
+       *
+       * @param request ListSecretReferencesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSecretReferencesResponse
+       */
+      Models::ListSecretReferencesResponse listSecretReferencesWithOptions(const string &secretId, const Models::ListSecretReferencesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询密钥的引用详情
+       *
+       * @param request ListSecretReferencesRequest
+       * @return ListSecretReferencesResponse
+       */
+      Models::ListSecretReferencesResponse listSecretReferences(const string &secretId, const Models::ListSecretReferencesRequest &request);
+
+      /**
+       * @summary 查询密钥列表
+       *
+       * @param request ListSecretsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSecretsResponse
+       */
+      Models::ListSecretsResponse listSecretsWithOptions(const Models::ListSecretsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询密钥列表
+       *
+       * @param request ListSecretsRequest
+       * @return ListSecretsResponse
+       */
+      Models::ListSecretsResponse listSecrets(const Models::ListSecretsRequest &request);
 
       /**
        * @summary Queries a list of services.
@@ -1721,6 +1807,24 @@ namespace APIG20240327
        * @return UpdatePolicyResponse
        */
       Models::UpdatePolicyResponse updatePolicy(const string &policyId, const Models::UpdatePolicyRequest &request);
+
+      /**
+       * @summary 更新消费者
+       *
+       * @param request UpdateSecretRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecretResponse
+       */
+      Models::UpdateSecretResponse updateSecretWithOptions(const string &secretId, const Models::UpdateSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新消费者
+       *
+       * @param request UpdateSecretRequest
+       * @return UpdateSecretResponse
+       */
+      Models::UpdateSecretResponse updateSecret(const string &secretId, const Models::UpdateSecretRequest &request);
 
       /**
        * @summary 更新服务

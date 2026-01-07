@@ -107,6 +107,9 @@
 #include <alibabacloud/models/CreatePolicyAttachmentRequest.hpp>
 #include <alibabacloud/models/CreatePolicyAttachmentResponseBody.hpp>
 #include <alibabacloud/models/CreatePolicyAttachmentResponse.hpp>
+#include <alibabacloud/models/CreateSecretRequest.hpp>
+#include <alibabacloud/models/CreateSecretResponseBody.hpp>
+#include <alibabacloud/models/CreateSecretResponse.hpp>
 #include <alibabacloud/models/CreateServiceRequest.hpp>
 #include <alibabacloud/models/CreateServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceResponse.hpp>
@@ -143,6 +146,8 @@
 #include <alibabacloud/models/DeletePolicyResponse.hpp>
 #include <alibabacloud/models/DeletePolicyAttachmentResponseBody.hpp>
 #include <alibabacloud/models/DeletePolicyAttachmentResponse.hpp>
+#include <alibabacloud/models/DeleteSecretResponseBody.hpp>
+#include <alibabacloud/models/DeleteSecretResponse.hpp>
 #include <alibabacloud/models/DeleteServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteServiceResponse.hpp>
 #include <alibabacloud/models/DeleteServiceVersionResponseBody.hpp>
@@ -189,6 +194,8 @@
 #include <alibabacloud/models/GetResourceOverviewRequest.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBody.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponse.hpp>
+#include <alibabacloud/models/GetSecretValueResponseBody.hpp>
+#include <alibabacloud/models/GetSecretValueResponse.hpp>
 #include <alibabacloud/models/GetServiceResponseBody.hpp>
 #include <alibabacloud/models/GetServiceResponse.hpp>
 #include <alibabacloud/models/GetSourceResponseBody.hpp>
@@ -247,6 +254,12 @@
 #include <alibabacloud/models/ListPolicyClassesRequest.hpp>
 #include <alibabacloud/models/ListPolicyClassesResponseBody.hpp>
 #include <alibabacloud/models/ListPolicyClassesResponse.hpp>
+#include <alibabacloud/models/ListSecretReferencesRequest.hpp>
+#include <alibabacloud/models/ListSecretReferencesResponseBody.hpp>
+#include <alibabacloud/models/ListSecretReferencesResponse.hpp>
+#include <alibabacloud/models/ListSecretsRequest.hpp>
+#include <alibabacloud/models/ListSecretsResponseBody.hpp>
+#include <alibabacloud/models/ListSecretsResponse.hpp>
 #include <alibabacloud/models/ListServicesRequest.hpp>
 #include <alibabacloud/models/ListServicesResponseBody.hpp>
 #include <alibabacloud/models/ListServicesResponse.hpp>
@@ -311,6 +324,9 @@
 #include <alibabacloud/models/UpdatePolicyRequest.hpp>
 #include <alibabacloud/models/UpdatePolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdatePolicyResponse.hpp>
+#include <alibabacloud/models/UpdateSecretRequest.hpp>
+#include <alibabacloud/models/UpdateSecretResponseBody.hpp>
+#include <alibabacloud/models/UpdateSecretResponse.hpp>
 #include <alibabacloud/models/UpdateServiceRequest.hpp>
 #include <alibabacloud/models/UpdateServiceResponseBody.hpp>
 #include <alibabacloud/models/UpdateServiceResponse.hpp>

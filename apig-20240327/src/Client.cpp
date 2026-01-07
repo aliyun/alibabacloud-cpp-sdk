@@ -1194,6 +1194,71 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachment(const CreatePolicy
 }
 
 /**
+ * @summary 创建密钥
+ *
+ * @param request CreateSecretRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecretResponse
+ */
+CreateSecretResponse Client::createSecretWithOptions(const CreateSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasGatewayType()) {
+    body["gatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasKmsConfig()) {
+    body["kmsConfig"] = request.getKmsConfig();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasSecretData()) {
+    body["secretData"] = request.getSecretData();
+  }
+
+  if (!!request.hasSecretSource()) {
+    body["secretSource"] = request.getSecretSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSecret"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/secrets")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecretResponse>();
+}
+
+/**
+ * @summary 创建密钥
+ *
+ * @param request CreateSecretRequest
+ * @return CreateSecretResponse
+ */
+CreateSecretResponse Client::createSecret(const CreateSecretRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSecretWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a service.
  *
  * @description You can call this operation to create multiple services at a time.
@@ -1843,6 +1908,42 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachment(const string &poli
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deletePolicyAttachmentWithOptions(policyAttachmentId, headers, runtime);
+}
+
+/**
+ * @summary 删除密钥
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecretResponse
+ */
+DeleteSecretResponse Client::deleteSecretWithOptions(const string &secretId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSecret"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/secrets/" , Darabonba::Encode::Encoder::percentEncode(secretId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecretResponse>();
+}
+
+/**
+ * @summary 删除密钥
+ *
+ * @return DeleteSecretResponse
+ */
+DeleteSecretResponse Client::deleteSecret(const string &secretId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteSecretWithOptions(secretId, headers, runtime);
 }
 
 /**
@@ -2666,6 +2767,42 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getResourceOverviewWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询密钥值
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSecretValueResponse
+ */
+GetSecretValueResponse Client::getSecretValueWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSecretValue"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/secrets/name/" , Darabonba::Encode::Encoder::percentEncode(name) , "/value")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSecretValueResponse>();
+}
+
+/**
+ * @summary 查询密钥值
+ *
+ * @return GetSecretValueResponse
+ */
+GetSecretValueResponse Client::getSecretValue(const string &name) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSecretValueWithOptions(name, headers, runtime);
 }
 
 /**
@@ -4044,6 +4181,112 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
 }
 
 /**
+ * @summary 查询密钥的引用详情
+ *
+ * @param request ListSecretReferencesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSecretReferencesResponse
+ */
+ListSecretReferencesResponse Client::listSecretReferencesWithOptions(const string &secretId, const ListSecretReferencesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSecretReferences"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/secrets/" , Darabonba::Encode::Encoder::percentEncode(secretId) , "/references")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSecretReferencesResponse>();
+}
+
+/**
+ * @summary 查询密钥的引用详情
+ *
+ * @param request ListSecretReferencesRequest
+ * @return ListSecretReferencesResponse
+ */
+ListSecretReferencesResponse Client::listSecretReferences(const string &secretId, const ListSecretReferencesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSecretReferencesWithOptions(secretId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询密钥列表
+ *
+ * @param request ListSecretsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSecretsResponse
+ */
+ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayType()) {
+    query["gatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasNameLike()) {
+    query["nameLike"] = request.getNameLike();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSecrets"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/secrets")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSecretsResponse>();
+}
+
+/**
+ * @summary 查询密钥列表
+ *
+ * @param request ListSecretsRequest
+ * @return ListSecretsResponse
+ */
+ListSecretsResponse Client::listSecrets(const ListSecretsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSecretsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of services.
  *
  * @param request ListServicesRequest
@@ -5363,6 +5606,51 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updatePolicyWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新消费者
+ *
+ * @param request UpdateSecretRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSecretResponse
+ */
+UpdateSecretResponse Client::updateSecretWithOptions(const string &secretId, const UpdateSecretRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSecretData()) {
+    body["secretData"] = request.getSecretData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSecret"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/secrets/" , Darabonba::Encode::Encoder::percentEncode(secretId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSecretResponse>();
+}
+
+/**
+ * @summary 更新消费者
+ *
+ * @param request UpdateSecretRequest
+ * @return UpdateSecretResponse
+ */
+UpdateSecretResponse Client::updateSecret(const string &secretId, const UpdateSecretRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateSecretWithOptions(secretId, request, headers, runtime);
 }
 
 /**
