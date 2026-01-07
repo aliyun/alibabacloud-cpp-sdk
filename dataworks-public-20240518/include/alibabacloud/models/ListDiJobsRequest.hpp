@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(SourceDataSourceType, sourceDataSourceType_);
+      DARABONBA_PTR_TO_JSON(SpecType, specType_);
     };
     friend void from_json(const Darabonba::Json& j, ListDIJobsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DestinationDataSourceType, destinationDataSourceType_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(SourceDataSourceType, sourceDataSourceType_);
+      DARABONBA_PTR_FROM_JSON(SpecType, specType_);
     };
     ListDIJobsRequest() = default ;
     ListDIJobsRequest(const ListDIJobsRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationDataSourceType_ == nullptr
         && this->migrationType_ == nullptr && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
-        && this->sourceDataSourceType_ == nullptr; };
+        && this->sourceDataSourceType_ == nullptr && this->specType_ == nullptr; };
     // destinationDataSourceType Field Functions 
     bool hasDestinationDataSourceType() const { return this->destinationDataSourceType_ != nullptr;};
     void deleteDestinationDataSourceType() { this->destinationDataSourceType_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     inline ListDIJobsRequest& setSourceDataSourceType(string sourceDataSourceType) { DARABONBA_PTR_SET_VALUE(sourceDataSourceType_, sourceDataSourceType) };
 
 
+    // specType Field Functions 
+    bool hasSpecType() const { return this->specType_ != nullptr;};
+    void deleteSpecType() { this->specType_ = nullptr;};
+    inline string getSpecType() const { DARABONBA_PTR_GET_DEFAULT(specType_, "") };
+    inline ListDIJobsRequest& setSpecType(string specType) { DARABONBA_PTR_SET_VALUE(specType_, specType) };
+
+
   protected:
     // The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, Datahub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive. If you do not configure this parameter, the API operation queries synchronization tasks that use all type of destinations.
     shared_ptr<string> destinationDataSourceType_ {};
@@ -118,6 +127,7 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse. If you do not configure this parameter, the API operation queries synchronization tasks that use all types of sources.
     shared_ptr<string> sourceDataSourceType_ {};
+    shared_ptr<string> specType_ {};
   };
 
   } // namespace Models
