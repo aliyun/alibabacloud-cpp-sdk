@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(HpnZone, hpnZone_);
       DARABONBA_PTR_TO_JSON(HyperNodeId, hyperNodeId_);
+      DARABONBA_PTR_TO_JSON(HyperNodeIds, hyperNodeIdsShrink_);
       DARABONBA_PTR_TO_JSON(MachineType, machineType_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(HpnZone, hpnZone_);
       DARABONBA_PTR_FROM_JSON(HyperNodeId, hyperNodeId_);
+      DARABONBA_PTR_FROM_JSON(HyperNodeIds, hyperNodeIdsShrink_);
       DARABONBA_PTR_FROM_JSON(MachineType, machineType_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -95,9 +97,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clusterName_ == nullptr
-        && this->commodityCode_ == nullptr && this->hpnZone_ == nullptr && this->hyperNodeId_ == nullptr && this->machineType_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->nodeGroupName_ == nullptr && this->operatingStatesShrink_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->commodityCode_ == nullptr && this->hpnZone_ == nullptr && this->hyperNodeId_ == nullptr && this->hyperNodeIdsShrink_ == nullptr && this->machineType_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->nodeGroupName_ == nullptr && this->operatingStatesShrink_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->tags_ == nullptr && this->zoneId_ == nullptr; };
     // clusterName Field Functions 
     bool hasClusterName() const { return this->clusterName_ != nullptr;};
     void deleteClusterName() { this->clusterName_ = nullptr;};
@@ -124,6 +126,13 @@ namespace Models
     void deleteHyperNodeId() { this->hyperNodeId_ = nullptr;};
     inline string getHyperNodeId() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeId_, "") };
     inline ListHyperNodesShrinkRequest& setHyperNodeId(string hyperNodeId) { DARABONBA_PTR_SET_VALUE(hyperNodeId_, hyperNodeId) };
+
+
+    // hyperNodeIdsShrink Field Functions 
+    bool hasHyperNodeIdsShrink() const { return this->hyperNodeIdsShrink_ != nullptr;};
+    void deleteHyperNodeIdsShrink() { this->hyperNodeIdsShrink_ = nullptr;};
+    inline string getHyperNodeIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(hyperNodeIdsShrink_, "") };
+    inline ListHyperNodesShrinkRequest& setHyperNodeIdsShrink(string hyperNodeIdsShrink) { DARABONBA_PTR_SET_VALUE(hyperNodeIdsShrink_, hyperNodeIdsShrink) };
 
 
     // machineType Field Functions 
@@ -189,6 +198,7 @@ namespace Models
     shared_ptr<string> commodityCode_ {};
     shared_ptr<string> hpnZone_ {};
     shared_ptr<string> hyperNodeId_ {};
+    shared_ptr<string> hyperNodeIdsShrink_ {};
     shared_ptr<string> machineType_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};

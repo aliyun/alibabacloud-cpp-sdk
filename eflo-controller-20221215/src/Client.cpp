@@ -1976,6 +1976,10 @@ ListHyperNodesResponse Client::listHyperNodesWithOptions(const ListHyperNodesReq
   tmpReq.validate();
   ListHyperNodesShrinkRequest request = ListHyperNodesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHyperNodeIds()) {
+    request.setHyperNodeIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHyperNodeIds(), "HyperNodeIds", "json"));
+  }
+
   if (!!tmpReq.hasOperatingStates()) {
     request.setOperatingStatesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOperatingStates(), "OperatingStates", "json"));
   }
@@ -1983,6 +1987,10 @@ ListHyperNodesResponse Client::listHyperNodesWithOptions(const ListHyperNodesReq
   json query = {};
   if (!!request.hasCommodityCode()) {
     query["CommodityCode"] = request.getCommodityCode();
+  }
+
+  if (!!request.hasHyperNodeIdsShrink()) {
+    query["HyperNodeIds"] = request.getHyperNodeIdsShrink();
   }
 
   if (!!request.hasOperatingStatesShrink()) {
