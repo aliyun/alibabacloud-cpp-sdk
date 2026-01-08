@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageBase64Str_ == nullptr
-        && return this->service_ == nullptr && return this->serviceParameters_ == nullptr; };
+        && this->service_ == nullptr && this->serviceParameters_ == nullptr; };
     // imageBase64Str Field Functions 
     bool hasImageBase64Str() const { return this->imageBase64Str_ != nullptr;};
     void deleteImageBase64Str() { this->imageBase64Str_ = nullptr;};
-    inline string imageBase64Str() const { DARABONBA_PTR_GET_DEFAULT(imageBase64Str_, "") };
+    inline string getImageBase64Str() const { DARABONBA_PTR_GET_DEFAULT(imageBase64Str_, "") };
     inline MultiModalGuardForBase64Request& setImageBase64Str(string imageBase64Str) { DARABONBA_PTR_SET_VALUE(imageBase64Str_, imageBase64Str) };
 
 
     // service Field Functions 
     bool hasService() const { return this->service_ != nullptr;};
     void deleteService() { this->service_ = nullptr;};
-    inline string service() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
+    inline string getService() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
     inline MultiModalGuardForBase64Request& setService(string service) { DARABONBA_PTR_SET_VALUE(service_, service) };
 
 
     // serviceParameters Field Functions 
     bool hasServiceParameters() const { return this->serviceParameters_ != nullptr;};
     void deleteServiceParameters() { this->serviceParameters_ = nullptr;};
-    inline string serviceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
+    inline string getServiceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
     inline MultiModalGuardForBase64Request& setServiceParameters(string serviceParameters) { DARABONBA_PTR_SET_VALUE(serviceParameters_, serviceParameters) };
 
 
   protected:
-    std::shared_ptr<string> imageBase64Str_ = nullptr;
+    shared_ptr<string> imageBase64Str_ {};
     // Service
-    std::shared_ptr<string> service_ = nullptr;
-    std::shared_ptr<string> serviceParameters_ = nullptr;
+    shared_ptr<string> service_ {};
+    shared_ptr<string> serviceParameters_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // reqId Field Functions 
     bool hasReqId() const { return this->reqId_ != nullptr;};
     void deleteReqId() { this->reqId_ = nullptr;};
-    inline string reqId() const { DARABONBA_PTR_GET_DEFAULT(reqId_, "") };
+    inline string getReqId() const { DARABONBA_PTR_GET_DEFAULT(reqId_, "") };
     inline DescribeUrlModerationResultRequest& setReqId(string reqId) { DARABONBA_PTR_SET_VALUE(reqId_, reqId) };
 
 
   protected:
     // The ReqId field returned by an asynchronous URL moderation operation.
-    std::shared_ptr<string> reqId_ = nullptr;
+    shared_ptr<string> reqId_ {};
   };
 
   } // namespace Models

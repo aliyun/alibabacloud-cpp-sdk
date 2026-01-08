@@ -33,14 +33,14 @@ namespace Models
     // serviceParameters Field Functions 
     bool hasServiceParameters() const { return this->serviceParameters_ != nullptr;};
     void deleteServiceParameters() { this->serviceParameters_ = nullptr;};
-    inline string serviceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
+    inline string getServiceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
     inline ManualModerationResultRequest& setServiceParameters(string serviceParameters) { DARABONBA_PTR_SET_VALUE(serviceParameters_, serviceParameters) };
 
 
   protected:
     // Set of parameters required by the service, in JSON string format.
     // - TaskId: The task ID returned when the task was submitted.
-    std::shared_ptr<string> serviceParameters_ = nullptr;
+    shared_ptr<string> serviceParameters_ {};
   };
 
   } // namespace Models

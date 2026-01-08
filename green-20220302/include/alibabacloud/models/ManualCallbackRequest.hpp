@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channel_ == nullptr
-        && return this->checksum_ == nullptr && return this->code_ == nullptr && return this->data_ == nullptr && return this->msg_ == nullptr && return this->reqId_ == nullptr; };
+        && this->checksum_ == nullptr && this->code_ == nullptr && this->data_ == nullptr && this->msg_ == nullptr && this->reqId_ == nullptr; };
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
-    inline string channel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
     inline ManualCallbackRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // checksum Field Functions 
     bool hasChecksum() const { return this->checksum_ != nullptr;};
     void deleteChecksum() { this->checksum_ = nullptr;};
-    inline string checksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
+    inline string getChecksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
     inline ManualCallbackRequest& setChecksum(string checksum) { DARABONBA_PTR_SET_VALUE(checksum_, checksum) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ManualCallbackRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline string data() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
     inline ManualCallbackRequest& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // msg Field Functions 
     bool hasMsg() const { return this->msg_ != nullptr;};
     void deleteMsg() { this->msg_ = nullptr;};
-    inline string msg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
     inline ManualCallbackRequest& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
 
 
     // reqId Field Functions 
     bool hasReqId() const { return this->reqId_ != nullptr;};
     void deleteReqId() { this->reqId_ = nullptr;};
-    inline string reqId() const { DARABONBA_PTR_GET_DEFAULT(reqId_, "") };
+    inline string getReqId() const { DARABONBA_PTR_GET_DEFAULT(reqId_, "") };
     inline ManualCallbackRequest& setReqId(string reqId) { DARABONBA_PTR_SET_VALUE(reqId_, reqId) };
 
 
   protected:
     // Channel field
-    std::shared_ptr<string> channel_ = nullptr;
+    shared_ptr<string> channel_ {};
     // Checksum.
-    std::shared_ptr<string> checksum_ = nullptr;
+    shared_ptr<string> checksum_ {};
     // Code value
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // Returned data.
-    std::shared_ptr<string> data_ = nullptr;
+    shared_ptr<string> data_ {};
     // Message information
-    std::shared_ptr<string> msg_ = nullptr;
+    shared_ptr<string> msg_ {};
     // Platform request ID, used for troubleshooting assistance
-    std::shared_ptr<string> reqId_ = nullptr;
+    shared_ptr<string> reqId_ {};
   };
 
   } // namespace Models

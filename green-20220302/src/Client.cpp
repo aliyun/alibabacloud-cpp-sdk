@@ -66,11 +66,11 @@ DescribeFileModerationResultResponse Client::describeFileModerationResultWithOpt
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -115,7 +115,7 @@ DescribeImageModerationResultResponse Client::describeImageModerationResultWithO
   request.validate();
   json query = {};
   if (!!request.hasReqId()) {
-    query["ReqId"] = request.reqId();
+    query["ReqId"] = request.getReqId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -160,11 +160,11 @@ DescribeImageResultExtResponse Client::describeImageResultExtWithOptions(const D
   request.validate();
   json body = {};
   if (!!request.hasInfoType()) {
-    body["InfoType"] = request.infoType();
+    body["InfoType"] = request.getInfoType();
   }
 
   if (!!request.hasReqId()) {
-    body["ReqId"] = request.reqId();
+    body["ReqId"] = request.getReqId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -206,7 +206,7 @@ DescribeMultimodalModerationResultResponse Client::describeMultimodalModerationR
   request.validate();
   json query = {};
   if (!!request.hasReqId()) {
-    query["ReqId"] = request.reqId();
+    query["ReqId"] = request.getReqId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -285,7 +285,7 @@ DescribeUrlModerationResultResponse Client::describeUrlModerationResultWithOptio
   request.validate();
   json body = {};
   if (!!request.hasReqId()) {
-    body["ReqId"] = request.reqId();
+    body["ReqId"] = request.getReqId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -331,11 +331,11 @@ FileModerationResponse Client::fileModerationWithOptions(const FileModerationReq
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -377,11 +377,11 @@ ImageAsyncModerationResponse Client::imageAsyncModerationWithOptions(const Image
   request.validate();
   json query = {};
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    query["ServiceParameters"] = request.serviceParameters();
+    query["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -423,11 +423,11 @@ ImageBatchModerationResponse Client::imageBatchModerationWithOptions(const Image
   request.validate();
   json query = {};
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    query["ServiceParameters"] = request.serviceParameters();
+    query["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -471,11 +471,11 @@ ImageModerationResponse Client::imageModerationWithOptions(const ImageModeration
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -519,11 +519,11 @@ ImageQueueModerationResponse Client::imageQueueModerationWithOptions(const Image
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -565,27 +565,27 @@ ManualCallbackResponse Client::manualCallbackWithOptions(const ManualCallbackReq
   request.validate();
   json body = {};
   if (!!request.hasChannel()) {
-    body["Channel"] = request.channel();
+    body["Channel"] = request.getChannel();
   }
 
   if (!!request.hasChecksum()) {
-    body["Checksum"] = request.checksum();
+    body["Checksum"] = request.getChecksum();
   }
 
   if (!!request.hasCode()) {
-    body["Code"] = request.code();
+    body["Code"] = request.getCode();
   }
 
   if (!!request.hasData()) {
-    body["Data"] = request.data();
+    body["Data"] = request.getData();
   }
 
   if (!!request.hasMsg()) {
-    body["Msg"] = request.msg();
+    body["Msg"] = request.getMsg();
   }
 
   if (!!request.hasReqId()) {
-    body["ReqId"] = request.reqId();
+    body["ReqId"] = request.getReqId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -627,11 +627,11 @@ ManualModerationResponse Client::manualModerationWithOptions(const ManualModerat
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -673,7 +673,7 @@ ManualModerationResultResponse Client::manualModerationResultWithOptions(const M
   request.validate();
   json body = {};
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -715,11 +715,11 @@ MultiModalGuardResponse Client::multiModalGuardWithOptions(const MultiModalGuard
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -761,16 +761,16 @@ MultiModalGuardForBase64Response Client::multiModalGuardForBase64WithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   json body = {};
   if (!!request.hasImageBase64Str()) {
-    body["ImageBase64Str"] = request.imageBase64Str();
+    body["ImageBase64Str"] = request.getImageBase64Str();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -813,11 +813,11 @@ MultimodalAsyncModerationResponse Client::multimodalAsyncModerationWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    query["ServiceParameters"] = request.serviceParameters();
+    query["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -861,11 +861,11 @@ TextModerationResponse Client::textModerationWithOptions(const TextModerationReq
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -911,11 +911,11 @@ TextModerationPlusResponse Client::textModerationPlusWithOptions(const TextModer
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -959,11 +959,11 @@ UrlAsyncModerationResponse Client::urlAsyncModerationWithOptions(const UrlAsyncM
   request.validate();
   json query = {};
   if (!!request.hasService()) {
-    query["Service"] = request.service();
+    query["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    query["ServiceParameters"] = request.serviceParameters();
+    query["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1005,11 +1005,11 @@ VideoModerationResponse Client::videoModerationWithOptions(const VideoModeration
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1051,11 +1051,11 @@ VideoModerationCancelResponse Client::videoModerationCancelWithOptions(const Vid
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1099,11 +1099,11 @@ VideoModerationResultResponse Client::videoModerationResultWithOptions(const Vid
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1147,11 +1147,11 @@ VoiceModerationResponse Client::voiceModerationWithOptions(const VoiceModeration
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1193,11 +1193,11 @@ VoiceModerationCancelResponse Client::voiceModerationCancelWithOptions(const Voi
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1239,11 +1239,11 @@ VoiceModerationResultResponse Client::voiceModerationResultWithOptions(const Voi
   request.validate();
   json body = {};
   if (!!request.hasService()) {
-    body["Service"] = request.service();
+    body["Service"] = request.getService();
   }
 
   if (!!request.hasServiceParameters()) {
-    body["ServiceParameters"] = request.serviceParameters();
+    body["ServiceParameters"] = request.getServiceParameters();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

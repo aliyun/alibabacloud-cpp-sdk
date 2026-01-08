@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->service_ == nullptr
-        && return this->serviceParameters_ == nullptr; };
+        && this->serviceParameters_ == nullptr; };
     // service Field Functions 
     bool hasService() const { return this->service_ != nullptr;};
     void deleteService() { this->service_ = nullptr;};
-    inline string service() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
+    inline string getService() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
     inline ImageQueueModerationRequest& setService(string service) { DARABONBA_PTR_SET_VALUE(service_, service) };
 
 
     // serviceParameters Field Functions 
     bool hasServiceParameters() const { return this->serviceParameters_ != nullptr;};
     void deleteServiceParameters() { this->serviceParameters_ = nullptr;};
-    inline string serviceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
+    inline string getServiceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
     inline ImageQueueModerationRequest& setServiceParameters(string serviceParameters) { DARABONBA_PTR_SET_VALUE(serviceParameters_, serviceParameters) };
 
 
   protected:
-    std::shared_ptr<string> service_ = nullptr;
-    std::shared_ptr<string> serviceParameters_ = nullptr;
+    shared_ptr<string> service_ {};
+    shared_ptr<string> serviceParameters_ {};
   };
 
   } // namespace Models

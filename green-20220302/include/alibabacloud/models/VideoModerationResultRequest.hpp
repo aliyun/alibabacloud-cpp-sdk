@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->service_ == nullptr
-        && return this->serviceParameters_ == nullptr; };
+        && this->serviceParameters_ == nullptr; };
     // service Field Functions 
     bool hasService() const { return this->service_ != nullptr;};
     void deleteService() { this->service_ = nullptr;};
-    inline string service() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
+    inline string getService() const { DARABONBA_PTR_GET_DEFAULT(service_, "") };
     inline VideoModerationResultRequest& setService(string service) { DARABONBA_PTR_SET_VALUE(service_, service) };
 
 
     // serviceParameters Field Functions 
     bool hasServiceParameters() const { return this->serviceParameters_ != nullptr;};
     void deleteServiceParameters() { this->serviceParameters_ = nullptr;};
-    inline string serviceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
+    inline string getServiceParameters() const { DARABONBA_PTR_GET_DEFAULT(serviceParameters_, "") };
     inline VideoModerationResultRequest& setServiceParameters(string serviceParameters) { DARABONBA_PTR_SET_VALUE(serviceParameters_, serviceParameters) };
 
 
@@ -56,9 +56,9 @@ namespace Models
     // *   videoDetection: video file moderation
     // *   liveStreamDetection_cb: live stream moderation_For regions outside the Chinese mainland
     // *   videoDetection_cb: video file moderation_For regions outside the Chinese mainland.
-    std::shared_ptr<string> service_ = nullptr;
+    shared_ptr<string> service_ {};
     // The parameters required by the moderation service. The ID of the task that you want to query. You can specify one task ID at a time.
-    std::shared_ptr<string> serviceParameters_ = nullptr;
+    shared_ptr<string> serviceParameters_ {};
   };
 
   } // namespace Models
