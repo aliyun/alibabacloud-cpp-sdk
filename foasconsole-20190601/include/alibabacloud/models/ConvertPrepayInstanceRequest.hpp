@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CONVERTPREPAYINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CONVERTPREPAYINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ConvertPrepayInstanceRequestConvertPrepayInstanceRequest.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -30,19 +29,63 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ConvertPrepayInstanceRequestItem : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ConvertPrepayInstanceRequestItem& obj) { 
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(Region, region_);
+      };
+      friend void from_json(const Darabonba::Json& j, ConvertPrepayInstanceRequestItem& obj) { 
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(Region, region_);
+      };
+      ConvertPrepayInstanceRequestItem() = default ;
+      ConvertPrepayInstanceRequestItem(const ConvertPrepayInstanceRequestItem &) = default ;
+      ConvertPrepayInstanceRequestItem(ConvertPrepayInstanceRequestItem &&) = default ;
+      ConvertPrepayInstanceRequestItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ConvertPrepayInstanceRequestItem() = default ;
+      ConvertPrepayInstanceRequestItem& operator=(const ConvertPrepayInstanceRequestItem &) = default ;
+      ConvertPrepayInstanceRequestItem& operator=(ConvertPrepayInstanceRequestItem &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->region_ == nullptr; };
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline ConvertPrepayInstanceRequestItem& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // region Field Functions 
+      bool hasRegion() const { return this->region_ != nullptr;};
+      void deleteRegion() { this->region_ = nullptr;};
+      inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+      inline ConvertPrepayInstanceRequestItem& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+    protected:
+      // This parameter is required.
+      shared_ptr<string> instanceId_ {};
+      // This parameter is required.
+      shared_ptr<string> region_ {};
+    };
+
     virtual bool empty() const override { return this->convertPrepayInstanceRequest_ == nullptr; };
     // convertPrepayInstanceRequest Field Functions 
     bool hasConvertPrepayInstanceRequest() const { return this->convertPrepayInstanceRequest_ != nullptr;};
     void deleteConvertPrepayInstanceRequest() { this->convertPrepayInstanceRequest_ = nullptr;};
-    inline const ConvertPrepayInstanceRequestConvertPrepayInstanceRequest & convertPrepayInstanceRequest() const { DARABONBA_PTR_GET_CONST(convertPrepayInstanceRequest_, ConvertPrepayInstanceRequestConvertPrepayInstanceRequest) };
-    inline ConvertPrepayInstanceRequestConvertPrepayInstanceRequest convertPrepayInstanceRequest() { DARABONBA_PTR_GET(convertPrepayInstanceRequest_, ConvertPrepayInstanceRequestConvertPrepayInstanceRequest) };
-    inline ConvertPrepayInstanceRequest& setConvertPrepayInstanceRequest(const ConvertPrepayInstanceRequestConvertPrepayInstanceRequest & convertPrepayInstanceRequest) { DARABONBA_PTR_SET_VALUE(convertPrepayInstanceRequest_, convertPrepayInstanceRequest) };
-    inline ConvertPrepayInstanceRequest& setConvertPrepayInstanceRequest(ConvertPrepayInstanceRequestConvertPrepayInstanceRequest && convertPrepayInstanceRequest) { DARABONBA_PTR_SET_RVALUE(convertPrepayInstanceRequest_, convertPrepayInstanceRequest) };
+    inline const ConvertPrepayInstanceRequest::ConvertPrepayInstanceRequestItem & getConvertPrepayInstanceRequest() const { DARABONBA_PTR_GET_CONST(convertPrepayInstanceRequest_, ConvertPrepayInstanceRequest::ConvertPrepayInstanceRequestItem) };
+    inline ConvertPrepayInstanceRequest::ConvertPrepayInstanceRequestItem getConvertPrepayInstanceRequest() { DARABONBA_PTR_GET(convertPrepayInstanceRequest_, ConvertPrepayInstanceRequest::ConvertPrepayInstanceRequestItem) };
+    inline ConvertPrepayInstanceRequest& setConvertPrepayInstanceRequest(const ConvertPrepayInstanceRequest::ConvertPrepayInstanceRequestItem & convertPrepayInstanceRequest) { DARABONBA_PTR_SET_VALUE(convertPrepayInstanceRequest_, convertPrepayInstanceRequest) };
+    inline ConvertPrepayInstanceRequest& setConvertPrepayInstanceRequest(ConvertPrepayInstanceRequest::ConvertPrepayInstanceRequestItem && convertPrepayInstanceRequest) { DARABONBA_PTR_SET_RVALUE(convertPrepayInstanceRequest_, convertPrepayInstanceRequest) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<ConvertPrepayInstanceRequestConvertPrepayInstanceRequest> convertPrepayInstanceRequest_ = nullptr;
+    shared_ptr<ConvertPrepayInstanceRequest::ConvertPrepayInstanceRequestItem> convertPrepayInstanceRequest_ {};
   };
 
   } // namespace Models

@@ -21,6 +21,23 @@ namespace Foasconsole20190601
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 资源转组
+       *
+       * @param request ChangeResourceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeResourceGroupResponse
+       */
+      Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 资源转组
+       *
+       * @param request ChangeResourceGroupRequest
+       * @return ChangeResourceGroupResponse
+       */
+      Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
+
+      /**
        * @summary 按量付费转包年包月
        *
        * @param request ConvertInstanceRequest

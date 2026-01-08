@@ -36,6 +36,56 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 资源转组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceRegionId()) {
+    query["ResourceRegionId"] = request.getResourceRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ChangeResourceGroup"},
+    {"version" , "2019-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
+}
+
+/**
+ * @summary 资源转组
+ *
+ * @param request ChangeResourceGroupRequest
+ * @return ChangeResourceGroupResponse
+ */
+ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return changeResourceGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary 按量付费转包年包月
  *
  * @param request ConvertInstanceRequest
@@ -47,7 +97,7 @@ ConvertInstanceResponse Client::convertInstanceWithOptions(const ConvertInstance
   json body = {};
   json bodyFlat = {};
   if (!!request.hasConvertPostpayInstanceRequest()) {
-    bodyFlat["ConvertPostpayInstanceRequest"] = request.convertPostpayInstanceRequest();
+    bodyFlat["ConvertPostpayInstanceRequest"] = request.getConvertPostpayInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -93,7 +143,7 @@ ConvertPrepayInstanceResponse Client::convertPrepayInstanceWithOptions(const Con
   json body = {};
   json bodyFlat = {};
   if (!!request.hasConvertPrepayInstanceRequest()) {
-    bodyFlat["ConvertPrepayInstanceRequest"] = request.convertPrepayInstanceRequest();
+    bodyFlat["ConvertPrepayInstanceRequest"] = request.getConvertPrepayInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -139,7 +189,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
   json body = {};
   json bodyFlat = {};
   if (!!request.hasCreateInstanceRequest()) {
-    bodyFlat["CreateInstanceRequest"] = request.createInstanceRequest();
+    bodyFlat["CreateInstanceRequest"] = request.getCreateInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -185,7 +235,7 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
   json body = {};
   json bodyFlat = {};
   if (!!request.hasCreateNamespaceRequest()) {
-    bodyFlat["CreateNamespaceRequest"] = request.createNamespaceRequest();
+    bodyFlat["CreateNamespaceRequest"] = request.getCreateNamespaceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -231,7 +281,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
   json body = {};
   json bodyFlat = {};
   if (!!request.hasDeleteInstanceRequest()) {
-    bodyFlat["DeleteInstanceRequest"] = request.deleteInstanceRequest();
+    bodyFlat["DeleteInstanceRequest"] = request.getDeleteInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -277,7 +327,7 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
   json body = {};
   json bodyFlat = {};
   if (!!request.hasDeleteNamespaceRequest()) {
-    bodyFlat["DeleteNamespaceRequest"] = request.deleteNamespaceRequest();
+    bodyFlat["DeleteNamespaceRequest"] = request.getDeleteNamespaceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -469,23 +519,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -530,7 +580,7 @@ ModifyPrepayInstanceSpecResponse Client::modifyPrepayInstanceSpecWithOptions(con
   json body = {};
   json bodyFlat = {};
   if (!!request.hasModifyPrepayInstanceSpecRequest()) {
-    bodyFlat["ModifyPrepayInstanceSpecRequest"] = request.modifyPrepayInstanceSpecRequest();
+    bodyFlat["ModifyPrepayInstanceSpecRequest"] = request.getModifyPrepayInstanceSpecRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -580,7 +630,7 @@ ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpecWithOptions(c
   json body = {};
   json bodyFlat = {};
   if (!!request.hasModifyPrepayNamespaceSpecRequest()) {
-    bodyFlat["ModifyPrepayNamespaceSpecRequest"] = request.modifyPrepayNamespaceSpecRequest();
+    bodyFlat["ModifyPrepayNamespaceSpecRequest"] = request.getModifyPrepayNamespaceSpecRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -628,7 +678,7 @@ QueryConvertInstancePriceResponse Client::queryConvertInstancePriceWithOptions(c
   json body = {};
   json bodyFlat = {};
   if (!!request.hasConvertPostpayInstanceRequest()) {
-    bodyFlat["ConvertPostpayInstanceRequest"] = request.convertPostpayInstanceRequest();
+    bodyFlat["ConvertPostpayInstanceRequest"] = request.getConvertPostpayInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -674,7 +724,7 @@ QueryConvertPrepayInstancePriceResponse Client::queryConvertPrepayInstancePriceW
   json body = {};
   json bodyFlat = {};
   if (!!request.hasConvertPrepayInstanceRequest()) {
-    bodyFlat["ConvertPrepayInstanceRequest"] = request.convertPrepayInstanceRequest();
+    bodyFlat["ConvertPrepayInstanceRequest"] = request.getConvertPrepayInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -720,7 +770,7 @@ QueryCreateInstancePriceResponse Client::queryCreateInstancePriceWithOptions(con
   json body = {};
   json bodyFlat = {};
   if (!!request.hasCreateInstanceRequest()) {
-    bodyFlat["CreateInstanceRequest"] = request.createInstanceRequest();
+    bodyFlat["CreateInstanceRequest"] = request.getCreateInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -766,7 +816,7 @@ QueryModifyInstancePriceResponse Client::queryModifyInstancePriceWithOptions(con
   json body = {};
   json bodyFlat = {};
   if (!!request.hasModifyPrepayInstanceSpecRequest()) {
-    bodyFlat["ModifyPrepayInstanceSpecRequest"] = request.modifyPrepayInstanceSpecRequest();
+    bodyFlat["ModifyPrepayInstanceSpecRequest"] = request.getModifyPrepayInstanceSpecRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -812,7 +862,7 @@ QueryRenewInstancePriceResponse Client::queryRenewInstancePriceWithOptions(const
   json body = {};
   json bodyFlat = {};
   if (!!request.hasRenewInstanceRequest()) {
-    bodyFlat["RenewInstanceRequest"] = request.renewInstanceRequest();
+    bodyFlat["RenewInstanceRequest"] = request.getRenewInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -858,7 +908,7 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
   json body = {};
   json bodyFlat = {};
   if (!!request.hasRenewInstanceRequest()) {
-    bodyFlat["RenewInstanceRequest"] = request.renewInstanceRequest();
+    bodyFlat["RenewInstanceRequest"] = request.getRenewInstanceRequest();
   }
 
   body = Darabonba::Core::merge(body,
@@ -903,19 +953,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -957,23 +1007,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
