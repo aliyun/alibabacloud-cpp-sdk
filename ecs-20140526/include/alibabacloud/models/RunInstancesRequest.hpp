@@ -407,6 +407,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(QueueNumber, queueNumber_);
         DARABONBA_PTR_TO_JSON(QueuePairNumber, queuePairNumber_);
         DARABONBA_PTR_TO_JSON(RxQueueSize, rxQueueSize_);
+        DARABONBA_PTR_TO_JSON(SecondaryPrivateIpAddressCount, secondaryPrivateIpAddressCount_);
         DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
         DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
         DARABONBA_PTR_TO_JSON(SourceDestCheck, sourceDestCheck_);
@@ -427,6 +428,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(QueueNumber, queueNumber_);
         DARABONBA_PTR_FROM_JSON(QueuePairNumber, queuePairNumber_);
         DARABONBA_PTR_FROM_JSON(RxQueueSize, rxQueueSize_);
+        DARABONBA_PTR_FROM_JSON(SecondaryPrivateIpAddressCount, secondaryPrivateIpAddressCount_);
         DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
         DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
         DARABONBA_PTR_FROM_JSON(SourceDestCheck, sourceDestCheck_);
@@ -447,8 +449,8 @@ namespace Models
       virtual bool empty() const override { return this->deleteOnRelease_ == nullptr
         && this->description_ == nullptr && this->instanceType_ == nullptr && this->ipv6Address_ == nullptr && this->ipv6AddressCount_ == nullptr && this->networkCardIndex_ == nullptr
         && this->networkInterfaceId_ == nullptr && this->networkInterfaceName_ == nullptr && this->networkInterfaceTrafficMode_ == nullptr && this->primaryIpAddress_ == nullptr && this->queueNumber_ == nullptr
-        && this->queuePairNumber_ == nullptr && this->rxQueueSize_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->sourceDestCheck_ == nullptr
-        && this->txQueueSize_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->queuePairNumber_ == nullptr && this->rxQueueSize_ == nullptr && this->secondaryPrivateIpAddressCount_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr
+        && this->sourceDestCheck_ == nullptr && this->txQueueSize_ == nullptr && this->vSwitchId_ == nullptr; };
       // deleteOnRelease Field Functions 
       bool hasDeleteOnRelease() const { return this->deleteOnRelease_ != nullptr;};
       void deleteDeleteOnRelease() { this->deleteOnRelease_ = nullptr;};
@@ -540,6 +542,13 @@ namespace Models
       void deleteRxQueueSize() { this->rxQueueSize_ = nullptr;};
       inline int32_t getRxQueueSize() const { DARABONBA_PTR_GET_DEFAULT(rxQueueSize_, 0) };
       inline NetworkInterface& setRxQueueSize(int32_t rxQueueSize) { DARABONBA_PTR_SET_VALUE(rxQueueSize_, rxQueueSize) };
+
+
+      // secondaryPrivateIpAddressCount Field Functions 
+      bool hasSecondaryPrivateIpAddressCount() const { return this->secondaryPrivateIpAddressCount_ != nullptr;};
+      void deleteSecondaryPrivateIpAddressCount() { this->secondaryPrivateIpAddressCount_ = nullptr;};
+      inline int32_t getSecondaryPrivateIpAddressCount() const { DARABONBA_PTR_GET_DEFAULT(secondaryPrivateIpAddressCount_, 0) };
+      inline NetworkInterface& setSecondaryPrivateIpAddressCount(int32_t secondaryPrivateIpAddressCount) { DARABONBA_PTR_SET_VALUE(secondaryPrivateIpAddressCount_, secondaryPrivateIpAddressCount) };
 
 
       // securityGroupId Field Functions 
@@ -694,6 +703,7 @@ namespace Models
       // *   This parameter is applicable to Linux images.
       // *   A larger Rx queue depth yields higher inbound throughput and reduces packet loss rates but consumes more memory.
       shared_ptr<int32_t> rxQueueSize_ {};
+      shared_ptr<int32_t> secondaryPrivateIpAddressCount_ {};
       // The ID of the security group to which to assign ENI N.
       // 
       // Take note of the following items:
