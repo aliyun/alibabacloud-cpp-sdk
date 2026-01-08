@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->interfaceName_ == nullptr
-        && return this->ip_ == nullptr && return this->type_ == nullptr; };
+        && this->ip_ == nullptr && this->type_ == nullptr; };
     // interfaceName Field Functions 
     bool hasInterfaceName() const { return this->interfaceName_ != nullptr;};
     void deleteInterfaceName() { this->interfaceName_ = nullptr;};
-    inline string interfaceName() const { DARABONBA_PTR_GET_DEFAULT(interfaceName_, "") };
+    inline string getInterfaceName() const { DARABONBA_PTR_GET_DEFAULT(interfaceName_, "") };
     inline PodIp& setInterfaceName(string interfaceName) { DARABONBA_PTR_SET_VALUE(interfaceName_, interfaceName) };
 
 
     // ip Field Functions 
     bool hasIp() const { return this->ip_ != nullptr;};
     void deleteIp() { this->ip_ = nullptr;};
-    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
     inline PodIp& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline PodIp& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> interfaceName_ = nullptr;
-    std::shared_ptr<string> ip_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> interfaceName_ {};
+    shared_ptr<string> ip_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

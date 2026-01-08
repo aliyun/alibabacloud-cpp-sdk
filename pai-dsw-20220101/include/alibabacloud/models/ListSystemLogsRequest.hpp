@@ -50,99 +50,99 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gmtEndTime_ == nullptr
-        && return this->gmtStartTime_ == nullptr && return this->instanceId_ == nullptr && return this->lifecycleId_ == nullptr && return this->logLevel_ == nullptr && return this->logRepository_ == nullptr
-        && return this->offset_ == nullptr && return this->order_ == nullptr && return this->problemCategory_ == nullptr && return this->sortBy_ == nullptr && return this->sourceRequestId_ == nullptr; };
+        && this->gmtStartTime_ == nullptr && this->instanceId_ == nullptr && this->lifecycleId_ == nullptr && this->logLevel_ == nullptr && this->logRepository_ == nullptr
+        && this->offset_ == nullptr && this->order_ == nullptr && this->problemCategory_ == nullptr && this->sortBy_ == nullptr && this->sourceRequestId_ == nullptr; };
     // gmtEndTime Field Functions 
     bool hasGmtEndTime() const { return this->gmtEndTime_ != nullptr;};
     void deleteGmtEndTime() { this->gmtEndTime_ = nullptr;};
-    inline string gmtEndTime() const { DARABONBA_PTR_GET_DEFAULT(gmtEndTime_, "") };
+    inline string getGmtEndTime() const { DARABONBA_PTR_GET_DEFAULT(gmtEndTime_, "") };
     inline ListSystemLogsRequest& setGmtEndTime(string gmtEndTime) { DARABONBA_PTR_SET_VALUE(gmtEndTime_, gmtEndTime) };
 
 
     // gmtStartTime Field Functions 
     bool hasGmtStartTime() const { return this->gmtStartTime_ != nullptr;};
     void deleteGmtStartTime() { this->gmtStartTime_ = nullptr;};
-    inline string gmtStartTime() const { DARABONBA_PTR_GET_DEFAULT(gmtStartTime_, "") };
+    inline string getGmtStartTime() const { DARABONBA_PTR_GET_DEFAULT(gmtStartTime_, "") };
     inline ListSystemLogsRequest& setGmtStartTime(string gmtStartTime) { DARABONBA_PTR_SET_VALUE(gmtStartTime_, gmtStartTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListSystemLogsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // lifecycleId Field Functions 
     bool hasLifecycleId() const { return this->lifecycleId_ != nullptr;};
     void deleteLifecycleId() { this->lifecycleId_ = nullptr;};
-    inline string lifecycleId() const { DARABONBA_PTR_GET_DEFAULT(lifecycleId_, "") };
+    inline string getLifecycleId() const { DARABONBA_PTR_GET_DEFAULT(lifecycleId_, "") };
     inline ListSystemLogsRequest& setLifecycleId(string lifecycleId) { DARABONBA_PTR_SET_VALUE(lifecycleId_, lifecycleId) };
 
 
     // logLevel Field Functions 
     bool hasLogLevel() const { return this->logLevel_ != nullptr;};
     void deleteLogLevel() { this->logLevel_ = nullptr;};
-    inline string logLevel() const { DARABONBA_PTR_GET_DEFAULT(logLevel_, "") };
+    inline string getLogLevel() const { DARABONBA_PTR_GET_DEFAULT(logLevel_, "") };
     inline ListSystemLogsRequest& setLogLevel(string logLevel) { DARABONBA_PTR_SET_VALUE(logLevel_, logLevel) };
 
 
     // logRepository Field Functions 
     bool hasLogRepository() const { return this->logRepository_ != nullptr;};
     void deleteLogRepository() { this->logRepository_ = nullptr;};
-    inline string logRepository() const { DARABONBA_PTR_GET_DEFAULT(logRepository_, "") };
+    inline string getLogRepository() const { DARABONBA_PTR_GET_DEFAULT(logRepository_, "") };
     inline ListSystemLogsRequest& setLogRepository(string logRepository) { DARABONBA_PTR_SET_VALUE(logRepository_, logRepository) };
 
 
     // offset Field Functions 
     bool hasOffset() const { return this->offset_ != nullptr;};
     void deleteOffset() { this->offset_ = nullptr;};
-    inline string offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
+    inline string getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, "") };
     inline ListSystemLogsRequest& setOffset(string offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ListSystemLogsRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // problemCategory Field Functions 
     bool hasProblemCategory() const { return this->problemCategory_ != nullptr;};
     void deleteProblemCategory() { this->problemCategory_ = nullptr;};
-    inline string problemCategory() const { DARABONBA_PTR_GET_DEFAULT(problemCategory_, "") };
+    inline string getProblemCategory() const { DARABONBA_PTR_GET_DEFAULT(problemCategory_, "") };
     inline ListSystemLogsRequest& setProblemCategory(string problemCategory) { DARABONBA_PTR_SET_VALUE(problemCategory_, problemCategory) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListSystemLogsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // sourceRequestId Field Functions 
     bool hasSourceRequestId() const { return this->sourceRequestId_ != nullptr;};
     void deleteSourceRequestId() { this->sourceRequestId_ = nullptr;};
-    inline string sourceRequestId() const { DARABONBA_PTR_GET_DEFAULT(sourceRequestId_, "") };
+    inline string getSourceRequestId() const { DARABONBA_PTR_GET_DEFAULT(sourceRequestId_, "") };
     inline ListSystemLogsRequest& setSourceRequestId(string sourceRequestId) { DARABONBA_PTR_SET_VALUE(sourceRequestId_, sourceRequestId) };
 
 
   protected:
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
-    std::shared_ptr<string> gmtEndTime_ = nullptr;
+    shared_ptr<string> gmtEndTime_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
-    std::shared_ptr<string> gmtStartTime_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> lifecycleId_ = nullptr;
-    std::shared_ptr<string> logLevel_ = nullptr;
-    std::shared_ptr<string> logRepository_ = nullptr;
-    std::shared_ptr<string> offset_ = nullptr;
-    std::shared_ptr<string> order_ = nullptr;
-    std::shared_ptr<string> problemCategory_ = nullptr;
-    std::shared_ptr<string> sortBy_ = nullptr;
-    std::shared_ptr<string> sourceRequestId_ = nullptr;
+    shared_ptr<string> gmtStartTime_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> lifecycleId_ {};
+    shared_ptr<string> logLevel_ {};
+    shared_ptr<string> logRepository_ {};
+    shared_ptr<string> offset_ {};
+    shared_ptr<string> order_ {};
+    shared_ptr<string> problemCategory_ {};
+    shared_ptr<string> sortBy_ {};
+    shared_ptr<string> sourceRequestId_ {};
   };
 
   } // namespace Models

@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dimensions_ == nullptr
-        && return this->endTime_ == nullptr && return this->length_ == nullptr && return this->metricName_ == nullptr && return this->namespace_ == nullptr && return this->nextToken_ == nullptr
-        && return this->period_ == nullptr && return this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->length_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->nextToken_ == nullptr
+        && this->period_ == nullptr && this->startTime_ == nullptr; };
     // dimensions Field Functions 
     bool hasDimensions() const { return this->dimensions_ != nullptr;};
     void deleteDimensions() { this->dimensions_ = nullptr;};
-    inline string dimensions() const { DARABONBA_PTR_GET_DEFAULT(dimensions_, "") };
+    inline string getDimensions() const { DARABONBA_PTR_GET_DEFAULT(dimensions_, "") };
     inline GetMetricsRequest& setDimensions(string dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetMetricsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // length Field Functions 
     bool hasLength() const { return this->length_ != nullptr;};
     void deleteLength() { this->length_ = nullptr;};
-    inline string length() const { DARABONBA_PTR_GET_DEFAULT(length_, "") };
+    inline string getLength() const { DARABONBA_PTR_GET_DEFAULT(length_, "") };
     inline GetMetricsRequest& setLength(string length) { DARABONBA_PTR_SET_VALUE(length_, length) };
 
 
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
-    inline string metricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
+    inline string getMetricName() const { DARABONBA_PTR_GET_DEFAULT(metricName_, "") };
     inline GetMetricsRequest& setMetricName(string metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline GetMetricsRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline GetMetricsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline GetMetricsRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetMetricsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
-    std::shared_ptr<string> dimensions_ = nullptr;
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> length_ = nullptr;
-    std::shared_ptr<string> metricName_ = nullptr;
-    std::shared_ptr<string> namespace_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> period_ = nullptr;
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> dimensions_ {};
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> length_ {};
+    shared_ptr<string> metricName_ {};
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> period_ {};
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

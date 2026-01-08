@@ -48,89 +48,89 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->dueTime_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->httpStatusCode_ == nullptr && return this->instanceId_ == nullptr
-        && return this->message_ == nullptr && return this->remainingTimeInMs_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->dueTime_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->httpStatusCode_ == nullptr && this->instanceId_ == nullptr
+        && this->message_ == nullptr && this->remainingTimeInMs_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetInstanceShutdownTimerResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // dueTime Field Functions 
     bool hasDueTime() const { return this->dueTime_ != nullptr;};
     void deleteDueTime() { this->dueTime_ = nullptr;};
-    inline string dueTime() const { DARABONBA_PTR_GET_DEFAULT(dueTime_, "") };
+    inline string getDueTime() const { DARABONBA_PTR_GET_DEFAULT(dueTime_, "") };
     inline GetInstanceShutdownTimerResponseBody& setDueTime(string dueTime) { DARABONBA_PTR_SET_VALUE(dueTime_, dueTime) };
 
 
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
-    inline string gmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
+    inline string getGmtCreateTime() const { DARABONBA_PTR_GET_DEFAULT(gmtCreateTime_, "") };
     inline GetInstanceShutdownTimerResponseBody& setGmtCreateTime(string gmtCreateTime) { DARABONBA_PTR_SET_VALUE(gmtCreateTime_, gmtCreateTime) };
 
 
     // gmtModifiedTime Field Functions 
     bool hasGmtModifiedTime() const { return this->gmtModifiedTime_ != nullptr;};
     void deleteGmtModifiedTime() { this->gmtModifiedTime_ = nullptr;};
-    inline string gmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
+    inline string getGmtModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifiedTime_, "") };
     inline GetInstanceShutdownTimerResponseBody& setGmtModifiedTime(string gmtModifiedTime) { DARABONBA_PTR_SET_VALUE(gmtModifiedTime_, gmtModifiedTime) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetInstanceShutdownTimerResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetInstanceShutdownTimerResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetInstanceShutdownTimerResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // remainingTimeInMs Field Functions 
     bool hasRemainingTimeInMs() const { return this->remainingTimeInMs_ != nullptr;};
     void deleteRemainingTimeInMs() { this->remainingTimeInMs_ = nullptr;};
-    inline int64_t remainingTimeInMs() const { DARABONBA_PTR_GET_DEFAULT(remainingTimeInMs_, 0L) };
+    inline int64_t getRemainingTimeInMs() const { DARABONBA_PTR_GET_DEFAULT(remainingTimeInMs_, 0L) };
     inline GetInstanceShutdownTimerResponseBody& setRemainingTimeInMs(int64_t remainingTimeInMs) { DARABONBA_PTR_SET_VALUE(remainingTimeInMs_, remainingTimeInMs) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstanceShutdownTimerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetInstanceShutdownTimerResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> dueTime_ = nullptr;
-    std::shared_ptr<string> gmtCreateTime_ = nullptr;
-    std::shared_ptr<string> gmtModifiedTime_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<int64_t> remainingTimeInMs_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> dueTime_ {};
+    shared_ptr<string> gmtCreateTime_ {};
+    shared_ptr<string> gmtModifiedTime_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<int64_t> remainingTimeInMs_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

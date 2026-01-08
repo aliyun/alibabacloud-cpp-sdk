@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dueTime_ == nullptr
-        && return this->remainingTimeInMs_ == nullptr; };
+        && this->remainingTimeInMs_ == nullptr; };
     // dueTime Field Functions 
     bool hasDueTime() const { return this->dueTime_ != nullptr;};
     void deleteDueTime() { this->dueTime_ = nullptr;};
-    inline string dueTime() const { DARABONBA_PTR_GET_DEFAULT(dueTime_, "") };
+    inline string getDueTime() const { DARABONBA_PTR_GET_DEFAULT(dueTime_, "") };
     inline CreateInstanceShutdownTimerRequest& setDueTime(string dueTime) { DARABONBA_PTR_SET_VALUE(dueTime_, dueTime) };
 
 
     // remainingTimeInMs Field Functions 
     bool hasRemainingTimeInMs() const { return this->remainingTimeInMs_ != nullptr;};
     void deleteRemainingTimeInMs() { this->remainingTimeInMs_ = nullptr;};
-    inline int64_t remainingTimeInMs() const { DARABONBA_PTR_GET_DEFAULT(remainingTimeInMs_, 0L) };
+    inline int64_t getRemainingTimeInMs() const { DARABONBA_PTR_GET_DEFAULT(remainingTimeInMs_, 0L) };
     inline CreateInstanceShutdownTimerRequest& setRemainingTimeInMs(int64_t remainingTimeInMs) { DARABONBA_PTR_SET_VALUE(remainingTimeInMs_, remainingTimeInMs) };
 
 
   protected:
     // The scheduled stop time.
-    std::shared_ptr<string> dueTime_ = nullptr;
+    shared_ptr<string> dueTime_ {};
     // The time duration before the instance is stopped. Unit: milliseconds.
-    std::shared_ptr<int64_t> remainingTimeInMs_ = nullptr;
+    shared_ptr<int64_t> remainingTimeInMs_ {};
   };
 
   } // namespace Models

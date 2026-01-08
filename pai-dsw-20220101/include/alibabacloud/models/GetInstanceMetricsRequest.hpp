@@ -36,38 +36,38 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->metricType_ == nullptr && return this->startTime_ == nullptr && return this->timeStep_ == nullptr; };
+        && this->metricType_ == nullptr && this->startTime_ == nullptr && this->timeStep_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetInstanceMetricsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // metricType Field Functions 
     bool hasMetricType() const { return this->metricType_ != nullptr;};
     void deleteMetricType() { this->metricType_ = nullptr;};
-    inline string metricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
+    inline string getMetricType() const { DARABONBA_PTR_GET_DEFAULT(metricType_, "") };
     inline GetInstanceMetricsRequest& setMetricType(string metricType) { DARABONBA_PTR_SET_VALUE(metricType_, metricType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetInstanceMetricsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // timeStep Field Functions 
     bool hasTimeStep() const { return this->timeStep_ != nullptr;};
     void deleteTimeStep() { this->timeStep_ = nullptr;};
-    inline string timeStep() const { DARABONBA_PTR_GET_DEFAULT(timeStep_, "") };
+    inline string getTimeStep() const { DARABONBA_PTR_GET_DEFAULT(timeStep_, "") };
     inline GetInstanceMetricsRequest& setTimeStep(string timeStep) { DARABONBA_PTR_SET_VALUE(timeStep_, timeStep) };
 
 
   protected:
     // The end of the time range to query.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The metric type. Valid values:
     // 
     // *   GpuCoreUsage: the GPU utilization.
@@ -80,11 +80,11 @@ namespace Models
     // *   DiskWriteRate: the disk write rate.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metricType_ = nullptr;
+    shared_ptr<string> metricType_ {};
     // The beginning of the time range to query.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The interval at which metrics are returned. Unit: minutes.
-    std::shared_ptr<string> timeStep_ = nullptr;
+    shared_ptr<string> timeStep_ {};
   };
 
   } // namespace Models

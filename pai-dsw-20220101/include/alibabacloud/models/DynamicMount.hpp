@@ -34,26 +34,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && return this->mountPoints_ == nullptr; };
+        && this->mountPoints_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline DynamicMount& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // mountPoints Field Functions 
     bool hasMountPoints() const { return this->mountPoints_ != nullptr;};
     void deleteMountPoints() { this->mountPoints_ = nullptr;};
-    inline const vector<DynamicMountPoint> & mountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<DynamicMountPoint>) };
-    inline vector<DynamicMountPoint> mountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<DynamicMountPoint>) };
+    inline const vector<DynamicMountPoint> & getMountPoints() const { DARABONBA_PTR_GET_CONST(mountPoints_, vector<DynamicMountPoint>) };
+    inline vector<DynamicMountPoint> getMountPoints() { DARABONBA_PTR_GET(mountPoints_, vector<DynamicMountPoint>) };
     inline DynamicMount& setMountPoints(const vector<DynamicMountPoint> & mountPoints) { DARABONBA_PTR_SET_VALUE(mountPoints_, mountPoints) };
     inline DynamicMount& setMountPoints(vector<DynamicMountPoint> && mountPoints) { DARABONBA_PTR_SET_RVALUE(mountPoints_, mountPoints) };
 
 
   protected:
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<vector<DynamicMountPoint>> mountPoints_ = nullptr;
+    shared_ptr<bool> enable_ {};
+    shared_ptr<vector<DynamicMountPoint>> mountPoints_ {};
   };
 
   } // namespace Models

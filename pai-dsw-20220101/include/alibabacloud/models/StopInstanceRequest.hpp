@@ -33,12 +33,12 @@ namespace Models
     // saveImage Field Functions 
     bool hasSaveImage() const { return this->saveImage_ != nullptr;};
     void deleteSaveImage() { this->saveImage_ = nullptr;};
-    inline bool saveImage() const { DARABONBA_PTR_GET_DEFAULT(saveImage_, false) };
+    inline bool getSaveImage() const { DARABONBA_PTR_GET_DEFAULT(saveImage_, false) };
     inline StopInstanceRequest& setSaveImage(bool saveImage) { DARABONBA_PTR_SET_VALUE(saveImage_, saveImage) };
 
 
   protected:
-    std::shared_ptr<bool> saveImage_ = nullptr;
+    shared_ptr<bool> saveImage_ {};
   };
 
   } // namespace Models

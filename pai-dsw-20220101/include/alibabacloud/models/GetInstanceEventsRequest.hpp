@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->eventLevel_ == nullptr && return this->maxEventsNum_ == nullptr && return this->startTime_ == nullptr && return this->token_ == nullptr; };
+        && this->eventLevel_ == nullptr && this->maxEventsNum_ == nullptr && this->startTime_ == nullptr && this->token_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetInstanceEventsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // eventLevel Field Functions 
     bool hasEventLevel() const { return this->eventLevel_ != nullptr;};
     void deleteEventLevel() { this->eventLevel_ = nullptr;};
-    inline string eventLevel() const { DARABONBA_PTR_GET_DEFAULT(eventLevel_, "") };
+    inline string getEventLevel() const { DARABONBA_PTR_GET_DEFAULT(eventLevel_, "") };
     inline GetInstanceEventsRequest& setEventLevel(string eventLevel) { DARABONBA_PTR_SET_VALUE(eventLevel_, eventLevel) };
 
 
     // maxEventsNum Field Functions 
     bool hasMaxEventsNum() const { return this->maxEventsNum_ != nullptr;};
     void deleteMaxEventsNum() { this->maxEventsNum_ = nullptr;};
-    inline int32_t maxEventsNum() const { DARABONBA_PTR_GET_DEFAULT(maxEventsNum_, 0) };
+    inline int32_t getMaxEventsNum() const { DARABONBA_PTR_GET_DEFAULT(maxEventsNum_, 0) };
     inline GetInstanceEventsRequest& setMaxEventsNum(int32_t maxEventsNum) { DARABONBA_PTR_SET_VALUE(maxEventsNum_, maxEventsNum) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetInstanceEventsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GetInstanceEventsRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
   protected:
     // The end of the time range to query.
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> eventLevel_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> eventLevel_ {};
     // The maximum number of events. Default value: 2000.
-    std::shared_ptr<int32_t> maxEventsNum_ = nullptr;
+    shared_ptr<int32_t> maxEventsNum_ {};
     // The beginning of the time range to query.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The token used to share the URL.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

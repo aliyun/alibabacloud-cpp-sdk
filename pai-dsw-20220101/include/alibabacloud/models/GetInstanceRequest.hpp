@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fields_ == nullptr
-        && return this->token_ == nullptr; };
+        && this->token_ == nullptr; };
     // fields Field Functions 
     bool hasFields() const { return this->fields_ != nullptr;};
     void deleteFields() { this->fields_ = nullptr;};
-    inline string fields() const { DARABONBA_PTR_GET_DEFAULT(fields_, "") };
+    inline string getFields() const { DARABONBA_PTR_GET_DEFAULT(fields_, "") };
     inline GetInstanceRequest& setFields(string fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GetInstanceRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
   protected:
-    std::shared_ptr<string> fields_ = nullptr;
+    shared_ptr<string> fields_ {};
     // The sharing token information.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

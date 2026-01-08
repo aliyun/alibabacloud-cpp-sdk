@@ -40,65 +40,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && return this->limit_ == nullptr && return this->order_ == nullptr && return this->sessionNumber_ == nullptr && return this->startTime_ == nullptr && return this->token_ == nullptr; };
+        && this->limit_ == nullptr && this->order_ == nullptr && this->sessionNumber_ == nullptr && this->startTime_ == nullptr && this->token_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetLifecycleRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline GetLifecycleRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline GetLifecycleRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // sessionNumber Field Functions 
     bool hasSessionNumber() const { return this->sessionNumber_ != nullptr;};
     void deleteSessionNumber() { this->sessionNumber_ = nullptr;};
-    inline int32_t sessionNumber() const { DARABONBA_PTR_GET_DEFAULT(sessionNumber_, 0) };
+    inline int32_t getSessionNumber() const { DARABONBA_PTR_GET_DEFAULT(sessionNumber_, 0) };
     inline GetLifecycleRequest& setSessionNumber(int32_t sessionNumber) { DARABONBA_PTR_SET_VALUE(sessionNumber_, sessionNumber) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetLifecycleRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GetLifecycleRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
   protected:
     // The end of the time range to query.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The number of sessions to query.
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<int32_t> limit_ {};
     // The sorting order of the results. Valid values:
     // 
     // *   ASC: sorted by time in ascending order.
     // *   DESC: sorted by time in descending order.
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
     // A session refers to the process of an instance from startup to failure or shutdown. The sessionNumber indicates the offset value for the instance\\"s session sequence.
-    std::shared_ptr<int32_t> sessionNumber_ = nullptr;
+    shared_ptr<int32_t> sessionNumber_ {};
     // The beginning of the time range to query.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The token used to share the URL.
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

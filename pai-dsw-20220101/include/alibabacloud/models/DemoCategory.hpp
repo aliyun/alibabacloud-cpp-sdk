@@ -38,42 +38,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryCode_ == nullptr
-        && return this->categoryName_ == nullptr && return this->order_ == nullptr && return this->subCategories_ == nullptr; };
+        && this->categoryName_ == nullptr && this->order_ == nullptr && this->subCategories_ == nullptr; };
     // categoryCode Field Functions 
     bool hasCategoryCode() const { return this->categoryCode_ != nullptr;};
     void deleteCategoryCode() { this->categoryCode_ = nullptr;};
-    inline string categoryCode() const { DARABONBA_PTR_GET_DEFAULT(categoryCode_, "") };
+    inline string getCategoryCode() const { DARABONBA_PTR_GET_DEFAULT(categoryCode_, "") };
     inline DemoCategory& setCategoryCode(string categoryCode) { DARABONBA_PTR_SET_VALUE(categoryCode_, categoryCode) };
 
 
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
-    inline string categoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
+    inline string getCategoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
     inline DemoCategory& setCategoryName(string categoryName) { DARABONBA_PTR_SET_VALUE(categoryName_, categoryName) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline int64_t order() const { DARABONBA_PTR_GET_DEFAULT(order_, 0L) };
+    inline int64_t getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, 0L) };
     inline DemoCategory& setOrder(int64_t order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
     // subCategories Field Functions 
     bool hasSubCategories() const { return this->subCategories_ != nullptr;};
     void deleteSubCategories() { this->subCategories_ = nullptr;};
-    inline const vector<DemoCategory> & subCategories() const { DARABONBA_PTR_GET_CONST(subCategories_, vector<DemoCategory>) };
-    inline vector<DemoCategory> subCategories() { DARABONBA_PTR_GET(subCategories_, vector<DemoCategory>) };
+    inline const vector<DemoCategory> & getSubCategories() const { DARABONBA_PTR_GET_CONST(subCategories_, vector<DemoCategory>) };
+    inline vector<DemoCategory> getSubCategories() { DARABONBA_PTR_GET(subCategories_, vector<DemoCategory>) };
     inline DemoCategory& setSubCategories(const vector<DemoCategory> & subCategories) { DARABONBA_PTR_SET_VALUE(subCategories_, subCategories) };
     inline DemoCategory& setSubCategories(vector<DemoCategory> && subCategories) { DARABONBA_PTR_SET_RVALUE(subCategories_, subCategories) };
 
 
   protected:
-    std::shared_ptr<string> categoryCode_ = nullptr;
-    std::shared_ptr<string> categoryName_ = nullptr;
-    std::shared_ptr<int64_t> order_ = nullptr;
-    std::shared_ptr<vector<DemoCategory>> subCategories_ = nullptr;
+    shared_ptr<string> categoryCode_ {};
+    shared_ptr<string> categoryName_ {};
+    shared_ptr<int64_t> order_ {};
+    shared_ptr<vector<DemoCategory>> subCategories_ {};
   };
 
   } // namespace Models

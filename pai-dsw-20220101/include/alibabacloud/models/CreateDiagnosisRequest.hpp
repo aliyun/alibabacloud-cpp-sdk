@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gmtFailureTime_ == nullptr
-        && return this->instanceId_ == nullptr && return this->problemCategory_ == nullptr; };
+        && this->instanceId_ == nullptr && this->problemCategory_ == nullptr; };
     // gmtFailureTime Field Functions 
     bool hasGmtFailureTime() const { return this->gmtFailureTime_ != nullptr;};
     void deleteGmtFailureTime() { this->gmtFailureTime_ = nullptr;};
-    inline string gmtFailureTime() const { DARABONBA_PTR_GET_DEFAULT(gmtFailureTime_, "") };
+    inline string getGmtFailureTime() const { DARABONBA_PTR_GET_DEFAULT(gmtFailureTime_, "") };
     inline CreateDiagnosisRequest& setGmtFailureTime(string gmtFailureTime) { DARABONBA_PTR_SET_VALUE(gmtFailureTime_, gmtFailureTime) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateDiagnosisRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // problemCategory Field Functions 
     bool hasProblemCategory() const { return this->problemCategory_ != nullptr;};
     void deleteProblemCategory() { this->problemCategory_ = nullptr;};
-    inline string problemCategory() const { DARABONBA_PTR_GET_DEFAULT(problemCategory_, "") };
+    inline string getProblemCategory() const { DARABONBA_PTR_GET_DEFAULT(problemCategory_, "") };
     inline CreateDiagnosisRequest& setProblemCategory(string problemCategory) { DARABONBA_PTR_SET_VALUE(problemCategory_, problemCategory) };
 
 
   protected:
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
-    std::shared_ptr<string> gmtFailureTime_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> gmtFailureTime_ {};
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> problemCategory_ = nullptr;
+    shared_ptr<string> problemCategory_ {};
   };
 
   } // namespace Models

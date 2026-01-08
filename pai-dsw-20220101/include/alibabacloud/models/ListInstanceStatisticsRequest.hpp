@@ -33,13 +33,13 @@ namespace Models
     // workspaceIds Field Functions 
     bool hasWorkspaceIds() const { return this->workspaceIds_ != nullptr;};
     void deleteWorkspaceIds() { this->workspaceIds_ = nullptr;};
-    inline string workspaceIds() const { DARABONBA_PTR_GET_DEFAULT(workspaceIds_, "") };
+    inline string getWorkspaceIds() const { DARABONBA_PTR_GET_DEFAULT(workspaceIds_, "") };
     inline ListInstanceStatisticsRequest& setWorkspaceIds(string workspaceIds) { DARABONBA_PTR_SET_VALUE(workspaceIds_, workspaceIds) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> workspaceIds_ = nullptr;
+    shared_ptr<string> workspaceIds_ {};
   };
 
   } // namespace Models

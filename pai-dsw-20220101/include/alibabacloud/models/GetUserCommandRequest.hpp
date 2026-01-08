@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->token_ == nullptr; };
+        && this->token_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetUserCommandRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline GetUserCommandRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
   protected:
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->options_ == nullptr
-        && return this->rootPath_ == nullptr; };
+        && this->rootPath_ == nullptr; };
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline string options() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
     inline DynamicMountPoint& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
     // rootPath Field Functions 
     bool hasRootPath() const { return this->rootPath_ != nullptr;};
     void deleteRootPath() { this->rootPath_ = nullptr;};
-    inline string rootPath() const { DARABONBA_PTR_GET_DEFAULT(rootPath_, "") };
+    inline string getRootPath() const { DARABONBA_PTR_GET_DEFAULT(rootPath_, "") };
     inline DynamicMountPoint& setRootPath(string rootPath) { DARABONBA_PTR_SET_VALUE(rootPath_, rootPath) };
 
 
   protected:
-    std::shared_ptr<string> options_ = nullptr;
+    shared_ptr<string> options_ {};
     // This parameter is required.
-    std::shared_ptr<string> rootPath_ = nullptr;
+    shared_ptr<string> rootPath_ {};
   };
 
   } // namespace Models

@@ -43,20 +43,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->events_ == nullptr && return this->httpStatusCode_ == nullptr && return this->instanceId_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->events_ == nullptr && this->httpStatusCode_ == nullptr && this->instanceId_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetInstanceEventsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // events Field Functions 
     bool hasEvents() const { return this->events_ != nullptr;};
     void deleteEvents() { this->events_ = nullptr;};
-    inline const vector<string> & events() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
-    inline vector<string> events() { DARABONBA_PTR_GET(events_, vector<string>) };
+    inline const vector<string> & getEvents() const { DARABONBA_PTR_GET_CONST(events_, vector<string>) };
+    inline vector<string> getEvents() { DARABONBA_PTR_GET(events_, vector<string>) };
     inline GetInstanceEventsResponseBody& setEvents(const vector<string> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
     inline GetInstanceEventsResponseBody& setEvents(vector<string> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
 
@@ -64,35 +64,35 @@ namespace Models
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline GetInstanceEventsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetInstanceEventsResponseBody& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetInstanceEventsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetInstanceEventsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetInstanceEventsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
@@ -101,26 +101,26 @@ namespace Models
     // 
     // *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
     // *   ValidationError: a parameter validation error.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The events.
-    std::shared_ptr<vector<string>> events_ = nullptr;
+    shared_ptr<vector<string>> events_ {};
     // The HTTP status code. Valid values:
     // 
     // *   400: One or more parameters are invalid.
     // *   404: The instance does not exist.
     // *   200: The request is normal.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The response message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

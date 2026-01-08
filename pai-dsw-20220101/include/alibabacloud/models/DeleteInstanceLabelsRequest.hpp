@@ -33,7 +33,7 @@ namespace Models
     // labelKeys Field Functions 
     bool hasLabelKeys() const { return this->labelKeys_ != nullptr;};
     void deleteLabelKeys() { this->labelKeys_ = nullptr;};
-    inline string labelKeys() const { DARABONBA_PTR_GET_DEFAULT(labelKeys_, "") };
+    inline string getLabelKeys() const { DARABONBA_PTR_GET_DEFAULT(labelKeys_, "") };
     inline DeleteInstanceLabelsRequest& setLabelKeys(string labelKeys) { DARABONBA_PTR_SET_VALUE(labelKeys_, labelKeys) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The keys of the tags that you want to delete. Separate multiple tags with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> labelKeys_ = nullptr;
+    shared_ptr<string> labelKeys_ {};
   };
 
   } // namespace Models
