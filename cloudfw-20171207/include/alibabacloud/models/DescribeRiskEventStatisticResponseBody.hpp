@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attackAppCnt_ == nullptr
-        && return this->attackCnt_ == nullptr && return this->attackIpCnt_ == nullptr && return this->dropCnt_ == nullptr && return this->requestId_ == nullptr; };
+        && this->attackCnt_ == nullptr && this->attackIpCnt_ == nullptr && this->dropCnt_ == nullptr && this->requestId_ == nullptr; };
     // attackAppCnt Field Functions 
     bool hasAttackAppCnt() const { return this->attackAppCnt_ != nullptr;};
     void deleteAttackAppCnt() { this->attackAppCnt_ = nullptr;};
-    inline int32_t attackAppCnt() const { DARABONBA_PTR_GET_DEFAULT(attackAppCnt_, 0) };
+    inline int32_t getAttackAppCnt() const { DARABONBA_PTR_GET_DEFAULT(attackAppCnt_, 0) };
     inline DescribeRiskEventStatisticResponseBody& setAttackAppCnt(int32_t attackAppCnt) { DARABONBA_PTR_SET_VALUE(attackAppCnt_, attackAppCnt) };
 
 
     // attackCnt Field Functions 
     bool hasAttackCnt() const { return this->attackCnt_ != nullptr;};
     void deleteAttackCnt() { this->attackCnt_ = nullptr;};
-    inline int32_t attackCnt() const { DARABONBA_PTR_GET_DEFAULT(attackCnt_, 0) };
+    inline int32_t getAttackCnt() const { DARABONBA_PTR_GET_DEFAULT(attackCnt_, 0) };
     inline DescribeRiskEventStatisticResponseBody& setAttackCnt(int32_t attackCnt) { DARABONBA_PTR_SET_VALUE(attackCnt_, attackCnt) };
 
 
     // attackIpCnt Field Functions 
     bool hasAttackIpCnt() const { return this->attackIpCnt_ != nullptr;};
     void deleteAttackIpCnt() { this->attackIpCnt_ = nullptr;};
-    inline int32_t attackIpCnt() const { DARABONBA_PTR_GET_DEFAULT(attackIpCnt_, 0) };
+    inline int32_t getAttackIpCnt() const { DARABONBA_PTR_GET_DEFAULT(attackIpCnt_, 0) };
     inline DescribeRiskEventStatisticResponseBody& setAttackIpCnt(int32_t attackIpCnt) { DARABONBA_PTR_SET_VALUE(attackIpCnt_, attackIpCnt) };
 
 
     // dropCnt Field Functions 
     bool hasDropCnt() const { return this->dropCnt_ != nullptr;};
     void deleteDropCnt() { this->dropCnt_ = nullptr;};
-    inline int32_t dropCnt() const { DARABONBA_PTR_GET_DEFAULT(dropCnt_, 0) };
+    inline int32_t getDropCnt() const { DARABONBA_PTR_GET_DEFAULT(dropCnt_, 0) };
     inline DescribeRiskEventStatisticResponseBody& setDropCnt(int32_t dropCnt) { DARABONBA_PTR_SET_VALUE(dropCnt_, dropCnt) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeRiskEventStatisticResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<int32_t> attackAppCnt_ = nullptr;
-    std::shared_ptr<int32_t> attackCnt_ = nullptr;
-    std::shared_ptr<int32_t> attackIpCnt_ = nullptr;
-    std::shared_ptr<int32_t> dropCnt_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<int32_t> attackAppCnt_ {};
+    shared_ptr<int32_t> attackCnt_ {};
+    shared_ptr<int32_t> attackIpCnt_ {};
+    shared_ptr<int32_t> dropCnt_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

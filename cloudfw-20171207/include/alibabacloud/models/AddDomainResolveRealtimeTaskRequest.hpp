@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->firewallType_ == nullptr && return this->regionNo_ == nullptr; };
+        && this->firewallType_ == nullptr && this->regionNo_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
-    inline string domainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
+    inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline AddDomainResolveRealtimeTaskRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
     // firewallType Field Functions 
     bool hasFirewallType() const { return this->firewallType_ != nullptr;};
     void deleteFirewallType() { this->firewallType_ = nullptr;};
-    inline string firewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
+    inline string getFirewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
     inline AddDomainResolveRealtimeTaskRequest& setFirewallType(string firewallType) { DARABONBA_PTR_SET_VALUE(firewallType_, firewallType) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline AddDomainResolveRealtimeTaskRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
   protected:
-    std::shared_ptr<string> domainName_ = nullptr;
-    std::shared_ptr<string> firewallType_ = nullptr;
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> domainName_ {};
+    shared_ptr<string> firewallType_ {};
+    shared_ptr<string> regionNo_ {};
   };
 
   } // namespace Models

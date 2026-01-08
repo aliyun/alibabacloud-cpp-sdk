@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->preCheckId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // preCheckId Field Functions 
     bool hasPreCheckId() const { return this->preCheckId_ != nullptr;};
     void deletePreCheckId() { this->preCheckId_ = nullptr;};
-    inline string preCheckId() const { DARABONBA_PTR_GET_DEFAULT(preCheckId_, "") };
+    inline string getPreCheckId() const { DARABONBA_PTR_GET_DEFAULT(preCheckId_, "") };
     inline CreateNatFirewallPreCheckResponseBody& setPreCheckId(string preCheckId) { DARABONBA_PTR_SET_VALUE(preCheckId_, preCheckId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateNatFirewallPreCheckResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> preCheckId_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> preCheckId_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

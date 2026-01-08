@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupUuid_ == nullptr
-        && return this->lang_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->lang_ == nullptr && this->sourceIp_ == nullptr; };
     // groupUuid Field Functions 
     bool hasGroupUuid() const { return this->groupUuid_ != nullptr;};
     void deleteGroupUuid() { this->groupUuid_ = nullptr;};
-    inline string groupUuid() const { DARABONBA_PTR_GET_DEFAULT(groupUuid_, "") };
+    inline string getGroupUuid() const { DARABONBA_PTR_GET_DEFAULT(groupUuid_, "") };
     inline DeleteAddressBookRequest& setGroupUuid(string groupUuid) { DARABONBA_PTR_SET_VALUE(groupUuid_, groupUuid) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteAddressBookRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DeleteAddressBookRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -62,14 +62,14 @@ namespace Models
     // To delete the address book, you must provide the ID of the address book. You can call the DescribeAddressBook operation to query the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupUuid_ = nullptr;
+    shared_ptr<string> groupUuid_ {};
     // The natural language of the request and response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

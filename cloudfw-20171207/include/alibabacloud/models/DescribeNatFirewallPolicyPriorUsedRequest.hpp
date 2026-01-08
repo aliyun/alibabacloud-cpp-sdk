@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->direction_ == nullptr
-        && return this->ipVersion_ == nullptr && return this->lang_ == nullptr && return this->natGatewayId_ == nullptr; };
+        && this->ipVersion_ == nullptr && this->lang_ == nullptr && this->natGatewayId_ == nullptr; };
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline DescribeNatFirewallPolicyPriorUsedRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline string ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+    inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline DescribeNatFirewallPolicyPriorUsedRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeNatFirewallPolicyPriorUsedRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline DescribeNatFirewallPolicyPriorUsedRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
@@ -73,20 +73,20 @@ namespace Models
     // *   **out**: outbound traffic
     // 
     // This parameter is required.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The IP version supported by the access control policy. Valid values:
     // 
     // *   **4**: IPv4 (default)
-    std::shared_ptr<string> ipVersion_ = nullptr;
+    shared_ptr<string> ipVersion_ {};
     // The language of the content within the request and the response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the NAT gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> natGatewayId_ = nullptr;
+    shared_ptr<string> natGatewayId_ {};
   };
 
   } // namespace Models

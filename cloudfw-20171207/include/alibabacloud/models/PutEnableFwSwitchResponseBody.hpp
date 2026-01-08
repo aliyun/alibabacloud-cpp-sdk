@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_PUTENABLEFWSWITCHRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/PutEnableFwSwitchResponseBodyAbnormalResourceStatusList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,88 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class AbnormalResourceStatusList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AbnormalResourceStatusList& obj) { 
+        DARABONBA_PTR_TO_JSON(Msg, msg_);
+        DARABONBA_PTR_TO_JSON(Resource, resource_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, AbnormalResourceStatusList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Msg, msg_);
+        DARABONBA_PTR_FROM_JSON(Resource, resource_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      AbnormalResourceStatusList() = default ;
+      AbnormalResourceStatusList(const AbnormalResourceStatusList &) = default ;
+      AbnormalResourceStatusList(AbnormalResourceStatusList &&) = default ;
+      AbnormalResourceStatusList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AbnormalResourceStatusList() = default ;
+      AbnormalResourceStatusList& operator=(const AbnormalResourceStatusList &) = default ;
+      AbnormalResourceStatusList& operator=(AbnormalResourceStatusList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->msg_ == nullptr
+        && this->resource_ == nullptr && this->status_ == nullptr; };
+      // msg Field Functions 
+      bool hasMsg() const { return this->msg_ != nullptr;};
+      void deleteMsg() { this->msg_ = nullptr;};
+      inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+      inline AbnormalResourceStatusList& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
+
+
+      // resource Field Functions 
+      bool hasResource() const { return this->resource_ != nullptr;};
+      void deleteResource() { this->resource_ = nullptr;};
+      inline string getResource() const { DARABONBA_PTR_GET_DEFAULT(resource_, "") };
+      inline AbnormalResourceStatusList& setResource(string resource) { DARABONBA_PTR_SET_VALUE(resource_, resource) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline AbnormalResourceStatusList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      // The message displayed when the asset is not synchronized to Cloud Firewall. Valid values:
+      // 
+      // *   cloudfirewall do not sync this ip address: This IP address is not synchronized to Cloud Firewall.
+      shared_ptr<string> msg_ {};
+      // The IP address of the asset.
+      shared_ptr<string> resource_ {};
+      // The status of the asset when it is not synchronized to Cloud Firewall. Valid values:
+      // 
+      // *   ip_not_sync: The asset is not synchronized.
+      shared_ptr<string> status_ {};
+    };
+
     virtual bool empty() const override { return this->abnormalResourceStatusList_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // abnormalResourceStatusList Field Functions 
     bool hasAbnormalResourceStatusList() const { return this->abnormalResourceStatusList_ != nullptr;};
     void deleteAbnormalResourceStatusList() { this->abnormalResourceStatusList_ = nullptr;};
-    inline const vector<PutEnableFwSwitchResponseBodyAbnormalResourceStatusList> & abnormalResourceStatusList() const { DARABONBA_PTR_GET_CONST(abnormalResourceStatusList_, vector<PutEnableFwSwitchResponseBodyAbnormalResourceStatusList>) };
-    inline vector<PutEnableFwSwitchResponseBodyAbnormalResourceStatusList> abnormalResourceStatusList() { DARABONBA_PTR_GET(abnormalResourceStatusList_, vector<PutEnableFwSwitchResponseBodyAbnormalResourceStatusList>) };
-    inline PutEnableFwSwitchResponseBody& setAbnormalResourceStatusList(const vector<PutEnableFwSwitchResponseBodyAbnormalResourceStatusList> & abnormalResourceStatusList) { DARABONBA_PTR_SET_VALUE(abnormalResourceStatusList_, abnormalResourceStatusList) };
-    inline PutEnableFwSwitchResponseBody& setAbnormalResourceStatusList(vector<PutEnableFwSwitchResponseBodyAbnormalResourceStatusList> && abnormalResourceStatusList) { DARABONBA_PTR_SET_RVALUE(abnormalResourceStatusList_, abnormalResourceStatusList) };
+    inline const vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList> & getAbnormalResourceStatusList() const { DARABONBA_PTR_GET_CONST(abnormalResourceStatusList_, vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList>) };
+    inline vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList> getAbnormalResourceStatusList() { DARABONBA_PTR_GET(abnormalResourceStatusList_, vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList>) };
+    inline PutEnableFwSwitchResponseBody& setAbnormalResourceStatusList(const vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList> & abnormalResourceStatusList) { DARABONBA_PTR_SET_VALUE(abnormalResourceStatusList_, abnormalResourceStatusList) };
+    inline PutEnableFwSwitchResponseBody& setAbnormalResourceStatusList(vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList> && abnormalResourceStatusList) { DARABONBA_PTR_SET_RVALUE(abnormalResourceStatusList_, abnormalResourceStatusList) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline PutEnableFwSwitchResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The status information of the asset when it is not synchronized to Cloud Firewall.
-    std::shared_ptr<vector<PutEnableFwSwitchResponseBodyAbnormalResourceStatusList>> abnormalResourceStatusList_ = nullptr;
+    shared_ptr<vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList>> abnormalResourceStatusList_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

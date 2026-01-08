@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEINTERNETTRAFFICTRENDRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeInternetTrafficTrendResponseBodyDataList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -63,167 +62,302 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DataList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DataList& obj) { 
+        DARABONBA_PTR_TO_JSON(InBps, inBps_);
+        DARABONBA_PTR_TO_JSON(InBytes, inBytes_);
+        DARABONBA_PTR_TO_JSON(InPps, inPps_);
+        DARABONBA_PTR_TO_JSON(NewConn, newConn_);
+        DARABONBA_PTR_TO_JSON(OutBps, outBps_);
+        DARABONBA_PTR_TO_JSON(OutBytes, outBytes_);
+        DARABONBA_PTR_TO_JSON(OutPps, outPps_);
+        DARABONBA_PTR_TO_JSON(SessionCount, sessionCount_);
+        DARABONBA_PTR_TO_JSON(Time, time_);
+        DARABONBA_PTR_TO_JSON(TotalBps, totalBps_);
+      };
+      friend void from_json(const Darabonba::Json& j, DataList& obj) { 
+        DARABONBA_PTR_FROM_JSON(InBps, inBps_);
+        DARABONBA_PTR_FROM_JSON(InBytes, inBytes_);
+        DARABONBA_PTR_FROM_JSON(InPps, inPps_);
+        DARABONBA_PTR_FROM_JSON(NewConn, newConn_);
+        DARABONBA_PTR_FROM_JSON(OutBps, outBps_);
+        DARABONBA_PTR_FROM_JSON(OutBytes, outBytes_);
+        DARABONBA_PTR_FROM_JSON(OutPps, outPps_);
+        DARABONBA_PTR_FROM_JSON(SessionCount, sessionCount_);
+        DARABONBA_PTR_FROM_JSON(Time, time_);
+        DARABONBA_PTR_FROM_JSON(TotalBps, totalBps_);
+      };
+      DataList() = default ;
+      DataList(const DataList &) = default ;
+      DataList(DataList &&) = default ;
+      DataList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DataList() = default ;
+      DataList& operator=(const DataList &) = default ;
+      DataList& operator=(DataList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->inBps_ == nullptr
+        && this->inBytes_ == nullptr && this->inPps_ == nullptr && this->newConn_ == nullptr && this->outBps_ == nullptr && this->outBytes_ == nullptr
+        && this->outPps_ == nullptr && this->sessionCount_ == nullptr && this->time_ == nullptr && this->totalBps_ == nullptr; };
+      // inBps Field Functions 
+      bool hasInBps() const { return this->inBps_ != nullptr;};
+      void deleteInBps() { this->inBps_ = nullptr;};
+      inline int64_t getInBps() const { DARABONBA_PTR_GET_DEFAULT(inBps_, 0L) };
+      inline DataList& setInBps(int64_t inBps) { DARABONBA_PTR_SET_VALUE(inBps_, inBps) };
+
+
+      // inBytes Field Functions 
+      bool hasInBytes() const { return this->inBytes_ != nullptr;};
+      void deleteInBytes() { this->inBytes_ = nullptr;};
+      inline int64_t getInBytes() const { DARABONBA_PTR_GET_DEFAULT(inBytes_, 0L) };
+      inline DataList& setInBytes(int64_t inBytes) { DARABONBA_PTR_SET_VALUE(inBytes_, inBytes) };
+
+
+      // inPps Field Functions 
+      bool hasInPps() const { return this->inPps_ != nullptr;};
+      void deleteInPps() { this->inPps_ = nullptr;};
+      inline int64_t getInPps() const { DARABONBA_PTR_GET_DEFAULT(inPps_, 0L) };
+      inline DataList& setInPps(int64_t inPps) { DARABONBA_PTR_SET_VALUE(inPps_, inPps) };
+
+
+      // newConn Field Functions 
+      bool hasNewConn() const { return this->newConn_ != nullptr;};
+      void deleteNewConn() { this->newConn_ = nullptr;};
+      inline int64_t getNewConn() const { DARABONBA_PTR_GET_DEFAULT(newConn_, 0L) };
+      inline DataList& setNewConn(int64_t newConn) { DARABONBA_PTR_SET_VALUE(newConn_, newConn) };
+
+
+      // outBps Field Functions 
+      bool hasOutBps() const { return this->outBps_ != nullptr;};
+      void deleteOutBps() { this->outBps_ = nullptr;};
+      inline int64_t getOutBps() const { DARABONBA_PTR_GET_DEFAULT(outBps_, 0L) };
+      inline DataList& setOutBps(int64_t outBps) { DARABONBA_PTR_SET_VALUE(outBps_, outBps) };
+
+
+      // outBytes Field Functions 
+      bool hasOutBytes() const { return this->outBytes_ != nullptr;};
+      void deleteOutBytes() { this->outBytes_ = nullptr;};
+      inline int64_t getOutBytes() const { DARABONBA_PTR_GET_DEFAULT(outBytes_, 0L) };
+      inline DataList& setOutBytes(int64_t outBytes) { DARABONBA_PTR_SET_VALUE(outBytes_, outBytes) };
+
+
+      // outPps Field Functions 
+      bool hasOutPps() const { return this->outPps_ != nullptr;};
+      void deleteOutPps() { this->outPps_ = nullptr;};
+      inline int64_t getOutPps() const { DARABONBA_PTR_GET_DEFAULT(outPps_, 0L) };
+      inline DataList& setOutPps(int64_t outPps) { DARABONBA_PTR_SET_VALUE(outPps_, outPps) };
+
+
+      // sessionCount Field Functions 
+      bool hasSessionCount() const { return this->sessionCount_ != nullptr;};
+      void deleteSessionCount() { this->sessionCount_ = nullptr;};
+      inline int64_t getSessionCount() const { DARABONBA_PTR_GET_DEFAULT(sessionCount_, 0L) };
+      inline DataList& setSessionCount(int64_t sessionCount) { DARABONBA_PTR_SET_VALUE(sessionCount_, sessionCount) };
+
+
+      // time Field Functions 
+      bool hasTime() const { return this->time_ != nullptr;};
+      void deleteTime() { this->time_ = nullptr;};
+      inline int32_t getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, 0) };
+      inline DataList& setTime(int32_t time) { DARABONBA_PTR_SET_VALUE(time_, time) };
+
+
+      // totalBps Field Functions 
+      bool hasTotalBps() const { return this->totalBps_ != nullptr;};
+      void deleteTotalBps() { this->totalBps_ = nullptr;};
+      inline int64_t getTotalBps() const { DARABONBA_PTR_GET_DEFAULT(totalBps_, 0L) };
+      inline DataList& setTotalBps(int64_t totalBps) { DARABONBA_PTR_SET_VALUE(totalBps_, totalBps) };
+
+
+    protected:
+      // The inbound network throughput, which indicates the number of bits that are sent inbound per second. Unit: bit/s.
+      shared_ptr<int64_t> inBps_ {};
+      // The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
+      shared_ptr<int64_t> inBytes_ {};
+      // The inbound network throughput, which indicates the number of packets that are sent inbound per second. Unit: packets per second (pps).
+      shared_ptr<int64_t> inPps_ {};
+      // The number of new connections.
+      shared_ptr<int64_t> newConn_ {};
+      // The outbound network throughput, which indicates the number of bits that are sent outbound per second. Unit: bit/s.
+      shared_ptr<int64_t> outBps_ {};
+      // The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
+      shared_ptr<int64_t> outBytes_ {};
+      // The outbound network throughput, which indicates the number of packets that are sent outbound per second. Unit: pps.
+      shared_ptr<int64_t> outPps_ {};
+      // The number of requests.
+      shared_ptr<int64_t> sessionCount_ {};
+      // The time when traffic is generated. The value is a UNIX timestamp. Unit: seconds.
+      // 
+      // If processing is not complete at this point in time, -1 is returned for all other fields.
+      shared_ptr<int32_t> time_ {};
+      // The total outbound and inbound network throughput, which indicates the total number of bits that are sent inbound and outbound per second. Unit: bit/s.
+      shared_ptr<int64_t> totalBps_ {};
+    };
+
     virtual bool empty() const override { return this->avgInBps_ == nullptr
-        && return this->avgOutBps_ == nullptr && return this->avgSession_ == nullptr && return this->avgTotalBps_ == nullptr && return this->dataList_ == nullptr && return this->maxBandwidthTime_ == nullptr
-        && return this->maxDayExceedBytes_ == nullptr && return this->maxInBps_ == nullptr && return this->maxOutBps_ == nullptr && return this->maxSession_ == nullptr && return this->maxTotalBps_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalBytes_ == nullptr && return this->totalExceedBytes_ == nullptr && return this->totalInBytes_ == nullptr && return this->totalOutBytes_ == nullptr
-        && return this->totalSession_ == nullptr; };
+        && this->avgOutBps_ == nullptr && this->avgSession_ == nullptr && this->avgTotalBps_ == nullptr && this->dataList_ == nullptr && this->maxBandwidthTime_ == nullptr
+        && this->maxDayExceedBytes_ == nullptr && this->maxInBps_ == nullptr && this->maxOutBps_ == nullptr && this->maxSession_ == nullptr && this->maxTotalBps_ == nullptr
+        && this->requestId_ == nullptr && this->totalBytes_ == nullptr && this->totalExceedBytes_ == nullptr && this->totalInBytes_ == nullptr && this->totalOutBytes_ == nullptr
+        && this->totalSession_ == nullptr; };
     // avgInBps Field Functions 
     bool hasAvgInBps() const { return this->avgInBps_ != nullptr;};
     void deleteAvgInBps() { this->avgInBps_ = nullptr;};
-    inline int64_t avgInBps() const { DARABONBA_PTR_GET_DEFAULT(avgInBps_, 0L) };
+    inline int64_t getAvgInBps() const { DARABONBA_PTR_GET_DEFAULT(avgInBps_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setAvgInBps(int64_t avgInBps) { DARABONBA_PTR_SET_VALUE(avgInBps_, avgInBps) };
 
 
     // avgOutBps Field Functions 
     bool hasAvgOutBps() const { return this->avgOutBps_ != nullptr;};
     void deleteAvgOutBps() { this->avgOutBps_ = nullptr;};
-    inline int64_t avgOutBps() const { DARABONBA_PTR_GET_DEFAULT(avgOutBps_, 0L) };
+    inline int64_t getAvgOutBps() const { DARABONBA_PTR_GET_DEFAULT(avgOutBps_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setAvgOutBps(int64_t avgOutBps) { DARABONBA_PTR_SET_VALUE(avgOutBps_, avgOutBps) };
 
 
     // avgSession Field Functions 
     bool hasAvgSession() const { return this->avgSession_ != nullptr;};
     void deleteAvgSession() { this->avgSession_ = nullptr;};
-    inline int64_t avgSession() const { DARABONBA_PTR_GET_DEFAULT(avgSession_, 0L) };
+    inline int64_t getAvgSession() const { DARABONBA_PTR_GET_DEFAULT(avgSession_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setAvgSession(int64_t avgSession) { DARABONBA_PTR_SET_VALUE(avgSession_, avgSession) };
 
 
     // avgTotalBps Field Functions 
     bool hasAvgTotalBps() const { return this->avgTotalBps_ != nullptr;};
     void deleteAvgTotalBps() { this->avgTotalBps_ = nullptr;};
-    inline int64_t avgTotalBps() const { DARABONBA_PTR_GET_DEFAULT(avgTotalBps_, 0L) };
+    inline int64_t getAvgTotalBps() const { DARABONBA_PTR_GET_DEFAULT(avgTotalBps_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setAvgTotalBps(int64_t avgTotalBps) { DARABONBA_PTR_SET_VALUE(avgTotalBps_, avgTotalBps) };
 
 
     // dataList Field Functions 
     bool hasDataList() const { return this->dataList_ != nullptr;};
     void deleteDataList() { this->dataList_ = nullptr;};
-    inline const vector<DescribeInternetTrafficTrendResponseBodyDataList> & dataList() const { DARABONBA_PTR_GET_CONST(dataList_, vector<DescribeInternetTrafficTrendResponseBodyDataList>) };
-    inline vector<DescribeInternetTrafficTrendResponseBodyDataList> dataList() { DARABONBA_PTR_GET(dataList_, vector<DescribeInternetTrafficTrendResponseBodyDataList>) };
-    inline DescribeInternetTrafficTrendResponseBody& setDataList(const vector<DescribeInternetTrafficTrendResponseBodyDataList> & dataList) { DARABONBA_PTR_SET_VALUE(dataList_, dataList) };
-    inline DescribeInternetTrafficTrendResponseBody& setDataList(vector<DescribeInternetTrafficTrendResponseBodyDataList> && dataList) { DARABONBA_PTR_SET_RVALUE(dataList_, dataList) };
+    inline const vector<DescribeInternetTrafficTrendResponseBody::DataList> & getDataList() const { DARABONBA_PTR_GET_CONST(dataList_, vector<DescribeInternetTrafficTrendResponseBody::DataList>) };
+    inline vector<DescribeInternetTrafficTrendResponseBody::DataList> getDataList() { DARABONBA_PTR_GET(dataList_, vector<DescribeInternetTrafficTrendResponseBody::DataList>) };
+    inline DescribeInternetTrafficTrendResponseBody& setDataList(const vector<DescribeInternetTrafficTrendResponseBody::DataList> & dataList) { DARABONBA_PTR_SET_VALUE(dataList_, dataList) };
+    inline DescribeInternetTrafficTrendResponseBody& setDataList(vector<DescribeInternetTrafficTrendResponseBody::DataList> && dataList) { DARABONBA_PTR_SET_RVALUE(dataList_, dataList) };
 
 
     // maxBandwidthTime Field Functions 
     bool hasMaxBandwidthTime() const { return this->maxBandwidthTime_ != nullptr;};
     void deleteMaxBandwidthTime() { this->maxBandwidthTime_ = nullptr;};
-    inline int64_t maxBandwidthTime() const { DARABONBA_PTR_GET_DEFAULT(maxBandwidthTime_, 0L) };
+    inline int64_t getMaxBandwidthTime() const { DARABONBA_PTR_GET_DEFAULT(maxBandwidthTime_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setMaxBandwidthTime(int64_t maxBandwidthTime) { DARABONBA_PTR_SET_VALUE(maxBandwidthTime_, maxBandwidthTime) };
 
 
     // maxDayExceedBytes Field Functions 
     bool hasMaxDayExceedBytes() const { return this->maxDayExceedBytes_ != nullptr;};
     void deleteMaxDayExceedBytes() { this->maxDayExceedBytes_ = nullptr;};
-    inline int64_t maxDayExceedBytes() const { DARABONBA_PTR_GET_DEFAULT(maxDayExceedBytes_, 0L) };
+    inline int64_t getMaxDayExceedBytes() const { DARABONBA_PTR_GET_DEFAULT(maxDayExceedBytes_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setMaxDayExceedBytes(int64_t maxDayExceedBytes) { DARABONBA_PTR_SET_VALUE(maxDayExceedBytes_, maxDayExceedBytes) };
 
 
     // maxInBps Field Functions 
     bool hasMaxInBps() const { return this->maxInBps_ != nullptr;};
     void deleteMaxInBps() { this->maxInBps_ = nullptr;};
-    inline int64_t maxInBps() const { DARABONBA_PTR_GET_DEFAULT(maxInBps_, 0L) };
+    inline int64_t getMaxInBps() const { DARABONBA_PTR_GET_DEFAULT(maxInBps_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setMaxInBps(int64_t maxInBps) { DARABONBA_PTR_SET_VALUE(maxInBps_, maxInBps) };
 
 
     // maxOutBps Field Functions 
     bool hasMaxOutBps() const { return this->maxOutBps_ != nullptr;};
     void deleteMaxOutBps() { this->maxOutBps_ = nullptr;};
-    inline int64_t maxOutBps() const { DARABONBA_PTR_GET_DEFAULT(maxOutBps_, 0L) };
+    inline int64_t getMaxOutBps() const { DARABONBA_PTR_GET_DEFAULT(maxOutBps_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setMaxOutBps(int64_t maxOutBps) { DARABONBA_PTR_SET_VALUE(maxOutBps_, maxOutBps) };
 
 
     // maxSession Field Functions 
     bool hasMaxSession() const { return this->maxSession_ != nullptr;};
     void deleteMaxSession() { this->maxSession_ = nullptr;};
-    inline int64_t maxSession() const { DARABONBA_PTR_GET_DEFAULT(maxSession_, 0L) };
+    inline int64_t getMaxSession() const { DARABONBA_PTR_GET_DEFAULT(maxSession_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setMaxSession(int64_t maxSession) { DARABONBA_PTR_SET_VALUE(maxSession_, maxSession) };
 
 
     // maxTotalBps Field Functions 
     bool hasMaxTotalBps() const { return this->maxTotalBps_ != nullptr;};
     void deleteMaxTotalBps() { this->maxTotalBps_ = nullptr;};
-    inline int64_t maxTotalBps() const { DARABONBA_PTR_GET_DEFAULT(maxTotalBps_, 0L) };
+    inline int64_t getMaxTotalBps() const { DARABONBA_PTR_GET_DEFAULT(maxTotalBps_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setMaxTotalBps(int64_t maxTotalBps) { DARABONBA_PTR_SET_VALUE(maxTotalBps_, maxTotalBps) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeInternetTrafficTrendResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalBytes Field Functions 
     bool hasTotalBytes() const { return this->totalBytes_ != nullptr;};
     void deleteTotalBytes() { this->totalBytes_ = nullptr;};
-    inline int64_t totalBytes() const { DARABONBA_PTR_GET_DEFAULT(totalBytes_, 0L) };
+    inline int64_t getTotalBytes() const { DARABONBA_PTR_GET_DEFAULT(totalBytes_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setTotalBytes(int64_t totalBytes) { DARABONBA_PTR_SET_VALUE(totalBytes_, totalBytes) };
 
 
     // totalExceedBytes Field Functions 
     bool hasTotalExceedBytes() const { return this->totalExceedBytes_ != nullptr;};
     void deleteTotalExceedBytes() { this->totalExceedBytes_ = nullptr;};
-    inline int64_t totalExceedBytes() const { DARABONBA_PTR_GET_DEFAULT(totalExceedBytes_, 0L) };
+    inline int64_t getTotalExceedBytes() const { DARABONBA_PTR_GET_DEFAULT(totalExceedBytes_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setTotalExceedBytes(int64_t totalExceedBytes) { DARABONBA_PTR_SET_VALUE(totalExceedBytes_, totalExceedBytes) };
 
 
     // totalInBytes Field Functions 
     bool hasTotalInBytes() const { return this->totalInBytes_ != nullptr;};
     void deleteTotalInBytes() { this->totalInBytes_ = nullptr;};
-    inline int64_t totalInBytes() const { DARABONBA_PTR_GET_DEFAULT(totalInBytes_, 0L) };
+    inline int64_t getTotalInBytes() const { DARABONBA_PTR_GET_DEFAULT(totalInBytes_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setTotalInBytes(int64_t totalInBytes) { DARABONBA_PTR_SET_VALUE(totalInBytes_, totalInBytes) };
 
 
     // totalOutBytes Field Functions 
     bool hasTotalOutBytes() const { return this->totalOutBytes_ != nullptr;};
     void deleteTotalOutBytes() { this->totalOutBytes_ = nullptr;};
-    inline int64_t totalOutBytes() const { DARABONBA_PTR_GET_DEFAULT(totalOutBytes_, 0L) };
+    inline int64_t getTotalOutBytes() const { DARABONBA_PTR_GET_DEFAULT(totalOutBytes_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setTotalOutBytes(int64_t totalOutBytes) { DARABONBA_PTR_SET_VALUE(totalOutBytes_, totalOutBytes) };
 
 
     // totalSession Field Functions 
     bool hasTotalSession() const { return this->totalSession_ != nullptr;};
     void deleteTotalSession() { this->totalSession_ = nullptr;};
-    inline int64_t totalSession() const { DARABONBA_PTR_GET_DEFAULT(totalSession_, 0L) };
+    inline int64_t getTotalSession() const { DARABONBA_PTR_GET_DEFAULT(totalSession_, 0L) };
     inline DescribeInternetTrafficTrendResponseBody& setTotalSession(int64_t totalSession) { DARABONBA_PTR_SET_VALUE(totalSession_, totalSession) };
 
 
   protected:
     // The average inbound network throughput, which indicates the average number of bits that are sent inbound per second. Unit: bit/s.
-    std::shared_ptr<int64_t> avgInBps_ = nullptr;
+    shared_ptr<int64_t> avgInBps_ {};
     // The average outbound network throughput, which indicates the average number of bits that are sent outbound per second. Unit: bit/s.
-    std::shared_ptr<int64_t> avgOutBps_ = nullptr;
+    shared_ptr<int64_t> avgOutBps_ {};
     // The average number of requests.
-    std::shared_ptr<int64_t> avgSession_ = nullptr;
+    shared_ptr<int64_t> avgSession_ {};
     // The total average inbound and outbound network throughput, which indicates the average number of bits that are sent inbound and outbound per second. Unit: bit/s.
-    std::shared_ptr<int64_t> avgTotalBps_ = nullptr;
+    shared_ptr<int64_t> avgTotalBps_ {};
     // The statistics on traffic.
-    std::shared_ptr<vector<DescribeInternetTrafficTrendResponseBodyDataList>> dataList_ = nullptr;
+    shared_ptr<vector<DescribeInternetTrafficTrendResponseBody::DataList>> dataList_ {};
     // The timestamp generated when the bandwidth reaches the peak value. The value is a UNIX timestamp. Unit: seconds.
-    std::shared_ptr<int64_t> maxBandwidthTime_ = nullptr;
+    shared_ptr<int64_t> maxBandwidthTime_ {};
     // The maximum volume of excess traffic allowed per day.
-    std::shared_ptr<int64_t> maxDayExceedBytes_ = nullptr;
+    shared_ptr<int64_t> maxDayExceedBytes_ {};
     // The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
-    std::shared_ptr<int64_t> maxInBps_ = nullptr;
+    shared_ptr<int64_t> maxInBps_ {};
     // The maximum outbound network throughput, which indicates the maximum number of bits that are sent outbound per second. Unit: bit/s.
-    std::shared_ptr<int64_t> maxOutBps_ = nullptr;
+    shared_ptr<int64_t> maxOutBps_ {};
     // The number of requests during the peak hour of the network throughout.
-    std::shared_ptr<int64_t> maxSession_ = nullptr;
+    shared_ptr<int64_t> maxSession_ {};
     // The total maximum inbound and outbound network throughput, which indicates the maximum number of bits that are sent inbound and outbound per second. Unit: bit/s.
-    std::shared_ptr<int64_t> maxTotalBps_ = nullptr;
+    shared_ptr<int64_t> maxTotalBps_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The total inbound and outbound network throughput, which indicates the total number of bytes that are sent inbound and outbound. Unit: bytes.
-    std::shared_ptr<int64_t> totalBytes_ = nullptr;
+    shared_ptr<int64_t> totalBytes_ {};
     // The total volume of excess traffic.
-    std::shared_ptr<int64_t> totalExceedBytes_ = nullptr;
+    shared_ptr<int64_t> totalExceedBytes_ {};
     // The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
-    std::shared_ptr<int64_t> totalInBytes_ = nullptr;
+    shared_ptr<int64_t> totalInBytes_ {};
     // The outbound network throughput, which indicates the total number of bytes that are sent outbound. Unit: bytes.
-    std::shared_ptr<int64_t> totalOutBytes_ = nullptr;
+    shared_ptr<int64_t> totalOutBytes_ {};
     // The total number of requests.
-    std::shared_ptr<int64_t> totalSession_ = nullptr;
+    shared_ptr<int64_t> totalSession_ {};
   };
 
   } // namespace Models

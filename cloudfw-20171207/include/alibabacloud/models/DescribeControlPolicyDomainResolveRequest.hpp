@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->firewallType_ == nullptr && return this->ipVersion_ == nullptr && return this->lang_ == nullptr && return this->regionNo_ == nullptr; };
+        && this->firewallType_ == nullptr && this->ipVersion_ == nullptr && this->lang_ == nullptr && this->regionNo_ == nullptr; };
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline DescribeControlPolicyDomainResolveRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // firewallType Field Functions 
     bool hasFirewallType() const { return this->firewallType_ != nullptr;};
     void deleteFirewallType() { this->firewallType_ = nullptr;};
-    inline string firewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
+    inline string getFirewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
     inline DescribeControlPolicyDomainResolveRequest& setFirewallType(string firewallType) { DARABONBA_PTR_SET_VALUE(firewallType_, firewallType) };
 
 
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline int32_t ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, 0) };
+    inline int32_t getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, 0) };
     inline DescribeControlPolicyDomainResolveRequest& setIpVersion(int32_t ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeControlPolicyDomainResolveRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline DescribeControlPolicyDomainResolveRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
   protected:
-    std::shared_ptr<string> domain_ = nullptr;
-    std::shared_ptr<string> firewallType_ = nullptr;
-    std::shared_ptr<int32_t> ipVersion_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> domain_ {};
+    shared_ptr<string> firewallType_ {};
+    shared_ptr<int32_t> ipVersion_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> regionNo_ {};
   };
 
   } // namespace Models

@@ -32,29 +32,29 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->firewallId_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // firewallId Field Functions 
     bool hasFirewallId() const { return this->firewallId_ != nullptr;};
     void deleteFirewallId() { this->firewallId_ = nullptr;};
-    inline string firewallId() const { DARABONBA_PTR_GET_DEFAULT(firewallId_, "") };
+    inline string getFirewallId() const { DARABONBA_PTR_GET_DEFAULT(firewallId_, "") };
     inline DeleteTrFirewallV2Request& setFirewallId(string firewallId) { DARABONBA_PTR_SET_VALUE(firewallId_, firewallId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteTrFirewallV2Request& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // The instance ID of the VPC firewall.
-    std::shared_ptr<string> firewallId_ = nullptr;
+    shared_ptr<string> firewallId_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

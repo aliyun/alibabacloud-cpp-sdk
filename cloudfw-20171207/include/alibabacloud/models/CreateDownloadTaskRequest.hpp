@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->taskData_ == nullptr && return this->taskType_ == nullptr && return this->timeZone_ == nullptr; };
+        && this->taskData_ == nullptr && this->taskType_ == nullptr && this->timeZone_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateDownloadTaskRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // taskData Field Functions 
     bool hasTaskData() const { return this->taskData_ != nullptr;};
     void deleteTaskData() { this->taskData_ = nullptr;};
-    inline string taskData() const { DARABONBA_PTR_GET_DEFAULT(taskData_, "") };
+    inline string getTaskData() const { DARABONBA_PTR_GET_DEFAULT(taskData_, "") };
     inline CreateDownloadTaskRequest& setTaskData(string taskData) { DARABONBA_PTR_SET_VALUE(taskData_, taskData) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline CreateDownloadTaskRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
     // timeZone Field Functions 
     bool hasTimeZone() const { return this->timeZone_ != nullptr;};
     void deleteTimeZone() { this->timeZone_ = nullptr;};
-    inline string timeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
+    inline string getTimeZone() const { DARABONBA_PTR_GET_DEFAULT(timeZone_, "") };
     inline CreateDownloadTaskRequest& setTimeZone(string timeZone) { DARABONBA_PTR_SET_VALUE(timeZone_, timeZone) };
 
 
@@ -72,13 +72,13 @@ namespace Models
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The query condition of the download task.
-    std::shared_ptr<string> taskData_ = nullptr;
+    shared_ptr<string> taskData_ {};
     // The type of the task. For more information about task types, see the descriptions in the "DescribeDownloadTaskType" topic.
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<string> taskType_ {};
     // The time zone of the time information in the downloaded file. The value must be an identifier of a time zone in the Internet Assigned Numbers Authority (IANA) database. The default value is Asia/Shanghai, which indicates UTC+8.
-    std::shared_ptr<string> timeZone_ = nullptr;
+    shared_ptr<string> timeZone_ {};
   };
 
   } // namespace Models

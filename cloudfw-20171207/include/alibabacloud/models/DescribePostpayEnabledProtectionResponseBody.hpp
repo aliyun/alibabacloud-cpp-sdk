@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disabledDays_ == nullptr
-        && return this->disabledType_ == nullptr && return this->isEnabledProtection_ == nullptr && return this->isOpenButDisabled_ == nullptr && return this->requestId_ == nullptr; };
+        && this->disabledType_ == nullptr && this->isEnabledProtection_ == nullptr && this->isOpenButDisabled_ == nullptr && this->requestId_ == nullptr; };
     // disabledDays Field Functions 
     bool hasDisabledDays() const { return this->disabledDays_ != nullptr;};
     void deleteDisabledDays() { this->disabledDays_ = nullptr;};
-    inline int64_t disabledDays() const { DARABONBA_PTR_GET_DEFAULT(disabledDays_, 0L) };
+    inline int64_t getDisabledDays() const { DARABONBA_PTR_GET_DEFAULT(disabledDays_, 0L) };
     inline DescribePostpayEnabledProtectionResponseBody& setDisabledDays(int64_t disabledDays) { DARABONBA_PTR_SET_VALUE(disabledDays_, disabledDays) };
 
 
     // disabledType Field Functions 
     bool hasDisabledType() const { return this->disabledType_ != nullptr;};
     void deleteDisabledType() { this->disabledType_ = nullptr;};
-    inline string disabledType() const { DARABONBA_PTR_GET_DEFAULT(disabledType_, "") };
+    inline string getDisabledType() const { DARABONBA_PTR_GET_DEFAULT(disabledType_, "") };
     inline DescribePostpayEnabledProtectionResponseBody& setDisabledType(string disabledType) { DARABONBA_PTR_SET_VALUE(disabledType_, disabledType) };
 
 
     // isEnabledProtection Field Functions 
     bool hasIsEnabledProtection() const { return this->isEnabledProtection_ != nullptr;};
     void deleteIsEnabledProtection() { this->isEnabledProtection_ = nullptr;};
-    inline bool isEnabledProtection() const { DARABONBA_PTR_GET_DEFAULT(isEnabledProtection_, false) };
+    inline bool getIsEnabledProtection() const { DARABONBA_PTR_GET_DEFAULT(isEnabledProtection_, false) };
     inline DescribePostpayEnabledProtectionResponseBody& setIsEnabledProtection(bool isEnabledProtection) { DARABONBA_PTR_SET_VALUE(isEnabledProtection_, isEnabledProtection) };
 
 
     // isOpenButDisabled Field Functions 
     bool hasIsOpenButDisabled() const { return this->isOpenButDisabled_ != nullptr;};
     void deleteIsOpenButDisabled() { this->isOpenButDisabled_ = nullptr;};
-    inline bool isOpenButDisabled() const { DARABONBA_PTR_GET_DEFAULT(isOpenButDisabled_, false) };
+    inline bool getIsOpenButDisabled() const { DARABONBA_PTR_GET_DEFAULT(isOpenButDisabled_, false) };
     inline DescribePostpayEnabledProtectionResponseBody& setIsOpenButDisabled(bool isOpenButDisabled) { DARABONBA_PTR_SET_VALUE(isOpenButDisabled_, isOpenButDisabled) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePostpayEnabledProtectionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<int64_t> disabledDays_ = nullptr;
-    std::shared_ptr<string> disabledType_ = nullptr;
-    std::shared_ptr<bool> isEnabledProtection_ = nullptr;
-    std::shared_ptr<bool> isOpenButDisabled_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<int64_t> disabledDays_ {};
+    shared_ptr<string> disabledType_ {};
+    shared_ptr<bool> isEnabledProtection_ {};
+    shared_ptr<bool> isOpenButDisabled_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

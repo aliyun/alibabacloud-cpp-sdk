@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->natGatewayId_ == nullptr && return this->regionNo_ == nullptr; };
+        && this->natGatewayId_ == nullptr && this->regionNo_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeNatFirewallPrecheckDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline DescribeNatFirewallPrecheckDetailRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline DescribeNatFirewallPrecheckDetailRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> natGatewayId_ = nullptr;
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> natGatewayId_ {};
+    shared_ptr<string> regionNo_ {};
   };
 
   } // namespace Models

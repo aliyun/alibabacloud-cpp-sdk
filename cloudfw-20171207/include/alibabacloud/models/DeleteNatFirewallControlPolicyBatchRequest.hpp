@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclUuidList_ == nullptr
-        && return this->direction_ == nullptr && return this->lang_ == nullptr && return this->natGatewayId_ == nullptr; };
+        && this->direction_ == nullptr && this->lang_ == nullptr && this->natGatewayId_ == nullptr; };
     // aclUuidList Field Functions 
     bool hasAclUuidList() const { return this->aclUuidList_ != nullptr;};
     void deleteAclUuidList() { this->aclUuidList_ = nullptr;};
-    inline const vector<string> & aclUuidList() const { DARABONBA_PTR_GET_CONST(aclUuidList_, vector<string>) };
-    inline vector<string> aclUuidList() { DARABONBA_PTR_GET(aclUuidList_, vector<string>) };
+    inline const vector<string> & getAclUuidList() const { DARABONBA_PTR_GET_CONST(aclUuidList_, vector<string>) };
+    inline vector<string> getAclUuidList() { DARABONBA_PTR_GET(aclUuidList_, vector<string>) };
     inline DeleteNatFirewallControlPolicyBatchRequest& setAclUuidList(const vector<string> & aclUuidList) { DARABONBA_PTR_SET_VALUE(aclUuidList_, aclUuidList) };
     inline DeleteNatFirewallControlPolicyBatchRequest& setAclUuidList(vector<string> && aclUuidList) { DARABONBA_PTR_SET_RVALUE(aclUuidList_, aclUuidList) };
 
@@ -50,21 +50,21 @@ namespace Models
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline DeleteNatFirewallControlPolicyBatchRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteNatFirewallControlPolicyBatchRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline DeleteNatFirewallControlPolicyBatchRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
@@ -72,20 +72,20 @@ namespace Models
     // The UUIDs of access control policies.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> aclUuidList_ = nullptr;
+    shared_ptr<vector<string>> aclUuidList_ {};
     // The direction of the traffic to which the access control policy applies. Valid values:
     // 
     // *   **out**: outbound traffic
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the NAT gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> natGatewayId_ = nullptr;
+    shared_ptr<string> natGatewayId_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->proxyId_ == nullptr && return this->switch_ == nullptr; };
+        && this->proxyId_ == nullptr && this->switch_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SwitchSecurityProxyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // proxyId Field Functions 
     bool hasProxyId() const { return this->proxyId_ != nullptr;};
     void deleteProxyId() { this->proxyId_ = nullptr;};
-    inline string proxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
+    inline string getProxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
     inline SwitchSecurityProxyRequest& setProxyId(string proxyId) { DARABONBA_PTR_SET_VALUE(proxyId_, proxyId) };
 
 
     // switch Field Functions 
     bool hasSwitch() const { return this->switch_ != nullptr;};
     void deleteSwitch() { this->switch_ = nullptr;};
-    inline string _switch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
+    inline string getSwitch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
     inline SwitchSecurityProxyRequest& setSwitch(string _switch) { DARABONBA_PTR_SET_VALUE(switch_, _switch) };
 
 
@@ -61,18 +61,18 @@ namespace Models
     // 
     // *   **zh** (default)
     // *   **en**
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the NAT firewall.
     // 
     // This parameter is required.
-    std::shared_ptr<string> proxyId_ = nullptr;
+    shared_ptr<string> proxyId_ {};
     // Specifies whether to enable the NAT firewall. Valid values:
     // 
     // *   open: yes
     // *   close: no
     // 
     // This parameter is required.
-    std::shared_ptr<string> switch_ = nullptr;
+    shared_ptr<string> switch_ {};
   };
 
   } // namespace Models

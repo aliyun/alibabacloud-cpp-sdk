@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipaddrList_ == nullptr
-        && return this->lang_ == nullptr && return this->regionList_ == nullptr && return this->resourceTypeList_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->lang_ == nullptr && this->regionList_ == nullptr && this->resourceTypeList_ == nullptr && this->sourceIp_ == nullptr; };
     // ipaddrList Field Functions 
     bool hasIpaddrList() const { return this->ipaddrList_ != nullptr;};
     void deleteIpaddrList() { this->ipaddrList_ = nullptr;};
-    inline const vector<string> & ipaddrList() const { DARABONBA_PTR_GET_CONST(ipaddrList_, vector<string>) };
-    inline vector<string> ipaddrList() { DARABONBA_PTR_GET(ipaddrList_, vector<string>) };
+    inline const vector<string> & getIpaddrList() const { DARABONBA_PTR_GET_CONST(ipaddrList_, vector<string>) };
+    inline vector<string> getIpaddrList() { DARABONBA_PTR_GET(ipaddrList_, vector<string>) };
     inline PutEnableFwSwitchRequest& setIpaddrList(const vector<string> & ipaddrList) { DARABONBA_PTR_SET_VALUE(ipaddrList_, ipaddrList) };
     inline PutEnableFwSwitchRequest& setIpaddrList(vector<string> && ipaddrList) { DARABONBA_PTR_SET_RVALUE(ipaddrList_, ipaddrList) };
 
@@ -52,15 +52,15 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline PutEnableFwSwitchRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionList Field Functions 
     bool hasRegionList() const { return this->regionList_ != nullptr;};
     void deleteRegionList() { this->regionList_ = nullptr;};
-    inline const vector<string> & regionList() const { DARABONBA_PTR_GET_CONST(regionList_, vector<string>) };
-    inline vector<string> regionList() { DARABONBA_PTR_GET(regionList_, vector<string>) };
+    inline const vector<string> & getRegionList() const { DARABONBA_PTR_GET_CONST(regionList_, vector<string>) };
+    inline vector<string> getRegionList() { DARABONBA_PTR_GET(regionList_, vector<string>) };
     inline PutEnableFwSwitchRequest& setRegionList(const vector<string> & regionList) { DARABONBA_PTR_SET_VALUE(regionList_, regionList) };
     inline PutEnableFwSwitchRequest& setRegionList(vector<string> && regionList) { DARABONBA_PTR_SET_RVALUE(regionList_, regionList) };
 
@@ -68,8 +68,8 @@ namespace Models
     // resourceTypeList Field Functions 
     bool hasResourceTypeList() const { return this->resourceTypeList_ != nullptr;};
     void deleteResourceTypeList() { this->resourceTypeList_ = nullptr;};
-    inline const vector<string> & resourceTypeList() const { DARABONBA_PTR_GET_CONST(resourceTypeList_, vector<string>) };
-    inline vector<string> resourceTypeList() { DARABONBA_PTR_GET(resourceTypeList_, vector<string>) };
+    inline const vector<string> & getResourceTypeList() const { DARABONBA_PTR_GET_CONST(resourceTypeList_, vector<string>) };
+    inline vector<string> getResourceTypeList() { DARABONBA_PTR_GET(resourceTypeList_, vector<string>) };
     inline PutEnableFwSwitchRequest& setResourceTypeList(const vector<string> & resourceTypeList) { DARABONBA_PTR_SET_VALUE(resourceTypeList_, resourceTypeList) };
     inline PutEnableFwSwitchRequest& setResourceTypeList(vector<string> && resourceTypeList) { DARABONBA_PTR_SET_RVALUE(resourceTypeList_, resourceTypeList) };
 
@@ -77,7 +77,7 @@ namespace Models
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline PutEnableFwSwitchRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -85,16 +85,16 @@ namespace Models
     // The IP addresses.
     // 
     // > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
-    std::shared_ptr<vector<string>> ipaddrList_ = nullptr;
+    shared_ptr<vector<string>> ipaddrList_ {};
     // The language of the content within the response.
     // 
     // *   **zh**: Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The regions.
     // 
     // > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
-    std::shared_ptr<vector<string>> regionList_ = nullptr;
+    shared_ptr<vector<string>> regionList_ {};
     // The types of the assets.
     // 
     // Valid values:
@@ -112,9 +112,9 @@ namespace Models
     // *   HAVIP: the high-availability virtual IP address (HAVIP)
     // 
     // > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
-    std::shared_ptr<vector<string>> resourceTypeList_ = nullptr;
+    shared_ptr<vector<string>> resourceTypeList_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectType_ == nullptr
-        && return this->firewallConfigureStatus_ == nullptr && return this->lang_ == nullptr && return this->networkInstanceId_ == nullptr && return this->peerNetworkInstanceId_ == nullptr; };
+        && this->firewallConfigureStatus_ == nullptr && this->lang_ == nullptr && this->networkInstanceId_ == nullptr && this->peerNetworkInstanceId_ == nullptr; };
     // connectType Field Functions 
     bool hasConnectType() const { return this->connectType_ != nullptr;};
     void deleteConnectType() { this->connectType_ = nullptr;};
-    inline string connectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
+    inline string getConnectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
     inline DescribeNetworkInstanceRelationListRequest& setConnectType(string connectType) { DARABONBA_PTR_SET_VALUE(connectType_, connectType) };
 
 
     // firewallConfigureStatus Field Functions 
     bool hasFirewallConfigureStatus() const { return this->firewallConfigureStatus_ != nullptr;};
     void deleteFirewallConfigureStatus() { this->firewallConfigureStatus_ = nullptr;};
-    inline string firewallConfigureStatus() const { DARABONBA_PTR_GET_DEFAULT(firewallConfigureStatus_, "") };
+    inline string getFirewallConfigureStatus() const { DARABONBA_PTR_GET_DEFAULT(firewallConfigureStatus_, "") };
     inline DescribeNetworkInstanceRelationListRequest& setFirewallConfigureStatus(string firewallConfigureStatus) { DARABONBA_PTR_SET_VALUE(firewallConfigureStatus_, firewallConfigureStatus) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeNetworkInstanceRelationListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // networkInstanceId Field Functions 
     bool hasNetworkInstanceId() const { return this->networkInstanceId_ != nullptr;};
     void deleteNetworkInstanceId() { this->networkInstanceId_ = nullptr;};
-    inline string networkInstanceId() const { DARABONBA_PTR_GET_DEFAULT(networkInstanceId_, "") };
+    inline string getNetworkInstanceId() const { DARABONBA_PTR_GET_DEFAULT(networkInstanceId_, "") };
     inline DescribeNetworkInstanceRelationListRequest& setNetworkInstanceId(string networkInstanceId) { DARABONBA_PTR_SET_VALUE(networkInstanceId_, networkInstanceId) };
 
 
     // peerNetworkInstanceId Field Functions 
     bool hasPeerNetworkInstanceId() const { return this->peerNetworkInstanceId_ != nullptr;};
     void deletePeerNetworkInstanceId() { this->peerNetworkInstanceId_ = nullptr;};
-    inline string peerNetworkInstanceId() const { DARABONBA_PTR_GET_DEFAULT(peerNetworkInstanceId_, "") };
+    inline string getPeerNetworkInstanceId() const { DARABONBA_PTR_GET_DEFAULT(peerNetworkInstanceId_, "") };
     inline DescribeNetworkInstanceRelationListRequest& setPeerNetworkInstanceId(string peerNetworkInstanceId) { DARABONBA_PTR_SET_VALUE(peerNetworkInstanceId_, peerNetworkInstanceId) };
 
 
   protected:
-    std::shared_ptr<string> connectType_ = nullptr;
-    std::shared_ptr<string> firewallConfigureStatus_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> networkInstanceId_ = nullptr;
-    std::shared_ptr<string> peerNetworkInstanceId_ = nullptr;
+    shared_ptr<string> connectType_ {};
+    shared_ptr<string> firewallConfigureStatus_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> networkInstanceId_ {};
+    shared_ptr<string> peerNetworkInstanceId_ {};
   };
 
   } // namespace Models

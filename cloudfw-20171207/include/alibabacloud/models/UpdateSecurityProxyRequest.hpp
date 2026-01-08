@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->proxyId_ == nullptr && return this->proxyName_ == nullptr && return this->strictMode_ == nullptr; };
+        && this->proxyId_ == nullptr && this->proxyName_ == nullptr && this->strictMode_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline UpdateSecurityProxyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // proxyId Field Functions 
     bool hasProxyId() const { return this->proxyId_ != nullptr;};
     void deleteProxyId() { this->proxyId_ = nullptr;};
-    inline string proxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
+    inline string getProxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
     inline UpdateSecurityProxyRequest& setProxyId(string proxyId) { DARABONBA_PTR_SET_VALUE(proxyId_, proxyId) };
 
 
     // proxyName Field Functions 
     bool hasProxyName() const { return this->proxyName_ != nullptr;};
     void deleteProxyName() { this->proxyName_ = nullptr;};
-    inline string proxyName() const { DARABONBA_PTR_GET_DEFAULT(proxyName_, "") };
+    inline string getProxyName() const { DARABONBA_PTR_GET_DEFAULT(proxyName_, "") };
     inline UpdateSecurityProxyRequest& setProxyName(string proxyName) { DARABONBA_PTR_SET_VALUE(proxyName_, proxyName) };
 
 
     // strictMode Field Functions 
     bool hasStrictMode() const { return this->strictMode_ != nullptr;};
     void deleteStrictMode() { this->strictMode_ = nullptr;};
-    inline int32_t strictMode() const { DARABONBA_PTR_GET_DEFAULT(strictMode_, 0) };
+    inline int32_t getStrictMode() const { DARABONBA_PTR_GET_DEFAULT(strictMode_, 0) };
     inline UpdateSecurityProxyRequest& setStrictMode(int32_t strictMode) { DARABONBA_PTR_SET_VALUE(strictMode_, strictMode) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<string> proxyId_ = nullptr;
+    shared_ptr<string> proxyId_ {};
     // This parameter is required.
-    std::shared_ptr<string> proxyName_ = nullptr;
-    std::shared_ptr<int32_t> strictMode_ = nullptr;
+    shared_ptr<string> proxyName_ {};
+    shared_ptr<int32_t> strictMode_ {};
   };
 
   } // namespace Models

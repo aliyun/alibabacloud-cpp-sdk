@@ -44,73 +44,73 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryName_ == nullptr
-        && return this->currentPage_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->parentCategory_ == nullptr && return this->sensitiveCategory_ == nullptr
-        && return this->sensitiveLevel_ == nullptr && return this->switchStatus_ == nullptr; };
+        && this->currentPage_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->parentCategory_ == nullptr && this->sensitiveCategory_ == nullptr
+        && this->sensitiveLevel_ == nullptr && this->switchStatus_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
-    inline string categoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
+    inline string getCategoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
     inline DescribeSensitiveSwitchRequest& setCategoryName(string categoryName) { DARABONBA_PTR_SET_VALUE(categoryName_, categoryName) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribeSensitiveSwitchRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeSensitiveSwitchRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeSensitiveSwitchRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // parentCategory Field Functions 
     bool hasParentCategory() const { return this->parentCategory_ != nullptr;};
     void deleteParentCategory() { this->parentCategory_ = nullptr;};
-    inline string parentCategory() const { DARABONBA_PTR_GET_DEFAULT(parentCategory_, "") };
+    inline string getParentCategory() const { DARABONBA_PTR_GET_DEFAULT(parentCategory_, "") };
     inline DescribeSensitiveSwitchRequest& setParentCategory(string parentCategory) { DARABONBA_PTR_SET_VALUE(parentCategory_, parentCategory) };
 
 
     // sensitiveCategory Field Functions 
     bool hasSensitiveCategory() const { return this->sensitiveCategory_ != nullptr;};
     void deleteSensitiveCategory() { this->sensitiveCategory_ = nullptr;};
-    inline string sensitiveCategory() const { DARABONBA_PTR_GET_DEFAULT(sensitiveCategory_, "") };
+    inline string getSensitiveCategory() const { DARABONBA_PTR_GET_DEFAULT(sensitiveCategory_, "") };
     inline DescribeSensitiveSwitchRequest& setSensitiveCategory(string sensitiveCategory) { DARABONBA_PTR_SET_VALUE(sensitiveCategory_, sensitiveCategory) };
 
 
     // sensitiveLevel Field Functions 
     bool hasSensitiveLevel() const { return this->sensitiveLevel_ != nullptr;};
     void deleteSensitiveLevel() { this->sensitiveLevel_ = nullptr;};
-    inline string sensitiveLevel() const { DARABONBA_PTR_GET_DEFAULT(sensitiveLevel_, "") };
+    inline string getSensitiveLevel() const { DARABONBA_PTR_GET_DEFAULT(sensitiveLevel_, "") };
     inline DescribeSensitiveSwitchRequest& setSensitiveLevel(string sensitiveLevel) { DARABONBA_PTR_SET_VALUE(sensitiveLevel_, sensitiveLevel) };
 
 
     // switchStatus Field Functions 
     bool hasSwitchStatus() const { return this->switchStatus_ != nullptr;};
     void deleteSwitchStatus() { this->switchStatus_ = nullptr;};
-    inline string switchStatus() const { DARABONBA_PTR_GET_DEFAULT(switchStatus_, "") };
+    inline string getSwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(switchStatus_, "") };
     inline DescribeSensitiveSwitchRequest& setSwitchStatus(string switchStatus) { DARABONBA_PTR_SET_VALUE(switchStatus_, switchStatus) };
 
 
   protected:
-    std::shared_ptr<string> categoryName_ = nullptr;
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> parentCategory_ = nullptr;
-    std::shared_ptr<string> sensitiveCategory_ = nullptr;
-    std::shared_ptr<string> sensitiveLevel_ = nullptr;
-    std::shared_ptr<string> switchStatus_ = nullptr;
+    shared_ptr<string> categoryName_ {};
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> parentCategory_ {};
+    shared_ptr<string> sensitiveCategory_ {};
+    shared_ptr<string> sensitiveLevel_ {};
+    shared_ptr<string> switchStatus_ {};
   };
 
   } // namespace Models

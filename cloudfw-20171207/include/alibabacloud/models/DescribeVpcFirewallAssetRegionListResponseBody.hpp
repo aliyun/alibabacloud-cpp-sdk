@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionNoList_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // regionNoList Field Functions 
     bool hasRegionNoList() const { return this->regionNoList_ != nullptr;};
     void deleteRegionNoList() { this->regionNoList_ = nullptr;};
-    inline const vector<string> & regionNoList() const { DARABONBA_PTR_GET_CONST(regionNoList_, vector<string>) };
-    inline vector<string> regionNoList() { DARABONBA_PTR_GET(regionNoList_, vector<string>) };
+    inline const vector<string> & getRegionNoList() const { DARABONBA_PTR_GET_CONST(regionNoList_, vector<string>) };
+    inline vector<string> getRegionNoList() { DARABONBA_PTR_GET(regionNoList_, vector<string>) };
     inline DescribeVpcFirewallAssetRegionListResponseBody& setRegionNoList(const vector<string> & regionNoList) { DARABONBA_PTR_SET_VALUE(regionNoList_, regionNoList) };
     inline DescribeVpcFirewallAssetRegionListResponseBody& setRegionNoList(vector<string> && regionNoList) { DARABONBA_PTR_SET_RVALUE(regionNoList_, regionNoList) };
 
@@ -46,13 +46,13 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVpcFirewallAssetRegionListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<string>> regionNoList_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<string>> regionNoList_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

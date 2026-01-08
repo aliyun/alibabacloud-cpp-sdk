@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eips_ == nullptr
-        && return this->internetSwitch_ == nullptr && return this->lang_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->internetSwitch_ == nullptr && this->lang_ == nullptr && this->sourceIp_ == nullptr; };
     // eips Field Functions 
     bool hasEips() const { return this->eips_ != nullptr;};
     void deleteEips() { this->eips_ = nullptr;};
-    inline const vector<string> & eips() const { DARABONBA_PTR_GET_CONST(eips_, vector<string>) };
-    inline vector<string> eips() { DARABONBA_PTR_GET(eips_, vector<string>) };
+    inline const vector<string> & getEips() const { DARABONBA_PTR_GET_CONST(eips_, vector<string>) };
+    inline vector<string> getEips() { DARABONBA_PTR_GET(eips_, vector<string>) };
     inline ModifyPolicyAdvancedConfigRequest& setEips(const vector<string> & eips) { DARABONBA_PTR_SET_VALUE(eips_, eips) };
     inline ModifyPolicyAdvancedConfigRequest& setEips(vector<string> && eips) { DARABONBA_PTR_SET_RVALUE(eips_, eips) };
 
@@ -50,41 +50,41 @@ namespace Models
     // internetSwitch Field Functions 
     bool hasInternetSwitch() const { return this->internetSwitch_ != nullptr;};
     void deleteInternetSwitch() { this->internetSwitch_ = nullptr;};
-    inline string internetSwitch() const { DARABONBA_PTR_GET_DEFAULT(internetSwitch_, "") };
+    inline string getInternetSwitch() const { DARABONBA_PTR_GET_DEFAULT(internetSwitch_, "") };
     inline ModifyPolicyAdvancedConfigRequest& setInternetSwitch(string internetSwitch) { DARABONBA_PTR_SET_VALUE(internetSwitch_, internetSwitch) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyPolicyAdvancedConfigRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyPolicyAdvancedConfigRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // The IP addresses. The versions of the IP addresses must be the same. You can specify a maximum of 100 IP addresses.
-    std::shared_ptr<vector<string>> eips_ = nullptr;
+    shared_ptr<vector<string>> eips_ {};
     // Specifies whether to enable the strict mode for the access control policy. Valid values:
     // 
     // *   **on**: enables the strict mode.
     // *   **off**: disables the strict mode.
     // 
     // This parameter is required.
-    std::shared_ptr<string> internetSwitch_ = nullptr;
+    shared_ptr<string> internetSwitch_ {};
     // The natural language of the request and response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

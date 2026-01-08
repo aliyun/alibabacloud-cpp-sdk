@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessInstanceType_ == nullptr
-        && return this->lang_ == nullptr && return this->regionNo_ == nullptr; };
+        && this->lang_ == nullptr && this->regionNo_ == nullptr; };
     // accessInstanceType Field Functions 
     bool hasAccessInstanceType() const { return this->accessInstanceType_ != nullptr;};
     void deleteAccessInstanceType() { this->accessInstanceType_ = nullptr;};
-    inline string accessInstanceType() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceType_, "") };
+    inline string getAccessInstanceType() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceType_, "") };
     inline DescribeAccessInstanceZoneListRequest& setAccessInstanceType(string accessInstanceType) { DARABONBA_PTR_SET_VALUE(accessInstanceType_, accessInstanceType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeAccessInstanceZoneListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline DescribeAccessInstanceZoneListRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
   protected:
-    std::shared_ptr<string> accessInstanceType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> accessInstanceType_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> regionNo_ {};
   };
 
   } // namespace Models

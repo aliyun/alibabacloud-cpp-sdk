@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipList_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // ipList Field Functions 
     bool hasIpList() const { return this->ipList_ != nullptr;};
     void deleteIpList() { this->ipList_ = nullptr;};
-    inline const vector<string> & ipList() const { DARABONBA_PTR_GET_CONST(ipList_, vector<string>) };
-    inline vector<string> ipList() { DARABONBA_PTR_GET(ipList_, vector<string>) };
+    inline const vector<string> & getIpList() const { DARABONBA_PTR_GET_CONST(ipList_, vector<string>) };
+    inline vector<string> getIpList() { DARABONBA_PTR_GET(ipList_, vector<string>) };
     inline DisableSdlProtectedAssetRequest& setIpList(const vector<string> & ipList) { DARABONBA_PTR_SET_VALUE(ipList_, ipList) };
     inline DisableSdlProtectedAssetRequest& setIpList(vector<string> && ipList) { DARABONBA_PTR_SET_RVALUE(ipList_, ipList) };
 
@@ -46,13 +46,13 @@ namespace Models
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DisableSdlProtectedAssetRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
-    std::shared_ptr<vector<string>> ipList_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<vector<string>> ipList_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

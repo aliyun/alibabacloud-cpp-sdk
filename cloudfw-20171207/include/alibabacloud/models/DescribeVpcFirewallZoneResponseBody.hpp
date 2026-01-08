@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEVPCFIREWALLZONERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeVpcFirewallZoneResponseBodyZoneList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->zoneList_ == nullptr; };
+        && this->zoneList_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeVpcFirewallZoneResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // zoneList Field Functions 
     bool hasZoneList() const { return this->zoneList_ != nullptr;};
     void deleteZoneList() { this->zoneList_ = nullptr;};
-    inline const vector<vector<DescribeVpcFirewallZoneResponseBodyZoneList>> & zoneList() const { DARABONBA_PTR_GET_CONST(zoneList_, vector<vector<DescribeVpcFirewallZoneResponseBodyZoneList>>) };
-    inline vector<vector<DescribeVpcFirewallZoneResponseBodyZoneList>> zoneList() { DARABONBA_PTR_GET(zoneList_, vector<vector<DescribeVpcFirewallZoneResponseBodyZoneList>>) };
-    inline DescribeVpcFirewallZoneResponseBody& setZoneList(const vector<vector<DescribeVpcFirewallZoneResponseBodyZoneList>> & zoneList) { DARABONBA_PTR_SET_VALUE(zoneList_, zoneList) };
-    inline DescribeVpcFirewallZoneResponseBody& setZoneList(vector<vector<DescribeVpcFirewallZoneResponseBodyZoneList>> && zoneList) { DARABONBA_PTR_SET_RVALUE(zoneList_, zoneList) };
+    inline const vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>> & getZoneList() const { DARABONBA_PTR_GET_CONST(zoneList_, vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>>) };
+    inline vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>> getZoneList() { DARABONBA_PTR_GET(zoneList_, vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>>) };
+    inline DescribeVpcFirewallZoneResponseBody& setZoneList(const vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>> & zoneList) { DARABONBA_PTR_SET_VALUE(zoneList_, zoneList) };
+    inline DescribeVpcFirewallZoneResponseBody& setZoneList(vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>> && zoneList) { DARABONBA_PTR_SET_RVALUE(zoneList_, zoneList) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<vector<vector<DescribeVpcFirewallZoneResponseBodyZoneList>>> zoneList_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>>> zoneList_ {};
   };
 
   } // namespace Models

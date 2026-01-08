@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->proxyId_ == nullptr; };
+        && this->proxyId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteSecurityProxyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // proxyId Field Functions 
     bool hasProxyId() const { return this->proxyId_ != nullptr;};
     void deleteProxyId() { this->proxyId_ = nullptr;};
-    inline string proxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
+    inline string getProxyId() const { DARABONBA_PTR_GET_DEFAULT(proxyId_, "") };
     inline DeleteSecurityProxyRequest& setProxyId(string proxyId) { DARABONBA_PTR_SET_VALUE(proxyId_, proxyId) };
 
 
@@ -52,11 +52,11 @@ namespace Models
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the NAT firewall.
     // 
     // This parameter is required.
-    std::shared_ptr<string> proxyId_ = nullptr;
+    shared_ptr<string> proxyId_ {};
   };
 
   } // namespace Models

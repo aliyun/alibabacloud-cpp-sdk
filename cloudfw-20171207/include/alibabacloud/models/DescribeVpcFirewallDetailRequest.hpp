@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->localVpcId_ == nullptr && return this->peerVpcId_ == nullptr && return this->vpcFirewallId_ == nullptr; };
+        && this->localVpcId_ == nullptr && this->peerVpcId_ == nullptr && this->vpcFirewallId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeVpcFirewallDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // localVpcId Field Functions 
     bool hasLocalVpcId() const { return this->localVpcId_ != nullptr;};
     void deleteLocalVpcId() { this->localVpcId_ = nullptr;};
-    inline string localVpcId() const { DARABONBA_PTR_GET_DEFAULT(localVpcId_, "") };
+    inline string getLocalVpcId() const { DARABONBA_PTR_GET_DEFAULT(localVpcId_, "") };
     inline DescribeVpcFirewallDetailRequest& setLocalVpcId(string localVpcId) { DARABONBA_PTR_SET_VALUE(localVpcId_, localVpcId) };
 
 
     // peerVpcId Field Functions 
     bool hasPeerVpcId() const { return this->peerVpcId_ != nullptr;};
     void deletePeerVpcId() { this->peerVpcId_ = nullptr;};
-    inline string peerVpcId() const { DARABONBA_PTR_GET_DEFAULT(peerVpcId_, "") };
+    inline string getPeerVpcId() const { DARABONBA_PTR_GET_DEFAULT(peerVpcId_, "") };
     inline DescribeVpcFirewallDetailRequest& setPeerVpcId(string peerVpcId) { DARABONBA_PTR_SET_VALUE(peerVpcId_, peerVpcId) };
 
 
     // vpcFirewallId Field Functions 
     bool hasVpcFirewallId() const { return this->vpcFirewallId_ != nullptr;};
     void deleteVpcFirewallId() { this->vpcFirewallId_ = nullptr;};
-    inline string vpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
+    inline string getVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
     inline DescribeVpcFirewallDetailRequest& setVpcFirewallId(string vpcFirewallId) { DARABONBA_PTR_SET_VALUE(vpcFirewallId_, vpcFirewallId) };
 
 
@@ -70,17 +70,17 @@ namespace Models
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the local VPC.
-    std::shared_ptr<string> localVpcId_ = nullptr;
+    shared_ptr<string> localVpcId_ {};
     // The ID of the peer VPC.
-    std::shared_ptr<string> peerVpcId_ = nullptr;
+    shared_ptr<string> peerVpcId_ {};
     // The instance ID of the VPC firewall.
     // 
     // >  You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance IDs of VPC firewalls.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcFirewallId_ = nullptr;
+    shared_ptr<string> vpcFirewallId_ {};
   };
 
   } // namespace Models

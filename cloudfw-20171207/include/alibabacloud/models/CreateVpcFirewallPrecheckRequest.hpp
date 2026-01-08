@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && return this->lang_ == nullptr && return this->memberUid_ == nullptr && return this->networkInstanceType_ == nullptr && return this->region_ == nullptr && return this->transitRouterId_ == nullptr
-        && return this->vpcId_ == nullptr; };
+        && this->lang_ == nullptr && this->memberUid_ == nullptr && this->networkInstanceType_ == nullptr && this->region_ == nullptr && this->transitRouterId_ == nullptr
+        && this->vpcId_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline CreateVpcFirewallPrecheckRequest& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateVpcFirewallPrecheckRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // memberUid Field Functions 
     bool hasMemberUid() const { return this->memberUid_ != nullptr;};
     void deleteMemberUid() { this->memberUid_ = nullptr;};
-    inline string memberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
+    inline string getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
     inline CreateVpcFirewallPrecheckRequest& setMemberUid(string memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
     // networkInstanceType Field Functions 
     bool hasNetworkInstanceType() const { return this->networkInstanceType_ != nullptr;};
     void deleteNetworkInstanceType() { this->networkInstanceType_ = nullptr;};
-    inline string networkInstanceType() const { DARABONBA_PTR_GET_DEFAULT(networkInstanceType_, "") };
+    inline string getNetworkInstanceType() const { DARABONBA_PTR_GET_DEFAULT(networkInstanceType_, "") };
     inline CreateVpcFirewallPrecheckRequest& setNetworkInstanceType(string networkInstanceType) { DARABONBA_PTR_SET_VALUE(networkInstanceType_, networkInstanceType) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline CreateVpcFirewallPrecheckRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // transitRouterId Field Functions 
     bool hasTransitRouterId() const { return this->transitRouterId_ != nullptr;};
     void deleteTransitRouterId() { this->transitRouterId_ = nullptr;};
-    inline string transitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
+    inline string getTransitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
     inline CreateVpcFirewallPrecheckRequest& setTransitRouterId(string transitRouterId) { DARABONBA_PTR_SET_VALUE(transitRouterId_, transitRouterId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateVpcFirewallPrecheckRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
-    std::shared_ptr<string> cenId_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> memberUid_ = nullptr;
-    std::shared_ptr<string> networkInstanceType_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> transitRouterId_ = nullptr;
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> cenId_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> memberUid_ {};
+    shared_ptr<string> networkInstanceType_ {};
+    shared_ptr<string> region_ {};
+    shared_ptr<string> transitRouterId_ {};
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

@@ -50,82 +50,82 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectSubType_ == nullptr
-        && return this->currentPage_ == nullptr && return this->firewallSwitchStatus_ == nullptr && return this->lang_ == nullptr && return this->memberUid_ == nullptr && return this->pageSize_ == nullptr
-        && return this->peerUid_ == nullptr && return this->regionNo_ == nullptr && return this->vpcFirewallId_ == nullptr && return this->vpcFirewallName_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->currentPage_ == nullptr && this->firewallSwitchStatus_ == nullptr && this->lang_ == nullptr && this->memberUid_ == nullptr && this->pageSize_ == nullptr
+        && this->peerUid_ == nullptr && this->regionNo_ == nullptr && this->vpcFirewallId_ == nullptr && this->vpcFirewallName_ == nullptr && this->vpcId_ == nullptr; };
     // connectSubType Field Functions 
     bool hasConnectSubType() const { return this->connectSubType_ != nullptr;};
     void deleteConnectSubType() { this->connectSubType_ = nullptr;};
-    inline string connectSubType() const { DARABONBA_PTR_GET_DEFAULT(connectSubType_, "") };
+    inline string getConnectSubType() const { DARABONBA_PTR_GET_DEFAULT(connectSubType_, "") };
     inline DescribeVpcFirewallListRequest& setConnectSubType(string connectSubType) { DARABONBA_PTR_SET_VALUE(connectSubType_, connectSubType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeVpcFirewallListRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // firewallSwitchStatus Field Functions 
     bool hasFirewallSwitchStatus() const { return this->firewallSwitchStatus_ != nullptr;};
     void deleteFirewallSwitchStatus() { this->firewallSwitchStatus_ = nullptr;};
-    inline string firewallSwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(firewallSwitchStatus_, "") };
+    inline string getFirewallSwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(firewallSwitchStatus_, "") };
     inline DescribeVpcFirewallListRequest& setFirewallSwitchStatus(string firewallSwitchStatus) { DARABONBA_PTR_SET_VALUE(firewallSwitchStatus_, firewallSwitchStatus) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeVpcFirewallListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // memberUid Field Functions 
     bool hasMemberUid() const { return this->memberUid_ != nullptr;};
     void deleteMemberUid() { this->memberUid_ = nullptr;};
-    inline string memberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
+    inline string getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
     inline DescribeVpcFirewallListRequest& setMemberUid(string memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeVpcFirewallListRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // peerUid Field Functions 
     bool hasPeerUid() const { return this->peerUid_ != nullptr;};
     void deletePeerUid() { this->peerUid_ = nullptr;};
-    inline string peerUid() const { DARABONBA_PTR_GET_DEFAULT(peerUid_, "") };
+    inline string getPeerUid() const { DARABONBA_PTR_GET_DEFAULT(peerUid_, "") };
     inline DescribeVpcFirewallListRequest& setPeerUid(string peerUid) { DARABONBA_PTR_SET_VALUE(peerUid_, peerUid) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline DescribeVpcFirewallListRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
     // vpcFirewallId Field Functions 
     bool hasVpcFirewallId() const { return this->vpcFirewallId_ != nullptr;};
     void deleteVpcFirewallId() { this->vpcFirewallId_ = nullptr;};
-    inline string vpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
+    inline string getVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
     inline DescribeVpcFirewallListRequest& setVpcFirewallId(string vpcFirewallId) { DARABONBA_PTR_SET_VALUE(vpcFirewallId_, vpcFirewallId) };
 
 
     // vpcFirewallName Field Functions 
     bool hasVpcFirewallName() const { return this->vpcFirewallName_ != nullptr;};
     void deleteVpcFirewallName() { this->vpcFirewallName_ = nullptr;};
-    inline string vpcFirewallName() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallName_, "") };
+    inline string getVpcFirewallName() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallName_, "") };
     inline DescribeVpcFirewallListRequest& setVpcFirewallName(string vpcFirewallName) { DARABONBA_PTR_SET_VALUE(vpcFirewallName_, vpcFirewallName) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline DescribeVpcFirewallListRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
@@ -134,11 +134,11 @@ namespace Models
     // 
     // *   **vpc2vpc**: Express Connect connection
     // *   **vpcpeer**: peer connection
-    std::shared_ptr<string> connectSubType_ = nullptr;
+    shared_ptr<string> connectSubType_ {};
     // The number of the page to return.
     // 
     // Pages start from page **1**. Default value: **1**.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // The status of the VPC firewall. Valid values:
     // 
     // *   **opened**: The VPC firewall is enabled.
@@ -147,30 +147,30 @@ namespace Models
     // *   **configured**: The VPC firewall is configured.
     // 
     // > If you do not specify this parameter, VPC firewalls in all states are queried.
-    std::shared_ptr<string> firewallSwitchStatus_ = nullptr;
+    shared_ptr<string> firewallSwitchStatus_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The UID of the member that is managed by your Alibaba Cloud account.
-    std::shared_ptr<string> memberUid_ = nullptr;
+    shared_ptr<string> memberUid_ {};
     // The number of entries to return on each page.
     // 
     // Default value: **10**. Maximum value: **50**.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The UID of the Alibaba Cloud account to which the peer VPC belongs.
-    std::shared_ptr<string> peerUid_ = nullptr;
+    shared_ptr<string> peerUid_ {};
     // The region ID of the VPC.
     // 
     // > For more information about the regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> regionNo_ {};
     // The instance ID of the VPC firewall.
-    std::shared_ptr<string> vpcFirewallId_ = nullptr;
+    shared_ptr<string> vpcFirewallId_ {};
     // The instance name of the VPC firewall.
-    std::shared_ptr<string> vpcFirewallName_ = nullptr;
+    shared_ptr<string> vpcFirewallName_ {};
     // The ID of the VPC.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

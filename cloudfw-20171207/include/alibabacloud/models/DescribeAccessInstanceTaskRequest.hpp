@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessInstanceId_ == nullptr
-        && return this->accessInstanceType_ == nullptr && return this->lang_ == nullptr && return this->regionNo_ == nullptr && return this->taskId_ == nullptr; };
+        && this->accessInstanceType_ == nullptr && this->lang_ == nullptr && this->regionNo_ == nullptr && this->taskId_ == nullptr; };
     // accessInstanceId Field Functions 
     bool hasAccessInstanceId() const { return this->accessInstanceId_ != nullptr;};
     void deleteAccessInstanceId() { this->accessInstanceId_ = nullptr;};
-    inline string accessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceId_, "") };
+    inline string getAccessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceId_, "") };
     inline DescribeAccessInstanceTaskRequest& setAccessInstanceId(string accessInstanceId) { DARABONBA_PTR_SET_VALUE(accessInstanceId_, accessInstanceId) };
 
 
     // accessInstanceType Field Functions 
     bool hasAccessInstanceType() const { return this->accessInstanceType_ != nullptr;};
     void deleteAccessInstanceType() { this->accessInstanceType_ = nullptr;};
-    inline string accessInstanceType() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceType_, "") };
+    inline string getAccessInstanceType() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceType_, "") };
     inline DescribeAccessInstanceTaskRequest& setAccessInstanceType(string accessInstanceType) { DARABONBA_PTR_SET_VALUE(accessInstanceType_, accessInstanceType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeAccessInstanceTaskRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline DescribeAccessInstanceTaskRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline DescribeAccessInstanceTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<string> accessInstanceId_ = nullptr;
-    std::shared_ptr<string> accessInstanceType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> regionNo_ = nullptr;
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> accessInstanceId_ {};
+    shared_ptr<string> accessInstanceType_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> regionNo_ {};
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

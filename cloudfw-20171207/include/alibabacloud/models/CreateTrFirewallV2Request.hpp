@@ -58,151 +58,151 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && return this->firewallDescription_ == nullptr && return this->firewallName_ == nullptr && return this->firewallSubnetCidr_ == nullptr && return this->firewallVpcCidr_ == nullptr && return this->firewallVpcId_ == nullptr
-        && return this->firewallVswitchId_ == nullptr && return this->lang_ == nullptr && return this->regionNo_ == nullptr && return this->routeMode_ == nullptr && return this->trAttachmentMasterCidr_ == nullptr
-        && return this->trAttachmentMasterZone_ == nullptr && return this->trAttachmentSlaveCidr_ == nullptr && return this->trAttachmentSlaveZone_ == nullptr && return this->transitRouterId_ == nullptr; };
+        && this->firewallDescription_ == nullptr && this->firewallName_ == nullptr && this->firewallSubnetCidr_ == nullptr && this->firewallVpcCidr_ == nullptr && this->firewallVpcId_ == nullptr
+        && this->firewallVswitchId_ == nullptr && this->lang_ == nullptr && this->regionNo_ == nullptr && this->routeMode_ == nullptr && this->trAttachmentMasterCidr_ == nullptr
+        && this->trAttachmentMasterZone_ == nullptr && this->trAttachmentSlaveCidr_ == nullptr && this->trAttachmentSlaveZone_ == nullptr && this->transitRouterId_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline CreateTrFirewallV2Request& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // firewallDescription Field Functions 
     bool hasFirewallDescription() const { return this->firewallDescription_ != nullptr;};
     void deleteFirewallDescription() { this->firewallDescription_ = nullptr;};
-    inline string firewallDescription() const { DARABONBA_PTR_GET_DEFAULT(firewallDescription_, "") };
+    inline string getFirewallDescription() const { DARABONBA_PTR_GET_DEFAULT(firewallDescription_, "") };
     inline CreateTrFirewallV2Request& setFirewallDescription(string firewallDescription) { DARABONBA_PTR_SET_VALUE(firewallDescription_, firewallDescription) };
 
 
     // firewallName Field Functions 
     bool hasFirewallName() const { return this->firewallName_ != nullptr;};
     void deleteFirewallName() { this->firewallName_ = nullptr;};
-    inline string firewallName() const { DARABONBA_PTR_GET_DEFAULT(firewallName_, "") };
+    inline string getFirewallName() const { DARABONBA_PTR_GET_DEFAULT(firewallName_, "") };
     inline CreateTrFirewallV2Request& setFirewallName(string firewallName) { DARABONBA_PTR_SET_VALUE(firewallName_, firewallName) };
 
 
     // firewallSubnetCidr Field Functions 
     bool hasFirewallSubnetCidr() const { return this->firewallSubnetCidr_ != nullptr;};
     void deleteFirewallSubnetCidr() { this->firewallSubnetCidr_ = nullptr;};
-    inline string firewallSubnetCidr() const { DARABONBA_PTR_GET_DEFAULT(firewallSubnetCidr_, "") };
+    inline string getFirewallSubnetCidr() const { DARABONBA_PTR_GET_DEFAULT(firewallSubnetCidr_, "") };
     inline CreateTrFirewallV2Request& setFirewallSubnetCidr(string firewallSubnetCidr) { DARABONBA_PTR_SET_VALUE(firewallSubnetCidr_, firewallSubnetCidr) };
 
 
     // firewallVpcCidr Field Functions 
     bool hasFirewallVpcCidr() const { return this->firewallVpcCidr_ != nullptr;};
     void deleteFirewallVpcCidr() { this->firewallVpcCidr_ = nullptr;};
-    inline string firewallVpcCidr() const { DARABONBA_PTR_GET_DEFAULT(firewallVpcCidr_, "") };
+    inline string getFirewallVpcCidr() const { DARABONBA_PTR_GET_DEFAULT(firewallVpcCidr_, "") };
     inline CreateTrFirewallV2Request& setFirewallVpcCidr(string firewallVpcCidr) { DARABONBA_PTR_SET_VALUE(firewallVpcCidr_, firewallVpcCidr) };
 
 
     // firewallVpcId Field Functions 
     bool hasFirewallVpcId() const { return this->firewallVpcId_ != nullptr;};
     void deleteFirewallVpcId() { this->firewallVpcId_ = nullptr;};
-    inline string firewallVpcId() const { DARABONBA_PTR_GET_DEFAULT(firewallVpcId_, "") };
+    inline string getFirewallVpcId() const { DARABONBA_PTR_GET_DEFAULT(firewallVpcId_, "") };
     inline CreateTrFirewallV2Request& setFirewallVpcId(string firewallVpcId) { DARABONBA_PTR_SET_VALUE(firewallVpcId_, firewallVpcId) };
 
 
     // firewallVswitchId Field Functions 
     bool hasFirewallVswitchId() const { return this->firewallVswitchId_ != nullptr;};
     void deleteFirewallVswitchId() { this->firewallVswitchId_ = nullptr;};
-    inline string firewallVswitchId() const { DARABONBA_PTR_GET_DEFAULT(firewallVswitchId_, "") };
+    inline string getFirewallVswitchId() const { DARABONBA_PTR_GET_DEFAULT(firewallVswitchId_, "") };
     inline CreateTrFirewallV2Request& setFirewallVswitchId(string firewallVswitchId) { DARABONBA_PTR_SET_VALUE(firewallVswitchId_, firewallVswitchId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateTrFirewallV2Request& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline CreateTrFirewallV2Request& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
     // routeMode Field Functions 
     bool hasRouteMode() const { return this->routeMode_ != nullptr;};
     void deleteRouteMode() { this->routeMode_ = nullptr;};
-    inline string routeMode() const { DARABONBA_PTR_GET_DEFAULT(routeMode_, "") };
+    inline string getRouteMode() const { DARABONBA_PTR_GET_DEFAULT(routeMode_, "") };
     inline CreateTrFirewallV2Request& setRouteMode(string routeMode) { DARABONBA_PTR_SET_VALUE(routeMode_, routeMode) };
 
 
     // trAttachmentMasterCidr Field Functions 
     bool hasTrAttachmentMasterCidr() const { return this->trAttachmentMasterCidr_ != nullptr;};
     void deleteTrAttachmentMasterCidr() { this->trAttachmentMasterCidr_ = nullptr;};
-    inline string trAttachmentMasterCidr() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentMasterCidr_, "") };
+    inline string getTrAttachmentMasterCidr() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentMasterCidr_, "") };
     inline CreateTrFirewallV2Request& setTrAttachmentMasterCidr(string trAttachmentMasterCidr) { DARABONBA_PTR_SET_VALUE(trAttachmentMasterCidr_, trAttachmentMasterCidr) };
 
 
     // trAttachmentMasterZone Field Functions 
     bool hasTrAttachmentMasterZone() const { return this->trAttachmentMasterZone_ != nullptr;};
     void deleteTrAttachmentMasterZone() { this->trAttachmentMasterZone_ = nullptr;};
-    inline string trAttachmentMasterZone() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentMasterZone_, "") };
+    inline string getTrAttachmentMasterZone() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentMasterZone_, "") };
     inline CreateTrFirewallV2Request& setTrAttachmentMasterZone(string trAttachmentMasterZone) { DARABONBA_PTR_SET_VALUE(trAttachmentMasterZone_, trAttachmentMasterZone) };
 
 
     // trAttachmentSlaveCidr Field Functions 
     bool hasTrAttachmentSlaveCidr() const { return this->trAttachmentSlaveCidr_ != nullptr;};
     void deleteTrAttachmentSlaveCidr() { this->trAttachmentSlaveCidr_ = nullptr;};
-    inline string trAttachmentSlaveCidr() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentSlaveCidr_, "") };
+    inline string getTrAttachmentSlaveCidr() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentSlaveCidr_, "") };
     inline CreateTrFirewallV2Request& setTrAttachmentSlaveCidr(string trAttachmentSlaveCidr) { DARABONBA_PTR_SET_VALUE(trAttachmentSlaveCidr_, trAttachmentSlaveCidr) };
 
 
     // trAttachmentSlaveZone Field Functions 
     bool hasTrAttachmentSlaveZone() const { return this->trAttachmentSlaveZone_ != nullptr;};
     void deleteTrAttachmentSlaveZone() { this->trAttachmentSlaveZone_ = nullptr;};
-    inline string trAttachmentSlaveZone() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentSlaveZone_, "") };
+    inline string getTrAttachmentSlaveZone() const { DARABONBA_PTR_GET_DEFAULT(trAttachmentSlaveZone_, "") };
     inline CreateTrFirewallV2Request& setTrAttachmentSlaveZone(string trAttachmentSlaveZone) { DARABONBA_PTR_SET_VALUE(trAttachmentSlaveZone_, trAttachmentSlaveZone) };
 
 
     // transitRouterId Field Functions 
     bool hasTransitRouterId() const { return this->transitRouterId_ != nullptr;};
     void deleteTransitRouterId() { this->transitRouterId_ = nullptr;};
-    inline string transitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
+    inline string getTransitRouterId() const { DARABONBA_PTR_GET_DEFAULT(transitRouterId_, "") };
     inline CreateTrFirewallV2Request& setTransitRouterId(string transitRouterId) { DARABONBA_PTR_SET_VALUE(transitRouterId_, transitRouterId) };
 
 
   protected:
     // The ID of the Cloud Enterprise Network (CEN) instance.
-    std::shared_ptr<string> cenId_ = nullptr;
+    shared_ptr<string> cenId_ {};
     // The description of the firewall.
-    std::shared_ptr<string> firewallDescription_ = nullptr;
+    shared_ptr<string> firewallDescription_ {};
     // The name of the firewall.
-    std::shared_ptr<string> firewallName_ = nullptr;
+    shared_ptr<string> firewallName_ {};
     // The subnet CIDR block of the VPC in which the ENI of the firewall is stored in automatic mode.
-    std::shared_ptr<string> firewallSubnetCidr_ = nullptr;
+    shared_ptr<string> firewallSubnetCidr_ {};
     // The CIDR block that is allocated to the VPC created for the VPC firewall in automatic mode.
-    std::shared_ptr<string> firewallVpcCidr_ = nullptr;
+    shared_ptr<string> firewallVpcCidr_ {};
     // The ID of the VPC in which the ENI associated with the VPC firewall is created in manual mode.
-    std::shared_ptr<string> firewallVpcId_ = nullptr;
+    shared_ptr<string> firewallVpcId_ {};
     // The ID of the vSwitch that is used to create the ENI in manual mode.
-    std::shared_ptr<string> firewallVswitchId_ = nullptr;
+    shared_ptr<string> firewallVswitchId_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The region ID of the route router.
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> regionNo_ {};
     // The routing mode of the VPC firewall. Valid values:
     // 
     // *   **managed**: automatic mode
     // *   **manual**: manual mode
-    std::shared_ptr<string> routeMode_ = nullptr;
+    shared_ptr<string> routeMode_ {};
     // The primary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
-    std::shared_ptr<string> trAttachmentMasterCidr_ = nullptr;
+    shared_ptr<string> trAttachmentMasterCidr_ {};
     // The primary zone for the vSwitch.
-    std::shared_ptr<string> trAttachmentMasterZone_ = nullptr;
+    shared_ptr<string> trAttachmentMasterZone_ {};
     // The secondary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
-    std::shared_ptr<string> trAttachmentSlaveCidr_ = nullptr;
+    shared_ptr<string> trAttachmentSlaveCidr_ {};
     // The secondary zone for the vSwitch.
-    std::shared_ptr<string> trAttachmentSlaveZone_ = nullptr;
+    shared_ptr<string> trAttachmentSlaveZone_ {};
     // The ID of the transit router.
-    std::shared_ptr<string> transitRouterId_ = nullptr;
+    shared_ptr<string> transitRouterId_ {};
   };
 
   } // namespace Models

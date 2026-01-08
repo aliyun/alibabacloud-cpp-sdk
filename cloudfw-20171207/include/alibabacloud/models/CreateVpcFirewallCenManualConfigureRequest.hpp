@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && return this->lang_ == nullptr && return this->memberUid_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcFirewallName_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->lang_ == nullptr && this->memberUid_ == nullptr && this->vSwitchId_ == nullptr && this->vpcFirewallName_ == nullptr && this->vpcId_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline CreateVpcFirewallCenManualConfigureRequest& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateVpcFirewallCenManualConfigureRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // memberUid Field Functions 
     bool hasMemberUid() const { return this->memberUid_ != nullptr;};
     void deleteMemberUid() { this->memberUid_ = nullptr;};
-    inline string memberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
+    inline string getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
     inline CreateVpcFirewallCenManualConfigureRequest& setMemberUid(string memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
-    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateVpcFirewallCenManualConfigureRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
     // vpcFirewallName Field Functions 
     bool hasVpcFirewallName() const { return this->vpcFirewallName_ != nullptr;};
     void deleteVpcFirewallName() { this->vpcFirewallName_ = nullptr;};
-    inline string vpcFirewallName() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallName_, "") };
+    inline string getVpcFirewallName() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallName_, "") };
     inline CreateVpcFirewallCenManualConfigureRequest& setVpcFirewallName(string vpcFirewallName) { DARABONBA_PTR_SET_VALUE(vpcFirewallName_, vpcFirewallName) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateVpcFirewallCenManualConfigureRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> cenId_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> memberUid_ = nullptr;
+    shared_ptr<string> cenId_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> memberUid_ {};
     // This parameter is required.
-    std::shared_ptr<string> vSwitchId_ = nullptr;
+    shared_ptr<string> vSwitchId_ {};
     // This parameter is required.
-    std::shared_ptr<string> vpcFirewallName_ = nullptr;
+    shared_ptr<string> vpcFirewallName_ {};
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

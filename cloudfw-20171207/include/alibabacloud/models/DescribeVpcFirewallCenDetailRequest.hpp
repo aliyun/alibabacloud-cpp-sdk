@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->networkInstanceId_ == nullptr && return this->vpcFirewallId_ == nullptr; };
+        && this->networkInstanceId_ == nullptr && this->vpcFirewallId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeVpcFirewallCenDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // networkInstanceId Field Functions 
     bool hasNetworkInstanceId() const { return this->networkInstanceId_ != nullptr;};
     void deleteNetworkInstanceId() { this->networkInstanceId_ = nullptr;};
-    inline string networkInstanceId() const { DARABONBA_PTR_GET_DEFAULT(networkInstanceId_, "") };
+    inline string getNetworkInstanceId() const { DARABONBA_PTR_GET_DEFAULT(networkInstanceId_, "") };
     inline DescribeVpcFirewallCenDetailRequest& setNetworkInstanceId(string networkInstanceId) { DARABONBA_PTR_SET_VALUE(networkInstanceId_, networkInstanceId) };
 
 
     // vpcFirewallId Field Functions 
     bool hasVpcFirewallId() const { return this->vpcFirewallId_ != nullptr;};
     void deleteVpcFirewallId() { this->vpcFirewallId_ = nullptr;};
-    inline string vpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
+    inline string getVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
     inline DescribeVpcFirewallCenDetailRequest& setVpcFirewallId(string vpcFirewallId) { DARABONBA_PTR_SET_VALUE(vpcFirewallId_, vpcFirewallId) };
 
 
@@ -61,15 +61,15 @@ namespace Models
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the VPC for which the VPC firewall is created.
-    std::shared_ptr<string> networkInstanceId_ = nullptr;
+    shared_ptr<string> networkInstanceId_ {};
     // The instance ID of the VPC firewall.
     // 
     // > You can call the [DescribeVpcFirewallCenList](https://help.aliyun.com/document_detail/345777.html) operation to query the instance IDs of VPC firewalls.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcFirewallId_ = nullptr;
+    shared_ptr<string> vpcFirewallId_ {};
   };
 
   } // namespace Models

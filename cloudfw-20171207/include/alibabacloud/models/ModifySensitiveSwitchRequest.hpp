@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->sensitiveCategory_ == nullptr && return this->switchStatus_ == nullptr; };
+        && this->sensitiveCategory_ == nullptr && this->switchStatus_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifySensitiveSwitchRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sensitiveCategory Field Functions 
     bool hasSensitiveCategory() const { return this->sensitiveCategory_ != nullptr;};
     void deleteSensitiveCategory() { this->sensitiveCategory_ = nullptr;};
-    inline string sensitiveCategory() const { DARABONBA_PTR_GET_DEFAULT(sensitiveCategory_, "") };
+    inline string getSensitiveCategory() const { DARABONBA_PTR_GET_DEFAULT(sensitiveCategory_, "") };
     inline ModifySensitiveSwitchRequest& setSensitiveCategory(string sensitiveCategory) { DARABONBA_PTR_SET_VALUE(sensitiveCategory_, sensitiveCategory) };
 
 
     // switchStatus Field Functions 
     bool hasSwitchStatus() const { return this->switchStatus_ != nullptr;};
     void deleteSwitchStatus() { this->switchStatus_ = nullptr;};
-    inline string switchStatus() const { DARABONBA_PTR_GET_DEFAULT(switchStatus_, "") };
+    inline string getSwitchStatus() const { DARABONBA_PTR_GET_DEFAULT(switchStatus_, "") };
     inline ModifySensitiveSwitchRequest& setSwitchStatus(string switchStatus) { DARABONBA_PTR_SET_VALUE(switchStatus_, switchStatus) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> sensitiveCategory_ = nullptr;
-    std::shared_ptr<string> switchStatus_ = nullptr;
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> sensitiveCategory_ {};
+    shared_ptr<string> switchStatus_ {};
   };
 
   } // namespace Models

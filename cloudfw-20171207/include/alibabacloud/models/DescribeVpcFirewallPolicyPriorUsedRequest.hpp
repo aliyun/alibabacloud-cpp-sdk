@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->vpcFirewallId_ == nullptr; };
+        && this->vpcFirewallId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeVpcFirewallPolicyPriorUsedRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // vpcFirewallId Field Functions 
     bool hasVpcFirewallId() const { return this->vpcFirewallId_ != nullptr;};
     void deleteVpcFirewallId() { this->vpcFirewallId_ = nullptr;};
-    inline string vpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
+    inline string getVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
     inline DescribeVpcFirewallPolicyPriorUsedRequest& setVpcFirewallId(string vpcFirewallId) { DARABONBA_PTR_SET_VALUE(vpcFirewallId_, vpcFirewallId) };
 
 
@@ -54,7 +54,7 @@ namespace Models
     // 
     // *   **zh** (default)
     // *   **en**
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the access control policy group. You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the ID.
     // 
     // *   If the VPC firewall is used to protect a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance.
@@ -66,7 +66,7 @@ namespace Models
     //     Example: vfw-a42bbb7b887148c9\\*\\*\\*\\*.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcFirewallId_ = nullptr;
+    shared_ptr<string> vpcFirewallId_ {};
   };
 
   } // namespace Models

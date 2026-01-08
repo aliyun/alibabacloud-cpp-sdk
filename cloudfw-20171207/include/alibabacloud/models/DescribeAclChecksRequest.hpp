@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclType_ == nullptr
-        && return this->lang_ == nullptr; };
+        && this->lang_ == nullptr; };
     // aclType Field Functions 
     bool hasAclType() const { return this->aclType_ != nullptr;};
     void deleteAclType() { this->aclType_ = nullptr;};
-    inline string aclType() const { DARABONBA_PTR_GET_DEFAULT(aclType_, "") };
+    inline string getAclType() const { DARABONBA_PTR_GET_DEFAULT(aclType_, "") };
     inline DescribeAclChecksRequest& setAclType(string aclType) { DARABONBA_PTR_SET_VALUE(aclType_, aclType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeAclChecksRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> aclType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> aclType_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

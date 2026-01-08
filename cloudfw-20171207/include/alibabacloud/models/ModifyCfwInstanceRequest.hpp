@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_MODIFYCFWINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ModifyCfwInstanceRequestUpdateList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,27 +32,69 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class UpdateList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const UpdateList& obj) { 
+        DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, UpdateList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      UpdateList() = default ;
+      UpdateList(const UpdateList &) = default ;
+      UpdateList(UpdateList &&) = default ;
+      UpdateList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~UpdateList() = default ;
+      UpdateList& operator=(const UpdateList &) = default ;
+      UpdateList& operator=(UpdateList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->code_ == nullptr
+        && this->value_ == nullptr; };
+      // code Field Functions 
+      bool hasCode() const { return this->code_ != nullptr;};
+      void deleteCode() { this->code_ = nullptr;};
+      inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+      inline UpdateList& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline UpdateList& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> code_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->updateList_ == nullptr; };
+        && this->updateList_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyCfwInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // updateList Field Functions 
     bool hasUpdateList() const { return this->updateList_ != nullptr;};
     void deleteUpdateList() { this->updateList_ = nullptr;};
-    inline const vector<ModifyCfwInstanceRequestUpdateList> & updateList() const { DARABONBA_PTR_GET_CONST(updateList_, vector<ModifyCfwInstanceRequestUpdateList>) };
-    inline vector<ModifyCfwInstanceRequestUpdateList> updateList() { DARABONBA_PTR_GET(updateList_, vector<ModifyCfwInstanceRequestUpdateList>) };
-    inline ModifyCfwInstanceRequest& setUpdateList(const vector<ModifyCfwInstanceRequestUpdateList> & updateList) { DARABONBA_PTR_SET_VALUE(updateList_, updateList) };
-    inline ModifyCfwInstanceRequest& setUpdateList(vector<ModifyCfwInstanceRequestUpdateList> && updateList) { DARABONBA_PTR_SET_RVALUE(updateList_, updateList) };
+    inline const vector<ModifyCfwInstanceRequest::UpdateList> & getUpdateList() const { DARABONBA_PTR_GET_CONST(updateList_, vector<ModifyCfwInstanceRequest::UpdateList>) };
+    inline vector<ModifyCfwInstanceRequest::UpdateList> getUpdateList() { DARABONBA_PTR_GET(updateList_, vector<ModifyCfwInstanceRequest::UpdateList>) };
+    inline ModifyCfwInstanceRequest& setUpdateList(const vector<ModifyCfwInstanceRequest::UpdateList> & updateList) { DARABONBA_PTR_SET_VALUE(updateList_, updateList) };
+    inline ModifyCfwInstanceRequest& setUpdateList(vector<ModifyCfwInstanceRequest::UpdateList> && updateList) { DARABONBA_PTR_SET_RVALUE(updateList_, updateList) };
 
 
   protected:
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<vector<ModifyCfwInstanceRequestUpdateList>> updateList_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<vector<ModifyCfwInstanceRequest::UpdateList>> updateList_ {};
   };
 
   } // namespace Models

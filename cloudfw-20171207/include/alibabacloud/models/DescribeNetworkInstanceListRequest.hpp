@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && return this->connectType_ == nullptr && return this->lang_ == nullptr; };
+        && this->connectType_ == nullptr && this->lang_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
-    inline string cenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+    inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline DescribeNetworkInstanceListRequest& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
     // connectType Field Functions 
     bool hasConnectType() const { return this->connectType_ != nullptr;};
     void deleteConnectType() { this->connectType_ = nullptr;};
-    inline string connectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
+    inline string getConnectType() const { DARABONBA_PTR_GET_DEFAULT(connectType_, "") };
     inline DescribeNetworkInstanceListRequest& setConnectType(string connectType) { DARABONBA_PTR_SET_VALUE(connectType_, connectType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeNetworkInstanceListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
   protected:
-    std::shared_ptr<string> cenId_ = nullptr;
-    std::shared_ptr<string> connectType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> cenId_ {};
+    shared_ptr<string> connectType_ {};
+    shared_ptr<string> lang_ {};
   };
 
   } // namespace Models

@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainGroupUseDns_ == nullptr
-        && return this->natDomainGroupUseDns_ == nullptr && return this->requestId_ == nullptr && return this->supportMessageType_ == nullptr && return this->vpcDomainGroupUseDns_ == nullptr; };
+        && this->natDomainGroupUseDns_ == nullptr && this->requestId_ == nullptr && this->supportMessageType_ == nullptr && this->vpcDomainGroupUseDns_ == nullptr; };
     // domainGroupUseDns Field Functions 
     bool hasDomainGroupUseDns() const { return this->domainGroupUseDns_ != nullptr;};
     void deleteDomainGroupUseDns() { this->domainGroupUseDns_ = nullptr;};
-    inline bool domainGroupUseDns() const { DARABONBA_PTR_GET_DEFAULT(domainGroupUseDns_, false) };
+    inline bool getDomainGroupUseDns() const { DARABONBA_PTR_GET_DEFAULT(domainGroupUseDns_, false) };
     inline DescribeAclWhitelistResponseBody& setDomainGroupUseDns(bool domainGroupUseDns) { DARABONBA_PTR_SET_VALUE(domainGroupUseDns_, domainGroupUseDns) };
 
 
     // natDomainGroupUseDns Field Functions 
     bool hasNatDomainGroupUseDns() const { return this->natDomainGroupUseDns_ != nullptr;};
     void deleteNatDomainGroupUseDns() { this->natDomainGroupUseDns_ = nullptr;};
-    inline bool natDomainGroupUseDns() const { DARABONBA_PTR_GET_DEFAULT(natDomainGroupUseDns_, false) };
+    inline bool getNatDomainGroupUseDns() const { DARABONBA_PTR_GET_DEFAULT(natDomainGroupUseDns_, false) };
     inline DescribeAclWhitelistResponseBody& setNatDomainGroupUseDns(bool natDomainGroupUseDns) { DARABONBA_PTR_SET_VALUE(natDomainGroupUseDns_, natDomainGroupUseDns) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAclWhitelistResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // supportMessageType Field Functions 
     bool hasSupportMessageType() const { return this->supportMessageType_ != nullptr;};
     void deleteSupportMessageType() { this->supportMessageType_ = nullptr;};
-    inline bool supportMessageType() const { DARABONBA_PTR_GET_DEFAULT(supportMessageType_, false) };
+    inline bool getSupportMessageType() const { DARABONBA_PTR_GET_DEFAULT(supportMessageType_, false) };
     inline DescribeAclWhitelistResponseBody& setSupportMessageType(bool supportMessageType) { DARABONBA_PTR_SET_VALUE(supportMessageType_, supportMessageType) };
 
 
     // vpcDomainGroupUseDns Field Functions 
     bool hasVpcDomainGroupUseDns() const { return this->vpcDomainGroupUseDns_ != nullptr;};
     void deleteVpcDomainGroupUseDns() { this->vpcDomainGroupUseDns_ = nullptr;};
-    inline bool vpcDomainGroupUseDns() const { DARABONBA_PTR_GET_DEFAULT(vpcDomainGroupUseDns_, false) };
+    inline bool getVpcDomainGroupUseDns() const { DARABONBA_PTR_GET_DEFAULT(vpcDomainGroupUseDns_, false) };
     inline DescribeAclWhitelistResponseBody& setVpcDomainGroupUseDns(bool vpcDomainGroupUseDns) { DARABONBA_PTR_SET_VALUE(vpcDomainGroupUseDns_, vpcDomainGroupUseDns) };
 
 
   protected:
-    std::shared_ptr<bool> domainGroupUseDns_ = nullptr;
-    std::shared_ptr<bool> natDomainGroupUseDns_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> supportMessageType_ = nullptr;
-    std::shared_ptr<bool> vpcDomainGroupUseDns_ = nullptr;
+    shared_ptr<bool> domainGroupUseDns_ {};
+    shared_ptr<bool> natDomainGroupUseDns_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> supportMessageType_ {};
+    shared_ptr<bool> vpcDomainGroupUseDns_ {};
   };
 
   } // namespace Models

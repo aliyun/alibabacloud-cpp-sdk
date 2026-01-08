@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backUpTime_ == nullptr
-        && return this->lang_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->lang_ == nullptr && this->sourceIp_ == nullptr; };
     // backUpTime Field Functions 
     bool hasBackUpTime() const { return this->backUpTime_ != nullptr;};
     void deleteBackUpTime() { this->backUpTime_ = nullptr;};
-    inline string backUpTime() const { DARABONBA_PTR_GET_DEFAULT(backUpTime_, "") };
+    inline string getBackUpTime() const { DARABONBA_PTR_GET_DEFAULT(backUpTime_, "") };
     inline DeleteAclBackupDataRequest& setBackUpTime(string backUpTime) { DARABONBA_PTR_SET_VALUE(backUpTime_, backUpTime) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteAclBackupDataRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DeleteAclBackupDataRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> backUpTime_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> backUpTime_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

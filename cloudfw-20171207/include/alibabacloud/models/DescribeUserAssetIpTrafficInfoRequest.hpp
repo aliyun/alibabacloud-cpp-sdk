@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetIP_ == nullptr
-        && return this->lang_ == nullptr && return this->trafficTime_ == nullptr; };
+        && this->lang_ == nullptr && this->trafficTime_ == nullptr; };
     // assetIP Field Functions 
     bool hasAssetIP() const { return this->assetIP_ != nullptr;};
     void deleteAssetIP() { this->assetIP_ = nullptr;};
-    inline string assetIP() const { DARABONBA_PTR_GET_DEFAULT(assetIP_, "") };
+    inline string getAssetIP() const { DARABONBA_PTR_GET_DEFAULT(assetIP_, "") };
     inline DescribeUserAssetIPTrafficInfoRequest& setAssetIP(string assetIP) { DARABONBA_PTR_SET_VALUE(assetIP_, assetIP) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeUserAssetIPTrafficInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // trafficTime Field Functions 
     bool hasTrafficTime() const { return this->trafficTime_ != nullptr;};
     void deleteTrafficTime() { this->trafficTime_ = nullptr;};
-    inline string trafficTime() const { DARABONBA_PTR_GET_DEFAULT(trafficTime_, "") };
+    inline string getTrafficTime() const { DARABONBA_PTR_GET_DEFAULT(trafficTime_, "") };
     inline DescribeUserAssetIPTrafficInfoRequest& setTrafficTime(string trafficTime) { DARABONBA_PTR_SET_VALUE(trafficTime_, trafficTime) };
 
 
@@ -60,16 +60,16 @@ namespace Models
     // The IP address of the asset.
     // 
     // This parameter is required.
-    std::shared_ptr<string> assetIP_ = nullptr;
+    shared_ptr<string> assetIP_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The time range to query. The value is a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
-    std::shared_ptr<string> trafficTime_ = nullptr;
+    shared_ptr<string> trafficTime_ {};
   };
 
   } // namespace Models

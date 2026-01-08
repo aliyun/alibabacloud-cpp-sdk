@@ -33,12 +33,12 @@ namespace Models
     // memberUid Field Functions 
     bool hasMemberUid() const { return this->memberUid_ != nullptr;};
     void deleteMemberUid() { this->memberUid_ = nullptr;};
-    inline string memberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
+    inline string getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
     inline DescribeMemberInfoRequest& setMemberUid(string memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
   protected:
-    std::shared_ptr<string> memberUid_ = nullptr;
+    shared_ptr<string> memberUid_ {};
   };
 
   } // namespace Models

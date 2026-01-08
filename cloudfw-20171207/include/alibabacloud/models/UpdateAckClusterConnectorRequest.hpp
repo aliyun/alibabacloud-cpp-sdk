@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectorId_ == nullptr
-        && return this->connectorName_ == nullptr && return this->ttl_ == nullptr; };
+        && this->connectorName_ == nullptr && this->ttl_ == nullptr; };
     // connectorId Field Functions 
     bool hasConnectorId() const { return this->connectorId_ != nullptr;};
     void deleteConnectorId() { this->connectorId_ = nullptr;};
-    inline string connectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
+    inline string getConnectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
     inline UpdateAckClusterConnectorRequest& setConnectorId(string connectorId) { DARABONBA_PTR_SET_VALUE(connectorId_, connectorId) };
 
 
     // connectorName Field Functions 
     bool hasConnectorName() const { return this->connectorName_ != nullptr;};
     void deleteConnectorName() { this->connectorName_ = nullptr;};
-    inline string connectorName() const { DARABONBA_PTR_GET_DEFAULT(connectorName_, "") };
+    inline string getConnectorName() const { DARABONBA_PTR_GET_DEFAULT(connectorName_, "") };
     inline UpdateAckClusterConnectorRequest& setConnectorName(string connectorName) { DARABONBA_PTR_SET_VALUE(connectorName_, connectorName) };
 
 
     // ttl Field Functions 
     bool hasTtl() const { return this->ttl_ != nullptr;};
     void deleteTtl() { this->ttl_ = nullptr;};
-    inline string ttl() const { DARABONBA_PTR_GET_DEFAULT(ttl_, "") };
+    inline string getTtl() const { DARABONBA_PTR_GET_DEFAULT(ttl_, "") };
     inline UpdateAckClusterConnectorRequest& setTtl(string ttl) { DARABONBA_PTR_SET_VALUE(ttl_, ttl) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> connectorId_ = nullptr;
-    std::shared_ptr<string> connectorName_ = nullptr;
-    std::shared_ptr<string> ttl_ = nullptr;
+    shared_ptr<string> connectorId_ {};
+    shared_ptr<string> connectorName_ {};
+    shared_ptr<string> ttl_ {};
   };
 
   } // namespace Models

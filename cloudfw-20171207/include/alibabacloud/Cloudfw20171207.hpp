@@ -3713,6 +3713,40 @@ namespace Cloudfw20171207
       Models::DescribeVpcFirewallDetailResponse describeVpcFirewallDetail(const Models::DescribeVpcFirewallDetailRequest &request);
 
       /**
+       * @summary 查询VPC互访的域名信息
+       *
+       * @param request DescribeVpcFirewallDomainListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcFirewallDomainListResponse
+       */
+      Models::DescribeVpcFirewallDomainListResponse describeVpcFirewallDomainListWithOptions(const Models::DescribeVpcFirewallDomainListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询VPC互访的域名信息
+       *
+       * @param request DescribeVpcFirewallDomainListRequest
+       * @return DescribeVpcFirewallDomainListResponse
+       */
+      Models::DescribeVpcFirewallDomainListResponse describeVpcFirewallDomainList(const Models::DescribeVpcFirewallDomainListRequest &request);
+
+      /**
+       * @summary 查询VPC互访的域名信息
+       *
+       * @param request DescribeVpcFirewallDomainRelationListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcFirewallDomainRelationListResponse
+       */
+      Models::DescribeVpcFirewallDomainRelationListResponse describeVpcFirewallDomainRelationListWithOptions(const Models::DescribeVpcFirewallDomainRelationListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询VPC互访的域名信息
+       *
+       * @param request DescribeVpcFirewallDomainRelationListRequest
+       * @return DescribeVpcFirewallDomainRelationListResponse
+       */
+      Models::DescribeVpcFirewallDomainRelationListResponse describeVpcFirewallDomainRelationList(const Models::DescribeVpcFirewallDomainRelationListRequest &request);
+
+      /**
        * @summary 概览页-vpc防火墙拦截趋势
        *
        * @param request DescribeVpcFirewallDropTrafficTrendRequest

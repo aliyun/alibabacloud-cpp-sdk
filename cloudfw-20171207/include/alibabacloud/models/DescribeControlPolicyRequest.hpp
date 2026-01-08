@@ -54,97 +54,97 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclAction_ == nullptr
-        && return this->aclUuid_ == nullptr && return this->currentPage_ == nullptr && return this->description_ == nullptr && return this->destination_ == nullptr && return this->direction_ == nullptr
-        && return this->ipVersion_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->proto_ == nullptr && return this->release_ == nullptr
-        && return this->repeatType_ == nullptr && return this->source_ == nullptr; };
+        && this->aclUuid_ == nullptr && this->currentPage_ == nullptr && this->description_ == nullptr && this->destination_ == nullptr && this->direction_ == nullptr
+        && this->ipVersion_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->proto_ == nullptr && this->release_ == nullptr
+        && this->repeatType_ == nullptr && this->source_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
-    inline string aclAction() const { DARABONBA_PTR_GET_DEFAULT(aclAction_, "") };
+    inline string getAclAction() const { DARABONBA_PTR_GET_DEFAULT(aclAction_, "") };
     inline DescribeControlPolicyRequest& setAclAction(string aclAction) { DARABONBA_PTR_SET_VALUE(aclAction_, aclAction) };
 
 
     // aclUuid Field Functions 
     bool hasAclUuid() const { return this->aclUuid_ != nullptr;};
     void deleteAclUuid() { this->aclUuid_ = nullptr;};
-    inline string aclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
+    inline string getAclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
     inline DescribeControlPolicyRequest& setAclUuid(string aclUuid) { DARABONBA_PTR_SET_VALUE(aclUuid_, aclUuid) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeControlPolicyRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeControlPolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // destination Field Functions 
     bool hasDestination() const { return this->destination_ != nullptr;};
     void deleteDestination() { this->destination_ = nullptr;};
-    inline string destination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
+    inline string getDestination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
     inline DescribeControlPolicyRequest& setDestination(string destination) { DARABONBA_PTR_SET_VALUE(destination_, destination) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline DescribeControlPolicyRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline string ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+    inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline DescribeControlPolicyRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeControlPolicyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeControlPolicyRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // proto Field Functions 
     bool hasProto() const { return this->proto_ != nullptr;};
     void deleteProto() { this->proto_ = nullptr;};
-    inline string proto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
+    inline string getProto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
     inline DescribeControlPolicyRequest& setProto(string proto) { DARABONBA_PTR_SET_VALUE(proto_, proto) };
 
 
     // release Field Functions 
     bool hasRelease() const { return this->release_ != nullptr;};
     void deleteRelease() { this->release_ = nullptr;};
-    inline string release() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
+    inline string getRelease() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
     inline DescribeControlPolicyRequest& setRelease(string release) { DARABONBA_PTR_SET_VALUE(release_, release) };
 
 
     // repeatType Field Functions 
     bool hasRepeatType() const { return this->repeatType_ != nullptr;};
     void deleteRepeatType() { this->repeatType_ = nullptr;};
-    inline string repeatType() const { DARABONBA_PTR_GET_DEFAULT(repeatType_, "") };
+    inline string getRepeatType() const { DARABONBA_PTR_GET_DEFAULT(repeatType_, "") };
     inline DescribeControlPolicyRequest& setRepeatType(string repeatType) { DARABONBA_PTR_SET_VALUE(repeatType_, repeatType) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline DescribeControlPolicyRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
@@ -156,19 +156,19 @@ namespace Models
     // *   **log**: monitors the traffic.
     // 
     // >  If you do not specify this parameter, access control policies of all action types are queried.
-    std::shared_ptr<string> aclAction_ = nullptr;
+    shared_ptr<string> aclAction_ {};
     // The unique ID of the access control policy.
-    std::shared_ptr<string> aclUuid_ = nullptr;
+    shared_ptr<string> aclUuid_ {};
     // The number of the page to return.
     // 
     // Default value: 1.
     // 
     // This parameter is required.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // The description of the access control policy. Fuzzy match is supported.
     // 
     // >  If you do not specify this parameter, access control policies that have descriptions are queried.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The destination address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the value of the DestinationType parameter.
     // 
     // *   If you set DestinationType to `net`, the value of Destination is a CIDR block. Example: 10.0.3.0/24.
@@ -177,26 +177,26 @@ namespace Models
     // *   If you set DestinationType to `location`, the value of Destination is the name of a location. For more information about location codes, see AddControlPolicy. Example: ["BJ11", "ZB"].
     // 
     // >  If you do not specify this parameter, access control policies of all destination address types are queried.
-    std::shared_ptr<string> destination_ = nullptr;
+    shared_ptr<string> destination_ {};
     // The direction of the traffic to which the access control policies apply. Valid values:
     // 
     // *   **in**: inbound.
     // *   **out**: outbound.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The IP version of the address in the access control policy. Valid values:
     // 
     // *   **4**: IPv4 (default)
     // *   **6**: IPv6
-    std::shared_ptr<string> ipVersion_ = nullptr;
+    shared_ptr<string> ipVersion_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries to return on each page.
     // 
     // This parameter is required.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The type of the protocol in the access control policy. Valid values:
     // 
     // * **TCP**
@@ -205,12 +205,12 @@ namespace Models
     // * **ANY**: all types of protocols
     // 
     // >  If you do not specify this parameter, access control policies of all protocol types are queried.
-    std::shared_ptr<string> proto_ = nullptr;
+    shared_ptr<string> proto_ {};
     // Specifies whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
     // 
     // *   **true**: The access control policy is enabled.
     // *   **false**: The access control policy is disabled.
-    std::shared_ptr<string> release_ = nullptr;
+    shared_ptr<string> release_ {};
     // The recurrence type for the access control policy to take effect. Valid values:
     // 
     // *   **Permanent** (default): The policy always takes effect.
@@ -218,7 +218,7 @@ namespace Models
     // *   **Daily**: The policy takes effect on a daily basis.
     // *   **Weekly**: The policy takes effect on a weekly basis.
     // *   **Monthly**: The policy takes effect on a monthly basis.
-    std::shared_ptr<string> repeatType_ = nullptr;
+    shared_ptr<string> repeatType_ {};
     // The source address in the access control policy. Fuzzy match is supported. The value of this parameter depends on the value of the SourceType parameter.
     // 
     // *   If SourceType is set to `net`, the value of Source must be a CIDR block. Example: 192.0.XX.XX/24.
@@ -226,7 +226,7 @@ namespace Models
     // *   If SourceType is set to `location`, the value of Source must be a location. Example: beijing.
     // 
     // >  If you do not specify this parameter, access control policies of all source address types are queried.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

@@ -34,8 +34,8 @@ namespace Models
     // memberUids Field Functions 
     bool hasMemberUids() const { return this->memberUids_ != nullptr;};
     void deleteMemberUids() { this->memberUids_ = nullptr;};
-    inline const vector<int64_t> & memberUids() const { DARABONBA_PTR_GET_CONST(memberUids_, vector<int64_t>) };
-    inline vector<int64_t> memberUids() { DARABONBA_PTR_GET(memberUids_, vector<int64_t>) };
+    inline const vector<int64_t> & getMemberUids() const { DARABONBA_PTR_GET_CONST(memberUids_, vector<int64_t>) };
+    inline vector<int64_t> getMemberUids() { DARABONBA_PTR_GET(memberUids_, vector<int64_t>) };
     inline DeleteInstanceMembersRequest& setMemberUids(const vector<int64_t> & memberUids) { DARABONBA_PTR_SET_VALUE(memberUids_, memberUids) };
     inline DeleteInstanceMembersRequest& setMemberUids(vector<int64_t> && memberUids) { DARABONBA_PTR_SET_RVALUE(memberUids_, memberUids) };
 
@@ -44,7 +44,7 @@ namespace Models
     // The UIDs of the members.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> memberUids_ = nullptr;
+    shared_ptr<vector<int64_t>> memberUids_ {};
   };
 
   } // namespace Models

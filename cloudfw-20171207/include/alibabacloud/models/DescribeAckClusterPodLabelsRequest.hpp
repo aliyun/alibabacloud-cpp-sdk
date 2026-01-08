@@ -33,13 +33,13 @@ namespace Models
     // connectorId Field Functions 
     bool hasConnectorId() const { return this->connectorId_ != nullptr;};
     void deleteConnectorId() { this->connectorId_ = nullptr;};
-    inline string connectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
+    inline string getConnectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
     inline DescribeAckClusterPodLabelsRequest& setConnectorId(string connectorId) { DARABONBA_PTR_SET_VALUE(connectorId_, connectorId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> connectorId_ = nullptr;
+    shared_ptr<string> connectorId_ {};
   };
 
   } // namespace Models

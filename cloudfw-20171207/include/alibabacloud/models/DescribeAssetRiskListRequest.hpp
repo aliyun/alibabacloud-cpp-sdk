@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ipAddrList_ == nullptr
-        && return this->ipVersion_ == nullptr && return this->lang_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->ipVersion_ == nullptr && this->lang_ == nullptr && this->sourceIp_ == nullptr; };
     // ipAddrList Field Functions 
     bool hasIpAddrList() const { return this->ipAddrList_ != nullptr;};
     void deleteIpAddrList() { this->ipAddrList_ = nullptr;};
-    inline const vector<string> & ipAddrList() const { DARABONBA_PTR_GET_CONST(ipAddrList_, vector<string>) };
-    inline vector<string> ipAddrList() { DARABONBA_PTR_GET(ipAddrList_, vector<string>) };
+    inline const vector<string> & getIpAddrList() const { DARABONBA_PTR_GET_CONST(ipAddrList_, vector<string>) };
+    inline vector<string> getIpAddrList() { DARABONBA_PTR_GET(ipAddrList_, vector<string>) };
     inline DescribeAssetRiskListRequest& setIpAddrList(const vector<string> & ipAddrList) { DARABONBA_PTR_SET_VALUE(ipAddrList_, ipAddrList) };
     inline DescribeAssetRiskListRequest& setIpAddrList(vector<string> && ipAddrList) { DARABONBA_PTR_SET_RVALUE(ipAddrList_, ipAddrList) };
 
@@ -50,21 +50,21 @@ namespace Models
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline int32_t ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, 0) };
+    inline int32_t getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, 0) };
     inline DescribeAssetRiskListRequest& setIpVersion(int32_t ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeAssetRiskListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeAssetRiskListRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
@@ -76,7 +76,7 @@ namespace Models
     // *   Example IPv4 address: 47.97.XX.XX.
     // 
     // *   Example IPv6 address: 2001:db8:ffff:ffff:ffff:XXXX:ffff.
-    std::shared_ptr<vector<string>> ipAddrList_ = nullptr;
+    shared_ptr<vector<string>> ipAddrList_ {};
     // The IP version of the asset that is protected by Cloud Firewall.
     // 
     // Valid values:
@@ -85,14 +85,14 @@ namespace Models
     // *   **6**: IPv6
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> ipVersion_ = nullptr;
+    shared_ptr<int32_t> ipVersion_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

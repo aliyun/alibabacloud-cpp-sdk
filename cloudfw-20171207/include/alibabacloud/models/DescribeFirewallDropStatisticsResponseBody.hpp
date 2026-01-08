@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclDropCnt_ == nullptr
-        && return this->ipsDropCnt_ == nullptr && return this->requestId_ == nullptr && return this->totalDropCnt_ == nullptr && return this->vulnDropCnt_ == nullptr; };
+        && this->ipsDropCnt_ == nullptr && this->requestId_ == nullptr && this->totalDropCnt_ == nullptr && this->vulnDropCnt_ == nullptr; };
     // aclDropCnt Field Functions 
     bool hasAclDropCnt() const { return this->aclDropCnt_ != nullptr;};
     void deleteAclDropCnt() { this->aclDropCnt_ = nullptr;};
-    inline int64_t aclDropCnt() const { DARABONBA_PTR_GET_DEFAULT(aclDropCnt_, 0L) };
+    inline int64_t getAclDropCnt() const { DARABONBA_PTR_GET_DEFAULT(aclDropCnt_, 0L) };
     inline DescribeFirewallDropStatisticsResponseBody& setAclDropCnt(int64_t aclDropCnt) { DARABONBA_PTR_SET_VALUE(aclDropCnt_, aclDropCnt) };
 
 
     // ipsDropCnt Field Functions 
     bool hasIpsDropCnt() const { return this->ipsDropCnt_ != nullptr;};
     void deleteIpsDropCnt() { this->ipsDropCnt_ = nullptr;};
-    inline int64_t ipsDropCnt() const { DARABONBA_PTR_GET_DEFAULT(ipsDropCnt_, 0L) };
+    inline int64_t getIpsDropCnt() const { DARABONBA_PTR_GET_DEFAULT(ipsDropCnt_, 0L) };
     inline DescribeFirewallDropStatisticsResponseBody& setIpsDropCnt(int64_t ipsDropCnt) { DARABONBA_PTR_SET_VALUE(ipsDropCnt_, ipsDropCnt) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeFirewallDropStatisticsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalDropCnt Field Functions 
     bool hasTotalDropCnt() const { return this->totalDropCnt_ != nullptr;};
     void deleteTotalDropCnt() { this->totalDropCnt_ = nullptr;};
-    inline int64_t totalDropCnt() const { DARABONBA_PTR_GET_DEFAULT(totalDropCnt_, 0L) };
+    inline int64_t getTotalDropCnt() const { DARABONBA_PTR_GET_DEFAULT(totalDropCnt_, 0L) };
     inline DescribeFirewallDropStatisticsResponseBody& setTotalDropCnt(int64_t totalDropCnt) { DARABONBA_PTR_SET_VALUE(totalDropCnt_, totalDropCnt) };
 
 
     // vulnDropCnt Field Functions 
     bool hasVulnDropCnt() const { return this->vulnDropCnt_ != nullptr;};
     void deleteVulnDropCnt() { this->vulnDropCnt_ = nullptr;};
-    inline int64_t vulnDropCnt() const { DARABONBA_PTR_GET_DEFAULT(vulnDropCnt_, 0L) };
+    inline int64_t getVulnDropCnt() const { DARABONBA_PTR_GET_DEFAULT(vulnDropCnt_, 0L) };
     inline DescribeFirewallDropStatisticsResponseBody& setVulnDropCnt(int64_t vulnDropCnt) { DARABONBA_PTR_SET_VALUE(vulnDropCnt_, vulnDropCnt) };
 
 
   protected:
-    std::shared_ptr<int64_t> aclDropCnt_ = nullptr;
-    std::shared_ptr<int64_t> ipsDropCnt_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> totalDropCnt_ = nullptr;
-    std::shared_ptr<int64_t> vulnDropCnt_ = nullptr;
+    shared_ptr<int64_t> aclDropCnt_ {};
+    shared_ptr<int64_t> ipsDropCnt_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> totalDropCnt_ {};
+    shared_ptr<int64_t> vulnDropCnt_ {};
   };
 
   } // namespace Models

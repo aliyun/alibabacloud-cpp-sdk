@@ -38,56 +38,56 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->firewallId_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->trFirewallRoutePolicyId_ == nullptr; };
+        && this->firewallId_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->trFirewallRoutePolicyId_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeTrFirewallsV2RouteListRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // firewallId Field Functions 
     bool hasFirewallId() const { return this->firewallId_ != nullptr;};
     void deleteFirewallId() { this->firewallId_ = nullptr;};
-    inline string firewallId() const { DARABONBA_PTR_GET_DEFAULT(firewallId_, "") };
+    inline string getFirewallId() const { DARABONBA_PTR_GET_DEFAULT(firewallId_, "") };
     inline DescribeTrFirewallsV2RouteListRequest& setFirewallId(string firewallId) { DARABONBA_PTR_SET_VALUE(firewallId_, firewallId) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeTrFirewallsV2RouteListRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeTrFirewallsV2RouteListRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // trFirewallRoutePolicyId Field Functions 
     bool hasTrFirewallRoutePolicyId() const { return this->trFirewallRoutePolicyId_ != nullptr;};
     void deleteTrFirewallRoutePolicyId() { this->trFirewallRoutePolicyId_ = nullptr;};
-    inline string trFirewallRoutePolicyId() const { DARABONBA_PTR_GET_DEFAULT(trFirewallRoutePolicyId_, "") };
+    inline string getTrFirewallRoutePolicyId() const { DARABONBA_PTR_GET_DEFAULT(trFirewallRoutePolicyId_, "") };
     inline DescribeTrFirewallsV2RouteListRequest& setTrFirewallRoutePolicyId(string trFirewallRoutePolicyId) { DARABONBA_PTR_SET_VALUE(trFirewallRoutePolicyId_, trFirewallRoutePolicyId) };
 
 
   protected:
     // The page number. Default value: 1.
-    std::shared_ptr<string> currentPage_ = nullptr;
+    shared_ptr<string> currentPage_ {};
     // The instance ID of the virtual private cloud (VPC) firewall.
-    std::shared_ptr<string> firewallId_ = nullptr;
+    shared_ptr<string> firewallId_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The number of entries per page. Default value: 10.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The ID of the routing policy.
-    std::shared_ptr<string> trFirewallRoutePolicyId_ = nullptr;
+    shared_ptr<string> trFirewallRoutePolicyId_ {};
   };
 
   } // namespace Models

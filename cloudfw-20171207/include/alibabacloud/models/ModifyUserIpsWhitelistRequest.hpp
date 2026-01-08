@@ -42,65 +42,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->direction_ == nullptr
-        && return this->ipVersion_ == nullptr && return this->lang_ == nullptr && return this->listType_ == nullptr && return this->listValue_ == nullptr && return this->sourceIp_ == nullptr
-        && return this->whiteType_ == nullptr; };
+        && this->ipVersion_ == nullptr && this->lang_ == nullptr && this->listType_ == nullptr && this->listValue_ == nullptr && this->sourceIp_ == nullptr
+        && this->whiteType_ == nullptr; };
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline int64_t direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, 0L) };
+    inline int64_t getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, 0L) };
     inline ModifyUserIPSWhitelistRequest& setDirection(int64_t direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline string ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+    inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline ModifyUserIPSWhitelistRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyUserIPSWhitelistRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // listType Field Functions 
     bool hasListType() const { return this->listType_ != nullptr;};
     void deleteListType() { this->listType_ = nullptr;};
-    inline int64_t listType() const { DARABONBA_PTR_GET_DEFAULT(listType_, 0L) };
+    inline int64_t getListType() const { DARABONBA_PTR_GET_DEFAULT(listType_, 0L) };
     inline ModifyUserIPSWhitelistRequest& setListType(int64_t listType) { DARABONBA_PTR_SET_VALUE(listType_, listType) };
 
 
     // listValue Field Functions 
     bool hasListValue() const { return this->listValue_ != nullptr;};
     void deleteListValue() { this->listValue_ = nullptr;};
-    inline string listValue() const { DARABONBA_PTR_GET_DEFAULT(listValue_, "") };
+    inline string getListValue() const { DARABONBA_PTR_GET_DEFAULT(listValue_, "") };
     inline ModifyUserIPSWhitelistRequest& setListValue(string listValue) { DARABONBA_PTR_SET_VALUE(listValue_, listValue) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyUserIPSWhitelistRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // whiteType Field Functions 
     bool hasWhiteType() const { return this->whiteType_ != nullptr;};
     void deleteWhiteType() { this->whiteType_ = nullptr;};
-    inline int64_t whiteType() const { DARABONBA_PTR_GET_DEFAULT(whiteType_, 0L) };
+    inline int64_t getWhiteType() const { DARABONBA_PTR_GET_DEFAULT(whiteType_, 0L) };
     inline ModifyUserIPSWhitelistRequest& setWhiteType(int64_t whiteType) { DARABONBA_PTR_SET_VALUE(whiteType_, whiteType) };
 
 
   protected:
-    std::shared_ptr<int64_t> direction_ = nullptr;
-    std::shared_ptr<string> ipVersion_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<int64_t> listType_ = nullptr;
-    std::shared_ptr<string> listValue_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
-    std::shared_ptr<int64_t> whiteType_ = nullptr;
+    shared_ptr<int64_t> direction_ {};
+    shared_ptr<string> ipVersion_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<int64_t> listType_ {};
+    shared_ptr<string> listValue_ {};
+    shared_ptr<string> sourceIp_ {};
+    shared_ptr<int64_t> whiteType_ {};
   };
 
   } // namespace Models

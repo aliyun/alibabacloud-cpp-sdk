@@ -33,13 +33,13 @@ namespace Models
     // caCertId Field Functions 
     bool hasCaCertId() const { return this->caCertId_ != nullptr;};
     void deleteCaCertId() { this->caCertId_ = nullptr;};
-    inline string caCertId() const { DARABONBA_PTR_GET_DEFAULT(caCertId_, "") };
+    inline string getCaCertId() const { DARABONBA_PTR_GET_DEFAULT(caCertId_, "") };
     inline GetTlsInspectCertificateDownloadUrlRequest& setCaCertId(string caCertId) { DARABONBA_PTR_SET_VALUE(caCertId_, caCertId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> caCertId_ = nullptr;
+    shared_ptr<string> caCertId_ {};
   };
 
   } // namespace Models

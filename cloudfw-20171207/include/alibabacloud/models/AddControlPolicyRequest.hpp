@@ -79,30 +79,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclAction_ == nullptr
-        && return this->applicationName_ == nullptr && return this->applicationNameList_ == nullptr && return this->description_ == nullptr && return this->destPort_ == nullptr && return this->destPortGroup_ == nullptr
-        && return this->destPortType_ == nullptr && return this->destination_ == nullptr && return this->destinationType_ == nullptr && return this->direction_ == nullptr && return this->domainResolveType_ == nullptr
-        && return this->endTime_ == nullptr && return this->ipVersion_ == nullptr && return this->lang_ == nullptr && return this->newOrder_ == nullptr && return this->proto_ == nullptr
-        && return this->release_ == nullptr && return this->repeatDays_ == nullptr && return this->repeatEndTime_ == nullptr && return this->repeatStartTime_ == nullptr && return this->repeatType_ == nullptr
-        && return this->source_ == nullptr && return this->sourceIp_ == nullptr && return this->sourceType_ == nullptr && return this->startTime_ == nullptr; };
+        && this->applicationName_ == nullptr && this->applicationNameList_ == nullptr && this->description_ == nullptr && this->destPort_ == nullptr && this->destPortGroup_ == nullptr
+        && this->destPortType_ == nullptr && this->destination_ == nullptr && this->destinationType_ == nullptr && this->direction_ == nullptr && this->domainResolveType_ == nullptr
+        && this->endTime_ == nullptr && this->ipVersion_ == nullptr && this->lang_ == nullptr && this->newOrder_ == nullptr && this->proto_ == nullptr
+        && this->release_ == nullptr && this->repeatDays_ == nullptr && this->repeatEndTime_ == nullptr && this->repeatStartTime_ == nullptr && this->repeatType_ == nullptr
+        && this->source_ == nullptr && this->sourceIp_ == nullptr && this->sourceType_ == nullptr && this->startTime_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
-    inline string aclAction() const { DARABONBA_PTR_GET_DEFAULT(aclAction_, "") };
+    inline string getAclAction() const { DARABONBA_PTR_GET_DEFAULT(aclAction_, "") };
     inline AddControlPolicyRequest& setAclAction(string aclAction) { DARABONBA_PTR_SET_VALUE(aclAction_, aclAction) };
 
 
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string applicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline AddControlPolicyRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // applicationNameList Field Functions 
     bool hasApplicationNameList() const { return this->applicationNameList_ != nullptr;};
     void deleteApplicationNameList() { this->applicationNameList_ = nullptr;};
-    inline const vector<string> & applicationNameList() const { DARABONBA_PTR_GET_CONST(applicationNameList_, vector<string>) };
-    inline vector<string> applicationNameList() { DARABONBA_PTR_GET(applicationNameList_, vector<string>) };
+    inline const vector<string> & getApplicationNameList() const { DARABONBA_PTR_GET_CONST(applicationNameList_, vector<string>) };
+    inline vector<string> getApplicationNameList() { DARABONBA_PTR_GET(applicationNameList_, vector<string>) };
     inline AddControlPolicyRequest& setApplicationNameList(const vector<string> & applicationNameList) { DARABONBA_PTR_SET_VALUE(applicationNameList_, applicationNameList) };
     inline AddControlPolicyRequest& setApplicationNameList(vector<string> && applicationNameList) { DARABONBA_PTR_SET_RVALUE(applicationNameList_, applicationNameList) };
 
@@ -110,106 +110,106 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AddControlPolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // destPort Field Functions 
     bool hasDestPort() const { return this->destPort_ != nullptr;};
     void deleteDestPort() { this->destPort_ = nullptr;};
-    inline string destPort() const { DARABONBA_PTR_GET_DEFAULT(destPort_, "") };
+    inline string getDestPort() const { DARABONBA_PTR_GET_DEFAULT(destPort_, "") };
     inline AddControlPolicyRequest& setDestPort(string destPort) { DARABONBA_PTR_SET_VALUE(destPort_, destPort) };
 
 
     // destPortGroup Field Functions 
     bool hasDestPortGroup() const { return this->destPortGroup_ != nullptr;};
     void deleteDestPortGroup() { this->destPortGroup_ = nullptr;};
-    inline string destPortGroup() const { DARABONBA_PTR_GET_DEFAULT(destPortGroup_, "") };
+    inline string getDestPortGroup() const { DARABONBA_PTR_GET_DEFAULT(destPortGroup_, "") };
     inline AddControlPolicyRequest& setDestPortGroup(string destPortGroup) { DARABONBA_PTR_SET_VALUE(destPortGroup_, destPortGroup) };
 
 
     // destPortType Field Functions 
     bool hasDestPortType() const { return this->destPortType_ != nullptr;};
     void deleteDestPortType() { this->destPortType_ = nullptr;};
-    inline string destPortType() const { DARABONBA_PTR_GET_DEFAULT(destPortType_, "") };
+    inline string getDestPortType() const { DARABONBA_PTR_GET_DEFAULT(destPortType_, "") };
     inline AddControlPolicyRequest& setDestPortType(string destPortType) { DARABONBA_PTR_SET_VALUE(destPortType_, destPortType) };
 
 
     // destination Field Functions 
     bool hasDestination() const { return this->destination_ != nullptr;};
     void deleteDestination() { this->destination_ = nullptr;};
-    inline string destination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
+    inline string getDestination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
     inline AddControlPolicyRequest& setDestination(string destination) { DARABONBA_PTR_SET_VALUE(destination_, destination) };
 
 
     // destinationType Field Functions 
     bool hasDestinationType() const { return this->destinationType_ != nullptr;};
     void deleteDestinationType() { this->destinationType_ = nullptr;};
-    inline string destinationType() const { DARABONBA_PTR_GET_DEFAULT(destinationType_, "") };
+    inline string getDestinationType() const { DARABONBA_PTR_GET_DEFAULT(destinationType_, "") };
     inline AddControlPolicyRequest& setDestinationType(string destinationType) { DARABONBA_PTR_SET_VALUE(destinationType_, destinationType) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline AddControlPolicyRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // domainResolveType Field Functions 
     bool hasDomainResolveType() const { return this->domainResolveType_ != nullptr;};
     void deleteDomainResolveType() { this->domainResolveType_ = nullptr;};
-    inline string domainResolveType() const { DARABONBA_PTR_GET_DEFAULT(domainResolveType_, "") };
+    inline string getDomainResolveType() const { DARABONBA_PTR_GET_DEFAULT(domainResolveType_, "") };
     inline AddControlPolicyRequest& setDomainResolveType(string domainResolveType) { DARABONBA_PTR_SET_VALUE(domainResolveType_, domainResolveType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline AddControlPolicyRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline string ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+    inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline AddControlPolicyRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline AddControlPolicyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // newOrder Field Functions 
     bool hasNewOrder() const { return this->newOrder_ != nullptr;};
     void deleteNewOrder() { this->newOrder_ = nullptr;};
-    inline string newOrder() const { DARABONBA_PTR_GET_DEFAULT(newOrder_, "") };
+    inline string getNewOrder() const { DARABONBA_PTR_GET_DEFAULT(newOrder_, "") };
     inline AddControlPolicyRequest& setNewOrder(string newOrder) { DARABONBA_PTR_SET_VALUE(newOrder_, newOrder) };
 
 
     // proto Field Functions 
     bool hasProto() const { return this->proto_ != nullptr;};
     void deleteProto() { this->proto_ = nullptr;};
-    inline string proto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
+    inline string getProto() const { DARABONBA_PTR_GET_DEFAULT(proto_, "") };
     inline AddControlPolicyRequest& setProto(string proto) { DARABONBA_PTR_SET_VALUE(proto_, proto) };
 
 
     // release Field Functions 
     bool hasRelease() const { return this->release_ != nullptr;};
     void deleteRelease() { this->release_ = nullptr;};
-    inline string release() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
+    inline string getRelease() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
     inline AddControlPolicyRequest& setRelease(string release) { DARABONBA_PTR_SET_VALUE(release_, release) };
 
 
     // repeatDays Field Functions 
     bool hasRepeatDays() const { return this->repeatDays_ != nullptr;};
     void deleteRepeatDays() { this->repeatDays_ = nullptr;};
-    inline const vector<int64_t> & repeatDays() const { DARABONBA_PTR_GET_CONST(repeatDays_, vector<int64_t>) };
-    inline vector<int64_t> repeatDays() { DARABONBA_PTR_GET(repeatDays_, vector<int64_t>) };
+    inline const vector<int64_t> & getRepeatDays() const { DARABONBA_PTR_GET_CONST(repeatDays_, vector<int64_t>) };
+    inline vector<int64_t> getRepeatDays() { DARABONBA_PTR_GET(repeatDays_, vector<int64_t>) };
     inline AddControlPolicyRequest& setRepeatDays(const vector<int64_t> & repeatDays) { DARABONBA_PTR_SET_VALUE(repeatDays_, repeatDays) };
     inline AddControlPolicyRequest& setRepeatDays(vector<int64_t> && repeatDays) { DARABONBA_PTR_SET_RVALUE(repeatDays_, repeatDays) };
 
@@ -217,49 +217,49 @@ namespace Models
     // repeatEndTime Field Functions 
     bool hasRepeatEndTime() const { return this->repeatEndTime_ != nullptr;};
     void deleteRepeatEndTime() { this->repeatEndTime_ = nullptr;};
-    inline string repeatEndTime() const { DARABONBA_PTR_GET_DEFAULT(repeatEndTime_, "") };
+    inline string getRepeatEndTime() const { DARABONBA_PTR_GET_DEFAULT(repeatEndTime_, "") };
     inline AddControlPolicyRequest& setRepeatEndTime(string repeatEndTime) { DARABONBA_PTR_SET_VALUE(repeatEndTime_, repeatEndTime) };
 
 
     // repeatStartTime Field Functions 
     bool hasRepeatStartTime() const { return this->repeatStartTime_ != nullptr;};
     void deleteRepeatStartTime() { this->repeatStartTime_ = nullptr;};
-    inline string repeatStartTime() const { DARABONBA_PTR_GET_DEFAULT(repeatStartTime_, "") };
+    inline string getRepeatStartTime() const { DARABONBA_PTR_GET_DEFAULT(repeatStartTime_, "") };
     inline AddControlPolicyRequest& setRepeatStartTime(string repeatStartTime) { DARABONBA_PTR_SET_VALUE(repeatStartTime_, repeatStartTime) };
 
 
     // repeatType Field Functions 
     bool hasRepeatType() const { return this->repeatType_ != nullptr;};
     void deleteRepeatType() { this->repeatType_ = nullptr;};
-    inline string repeatType() const { DARABONBA_PTR_GET_DEFAULT(repeatType_, "") };
+    inline string getRepeatType() const { DARABONBA_PTR_GET_DEFAULT(repeatType_, "") };
     inline AddControlPolicyRequest& setRepeatType(string repeatType) { DARABONBA_PTR_SET_VALUE(repeatType_, repeatType) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline AddControlPolicyRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline AddControlPolicyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline AddControlPolicyRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline AddControlPolicyRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
@@ -271,7 +271,7 @@ namespace Models
     // *   **log**: monitors the traffic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclAction_ = nullptr;
+    shared_ptr<string> aclAction_ {};
     // The application type supported by the access control policy. Valid values:
     // 
     // *   **FTP**
@@ -292,13 +292,13 @@ namespace Models
     // *   **ANY**
     // 
     // > The value of this parameter is based on the value of Proto. If Proto is set to TCP, you can set ApplicationName to any valid value. If Proto is set to UDP, ICMP, or ANY, you can set ApplicationName only to ANY. You must specify at least one of the ApplicationNameList and ApplicationName parameters.
-    std::shared_ptr<string> applicationName_ = nullptr;
+    shared_ptr<string> applicationName_ {};
     // The application types supported by the access control policy.
-    std::shared_ptr<vector<string>> applicationNameList_ = nullptr;
+    shared_ptr<vector<string>> applicationNameList_ {};
     // The description of the access control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The destination port in the access control policy. Valid values:
     // 
     // *   If Proto is set to ICMP, DestPort is automatically left empty.
@@ -310,18 +310,18 @@ namespace Models
     // > If DestPortType is set to group, you do not need to specify the destination port number. All ports on which the access control policy takes effect are included in the destination port address book.
     // 
     // *   If Proto is set to TCP, UDP, or ANY and DestPortType is set to port, the value of DestPort is the destination port number.
-    std::shared_ptr<string> destPort_ = nullptr;
+    shared_ptr<string> destPort_ {};
     // The name of the destination port address book in the access control policy.
     // 
     // > If DestPortType is set to group, you must specify the name of the destination port address book.
-    std::shared_ptr<string> destPortGroup_ = nullptr;
+    shared_ptr<string> destPortGroup_ {};
     // The type of the destination port in the access control policy.
     // 
     // Valid values:
     // 
     // *   **port**: port
     // *   **group**: port address book
-    std::shared_ptr<string> destPortType_ = nullptr;
+    shared_ptr<string> destPortType_ {};
     // The destination address in the access control policy.
     // 
     // Valid values:
@@ -343,7 +343,7 @@ namespace Models
     //     Example: ["BJ11", "ZB"]
     // 
     // This parameter is required.
-    std::shared_ptr<string> destination_ = nullptr;
+    shared_ptr<string> destination_ {};
     // The type of the destination address in the access control policy. Valid values:
     // 
     // *   **net**: CIDR block
@@ -352,40 +352,40 @@ namespace Models
     // *   **location**: location
     // 
     // This parameter is required.
-    std::shared_ptr<string> destinationType_ = nullptr;
+    shared_ptr<string> destinationType_ {};
     // The direction of the traffic to which the access control policy applies. Valid values:
     // 
     // *   **in**: inbound traffic
     // *   **out**: outbound traffic
     // 
     // This parameter is required.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The domain name resolution method of the access control policy. Valid values:
     // 
     // * **FQDN**: fully qualified domain name (FQDN)-based resolution
     // * **DNS**: DNS-based dynamic resolution
     // * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
-    std::shared_ptr<string> domainResolveType_ = nullptr;
+    shared_ptr<string> domainResolveType_ {};
     // The time when the access control policy stops taking effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
     // 
     // >  If you set RepeatType to Permanent, leave this parameter empty. If you set RepeatType to None, Daily, Weekly, or Monthly, you must specify this parameter.
-    std::shared_ptr<int64_t> endTime_ = nullptr;
+    shared_ptr<int64_t> endTime_ {};
     // The IP version supported by the access control policy.
     // 
     // Valid values:
     // 
     // *   **4**: IPv4
     // *   **6**: IPv6
-    std::shared_ptr<string> ipVersion_ = nullptr;
+    shared_ptr<string> ipVersion_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The priority of the access control policy. The priority value starts from 1. A smaller priority value indicates a higher priority.
     // 
     // This parameter is required.
-    std::shared_ptr<string> newOrder_ = nullptr;
+    shared_ptr<string> newOrder_ {};
     // The protocol type supported by the access control policy. Valid values:
     // 
     // *   **ANY**
@@ -394,12 +394,12 @@ namespace Models
     // *   **ICMP**
     // 
     // This parameter is required.
-    std::shared_ptr<string> proto_ = nullptr;
+    shared_ptr<string> proto_ {};
     // Specifies whether to enable the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
     // 
     // *   **true**: enables the access control policy.
     // *   **false**: disables the access control policy.
-    std::shared_ptr<string> release_ = nullptr;
+    shared_ptr<string> release_ {};
     // The days of a week or of a month on which the access control policy takes effect.
     // 
     // *   If you set RepeatType to `Permanent`, `None`, or `Daily`, leave this parameter empty. Example: [].
@@ -410,15 +410,15 @@ namespace Models
     // *   If you set RepeatType to `Monthly`, you must specify this parameter. Example: [1, 31].
     // 
     // >  If you set RepeatType to Monthly, the fields in the value of this parameter cannot be repeated.
-    std::shared_ptr<vector<int64_t>> repeatDays_ = nullptr;
+    shared_ptr<vector<int64_t>> repeatDays_ {};
     // The point in time when the recurrence ends. Example: 23:30. The end time must be on the hour or on the half hour, and at least 30 minutes later than the start time.
     // 
     // >  If you set RepeatType to Permanent or None, leave this parameter empty. If you set RepeatType to Daily, Weekly, or Monthly, you must specify this parameter.
-    std::shared_ptr<string> repeatEndTime_ = nullptr;
+    shared_ptr<string> repeatEndTime_ {};
     // The point in time when the recurrence starts. Example: 08:00. The start time must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
     // 
     // >  If you set RepeatType to Permanent or None, leave this parameter empty. If you set RepeatType to Daily, Weekly, or Monthly, you must specify this parameter.
-    std::shared_ptr<string> repeatStartTime_ = nullptr;
+    shared_ptr<string> repeatStartTime_ {};
     // The recurrence type for the access control policy to take effect. Valid values:
     // 
     // *   **Permanent** (default): The policy always takes effect.
@@ -426,7 +426,7 @@ namespace Models
     // *   **Daily**: The policy takes effect on a daily basis.
     // *   **Weekly**: The policy takes effect on a weekly basis.
     // *   **Monthly**: The policy takes effect on a monthly basis.
-    std::shared_ptr<string> repeatType_ = nullptr;
+    shared_ptr<string> repeatType_ {};
     // The source address in the access control policy. Valid values:
     // 
     // *   If SourceType is set to net, the value of this parameter is a CIDR block.
@@ -442,9 +442,9 @@ namespace Models
     //     Example: ["BJ11", "ZB"]
     // 
     // This parameter is required.
-    std::shared_ptr<string> source_ = nullptr;
+    shared_ptr<string> source_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The type of the source address in the access control policy. Valid values:
     // 
     // *   **net**: CIDR block
@@ -452,11 +452,11 @@ namespace Models
     // *   **location**: location
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // The time when the access control policy starts to take effect. The value is a UNIX timestamp. Unit: seconds. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
     // 
     // >  If you set RepeatType to Permanent, leave this parameter empty. If you set RepeatType to None, Daily, Weekly, or Monthly, you must specify this parameter.
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models

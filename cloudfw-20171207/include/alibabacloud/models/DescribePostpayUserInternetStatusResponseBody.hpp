@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->status_ == nullptr && return this->unprotectedDate_ == nullptr; };
+        && this->status_ == nullptr && this->unprotectedDate_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePostpayUserInternetStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribePostpayUserInternetStatusResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // unprotectedDate Field Functions 
     bool hasUnprotectedDate() const { return this->unprotectedDate_ != nullptr;};
     void deleteUnprotectedDate() { this->unprotectedDate_ = nullptr;};
-    inline int64_t unprotectedDate() const { DARABONBA_PTR_GET_DEFAULT(unprotectedDate_, 0L) };
+    inline int64_t getUnprotectedDate() const { DARABONBA_PTR_GET_DEFAULT(unprotectedDate_, 0L) };
     inline DescribePostpayUserInternetStatusResponseBody& setUnprotectedDate(int64_t unprotectedDate) { DARABONBA_PTR_SET_VALUE(unprotectedDate_, unprotectedDate) };
 
 
   protected:
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The status of the Internet Firewall feature. Valid values:
     // 
     // *   **open**: enabled
     // *   **init**: being enabled
     // *   **closed**: disabled
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The number of days during which no asset is added to the Internet Firewall feature for protection. This parameter is valid only when the value of Status is open.
-    std::shared_ptr<int64_t> unprotectedDate_ = nullptr;
+    shared_ptr<int64_t> unprotectedDate_ {};
   };
 
   } // namespace Models

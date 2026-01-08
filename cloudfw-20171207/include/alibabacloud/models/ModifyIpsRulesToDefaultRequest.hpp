@@ -40,57 +40,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attackApp_ == nullptr
-        && return this->firewallType_ == nullptr && return this->lang_ == nullptr && return this->ruleType_ == nullptr && return this->rules_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->firewallType_ == nullptr && this->lang_ == nullptr && this->ruleType_ == nullptr && this->rules_ == nullptr && this->sourceIp_ == nullptr; };
     // attackApp Field Functions 
     bool hasAttackApp() const { return this->attackApp_ != nullptr;};
     void deleteAttackApp() { this->attackApp_ = nullptr;};
-    inline string attackApp() const { DARABONBA_PTR_GET_DEFAULT(attackApp_, "") };
+    inline string getAttackApp() const { DARABONBA_PTR_GET_DEFAULT(attackApp_, "") };
     inline ModifyIpsRulesToDefaultRequest& setAttackApp(string attackApp) { DARABONBA_PTR_SET_VALUE(attackApp_, attackApp) };
 
 
     // firewallType Field Functions 
     bool hasFirewallType() const { return this->firewallType_ != nullptr;};
     void deleteFirewallType() { this->firewallType_ = nullptr;};
-    inline string firewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
+    inline string getFirewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
     inline ModifyIpsRulesToDefaultRequest& setFirewallType(string firewallType) { DARABONBA_PTR_SET_VALUE(firewallType_, firewallType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyIpsRulesToDefaultRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline string ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+    inline string getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
     inline ModifyIpsRulesToDefaultRequest& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline string rules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
+    inline string getRules() const { DARABONBA_PTR_GET_DEFAULT(rules_, "") };
     inline ModifyIpsRulesToDefaultRequest& setRules(string rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline ModifyIpsRulesToDefaultRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
-    std::shared_ptr<string> attackApp_ = nullptr;
-    std::shared_ptr<string> firewallType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> attackApp_ {};
+    shared_ptr<string> firewallType_ {};
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<string> ruleType_ = nullptr;
-    std::shared_ptr<string> rules_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> ruleType_ {};
+    shared_ptr<string> rules_ {};
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

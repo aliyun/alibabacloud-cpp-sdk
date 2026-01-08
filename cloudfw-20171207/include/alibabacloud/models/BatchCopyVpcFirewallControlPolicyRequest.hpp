@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->sourceIp_ == nullptr && return this->sourceVpcFirewallId_ == nullptr && return this->targetVpcFirewallId_ == nullptr; };
+        && this->sourceIp_ == nullptr && this->sourceVpcFirewallId_ == nullptr && this->targetVpcFirewallId_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline BatchCopyVpcFirewallControlPolicyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline BatchCopyVpcFirewallControlPolicyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // sourceVpcFirewallId Field Functions 
     bool hasSourceVpcFirewallId() const { return this->sourceVpcFirewallId_ != nullptr;};
     void deleteSourceVpcFirewallId() { this->sourceVpcFirewallId_ = nullptr;};
-    inline string sourceVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(sourceVpcFirewallId_, "") };
+    inline string getSourceVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(sourceVpcFirewallId_, "") };
     inline BatchCopyVpcFirewallControlPolicyRequest& setSourceVpcFirewallId(string sourceVpcFirewallId) { DARABONBA_PTR_SET_VALUE(sourceVpcFirewallId_, sourceVpcFirewallId) };
 
 
     // targetVpcFirewallId Field Functions 
     bool hasTargetVpcFirewallId() const { return this->targetVpcFirewallId_ != nullptr;};
     void deleteTargetVpcFirewallId() { this->targetVpcFirewallId_ = nullptr;};
-    inline string targetVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(targetVpcFirewallId_, "") };
+    inline string getTargetVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(targetVpcFirewallId_, "") };
     inline BatchCopyVpcFirewallControlPolicyRequest& setTargetVpcFirewallId(string targetVpcFirewallId) { DARABONBA_PTR_SET_VALUE(targetVpcFirewallId_, targetVpcFirewallId) };
 
 
@@ -70,9 +70,9 @@ namespace Models
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The source IP address of the request.
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> sourceIp_ {};
     // The ID of the policy group of the source VPC firewall. Valid values:
     // 
     // *   If the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance, the value of this parameter is the ID of the CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
@@ -81,7 +81,7 @@ namespace Models
     // >  You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the IDs of policy groups.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceVpcFirewallId_ = nullptr;
+    shared_ptr<string> sourceVpcFirewallId_ {};
     // The ID of the policy group of the destination VPC firewall. Valid values:
     // 
     // *   If the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance, the value of this parameter is the ID of the CEN instance. The network instance can be a VPC, a VBR, or a CCN instance.
@@ -90,7 +90,7 @@ namespace Models
     // >  You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the IDs of policy groups.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetVpcFirewallId_ = nullptr;
+    shared_ptr<string> targetVpcFirewallId_ {};
   };
 
   } // namespace Models

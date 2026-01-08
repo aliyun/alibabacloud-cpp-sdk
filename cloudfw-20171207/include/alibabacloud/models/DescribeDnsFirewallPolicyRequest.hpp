@@ -50,99 +50,99 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclAction_ == nullptr
-        && return this->aclUuid_ == nullptr && return this->currentPage_ == nullptr && return this->description_ == nullptr && return this->destination_ == nullptr && return this->ipVersion_ == nullptr
-        && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->release_ == nullptr && return this->source_ == nullptr && return this->sourceIp_ == nullptr; };
+        && this->aclUuid_ == nullptr && this->currentPage_ == nullptr && this->description_ == nullptr && this->destination_ == nullptr && this->ipVersion_ == nullptr
+        && this->lang_ == nullptr && this->pageSize_ == nullptr && this->release_ == nullptr && this->source_ == nullptr && this->sourceIp_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
-    inline string aclAction() const { DARABONBA_PTR_GET_DEFAULT(aclAction_, "") };
+    inline string getAclAction() const { DARABONBA_PTR_GET_DEFAULT(aclAction_, "") };
     inline DescribeDnsFirewallPolicyRequest& setAclAction(string aclAction) { DARABONBA_PTR_SET_VALUE(aclAction_, aclAction) };
 
 
     // aclUuid Field Functions 
     bool hasAclUuid() const { return this->aclUuid_ != nullptr;};
     void deleteAclUuid() { this->aclUuid_ = nullptr;};
-    inline string aclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
+    inline string getAclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
     inline DescribeDnsFirewallPolicyRequest& setAclUuid(string aclUuid) { DARABONBA_PTR_SET_VALUE(aclUuid_, aclUuid) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline string currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
+    inline string getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, "") };
     inline DescribeDnsFirewallPolicyRequest& setCurrentPage(string currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeDnsFirewallPolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // destination Field Functions 
     bool hasDestination() const { return this->destination_ != nullptr;};
     void deleteDestination() { this->destination_ = nullptr;};
-    inline string destination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
+    inline string getDestination() const { DARABONBA_PTR_GET_DEFAULT(destination_, "") };
     inline DescribeDnsFirewallPolicyRequest& setDestination(string destination) { DARABONBA_PTR_SET_VALUE(destination_, destination) };
 
 
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
-    inline string ipVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
+    inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline DescribeDnsFirewallPolicyRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeDnsFirewallPolicyRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline DescribeDnsFirewallPolicyRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // release Field Functions 
     bool hasRelease() const { return this->release_ != nullptr;};
     void deleteRelease() { this->release_ = nullptr;};
-    inline string release() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
+    inline string getRelease() const { DARABONBA_PTR_GET_DEFAULT(release_, "") };
     inline DescribeDnsFirewallPolicyRequest& setRelease(string release) { DARABONBA_PTR_SET_VALUE(release_, release) };
 
 
     // source Field Functions 
     bool hasSource() const { return this->source_ != nullptr;};
     void deleteSource() { this->source_ = nullptr;};
-    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
     inline DescribeDnsFirewallPolicyRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeDnsFirewallPolicyRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
   protected:
-    std::shared_ptr<string> aclAction_ = nullptr;
-    std::shared_ptr<string> aclUuid_ = nullptr;
+    shared_ptr<string> aclAction_ {};
+    shared_ptr<string> aclUuid_ {};
     // This parameter is required.
-    std::shared_ptr<string> currentPage_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> destination_ = nullptr;
-    std::shared_ptr<string> ipVersion_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> currentPage_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> destination_ {};
+    shared_ptr<string> ipVersion_ {};
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<string> pageSize_ = nullptr;
-    std::shared_ptr<string> release_ = nullptr;
-    std::shared_ptr<string> source_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> pageSize_ {};
+    shared_ptr<string> release_ {};
+    shared_ptr<string> source_ {};
+    shared_ptr<string> sourceIp_ {};
   };
 
   } // namespace Models

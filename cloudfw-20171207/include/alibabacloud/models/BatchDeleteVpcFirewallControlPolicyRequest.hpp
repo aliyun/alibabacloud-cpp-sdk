@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclUuidList_ == nullptr
-        && return this->vpcFirewallId_ == nullptr; };
+        && this->vpcFirewallId_ == nullptr; };
     // aclUuidList Field Functions 
     bool hasAclUuidList() const { return this->aclUuidList_ != nullptr;};
     void deleteAclUuidList() { this->aclUuidList_ = nullptr;};
-    inline const vector<string> & aclUuidList() const { DARABONBA_PTR_GET_CONST(aclUuidList_, vector<string>) };
-    inline vector<string> aclUuidList() { DARABONBA_PTR_GET(aclUuidList_, vector<string>) };
+    inline const vector<string> & getAclUuidList() const { DARABONBA_PTR_GET_CONST(aclUuidList_, vector<string>) };
+    inline vector<string> getAclUuidList() { DARABONBA_PTR_GET(aclUuidList_, vector<string>) };
     inline BatchDeleteVpcFirewallControlPolicyRequest& setAclUuidList(const vector<string> & aclUuidList) { DARABONBA_PTR_SET_VALUE(aclUuidList_, aclUuidList) };
     inline BatchDeleteVpcFirewallControlPolicyRequest& setAclUuidList(vector<string> && aclUuidList) { DARABONBA_PTR_SET_RVALUE(aclUuidList_, aclUuidList) };
 
@@ -46,7 +46,7 @@ namespace Models
     // vpcFirewallId Field Functions 
     bool hasVpcFirewallId() const { return this->vpcFirewallId_ != nullptr;};
     void deleteVpcFirewallId() { this->vpcFirewallId_ = nullptr;};
-    inline string vpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
+    inline string getVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
     inline BatchDeleteVpcFirewallControlPolicyRequest& setVpcFirewallId(string vpcFirewallId) { DARABONBA_PTR_SET_VALUE(vpcFirewallId_, vpcFirewallId) };
 
 
@@ -54,11 +54,11 @@ namespace Models
     // The UUIDs of access control policies.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> aclUuidList_ = nullptr;
+    shared_ptr<vector<string>> aclUuidList_ {};
     // The instance ID of the VPC firewall.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcFirewallId_ = nullptr;
+    shared_ptr<string> vpcFirewallId_ {};
   };
 
   } // namespace Models

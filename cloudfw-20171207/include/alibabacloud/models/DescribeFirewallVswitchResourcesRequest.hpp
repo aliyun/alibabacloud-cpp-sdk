@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->firewallType_ == nullptr
-        && return this->lang_ == nullptr && return this->regionNo_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->lang_ == nullptr && this->regionNo_ == nullptr && this->vpcId_ == nullptr; };
     // firewallType Field Functions 
     bool hasFirewallType() const { return this->firewallType_ != nullptr;};
     void deleteFirewallType() { this->firewallType_ = nullptr;};
-    inline string firewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
+    inline string getFirewallType() const { DARABONBA_PTR_GET_DEFAULT(firewallType_, "") };
     inline DescribeFirewallVswitchResourcesRequest& setFirewallType(string firewallType) { DARABONBA_PTR_SET_VALUE(firewallType_, firewallType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeFirewallVswitchResourcesRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline DescribeFirewallVswitchResourcesRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline DescribeFirewallVswitchResourcesRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> firewallType_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> firewallType_ {};
+    shared_ptr<string> lang_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionNo_ = nullptr;
+    shared_ptr<string> regionNo_ {};
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

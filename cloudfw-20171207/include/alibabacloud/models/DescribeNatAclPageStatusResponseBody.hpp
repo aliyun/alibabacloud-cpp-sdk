@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->detail_ == nullptr
-        && return this->natAclPageEnable_ == nullptr && return this->requestId_ == nullptr; };
+        && this->natAclPageEnable_ == nullptr && this->requestId_ == nullptr; };
     // detail Field Functions 
     bool hasDetail() const { return this->detail_ != nullptr;};
     void deleteDetail() { this->detail_ = nullptr;};
-    inline string detail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+    inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
     inline DescribeNatAclPageStatusResponseBody& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
 
 
     // natAclPageEnable Field Functions 
     bool hasNatAclPageEnable() const { return this->natAclPageEnable_ != nullptr;};
     void deleteNatAclPageEnable() { this->natAclPageEnable_ = nullptr;};
-    inline bool natAclPageEnable() const { DARABONBA_PTR_GET_DEFAULT(natAclPageEnable_, false) };
+    inline bool getNatAclPageEnable() const { DARABONBA_PTR_GET_DEFAULT(natAclPageEnable_, false) };
     inline DescribeNatAclPageStatusResponseBody& setNatAclPageEnable(bool natAclPageEnable) { DARABONBA_PTR_SET_VALUE(natAclPageEnable_, natAclPageEnable) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeNatAclPageStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Extra error information.
-    std::shared_ptr<string> detail_ = nullptr;
+    shared_ptr<string> detail_ {};
     // Indicates whether pagination for access control policies for NAT firewalls is supported.
-    std::shared_ptr<bool> natAclPageEnable_ = nullptr;
+    shared_ptr<bool> natAclPageEnable_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

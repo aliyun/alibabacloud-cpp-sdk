@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attackApp_ == nullptr
-        && return this->attackType_ == nullptr && return this->buyVersion_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->sourceIp_ == nullptr
-        && return this->startTime_ == nullptr; };
+        && this->attackType_ == nullptr && this->buyVersion_ == nullptr && this->endTime_ == nullptr && this->lang_ == nullptr && this->sourceIp_ == nullptr
+        && this->startTime_ == nullptr; };
     // attackApp Field Functions 
     bool hasAttackApp() const { return this->attackApp_ != nullptr;};
     void deleteAttackApp() { this->attackApp_ = nullptr;};
-    inline const vector<string> & attackApp() const { DARABONBA_PTR_GET_CONST(attackApp_, vector<string>) };
-    inline vector<string> attackApp() { DARABONBA_PTR_GET(attackApp_, vector<string>) };
+    inline const vector<string> & getAttackApp() const { DARABONBA_PTR_GET_CONST(attackApp_, vector<string>) };
+    inline vector<string> getAttackApp() { DARABONBA_PTR_GET(attackApp_, vector<string>) };
     inline DescribeRiskEventStatisticRequest& setAttackApp(const vector<string> & attackApp) { DARABONBA_PTR_SET_VALUE(attackApp_, attackApp) };
     inline DescribeRiskEventStatisticRequest& setAttackApp(vector<string> && attackApp) { DARABONBA_PTR_SET_RVALUE(attackApp_, attackApp) };
 
@@ -57,55 +57,55 @@ namespace Models
     // attackType Field Functions 
     bool hasAttackType() const { return this->attackType_ != nullptr;};
     void deleteAttackType() { this->attackType_ = nullptr;};
-    inline string attackType() const { DARABONBA_PTR_GET_DEFAULT(attackType_, "") };
+    inline string getAttackType() const { DARABONBA_PTR_GET_DEFAULT(attackType_, "") };
     inline DescribeRiskEventStatisticRequest& setAttackType(string attackType) { DARABONBA_PTR_SET_VALUE(attackType_, attackType) };
 
 
     // buyVersion Field Functions 
     bool hasBuyVersion() const { return this->buyVersion_ != nullptr;};
     void deleteBuyVersion() { this->buyVersion_ = nullptr;};
-    inline string buyVersion() const { DARABONBA_PTR_GET_DEFAULT(buyVersion_, "") };
+    inline string getBuyVersion() const { DARABONBA_PTR_GET_DEFAULT(buyVersion_, "") };
     inline DescribeRiskEventStatisticRequest& setBuyVersion(string buyVersion) { DARABONBA_PTR_SET_VALUE(buyVersion_, buyVersion) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeRiskEventStatisticRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeRiskEventStatisticRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeRiskEventStatisticRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeRiskEventStatisticRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
   protected:
-    std::shared_ptr<vector<string>> attackApp_ = nullptr;
-    std::shared_ptr<string> attackType_ = nullptr;
-    std::shared_ptr<string> buyVersion_ = nullptr;
+    shared_ptr<vector<string>> attackApp_ {};
+    shared_ptr<string> attackType_ {};
+    shared_ptr<string> buyVersion_ {};
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> sourceIp_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

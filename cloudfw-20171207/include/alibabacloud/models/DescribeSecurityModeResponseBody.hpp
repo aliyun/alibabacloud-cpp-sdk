@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->module_ == nullptr
-        && return this->requestId_ == nullptr && return this->securityMode_ == nullptr; };
+        && this->requestId_ == nullptr && this->securityMode_ == nullptr; };
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline string module() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
+    inline string getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
     inline DescribeSecurityModeResponseBody& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSecurityModeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // securityMode Field Functions 
     bool hasSecurityMode() const { return this->securityMode_ != nullptr;};
     void deleteSecurityMode() { this->securityMode_ = nullptr;};
-    inline int32_t securityMode() const { DARABONBA_PTR_GET_DEFAULT(securityMode_, 0) };
+    inline int32_t getSecurityMode() const { DARABONBA_PTR_GET_DEFAULT(securityMode_, 0) };
     inline DescribeSecurityModeResponseBody& setSecurityMode(int32_t securityMode) { DARABONBA_PTR_SET_VALUE(securityMode_, securityMode) };
 
 
   protected:
-    std::shared_ptr<string> module_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> securityMode_ = nullptr;
+    shared_ptr<string> module_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> securityMode_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainNameCreatedEndTime_ == nullptr
-        && return this->domainNameCreatedStartTime_ == nullptr; };
+        && this->domainNameCreatedStartTime_ == nullptr; };
     // domainNameCreatedEndTime Field Functions 
     bool hasDomainNameCreatedEndTime() const { return this->domainNameCreatedEndTime_ != nullptr;};
     void deleteDomainNameCreatedEndTime() { this->domainNameCreatedEndTime_ = nullptr;};
-    inline int64_t domainNameCreatedEndTime() const { DARABONBA_PTR_GET_DEFAULT(domainNameCreatedEndTime_, 0L) };
+    inline int64_t getDomainNameCreatedEndTime() const { DARABONBA_PTR_GET_DEFAULT(domainNameCreatedEndTime_, 0L) };
     inline DescribePrivateDnsStatisticsRequest& setDomainNameCreatedEndTime(int64_t domainNameCreatedEndTime) { DARABONBA_PTR_SET_VALUE(domainNameCreatedEndTime_, domainNameCreatedEndTime) };
 
 
     // domainNameCreatedStartTime Field Functions 
     bool hasDomainNameCreatedStartTime() const { return this->domainNameCreatedStartTime_ != nullptr;};
     void deleteDomainNameCreatedStartTime() { this->domainNameCreatedStartTime_ = nullptr;};
-    inline int64_t domainNameCreatedStartTime() const { DARABONBA_PTR_GET_DEFAULT(domainNameCreatedStartTime_, 0L) };
+    inline int64_t getDomainNameCreatedStartTime() const { DARABONBA_PTR_GET_DEFAULT(domainNameCreatedStartTime_, 0L) };
     inline DescribePrivateDnsStatisticsRequest& setDomainNameCreatedStartTime(int64_t domainNameCreatedStartTime) { DARABONBA_PTR_SET_VALUE(domainNameCreatedStartTime_, domainNameCreatedStartTime) };
 
 
   protected:
-    std::shared_ptr<int64_t> domainNameCreatedEndTime_ = nullptr;
-    std::shared_ptr<int64_t> domainNameCreatedStartTime_ = nullptr;
+    shared_ptr<int64_t> domainNameCreatedEndTime_ {};
+    shared_ptr<int64_t> domainNameCreatedStartTime_ {};
   };
 
   } // namespace Models

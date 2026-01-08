@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isGranted_ == nullptr
-        && return this->requestId_ == nullptr && return this->userType_ == nullptr; };
+        && this->requestId_ == nullptr && this->userType_ == nullptr; };
     // isGranted Field Functions 
     bool hasIsGranted() const { return this->isGranted_ != nullptr;};
     void deleteIsGranted() { this->isGranted_ = nullptr;};
-    inline bool isGranted() const { DARABONBA_PTR_GET_DEFAULT(isGranted_, false) };
+    inline bool getIsGranted() const { DARABONBA_PTR_GET_DEFAULT(isGranted_, false) };
     inline DescribeSlrGrantResponseBody& setIsGranted(bool isGranted) { DARABONBA_PTR_SET_VALUE(isGranted_, isGranted) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSlrGrantResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // userType Field Functions 
     bool hasUserType() const { return this->userType_ != nullptr;};
     void deleteUserType() { this->userType_ = nullptr;};
-    inline string userType() const { DARABONBA_PTR_GET_DEFAULT(userType_, "") };
+    inline string getUserType() const { DARABONBA_PTR_GET_DEFAULT(userType_, "") };
     inline DescribeSlrGrantResponseBody& setUserType(string userType) { DARABONBA_PTR_SET_VALUE(userType_, userType) };
 
 
   protected:
-    std::shared_ptr<bool> isGranted_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<string> userType_ = nullptr;
+    shared_ptr<bool> isGranted_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<string> userType_ {};
   };
 
   } // namespace Models

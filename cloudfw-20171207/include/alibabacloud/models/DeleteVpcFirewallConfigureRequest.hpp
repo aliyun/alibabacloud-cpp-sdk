@@ -35,26 +35,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->memberUid_ == nullptr && return this->vpcFirewallIdList_ == nullptr; };
+        && this->memberUid_ == nullptr && this->vpcFirewallIdList_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DeleteVpcFirewallConfigureRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // memberUid Field Functions 
     bool hasMemberUid() const { return this->memberUid_ != nullptr;};
     void deleteMemberUid() { this->memberUid_ = nullptr;};
-    inline string memberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
+    inline string getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
     inline DeleteVpcFirewallConfigureRequest& setMemberUid(string memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
     // vpcFirewallIdList Field Functions 
     bool hasVpcFirewallIdList() const { return this->vpcFirewallIdList_ != nullptr;};
     void deleteVpcFirewallIdList() { this->vpcFirewallIdList_ = nullptr;};
-    inline const vector<string> & vpcFirewallIdList() const { DARABONBA_PTR_GET_CONST(vpcFirewallIdList_, vector<string>) };
-    inline vector<string> vpcFirewallIdList() { DARABONBA_PTR_GET(vpcFirewallIdList_, vector<string>) };
+    inline const vector<string> & getVpcFirewallIdList() const { DARABONBA_PTR_GET_CONST(vpcFirewallIdList_, vector<string>) };
+    inline vector<string> getVpcFirewallIdList() { DARABONBA_PTR_GET(vpcFirewallIdList_, vector<string>) };
     inline DeleteVpcFirewallConfigureRequest& setVpcFirewallIdList(const vector<string> & vpcFirewallIdList) { DARABONBA_PTR_SET_VALUE(vpcFirewallIdList_, vpcFirewallIdList) };
     inline DeleteVpcFirewallConfigureRequest& setVpcFirewallIdList(vector<string> && vpcFirewallIdList) { DARABONBA_PTR_SET_RVALUE(vpcFirewallIdList_, vpcFirewallIdList) };
 
@@ -64,13 +64,13 @@ namespace Models
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The UID of the member that is managed by your Alibaba Cloud account.
-    std::shared_ptr<string> memberUid_ = nullptr;
+    shared_ptr<string> memberUid_ {};
     // The instance IDs of VPC firewalls.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> vpcFirewallIdList_ = nullptr;
+    shared_ptr<vector<string>> vpcFirewallIdList_ {};
   };
 
   } // namespace Models

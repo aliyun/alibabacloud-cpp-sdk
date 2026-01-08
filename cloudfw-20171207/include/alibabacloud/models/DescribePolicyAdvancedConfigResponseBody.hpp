@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->internetSwitch_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // internetSwitch Field Functions 
     bool hasInternetSwitch() const { return this->internetSwitch_ != nullptr;};
     void deleteInternetSwitch() { this->internetSwitch_ = nullptr;};
-    inline string internetSwitch() const { DARABONBA_PTR_GET_DEFAULT(internetSwitch_, "") };
+    inline string getInternetSwitch() const { DARABONBA_PTR_GET_DEFAULT(internetSwitch_, "") };
     inline DescribePolicyAdvancedConfigResponseBody& setInternetSwitch(string internetSwitch) { DARABONBA_PTR_SET_VALUE(internetSwitch_, internetSwitch) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribePolicyAdvancedConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **on**: The strict mode is enabled.
     // *   **off**: The strict mode is disabled.
-    std::shared_ptr<string> internetSwitch_ = nullptr;
+    shared_ptr<string> internetSwitch_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessInstanceStatus_ == nullptr
-        && return this->accessInstanceType_ == nullptr; };
+        && this->accessInstanceType_ == nullptr; };
     // accessInstanceStatus Field Functions 
     bool hasAccessInstanceStatus() const { return this->accessInstanceStatus_ != nullptr;};
     void deleteAccessInstanceStatus() { this->accessInstanceStatus_ = nullptr;};
-    inline string accessInstanceStatus() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceStatus_, "") };
+    inline string getAccessInstanceStatus() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceStatus_, "") };
     inline DescribeAccessInstanceRegionListRequest& setAccessInstanceStatus(string accessInstanceStatus) { DARABONBA_PTR_SET_VALUE(accessInstanceStatus_, accessInstanceStatus) };
 
 
     // accessInstanceType Field Functions 
     bool hasAccessInstanceType() const { return this->accessInstanceType_ != nullptr;};
     void deleteAccessInstanceType() { this->accessInstanceType_ = nullptr;};
-    inline string accessInstanceType() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceType_, "") };
+    inline string getAccessInstanceType() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceType_, "") };
     inline DescribeAccessInstanceRegionListRequest& setAccessInstanceType(string accessInstanceType) { DARABONBA_PTR_SET_VALUE(accessInstanceType_, accessInstanceType) };
 
 
   protected:
-    std::shared_ptr<string> accessInstanceStatus_ = nullptr;
-    std::shared_ptr<string> accessInstanceType_ = nullptr;
+    shared_ptr<string> accessInstanceStatus_ {};
+    shared_ptr<string> accessInstanceType_ {};
   };
 
   } // namespace Models

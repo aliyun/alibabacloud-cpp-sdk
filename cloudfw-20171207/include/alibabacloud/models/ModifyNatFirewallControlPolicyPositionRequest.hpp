@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclUuid_ == nullptr
-        && return this->direction_ == nullptr && return this->lang_ == nullptr && return this->natGatewayId_ == nullptr && return this->newOrder_ == nullptr; };
+        && this->direction_ == nullptr && this->lang_ == nullptr && this->natGatewayId_ == nullptr && this->newOrder_ == nullptr; };
     // aclUuid Field Functions 
     bool hasAclUuid() const { return this->aclUuid_ != nullptr;};
     void deleteAclUuid() { this->aclUuid_ = nullptr;};
-    inline string aclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
+    inline string getAclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
     inline ModifyNatFirewallControlPolicyPositionRequest& setAclUuid(string aclUuid) { DARABONBA_PTR_SET_VALUE(aclUuid_, aclUuid) };
 
 
     // direction Field Functions 
     bool hasDirection() const { return this->direction_ != nullptr;};
     void deleteDirection() { this->direction_ = nullptr;};
-    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline string getDirection() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
     inline ModifyNatFirewallControlPolicyPositionRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyNatFirewallControlPolicyPositionRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
-    inline string natGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
     inline ModifyNatFirewallControlPolicyPositionRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // newOrder Field Functions 
     bool hasNewOrder() const { return this->newOrder_ != nullptr;};
     void deleteNewOrder() { this->newOrder_ = nullptr;};
-    inline int32_t newOrder() const { DARABONBA_PTR_GET_DEFAULT(newOrder_, 0) };
+    inline int32_t getNewOrder() const { DARABONBA_PTR_GET_DEFAULT(newOrder_, 0) };
     inline ModifyNatFirewallControlPolicyPositionRequest& setNewOrder(int32_t newOrder) { DARABONBA_PTR_SET_VALUE(newOrder_, newOrder) };
 
 
@@ -78,20 +78,20 @@ namespace Models
     // The UUID of the access control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclUuid_ = nullptr;
+    shared_ptr<string> aclUuid_ {};
     // The direction of the traffic to which the access control policy applies.
     // 
     // *   Set the value to **out**.
-    std::shared_ptr<string> direction_ = nullptr;
+    shared_ptr<string> direction_ {};
     // The language of the content within the response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The ID of the NAT gateway.
     // 
     // This parameter is required.
-    std::shared_ptr<string> natGatewayId_ = nullptr;
+    shared_ptr<string> natGatewayId_ {};
     // The new priority of the IPv4 access control policy. You must specify a numeric value for this parameter. The value 1 indicates the highest priority. A larger value indicates a lower priority.
     // 
     // > Make sure that the value of this parameter is within the priority range of existing IPv4 access control policies. Otherwise, an error occurs when you call this operation.
@@ -99,7 +99,7 @@ namespace Models
     // Before you call this operation, we recommend that you call the DescribeNatFirewallPolicyPriorUsed operation to query the priority range of the IPv4 access control policies in the specified traffic direction.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> newOrder_ = nullptr;
+    shared_ptr<int32_t> newOrder_ {};
   };
 
   } // namespace Models

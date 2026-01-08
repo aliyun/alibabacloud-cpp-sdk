@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->openStatus_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // openStatus Field Functions 
     bool hasOpenStatus() const { return this->openStatus_ != nullptr;};
     void deleteOpenStatus() { this->openStatus_ = nullptr;};
-    inline string openStatus() const { DARABONBA_PTR_GET_DEFAULT(openStatus_, "") };
+    inline string getOpenStatus() const { DARABONBA_PTR_GET_DEFAULT(openStatus_, "") };
     inline DescribeSlsAnalyzeOpenStatusResponseBody& setOpenStatus(string openStatus) { DARABONBA_PTR_SET_VALUE(openStatus_, openStatus) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSlsAnalyzeOpenStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> openStatus_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> openStatus_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessInstanceId_ == nullptr
-        && return this->accessInstanceName_ == nullptr && return this->primaryDns_ == nullptr && return this->privateDnsType_ == nullptr && return this->regionNo_ == nullptr && return this->standbyDns_ == nullptr; };
+        && this->accessInstanceName_ == nullptr && this->primaryDns_ == nullptr && this->privateDnsType_ == nullptr && this->regionNo_ == nullptr && this->standbyDns_ == nullptr; };
     // accessInstanceId Field Functions 
     bool hasAccessInstanceId() const { return this->accessInstanceId_ != nullptr;};
     void deleteAccessInstanceId() { this->accessInstanceId_ = nullptr;};
-    inline string accessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceId_, "") };
+    inline string getAccessInstanceId() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceId_, "") };
     inline ModifyPrivateDnsEndpointRequest& setAccessInstanceId(string accessInstanceId) { DARABONBA_PTR_SET_VALUE(accessInstanceId_, accessInstanceId) };
 
 
     // accessInstanceName Field Functions 
     bool hasAccessInstanceName() const { return this->accessInstanceName_ != nullptr;};
     void deleteAccessInstanceName() { this->accessInstanceName_ = nullptr;};
-    inline string accessInstanceName() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceName_, "") };
+    inline string getAccessInstanceName() const { DARABONBA_PTR_GET_DEFAULT(accessInstanceName_, "") };
     inline ModifyPrivateDnsEndpointRequest& setAccessInstanceName(string accessInstanceName) { DARABONBA_PTR_SET_VALUE(accessInstanceName_, accessInstanceName) };
 
 
     // primaryDns Field Functions 
     bool hasPrimaryDns() const { return this->primaryDns_ != nullptr;};
     void deletePrimaryDns() { this->primaryDns_ = nullptr;};
-    inline string primaryDns() const { DARABONBA_PTR_GET_DEFAULT(primaryDns_, "") };
+    inline string getPrimaryDns() const { DARABONBA_PTR_GET_DEFAULT(primaryDns_, "") };
     inline ModifyPrivateDnsEndpointRequest& setPrimaryDns(string primaryDns) { DARABONBA_PTR_SET_VALUE(primaryDns_, primaryDns) };
 
 
     // privateDnsType Field Functions 
     bool hasPrivateDnsType() const { return this->privateDnsType_ != nullptr;};
     void deletePrivateDnsType() { this->privateDnsType_ = nullptr;};
-    inline string privateDnsType() const { DARABONBA_PTR_GET_DEFAULT(privateDnsType_, "") };
+    inline string getPrivateDnsType() const { DARABONBA_PTR_GET_DEFAULT(privateDnsType_, "") };
     inline ModifyPrivateDnsEndpointRequest& setPrivateDnsType(string privateDnsType) { DARABONBA_PTR_SET_VALUE(privateDnsType_, privateDnsType) };
 
 
     // regionNo Field Functions 
     bool hasRegionNo() const { return this->regionNo_ != nullptr;};
     void deleteRegionNo() { this->regionNo_ = nullptr;};
-    inline string regionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
+    inline string getRegionNo() const { DARABONBA_PTR_GET_DEFAULT(regionNo_, "") };
     inline ModifyPrivateDnsEndpointRequest& setRegionNo(string regionNo) { DARABONBA_PTR_SET_VALUE(regionNo_, regionNo) };
 
 
     // standbyDns Field Functions 
     bool hasStandbyDns() const { return this->standbyDns_ != nullptr;};
     void deleteStandbyDns() { this->standbyDns_ = nullptr;};
-    inline string standbyDns() const { DARABONBA_PTR_GET_DEFAULT(standbyDns_, "") };
+    inline string getStandbyDns() const { DARABONBA_PTR_GET_DEFAULT(standbyDns_, "") };
     inline ModifyPrivateDnsEndpointRequest& setStandbyDns(string standbyDns) { DARABONBA_PTR_SET_VALUE(standbyDns_, standbyDns) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> accessInstanceId_ = nullptr;
+    shared_ptr<string> accessInstanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> accessInstanceName_ = nullptr;
-    std::shared_ptr<string> primaryDns_ = nullptr;
+    shared_ptr<string> accessInstanceName_ {};
+    shared_ptr<string> primaryDns_ {};
     // This parameter is required.
-    std::shared_ptr<string> privateDnsType_ = nullptr;
+    shared_ptr<string> privateDnsType_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionNo_ = nullptr;
-    std::shared_ptr<string> standbyDns_ = nullptr;
+    shared_ptr<string> regionNo_ {};
+    shared_ptr<string> standbyDns_ {};
   };
 
   } // namespace Models

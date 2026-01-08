@@ -42,67 +42,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && return this->dstType_ == nullptr && return this->endTime_ == nullptr && return this->lang_ == nullptr && return this->sourceIp_ == nullptr && return this->startTime_ == nullptr
-        && return this->typeId_ == nullptr; };
+        && this->dstType_ == nullptr && this->endTime_ == nullptr && this->lang_ == nullptr && this->sourceIp_ == nullptr && this->startTime_ == nullptr
+        && this->typeId_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
-    inline string categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
+    inline string getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
     inline DescribeOutgoingDestinationCategoryRequest& setCategoryId(string categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // dstType Field Functions 
     bool hasDstType() const { return this->dstType_ != nullptr;};
     void deleteDstType() { this->dstType_ = nullptr;};
-    inline string dstType() const { DARABONBA_PTR_GET_DEFAULT(dstType_, "") };
+    inline string getDstType() const { DARABONBA_PTR_GET_DEFAULT(dstType_, "") };
     inline DescribeOutgoingDestinationCategoryRequest& setDstType(string dstType) { DARABONBA_PTR_SET_VALUE(dstType_, dstType) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeOutgoingDestinationCategoryRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeOutgoingDestinationCategoryRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // sourceIp Field Functions 
     bool hasSourceIp() const { return this->sourceIp_ != nullptr;};
     void deleteSourceIp() { this->sourceIp_ = nullptr;};
-    inline string sourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
+    inline string getSourceIp() const { DARABONBA_PTR_GET_DEFAULT(sourceIp_, "") };
     inline DescribeOutgoingDestinationCategoryRequest& setSourceIp(string sourceIp) { DARABONBA_PTR_SET_VALUE(sourceIp_, sourceIp) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline DescribeOutgoingDestinationCategoryRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // typeId Field Functions 
     bool hasTypeId() const { return this->typeId_ != nullptr;};
     void deleteTypeId() { this->typeId_ = nullptr;};
-    inline string typeId() const { DARABONBA_PTR_GET_DEFAULT(typeId_, "") };
+    inline string getTypeId() const { DARABONBA_PTR_GET_DEFAULT(typeId_, "") };
     inline DescribeOutgoingDestinationCategoryRequest& setTypeId(string typeId) { DARABONBA_PTR_SET_VALUE(typeId_, typeId) };
 
 
   protected:
-    std::shared_ptr<string> categoryId_ = nullptr;
-    std::shared_ptr<string> dstType_ = nullptr;
+    shared_ptr<string> categoryId_ {};
+    shared_ptr<string> dstType_ {};
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> sourceIp_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> sourceIp_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
-    std::shared_ptr<string> typeId_ = nullptr;
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> typeId_ {};
   };
 
   } // namespace Models

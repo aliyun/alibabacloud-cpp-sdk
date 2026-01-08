@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->firewallSwitch_ == nullptr
-        && return this->lang_ == nullptr && return this->memberUid_ == nullptr && return this->vpcFirewallId_ == nullptr; };
+        && this->lang_ == nullptr && this->memberUid_ == nullptr && this->vpcFirewallId_ == nullptr; };
     // firewallSwitch Field Functions 
     bool hasFirewallSwitch() const { return this->firewallSwitch_ != nullptr;};
     void deleteFirewallSwitch() { this->firewallSwitch_ = nullptr;};
-    inline string firewallSwitch() const { DARABONBA_PTR_GET_DEFAULT(firewallSwitch_, "") };
+    inline string getFirewallSwitch() const { DARABONBA_PTR_GET_DEFAULT(firewallSwitch_, "") };
     inline ModifyVpcFirewallSwitchStatusRequest& setFirewallSwitch(string firewallSwitch) { DARABONBA_PTR_SET_VALUE(firewallSwitch_, firewallSwitch) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyVpcFirewallSwitchStatusRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // memberUid Field Functions 
     bool hasMemberUid() const { return this->memberUid_ != nullptr;};
     void deleteMemberUid() { this->memberUid_ = nullptr;};
-    inline string memberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
+    inline string getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, "") };
     inline ModifyVpcFirewallSwitchStatusRequest& setMemberUid(string memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
     // vpcFirewallId Field Functions 
     bool hasVpcFirewallId() const { return this->vpcFirewallId_ != nullptr;};
     void deleteVpcFirewallId() { this->vpcFirewallId_ = nullptr;};
-    inline string vpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
+    inline string getVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
     inline ModifyVpcFirewallSwitchStatusRequest& setVpcFirewallId(string vpcFirewallId) { DARABONBA_PTR_SET_VALUE(vpcFirewallId_, vpcFirewallId) };
 
 
@@ -72,20 +72,20 @@ namespace Models
     // *   **close**: no
     // 
     // This parameter is required.
-    std::shared_ptr<string> firewallSwitch_ = nullptr;
+    shared_ptr<string> firewallSwitch_ {};
     // The language of the content within the request and response. Valid values:
     // 
     // *   **zh**: Chinese (default)
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The UID of the member that is managed by your Alibaba Cloud account.
-    std::shared_ptr<string> memberUid_ = nullptr;
+    shared_ptr<string> memberUid_ {};
     // The instance ID of the VPC firewall.
     // 
     // > You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance IDs of VPC firewalls.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcFirewallId_ = nullptr;
+    shared_ptr<string> vpcFirewallId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclUuid_ == nullptr
-        && return this->order_ == nullptr; };
+        && this->order_ == nullptr; };
     // aclUuid Field Functions 
     bool hasAclUuid() const { return this->aclUuid_ != nullptr;};
     void deleteAclUuid() { this->aclUuid_ = nullptr;};
-    inline string aclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
+    inline string getAclUuid() const { DARABONBA_PTR_GET_DEFAULT(aclUuid_, "") };
     inline ModifyControlPolicyPriorityRequest& setAclUuid(string aclUuid) { DARABONBA_PTR_SET_VALUE(aclUuid_, aclUuid) };
 
 
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
-    inline string order() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
+    inline string getOrder() const { DARABONBA_PTR_GET_DEFAULT(order_, "") };
     inline ModifyControlPolicyPriorityRequest& setOrder(string order) { DARABONBA_PTR_SET_VALUE(order_, order) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The UUID of the access control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> aclUuid_ = nullptr;
+    shared_ptr<string> aclUuid_ {};
     // The priority of the access control policy.
     // 
     // This parameter is required.
-    std::shared_ptr<string> order_ = nullptr;
+    shared_ptr<string> order_ {};
   };
 
   } // namespace Models

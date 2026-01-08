@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->listType_ == nullptr && return this->listValue_ == nullptr && return this->memberUid_ == nullptr && return this->vpcFirewallId_ == nullptr && return this->whiteType_ == nullptr; };
+        && this->listType_ == nullptr && this->listValue_ == nullptr && this->memberUid_ == nullptr && this->vpcFirewallId_ == nullptr && this->whiteType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline ModifyVpcFirewallIPSWhitelistRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // listType Field Functions 
     bool hasListType() const { return this->listType_ != nullptr;};
     void deleteListType() { this->listType_ = nullptr;};
-    inline int64_t listType() const { DARABONBA_PTR_GET_DEFAULT(listType_, 0L) };
+    inline int64_t getListType() const { DARABONBA_PTR_GET_DEFAULT(listType_, 0L) };
     inline ModifyVpcFirewallIPSWhitelistRequest& setListType(int64_t listType) { DARABONBA_PTR_SET_VALUE(listType_, listType) };
 
 
     // listValue Field Functions 
     bool hasListValue() const { return this->listValue_ != nullptr;};
     void deleteListValue() { this->listValue_ = nullptr;};
-    inline string listValue() const { DARABONBA_PTR_GET_DEFAULT(listValue_, "") };
+    inline string getListValue() const { DARABONBA_PTR_GET_DEFAULT(listValue_, "") };
     inline ModifyVpcFirewallIPSWhitelistRequest& setListValue(string listValue) { DARABONBA_PTR_SET_VALUE(listValue_, listValue) };
 
 
     // memberUid Field Functions 
     bool hasMemberUid() const { return this->memberUid_ != nullptr;};
     void deleteMemberUid() { this->memberUid_ = nullptr;};
-    inline int64_t memberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, 0L) };
+    inline int64_t getMemberUid() const { DARABONBA_PTR_GET_DEFAULT(memberUid_, 0L) };
     inline ModifyVpcFirewallIPSWhitelistRequest& setMemberUid(int64_t memberUid) { DARABONBA_PTR_SET_VALUE(memberUid_, memberUid) };
 
 
     // vpcFirewallId Field Functions 
     bool hasVpcFirewallId() const { return this->vpcFirewallId_ != nullptr;};
     void deleteVpcFirewallId() { this->vpcFirewallId_ = nullptr;};
-    inline string vpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
+    inline string getVpcFirewallId() const { DARABONBA_PTR_GET_DEFAULT(vpcFirewallId_, "") };
     inline ModifyVpcFirewallIPSWhitelistRequest& setVpcFirewallId(string vpcFirewallId) { DARABONBA_PTR_SET_VALUE(vpcFirewallId_, vpcFirewallId) };
 
 
     // whiteType Field Functions 
     bool hasWhiteType() const { return this->whiteType_ != nullptr;};
     void deleteWhiteType() { this->whiteType_ = nullptr;};
-    inline int64_t whiteType() const { DARABONBA_PTR_GET_DEFAULT(whiteType_, 0L) };
+    inline int64_t getWhiteType() const { DARABONBA_PTR_GET_DEFAULT(whiteType_, 0L) };
     inline ModifyVpcFirewallIPSWhitelistRequest& setWhiteType(int64_t whiteType) { DARABONBA_PTR_SET_VALUE(whiteType_, whiteType) };
 
 
@@ -88,29 +88,29 @@ namespace Models
     // 
     // *   **zh** (default): Chinese
     // *   **en**: English
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The type of the list. Valid values:
     // 
     // *   **1**: user-defined
     // *   **2**: address book
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> listType_ = nullptr;
+    shared_ptr<int64_t> listType_ {};
     // The entry in the list.
-    std::shared_ptr<string> listValue_ = nullptr;
+    shared_ptr<string> listValue_ {};
     // The UID of the member that is managed by your Alibaba Cloud account.
-    std::shared_ptr<int64_t> memberUid_ = nullptr;
+    shared_ptr<int64_t> memberUid_ {};
     // The instance ID of the VPC firewall.
     // 
     // This parameter is required.
-    std::shared_ptr<string> vpcFirewallId_ = nullptr;
+    shared_ptr<string> vpcFirewallId_ {};
     // The type of the whitelist. Valid values:
     // 
     // *   **1**: destination
     // *   **2**: source
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> whiteType_ = nullptr;
+    shared_ptr<int64_t> whiteType_ {};
   };
 
   } // namespace Models

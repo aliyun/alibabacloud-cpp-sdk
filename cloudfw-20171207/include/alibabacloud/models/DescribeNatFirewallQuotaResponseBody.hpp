@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exceptionCount_ == nullptr
-        && return this->requestId_ == nullptr && return this->totalCount_ == nullptr && return this->unprotectedCount_ == nullptr && return this->usedCount_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCount_ == nullptr && this->unprotectedCount_ == nullptr && this->usedCount_ == nullptr; };
     // exceptionCount Field Functions 
     bool hasExceptionCount() const { return this->exceptionCount_ != nullptr;};
     void deleteExceptionCount() { this->exceptionCount_ = nullptr;};
-    inline int64_t exceptionCount() const { DARABONBA_PTR_GET_DEFAULT(exceptionCount_, 0L) };
+    inline int64_t getExceptionCount() const { DARABONBA_PTR_GET_DEFAULT(exceptionCount_, 0L) };
     inline DescribeNatFirewallQuotaResponseBody& setExceptionCount(int64_t exceptionCount) { DARABONBA_PTR_SET_VALUE(exceptionCount_, exceptionCount) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeNatFirewallQuotaResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int64_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+    inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
     inline DescribeNatFirewallQuotaResponseBody& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
     // unprotectedCount Field Functions 
     bool hasUnprotectedCount() const { return this->unprotectedCount_ != nullptr;};
     void deleteUnprotectedCount() { this->unprotectedCount_ = nullptr;};
-    inline int64_t unprotectedCount() const { DARABONBA_PTR_GET_DEFAULT(unprotectedCount_, 0L) };
+    inline int64_t getUnprotectedCount() const { DARABONBA_PTR_GET_DEFAULT(unprotectedCount_, 0L) };
     inline DescribeNatFirewallQuotaResponseBody& setUnprotectedCount(int64_t unprotectedCount) { DARABONBA_PTR_SET_VALUE(unprotectedCount_, unprotectedCount) };
 
 
     // usedCount Field Functions 
     bool hasUsedCount() const { return this->usedCount_ != nullptr;};
     void deleteUsedCount() { this->usedCount_ = nullptr;};
-    inline int64_t usedCount() const { DARABONBA_PTR_GET_DEFAULT(usedCount_, 0L) };
+    inline int64_t getUsedCount() const { DARABONBA_PTR_GET_DEFAULT(usedCount_, 0L) };
     inline DescribeNatFirewallQuotaResponseBody& setUsedCount(int64_t usedCount) { DARABONBA_PTR_SET_VALUE(usedCount_, usedCount) };
 
 
   protected:
-    std::shared_ptr<int64_t> exceptionCount_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> totalCount_ = nullptr;
-    std::shared_ptr<int64_t> unprotectedCount_ = nullptr;
-    std::shared_ptr<int64_t> usedCount_ = nullptr;
+    shared_ptr<int64_t> exceptionCount_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int64_t> totalCount_ {};
+    shared_ptr<int64_t> unprotectedCount_ {};
+    shared_ptr<int64_t> usedCount_ {};
   };
 
   } // namespace Models

@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
-        && return this->userType_ == nullptr; };
+        && this->userType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeVpcFirewallSummaryInfoRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // userType Field Functions 
     bool hasUserType() const { return this->userType_ != nullptr;};
     void deleteUserType() { this->userType_ = nullptr;};
-    inline string userType() const { DARABONBA_PTR_GET_DEFAULT(userType_, "") };
+    inline string getUserType() const { DARABONBA_PTR_GET_DEFAULT(userType_, "") };
     inline DescribeVpcFirewallSummaryInfoRequest& setUserType(string userType) { DARABONBA_PTR_SET_VALUE(userType_, userType) };
 
 
   protected:
-    std::shared_ptr<string> lang_ = nullptr;
-    std::shared_ptr<string> userType_ = nullptr;
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> userType_ {};
   };
 
   } // namespace Models
