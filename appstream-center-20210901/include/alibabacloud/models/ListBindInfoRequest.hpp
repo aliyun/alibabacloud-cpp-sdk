@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIdList_ == nullptr
-        && return this->appInstanceGroupIdList_ == nullptr && return this->appInstanceIdList_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->userIdList_ == nullptr
-        && return this->wyIdList_ == nullptr; };
+        && this->appInstanceGroupIdList_ == nullptr && this->appInstanceIdList_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->userIdList_ == nullptr
+        && this->wyIdList_ == nullptr; };
     // appIdList Field Functions 
     bool hasAppIdList() const { return this->appIdList_ != nullptr;};
     void deleteAppIdList() { this->appIdList_ = nullptr;};
-    inline const vector<string> & appIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
-    inline vector<string> appIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
+    inline const vector<string> & getAppIdList() const { DARABONBA_PTR_GET_CONST(appIdList_, vector<string>) };
+    inline vector<string> getAppIdList() { DARABONBA_PTR_GET(appIdList_, vector<string>) };
     inline ListBindInfoRequest& setAppIdList(const vector<string> & appIdList) { DARABONBA_PTR_SET_VALUE(appIdList_, appIdList) };
     inline ListBindInfoRequest& setAppIdList(vector<string> && appIdList) { DARABONBA_PTR_SET_RVALUE(appIdList_, appIdList) };
 
@@ -57,8 +57,8 @@ namespace Models
     // appInstanceGroupIdList Field Functions 
     bool hasAppInstanceGroupIdList() const { return this->appInstanceGroupIdList_ != nullptr;};
     void deleteAppInstanceGroupIdList() { this->appInstanceGroupIdList_ = nullptr;};
-    inline const vector<string> & appInstanceGroupIdList() const { DARABONBA_PTR_GET_CONST(appInstanceGroupIdList_, vector<string>) };
-    inline vector<string> appInstanceGroupIdList() { DARABONBA_PTR_GET(appInstanceGroupIdList_, vector<string>) };
+    inline const vector<string> & getAppInstanceGroupIdList() const { DARABONBA_PTR_GET_CONST(appInstanceGroupIdList_, vector<string>) };
+    inline vector<string> getAppInstanceGroupIdList() { DARABONBA_PTR_GET(appInstanceGroupIdList_, vector<string>) };
     inline ListBindInfoRequest& setAppInstanceGroupIdList(const vector<string> & appInstanceGroupIdList) { DARABONBA_PTR_SET_VALUE(appInstanceGroupIdList_, appInstanceGroupIdList) };
     inline ListBindInfoRequest& setAppInstanceGroupIdList(vector<string> && appInstanceGroupIdList) { DARABONBA_PTR_SET_RVALUE(appInstanceGroupIdList_, appInstanceGroupIdList) };
 
@@ -66,8 +66,8 @@ namespace Models
     // appInstanceIdList Field Functions 
     bool hasAppInstanceIdList() const { return this->appInstanceIdList_ != nullptr;};
     void deleteAppInstanceIdList() { this->appInstanceIdList_ = nullptr;};
-    inline const vector<string> & appInstanceIdList() const { DARABONBA_PTR_GET_CONST(appInstanceIdList_, vector<string>) };
-    inline vector<string> appInstanceIdList() { DARABONBA_PTR_GET(appInstanceIdList_, vector<string>) };
+    inline const vector<string> & getAppInstanceIdList() const { DARABONBA_PTR_GET_CONST(appInstanceIdList_, vector<string>) };
+    inline vector<string> getAppInstanceIdList() { DARABONBA_PTR_GET(appInstanceIdList_, vector<string>) };
     inline ListBindInfoRequest& setAppInstanceIdList(const vector<string> & appInstanceIdList) { DARABONBA_PTR_SET_VALUE(appInstanceIdList_, appInstanceIdList) };
     inline ListBindInfoRequest& setAppInstanceIdList(vector<string> && appInstanceIdList) { DARABONBA_PTR_SET_RVALUE(appInstanceIdList_, appInstanceIdList) };
 
@@ -75,22 +75,22 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListBindInfoRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListBindInfoRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // userIdList Field Functions 
     bool hasUserIdList() const { return this->userIdList_ != nullptr;};
     void deleteUserIdList() { this->userIdList_ = nullptr;};
-    inline const vector<string> & userIdList() const { DARABONBA_PTR_GET_CONST(userIdList_, vector<string>) };
-    inline vector<string> userIdList() { DARABONBA_PTR_GET(userIdList_, vector<string>) };
+    inline const vector<string> & getUserIdList() const { DARABONBA_PTR_GET_CONST(userIdList_, vector<string>) };
+    inline vector<string> getUserIdList() { DARABONBA_PTR_GET(userIdList_, vector<string>) };
     inline ListBindInfoRequest& setUserIdList(const vector<string> & userIdList) { DARABONBA_PTR_SET_VALUE(userIdList_, userIdList) };
     inline ListBindInfoRequest& setUserIdList(vector<string> && userIdList) { DARABONBA_PTR_SET_RVALUE(userIdList_, userIdList) };
 
@@ -98,8 +98,8 @@ namespace Models
     // wyIdList Field Functions 
     bool hasWyIdList() const { return this->wyIdList_ != nullptr;};
     void deleteWyIdList() { this->wyIdList_ = nullptr;};
-    inline const vector<string> & wyIdList() const { DARABONBA_PTR_GET_CONST(wyIdList_, vector<string>) };
-    inline vector<string> wyIdList() { DARABONBA_PTR_GET(wyIdList_, vector<string>) };
+    inline const vector<string> & getWyIdList() const { DARABONBA_PTR_GET_CONST(wyIdList_, vector<string>) };
+    inline vector<string> getWyIdList() { DARABONBA_PTR_GET(wyIdList_, vector<string>) };
     inline ListBindInfoRequest& setWyIdList(const vector<string> & wyIdList) { DARABONBA_PTR_SET_VALUE(wyIdList_, wyIdList) };
     inline ListBindInfoRequest& setWyIdList(vector<string> && wyIdList) { DARABONBA_PTR_SET_RVALUE(wyIdList_, wyIdList) };
 
@@ -108,27 +108,27 @@ namespace Models
     // The app IDs. You can specify 1 to 100 IDs.
     // 
     // >  If you specify this parameter, only the bindings of the specified apps are returned.
-    std::shared_ptr<vector<string>> appIdList_ = nullptr;
+    shared_ptr<vector<string>> appIdList_ {};
     // The IDs of the delivery groups. You can specify 1 to 100 IDs.
     // 
     // >  If you specify this parameter, only the bindings of the specified delivery groups are returned.
-    std::shared_ptr<vector<string>> appInstanceGroupIdList_ = nullptr;
+    shared_ptr<vector<string>> appInstanceGroupIdList_ {};
     // The IDs of app instances. You can specify 1 to 100 IDs.
     // 
     // >  If you specify this parameter, only the bindings of the specified app instances are returned.
-    std::shared_ptr<vector<string>> appInstanceIdList_ = nullptr;
+    shared_ptr<vector<string>> appInstanceIdList_ {};
     // The page number. Default value: `1`. We recommend that you specify this parameter.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The user IDs. You can specify 1 to 100 IDs.
     // 
     // >  If you specify this parameter, only the bindings of the specified users are returned.
-    std::shared_ptr<vector<string>> userIdList_ = nullptr;
+    shared_ptr<vector<string>> userIdList_ {};
     // The IDs of the Alibaba Cloud Workspace users. You can specify 1 to 100 IDs.
     // 
     // >  If you specify this parameter, only the bindings of the specified Alibaba Cloud Workspace users are returned.
-    std::shared_ptr<vector<string>> wyIdList_ = nullptr;
+    shared_ptr<vector<string>> wyIdList_ {};
   };
 
   } // namespace Models

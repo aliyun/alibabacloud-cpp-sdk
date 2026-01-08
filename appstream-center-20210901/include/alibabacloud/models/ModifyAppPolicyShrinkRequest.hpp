@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appPolicyId_ == nullptr
-        && return this->productType_ == nullptr && return this->videoPolicyShrink_ == nullptr; };
+        && this->productType_ == nullptr && this->videoPolicyShrink_ == nullptr; };
     // appPolicyId Field Functions 
     bool hasAppPolicyId() const { return this->appPolicyId_ != nullptr;};
     void deleteAppPolicyId() { this->appPolicyId_ = nullptr;};
-    inline string appPolicyId() const { DARABONBA_PTR_GET_DEFAULT(appPolicyId_, "") };
+    inline string getAppPolicyId() const { DARABONBA_PTR_GET_DEFAULT(appPolicyId_, "") };
     inline ModifyAppPolicyShrinkRequest& setAppPolicyId(string appPolicyId) { DARABONBA_PTR_SET_VALUE(appPolicyId_, appPolicyId) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ModifyAppPolicyShrinkRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // videoPolicyShrink Field Functions 
     bool hasVideoPolicyShrink() const { return this->videoPolicyShrink_ != nullptr;};
     void deleteVideoPolicyShrink() { this->videoPolicyShrink_ = nullptr;};
-    inline string videoPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(videoPolicyShrink_, "") };
+    inline string getVideoPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(videoPolicyShrink_, "") };
     inline ModifyAppPolicyShrinkRequest& setVideoPolicyShrink(string videoPolicyShrink) { DARABONBA_PTR_SET_VALUE(videoPolicyShrink_, videoPolicyShrink) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The policy ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appPolicyId_ = nullptr;
+    shared_ptr<string> appPolicyId_ {};
     // The product type.
     // 
     // Enumerated values:
@@ -68,9 +68,9 @@ namespace Models
     // *   CloudApp: RDS Cloud App
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // Displays the policy.
-    std::shared_ptr<string> videoPolicyShrink_ = nullptr;
+    shared_ptr<string> videoPolicyShrink_ {};
   };
 
   } // namespace Models

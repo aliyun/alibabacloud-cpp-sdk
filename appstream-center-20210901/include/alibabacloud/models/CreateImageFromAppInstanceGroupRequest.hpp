@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCenterImageName_ == nullptr
-        && return this->appInstanceGroupId_ == nullptr && return this->productType_ == nullptr; };
+        && this->appInstanceGroupId_ == nullptr && this->productType_ == nullptr; };
     // appCenterImageName Field Functions 
     bool hasAppCenterImageName() const { return this->appCenterImageName_ != nullptr;};
     void deleteAppCenterImageName() { this->appCenterImageName_ = nullptr;};
-    inline string appCenterImageName() const { DARABONBA_PTR_GET_DEFAULT(appCenterImageName_, "") };
+    inline string getAppCenterImageName() const { DARABONBA_PTR_GET_DEFAULT(appCenterImageName_, "") };
     inline CreateImageFromAppInstanceGroupRequest& setAppCenterImageName(string appCenterImageName) { DARABONBA_PTR_SET_VALUE(appCenterImageName_, appCenterImageName) };
 
 
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline CreateImageFromAppInstanceGroupRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline CreateImageFromAppInstanceGroupRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The image name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appCenterImageName_ = nullptr;
+    shared_ptr<string> appCenterImageName_ {};
     // The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
     // The product type.
     // 
     // Valid value:
@@ -72,7 +72,7 @@ namespace Models
     // *   CloudApp: App Streaming
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

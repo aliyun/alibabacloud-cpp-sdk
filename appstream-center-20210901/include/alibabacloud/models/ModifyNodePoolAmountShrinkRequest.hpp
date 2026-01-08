@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && return this->nodePoolShrink_ == nullptr && return this->productType_ == nullptr; };
+        && this->nodePoolShrink_ == nullptr && this->productType_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline ModifyNodePoolAmountShrinkRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // nodePoolShrink Field Functions 
     bool hasNodePoolShrink() const { return this->nodePoolShrink_ != nullptr;};
     void deleteNodePoolShrink() { this->nodePoolShrink_ = nullptr;};
-    inline string nodePoolShrink() const { DARABONBA_PTR_GET_DEFAULT(nodePoolShrink_, "") };
+    inline string getNodePoolShrink() const { DARABONBA_PTR_GET_DEFAULT(nodePoolShrink_, "") };
     inline ModifyNodePoolAmountShrinkRequest& setNodePoolShrink(string nodePoolShrink) { DARABONBA_PTR_SET_VALUE(nodePoolShrink_, nodePoolShrink) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ModifyNodePoolAmountShrinkRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the delivery group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
     // The parameters related to the configuration change of the node pool.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodePoolShrink_ = nullptr;
+    shared_ptr<string> nodePoolShrink_ {};
     // The product type.
     // 
     // Valid value:
@@ -72,7 +72,7 @@ namespace Models
     // *   CloudApp: App Streaming
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

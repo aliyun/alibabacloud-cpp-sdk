@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && return this->otaType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->otaType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline ListOtaTaskRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // otaType Field Functions 
     bool hasOtaType() const { return this->otaType_ != nullptr;};
     void deleteOtaType() { this->otaType_ = nullptr;};
-    inline string otaType() const { DARABONBA_PTR_GET_DEFAULT(otaType_, "") };
+    inline string getOtaType() const { DARABONBA_PTR_GET_DEFAULT(otaType_, "") };
     inline ListOtaTaskRequest& setOtaType(string otaType) { DARABONBA_PTR_SET_VALUE(otaType_, otaType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListOtaTaskRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListOtaTaskRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
@@ -69,7 +69,7 @@ namespace Models
     // The ID of the delivery group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
     // The type of the OTA update task.
     // 
     // Valid values:
@@ -77,15 +77,15 @@ namespace Models
     // *   Fota: update of the system components of Alibaba Cloud Workspace
     // 
     // This parameter is required.
-    std::shared_ptr<string> otaType_ = nullptr;
+    shared_ptr<string> otaType_ {};
     // The page number of the page to return.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values: 1 to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

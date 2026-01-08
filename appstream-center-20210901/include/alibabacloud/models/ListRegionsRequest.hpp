@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizSource_ == nullptr
-        && return this->productType_ == nullptr; };
+        && this->productType_ == nullptr; };
     // bizSource Field Functions 
     bool hasBizSource() const { return this->bizSource_ != nullptr;};
     void deleteBizSource() { this->bizSource_ = nullptr;};
-    inline string bizSource() const { DARABONBA_PTR_GET_DEFAULT(bizSource_, "") };
+    inline string getBizSource() const { DARABONBA_PTR_GET_DEFAULT(bizSource_, "") };
     inline ListRegionsRequest& setBizSource(string bizSource) { DARABONBA_PTR_SET_VALUE(bizSource_, bizSource) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ListRegionsRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
   protected:
     // >  This parameter is not publicly available.
-    std::shared_ptr<string> bizSource_ = nullptr;
+    shared_ptr<string> bizSource_ {};
     // The product type.
     // 
     // Valid value:
     // 
     // *   CloudApp: App Streaming
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

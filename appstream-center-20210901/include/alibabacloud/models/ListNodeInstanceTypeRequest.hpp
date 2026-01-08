@@ -56,104 +56,104 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && return this->cpu_ == nullptr && return this->gpu_ == nullptr && return this->gpuMemory_ == nullptr && return this->language_ == nullptr && return this->memory_ == nullptr
-        && return this->nodeInstanceType_ == nullptr && return this->nodeInstanceTypeFamily_ == nullptr && return this->orderBy_ == nullptr && return this->osType_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->productType_ == nullptr && return this->sortType_ == nullptr; };
+        && this->cpu_ == nullptr && this->gpu_ == nullptr && this->gpuMemory_ == nullptr && this->language_ == nullptr && this->memory_ == nullptr
+        && this->nodeInstanceType_ == nullptr && this->nodeInstanceTypeFamily_ == nullptr && this->orderBy_ == nullptr && this->osType_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->productType_ == nullptr && this->sortType_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
-    inline string bizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
+    inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline ListNodeInstanceTypeRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
 
 
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
-    inline float cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0.0) };
+    inline float getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0.0) };
     inline ListNodeInstanceTypeRequest& setCpu(float cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
 
 
     // gpu Field Functions 
     bool hasGpu() const { return this->gpu_ != nullptr;};
     void deleteGpu() { this->gpu_ = nullptr;};
-    inline float gpu() const { DARABONBA_PTR_GET_DEFAULT(gpu_, 0.0) };
+    inline float getGpu() const { DARABONBA_PTR_GET_DEFAULT(gpu_, 0.0) };
     inline ListNodeInstanceTypeRequest& setGpu(float gpu) { DARABONBA_PTR_SET_VALUE(gpu_, gpu) };
 
 
     // gpuMemory Field Functions 
     bool hasGpuMemory() const { return this->gpuMemory_ != nullptr;};
     void deleteGpuMemory() { this->gpuMemory_ = nullptr;};
-    inline int32_t gpuMemory() const { DARABONBA_PTR_GET_DEFAULT(gpuMemory_, 0) };
+    inline int32_t getGpuMemory() const { DARABONBA_PTR_GET_DEFAULT(gpuMemory_, 0) };
     inline ListNodeInstanceTypeRequest& setGpuMemory(int32_t gpuMemory) { DARABONBA_PTR_SET_VALUE(gpuMemory_, gpuMemory) };
 
 
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline ListNodeInstanceTypeRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // memory Field Functions 
     bool hasMemory() const { return this->memory_ != nullptr;};
     void deleteMemory() { this->memory_ = nullptr;};
-    inline int32_t memory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0) };
+    inline int32_t getMemory() const { DARABONBA_PTR_GET_DEFAULT(memory_, 0) };
     inline ListNodeInstanceTypeRequest& setMemory(int32_t memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
     // nodeInstanceType Field Functions 
     bool hasNodeInstanceType() const { return this->nodeInstanceType_ != nullptr;};
     void deleteNodeInstanceType() { this->nodeInstanceType_ = nullptr;};
-    inline string nodeInstanceType() const { DARABONBA_PTR_GET_DEFAULT(nodeInstanceType_, "") };
+    inline string getNodeInstanceType() const { DARABONBA_PTR_GET_DEFAULT(nodeInstanceType_, "") };
     inline ListNodeInstanceTypeRequest& setNodeInstanceType(string nodeInstanceType) { DARABONBA_PTR_SET_VALUE(nodeInstanceType_, nodeInstanceType) };
 
 
     // nodeInstanceTypeFamily Field Functions 
     bool hasNodeInstanceTypeFamily() const { return this->nodeInstanceTypeFamily_ != nullptr;};
     void deleteNodeInstanceTypeFamily() { this->nodeInstanceTypeFamily_ = nullptr;};
-    inline string nodeInstanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(nodeInstanceTypeFamily_, "") };
+    inline string getNodeInstanceTypeFamily() const { DARABONBA_PTR_GET_DEFAULT(nodeInstanceTypeFamily_, "") };
     inline ListNodeInstanceTypeRequest& setNodeInstanceTypeFamily(string nodeInstanceTypeFamily) { DARABONBA_PTR_SET_VALUE(nodeInstanceTypeFamily_, nodeInstanceTypeFamily) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline ListNodeInstanceTypeRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // osType Field Functions 
     bool hasOsType() const { return this->osType_ != nullptr;};
     void deleteOsType() { this->osType_ = nullptr;};
-    inline string osType() const { DARABONBA_PTR_GET_DEFAULT(osType_, "") };
+    inline string getOsType() const { DARABONBA_PTR_GET_DEFAULT(osType_, "") };
     inline ListNodeInstanceTypeRequest& setOsType(string osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListNodeInstanceTypeRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListNodeInstanceTypeRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ListNodeInstanceTypeRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // sortType Field Functions 
     bool hasSortType() const { return this->sortType_ != nullptr;};
     void deleteSortType() { this->sortType_ = nullptr;};
-    inline string sortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
     inline ListNodeInstanceTypeRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
 
 
@@ -164,36 +164,36 @@ namespace Models
     // 
     // *   cn-shanghai: China (Shanghai)
     // *   cn-hangzhou: China (Hangzhou)
-    std::shared_ptr<string> bizRegionId_ = nullptr;
-    std::shared_ptr<float> cpu_ = nullptr;
-    std::shared_ptr<float> gpu_ = nullptr;
-    std::shared_ptr<int32_t> gpuMemory_ = nullptr;
+    shared_ptr<string> bizRegionId_ {};
+    shared_ptr<float> cpu_ {};
+    shared_ptr<float> gpu_ {};
+    shared_ptr<int32_t> gpuMemory_ {};
     // The language that you want to use.
     // 
     // Valid values:
     // 
     // *   en-US: English (US)
     // *   zh-CN: Simplified Chinese
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<int32_t> memory_ = nullptr;
+    shared_ptr<string> language_ {};
+    shared_ptr<int32_t> memory_ {};
     // The resource type that you want to query. If you do not configure this parameter, all resource types are returned.
-    std::shared_ptr<string> nodeInstanceType_ = nullptr;
-    std::shared_ptr<string> nodeInstanceTypeFamily_ = nullptr;
-    std::shared_ptr<string> orderBy_ = nullptr;
+    shared_ptr<string> nodeInstanceType_ {};
+    shared_ptr<string> nodeInstanceTypeFamily_ {};
+    shared_ptr<string> orderBy_ {};
     // The operating system that is supported.
     // 
     // Valid value:
     // 
     // *   Windows: the Windows operating system
-    std::shared_ptr<string> osType_ = nullptr;
+    shared_ptr<string> osType_ {};
     // The number of the page to return.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values: 1 to 100.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The product type.
     // 
     // Valid value:
@@ -201,8 +201,8 @@ namespace Models
     // *   CloudApp: App Streaming
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
-    std::shared_ptr<string> sortType_ = nullptr;
+    shared_ptr<string> productType_ {};
+    shared_ptr<string> sortType_ {};
   };
 
   } // namespace Models

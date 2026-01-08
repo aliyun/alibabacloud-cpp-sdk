@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->browserConfigShrink_ == nullptr
-        && return this->browserInstanceGroupId_ == nullptr && return this->cloudBrowserName_ == nullptr && return this->networkShrink_ == nullptr && return this->policyShrink_ == nullptr && return this->timersShrink_ == nullptr; };
+        && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->networkShrink_ == nullptr && this->policyShrink_ == nullptr && this->timersShrink_ == nullptr; };
     // browserConfigShrink Field Functions 
     bool hasBrowserConfigShrink() const { return this->browserConfigShrink_ != nullptr;};
     void deleteBrowserConfigShrink() { this->browserConfigShrink_ = nullptr;};
-    inline string browserConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(browserConfigShrink_, "") };
+    inline string getBrowserConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(browserConfigShrink_, "") };
     inline ModifyBrowserInstanceGroupShrinkRequest& setBrowserConfigShrink(string browserConfigShrink) { DARABONBA_PTR_SET_VALUE(browserConfigShrink_, browserConfigShrink) };
 
 
     // browserInstanceGroupId Field Functions 
     bool hasBrowserInstanceGroupId() const { return this->browserInstanceGroupId_ != nullptr;};
     void deleteBrowserInstanceGroupId() { this->browserInstanceGroupId_ = nullptr;};
-    inline string browserInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(browserInstanceGroupId_, "") };
+    inline string getBrowserInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(browserInstanceGroupId_, "") };
     inline ModifyBrowserInstanceGroupShrinkRequest& setBrowserInstanceGroupId(string browserInstanceGroupId) { DARABONBA_PTR_SET_VALUE(browserInstanceGroupId_, browserInstanceGroupId) };
 
 
     // cloudBrowserName Field Functions 
     bool hasCloudBrowserName() const { return this->cloudBrowserName_ != nullptr;};
     void deleteCloudBrowserName() { this->cloudBrowserName_ = nullptr;};
-    inline string cloudBrowserName() const { DARABONBA_PTR_GET_DEFAULT(cloudBrowserName_, "") };
+    inline string getCloudBrowserName() const { DARABONBA_PTR_GET_DEFAULT(cloudBrowserName_, "") };
     inline ModifyBrowserInstanceGroupShrinkRequest& setCloudBrowserName(string cloudBrowserName) { DARABONBA_PTR_SET_VALUE(cloudBrowserName_, cloudBrowserName) };
 
 
     // networkShrink Field Functions 
     bool hasNetworkShrink() const { return this->networkShrink_ != nullptr;};
     void deleteNetworkShrink() { this->networkShrink_ = nullptr;};
-    inline string networkShrink() const { DARABONBA_PTR_GET_DEFAULT(networkShrink_, "") };
+    inline string getNetworkShrink() const { DARABONBA_PTR_GET_DEFAULT(networkShrink_, "") };
     inline ModifyBrowserInstanceGroupShrinkRequest& setNetworkShrink(string networkShrink) { DARABONBA_PTR_SET_VALUE(networkShrink_, networkShrink) };
 
 
     // policyShrink Field Functions 
     bool hasPolicyShrink() const { return this->policyShrink_ != nullptr;};
     void deletePolicyShrink() { this->policyShrink_ = nullptr;};
-    inline string policyShrink() const { DARABONBA_PTR_GET_DEFAULT(policyShrink_, "") };
+    inline string getPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(policyShrink_, "") };
     inline ModifyBrowserInstanceGroupShrinkRequest& setPolicyShrink(string policyShrink) { DARABONBA_PTR_SET_VALUE(policyShrink_, policyShrink) };
 
 
     // timersShrink Field Functions 
     bool hasTimersShrink() const { return this->timersShrink_ != nullptr;};
     void deleteTimersShrink() { this->timersShrink_ = nullptr;};
-    inline string timersShrink() const { DARABONBA_PTR_GET_DEFAULT(timersShrink_, "") };
+    inline string getTimersShrink() const { DARABONBA_PTR_GET_DEFAULT(timersShrink_, "") };
     inline ModifyBrowserInstanceGroupShrinkRequest& setTimersShrink(string timersShrink) { DARABONBA_PTR_SET_VALUE(timersShrink_, timersShrink) };
 
 
   protected:
     // The browser settings.
-    std::shared_ptr<string> browserConfigShrink_ = nullptr;
+    shared_ptr<string> browserConfigShrink_ {};
     // The ID of the cloud browser to be modified.
     // 
     // This parameter is required.
-    std::shared_ptr<string> browserInstanceGroupId_ = nullptr;
+    shared_ptr<string> browserInstanceGroupId_ {};
     // The name of the cloud browser.
-    std::shared_ptr<string> cloudBrowserName_ = nullptr;
+    shared_ptr<string> cloudBrowserName_ {};
     // The network configurations.
-    std::shared_ptr<string> networkShrink_ = nullptr;
+    shared_ptr<string> networkShrink_ {};
     // The access policy.
-    std::shared_ptr<string> policyShrink_ = nullptr;
+    shared_ptr<string> policyShrink_ {};
     // The timer.
-    std::shared_ptr<string> timersShrink_ = nullptr;
+    shared_ptr<string> timersShrink_ {};
   };
 
   } // namespace Models

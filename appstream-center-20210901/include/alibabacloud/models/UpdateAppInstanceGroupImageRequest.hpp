@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCenterImageId_ == nullptr
-        && return this->appInstanceGroupId_ == nullptr && return this->bizRegionId_ == nullptr && return this->productType_ == nullptr; };
+        && this->appInstanceGroupId_ == nullptr && this->bizRegionId_ == nullptr && this->productType_ == nullptr; };
     // appCenterImageId Field Functions 
     bool hasAppCenterImageId() const { return this->appCenterImageId_ != nullptr;};
     void deleteAppCenterImageId() { this->appCenterImageId_ = nullptr;};
-    inline string appCenterImageId() const { DARABONBA_PTR_GET_DEFAULT(appCenterImageId_, "") };
+    inline string getAppCenterImageId() const { DARABONBA_PTR_GET_DEFAULT(appCenterImageId_, "") };
     inline UpdateAppInstanceGroupImageRequest& setAppCenterImageId(string appCenterImageId) { DARABONBA_PTR_SET_VALUE(appCenterImageId_, appCenterImageId) };
 
 
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline UpdateAppInstanceGroupImageRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
-    inline string bizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
+    inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline UpdateAppInstanceGroupImageRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline UpdateAppInstanceGroupImageRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // The image ID of the application. You can obtain the ID from the Images page in the App Streaming console.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appCenterImageId_ = nullptr;
+    shared_ptr<string> appCenterImageId_ {};
     // The ID of the delivery group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
     // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     // 
     // Valid values:
@@ -82,7 +82,7 @@ namespace Models
     // *   cn-hangzhou: China (Hangzhou)
     // 
     // This parameter is required.
-    std::shared_ptr<string> bizRegionId_ = nullptr;
+    shared_ptr<string> bizRegionId_ {};
     // The product type.
     // 
     // Valid value:
@@ -90,7 +90,7 @@ namespace Models
     // *   CloudApp: App Streaming
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

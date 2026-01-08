@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->productType_ == nullptr; };
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->productType_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline GetResourceRenewPriceRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int64_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0L) };
+    inline int64_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0L) };
     inline GetResourceRenewPriceRequest& setPeriod(int64_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // periodUnit Field Functions 
     bool hasPeriodUnit() const { return this->periodUnit_ != nullptr;};
     void deletePeriodUnit() { this->periodUnit_ = nullptr;};
-    inline string periodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
+    inline string getPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
     inline GetResourceRenewPriceRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline GetResourceRenewPriceRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -69,11 +69,11 @@ namespace Models
     // The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
     // The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> period_ = nullptr;
+    shared_ptr<int64_t> period_ {};
     // The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
     // 
     // *   1 Week
@@ -88,7 +88,7 @@ namespace Models
     // >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
     // 
     // This parameter is required.
-    std::shared_ptr<string> periodUnit_ = nullptr;
+    shared_ptr<string> periodUnit_ {};
     // The product type.
     // 
     // Valid value:
@@ -96,7 +96,7 @@ namespace Models
     // *   CloudApp: App Streaming
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

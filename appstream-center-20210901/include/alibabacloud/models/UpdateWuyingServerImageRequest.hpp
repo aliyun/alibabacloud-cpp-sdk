@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->productType_ == nullptr && return this->wuyingServerId_ == nullptr; };
+        && this->productType_ == nullptr && this->wuyingServerId_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline UpdateWuyingServerImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline UpdateWuyingServerImageRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // wuyingServerId Field Functions 
     bool hasWuyingServerId() const { return this->wuyingServerId_ != nullptr;};
     void deleteWuyingServerId() { this->wuyingServerId_ = nullptr;};
-    inline string wuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
+    inline string getWuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
     inline UpdateWuyingServerImageRequest& setWuyingServerId(string wuyingServerId) { DARABONBA_PTR_SET_VALUE(wuyingServerId_, wuyingServerId) };
 
 
   protected:
     // The image ID.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The product type. Set this parameter to WuyingServer.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // The ID of the workstation.
-    std::shared_ptr<string> wuyingServerId_ = nullptr;
+    shared_ptr<string> wuyingServerId_ {};
   };
 
   } // namespace Models

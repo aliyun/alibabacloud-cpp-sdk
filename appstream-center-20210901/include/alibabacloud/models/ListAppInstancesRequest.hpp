@@ -45,27 +45,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && return this->appInstanceId_ == nullptr && return this->appInstanceIdList_ == nullptr && return this->includeDeleted_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->status_ == nullptr && return this->userIdList_ == nullptr; };
+        && this->appInstanceId_ == nullptr && this->appInstanceIdList_ == nullptr && this->includeDeleted_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->status_ == nullptr && this->userIdList_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline ListAppInstancesRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // appInstanceId Field Functions 
     bool hasAppInstanceId() const { return this->appInstanceId_ != nullptr;};
     void deleteAppInstanceId() { this->appInstanceId_ = nullptr;};
-    inline string appInstanceId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceId_, "") };
+    inline string getAppInstanceId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceId_, "") };
     inline ListAppInstancesRequest& setAppInstanceId(string appInstanceId) { DARABONBA_PTR_SET_VALUE(appInstanceId_, appInstanceId) };
 
 
     // appInstanceIdList Field Functions 
     bool hasAppInstanceIdList() const { return this->appInstanceIdList_ != nullptr;};
     void deleteAppInstanceIdList() { this->appInstanceIdList_ = nullptr;};
-    inline const vector<string> & appInstanceIdList() const { DARABONBA_PTR_GET_CONST(appInstanceIdList_, vector<string>) };
-    inline vector<string> appInstanceIdList() { DARABONBA_PTR_GET(appInstanceIdList_, vector<string>) };
+    inline const vector<string> & getAppInstanceIdList() const { DARABONBA_PTR_GET_CONST(appInstanceIdList_, vector<string>) };
+    inline vector<string> getAppInstanceIdList() { DARABONBA_PTR_GET(appInstanceIdList_, vector<string>) };
     inline ListAppInstancesRequest& setAppInstanceIdList(const vector<string> & appInstanceIdList) { DARABONBA_PTR_SET_VALUE(appInstanceIdList_, appInstanceIdList) };
     inline ListAppInstancesRequest& setAppInstanceIdList(vector<string> && appInstanceIdList) { DARABONBA_PTR_SET_RVALUE(appInstanceIdList_, appInstanceIdList) };
 
@@ -73,29 +73,29 @@ namespace Models
     // includeDeleted Field Functions 
     bool hasIncludeDeleted() const { return this->includeDeleted_ != nullptr;};
     void deleteIncludeDeleted() { this->includeDeleted_ = nullptr;};
-    inline bool includeDeleted() const { DARABONBA_PTR_GET_DEFAULT(includeDeleted_, false) };
+    inline bool getIncludeDeleted() const { DARABONBA_PTR_GET_DEFAULT(includeDeleted_, false) };
     inline ListAppInstancesRequest& setIncludeDeleted(bool includeDeleted) { DARABONBA_PTR_SET_VALUE(includeDeleted_, includeDeleted) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListAppInstancesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListAppInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline const vector<string> & status() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
-    inline vector<string> status() { DARABONBA_PTR_GET(status_, vector<string>) };
+    inline const vector<string> & getStatus() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
+    inline vector<string> getStatus() { DARABONBA_PTR_GET(status_, vector<string>) };
     inline ListAppInstancesRequest& setStatus(const vector<string> & status) { DARABONBA_PTR_SET_VALUE(status_, status) };
     inline ListAppInstancesRequest& setStatus(vector<string> && status) { DARABONBA_PTR_SET_RVALUE(status_, status) };
 
@@ -103,8 +103,8 @@ namespace Models
     // userIdList Field Functions 
     bool hasUserIdList() const { return this->userIdList_ != nullptr;};
     void deleteUserIdList() { this->userIdList_ = nullptr;};
-    inline const vector<string> & userIdList() const { DARABONBA_PTR_GET_CONST(userIdList_, vector<string>) };
-    inline vector<string> userIdList() { DARABONBA_PTR_GET(userIdList_, vector<string>) };
+    inline const vector<string> & getUserIdList() const { DARABONBA_PTR_GET_CONST(userIdList_, vector<string>) };
+    inline vector<string> getUserIdList() { DARABONBA_PTR_GET(userIdList_, vector<string>) };
     inline ListAppInstancesRequest& setUserIdList(const vector<string> & userIdList) { DARABONBA_PTR_SET_VALUE(userIdList_, userIdList) };
     inline ListAppInstancesRequest& setUserIdList(vector<string> && userIdList) { DARABONBA_PTR_SET_RVALUE(userIdList_, userIdList) };
 
@@ -113,26 +113,26 @@ namespace Models
     // The ID of the delivery group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
     // The ID of the application instance.
-    std::shared_ptr<string> appInstanceId_ = nullptr;
+    shared_ptr<string> appInstanceId_ {};
     // The IDs of the application instances. Up to 100 IDs can be specified.
-    std::shared_ptr<vector<string>> appInstanceIdList_ = nullptr;
+    shared_ptr<vector<string>> appInstanceIdList_ {};
     // Specifies whether to query the information about deleted app instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
     // 
     // Valid values:
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> includeDeleted_ = nullptr;
+    shared_ptr<bool> includeDeleted_ {};
     // The page number. Default value: `1`. We recommend that you specify this parameter.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The status of the application instances.
-    std::shared_ptr<vector<string>> status_ = nullptr;
+    shared_ptr<vector<string>> status_ {};
     // The user IDs. You can specify up to 100 IDs.
-    std::shared_ptr<vector<string>> userIdList_ = nullptr;
+    shared_ptr<vector<string>> userIdList_ {};
   };
 
   } // namespace Models

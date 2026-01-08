@@ -38,58 +38,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr && return this->wuyingServerId_ == nullptr; };
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->wuyingServerId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
-    inline bool autoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
     inline RenewWuyingServerRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
 
 
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
-    inline int32_t period() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
+    inline int32_t getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, 0) };
     inline RenewWuyingServerRequest& setPeriod(int32_t period) { DARABONBA_PTR_SET_VALUE(period_, period) };
 
 
     // periodUnit Field Functions 
     bool hasPeriodUnit() const { return this->periodUnit_ != nullptr;};
     void deletePeriodUnit() { this->periodUnit_ = nullptr;};
-    inline string periodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
+    inline string getPeriodUnit() const { DARABONBA_PTR_GET_DEFAULT(periodUnit_, "") };
     inline RenewWuyingServerRequest& setPeriodUnit(string periodUnit) { DARABONBA_PTR_SET_VALUE(periodUnit_, periodUnit) };
 
 
     // promotionId Field Functions 
     bool hasPromotionId() const { return this->promotionId_ != nullptr;};
     void deletePromotionId() { this->promotionId_ = nullptr;};
-    inline string promotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
+    inline string getPromotionId() const { DARABONBA_PTR_GET_DEFAULT(promotionId_, "") };
     inline RenewWuyingServerRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
     // wuyingServerId Field Functions 
     bool hasWuyingServerId() const { return this->wuyingServerId_ != nullptr;};
     void deleteWuyingServerId() { this->wuyingServerId_ = nullptr;};
-    inline string wuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
+    inline string getWuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
     inline RenewWuyingServerRequest& setWuyingServerId(string wuyingServerId) { DARABONBA_PTR_SET_VALUE(wuyingServerId_, wuyingServerId) };
 
 
   protected:
     // Automatic payment.
-    std::shared_ptr<bool> autoPay_ = nullptr;
+    shared_ptr<bool> autoPay_ {};
     // The renewal duration.
-    std::shared_ptr<int32_t> period_ = nullptr;
+    shared_ptr<int32_t> period_ {};
     // The unit of the renewal time.
     // 
     // Valid values:
     // 
     // *   Month: month.
     // *   Year: year.
-    std::shared_ptr<string> periodUnit_ = nullptr;
+    shared_ptr<string> periodUnit_ {};
     // The discount ID.
-    std::shared_ptr<string> promotionId_ = nullptr;
+    shared_ptr<string> promotionId_ {};
     // The ID of the workstation.
-    std::shared_ptr<string> wuyingServerId_ = nullptr;
+    shared_ptr<string> wuyingServerId_ {};
   };
 
   } // namespace Models

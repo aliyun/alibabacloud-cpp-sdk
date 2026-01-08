@@ -33,7 +33,7 @@ namespace Models
     // wuyingServerId Field Functions 
     bool hasWuyingServerId() const { return this->wuyingServerId_ != nullptr;};
     void deleteWuyingServerId() { this->wuyingServerId_ = nullptr;};
-    inline string wuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
+    inline string getWuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
     inline DeleteWuyingServerRequest& setWuyingServerId(string wuyingServerId) { DARABONBA_PTR_SET_VALUE(wuyingServerId_, wuyingServerId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the workstation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> wuyingServerId_ = nullptr;
+    shared_ptr<string> wuyingServerId_ {};
   };
 
   } // namespace Models

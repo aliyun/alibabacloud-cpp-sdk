@@ -34,15 +34,15 @@ namespace Models
     // wuyingServerIdList Field Functions 
     bool hasWuyingServerIdList() const { return this->wuyingServerIdList_ != nullptr;};
     void deleteWuyingServerIdList() { this->wuyingServerIdList_ = nullptr;};
-    inline const vector<string> & wuyingServerIdList() const { DARABONBA_PTR_GET_CONST(wuyingServerIdList_, vector<string>) };
-    inline vector<string> wuyingServerIdList() { DARABONBA_PTR_GET(wuyingServerIdList_, vector<string>) };
+    inline const vector<string> & getWuyingServerIdList() const { DARABONBA_PTR_GET_CONST(wuyingServerIdList_, vector<string>) };
+    inline vector<string> getWuyingServerIdList() { DARABONBA_PTR_GET(wuyingServerIdList_, vector<string>) };
     inline RestartWuyingServerRequest& setWuyingServerIdList(const vector<string> & wuyingServerIdList) { DARABONBA_PTR_SET_VALUE(wuyingServerIdList_, wuyingServerIdList) };
     inline RestartWuyingServerRequest& setWuyingServerIdList(vector<string> && wuyingServerIdList) { DARABONBA_PTR_SET_RVALUE(wuyingServerIdList_, wuyingServerIdList) };
 
 
   protected:
     // The list of workstation IDs.
-    std::shared_ptr<vector<string>> wuyingServerIdList_ = nullptr;
+    shared_ptr<vector<string>> wuyingServerIdList_ {};
   };
 
   } // namespace Models

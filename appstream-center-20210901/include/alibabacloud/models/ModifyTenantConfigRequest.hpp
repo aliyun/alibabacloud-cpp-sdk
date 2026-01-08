@@ -33,7 +33,7 @@ namespace Models
     // appInstanceGroupExpireRemind Field Functions 
     bool hasAppInstanceGroupExpireRemind() const { return this->appInstanceGroupExpireRemind_ != nullptr;};
     void deleteAppInstanceGroupExpireRemind() { this->appInstanceGroupExpireRemind_ = nullptr;};
-    inline bool appInstanceGroupExpireRemind() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupExpireRemind_, false) };
+    inline bool getAppInstanceGroupExpireRemind() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupExpireRemind_, false) };
     inline ModifyTenantConfigRequest& setAppInstanceGroupExpireRemind(bool appInstanceGroupExpireRemind) { DARABONBA_PTR_SET_VALUE(appInstanceGroupExpireRemind_, appInstanceGroupExpireRemind) };
 
 
@@ -44,7 +44,7 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<bool> appInstanceGroupExpireRemind_ = nullptr;
+    shared_ptr<bool> appInstanceGroupExpireRemind_ {};
   };
 
   } // namespace Models

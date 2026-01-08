@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && return this->appInstanceIds_ == nullptr && return this->productType_ == nullptr; };
+        && this->appInstanceIds_ == nullptr && this->productType_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
-    inline string appInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
+    inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline DeleteAppInstancesRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
 
 
     // appInstanceIds Field Functions 
     bool hasAppInstanceIds() const { return this->appInstanceIds_ != nullptr;};
     void deleteAppInstanceIds() { this->appInstanceIds_ = nullptr;};
-    inline const vector<string> & appInstanceIds() const { DARABONBA_PTR_GET_CONST(appInstanceIds_, vector<string>) };
-    inline vector<string> appInstanceIds() { DARABONBA_PTR_GET(appInstanceIds_, vector<string>) };
+    inline const vector<string> & getAppInstanceIds() const { DARABONBA_PTR_GET_CONST(appInstanceIds_, vector<string>) };
+    inline vector<string> getAppInstanceIds() { DARABONBA_PTR_GET(appInstanceIds_, vector<string>) };
     inline DeleteAppInstancesRequest& setAppInstanceIds(const vector<string> & appInstanceIds) { DARABONBA_PTR_SET_VALUE(appInstanceIds_, appInstanceIds) };
     inline DeleteAppInstancesRequest& setAppInstanceIds(vector<string> && appInstanceIds) { DARABONBA_PTR_SET_RVALUE(appInstanceIds_, appInstanceIds) };
 
@@ -55,7 +55,7 @@ namespace Models
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline DeleteAppInstancesRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -63,11 +63,11 @@ namespace Models
     // The ID of the delivery group. You can call the [listAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    shared_ptr<string> appInstanceGroupId_ {};
     // The IDs of application instances.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> appInstanceIds_ = nullptr;
+    shared_ptr<vector<string>> appInstanceIds_ {};
     // The product type.
     // 
     // Valid value:
@@ -75,7 +75,7 @@ namespace Models
     // *   CloudApp: App Streaming
     // 
     // This parameter is required.
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->password_ == nullptr
-        && return this->wuyingServerId_ == nullptr && return this->wuyingServerName_ == nullptr; };
+        && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline ModifyWuyingServerAttributeRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // wuyingServerId Field Functions 
     bool hasWuyingServerId() const { return this->wuyingServerId_ != nullptr;};
     void deleteWuyingServerId() { this->wuyingServerId_ = nullptr;};
-    inline string wuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
+    inline string getWuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
     inline ModifyWuyingServerAttributeRequest& setWuyingServerId(string wuyingServerId) { DARABONBA_PTR_SET_VALUE(wuyingServerId_, wuyingServerId) };
 
 
     // wuyingServerName Field Functions 
     bool hasWuyingServerName() const { return this->wuyingServerName_ != nullptr;};
     void deleteWuyingServerName() { this->wuyingServerName_ = nullptr;};
-    inline string wuyingServerName() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerName_, "") };
+    inline string getWuyingServerName() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerName_, "") };
     inline ModifyWuyingServerAttributeRequest& setWuyingServerName(string wuyingServerName) { DARABONBA_PTR_SET_VALUE(wuyingServerName_, wuyingServerName) };
 
 
   protected:
     // Workstation login password.
-    std::shared_ptr<string> password_ = nullptr;
+    shared_ptr<string> password_ {};
     // The ID of the workstation.
-    std::shared_ptr<string> wuyingServerId_ = nullptr;
+    shared_ptr<string> wuyingServerId_ {};
     // The name.
-    std::shared_ptr<string> wuyingServerName_ = nullptr;
+    shared_ptr<string> wuyingServerName_ {};
   };
 
   } // namespace Models

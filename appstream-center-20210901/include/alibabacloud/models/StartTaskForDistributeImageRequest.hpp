@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationRegionList_ == nullptr
-        && return this->imageId_ == nullptr && return this->productType_ == nullptr && return this->retryType_ == nullptr && return this->sourceRegion_ == nullptr && return this->versionId_ == nullptr; };
+        && this->imageId_ == nullptr && this->productType_ == nullptr && this->retryType_ == nullptr && this->sourceRegion_ == nullptr && this->versionId_ == nullptr; };
     // destinationRegionList Field Functions 
     bool hasDestinationRegionList() const { return this->destinationRegionList_ != nullptr;};
     void deleteDestinationRegionList() { this->destinationRegionList_ = nullptr;};
-    inline const vector<string> & destinationRegionList() const { DARABONBA_PTR_GET_CONST(destinationRegionList_, vector<string>) };
-    inline vector<string> destinationRegionList() { DARABONBA_PTR_GET(destinationRegionList_, vector<string>) };
+    inline const vector<string> & getDestinationRegionList() const { DARABONBA_PTR_GET_CONST(destinationRegionList_, vector<string>) };
+    inline vector<string> getDestinationRegionList() { DARABONBA_PTR_GET(destinationRegionList_, vector<string>) };
     inline StartTaskForDistributeImageRequest& setDestinationRegionList(const vector<string> & destinationRegionList) { DARABONBA_PTR_SET_VALUE(destinationRegionList_, destinationRegionList) };
     inline StartTaskForDistributeImageRequest& setDestinationRegionList(vector<string> && destinationRegionList) { DARABONBA_PTR_SET_RVALUE(destinationRegionList_, destinationRegionList) };
 
@@ -54,45 +54,45 @@ namespace Models
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
-    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline StartTaskForDistributeImageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline StartTaskForDistributeImageRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
     // retryType Field Functions 
     bool hasRetryType() const { return this->retryType_ != nullptr;};
     void deleteRetryType() { this->retryType_ = nullptr;};
-    inline string retryType() const { DARABONBA_PTR_GET_DEFAULT(retryType_, "") };
+    inline string getRetryType() const { DARABONBA_PTR_GET_DEFAULT(retryType_, "") };
     inline StartTaskForDistributeImageRequest& setRetryType(string retryType) { DARABONBA_PTR_SET_VALUE(retryType_, retryType) };
 
 
     // sourceRegion Field Functions 
     bool hasSourceRegion() const { return this->sourceRegion_ != nullptr;};
     void deleteSourceRegion() { this->sourceRegion_ = nullptr;};
-    inline string sourceRegion() const { DARABONBA_PTR_GET_DEFAULT(sourceRegion_, "") };
+    inline string getSourceRegion() const { DARABONBA_PTR_GET_DEFAULT(sourceRegion_, "") };
     inline StartTaskForDistributeImageRequest& setSourceRegion(string sourceRegion) { DARABONBA_PTR_SET_VALUE(sourceRegion_, sourceRegion) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline StartTaskForDistributeImageRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
   protected:
     // The regions to which you want to replicate the image.
-    std::shared_ptr<vector<string>> destinationRegionList_ = nullptr;
+    shared_ptr<vector<string>> destinationRegionList_ {};
     // The image ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> imageId_ = nullptr;
+    shared_ptr<string> imageId_ {};
     // The product type.
     // 
     // Valid values:
@@ -100,13 +100,13 @@ namespace Models
     // *   CloudDesktop: Elastic Desktop Service
     // *   CloudApp: App Streaming
     // *   WuyingServer: Workstation
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
     // This parameter is not publicly available.
-    std::shared_ptr<string> retryType_ = nullptr;
+    shared_ptr<string> retryType_ {};
     // The region where the source image is located. If you leave this parameter empty, a random region is selected.
-    std::shared_ptr<string> sourceRegion_ = nullptr;
+    shared_ptr<string> sourceRegion_ {};
     // The ID of the image version. If you do not specify this parameter, the latest image version is used by default.
-    std::shared_ptr<string> versionId_ = nullptr;
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models

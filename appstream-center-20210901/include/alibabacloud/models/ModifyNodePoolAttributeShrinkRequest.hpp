@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && return this->nodeCapacity_ == nullptr && return this->nodePoolStrategyShrink_ == nullptr && return this->poolId_ == nullptr && return this->productType_ == nullptr; };
+        && this->nodeCapacity_ == nullptr && this->nodePoolStrategyShrink_ == nullptr && this->poolId_ == nullptr && this->productType_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
-    inline string bizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
+    inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline ModifyNodePoolAttributeShrinkRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
 
 
     // nodeCapacity Field Functions 
     bool hasNodeCapacity() const { return this->nodeCapacity_ != nullptr;};
     void deleteNodeCapacity() { this->nodeCapacity_ = nullptr;};
-    inline int32_t nodeCapacity() const { DARABONBA_PTR_GET_DEFAULT(nodeCapacity_, 0) };
+    inline int32_t getNodeCapacity() const { DARABONBA_PTR_GET_DEFAULT(nodeCapacity_, 0) };
     inline ModifyNodePoolAttributeShrinkRequest& setNodeCapacity(int32_t nodeCapacity) { DARABONBA_PTR_SET_VALUE(nodeCapacity_, nodeCapacity) };
 
 
     // nodePoolStrategyShrink Field Functions 
     bool hasNodePoolStrategyShrink() const { return this->nodePoolStrategyShrink_ != nullptr;};
     void deleteNodePoolStrategyShrink() { this->nodePoolStrategyShrink_ = nullptr;};
-    inline string nodePoolStrategyShrink() const { DARABONBA_PTR_GET_DEFAULT(nodePoolStrategyShrink_, "") };
+    inline string getNodePoolStrategyShrink() const { DARABONBA_PTR_GET_DEFAULT(nodePoolStrategyShrink_, "") };
     inline ModifyNodePoolAttributeShrinkRequest& setNodePoolStrategyShrink(string nodePoolStrategyShrink) { DARABONBA_PTR_SET_VALUE(nodePoolStrategyShrink_, nodePoolStrategyShrink) };
 
 
     // poolId Field Functions 
     bool hasPoolId() const { return this->poolId_ != nullptr;};
     void deletePoolId() { this->poolId_ = nullptr;};
-    inline string poolId() const { DARABONBA_PTR_GET_DEFAULT(poolId_, "") };
+    inline string getPoolId() const { DARABONBA_PTR_GET_DEFAULT(poolId_, "") };
     inline ModifyNodePoolAttributeShrinkRequest& setPoolId(string poolId) { DARABONBA_PTR_SET_VALUE(poolId_, poolId) };
 
 
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
-    inline string productType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+    inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
     inline ModifyNodePoolAttributeShrinkRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
@@ -81,17 +81,17 @@ namespace Models
     // 
     // *   cn-shanghai: China (Shanghai)
     // *   cn-hangzhou: China (Hangzhou)
-    std::shared_ptr<string> bizRegionId_ = nullptr;
-    std::shared_ptr<int32_t> nodeCapacity_ = nullptr;
+    shared_ptr<string> bizRegionId_ {};
+    shared_ptr<int32_t> nodeCapacity_ {};
     // The auto scaling policy used by the delivery group.
-    std::shared_ptr<string> nodePoolStrategyShrink_ = nullptr;
-    std::shared_ptr<string> poolId_ = nullptr;
+    shared_ptr<string> nodePoolStrategyShrink_ {};
+    shared_ptr<string> poolId_ {};
     // The product type.
     // 
     // Valid value:
     // 
     // *   CloudApp: App Streaming
-    std::shared_ptr<string> productType_ = nullptr;
+    shared_ptr<string> productType_ {};
   };
 
   } // namespace Models

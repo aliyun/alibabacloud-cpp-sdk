@@ -40,64 +40,64 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr && return this->otaVersion_ == nullptr && return this->releaseNote_ == nullptr && return this->requestId_ == nullptr && return this->taskStartTime_ == nullptr; };
+        && this->message_ == nullptr && this->otaVersion_ == nullptr && this->releaseNote_ == nullptr && this->requestId_ == nullptr && this->taskStartTime_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetOtaTaskByTaskIdResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetOtaTaskByTaskIdResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // otaVersion Field Functions 
     bool hasOtaVersion() const { return this->otaVersion_ != nullptr;};
     void deleteOtaVersion() { this->otaVersion_ = nullptr;};
-    inline string otaVersion() const { DARABONBA_PTR_GET_DEFAULT(otaVersion_, "") };
+    inline string getOtaVersion() const { DARABONBA_PTR_GET_DEFAULT(otaVersion_, "") };
     inline GetOtaTaskByTaskIdResponseBody& setOtaVersion(string otaVersion) { DARABONBA_PTR_SET_VALUE(otaVersion_, otaVersion) };
 
 
     // releaseNote Field Functions 
     bool hasReleaseNote() const { return this->releaseNote_ != nullptr;};
     void deleteReleaseNote() { this->releaseNote_ = nullptr;};
-    inline string releaseNote() const { DARABONBA_PTR_GET_DEFAULT(releaseNote_, "") };
+    inline string getReleaseNote() const { DARABONBA_PTR_GET_DEFAULT(releaseNote_, "") };
     inline GetOtaTaskByTaskIdResponseBody& setReleaseNote(string releaseNote) { DARABONBA_PTR_SET_VALUE(releaseNote_, releaseNote) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetOtaTaskByTaskIdResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // taskStartTime Field Functions 
     bool hasTaskStartTime() const { return this->taskStartTime_ != nullptr;};
     void deleteTaskStartTime() { this->taskStartTime_ = nullptr;};
-    inline string taskStartTime() const { DARABONBA_PTR_GET_DEFAULT(taskStartTime_, "") };
+    inline string getTaskStartTime() const { DARABONBA_PTR_GET_DEFAULT(taskStartTime_, "") };
     inline GetOtaTaskByTaskIdResponseBody& setTaskStartTime(string taskStartTime) { DARABONBA_PTR_SET_VALUE(taskStartTime_, taskStartTime) };
 
 
   protected:
     // The error code.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The error message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The OTA version.
-    std::shared_ptr<string> otaVersion_ = nullptr;
+    shared_ptr<string> otaVersion_ {};
     // The version description.
-    std::shared_ptr<string> releaseNote_ = nullptr;
+    shared_ptr<string> releaseNote_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The execution time of the OTA update task. The time follows the ISO 8601 standard.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> taskStartTime_ = nullptr;
+    shared_ptr<string> taskStartTime_ {};
   };
 
   } // namespace Models

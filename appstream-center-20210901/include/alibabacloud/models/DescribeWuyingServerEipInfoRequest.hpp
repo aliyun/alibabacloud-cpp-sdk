@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isp_ == nullptr
-        && return this->wuyingServerId_ == nullptr; };
+        && this->wuyingServerId_ == nullptr; };
     // isp Field Functions 
     bool hasIsp() const { return this->isp_ != nullptr;};
     void deleteIsp() { this->isp_ = nullptr;};
-    inline string isp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
+    inline string getIsp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
     inline DescribeWuyingServerEipInfoRequest& setIsp(string isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
 
 
     // wuyingServerId Field Functions 
     bool hasWuyingServerId() const { return this->wuyingServerId_ != nullptr;};
     void deleteWuyingServerId() { this->wuyingServerId_ = nullptr;};
-    inline string wuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
+    inline string getWuyingServerId() const { DARABONBA_PTR_GET_DEFAULT(wuyingServerId_, "") };
     inline DescribeWuyingServerEipInfoRequest& setWuyingServerId(string wuyingServerId) { DARABONBA_PTR_SET_VALUE(wuyingServerId_, wuyingServerId) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // *   ChinaMobile: China Mobile
     // *   ChinaTelecom: China Telecom
     // *   ChinaUnicom: China Unicom
-    std::shared_ptr<string> isp_ = nullptr;
+    shared_ptr<string> isp_ {};
     // The ID of the workstation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> wuyingServerId_ = nullptr;
+    shared_ptr<string> wuyingServerId_ {};
   };
 
   } // namespace Models
