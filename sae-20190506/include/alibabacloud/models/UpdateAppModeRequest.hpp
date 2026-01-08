@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AppIds, appIds_);
       DARABONBA_PTR_TO_JSON(EnableIdle, enableIdle_);
+      DARABONBA_PTR_TO_JSON(IdleHour, idleHour_);
       DARABONBA_PTR_TO_JSON(NamespaceId, namespaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAppModeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AppIds, appIds_);
       DARABONBA_PTR_FROM_JSON(EnableIdle, enableIdle_);
+      DARABONBA_PTR_FROM_JSON(IdleHour, idleHour_);
       DARABONBA_PTR_FROM_JSON(NamespaceId, namespaceId_);
     };
     UpdateAppModeRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->appIds_ == nullptr && this->enableIdle_ == nullptr && this->namespaceId_ == nullptr; };
+        && this->appIds_ == nullptr && this->enableIdle_ == nullptr && this->idleHour_ == nullptr && this->namespaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline UpdateAppModeRequest& setEnableIdle(bool enableIdle) { DARABONBA_PTR_SET_VALUE(enableIdle_, enableIdle) };
 
 
+    // idleHour Field Functions 
+    bool hasIdleHour() const { return this->idleHour_ != nullptr;};
+    void deleteIdleHour() { this->idleHour_ = nullptr;};
+    inline string getIdleHour() const { DARABONBA_PTR_GET_DEFAULT(idleHour_, "") };
+    inline UpdateAppModeRequest& setIdleHour(string idleHour) { DARABONBA_PTR_SET_VALUE(idleHour_, idleHour) };
+
+
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
@@ -76,6 +85,7 @@ namespace Models
     // *   true: enables.
     // *   false: disables.
     shared_ptr<bool> enableIdle_ {};
+    shared_ptr<string> idleHour_ {};
     shared_ptr<string> namespaceId_ {};
   };
 

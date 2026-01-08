@@ -4840,6 +4840,8 @@ DisableApplicationScalingRuleResponse Client::disableApplicationScalingRule(cons
 }
 
 /**
+ * @summary Disables ARMS monitoring.
+ *
  * @param request DisableArmsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4871,6 +4873,8 @@ DisableArmsResponse Client::disableArmsWithOptions(const DisableArmsRequest &req
 }
 
 /**
+ * @summary Disables ARMS monitoring.
+ *
  * @param request DisableArmsRequest
  * @return DisableArmsResponse
  */
@@ -7431,7 +7435,7 @@ RestartInstancesResponse Client::restartInstances(const RestartInstancesRequest 
 }
 
 /**
- * @summary 恢复实例的流量
+ * @summary Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
  *
  * @param request ResumeTrafficRequest
  * @param headers map
@@ -7468,7 +7472,7 @@ ResumeTrafficResponse Client::resumeTrafficWithOptions(const ResumeTrafficReques
 }
 
 /**
- * @summary 恢复实例的流量
+ * @summary Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
  *
  * @param request ResumeTrafficRequest
  * @return ResumeTrafficResponse
@@ -7786,7 +7790,7 @@ SuspendJobResponse Client::suspendJob(const SuspendJobRequest &request) {
 }
 
 /**
- * @summary 将流量从实例中摘除
+ * @summary Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
  *
  * @param request SuspendTrafficRequest
  * @param headers map
@@ -7823,7 +7827,7 @@ SuspendTrafficResponse Client::suspendTrafficWithOptions(const SuspendTrafficReq
 }
 
 /**
- * @summary 将流量从实例中摘除
+ * @summary Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
  *
  * @param request SuspendTrafficRequest
  * @return SuspendTrafficResponse
@@ -8083,6 +8087,10 @@ UpdateAppModeResponse Client::updateAppModeWithOptions(const UpdateAppModeReques
 
   if (!!request.hasEnableIdle()) {
     query["EnableIdle"] = request.getEnableIdle();
+  }
+
+  if (!!request.hasIdleHour()) {
+    query["IdleHour"] = request.getIdleHour();
   }
 
   if (!!request.hasNamespaceId()) {

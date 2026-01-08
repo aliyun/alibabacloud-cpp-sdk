@@ -82,6 +82,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GpuType, gpuType_);
         DARABONBA_PTR_TO_JSON(HeadlessPvtzDiscovery, headlessPvtzDiscovery_);
         DARABONBA_PTR_TO_JSON(Html, html_);
+        DARABONBA_PTR_TO_JSON(IdleHour, idleHour_);
         DARABONBA_PTR_TO_JSON(ImagePullSecrets, imagePullSecrets_);
         DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
         DARABONBA_PTR_TO_JSON(InitContainersConfig, initContainersConfig_);
@@ -184,6 +185,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GpuType, gpuType_);
         DARABONBA_PTR_FROM_JSON(HeadlessPvtzDiscovery, headlessPvtzDiscovery_);
         DARABONBA_PTR_FROM_JSON(Html, html_);
+        DARABONBA_PTR_FROM_JSON(IdleHour, idleHour_);
         DARABONBA_PTR_FROM_JSON(ImagePullSecrets, imagePullSecrets_);
         DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
         DARABONBA_PTR_FROM_JSON(InitContainersConfig, initContainersConfig_);
@@ -1112,19 +1114,19 @@ namespace Models
         && this->dotnet_ == nullptr && this->edasContainerVersion_ == nullptr && this->emptyDirDesc_ == nullptr && this->enableAhas_ == nullptr && this->enableCpuBurst_ == nullptr
         && this->enableGreyTagRoute_ == nullptr && this->enableIdle_ == nullptr && this->enableNamespaceAgentVersion_ == nullptr && this->enableNewArms_ == nullptr && this->enablePrometheus_ == nullptr
         && this->envs_ == nullptr && this->gpuCount_ == nullptr && this->gpuType_ == nullptr && this->headlessPvtzDiscovery_ == nullptr && this->html_ == nullptr
-        && this->imagePullSecrets_ == nullptr && this->imageUrl_ == nullptr && this->initContainersConfig_ == nullptr && this->isStateful_ == nullptr && this->jarStartArgs_ == nullptr
-        && this->jarStartOptions_ == nullptr && this->jdk_ == nullptr && this->kafkaConfigs_ == nullptr && this->liveness_ == nullptr && this->lokiConfigs_ == nullptr
-        && this->maxSurgeInstanceRatio_ == nullptr && this->maxSurgeInstances_ == nullptr && this->memory_ == nullptr && this->microRegistration_ == nullptr && this->microRegistrationConfig_ == nullptr
-        && this->microserviceEngineConfig_ == nullptr && this->minReadyInstanceRatio_ == nullptr && this->minReadyInstances_ == nullptr && this->mountDesc_ == nullptr && this->mountHost_ == nullptr
-        && this->mseApplicationId_ == nullptr && this->mseApplicationName_ == nullptr && this->namespaceId_ == nullptr && this->nasConfigs_ == nullptr && this->nasId_ == nullptr
-        && this->newSaeVersion_ == nullptr && this->oidcRoleName_ == nullptr && this->ossAkId_ == nullptr && this->ossAkSecret_ == nullptr && this->ossMountDescs_ == nullptr
-        && this->packageType_ == nullptr && this->packageUrl_ == nullptr && this->packageVersion_ == nullptr && this->php_ == nullptr && this->phpArmsConfigLocation_ == nullptr
-        && this->phpConfig_ == nullptr && this->phpConfigLocation_ == nullptr && this->postStart_ == nullptr && this->preStop_ == nullptr && this->programmingLanguage_ == nullptr
-        && this->pvtzDiscovery_ == nullptr && this->python_ == nullptr && this->pythonModules_ == nullptr && this->readiness_ == nullptr && this->regionId_ == nullptr
-        && this->replicas_ == nullptr && this->resourceType_ == nullptr && this->secretMountDesc_ == nullptr && this->securityGroupId_ == nullptr && this->serviceTags_ == nullptr
-        && this->sidecarContainersConfig_ == nullptr && this->slsConfigs_ == nullptr && this->slsLogEnvTags_ == nullptr && this->startupProbe_ == nullptr && this->swimlanePvtzDiscovery_ == nullptr
-        && this->tags_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr && this->timezone_ == nullptr && this->tomcatConfig_ == nullptr && this->updateStrategy_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->warStartOptions_ == nullptr && this->webContainer_ == nullptr; };
+        && this->idleHour_ == nullptr && this->imagePullSecrets_ == nullptr && this->imageUrl_ == nullptr && this->initContainersConfig_ == nullptr && this->isStateful_ == nullptr
+        && this->jarStartArgs_ == nullptr && this->jarStartOptions_ == nullptr && this->jdk_ == nullptr && this->kafkaConfigs_ == nullptr && this->liveness_ == nullptr
+        && this->lokiConfigs_ == nullptr && this->maxSurgeInstanceRatio_ == nullptr && this->maxSurgeInstances_ == nullptr && this->memory_ == nullptr && this->microRegistration_ == nullptr
+        && this->microRegistrationConfig_ == nullptr && this->microserviceEngineConfig_ == nullptr && this->minReadyInstanceRatio_ == nullptr && this->minReadyInstances_ == nullptr && this->mountDesc_ == nullptr
+        && this->mountHost_ == nullptr && this->mseApplicationId_ == nullptr && this->mseApplicationName_ == nullptr && this->namespaceId_ == nullptr && this->nasConfigs_ == nullptr
+        && this->nasId_ == nullptr && this->newSaeVersion_ == nullptr && this->oidcRoleName_ == nullptr && this->ossAkId_ == nullptr && this->ossAkSecret_ == nullptr
+        && this->ossMountDescs_ == nullptr && this->packageType_ == nullptr && this->packageUrl_ == nullptr && this->packageVersion_ == nullptr && this->php_ == nullptr
+        && this->phpArmsConfigLocation_ == nullptr && this->phpConfig_ == nullptr && this->phpConfigLocation_ == nullptr && this->postStart_ == nullptr && this->preStop_ == nullptr
+        && this->programmingLanguage_ == nullptr && this->pvtzDiscovery_ == nullptr && this->python_ == nullptr && this->pythonModules_ == nullptr && this->readiness_ == nullptr
+        && this->regionId_ == nullptr && this->replicas_ == nullptr && this->resourceType_ == nullptr && this->secretMountDesc_ == nullptr && this->securityGroupId_ == nullptr
+        && this->serviceTags_ == nullptr && this->sidecarContainersConfig_ == nullptr && this->slsConfigs_ == nullptr && this->slsLogEnvTags_ == nullptr && this->startupProbe_ == nullptr
+        && this->swimlanePvtzDiscovery_ == nullptr && this->tags_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr && this->timezone_ == nullptr && this->tomcatConfig_ == nullptr
+        && this->updateStrategy_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->warStartOptions_ == nullptr && this->webContainer_ == nullptr; };
       // acrAssumeRoleArn Field Functions 
       bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
       void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -1379,6 +1381,13 @@ namespace Models
       void deleteHtml() { this->html_ = nullptr;};
       inline string getHtml() const { DARABONBA_PTR_GET_DEFAULT(html_, "") };
       inline Data& setHtml(string html) { DARABONBA_PTR_SET_VALUE(html_, html) };
+
+
+      // idleHour Field Functions 
+      bool hasIdleHour() const { return this->idleHour_ != nullptr;};
+      void deleteIdleHour() { this->idleHour_ = nullptr;};
+      inline string getIdleHour() const { DARABONBA_PTR_GET_DEFAULT(idleHour_, "") };
+      inline Data& setIdleHour(string idleHour) { DARABONBA_PTR_SET_VALUE(idleHour_, idleHour) };
 
 
       // imagePullSecrets Field Functions 
@@ -1969,6 +1978,7 @@ namespace Models
       shared_ptr<string> gpuType_ {};
       shared_ptr<string> headlessPvtzDiscovery_ {};
       shared_ptr<string> html_ {};
+      shared_ptr<string> idleHour_ {};
       // The ID of the corresponding secret dictionary.
       shared_ptr<string> imagePullSecrets_ {};
       // The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.

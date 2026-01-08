@@ -69,6 +69,10 @@ namespace Models
 
 
     protected:
+      // Indicates if enabled. Valid values: 
+      // 
+      // *   true: enabled
+      // *   false: disabled
       shared_ptr<bool> enable_ {};
     };
 
@@ -127,12 +131,30 @@ namespace Models
 
 
   protected:
+    // The HTTP status code. Valid values:
+    // 
+    // *   **2xx**: The call was successful.
+    // *   **3xx**: The call was redirected.
+    // *   **4xx**: The call failed.
+    // *   **5xx**: A server error occurred.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<DisableArmsResponseBody::Data> data_ {};
+    // The error code. Valid values:
+    // 
+    // *   If the call is successful, the **ErrorCode** parameter is not returned.
+    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> success_ {};
+    // The trace ID.
     shared_ptr<string> traceId_ {};
   };
 

@@ -1405,6 +1405,8 @@ namespace Sae20190506
       Models::DisableApplicationScalingRuleResponse disableApplicationScalingRule(const Models::DisableApplicationScalingRuleRequest &request);
 
       /**
+       * @summary Disables ARMS monitoring.
+       *
        * @param request DisableArmsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1413,6 +1415,8 @@ namespace Sae20190506
       Models::DisableArmsResponse disableArmsWithOptions(const Models::DisableArmsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Disables ARMS monitoring.
+       *
        * @param request DisableArmsRequest
        * @return DisableArmsResponse
        */
@@ -2233,7 +2237,7 @@ namespace Sae20190506
       Models::RestartInstancesResponse restartInstances(const Models::RestartInstancesRequest &request);
 
       /**
-       * @summary 恢复实例的流量
+       * @summary Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
        *
        * @param request ResumeTrafficRequest
        * @param headers map
@@ -2243,7 +2247,7 @@ namespace Sae20190506
       Models::ResumeTrafficResponse resumeTrafficWithOptions(const Models::ResumeTrafficRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复实例的流量
+       * @summary Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
        *
        * @param request ResumeTrafficRequest
        * @return ResumeTrafficResponse
@@ -2367,7 +2371,7 @@ namespace Sae20190506
       Models::SuspendJobResponse suspendJob(const Models::SuspendJobRequest &request);
 
       /**
-       * @summary 将流量从实例中摘除
+       * @summary Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
        *
        * @param request SuspendTrafficRequest
        * @param headers map
@@ -2377,7 +2381,7 @@ namespace Sae20190506
       Models::SuspendTrafficResponse suspendTrafficWithOptions(const Models::SuspendTrafficRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将流量从实例中摘除
+       * @summary Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
        *
        * @param request SuspendTrafficRequest
        * @return SuspendTrafficResponse
