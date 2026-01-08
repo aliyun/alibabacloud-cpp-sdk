@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentType_ == nullptr
-        && return this->endTimestamp_ == nullptr && return this->startTimestamp_ == nullptr; };
+        && this->endTimestamp_ == nullptr && this->startTimestamp_ == nullptr; };
     // agentType Field Functions 
     bool hasAgentType() const { return this->agentType_ != nullptr;};
     void deleteAgentType() { this->agentType_ = nullptr;};
-    inline string agentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
     inline DescribeAttackProtectionCountRequest& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
 
 
     // endTimestamp Field Functions 
     bool hasEndTimestamp() const { return this->endTimestamp_ != nullptr;};
     void deleteEndTimestamp() { this->endTimestamp_ = nullptr;};
-    inline int32_t endTimestamp() const { DARABONBA_PTR_GET_DEFAULT(endTimestamp_, 0) };
+    inline int32_t getEndTimestamp() const { DARABONBA_PTR_GET_DEFAULT(endTimestamp_, 0) };
     inline DescribeAttackProtectionCountRequest& setEndTimestamp(int32_t endTimestamp) { DARABONBA_PTR_SET_VALUE(endTimestamp_, endTimestamp) };
 
 
     // startTimestamp Field Functions 
     bool hasStartTimestamp() const { return this->startTimestamp_ != nullptr;};
     void deleteStartTimestamp() { this->startTimestamp_ = nullptr;};
-    inline int32_t startTimestamp() const { DARABONBA_PTR_GET_DEFAULT(startTimestamp_, 0) };
+    inline int32_t getStartTimestamp() const { DARABONBA_PTR_GET_DEFAULT(startTimestamp_, 0) };
     inline DescribeAttackProtectionCountRequest& setStartTimestamp(int32_t startTimestamp) { DARABONBA_PTR_SET_VALUE(startTimestamp_, startTimestamp) };
 
 
   protected:
-    std::shared_ptr<string> agentType_ = nullptr;
+    shared_ptr<string> agentType_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> endTimestamp_ = nullptr;
+    shared_ptr<int32_t> endTimestamp_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> startTimestamp_ = nullptr;
+    shared_ptr<int32_t> startTimestamp_ {};
   };
 
   } // namespace Models

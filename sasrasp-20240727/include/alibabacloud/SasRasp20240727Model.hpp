@@ -8,7 +8,5 @@
 #include <alibabacloud/models/DescribeAttacksRequest.hpp>
 #include <alibabacloud/models/DescribeAttacksResponseBody.hpp>
 #include <alibabacloud/models/DescribeAttacksResponse.hpp>
-#include <alibabacloud/models/DescribeAttacksResponseBodyAttacksInputParamItemList.hpp>
-#include <alibabacloud/models/DescribeAttacksResponseBodyAttacks.hpp>
 
 #endif
