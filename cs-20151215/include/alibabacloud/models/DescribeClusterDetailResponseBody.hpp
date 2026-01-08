@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBECLUSTERDETAILRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBECLUSTERDETAILRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <vector>
+#include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <alibabacloud/models/MaintenanceWindow.hpp>
 #include <map>
 #include <alibabacloud/models/Tag.hpp>
@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cluster_type, clusterType_);
       DARABONBA_PTR_TO_JSON(container_cidr, containerCidr_);
       DARABONBA_PTR_TO_JSON(control_plane_config, controlPlaneConfig_);
+      DARABONBA_PTR_TO_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_TO_JSON(created, created_);
       DARABONBA_PTR_TO_JSON(current_version, currentVersion_);
       DARABONBA_PTR_TO_JSON(deletion_protection, deletionProtection_);
@@ -70,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cluster_type, clusterType_);
       DARABONBA_PTR_FROM_JSON(container_cidr, containerCidr_);
       DARABONBA_PTR_FROM_JSON(control_plane_config, controlPlaneConfig_);
+      DARABONBA_PTR_FROM_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_FROM_JSON(created, created_);
       DARABONBA_PTR_FROM_JSON(current_version, currentVersion_);
       DARABONBA_PTR_FROM_JSON(deletion_protection, deletionProtection_);
@@ -303,6 +305,83 @@ namespace Models
     protected:
       // The configurations of auto cluster update.
       shared_ptr<OperationPolicy::ClusterAutoUpgrade> clusterAutoUpgrade_ {};
+    };
+
+    class ControlPlaneEndpointsConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ControlPlaneEndpointsConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(internal_dns_config, internalDnsConfig_);
+      };
+      friend void from_json(const Darabonba::Json& j, ControlPlaneEndpointsConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(internal_dns_config, internalDnsConfig_);
+      };
+      ControlPlaneEndpointsConfig() = default ;
+      ControlPlaneEndpointsConfig(const ControlPlaneEndpointsConfig &) = default ;
+      ControlPlaneEndpointsConfig(ControlPlaneEndpointsConfig &&) = default ;
+      ControlPlaneEndpointsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ControlPlaneEndpointsConfig() = default ;
+      ControlPlaneEndpointsConfig& operator=(const ControlPlaneEndpointsConfig &) = default ;
+      ControlPlaneEndpointsConfig& operator=(ControlPlaneEndpointsConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class InternalDnsConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const InternalDnsConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(bind_vpcs, bindVpcs_);
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+        };
+        friend void from_json(const Darabonba::Json& j, InternalDnsConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(bind_vpcs, bindVpcs_);
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+        };
+        InternalDnsConfig() = default ;
+        InternalDnsConfig(const InternalDnsConfig &) = default ;
+        InternalDnsConfig(InternalDnsConfig &&) = default ;
+        InternalDnsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~InternalDnsConfig() = default ;
+        InternalDnsConfig& operator=(const InternalDnsConfig &) = default ;
+        InternalDnsConfig& operator=(InternalDnsConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bindVpcs_ == nullptr
+        && this->enabled_ == nullptr; };
+        // bindVpcs Field Functions 
+        bool hasBindVpcs() const { return this->bindVpcs_ != nullptr;};
+        void deleteBindVpcs() { this->bindVpcs_ = nullptr;};
+        inline const vector<string> & getBindVpcs() const { DARABONBA_PTR_GET_CONST(bindVpcs_, vector<string>) };
+        inline vector<string> getBindVpcs() { DARABONBA_PTR_GET(bindVpcs_, vector<string>) };
+        inline InternalDnsConfig& setBindVpcs(const vector<string> & bindVpcs) { DARABONBA_PTR_SET_VALUE(bindVpcs_, bindVpcs) };
+        inline InternalDnsConfig& setBindVpcs(vector<string> && bindVpcs) { DARABONBA_PTR_SET_RVALUE(bindVpcs_, bindVpcs) };
+
+
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline InternalDnsConfig& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+      protected:
+        shared_ptr<vector<string>> bindVpcs_ {};
+        shared_ptr<bool> enabled_ {};
+      };
+
+      virtual bool empty() const override { return this->internalDnsConfig_ == nullptr; };
+      // internalDnsConfig Field Functions 
+      bool hasInternalDnsConfig() const { return this->internalDnsConfig_ != nullptr;};
+      void deleteInternalDnsConfig() { this->internalDnsConfig_ = nullptr;};
+      inline const ControlPlaneEndpointsConfig::InternalDnsConfig & getInternalDnsConfig() const { DARABONBA_PTR_GET_CONST(internalDnsConfig_, ControlPlaneEndpointsConfig::InternalDnsConfig) };
+      inline ControlPlaneEndpointsConfig::InternalDnsConfig getInternalDnsConfig() { DARABONBA_PTR_GET(internalDnsConfig_, ControlPlaneEndpointsConfig::InternalDnsConfig) };
+      inline ControlPlaneEndpointsConfig& setInternalDnsConfig(const ControlPlaneEndpointsConfig::InternalDnsConfig & internalDnsConfig) { DARABONBA_PTR_SET_VALUE(internalDnsConfig_, internalDnsConfig) };
+      inline ControlPlaneEndpointsConfig& setInternalDnsConfig(ControlPlaneEndpointsConfig::InternalDnsConfig && internalDnsConfig) { DARABONBA_PTR_SET_RVALUE(internalDnsConfig_, internalDnsConfig) };
+
+
+    protected:
+      shared_ptr<ControlPlaneEndpointsConfig::InternalDnsConfig> internalDnsConfig_ {};
     };
 
     class ControlPlaneConfig : public Darabonba::Model {
@@ -631,14 +710,14 @@ namespace Models
 
     virtual bool empty() const override { return this->autoMode_ == nullptr
         && this->clusterDomain_ == nullptr && this->clusterId_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->containerCidr_ == nullptr
-        && this->controlPlaneConfig_ == nullptr && this->created_ == nullptr && this->currentVersion_ == nullptr && this->deletionProtection_ == nullptr && this->dockerVersion_ == nullptr
-        && this->externalLoadbalancerId_ == nullptr && this->extraSans_ == nullptr && this->initVersion_ == nullptr && this->ipStack_ == nullptr && this->maintenanceWindow_ == nullptr
-        && this->masterUrl_ == nullptr && this->metaData_ == nullptr && this->name_ == nullptr && this->networkMode_ == nullptr && this->nextVersion_ == nullptr
-        && this->nodeCidrMask_ == nullptr && this->operationPolicy_ == nullptr && this->parameters_ == nullptr && this->privateZone_ == nullptr && this->profile_ == nullptr
-        && this->proxyMode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->rrsaConfig_ == nullptr && this->securityGroupId_ == nullptr
-        && this->serviceCidr_ == nullptr && this->size_ == nullptr && this->state_ == nullptr && this->subnetCidr_ == nullptr && this->tags_ == nullptr
-        && this->timezone_ == nullptr && this->updated_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr && this->vswitchIds_ == nullptr
-        && this->workerRamRoleName_ == nullptr && this->zoneId_ == nullptr; };
+        && this->controlPlaneConfig_ == nullptr && this->controlPlaneEndpointsConfig_ == nullptr && this->created_ == nullptr && this->currentVersion_ == nullptr && this->deletionProtection_ == nullptr
+        && this->dockerVersion_ == nullptr && this->externalLoadbalancerId_ == nullptr && this->extraSans_ == nullptr && this->initVersion_ == nullptr && this->ipStack_ == nullptr
+        && this->maintenanceWindow_ == nullptr && this->masterUrl_ == nullptr && this->metaData_ == nullptr && this->name_ == nullptr && this->networkMode_ == nullptr
+        && this->nextVersion_ == nullptr && this->nodeCidrMask_ == nullptr && this->operationPolicy_ == nullptr && this->parameters_ == nullptr && this->privateZone_ == nullptr
+        && this->profile_ == nullptr && this->proxyMode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->rrsaConfig_ == nullptr
+        && this->securityGroupId_ == nullptr && this->serviceCidr_ == nullptr && this->size_ == nullptr && this->state_ == nullptr && this->subnetCidr_ == nullptr
+        && this->tags_ == nullptr && this->timezone_ == nullptr && this->updated_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
+        && this->vswitchIds_ == nullptr && this->workerRamRoleName_ == nullptr && this->zoneId_ == nullptr; };
     // autoMode Field Functions 
     bool hasAutoMode() const { return this->autoMode_ != nullptr;};
     void deleteAutoMode() { this->autoMode_ = nullptr;};
@@ -690,6 +769,15 @@ namespace Models
     inline DescribeClusterDetailResponseBody::ControlPlaneConfig getControlPlaneConfig() { DARABONBA_PTR_GET(controlPlaneConfig_, DescribeClusterDetailResponseBody::ControlPlaneConfig) };
     inline DescribeClusterDetailResponseBody& setControlPlaneConfig(const DescribeClusterDetailResponseBody::ControlPlaneConfig & controlPlaneConfig) { DARABONBA_PTR_SET_VALUE(controlPlaneConfig_, controlPlaneConfig) };
     inline DescribeClusterDetailResponseBody& setControlPlaneConfig(DescribeClusterDetailResponseBody::ControlPlaneConfig && controlPlaneConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneConfig_, controlPlaneConfig) };
+
+
+    // controlPlaneEndpointsConfig Field Functions 
+    bool hasControlPlaneEndpointsConfig() const { return this->controlPlaneEndpointsConfig_ != nullptr;};
+    void deleteControlPlaneEndpointsConfig() { this->controlPlaneEndpointsConfig_ = nullptr;};
+    inline const DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig & getControlPlaneEndpointsConfig() const { DARABONBA_PTR_GET_CONST(controlPlaneEndpointsConfig_, DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig) };
+    inline DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig getControlPlaneEndpointsConfig() { DARABONBA_PTR_GET(controlPlaneEndpointsConfig_, DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig) };
+    inline DescribeClusterDetailResponseBody& setControlPlaneEndpointsConfig(const DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig & controlPlaneEndpointsConfig) { DARABONBA_PTR_SET_VALUE(controlPlaneEndpointsConfig_, controlPlaneEndpointsConfig) };
+    inline DescribeClusterDetailResponseBody& setControlPlaneEndpointsConfig(DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig && controlPlaneEndpointsConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneEndpointsConfig_, controlPlaneEndpointsConfig) };
 
 
     // created Field Functions 
@@ -979,6 +1067,7 @@ namespace Models
     shared_ptr<string> containerCidr_ {};
     // The control plane configurations in an ACK dedicated cluster.
     shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneConfig> controlPlaneConfig_ {};
+    shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};
     // The time when the cluster was created.
     shared_ptr<string> created_ {};
     // The Kubernetes version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).

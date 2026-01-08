@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(api_server_eip_id, apiServerEipId_);
       DARABONBA_PTR_TO_JSON(cluster_name, clusterName_);
       DARABONBA_PTR_TO_JSON(control_plane_config, controlPlaneConfig_);
+      DARABONBA_PTR_TO_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_TO_JSON(deletion_protection, deletionProtection_);
       DARABONBA_PTR_TO_JSON(enable_rrsa, enableRrsa_);
       DARABONBA_PTR_TO_JSON(ingress_domain_rebinding, ingressDomainRebinding_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(api_server_eip_id, apiServerEipId_);
       DARABONBA_PTR_FROM_JSON(cluster_name, clusterName_);
       DARABONBA_PTR_FROM_JSON(control_plane_config, controlPlaneConfig_);
+      DARABONBA_PTR_FROM_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_FROM_JSON(deletion_protection, deletionProtection_);
       DARABONBA_PTR_FROM_JSON(enable_rrsa, enableRrsa_);
       DARABONBA_PTR_FROM_JSON(ingress_domain_rebinding, ingressDomainRebinding_);
@@ -191,6 +193,83 @@ namespace Models
     protected:
       // The configurations of automatic update.
       shared_ptr<OperationPolicy::ClusterAutoUpgrade> clusterAutoUpgrade_ {};
+    };
+
+    class ControlPlaneEndpointsConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ControlPlaneEndpointsConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(internal_dns_config, internalDnsConfig_);
+      };
+      friend void from_json(const Darabonba::Json& j, ControlPlaneEndpointsConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(internal_dns_config, internalDnsConfig_);
+      };
+      ControlPlaneEndpointsConfig() = default ;
+      ControlPlaneEndpointsConfig(const ControlPlaneEndpointsConfig &) = default ;
+      ControlPlaneEndpointsConfig(ControlPlaneEndpointsConfig &&) = default ;
+      ControlPlaneEndpointsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ControlPlaneEndpointsConfig() = default ;
+      ControlPlaneEndpointsConfig& operator=(const ControlPlaneEndpointsConfig &) = default ;
+      ControlPlaneEndpointsConfig& operator=(ControlPlaneEndpointsConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class InternalDnsConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const InternalDnsConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(bind_vpcs, bindVpcs_);
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+        };
+        friend void from_json(const Darabonba::Json& j, InternalDnsConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(bind_vpcs, bindVpcs_);
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+        };
+        InternalDnsConfig() = default ;
+        InternalDnsConfig(const InternalDnsConfig &) = default ;
+        InternalDnsConfig(InternalDnsConfig &&) = default ;
+        InternalDnsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~InternalDnsConfig() = default ;
+        InternalDnsConfig& operator=(const InternalDnsConfig &) = default ;
+        InternalDnsConfig& operator=(InternalDnsConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bindVpcs_ == nullptr
+        && this->enabled_ == nullptr; };
+        // bindVpcs Field Functions 
+        bool hasBindVpcs() const { return this->bindVpcs_ != nullptr;};
+        void deleteBindVpcs() { this->bindVpcs_ = nullptr;};
+        inline const vector<string> & getBindVpcs() const { DARABONBA_PTR_GET_CONST(bindVpcs_, vector<string>) };
+        inline vector<string> getBindVpcs() { DARABONBA_PTR_GET(bindVpcs_, vector<string>) };
+        inline InternalDnsConfig& setBindVpcs(const vector<string> & bindVpcs) { DARABONBA_PTR_SET_VALUE(bindVpcs_, bindVpcs) };
+        inline InternalDnsConfig& setBindVpcs(vector<string> && bindVpcs) { DARABONBA_PTR_SET_RVALUE(bindVpcs_, bindVpcs) };
+
+
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline InternalDnsConfig& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+      protected:
+        shared_ptr<vector<string>> bindVpcs_ {};
+        shared_ptr<bool> enabled_ {};
+      };
+
+      virtual bool empty() const override { return this->internalDnsConfig_ == nullptr; };
+      // internalDnsConfig Field Functions 
+      bool hasInternalDnsConfig() const { return this->internalDnsConfig_ != nullptr;};
+      void deleteInternalDnsConfig() { this->internalDnsConfig_ = nullptr;};
+      inline const ControlPlaneEndpointsConfig::InternalDnsConfig & getInternalDnsConfig() const { DARABONBA_PTR_GET_CONST(internalDnsConfig_, ControlPlaneEndpointsConfig::InternalDnsConfig) };
+      inline ControlPlaneEndpointsConfig::InternalDnsConfig getInternalDnsConfig() { DARABONBA_PTR_GET(internalDnsConfig_, ControlPlaneEndpointsConfig::InternalDnsConfig) };
+      inline ControlPlaneEndpointsConfig& setInternalDnsConfig(const ControlPlaneEndpointsConfig::InternalDnsConfig & internalDnsConfig) { DARABONBA_PTR_SET_VALUE(internalDnsConfig_, internalDnsConfig) };
+      inline ControlPlaneEndpointsConfig& setInternalDnsConfig(ControlPlaneEndpointsConfig::InternalDnsConfig && internalDnsConfig) { DARABONBA_PTR_SET_RVALUE(internalDnsConfig_, internalDnsConfig) };
+
+
+    protected:
+      shared_ptr<ControlPlaneEndpointsConfig::InternalDnsConfig> internalDnsConfig_ {};
     };
 
     class ControlPlaneConfig : public Darabonba::Model {
@@ -593,9 +672,9 @@ namespace Models
 
     virtual bool empty() const override { return this->accessControlList_ == nullptr
         && this->apiServerCustomCertSans_ == nullptr && this->apiServerEip_ == nullptr && this->apiServerEipId_ == nullptr && this->clusterName_ == nullptr && this->controlPlaneConfig_ == nullptr
-        && this->deletionProtection_ == nullptr && this->enableRrsa_ == nullptr && this->ingressDomainRebinding_ == nullptr && this->ingressLoadbalancerId_ == nullptr && this->instanceDeletionProtection_ == nullptr
-        && this->maintenanceWindow_ == nullptr && this->operationPolicy_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->systemEventsLogging_ == nullptr
-        && this->timezone_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->controlPlaneEndpointsConfig_ == nullptr && this->deletionProtection_ == nullptr && this->enableRrsa_ == nullptr && this->ingressDomainRebinding_ == nullptr && this->ingressLoadbalancerId_ == nullptr
+        && this->instanceDeletionProtection_ == nullptr && this->maintenanceWindow_ == nullptr && this->operationPolicy_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr
+        && this->systemEventsLogging_ == nullptr && this->timezone_ == nullptr && this->vswitchIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};
@@ -642,6 +721,15 @@ namespace Models
     inline ModifyClusterRequest::ControlPlaneConfig getControlPlaneConfig() { DARABONBA_PTR_GET(controlPlaneConfig_, ModifyClusterRequest::ControlPlaneConfig) };
     inline ModifyClusterRequest& setControlPlaneConfig(const ModifyClusterRequest::ControlPlaneConfig & controlPlaneConfig) { DARABONBA_PTR_SET_VALUE(controlPlaneConfig_, controlPlaneConfig) };
     inline ModifyClusterRequest& setControlPlaneConfig(ModifyClusterRequest::ControlPlaneConfig && controlPlaneConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneConfig_, controlPlaneConfig) };
+
+
+    // controlPlaneEndpointsConfig Field Functions 
+    bool hasControlPlaneEndpointsConfig() const { return this->controlPlaneEndpointsConfig_ != nullptr;};
+    void deleteControlPlaneEndpointsConfig() { this->controlPlaneEndpointsConfig_ = nullptr;};
+    inline const ModifyClusterRequest::ControlPlaneEndpointsConfig & getControlPlaneEndpointsConfig() const { DARABONBA_PTR_GET_CONST(controlPlaneEndpointsConfig_, ModifyClusterRequest::ControlPlaneEndpointsConfig) };
+    inline ModifyClusterRequest::ControlPlaneEndpointsConfig getControlPlaneEndpointsConfig() { DARABONBA_PTR_GET(controlPlaneEndpointsConfig_, ModifyClusterRequest::ControlPlaneEndpointsConfig) };
+    inline ModifyClusterRequest& setControlPlaneEndpointsConfig(const ModifyClusterRequest::ControlPlaneEndpointsConfig & controlPlaneEndpointsConfig) { DARABONBA_PTR_SET_VALUE(controlPlaneEndpointsConfig_, controlPlaneEndpointsConfig) };
+    inline ModifyClusterRequest& setControlPlaneEndpointsConfig(ModifyClusterRequest::ControlPlaneEndpointsConfig && controlPlaneEndpointsConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneEndpointsConfig_, controlPlaneEndpointsConfig) };
 
 
     // deletionProtection Field Functions 
@@ -754,6 +842,7 @@ namespace Models
     shared_ptr<string> clusterName_ {};
     // The control plane configurations of an ACK dedicated cluster.
     shared_ptr<ModifyClusterRequest::ControlPlaneConfig> controlPlaneConfig_ {};
+    shared_ptr<ModifyClusterRequest::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};
     // Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
     // 
     // *   `true`: enables cluster deletion protection.

@@ -753,6 +753,10 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
     body["control_plane_config"] = request.getControlPlaneConfig();
   }
 
+  if (!!request.hasControlPlaneEndpointsConfig()) {
+    body["control_plane_endpoints_config"] = request.getControlPlaneEndpointsConfig();
+  }
+
   if (!!request.hasControlplaneLogComponents()) {
     body["controlplane_log_components"] = request.getControlplaneLogComponents();
   }
@@ -5294,6 +5298,10 @@ ModifyClusterResponse Client::modifyClusterWithOptions(const string &ClusterId, 
 
   if (!!request.hasControlPlaneConfig()) {
     body["control_plane_config"] = request.getControlPlaneConfig();
+  }
+
+  if (!!request.hasControlPlaneEndpointsConfig()) {
+    body["control_plane_endpoints_config"] = request.getControlPlaneEndpointsConfig();
   }
 
   if (!!request.hasDeletionProtection()) {

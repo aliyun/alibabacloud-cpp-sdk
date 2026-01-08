@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATECLUSTERREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATECLUSTERREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <vector>
+#include <alibabacloud/models/InstanceMetadataOptions.hpp>
 #include <alibabacloud/models/Addon.hpp>
 #include <alibabacloud/models/MaintenanceWindow.hpp>
 #include <alibabacloud/models/Nodepool.hpp>
@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cluster_type, clusterType_);
       DARABONBA_PTR_TO_JSON(container_cidr, containerCidr_);
       DARABONBA_PTR_TO_JSON(control_plane_config, controlPlaneConfig_);
+      DARABONBA_PTR_TO_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_TO_JSON(controlplane_log_components, controlplaneLogComponents_);
       DARABONBA_PTR_TO_JSON(controlplane_log_project, controlplaneLogProject_);
       DARABONBA_PTR_TO_JSON(controlplane_log_ttl, controlplaneLogTtl_);
@@ -140,6 +141,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cluster_type, clusterType_);
       DARABONBA_PTR_FROM_JSON(container_cidr, containerCidr_);
       DARABONBA_PTR_FROM_JSON(control_plane_config, controlPlaneConfig_);
+      DARABONBA_PTR_FROM_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_FROM_JSON(controlplane_log_components, controlplaneLogComponents_);
       DARABONBA_PTR_FROM_JSON(controlplane_log_project, controlplaneLogProject_);
       DARABONBA_PTR_FROM_JSON(controlplane_log_ttl, controlplaneLogTtl_);
@@ -425,6 +427,72 @@ namespace Models
     protected:
       // The configurations of auto cluster upgrade.
       shared_ptr<OperationPolicy::ClusterAutoUpgrade> clusterAutoUpgrade_ {};
+    };
+
+    class ControlPlaneEndpointsConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ControlPlaneEndpointsConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(internal_dns_config, internalDnsConfig_);
+      };
+      friend void from_json(const Darabonba::Json& j, ControlPlaneEndpointsConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(internal_dns_config, internalDnsConfig_);
+      };
+      ControlPlaneEndpointsConfig() = default ;
+      ControlPlaneEndpointsConfig(const ControlPlaneEndpointsConfig &) = default ;
+      ControlPlaneEndpointsConfig(ControlPlaneEndpointsConfig &&) = default ;
+      ControlPlaneEndpointsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ControlPlaneEndpointsConfig() = default ;
+      ControlPlaneEndpointsConfig& operator=(const ControlPlaneEndpointsConfig &) = default ;
+      ControlPlaneEndpointsConfig& operator=(ControlPlaneEndpointsConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class InternalDnsConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const InternalDnsConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(bind_vpcs, bindVpcs_);
+        };
+        friend void from_json(const Darabonba::Json& j, InternalDnsConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(bind_vpcs, bindVpcs_);
+        };
+        InternalDnsConfig() = default ;
+        InternalDnsConfig(const InternalDnsConfig &) = default ;
+        InternalDnsConfig(InternalDnsConfig &&) = default ;
+        InternalDnsConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~InternalDnsConfig() = default ;
+        InternalDnsConfig& operator=(const InternalDnsConfig &) = default ;
+        InternalDnsConfig& operator=(InternalDnsConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bindVpcs_ == nullptr; };
+        // bindVpcs Field Functions 
+        bool hasBindVpcs() const { return this->bindVpcs_ != nullptr;};
+        void deleteBindVpcs() { this->bindVpcs_ = nullptr;};
+        inline const vector<string> & getBindVpcs() const { DARABONBA_PTR_GET_CONST(bindVpcs_, vector<string>) };
+        inline vector<string> getBindVpcs() { DARABONBA_PTR_GET(bindVpcs_, vector<string>) };
+        inline InternalDnsConfig& setBindVpcs(const vector<string> & bindVpcs) { DARABONBA_PTR_SET_VALUE(bindVpcs_, bindVpcs) };
+        inline InternalDnsConfig& setBindVpcs(vector<string> && bindVpcs) { DARABONBA_PTR_SET_RVALUE(bindVpcs_, bindVpcs) };
+
+
+      protected:
+        shared_ptr<vector<string>> bindVpcs_ {};
+      };
+
+      virtual bool empty() const override { return this->internalDnsConfig_ == nullptr; };
+      // internalDnsConfig Field Functions 
+      bool hasInternalDnsConfig() const { return this->internalDnsConfig_ != nullptr;};
+      void deleteInternalDnsConfig() { this->internalDnsConfig_ = nullptr;};
+      inline const ControlPlaneEndpointsConfig::InternalDnsConfig & getInternalDnsConfig() const { DARABONBA_PTR_GET_CONST(internalDnsConfig_, ControlPlaneEndpointsConfig::InternalDnsConfig) };
+      inline ControlPlaneEndpointsConfig::InternalDnsConfig getInternalDnsConfig() { DARABONBA_PTR_GET(internalDnsConfig_, ControlPlaneEndpointsConfig::InternalDnsConfig) };
+      inline ControlPlaneEndpointsConfig& setInternalDnsConfig(const ControlPlaneEndpointsConfig::InternalDnsConfig & internalDnsConfig) { DARABONBA_PTR_SET_VALUE(internalDnsConfig_, internalDnsConfig) };
+      inline ControlPlaneEndpointsConfig& setInternalDnsConfig(ControlPlaneEndpointsConfig::InternalDnsConfig && internalDnsConfig) { DARABONBA_PTR_SET_RVALUE(internalDnsConfig_, internalDnsConfig) };
+
+
+    protected:
+      shared_ptr<ControlPlaneEndpointsConfig::InternalDnsConfig> internalDnsConfig_ {};
     };
 
     class ControlPlaneConfig : public Darabonba::Model {
@@ -807,25 +875,25 @@ namespace Models
     virtual bool empty() const override { return this->accessControlList_ == nullptr
         && this->addons_ == nullptr && this->apiAudiences_ == nullptr && this->auditLogConfig_ == nullptr && this->autoMode_ == nullptr && this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->chargeType_ == nullptr && this->cisEnabled_ == nullptr && this->cloudMonitorFlags_ == nullptr && this->clusterDomain_ == nullptr
-        && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->controlplaneLogComponents_ == nullptr
-        && this->controlplaneLogProject_ == nullptr && this->controlplaneLogTtl_ == nullptr && this->cpuPolicy_ == nullptr && this->customSan_ == nullptr && this->deletionProtection_ == nullptr
-        && this->disableRollback_ == nullptr && this->enableRrsa_ == nullptr && this->encryptionProviderKey_ == nullptr && this->endpointPublicAccess_ == nullptr && this->extraSans_ == nullptr
-        && this->formatDisk_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->instances_ == nullptr && this->ipStack_ == nullptr
-        && this->isEnterpriseSecurityGroup_ == nullptr && this->keepInstanceName_ == nullptr && this->keyPair_ == nullptr && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr
-        && this->loadBalancerSpec_ == nullptr && this->loggingType_ == nullptr && this->loginPassword_ == nullptr && this->maintenanceWindow_ == nullptr && this->masterAutoRenew_ == nullptr
-        && this->masterAutoRenewPeriod_ == nullptr && this->masterCount_ == nullptr && this->masterInstanceChargeType_ == nullptr && this->masterInstanceTypes_ == nullptr && this->masterPeriod_ == nullptr
-        && this->masterPeriodUnit_ == nullptr && this->masterSystemDiskCategory_ == nullptr && this->masterSystemDiskPerformanceLevel_ == nullptr && this->masterSystemDiskSize_ == nullptr && this->masterSystemDiskSnapshotPolicyId_ == nullptr
-        && this->masterVswitchIds_ == nullptr && this->name_ == nullptr && this->natGateway_ == nullptr && this->nodeCidrMask_ == nullptr && this->nodeNameMode_ == nullptr
-        && this->nodePortRange_ == nullptr && this->nodepools_ == nullptr && this->numOfNodes_ == nullptr && this->operationPolicy_ == nullptr && this->osType_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr && this->podVswitchIds_ == nullptr && this->profile_ == nullptr
-        && this->proxyMode_ == nullptr && this->rdsInstances_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->rrsaConfig_ == nullptr
-        && this->runtime_ == nullptr && this->securityGroupId_ == nullptr && this->securityHardeningOs_ == nullptr && this->serviceAccountIssuer_ == nullptr && this->serviceCidr_ == nullptr
-        && this->serviceDiscoveryTypes_ == nullptr && this->snatEntry_ == nullptr && this->socEnabled_ == nullptr && this->sshFlags_ == nullptr && this->tags_ == nullptr
-        && this->taints_ == nullptr && this->timeoutMins_ == nullptr && this->timezone_ == nullptr && this->userCa_ == nullptr && this->userData_ == nullptr
-        && this->vpcid_ == nullptr && this->vswitchIds_ == nullptr && this->workerAutoRenew_ == nullptr && this->workerAutoRenewPeriod_ == nullptr && this->workerDataDisks_ == nullptr
-        && this->workerInstanceChargeType_ == nullptr && this->workerInstanceTypes_ == nullptr && this->workerPeriod_ == nullptr && this->workerPeriodUnit_ == nullptr && this->workerSystemDiskCategory_ == nullptr
-        && this->workerSystemDiskPerformanceLevel_ == nullptr && this->workerSystemDiskSize_ == nullptr && this->workerSystemDiskSnapshotPolicyId_ == nullptr && this->workerVswitchIds_ == nullptr && this->zoneId_ == nullptr
-        && this->zoneIds_ == nullptr; };
+        && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->controlPlaneEndpointsConfig_ == nullptr
+        && this->controlplaneLogComponents_ == nullptr && this->controlplaneLogProject_ == nullptr && this->controlplaneLogTtl_ == nullptr && this->cpuPolicy_ == nullptr && this->customSan_ == nullptr
+        && this->deletionProtection_ == nullptr && this->disableRollback_ == nullptr && this->enableRrsa_ == nullptr && this->encryptionProviderKey_ == nullptr && this->endpointPublicAccess_ == nullptr
+        && this->extraSans_ == nullptr && this->formatDisk_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->instances_ == nullptr
+        && this->ipStack_ == nullptr && this->isEnterpriseSecurityGroup_ == nullptr && this->keepInstanceName_ == nullptr && this->keyPair_ == nullptr && this->kubernetesVersion_ == nullptr
+        && this->loadBalancerId_ == nullptr && this->loadBalancerSpec_ == nullptr && this->loggingType_ == nullptr && this->loginPassword_ == nullptr && this->maintenanceWindow_ == nullptr
+        && this->masterAutoRenew_ == nullptr && this->masterAutoRenewPeriod_ == nullptr && this->masterCount_ == nullptr && this->masterInstanceChargeType_ == nullptr && this->masterInstanceTypes_ == nullptr
+        && this->masterPeriod_ == nullptr && this->masterPeriodUnit_ == nullptr && this->masterSystemDiskCategory_ == nullptr && this->masterSystemDiskPerformanceLevel_ == nullptr && this->masterSystemDiskSize_ == nullptr
+        && this->masterSystemDiskSnapshotPolicyId_ == nullptr && this->masterVswitchIds_ == nullptr && this->name_ == nullptr && this->natGateway_ == nullptr && this->nodeCidrMask_ == nullptr
+        && this->nodeNameMode_ == nullptr && this->nodePortRange_ == nullptr && this->nodepools_ == nullptr && this->numOfNodes_ == nullptr && this->operationPolicy_ == nullptr
+        && this->osType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr && this->podVswitchIds_ == nullptr
+        && this->profile_ == nullptr && this->proxyMode_ == nullptr && this->rdsInstances_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->rrsaConfig_ == nullptr && this->runtime_ == nullptr && this->securityGroupId_ == nullptr && this->securityHardeningOs_ == nullptr && this->serviceAccountIssuer_ == nullptr
+        && this->serviceCidr_ == nullptr && this->serviceDiscoveryTypes_ == nullptr && this->snatEntry_ == nullptr && this->socEnabled_ == nullptr && this->sshFlags_ == nullptr
+        && this->tags_ == nullptr && this->taints_ == nullptr && this->timeoutMins_ == nullptr && this->timezone_ == nullptr && this->userCa_ == nullptr
+        && this->userData_ == nullptr && this->vpcid_ == nullptr && this->vswitchIds_ == nullptr && this->workerAutoRenew_ == nullptr && this->workerAutoRenewPeriod_ == nullptr
+        && this->workerDataDisks_ == nullptr && this->workerInstanceChargeType_ == nullptr && this->workerInstanceTypes_ == nullptr && this->workerPeriod_ == nullptr && this->workerPeriodUnit_ == nullptr
+        && this->workerSystemDiskCategory_ == nullptr && this->workerSystemDiskPerformanceLevel_ == nullptr && this->workerSystemDiskSize_ == nullptr && this->workerSystemDiskSnapshotPolicyId_ == nullptr && this->workerVswitchIds_ == nullptr
+        && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};
@@ -939,6 +1007,15 @@ namespace Models
     inline CreateClusterRequest::ControlPlaneConfig getControlPlaneConfig() { DARABONBA_PTR_GET(controlPlaneConfig_, CreateClusterRequest::ControlPlaneConfig) };
     inline CreateClusterRequest& setControlPlaneConfig(const CreateClusterRequest::ControlPlaneConfig & controlPlaneConfig) { DARABONBA_PTR_SET_VALUE(controlPlaneConfig_, controlPlaneConfig) };
     inline CreateClusterRequest& setControlPlaneConfig(CreateClusterRequest::ControlPlaneConfig && controlPlaneConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneConfig_, controlPlaneConfig) };
+
+
+    // controlPlaneEndpointsConfig Field Functions 
+    bool hasControlPlaneEndpointsConfig() const { return this->controlPlaneEndpointsConfig_ != nullptr;};
+    void deleteControlPlaneEndpointsConfig() { this->controlPlaneEndpointsConfig_ = nullptr;};
+    inline const CreateClusterRequest::ControlPlaneEndpointsConfig & getControlPlaneEndpointsConfig() const { DARABONBA_PTR_GET_CONST(controlPlaneEndpointsConfig_, CreateClusterRequest::ControlPlaneEndpointsConfig) };
+    inline CreateClusterRequest::ControlPlaneEndpointsConfig getControlPlaneEndpointsConfig() { DARABONBA_PTR_GET(controlPlaneEndpointsConfig_, CreateClusterRequest::ControlPlaneEndpointsConfig) };
+    inline CreateClusterRequest& setControlPlaneEndpointsConfig(const CreateClusterRequest::ControlPlaneEndpointsConfig & controlPlaneEndpointsConfig) { DARABONBA_PTR_SET_VALUE(controlPlaneEndpointsConfig_, controlPlaneEndpointsConfig) };
+    inline CreateClusterRequest& setControlPlaneEndpointsConfig(CreateClusterRequest::ControlPlaneEndpointsConfig && controlPlaneEndpointsConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneEndpointsConfig_, controlPlaneEndpointsConfig) };
 
 
     // controlplaneLogComponents Field Functions 
@@ -1692,6 +1769,7 @@ namespace Models
     shared_ptr<string> containerCidr_ {};
     // The control plane configurations of an ACK dedicated cluster.
     shared_ptr<CreateClusterRequest::ControlPlaneConfig> controlPlaneConfig_ {};
+    shared_ptr<CreateClusterRequest::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};
     // The control plane components for which you want to enable log collection.
     // 
     // By default, the logs of kube-apiserver, kube-controller-manager, and kube-scheduler are collected.
