@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteLifecyclePolicyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
+      DARABONBA_PTR_TO_JSON(LifecyclePolicyId, lifecyclePolicyId_);
       DARABONBA_PTR_TO_JSON(LifecyclePolicyName, lifecyclePolicyName_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteLifecyclePolicyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
+      DARABONBA_PTR_FROM_JSON(LifecyclePolicyId, lifecyclePolicyId_);
       DARABONBA_PTR_FROM_JSON(LifecyclePolicyName, lifecyclePolicyName_);
     };
     DeleteLifecyclePolicyRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && this->lifecyclePolicyName_ == nullptr; };
+        && this->lifecyclePolicyId_ == nullptr && this->lifecyclePolicyName_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
     inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline DeleteLifecyclePolicyRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
+
+
+    // lifecyclePolicyId Field Functions 
+    bool hasLifecyclePolicyId() const { return this->lifecyclePolicyId_ != nullptr;};
+    void deleteLifecyclePolicyId() { this->lifecyclePolicyId_ = nullptr;};
+    inline string getLifecyclePolicyId() const { DARABONBA_PTR_GET_DEFAULT(lifecyclePolicyId_, "") };
+    inline DeleteLifecyclePolicyRequest& setLifecyclePolicyId(string lifecyclePolicyId) { DARABONBA_PTR_SET_VALUE(lifecyclePolicyId_, lifecyclePolicyId) };
 
 
     // lifecyclePolicyName Field Functions 
@@ -52,9 +61,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    shared_ptr<string> lifecyclePolicyId_ {};
     // The name of the lifecycle policy.
-    // 
-    // This parameter is required.
     shared_ptr<string> lifecyclePolicyName_ {};
   };
 

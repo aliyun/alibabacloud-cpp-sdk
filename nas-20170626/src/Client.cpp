@@ -1994,12 +1994,20 @@ CreateLDAPConfigResponse Client::createLDAPConfig(const CreateLDAPConfigRequest 
 CreateLifecyclePolicyResponse Client::createLifecyclePolicyWithOptions(const CreateLifecyclePolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
   if (!!request.hasFileSystemId()) {
     query["FileSystemId"] = request.getFileSystemId();
   }
 
   if (!!request.hasLifecyclePolicyName()) {
     query["LifecyclePolicyName"] = request.getLifecyclePolicyName();
+  }
+
+  if (!!request.hasLifecyclePolicyType()) {
+    query["LifecyclePolicyType"] = request.getLifecyclePolicyType();
   }
 
   if (!!request.hasLifecycleRuleName()) {
@@ -2014,8 +2022,16 @@ CreateLifecyclePolicyResponse Client::createLifecyclePolicyWithOptions(const Cre
     query["Paths"] = request.getPaths();
   }
 
+  if (!!request.hasRetrieveRules()) {
+    query["RetrieveRules"] = request.getRetrieveRules();
+  }
+
   if (!!request.hasStorageType()) {
     query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasTransitRules()) {
+    query["TransitRules"] = request.getTransitRules();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3037,6 +3053,10 @@ DeleteLifecyclePolicyResponse Client::deleteLifecyclePolicyWithOptions(const Del
   json query = {};
   if (!!request.hasFileSystemId()) {
     query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasLifecyclePolicyId()) {
+    query["LifecyclePolicyId"] = request.getLifecyclePolicyId();
   }
 
   if (!!request.hasLifecyclePolicyName()) {
@@ -6337,6 +6357,10 @@ ModifyLifecyclePolicyResponse Client::modifyLifecyclePolicyWithOptions(const Mod
   json query = {};
   if (!!request.hasFileSystemId()) {
     query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasLifecyclePolicyId()) {
+    query["LifecyclePolicyId"] = request.getLifecyclePolicyId();
   }
 
   if (!!request.hasLifecyclePolicyName()) {
