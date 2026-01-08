@@ -23176,6 +23176,10 @@ ListNatIpsResponse Client::listNatIpsWithOptions(const ListNatIpsRequest &reques
     query["IpOrigin"] = request.getIpOrigin();
   }
 
+  if (!!request.hasIpv4Prefix()) {
+    query["Ipv4Prefix"] = request.getIpv4Prefix();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }

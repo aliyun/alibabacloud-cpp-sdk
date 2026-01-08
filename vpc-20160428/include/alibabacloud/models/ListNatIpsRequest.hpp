@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(IpOrigin, ipOrigin_);
+      DARABONBA_PTR_TO_JSON(Ipv4Prefix, ipv4Prefix_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(NatIpCidr, natIpCidr_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(IpOrigin, ipOrigin_);
+      DARABONBA_PTR_FROM_JSON(Ipv4Prefix, ipv4Prefix_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(NatIpCidr, natIpCidr_);
@@ -59,9 +61,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->dryRun_ == nullptr && this->ipOrigin_ == nullptr && this->maxResults_ == nullptr && this->natGatewayId_ == nullptr && this->natIpCidr_ == nullptr
-        && this->natIpIds_ == nullptr && this->natIpName_ == nullptr && this->natIpStatus_ == nullptr && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->ipOrigin_ == nullptr && this->ipv4Prefix_ == nullptr && this->maxResults_ == nullptr && this->natGatewayId_ == nullptr
+        && this->natIpCidr_ == nullptr && this->natIpIds_ == nullptr && this->natIpName_ == nullptr && this->natIpStatus_ == nullptr && this->nextToken_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     void deleteIpOrigin() { this->ipOrigin_ = nullptr;};
     inline string getIpOrigin() const { DARABONBA_PTR_GET_DEFAULT(ipOrigin_, "") };
     inline ListNatIpsRequest& setIpOrigin(string ipOrigin) { DARABONBA_PTR_SET_VALUE(ipOrigin_, ipOrigin) };
+
+
+    // ipv4Prefix Field Functions 
+    bool hasIpv4Prefix() const { return this->ipv4Prefix_ != nullptr;};
+    void deleteIpv4Prefix() { this->ipv4Prefix_ = nullptr;};
+    inline string getIpv4Prefix() const { DARABONBA_PTR_GET_DEFAULT(ipv4Prefix_, "") };
+    inline ListNatIpsRequest& setIpv4Prefix(string ipv4Prefix) { DARABONBA_PTR_SET_VALUE(ipv4Prefix_, ipv4Prefix) };
 
 
     // maxResults Field Functions 
@@ -184,6 +193,7 @@ namespace Models
     // *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ipOrigin_ {};
+    shared_ptr<string> ipv4Prefix_ {};
     // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<string> maxResults_ {};
     // The ID of the NAT gateway.
