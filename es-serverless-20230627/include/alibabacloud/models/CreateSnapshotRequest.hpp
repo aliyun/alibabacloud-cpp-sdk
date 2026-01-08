@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->indices_ != nullptr
-        && this->snapshot_ != nullptr && this->dryRun_ != nullptr; };
+    virtual bool empty() const override { return this->indices_ == nullptr
+        && this->snapshot_ == nullptr && this->dryRun_ == nullptr; };
     // indices Field Functions 
     bool hasIndices() const { return this->indices_ != nullptr;};
     void deleteIndices() { this->indices_ = nullptr;};
-    inline string indices() const { DARABONBA_PTR_GET_DEFAULT(indices_, "") };
+    inline string getIndices() const { DARABONBA_PTR_GET_DEFAULT(indices_, "") };
     inline CreateSnapshotRequest& setIndices(string indices) { DARABONBA_PTR_SET_VALUE(indices_, indices) };
 
 
     // snapshot Field Functions 
     bool hasSnapshot() const { return this->snapshot_ != nullptr;};
     void deleteSnapshot() { this->snapshot_ = nullptr;};
-    inline string snapshot() const { DARABONBA_PTR_GET_DEFAULT(snapshot_, "") };
+    inline string getSnapshot() const { DARABONBA_PTR_GET_DEFAULT(snapshot_, "") };
     inline CreateSnapshotRequest& setSnapshot(string snapshot) { DARABONBA_PTR_SET_VALUE(snapshot_, snapshot) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateSnapshotRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> indices_ = nullptr;
+    shared_ptr<string> indices_ {};
     // This parameter is required.
-    std::shared_ptr<string> snapshot_ = nullptr;
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<string> snapshot_ {};
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

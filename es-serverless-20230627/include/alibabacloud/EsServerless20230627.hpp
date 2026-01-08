@@ -435,6 +435,24 @@ namespace EsServerless20230627
       Models::UpdateNetworkResponse updateNetwork(const string &appName, const Models::UpdateNetworkRequest &request);
 
       /**
+       * @summary 修改应用公网信息。
+       *
+       * @param request UpdatePrivateNetwrokRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePrivateNetwrokResponse
+       */
+      Models::UpdatePrivateNetwrokResponse updatePrivateNetwrokWithOptions(const string &appName, const Models::UpdatePrivateNetwrokRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改应用公网信息。
+       *
+       * @param request UpdatePrivateNetwrokRequest
+       * @return UpdatePrivateNetwrokResponse
+       */
+      Models::UpdatePrivateNetwrokResponse updatePrivateNetwrok(const string &appName, const Models::UpdatePrivateNetwrokRequest &request);
+
+      /**
        * @summary 修改自动备份配置
        *
        * @param request UpdateSnapshotSettingRequest

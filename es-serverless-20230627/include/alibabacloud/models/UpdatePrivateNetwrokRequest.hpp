@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATENETWORKREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_UPDATENETWORKREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATEPRIVATENETWROKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEPRIVATENETWROKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,21 +11,21 @@ namespace EsServerless20230627
 {
 namespace Models
 {
-  class UpdateNetworkRequest : public Darabonba::Model {
+  class UpdatePrivateNetwrokRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateNetworkRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdatePrivateNetwrokRequest& obj) { 
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateNetworkRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdatePrivateNetwrokRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    UpdateNetworkRequest() = default ;
-    UpdateNetworkRequest(const UpdateNetworkRequest &) = default ;
-    UpdateNetworkRequest(UpdateNetworkRequest &&) = default ;
-    UpdateNetworkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateNetworkRequest() = default ;
-    UpdateNetworkRequest& operator=(const UpdateNetworkRequest &) = default ;
-    UpdateNetworkRequest& operator=(UpdateNetworkRequest &&) = default ;
+    UpdatePrivateNetwrokRequest() = default ;
+    UpdatePrivateNetwrokRequest(const UpdatePrivateNetwrokRequest &) = default ;
+    UpdatePrivateNetwrokRequest(UpdatePrivateNetwrokRequest &&) = default ;
+    UpdatePrivateNetwrokRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdatePrivateNetwrokRequest() = default ;
+    UpdatePrivateNetwrokRequest& operator=(const UpdatePrivateNetwrokRequest &) = default ;
+    UpdatePrivateNetwrokRequest& operator=(UpdatePrivateNetwrokRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -36,14 +36,18 @@ namespace Models
         DARABONBA_PTR_TO_JSON(domain, domain_);
         DARABONBA_PTR_TO_JSON(enabled, enabled_);
         DARABONBA_PTR_TO_JSON(port, port_);
+        DARABONBA_PTR_TO_JSON(pvlEndpointId, pvlEndpointId_);
         DARABONBA_PTR_TO_JSON(type, type_);
+        DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
         DARABONBA_PTR_TO_JSON(whiteIpGroup, whiteIpGroup_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(domain, domain_);
         DARABONBA_PTR_FROM_JSON(enabled, enabled_);
         DARABONBA_PTR_FROM_JSON(port, port_);
+        DARABONBA_PTR_FROM_JSON(pvlEndpointId, pvlEndpointId_);
         DARABONBA_PTR_FROM_JSON(type, type_);
+        DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
         DARABONBA_PTR_FROM_JSON(whiteIpGroup, whiteIpGroup_);
       };
       Body() = default ;
@@ -112,7 +116,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->domain_ == nullptr
-        && this->enabled_ == nullptr && this->port_ == nullptr && this->type_ == nullptr && this->whiteIpGroup_ == nullptr; };
+        && this->enabled_ == nullptr && this->port_ == nullptr && this->pvlEndpointId_ == nullptr && this->type_ == nullptr && this->vpcId_ == nullptr
+        && this->whiteIpGroup_ == nullptr; };
       // domain Field Functions 
       bool hasDomain() const { return this->domain_ != nullptr;};
       void deleteDomain() { this->domain_ = nullptr;};
@@ -134,11 +139,25 @@ namespace Models
       inline Body& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
+      // pvlEndpointId Field Functions 
+      bool hasPvlEndpointId() const { return this->pvlEndpointId_ != nullptr;};
+      void deletePvlEndpointId() { this->pvlEndpointId_ = nullptr;};
+      inline string getPvlEndpointId() const { DARABONBA_PTR_GET_DEFAULT(pvlEndpointId_, "") };
+      inline Body& setPvlEndpointId(string pvlEndpointId) { DARABONBA_PTR_SET_VALUE(pvlEndpointId_, pvlEndpointId) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
       inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
       inline Body& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      // vpcId Field Functions 
+      bool hasVpcId() const { return this->vpcId_ != nullptr;};
+      void deleteVpcId() { this->vpcId_ = nullptr;};
+      inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+      inline Body& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
       // whiteIpGroup Field Functions 
@@ -154,7 +173,9 @@ namespace Models
       shared_ptr<string> domain_ {};
       shared_ptr<bool> enabled_ {};
       shared_ptr<int32_t> port_ {};
+      shared_ptr<string> pvlEndpointId_ {};
       shared_ptr<string> type_ {};
+      shared_ptr<string> vpcId_ {};
       shared_ptr<vector<Body::WhiteIpGroup>> whiteIpGroup_ {};
     };
 
@@ -162,14 +183,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const vector<UpdateNetworkRequest::Body> & getBody() const { DARABONBA_PTR_GET_CONST(body_, vector<UpdateNetworkRequest::Body>) };
-    inline vector<UpdateNetworkRequest::Body> getBody() { DARABONBA_PTR_GET(body_, vector<UpdateNetworkRequest::Body>) };
-    inline UpdateNetworkRequest& setBody(const vector<UpdateNetworkRequest::Body> & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline UpdateNetworkRequest& setBody(vector<UpdateNetworkRequest::Body> && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const vector<UpdatePrivateNetwrokRequest::Body> & getBody() const { DARABONBA_PTR_GET_CONST(body_, vector<UpdatePrivateNetwrokRequest::Body>) };
+    inline vector<UpdatePrivateNetwrokRequest::Body> getBody() { DARABONBA_PTR_GET(body_, vector<UpdatePrivateNetwrokRequest::Body>) };
+    inline UpdatePrivateNetwrokRequest& setBody(const vector<UpdatePrivateNetwrokRequest::Body> & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline UpdatePrivateNetwrokRequest& setBody(vector<UpdatePrivateNetwrokRequest::Body> && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    shared_ptr<vector<UpdateNetworkRequest::Body>> body_ {};
+    shared_ptr<vector<UpdatePrivateNetwrokRequest::Body>> body_ {};
   };
 
   } // namespace Models

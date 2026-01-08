@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -51,7 +51,7 @@ CancelSpecReviewTaskResponse Client::cancelSpecReviewTaskWithOptions(const strin
     {"action" , "CancelSpecReviewTask"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/spec-review-tasks/" , Darabonba::Http::URL::percentEncode(taskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/spec-review-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -84,56 +84,56 @@ CreateAppResponse Client::createAppWithOptions(const CreateAppRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDryRun()) {
-    query["dryRun"] = request.dryRun();
+    query["dryRun"] = request.getDryRun();
   }
 
   json body = {};
   if (!!request.hasAppName()) {
-    body["appName"] = request.appName();
+    body["appName"] = request.getAppName();
   }
 
   if (!!request.hasAuthentication()) {
-    body["authentication"] = request.authentication();
+    body["authentication"] = request.getAuthentication();
   }
 
   if (!!request.hasChargeType()) {
-    body["chargeType"] = request.chargeType();
+    body["chargeType"] = request.getChargeType();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasNetwork()) {
-    body["network"] = request.network();
+    body["network"] = request.getNetwork();
   }
 
   if (!!request.hasPrivateNetwork()) {
-    body["privateNetwork"] = request.privateNetwork();
+    body["privateNetwork"] = request.getPrivateNetwork();
   }
 
   if (!!request.hasQuotaInfo()) {
-    body["quotaInfo"] = request.quotaInfo();
+    body["quotaInfo"] = request.getQuotaInfo();
   }
 
   if (!!request.hasRegionId()) {
-    body["regionId"] = request.regionId();
+    body["regionId"] = request.getRegionId();
   }
 
   if (!!request.hasScenario()) {
-    body["scenario"] = request.scenario();
+    body["scenario"] = request.getScenario();
   }
 
   if (!!request.hasTags()) {
-    body["tags"] = request.tags();
+    body["tags"] = request.getTags();
   }
 
   if (!!request.hasVersion()) {
-    body["version"] = request.version();
+    body["version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -179,20 +179,20 @@ CreateEndpointResponse Client::createEndpointWithOptions(const CreateEndpointReq
   request.validate();
   json query = {};
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   json body = {};
   if (!!request.hasEndpointZones()) {
-    body["endpointZones"] = request.endpointZones();
+    body["endpointZones"] = request.getEndpointZones();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasVpcId()) {
-    body["vpcId"] = request.vpcId();
+    body["vpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -238,16 +238,16 @@ CreateSnapshotResponse Client::createSnapshotWithOptions(const string &appName, 
   request.validate();
   json query = {};
   if (!!request.hasDryRun()) {
-    query["dryRun"] = request.dryRun();
+    query["dryRun"] = request.getDryRun();
   }
 
   json body = {};
   if (!!request.hasIndices()) {
-    body["indices"] = request.indices();
+    body["indices"] = request.getIndices();
   }
 
   if (!!request.hasSnapshot()) {
-    body["snapshot"] = request.snapshot();
+    body["snapshot"] = request.getSnapshot();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -259,7 +259,7 @@ CreateSnapshotResponse Client::createSnapshotWithOptions(const string &appName, 
     {"action" , "CreateSnapshot"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/snapshot-repositories/" , Darabonba::Http::URL::percentEncode(repository) , "/snapshots")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/snapshot-repositories/" , Darabonba::Encode::Encoder::percentEncode(repository) , "/snapshots")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -296,7 +296,7 @@ DeleteAppResponse Client::deleteAppWithOptions(const string &appName, const map<
     {"action" , "DeleteApp"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -329,11 +329,11 @@ DeleteDictResponse Client::deleteDictWithOptions(const string &appName, const De
   request.validate();
   json body = {};
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -344,7 +344,7 @@ DeleteDictResponse Client::deleteDictWithOptions(const string &appName, const De
     {"action" , "DeleteDict"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/dicts/actions/remove")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/dicts/actions/remove")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -381,7 +381,7 @@ DeleteEndpointResponse Client::deleteEndpointWithOptions(const string &endpointI
     {"action" , "DeleteEndpoint"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/endpoints/" , Darabonba::Http::URL::percentEncode(endpointId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/endpoints/" , Darabonba::Encode::Encoder::percentEncode(endpointId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -417,7 +417,7 @@ DeleteSnapshotResponse Client::deleteSnapshotWithOptions(const string &appName, 
     {"action" , "DeleteSnapshot"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/snapshot-repositories/" , Darabonba::Http::URL::percentEncode(repository) , "/snapshots/" , Darabonba::Http::URL::percentEncode(snapshot))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/snapshot-repositories/" , Darabonba::Encode::Encoder::percentEncode(repository) , "/snapshots/" , Darabonba::Encode::Encoder::percentEncode(snapshot))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -450,7 +450,7 @@ GetAppResponse Client::getAppWithOptions(const string &appName, const GetAppRequ
   request.validate();
   json query = {};
   if (!!request.hasDetailed()) {
-    query["detailed"] = request.detailed();
+    query["detailed"] = request.getDetailed();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -461,7 +461,7 @@ GetAppResponse Client::getAppWithOptions(const string &appName, const GetAppRequ
     {"action" , "GetApp"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -498,7 +498,7 @@ GetAppQuotaResponse Client::getAppQuotaWithOptions(const string &appName, const 
     {"action" , "GetAppQuota"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/quota")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/quota")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -531,7 +531,7 @@ GetMonitorDataResponse Client::getMonitorDataWithOptions(const GetMonitorDataReq
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "GetMonitorData"},
@@ -574,7 +574,7 @@ GetSnapshotSettingResponse Client::getSnapshotSettingWithOptions(const string &a
     {"action" , "GetSnapshotSetting"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/auto-snapshot-setting")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/auto-snapshot-setting")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -610,7 +610,7 @@ GetSpecReviewTaskResponse Client::getSpecReviewTaskWithOptions(const string &app
     {"action" , "GetSpecReviewTask"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/spec-review-tasks/" , Darabonba::Http::URL::percentEncode(taskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/spec-review-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -643,35 +643,35 @@ ListAppsResponse Client::listAppsWithOptions(const ListAppsRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["appName"] = request.appName();
+    query["appName"] = request.getAppName();
   }
 
   if (!!request.hasCreateTime()) {
-    query["createTime"] = request.createTime();
+    query["createTime"] = request.getCreateTime();
   }
 
   if (!!request.hasDescription()) {
-    query["description"] = request.description();
+    query["description"] = request.getDescription();
   }
 
   if (!!request.hasOrderType()) {
-    query["orderType"] = request.orderType();
+    query["orderType"] = request.getOrderType();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasTags()) {
-    query["tags"] = request.tags();
+    query["tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -716,11 +716,11 @@ ListDictsResponse Client::listDictsWithOptions(const string &appName, const List
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -731,7 +731,7 @@ ListDictsResponse Client::listDictsWithOptions(const string &appName, const List
     {"action" , "ListDicts"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/dicts")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/dicts")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -765,23 +765,23 @@ ListEndpointsResponse Client::listEndpointsWithOptions(const ListEndpointsReques
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceId()) {
-    query["resourceId"] = request.resourceId();
+    query["resourceId"] = request.getResourceId();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   if (!!request.hasVpcId()) {
-    query["vpcId"] = request.vpcId();
+    query["vpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -829,7 +829,7 @@ ListIndicesResponse Client::listIndicesWithOptions(const string &appName, const 
     {"action" , "ListIndices"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/indices")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/indices")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -865,7 +865,7 @@ ListSnapshotRepositoriesResponse Client::listSnapshotRepositoriesWithOptions(con
     {"action" , "ListSnapshotRepositories"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/snapshot-repositories")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/snapshot-repositories")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -898,19 +898,19 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const string &appName, co
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRepository()) {
-    query["repository"] = request.repository();
+    query["repository"] = request.getRepository();
   }
 
   if (!!request.hasSnapshot()) {
-    query["snapshot"] = request.snapshot();
+    query["snapshot"] = request.getSnapshot();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -921,7 +921,7 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const string &appName, co
     {"action" , "ListSnapshots"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/snapshots")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/snapshots")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -955,27 +955,27 @@ ListSpecReviewTasksResponse Client::listSpecReviewTasksWithOptions(const string 
   request.validate();
   json query = {};
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasType()) {
-    query["type"] = request.type();
+    query["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -986,7 +986,7 @@ ListSpecReviewTasksResponse Client::listSpecReviewTasksWithOptions(const string 
     {"action" , "ListSpecReviewTasks"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/spec-review-tasks")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/spec-review-tasks")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1020,31 +1020,31 @@ UpdateAppResponse Client::updateAppWithOptions(const string &appName, const Upda
   request.validate();
   json body = {};
   if (!!request.hasApplyReason()) {
-    body["applyReason"] = request.applyReason();
+    body["applyReason"] = request.getApplyReason();
   }
 
   if (!!request.hasAuthentication()) {
-    body["authentication"] = request.authentication();
+    body["authentication"] = request.getAuthentication();
   }
 
   if (!!request.hasContactInfo()) {
-    body["contactInfo"] = request.contactInfo();
+    body["contactInfo"] = request.getContactInfo();
   }
 
   if (!!request.hasDescription()) {
-    body["description"] = request.description();
+    body["description"] = request.getDescription();
   }
 
   if (!!request.hasLimiterInfo()) {
-    body["limiterInfo"] = request.limiterInfo();
+    body["limiterInfo"] = request.getLimiterInfo();
   }
 
   if (!!request.hasNetwork()) {
-    body["network"] = request.network();
+    body["network"] = request.getNetwork();
   }
 
   if (!!request.hasPrivateNetwork()) {
-    body["privateNetwork"] = request.privateNetwork();
+    body["privateNetwork"] = request.getPrivateNetwork();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1055,7 +1055,7 @@ UpdateAppResponse Client::updateAppWithOptions(const string &appName, const Upda
     {"action" , "UpdateApp"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1089,24 +1089,24 @@ UpdateDictResponse Client::updateDictWithOptions(const string &appName, const Up
   request.validate();
   json query = {};
   if (!!request.hasAllowCover()) {
-    query["allowCover"] = request.allowCover();
+    query["allowCover"] = request.getAllowCover();
   }
 
   if (!!request.hasDryRun()) {
-    query["dryRun"] = request.dryRun();
+    query["dryRun"] = request.getDryRun();
   }
 
   json body = {};
   if (!!request.hasFiles()) {
-    body["files"] = request.files();
+    body["files"] = request.getFiles();
   }
 
   if (!!request.hasSourceType()) {
-    body["sourceType"] = request.sourceType();
+    body["sourceType"] = request.getSourceType();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1118,7 +1118,7 @@ UpdateDictResponse Client::updateDictWithOptions(const string &appName, const Up
     {"action" , "UpdateDict"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/dicts")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/dicts")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1152,11 +1152,11 @@ UpdateEndpointResponse Client::updateEndpointWithOptions(const string &endpointI
   request.validate();
   json body = {};
   if (!!request.hasEndpointZones()) {
-    body["endpointZones"] = request.endpointZones();
+    body["endpointZones"] = request.getEndpointZones();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1167,7 +1167,7 @@ UpdateEndpointResponse Client::updateEndpointWithOptions(const string &endpointI
     {"action" , "UpdateEndpoint"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/endpoints/" , Darabonba::Http::URL::percentEncode(endpointId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/endpoints/" , Darabonba::Encode::Encoder::percentEncode(endpointId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1201,13 +1201,13 @@ UpdateNetworkResponse Client::updateNetworkWithOptions(const string &appName, co
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::toArray(request.body())}
+    {"body" , Utils::Utils::toArray(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateNetwork"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/networks")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/networks")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1230,6 +1230,46 @@ UpdateNetworkResponse Client::updateNetwork(const string &appName, const UpdateN
 }
 
 /**
+ * @summary 修改应用公网信息。
+ *
+ * @param request UpdatePrivateNetwrokRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePrivateNetwrokResponse
+ */
+UpdatePrivateNetwrokResponse Client::updatePrivateNetwrokWithOptions(const string &appName, const UpdatePrivateNetwrokRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::toArray(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePrivateNetwrok"},
+    {"version" , "2023-06-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/private-networks")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePrivateNetwrokResponse>();
+}
+
+/**
+ * @summary 修改应用公网信息。
+ *
+ * @param request UpdatePrivateNetwrokRequest
+ * @return UpdatePrivateNetwrokResponse
+ */
+UpdatePrivateNetwrokResponse Client::updatePrivateNetwrok(const string &appName, const UpdatePrivateNetwrokRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updatePrivateNetwrokWithOptions(appName, request, headers, runtime);
+}
+
+/**
  * @summary 修改自动备份配置
  *
  * @param request UpdateSnapshotSettingRequest
@@ -1241,11 +1281,11 @@ UpdateSnapshotSettingResponse Client::updateSnapshotSettingWithOptions(const str
   request.validate();
   json body = {};
   if (!!request.hasEnable()) {
-    body["enable"] = request.enable();
+    body["enable"] = request.getEnable();
   }
 
   if (!!request.hasQuartzRegex()) {
-    body["quartzRegex"] = request.quartzRegex();
+    body["quartzRegex"] = request.getQuartzRegex();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1256,7 +1296,7 @@ UpdateSnapshotSettingResponse Client::updateSnapshotSettingWithOptions(const str
     {"action" , "UpdateSnapshotSetting"},
     {"version" , "2023-06-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Http::URL::percentEncode(appName) , "/auto-snapshot-setting")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/es-serverless/instances/" , Darabonba::Encode::Encoder::percentEncode(appName) , "/auto-snapshot-setting")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},

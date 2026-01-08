@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enable_ != nullptr
-        && this->quartzRegex_ != nullptr; };
+    virtual bool empty() const override { return this->enable_ == nullptr
+        && this->quartzRegex_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline UpdateSnapshotSettingRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // quartzRegex Field Functions 
     bool hasQuartzRegex() const { return this->quartzRegex_ != nullptr;};
     void deleteQuartzRegex() { this->quartzRegex_ = nullptr;};
-    inline string quartzRegex() const { DARABONBA_PTR_GET_DEFAULT(quartzRegex_, "") };
+    inline string getQuartzRegex() const { DARABONBA_PTR_GET_DEFAULT(quartzRegex_, "") };
     inline UpdateSnapshotSettingRequest& setQuartzRegex(string quartzRegex) { DARABONBA_PTR_SET_VALUE(quartzRegex_, quartzRegex) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<bool> enable_ = nullptr;
+    shared_ptr<bool> enable_ {};
     // This parameter is required.
-    std::shared_ptr<string> quartzRegex_ = nullptr;
+    shared_ptr<string> quartzRegex_ {};
   };
 
   } // namespace Models
