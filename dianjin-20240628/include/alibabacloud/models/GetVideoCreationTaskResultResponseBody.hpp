@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(finishTime, finishTime_);
         DARABONBA_PTR_TO_JSON(mediaDetectionTaskResult, mediaDetectionTaskResult_);
         DARABONBA_PTR_TO_JSON(startTime, startTime_);
+        DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
         DARABONBA_PTR_TO_JSON(taskId, taskId_);
         DARABONBA_PTR_TO_JSON(taskStatus, taskStatus_);
         DARABONBA_PTR_TO_JSON(videoUrl, videoUrl_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(finishTime, finishTime_);
         DARABONBA_PTR_FROM_JSON(mediaDetectionTaskResult, mediaDetectionTaskResult_);
         DARABONBA_PTR_FROM_JSON(startTime, startTime_);
+        DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
         DARABONBA_PTR_FROM_JSON(taskId, taskId_);
         DARABONBA_PTR_FROM_JSON(taskStatus, taskStatus_);
         DARABONBA_PTR_FROM_JSON(videoUrl, videoUrl_);
@@ -380,8 +382,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->estimatedWaitTimeInSeconds_ == nullptr
-        && this->fileInfo_ == nullptr && this->finishTime_ == nullptr && this->mediaDetectionTaskResult_ == nullptr && this->startTime_ == nullptr && this->taskId_ == nullptr
-        && this->taskStatus_ == nullptr && this->videoUrl_ == nullptr; };
+        && this->fileInfo_ == nullptr && this->finishTime_ == nullptr && this->mediaDetectionTaskResult_ == nullptr && this->startTime_ == nullptr && this->statusReason_ == nullptr
+        && this->taskId_ == nullptr && this->taskStatus_ == nullptr && this->videoUrl_ == nullptr; };
       // estimatedWaitTimeInSeconds Field Functions 
       bool hasEstimatedWaitTimeInSeconds() const { return this->estimatedWaitTimeInSeconds_ != nullptr;};
       void deleteEstimatedWaitTimeInSeconds() { this->estimatedWaitTimeInSeconds_ = nullptr;};
@@ -421,6 +423,13 @@ namespace Models
       inline Data& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+      // statusReason Field Functions 
+      bool hasStatusReason() const { return this->statusReason_ != nullptr;};
+      void deleteStatusReason() { this->statusReason_ = nullptr;};
+      inline string getStatusReason() const { DARABONBA_PTR_GET_DEFAULT(statusReason_, "") };
+      inline Data& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
+
+
       // taskId Field Functions 
       bool hasTaskId() const { return this->taskId_ != nullptr;};
       void deleteTaskId() { this->taskId_ = nullptr;};
@@ -448,6 +457,7 @@ namespace Models
       shared_ptr<string> finishTime_ {};
       shared_ptr<Data::MediaDetectionTaskResult> mediaDetectionTaskResult_ {};
       shared_ptr<string> startTime_ {};
+      shared_ptr<string> statusReason_ {};
       shared_ptr<string> taskId_ {};
       shared_ptr<string> taskStatus_ {};
       shared_ptr<string> videoUrl_ {};
