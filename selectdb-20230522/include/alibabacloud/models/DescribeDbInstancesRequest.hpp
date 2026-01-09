@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBInstancesRequest& obj) { 
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     DescribeDBInstancesRequest() = default ;
@@ -88,7 +90,7 @@ namespace Models
 
     virtual bool empty() const override { return this->DBInstanceDescription_ == nullptr
         && this->DBInstanceIds_ == nullptr && this->DBInstanceStatus_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->tag_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr; };
     // DBInstanceDescription Field Functions 
     bool hasDBInstanceDescription() const { return this->DBInstanceDescription_ != nullptr;};
     void deleteDBInstanceDescription() { this->DBInstanceDescription_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
     inline DescribeDBInstancesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // resourceOwnerId Field Functions 
+    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline DescribeDBInstancesRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -175,6 +184,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<vector<DescribeDBInstancesRequest::Tag>> tag_ {};
   };
 

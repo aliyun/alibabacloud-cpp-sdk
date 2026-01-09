@@ -1469,6 +1469,10 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
     query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
   if (!!request.hasTagShrink()) {
     query["Tag"] = request.getTagShrink();
   }
