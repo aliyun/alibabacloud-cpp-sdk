@@ -1210,12 +1210,20 @@ GetSanityCheckTaskResponse Client::getSanityCheckTask(const string &CheckType, c
 GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAudience()) {
+    query["Audience"] = request.getAudience();
+  }
+
   if (!!request.hasExpireTime()) {
     query["ExpireTime"] = request.getExpireTime();
   }
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
