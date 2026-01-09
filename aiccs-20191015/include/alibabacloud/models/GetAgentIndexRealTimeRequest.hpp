@@ -39,19 +39,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->depIds_ == nullptr && return this->groupIds_ == nullptr && return this->instanceId_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->depIds_ == nullptr && this->groupIds_ == nullptr && this->instanceId_ == nullptr && this->pageSize_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetAgentIndexRealTimeRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // depIds Field Functions 
     bool hasDepIds() const { return this->depIds_ != nullptr;};
     void deleteDepIds() { this->depIds_ = nullptr;};
-    inline const vector<int64_t> & depIds() const { DARABONBA_PTR_GET_CONST(depIds_, vector<int64_t>) };
-    inline vector<int64_t> depIds() { DARABONBA_PTR_GET(depIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getDepIds() const { DARABONBA_PTR_GET_CONST(depIds_, vector<int64_t>) };
+    inline vector<int64_t> getDepIds() { DARABONBA_PTR_GET(depIds_, vector<int64_t>) };
     inline GetAgentIndexRealTimeRequest& setDepIds(const vector<int64_t> & depIds) { DARABONBA_PTR_SET_VALUE(depIds_, depIds) };
     inline GetAgentIndexRealTimeRequest& setDepIds(vector<int64_t> && depIds) { DARABONBA_PTR_SET_RVALUE(depIds_, depIds) };
 
@@ -59,8 +59,8 @@ namespace Models
     // groupIds Field Functions 
     bool hasGroupIds() const { return this->groupIds_ != nullptr;};
     void deleteGroupIds() { this->groupIds_ = nullptr;};
-    inline const vector<int64_t> & groupIds() const { DARABONBA_PTR_GET_CONST(groupIds_, vector<int64_t>) };
-    inline vector<int64_t> groupIds() { DARABONBA_PTR_GET(groupIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getGroupIds() const { DARABONBA_PTR_GET_CONST(groupIds_, vector<int64_t>) };
+    inline vector<int64_t> getGroupIds() { DARABONBA_PTR_GET(groupIds_, vector<int64_t>) };
     inline GetAgentIndexRealTimeRequest& setGroupIds(const vector<int64_t> & groupIds) { DARABONBA_PTR_SET_VALUE(groupIds_, groupIds) };
     inline GetAgentIndexRealTimeRequest& setGroupIds(vector<int64_t> && groupIds) { DARABONBA_PTR_SET_RVALUE(groupIds_, groupIds) };
 
@@ -68,24 +68,24 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetAgentIndexRealTimeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetAgentIndexRealTimeRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<vector<int64_t>> depIds_ = nullptr;
-    std::shared_ptr<vector<int64_t>> groupIds_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<vector<int64_t>> depIds_ {};
+    shared_ptr<vector<int64_t>> groupIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

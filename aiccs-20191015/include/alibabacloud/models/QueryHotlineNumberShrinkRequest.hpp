@@ -40,59 +40,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->departmentId_ == nullptr && return this->groupIdsShrink_ == nullptr && return this->hotlineNumber_ == nullptr && return this->instanceId_ == nullptr && return this->pageSize_ == nullptr; };
+        && this->departmentId_ == nullptr && this->groupIdsShrink_ == nullptr && this->hotlineNumber_ == nullptr && this->instanceId_ == nullptr && this->pageSize_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline QueryHotlineNumberShrinkRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // departmentId Field Functions 
     bool hasDepartmentId() const { return this->departmentId_ != nullptr;};
     void deleteDepartmentId() { this->departmentId_ = nullptr;};
-    inline int64_t departmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
+    inline int64_t getDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
     inline QueryHotlineNumberShrinkRequest& setDepartmentId(int64_t departmentId) { DARABONBA_PTR_SET_VALUE(departmentId_, departmentId) };
 
 
     // groupIdsShrink Field Functions 
     bool hasGroupIdsShrink() const { return this->groupIdsShrink_ != nullptr;};
     void deleteGroupIdsShrink() { this->groupIdsShrink_ = nullptr;};
-    inline string groupIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(groupIdsShrink_, "") };
+    inline string getGroupIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(groupIdsShrink_, "") };
     inline QueryHotlineNumberShrinkRequest& setGroupIdsShrink(string groupIdsShrink) { DARABONBA_PTR_SET_VALUE(groupIdsShrink_, groupIdsShrink) };
 
 
     // hotlineNumber Field Functions 
     bool hasHotlineNumber() const { return this->hotlineNumber_ != nullptr;};
     void deleteHotlineNumber() { this->hotlineNumber_ = nullptr;};
-    inline string hotlineNumber() const { DARABONBA_PTR_GET_DEFAULT(hotlineNumber_, "") };
+    inline string getHotlineNumber() const { DARABONBA_PTR_GET_DEFAULT(hotlineNumber_, "") };
     inline QueryHotlineNumberShrinkRequest& setHotlineNumber(string hotlineNumber) { DARABONBA_PTR_SET_VALUE(hotlineNumber_, hotlineNumber) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline QueryHotlineNumberShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline QueryHotlineNumberShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<int64_t> departmentId_ = nullptr;
-    std::shared_ptr<string> groupIdsShrink_ = nullptr;
-    std::shared_ptr<string> hotlineNumber_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<int64_t> departmentId_ {};
+    shared_ptr<string> groupIdsShrink_ {};
+    shared_ptr<string> hotlineNumber_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
   };
 
   } // namespace Models

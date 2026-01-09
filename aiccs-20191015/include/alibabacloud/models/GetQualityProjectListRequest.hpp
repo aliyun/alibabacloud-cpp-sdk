@@ -42,66 +42,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->status_ == nullptr
-        && return this->checkFreqType_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->status_ == nullptr
+        && this->checkFreqType_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetQualityProjectListRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline GetQualityProjectListRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetQualityProjectListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline int64_t projectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
+    inline int64_t getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, 0L) };
     inline GetQualityProjectListRequest& setProjectId(int64_t projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline GetQualityProjectListRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline GetQualityProjectListRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // checkFreqType Field Functions 
     bool hasCheckFreqType() const { return this->checkFreqType_ != nullptr;};
     void deleteCheckFreqType() { this->checkFreqType_ = nullptr;};
-    inline int64_t checkFreqType() const { DARABONBA_PTR_GET_DEFAULT(checkFreqType_, 0L) };
+    inline int64_t getCheckFreqType() const { DARABONBA_PTR_GET_DEFAULT(checkFreqType_, 0L) };
     inline GetQualityProjectListRequest& setCheckFreqType(int64_t checkFreqType) { DARABONBA_PTR_SET_VALUE(checkFreqType_, checkFreqType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<int64_t> projectId_ = nullptr;
-    std::shared_ptr<string> projectName_ = nullptr;
-    std::shared_ptr<int32_t> status_ = nullptr;
-    std::shared_ptr<int64_t> checkFreqType_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> pageNo_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int64_t> projectId_ {};
+    shared_ptr<string> projectName_ {};
+    shared_ptr<int32_t> status_ {};
+    shared_ptr<int64_t> checkFreqType_ {};
   };
 
   } // namespace Models

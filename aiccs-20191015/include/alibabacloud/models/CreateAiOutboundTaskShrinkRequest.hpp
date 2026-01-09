@@ -50,104 +50,104 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->concurrentRate_ == nullptr
-        && return this->description_ == nullptr && return this->executionTime_ == nullptr && return this->forecastCallRate_ == nullptr && return this->handlerId_ == nullptr && return this->instanceId_ == nullptr
-        && return this->name_ == nullptr && return this->numRepeated_ == nullptr && return this->outboundNumsShrink_ == nullptr && return this->recallRuleShrink_ == nullptr && return this->type_ == nullptr; };
+        && this->description_ == nullptr && this->executionTime_ == nullptr && this->forecastCallRate_ == nullptr && this->handlerId_ == nullptr && this->instanceId_ == nullptr
+        && this->name_ == nullptr && this->numRepeated_ == nullptr && this->outboundNumsShrink_ == nullptr && this->recallRuleShrink_ == nullptr && this->type_ == nullptr; };
     // concurrentRate Field Functions 
     bool hasConcurrentRate() const { return this->concurrentRate_ != nullptr;};
     void deleteConcurrentRate() { this->concurrentRate_ = nullptr;};
-    inline int32_t concurrentRate() const { DARABONBA_PTR_GET_DEFAULT(concurrentRate_, 0) };
+    inline int32_t getConcurrentRate() const { DARABONBA_PTR_GET_DEFAULT(concurrentRate_, 0) };
     inline CreateAiOutboundTaskShrinkRequest& setConcurrentRate(int32_t concurrentRate) { DARABONBA_PTR_SET_VALUE(concurrentRate_, concurrentRate) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAiOutboundTaskShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // executionTime Field Functions 
     bool hasExecutionTime() const { return this->executionTime_ != nullptr;};
     void deleteExecutionTime() { this->executionTime_ = nullptr;};
-    inline string executionTime() const { DARABONBA_PTR_GET_DEFAULT(executionTime_, "") };
+    inline string getExecutionTime() const { DARABONBA_PTR_GET_DEFAULT(executionTime_, "") };
     inline CreateAiOutboundTaskShrinkRequest& setExecutionTime(string executionTime) { DARABONBA_PTR_SET_VALUE(executionTime_, executionTime) };
 
 
     // forecastCallRate Field Functions 
     bool hasForecastCallRate() const { return this->forecastCallRate_ != nullptr;};
     void deleteForecastCallRate() { this->forecastCallRate_ = nullptr;};
-    inline float forecastCallRate() const { DARABONBA_PTR_GET_DEFAULT(forecastCallRate_, 0.0) };
+    inline float getForecastCallRate() const { DARABONBA_PTR_GET_DEFAULT(forecastCallRate_, 0.0) };
     inline CreateAiOutboundTaskShrinkRequest& setForecastCallRate(float forecastCallRate) { DARABONBA_PTR_SET_VALUE(forecastCallRate_, forecastCallRate) };
 
 
     // handlerId Field Functions 
     bool hasHandlerId() const { return this->handlerId_ != nullptr;};
     void deleteHandlerId() { this->handlerId_ = nullptr;};
-    inline int64_t handlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, 0L) };
+    inline int64_t getHandlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, 0L) };
     inline CreateAiOutboundTaskShrinkRequest& setHandlerId(int64_t handlerId) { DARABONBA_PTR_SET_VALUE(handlerId_, handlerId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateAiOutboundTaskShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateAiOutboundTaskShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // numRepeated Field Functions 
     bool hasNumRepeated() const { return this->numRepeated_ != nullptr;};
     void deleteNumRepeated() { this->numRepeated_ = nullptr;};
-    inline int32_t numRepeated() const { DARABONBA_PTR_GET_DEFAULT(numRepeated_, 0) };
+    inline int32_t getNumRepeated() const { DARABONBA_PTR_GET_DEFAULT(numRepeated_, 0) };
     inline CreateAiOutboundTaskShrinkRequest& setNumRepeated(int32_t numRepeated) { DARABONBA_PTR_SET_VALUE(numRepeated_, numRepeated) };
 
 
     // outboundNumsShrink Field Functions 
     bool hasOutboundNumsShrink() const { return this->outboundNumsShrink_ != nullptr;};
     void deleteOutboundNumsShrink() { this->outboundNumsShrink_ = nullptr;};
-    inline string outboundNumsShrink() const { DARABONBA_PTR_GET_DEFAULT(outboundNumsShrink_, "") };
+    inline string getOutboundNumsShrink() const { DARABONBA_PTR_GET_DEFAULT(outboundNumsShrink_, "") };
     inline CreateAiOutboundTaskShrinkRequest& setOutboundNumsShrink(string outboundNumsShrink) { DARABONBA_PTR_SET_VALUE(outboundNumsShrink_, outboundNumsShrink) };
 
 
     // recallRuleShrink Field Functions 
     bool hasRecallRuleShrink() const { return this->recallRuleShrink_ != nullptr;};
     void deleteRecallRuleShrink() { this->recallRuleShrink_ = nullptr;};
-    inline string recallRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(recallRuleShrink_, "") };
+    inline string getRecallRuleShrink() const { DARABONBA_PTR_GET_DEFAULT(recallRuleShrink_, "") };
     inline CreateAiOutboundTaskShrinkRequest& setRecallRuleShrink(string recallRuleShrink) { DARABONBA_PTR_SET_VALUE(recallRuleShrink_, recallRuleShrink) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline CreateAiOutboundTaskShrinkRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<int32_t> concurrentRate_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<int32_t> concurrentRate_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> executionTime_ = nullptr;
-    std::shared_ptr<float> forecastCallRate_ = nullptr;
+    shared_ptr<string> executionTime_ {};
+    shared_ptr<float> forecastCallRate_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> handlerId_ = nullptr;
+    shared_ptr<int64_t> handlerId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> numRepeated_ = nullptr;
+    shared_ptr<int32_t> numRepeated_ {};
     // This parameter is required.
-    std::shared_ptr<string> outboundNumsShrink_ = nullptr;
-    std::shared_ptr<string> recallRuleShrink_ = nullptr;
+    shared_ptr<string> outboundNumsShrink_ {};
+    shared_ptr<string> recallRuleShrink_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<int32_t> type_ {};
   };
 
   } // namespace Models

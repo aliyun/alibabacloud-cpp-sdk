@@ -34,34 +34,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchVersion_ == nullptr
-        && return this->instanceId_ == nullptr && return this->taskId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->taskId_ == nullptr; };
     // batchVersion Field Functions 
     bool hasBatchVersion() const { return this->batchVersion_ != nullptr;};
     void deleteBatchVersion() { this->batchVersion_ = nullptr;};
-    inline int32_t batchVersion() const { DARABONBA_PTR_GET_DEFAULT(batchVersion_, 0) };
+    inline int32_t getBatchVersion() const { DARABONBA_PTR_GET_DEFAULT(batchVersion_, 0) };
     inline GetAiOutboundTaskProgressRequest& setBatchVersion(int32_t batchVersion) { DARABONBA_PTR_SET_VALUE(batchVersion_, batchVersion) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetAiOutboundTaskProgressRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline GetAiOutboundTaskProgressRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<int32_t> batchVersion_ = nullptr;
+    shared_ptr<int32_t> batchVersion_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

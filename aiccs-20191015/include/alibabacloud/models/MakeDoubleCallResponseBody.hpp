@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_MAKEDOUBLECALLRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_MAKEDOUBLECALLRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/MakeDoubleCallResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,51 +37,82 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Acid, acid_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Acid, acid_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->acid_ == nullptr; };
+      // acid Field Functions 
+      bool hasAcid() const { return this->acid_ != nullptr;};
+      void deleteAcid() { this->acid_ = nullptr;};
+      inline string getAcid() const { DARABONBA_PTR_GET_DEFAULT(acid_, "") };
+      inline Data& setAcid(string acid) { DARABONBA_PTR_SET_VALUE(acid_, acid) };
+
+
+    protected:
+      shared_ptr<string> acid_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline MakeDoubleCallResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const MakeDoubleCallResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, MakeDoubleCallResponseBodyData) };
-    inline MakeDoubleCallResponseBodyData data() { DARABONBA_PTR_GET(data_, MakeDoubleCallResponseBodyData) };
-    inline MakeDoubleCallResponseBody& setData(const MakeDoubleCallResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline MakeDoubleCallResponseBody& setData(MakeDoubleCallResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const MakeDoubleCallResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, MakeDoubleCallResponseBody::Data) };
+    inline MakeDoubleCallResponseBody::Data getData() { DARABONBA_PTR_GET(data_, MakeDoubleCallResponseBody::Data) };
+    inline MakeDoubleCallResponseBody& setData(const MakeDoubleCallResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline MakeDoubleCallResponseBody& setData(MakeDoubleCallResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline MakeDoubleCallResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline MakeDoubleCallResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline MakeDoubleCallResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<MakeDoubleCallResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<MakeDoubleCallResponseBody::Data> data_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

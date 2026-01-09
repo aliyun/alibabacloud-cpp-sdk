@@ -49,20 +49,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelType_ == nullptr
-        && return this->groupIds_ == nullptr && return this->hitStatus_ == nullptr && return this->instanceId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectIds_ == nullptr && return this->qualityRuleIds_ == nullptr && return this->touchEndTime_ == nullptr && return this->touchStartTime_ == nullptr; };
+        && this->groupIds_ == nullptr && this->hitStatus_ == nullptr && this->instanceId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr
+        && this->projectIds_ == nullptr && this->qualityRuleIds_ == nullptr && this->touchEndTime_ == nullptr && this->touchStartTime_ == nullptr; };
     // channelType Field Functions 
     bool hasChannelType() const { return this->channelType_ != nullptr;};
     void deleteChannelType() { this->channelType_ = nullptr;};
-    inline string channelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
+    inline string getChannelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
     inline GetQualityResultRequest& setChannelType(string channelType) { DARABONBA_PTR_SET_VALUE(channelType_, channelType) };
 
 
     // groupIds Field Functions 
     bool hasGroupIds() const { return this->groupIds_ != nullptr;};
     void deleteGroupIds() { this->groupIds_ = nullptr;};
-    inline const vector<int64_t> & groupIds() const { DARABONBA_PTR_GET_CONST(groupIds_, vector<int64_t>) };
-    inline vector<int64_t> groupIds() { DARABONBA_PTR_GET(groupIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getGroupIds() const { DARABONBA_PTR_GET_CONST(groupIds_, vector<int64_t>) };
+    inline vector<int64_t> getGroupIds() { DARABONBA_PTR_GET(groupIds_, vector<int64_t>) };
     inline GetQualityResultRequest& setGroupIds(const vector<int64_t> & groupIds) { DARABONBA_PTR_SET_VALUE(groupIds_, groupIds) };
     inline GetQualityResultRequest& setGroupIds(vector<int64_t> && groupIds) { DARABONBA_PTR_SET_RVALUE(groupIds_, groupIds) };
 
@@ -70,36 +70,36 @@ namespace Models
     // hitStatus Field Functions 
     bool hasHitStatus() const { return this->hitStatus_ != nullptr;};
     void deleteHitStatus() { this->hitStatus_ = nullptr;};
-    inline int32_t hitStatus() const { DARABONBA_PTR_GET_DEFAULT(hitStatus_, 0) };
+    inline int32_t getHitStatus() const { DARABONBA_PTR_GET_DEFAULT(hitStatus_, 0) };
     inline GetQualityResultRequest& setHitStatus(int32_t hitStatus) { DARABONBA_PTR_SET_VALUE(hitStatus_, hitStatus) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetQualityResultRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
-    inline int32_t pageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
+    inline int32_t getPageNo() const { DARABONBA_PTR_GET_DEFAULT(pageNo_, 0) };
     inline GetQualityResultRequest& setPageNo(int32_t pageNo) { DARABONBA_PTR_SET_VALUE(pageNo_, pageNo) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetQualityResultRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectIds Field Functions 
     bool hasProjectIds() const { return this->projectIds_ != nullptr;};
     void deleteProjectIds() { this->projectIds_ = nullptr;};
-    inline const vector<int64_t> & projectIds() const { DARABONBA_PTR_GET_CONST(projectIds_, vector<int64_t>) };
-    inline vector<int64_t> projectIds() { DARABONBA_PTR_GET(projectIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getProjectIds() const { DARABONBA_PTR_GET_CONST(projectIds_, vector<int64_t>) };
+    inline vector<int64_t> getProjectIds() { DARABONBA_PTR_GET(projectIds_, vector<int64_t>) };
     inline GetQualityResultRequest& setProjectIds(const vector<int64_t> & projectIds) { DARABONBA_PTR_SET_VALUE(projectIds_, projectIds) };
     inline GetQualityResultRequest& setProjectIds(vector<int64_t> && projectIds) { DARABONBA_PTR_SET_RVALUE(projectIds_, projectIds) };
 
@@ -107,8 +107,8 @@ namespace Models
     // qualityRuleIds Field Functions 
     bool hasQualityRuleIds() const { return this->qualityRuleIds_ != nullptr;};
     void deleteQualityRuleIds() { this->qualityRuleIds_ = nullptr;};
-    inline const vector<int64_t> & qualityRuleIds() const { DARABONBA_PTR_GET_CONST(qualityRuleIds_, vector<int64_t>) };
-    inline vector<int64_t> qualityRuleIds() { DARABONBA_PTR_GET(qualityRuleIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getQualityRuleIds() const { DARABONBA_PTR_GET_CONST(qualityRuleIds_, vector<int64_t>) };
+    inline vector<int64_t> getQualityRuleIds() { DARABONBA_PTR_GET(qualityRuleIds_, vector<int64_t>) };
     inline GetQualityResultRequest& setQualityRuleIds(const vector<int64_t> & qualityRuleIds) { DARABONBA_PTR_SET_VALUE(qualityRuleIds_, qualityRuleIds) };
     inline GetQualityResultRequest& setQualityRuleIds(vector<int64_t> && qualityRuleIds) { DARABONBA_PTR_SET_RVALUE(qualityRuleIds_, qualityRuleIds) };
 
@@ -116,31 +116,31 @@ namespace Models
     // touchEndTime Field Functions 
     bool hasTouchEndTime() const { return this->touchEndTime_ != nullptr;};
     void deleteTouchEndTime() { this->touchEndTime_ = nullptr;};
-    inline string touchEndTime() const { DARABONBA_PTR_GET_DEFAULT(touchEndTime_, "") };
+    inline string getTouchEndTime() const { DARABONBA_PTR_GET_DEFAULT(touchEndTime_, "") };
     inline GetQualityResultRequest& setTouchEndTime(string touchEndTime) { DARABONBA_PTR_SET_VALUE(touchEndTime_, touchEndTime) };
 
 
     // touchStartTime Field Functions 
     bool hasTouchStartTime() const { return this->touchStartTime_ != nullptr;};
     void deleteTouchStartTime() { this->touchStartTime_ = nullptr;};
-    inline string touchStartTime() const { DARABONBA_PTR_GET_DEFAULT(touchStartTime_, "") };
+    inline string getTouchStartTime() const { DARABONBA_PTR_GET_DEFAULT(touchStartTime_, "") };
     inline GetQualityResultRequest& setTouchStartTime(string touchStartTime) { DARABONBA_PTR_SET_VALUE(touchStartTime_, touchStartTime) };
 
 
   protected:
-    std::shared_ptr<string> channelType_ = nullptr;
-    std::shared_ptr<vector<int64_t>> groupIds_ = nullptr;
-    std::shared_ptr<int32_t> hitStatus_ = nullptr;
+    shared_ptr<string> channelType_ {};
+    shared_ptr<vector<int64_t>> groupIds_ {};
+    shared_ptr<int32_t> hitStatus_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> pageNo_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<vector<int64_t>> projectIds_ = nullptr;
-    std::shared_ptr<vector<int64_t>> qualityRuleIds_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> pageNo_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<vector<int64_t>> projectIds_ {};
+    shared_ptr<vector<int64_t>> qualityRuleIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> touchEndTime_ = nullptr;
+    shared_ptr<string> touchEndTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> touchStartTime_ = nullptr;
+    shared_ptr<string> touchStartTime_ {};
   };
 
   } // namespace Models

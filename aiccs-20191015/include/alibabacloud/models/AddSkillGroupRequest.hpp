@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->outerDepartmentId_ == nullptr
-        && return this->outerDepartmentType_ == nullptr && return this->outerGroupId_ == nullptr && return this->outerGroupName_ == nullptr && return this->outerGroupType_ == nullptr; };
+        && this->outerDepartmentType_ == nullptr && this->outerGroupId_ == nullptr && this->outerGroupName_ == nullptr && this->outerGroupType_ == nullptr; };
     // outerDepartmentId Field Functions 
     bool hasOuterDepartmentId() const { return this->outerDepartmentId_ != nullptr;};
     void deleteOuterDepartmentId() { this->outerDepartmentId_ = nullptr;};
-    inline string outerDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(outerDepartmentId_, "") };
+    inline string getOuterDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(outerDepartmentId_, "") };
     inline AddSkillGroupRequest& setOuterDepartmentId(string outerDepartmentId) { DARABONBA_PTR_SET_VALUE(outerDepartmentId_, outerDepartmentId) };
 
 
     // outerDepartmentType Field Functions 
     bool hasOuterDepartmentType() const { return this->outerDepartmentType_ != nullptr;};
     void deleteOuterDepartmentType() { this->outerDepartmentType_ = nullptr;};
-    inline string outerDepartmentType() const { DARABONBA_PTR_GET_DEFAULT(outerDepartmentType_, "") };
+    inline string getOuterDepartmentType() const { DARABONBA_PTR_GET_DEFAULT(outerDepartmentType_, "") };
     inline AddSkillGroupRequest& setOuterDepartmentType(string outerDepartmentType) { DARABONBA_PTR_SET_VALUE(outerDepartmentType_, outerDepartmentType) };
 
 
     // outerGroupId Field Functions 
     bool hasOuterGroupId() const { return this->outerGroupId_ != nullptr;};
     void deleteOuterGroupId() { this->outerGroupId_ = nullptr;};
-    inline string outerGroupId() const { DARABONBA_PTR_GET_DEFAULT(outerGroupId_, "") };
+    inline string getOuterGroupId() const { DARABONBA_PTR_GET_DEFAULT(outerGroupId_, "") };
     inline AddSkillGroupRequest& setOuterGroupId(string outerGroupId) { DARABONBA_PTR_SET_VALUE(outerGroupId_, outerGroupId) };
 
 
     // outerGroupName Field Functions 
     bool hasOuterGroupName() const { return this->outerGroupName_ != nullptr;};
     void deleteOuterGroupName() { this->outerGroupName_ = nullptr;};
-    inline string outerGroupName() const { DARABONBA_PTR_GET_DEFAULT(outerGroupName_, "") };
+    inline string getOuterGroupName() const { DARABONBA_PTR_GET_DEFAULT(outerGroupName_, "") };
     inline AddSkillGroupRequest& setOuterGroupName(string outerGroupName) { DARABONBA_PTR_SET_VALUE(outerGroupName_, outerGroupName) };
 
 
     // outerGroupType Field Functions 
     bool hasOuterGroupType() const { return this->outerGroupType_ != nullptr;};
     void deleteOuterGroupType() { this->outerGroupType_ = nullptr;};
-    inline string outerGroupType() const { DARABONBA_PTR_GET_DEFAULT(outerGroupType_, "") };
+    inline string getOuterGroupType() const { DARABONBA_PTR_GET_DEFAULT(outerGroupType_, "") };
     inline AddSkillGroupRequest& setOuterGroupType(string outerGroupType) { DARABONBA_PTR_SET_VALUE(outerGroupType_, outerGroupType) };
 
 
   protected:
-    std::shared_ptr<string> outerDepartmentId_ = nullptr;
-    std::shared_ptr<string> outerDepartmentType_ = nullptr;
+    shared_ptr<string> outerDepartmentId_ {};
+    shared_ptr<string> outerDepartmentType_ {};
     // This parameter is required.
-    std::shared_ptr<string> outerGroupId_ = nullptr;
+    shared_ptr<string> outerGroupId_ {};
     // This parameter is required.
-    std::shared_ptr<string> outerGroupName_ = nullptr;
+    shared_ptr<string> outerGroupName_ {};
     // This parameter is required.
-    std::shared_ptr<string> outerGroupType_ = nullptr;
+    shared_ptr<string> outerGroupType_ {};
   };
 
   } // namespace Models

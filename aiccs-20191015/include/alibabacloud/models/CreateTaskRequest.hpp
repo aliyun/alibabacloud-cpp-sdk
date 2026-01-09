@@ -60,145 +60,145 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callString_ == nullptr
-        && return this->callStringType_ == nullptr && return this->caller_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->retryCount_ == nullptr && return this->retryFlag_ == nullptr && return this->retryInterval_ == nullptr && return this->retryStatusCode_ == nullptr && return this->robotId_ == nullptr
-        && return this->seatCount_ == nullptr && return this->startNow_ == nullptr && return this->taskName_ == nullptr && return this->workDay_ == nullptr && return this->workTimeList_ == nullptr; };
+        && this->callStringType_ == nullptr && this->caller_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->retryCount_ == nullptr && this->retryFlag_ == nullptr && this->retryInterval_ == nullptr && this->retryStatusCode_ == nullptr && this->robotId_ == nullptr
+        && this->seatCount_ == nullptr && this->startNow_ == nullptr && this->taskName_ == nullptr && this->workDay_ == nullptr && this->workTimeList_ == nullptr; };
     // callString Field Functions 
     bool hasCallString() const { return this->callString_ != nullptr;};
     void deleteCallString() { this->callString_ = nullptr;};
-    inline string callString() const { DARABONBA_PTR_GET_DEFAULT(callString_, "") };
+    inline string getCallString() const { DARABONBA_PTR_GET_DEFAULT(callString_, "") };
     inline CreateTaskRequest& setCallString(string callString) { DARABONBA_PTR_SET_VALUE(callString_, callString) };
 
 
     // callStringType Field Functions 
     bool hasCallStringType() const { return this->callStringType_ != nullptr;};
     void deleteCallStringType() { this->callStringType_ = nullptr;};
-    inline string callStringType() const { DARABONBA_PTR_GET_DEFAULT(callStringType_, "") };
+    inline string getCallStringType() const { DARABONBA_PTR_GET_DEFAULT(callStringType_, "") };
     inline CreateTaskRequest& setCallStringType(string callStringType) { DARABONBA_PTR_SET_VALUE(callStringType_, callStringType) };
 
 
     // caller Field Functions 
     bool hasCaller() const { return this->caller_ != nullptr;};
     void deleteCaller() { this->caller_ = nullptr;};
-    inline string caller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
+    inline string getCaller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
     inline CreateTaskRequest& setCaller(string caller) { DARABONBA_PTR_SET_VALUE(caller_, caller) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline CreateTaskRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline CreateTaskRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline CreateTaskRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // retryCount Field Functions 
     bool hasRetryCount() const { return this->retryCount_ != nullptr;};
     void deleteRetryCount() { this->retryCount_ = nullptr;};
-    inline int32_t retryCount() const { DARABONBA_PTR_GET_DEFAULT(retryCount_, 0) };
+    inline int32_t getRetryCount() const { DARABONBA_PTR_GET_DEFAULT(retryCount_, 0) };
     inline CreateTaskRequest& setRetryCount(int32_t retryCount) { DARABONBA_PTR_SET_VALUE(retryCount_, retryCount) };
 
 
     // retryFlag Field Functions 
     bool hasRetryFlag() const { return this->retryFlag_ != nullptr;};
     void deleteRetryFlag() { this->retryFlag_ = nullptr;};
-    inline int32_t retryFlag() const { DARABONBA_PTR_GET_DEFAULT(retryFlag_, 0) };
+    inline int32_t getRetryFlag() const { DARABONBA_PTR_GET_DEFAULT(retryFlag_, 0) };
     inline CreateTaskRequest& setRetryFlag(int32_t retryFlag) { DARABONBA_PTR_SET_VALUE(retryFlag_, retryFlag) };
 
 
     // retryInterval Field Functions 
     bool hasRetryInterval() const { return this->retryInterval_ != nullptr;};
     void deleteRetryInterval() { this->retryInterval_ = nullptr;};
-    inline int32_t retryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
+    inline int32_t getRetryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
     inline CreateTaskRequest& setRetryInterval(int32_t retryInterval) { DARABONBA_PTR_SET_VALUE(retryInterval_, retryInterval) };
 
 
     // retryStatusCode Field Functions 
     bool hasRetryStatusCode() const { return this->retryStatusCode_ != nullptr;};
     void deleteRetryStatusCode() { this->retryStatusCode_ = nullptr;};
-    inline string retryStatusCode() const { DARABONBA_PTR_GET_DEFAULT(retryStatusCode_, "") };
+    inline string getRetryStatusCode() const { DARABONBA_PTR_GET_DEFAULT(retryStatusCode_, "") };
     inline CreateTaskRequest& setRetryStatusCode(string retryStatusCode) { DARABONBA_PTR_SET_VALUE(retryStatusCode_, retryStatusCode) };
 
 
     // robotId Field Functions 
     bool hasRobotId() const { return this->robotId_ != nullptr;};
     void deleteRobotId() { this->robotId_ = nullptr;};
-    inline string robotId() const { DARABONBA_PTR_GET_DEFAULT(robotId_, "") };
+    inline string getRobotId() const { DARABONBA_PTR_GET_DEFAULT(robotId_, "") };
     inline CreateTaskRequest& setRobotId(string robotId) { DARABONBA_PTR_SET_VALUE(robotId_, robotId) };
 
 
     // seatCount Field Functions 
     bool hasSeatCount() const { return this->seatCount_ != nullptr;};
     void deleteSeatCount() { this->seatCount_ = nullptr;};
-    inline string seatCount() const { DARABONBA_PTR_GET_DEFAULT(seatCount_, "") };
+    inline string getSeatCount() const { DARABONBA_PTR_GET_DEFAULT(seatCount_, "") };
     inline CreateTaskRequest& setSeatCount(string seatCount) { DARABONBA_PTR_SET_VALUE(seatCount_, seatCount) };
 
 
     // startNow Field Functions 
     bool hasStartNow() const { return this->startNow_ != nullptr;};
     void deleteStartNow() { this->startNow_ = nullptr;};
-    inline bool startNow() const { DARABONBA_PTR_GET_DEFAULT(startNow_, false) };
+    inline bool getStartNow() const { DARABONBA_PTR_GET_DEFAULT(startNow_, false) };
     inline CreateTaskRequest& setStartNow(bool startNow) { DARABONBA_PTR_SET_VALUE(startNow_, startNow) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreateTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
     // workDay Field Functions 
     bool hasWorkDay() const { return this->workDay_ != nullptr;};
     void deleteWorkDay() { this->workDay_ = nullptr;};
-    inline string workDay() const { DARABONBA_PTR_GET_DEFAULT(workDay_, "") };
+    inline string getWorkDay() const { DARABONBA_PTR_GET_DEFAULT(workDay_, "") };
     inline CreateTaskRequest& setWorkDay(string workDay) { DARABONBA_PTR_SET_VALUE(workDay_, workDay) };
 
 
     // workTimeList Field Functions 
     bool hasWorkTimeList() const { return this->workTimeList_ != nullptr;};
     void deleteWorkTimeList() { this->workTimeList_ = nullptr;};
-    inline string workTimeList() const { DARABONBA_PTR_GET_DEFAULT(workTimeList_, "") };
+    inline string getWorkTimeList() const { DARABONBA_PTR_GET_DEFAULT(workTimeList_, "") };
     inline CreateTaskRequest& setWorkTimeList(string workTimeList) { DARABONBA_PTR_SET_VALUE(workTimeList_, workTimeList) };
 
 
   protected:
-    std::shared_ptr<string> callString_ = nullptr;
+    shared_ptr<string> callString_ {};
     // This parameter is required.
-    std::shared_ptr<string> callStringType_ = nullptr;
+    shared_ptr<string> callStringType_ {};
     // This parameter is required.
-    std::shared_ptr<string> caller_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    std::shared_ptr<int32_t> retryCount_ = nullptr;
-    std::shared_ptr<int32_t> retryFlag_ = nullptr;
-    std::shared_ptr<int32_t> retryInterval_ = nullptr;
-    std::shared_ptr<string> retryStatusCode_ = nullptr;
+    shared_ptr<string> caller_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<int32_t> retryCount_ {};
+    shared_ptr<int32_t> retryFlag_ {};
+    shared_ptr<int32_t> retryInterval_ {};
+    shared_ptr<string> retryStatusCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> robotId_ = nullptr;
+    shared_ptr<string> robotId_ {};
     // This parameter is required.
-    std::shared_ptr<string> seatCount_ = nullptr;
-    std::shared_ptr<bool> startNow_ = nullptr;
+    shared_ptr<string> seatCount_ {};
+    shared_ptr<bool> startNow_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
     // This parameter is required.
-    std::shared_ptr<string> workDay_ = nullptr;
+    shared_ptr<string> workDay_ {};
     // This parameter is required.
-    std::shared_ptr<string> workTimeList_ = nullptr;
+    shared_ptr<string> workTimeList_ {};
   };
 
   } // namespace Models

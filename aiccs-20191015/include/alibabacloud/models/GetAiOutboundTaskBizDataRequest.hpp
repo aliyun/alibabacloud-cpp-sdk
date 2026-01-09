@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelId_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // channelId Field Functions 
     bool hasChannelId() const { return this->channelId_ != nullptr;};
     void deleteChannelId() { this->channelId_ = nullptr;};
-    inline string channelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
+    inline string getChannelId() const { DARABONBA_PTR_GET_DEFAULT(channelId_, "") };
     inline GetAiOutboundTaskBizDataRequest& setChannelId(string channelId) { DARABONBA_PTR_SET_VALUE(channelId_, channelId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetAiOutboundTaskBizDataRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> channelId_ = nullptr;
+    shared_ptr<string> channelId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

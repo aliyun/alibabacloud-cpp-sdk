@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->qualityRuleId_ == nullptr; };
+        && this->qualityRuleId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetQualityRuleDetailRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // qualityRuleId Field Functions 
     bool hasQualityRuleId() const { return this->qualityRuleId_ != nullptr;};
     void deleteQualityRuleId() { this->qualityRuleId_ = nullptr;};
-    inline int64_t qualityRuleId() const { DARABONBA_PTR_GET_DEFAULT(qualityRuleId_, 0L) };
+    inline int64_t getQualityRuleId() const { DARABONBA_PTR_GET_DEFAULT(qualityRuleId_, 0L) };
     inline GetQualityRuleDetailRequest& setQualityRuleId(int64_t qualityRuleId) { DARABONBA_PTR_SET_VALUE(qualityRuleId_, qualityRuleId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> qualityRuleId_ = nullptr;
+    shared_ptr<int64_t> qualityRuleId_ {};
   };
 
   } // namespace Models

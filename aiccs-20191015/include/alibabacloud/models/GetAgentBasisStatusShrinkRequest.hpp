@@ -42,66 +42,66 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentIdsShrink_ == nullptr
-        && return this->currentPage_ == nullptr && return this->depIdsShrink_ == nullptr && return this->endDate_ == nullptr && return this->instanceId_ == nullptr && return this->pageSize_ == nullptr
-        && return this->startDate_ == nullptr; };
+        && this->currentPage_ == nullptr && this->depIdsShrink_ == nullptr && this->endDate_ == nullptr && this->instanceId_ == nullptr && this->pageSize_ == nullptr
+        && this->startDate_ == nullptr; };
     // agentIdsShrink Field Functions 
     bool hasAgentIdsShrink() const { return this->agentIdsShrink_ != nullptr;};
     void deleteAgentIdsShrink() { this->agentIdsShrink_ = nullptr;};
-    inline string agentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(agentIdsShrink_, "") };
+    inline string getAgentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(agentIdsShrink_, "") };
     inline GetAgentBasisStatusShrinkRequest& setAgentIdsShrink(string agentIdsShrink) { DARABONBA_PTR_SET_VALUE(agentIdsShrink_, agentIdsShrink) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetAgentBasisStatusShrinkRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // depIdsShrink Field Functions 
     bool hasDepIdsShrink() const { return this->depIdsShrink_ != nullptr;};
     void deleteDepIdsShrink() { this->depIdsShrink_ = nullptr;};
-    inline string depIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(depIdsShrink_, "") };
+    inline string getDepIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(depIdsShrink_, "") };
     inline GetAgentBasisStatusShrinkRequest& setDepIdsShrink(string depIdsShrink) { DARABONBA_PTR_SET_VALUE(depIdsShrink_, depIdsShrink) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline int64_t endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
+    inline int64_t getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
     inline GetAgentBasisStatusShrinkRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetAgentBasisStatusShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetAgentBasisStatusShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline int64_t startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
+    inline int64_t getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
     inline GetAgentBasisStatusShrinkRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
   protected:
-    std::shared_ptr<string> agentIdsShrink_ = nullptr;
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    std::shared_ptr<string> depIdsShrink_ = nullptr;
-    std::shared_ptr<int64_t> endDate_ = nullptr;
+    shared_ptr<string> agentIdsShrink_ {};
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> depIdsShrink_ {};
+    shared_ptr<int64_t> endDate_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<int64_t> startDate_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int64_t> startDate_ {};
   };
 
   } // namespace Models

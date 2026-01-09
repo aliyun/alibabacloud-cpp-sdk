@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->bizData_ == nullptr && return this->instanceId_ == nullptr && return this->memberPhone_ == nullptr && return this->outboundCallNumber_ == nullptr && return this->servicerPhone_ == nullptr; };
+        && this->bizData_ == nullptr && this->instanceId_ == nullptr && this->memberPhone_ == nullptr && this->outboundCallNumber_ == nullptr && this->servicerPhone_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline MakeDoubleCallRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // bizData Field Functions 
     bool hasBizData() const { return this->bizData_ != nullptr;};
     void deleteBizData() { this->bizData_ = nullptr;};
-    inline string bizData() const { DARABONBA_PTR_GET_DEFAULT(bizData_, "") };
+    inline string getBizData() const { DARABONBA_PTR_GET_DEFAULT(bizData_, "") };
     inline MakeDoubleCallRequest& setBizData(string bizData) { DARABONBA_PTR_SET_VALUE(bizData_, bizData) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline MakeDoubleCallRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // memberPhone Field Functions 
     bool hasMemberPhone() const { return this->memberPhone_ != nullptr;};
     void deleteMemberPhone() { this->memberPhone_ = nullptr;};
-    inline string memberPhone() const { DARABONBA_PTR_GET_DEFAULT(memberPhone_, "") };
+    inline string getMemberPhone() const { DARABONBA_PTR_GET_DEFAULT(memberPhone_, "") };
     inline MakeDoubleCallRequest& setMemberPhone(string memberPhone) { DARABONBA_PTR_SET_VALUE(memberPhone_, memberPhone) };
 
 
     // outboundCallNumber Field Functions 
     bool hasOutboundCallNumber() const { return this->outboundCallNumber_ != nullptr;};
     void deleteOutboundCallNumber() { this->outboundCallNumber_ = nullptr;};
-    inline string outboundCallNumber() const { DARABONBA_PTR_GET_DEFAULT(outboundCallNumber_, "") };
+    inline string getOutboundCallNumber() const { DARABONBA_PTR_GET_DEFAULT(outboundCallNumber_, "") };
     inline MakeDoubleCallRequest& setOutboundCallNumber(string outboundCallNumber) { DARABONBA_PTR_SET_VALUE(outboundCallNumber_, outboundCallNumber) };
 
 
     // servicerPhone Field Functions 
     bool hasServicerPhone() const { return this->servicerPhone_ != nullptr;};
     void deleteServicerPhone() { this->servicerPhone_ = nullptr;};
-    inline string servicerPhone() const { DARABONBA_PTR_GET_DEFAULT(servicerPhone_, "") };
+    inline string getServicerPhone() const { DARABONBA_PTR_GET_DEFAULT(servicerPhone_, "") };
     inline MakeDoubleCallRequest& setServicerPhone(string servicerPhone) { DARABONBA_PTR_SET_VALUE(servicerPhone_, servicerPhone) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> accountName_ = nullptr;
-    std::shared_ptr<string> bizData_ = nullptr;
+    shared_ptr<string> accountName_ {};
+    shared_ptr<string> bizData_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> memberPhone_ = nullptr;
+    shared_ptr<string> memberPhone_ {};
     // This parameter is required.
-    std::shared_ptr<string> outboundCallNumber_ = nullptr;
-    std::shared_ptr<string> servicerPhone_ = nullptr;
+    shared_ptr<string> outboundCallNumber_ {};
+    shared_ptr<string> servicerPhone_ {};
   };
 
   } // namespace Models

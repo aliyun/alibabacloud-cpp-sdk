@@ -51,13 +51,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->analysisIds_ == nullptr
-        && return this->channelTouchType_ == nullptr && return this->checkFreqType_ == nullptr && return this->depList_ == nullptr && return this->groupList_ == nullptr && return this->instanceId_ == nullptr
-        && return this->projectName_ == nullptr && return this->scopeType_ == nullptr && return this->servicerList_ == nullptr && return this->timeRangeEnd_ == nullptr && return this->timeRangeStart_ == nullptr; };
+        && this->channelTouchType_ == nullptr && this->checkFreqType_ == nullptr && this->depList_ == nullptr && this->groupList_ == nullptr && this->instanceId_ == nullptr
+        && this->projectName_ == nullptr && this->scopeType_ == nullptr && this->servicerList_ == nullptr && this->timeRangeEnd_ == nullptr && this->timeRangeStart_ == nullptr; };
     // analysisIds Field Functions 
     bool hasAnalysisIds() const { return this->analysisIds_ != nullptr;};
     void deleteAnalysisIds() { this->analysisIds_ = nullptr;};
-    inline const vector<int64_t> & analysisIds() const { DARABONBA_PTR_GET_CONST(analysisIds_, vector<int64_t>) };
-    inline vector<int64_t> analysisIds() { DARABONBA_PTR_GET(analysisIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getAnalysisIds() const { DARABONBA_PTR_GET_CONST(analysisIds_, vector<int64_t>) };
+    inline vector<int64_t> getAnalysisIds() { DARABONBA_PTR_GET(analysisIds_, vector<int64_t>) };
     inline CreateQualityProjectRequest& setAnalysisIds(const vector<int64_t> & analysisIds) { DARABONBA_PTR_SET_VALUE(analysisIds_, analysisIds) };
     inline CreateQualityProjectRequest& setAnalysisIds(vector<int64_t> && analysisIds) { DARABONBA_PTR_SET_RVALUE(analysisIds_, analysisIds) };
 
@@ -65,8 +65,8 @@ namespace Models
     // channelTouchType Field Functions 
     bool hasChannelTouchType() const { return this->channelTouchType_ != nullptr;};
     void deleteChannelTouchType() { this->channelTouchType_ = nullptr;};
-    inline const vector<int32_t> & channelTouchType() const { DARABONBA_PTR_GET_CONST(channelTouchType_, vector<int32_t>) };
-    inline vector<int32_t> channelTouchType() { DARABONBA_PTR_GET(channelTouchType_, vector<int32_t>) };
+    inline const vector<int32_t> & getChannelTouchType() const { DARABONBA_PTR_GET_CONST(channelTouchType_, vector<int32_t>) };
+    inline vector<int32_t> getChannelTouchType() { DARABONBA_PTR_GET(channelTouchType_, vector<int32_t>) };
     inline CreateQualityProjectRequest& setChannelTouchType(const vector<int32_t> & channelTouchType) { DARABONBA_PTR_SET_VALUE(channelTouchType_, channelTouchType) };
     inline CreateQualityProjectRequest& setChannelTouchType(vector<int32_t> && channelTouchType) { DARABONBA_PTR_SET_RVALUE(channelTouchType_, channelTouchType) };
 
@@ -74,15 +74,15 @@ namespace Models
     // checkFreqType Field Functions 
     bool hasCheckFreqType() const { return this->checkFreqType_ != nullptr;};
     void deleteCheckFreqType() { this->checkFreqType_ = nullptr;};
-    inline int32_t checkFreqType() const { DARABONBA_PTR_GET_DEFAULT(checkFreqType_, 0) };
+    inline int32_t getCheckFreqType() const { DARABONBA_PTR_GET_DEFAULT(checkFreqType_, 0) };
     inline CreateQualityProjectRequest& setCheckFreqType(int32_t checkFreqType) { DARABONBA_PTR_SET_VALUE(checkFreqType_, checkFreqType) };
 
 
     // depList Field Functions 
     bool hasDepList() const { return this->depList_ != nullptr;};
     void deleteDepList() { this->depList_ = nullptr;};
-    inline const vector<int64_t> & depList() const { DARABONBA_PTR_GET_CONST(depList_, vector<int64_t>) };
-    inline vector<int64_t> depList() { DARABONBA_PTR_GET(depList_, vector<int64_t>) };
+    inline const vector<int64_t> & getDepList() const { DARABONBA_PTR_GET_CONST(depList_, vector<int64_t>) };
+    inline vector<int64_t> getDepList() { DARABONBA_PTR_GET(depList_, vector<int64_t>) };
     inline CreateQualityProjectRequest& setDepList(const vector<int64_t> & depList) { DARABONBA_PTR_SET_VALUE(depList_, depList) };
     inline CreateQualityProjectRequest& setDepList(vector<int64_t> && depList) { DARABONBA_PTR_SET_RVALUE(depList_, depList) };
 
@@ -90,8 +90,8 @@ namespace Models
     // groupList Field Functions 
     bool hasGroupList() const { return this->groupList_ != nullptr;};
     void deleteGroupList() { this->groupList_ = nullptr;};
-    inline const vector<int64_t> & groupList() const { DARABONBA_PTR_GET_CONST(groupList_, vector<int64_t>) };
-    inline vector<int64_t> groupList() { DARABONBA_PTR_GET(groupList_, vector<int64_t>) };
+    inline const vector<int64_t> & getGroupList() const { DARABONBA_PTR_GET_CONST(groupList_, vector<int64_t>) };
+    inline vector<int64_t> getGroupList() { DARABONBA_PTR_GET(groupList_, vector<int64_t>) };
     inline CreateQualityProjectRequest& setGroupList(const vector<int64_t> & groupList) { DARABONBA_PTR_SET_VALUE(groupList_, groupList) };
     inline CreateQualityProjectRequest& setGroupList(vector<int64_t> && groupList) { DARABONBA_PTR_SET_RVALUE(groupList_, groupList) };
 
@@ -99,29 +99,29 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateQualityProjectRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
-    inline string projectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
+    inline string getProjectName() const { DARABONBA_PTR_GET_DEFAULT(projectName_, "") };
     inline CreateQualityProjectRequest& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
     // scopeType Field Functions 
     bool hasScopeType() const { return this->scopeType_ != nullptr;};
     void deleteScopeType() { this->scopeType_ = nullptr;};
-    inline int32_t scopeType() const { DARABONBA_PTR_GET_DEFAULT(scopeType_, 0) };
+    inline int32_t getScopeType() const { DARABONBA_PTR_GET_DEFAULT(scopeType_, 0) };
     inline CreateQualityProjectRequest& setScopeType(int32_t scopeType) { DARABONBA_PTR_SET_VALUE(scopeType_, scopeType) };
 
 
     // servicerList Field Functions 
     bool hasServicerList() const { return this->servicerList_ != nullptr;};
     void deleteServicerList() { this->servicerList_ = nullptr;};
-    inline const vector<string> & servicerList() const { DARABONBA_PTR_GET_CONST(servicerList_, vector<string>) };
-    inline vector<string> servicerList() { DARABONBA_PTR_GET(servicerList_, vector<string>) };
+    inline const vector<string> & getServicerList() const { DARABONBA_PTR_GET_CONST(servicerList_, vector<string>) };
+    inline vector<string> getServicerList() { DARABONBA_PTR_GET(servicerList_, vector<string>) };
     inline CreateQualityProjectRequest& setServicerList(const vector<string> & servicerList) { DARABONBA_PTR_SET_VALUE(servicerList_, servicerList) };
     inline CreateQualityProjectRequest& setServicerList(vector<string> && servicerList) { DARABONBA_PTR_SET_RVALUE(servicerList_, servicerList) };
 
@@ -129,34 +129,34 @@ namespace Models
     // timeRangeEnd Field Functions 
     bool hasTimeRangeEnd() const { return this->timeRangeEnd_ != nullptr;};
     void deleteTimeRangeEnd() { this->timeRangeEnd_ = nullptr;};
-    inline string timeRangeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeRangeEnd_, "") };
+    inline string getTimeRangeEnd() const { DARABONBA_PTR_GET_DEFAULT(timeRangeEnd_, "") };
     inline CreateQualityProjectRequest& setTimeRangeEnd(string timeRangeEnd) { DARABONBA_PTR_SET_VALUE(timeRangeEnd_, timeRangeEnd) };
 
 
     // timeRangeStart Field Functions 
     bool hasTimeRangeStart() const { return this->timeRangeStart_ != nullptr;};
     void deleteTimeRangeStart() { this->timeRangeStart_ = nullptr;};
-    inline string timeRangeStart() const { DARABONBA_PTR_GET_DEFAULT(timeRangeStart_, "") };
+    inline string getTimeRangeStart() const { DARABONBA_PTR_GET_DEFAULT(timeRangeStart_, "") };
     inline CreateQualityProjectRequest& setTimeRangeStart(string timeRangeStart) { DARABONBA_PTR_SET_VALUE(timeRangeStart_, timeRangeStart) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> analysisIds_ = nullptr;
-    std::shared_ptr<vector<int32_t>> channelTouchType_ = nullptr;
+    shared_ptr<vector<int64_t>> analysisIds_ {};
+    shared_ptr<vector<int32_t>> channelTouchType_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> checkFreqType_ = nullptr;
-    std::shared_ptr<vector<int64_t>> depList_ = nullptr;
-    std::shared_ptr<vector<int64_t>> groupList_ = nullptr;
+    shared_ptr<int32_t> checkFreqType_ {};
+    shared_ptr<vector<int64_t>> depList_ {};
+    shared_ptr<vector<int64_t>> groupList_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
+    shared_ptr<string> projectName_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> scopeType_ = nullptr;
-    std::shared_ptr<vector<string>> servicerList_ = nullptr;
-    std::shared_ptr<string> timeRangeEnd_ = nullptr;
-    std::shared_ptr<string> timeRangeStart_ = nullptr;
+    shared_ptr<int32_t> scopeType_ {};
+    shared_ptr<vector<string>> servicerList_ {};
+    shared_ptr<string> timeRangeEnd_ {};
+    shared_ptr<string> timeRangeStart_ {};
   };
 
   } // namespace Models

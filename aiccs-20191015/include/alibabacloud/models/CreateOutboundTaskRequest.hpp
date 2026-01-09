@@ -62,156 +62,156 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ani_ == nullptr
-        && return this->callInfos_ == nullptr && return this->departmentId_ == nullptr && return this->description_ == nullptr && return this->endDate_ == nullptr && return this->endTime_ == nullptr
-        && return this->extAttrs_ == nullptr && return this->groupName_ == nullptr && return this->instanceId_ == nullptr && return this->model_ == nullptr && return this->retryInterval_ == nullptr
-        && return this->retryTime_ == nullptr && return this->skillGroup_ == nullptr && return this->startDate_ == nullptr && return this->startTime_ == nullptr && return this->taskName_ == nullptr
-        && return this->taskType_ == nullptr; };
+        && this->callInfos_ == nullptr && this->departmentId_ == nullptr && this->description_ == nullptr && this->endDate_ == nullptr && this->endTime_ == nullptr
+        && this->extAttrs_ == nullptr && this->groupName_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr && this->retryInterval_ == nullptr
+        && this->retryTime_ == nullptr && this->skillGroup_ == nullptr && this->startDate_ == nullptr && this->startTime_ == nullptr && this->taskName_ == nullptr
+        && this->taskType_ == nullptr; };
     // ani Field Functions 
     bool hasAni() const { return this->ani_ != nullptr;};
     void deleteAni() { this->ani_ = nullptr;};
-    inline string ani() const { DARABONBA_PTR_GET_DEFAULT(ani_, "") };
+    inline string getAni() const { DARABONBA_PTR_GET_DEFAULT(ani_, "") };
     inline CreateOutboundTaskRequest& setAni(string ani) { DARABONBA_PTR_SET_VALUE(ani_, ani) };
 
 
     // callInfos Field Functions 
     bool hasCallInfos() const { return this->callInfos_ != nullptr;};
     void deleteCallInfos() { this->callInfos_ = nullptr;};
-    inline string callInfos() const { DARABONBA_PTR_GET_DEFAULT(callInfos_, "") };
+    inline string getCallInfos() const { DARABONBA_PTR_GET_DEFAULT(callInfos_, "") };
     inline CreateOutboundTaskRequest& setCallInfos(string callInfos) { DARABONBA_PTR_SET_VALUE(callInfos_, callInfos) };
 
 
     // departmentId Field Functions 
     bool hasDepartmentId() const { return this->departmentId_ != nullptr;};
     void deleteDepartmentId() { this->departmentId_ = nullptr;};
-    inline int64_t departmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
+    inline int64_t getDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
     inline CreateOutboundTaskRequest& setDepartmentId(int64_t departmentId) { DARABONBA_PTR_SET_VALUE(departmentId_, departmentId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateOutboundTaskRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
-    inline string endDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
     inline CreateOutboundTaskRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline CreateOutboundTaskRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // extAttrs Field Functions 
     bool hasExtAttrs() const { return this->extAttrs_ != nullptr;};
     void deleteExtAttrs() { this->extAttrs_ = nullptr;};
-    inline string extAttrs() const { DARABONBA_PTR_GET_DEFAULT(extAttrs_, "") };
+    inline string getExtAttrs() const { DARABONBA_PTR_GET_DEFAULT(extAttrs_, "") };
     inline CreateOutboundTaskRequest& setExtAttrs(string extAttrs) { DARABONBA_PTR_SET_VALUE(extAttrs_, extAttrs) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline CreateOutboundTaskRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateOutboundTaskRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
-    inline int32_t model() const { DARABONBA_PTR_GET_DEFAULT(model_, 0) };
+    inline int32_t getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, 0) };
     inline CreateOutboundTaskRequest& setModel(int32_t model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
     // retryInterval Field Functions 
     bool hasRetryInterval() const { return this->retryInterval_ != nullptr;};
     void deleteRetryInterval() { this->retryInterval_ = nullptr;};
-    inline int32_t retryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
+    inline int32_t getRetryInterval() const { DARABONBA_PTR_GET_DEFAULT(retryInterval_, 0) };
     inline CreateOutboundTaskRequest& setRetryInterval(int32_t retryInterval) { DARABONBA_PTR_SET_VALUE(retryInterval_, retryInterval) };
 
 
     // retryTime Field Functions 
     bool hasRetryTime() const { return this->retryTime_ != nullptr;};
     void deleteRetryTime() { this->retryTime_ = nullptr;};
-    inline int32_t retryTime() const { DARABONBA_PTR_GET_DEFAULT(retryTime_, 0) };
+    inline int32_t getRetryTime() const { DARABONBA_PTR_GET_DEFAULT(retryTime_, 0) };
     inline CreateOutboundTaskRequest& setRetryTime(int32_t retryTime) { DARABONBA_PTR_SET_VALUE(retryTime_, retryTime) };
 
 
     // skillGroup Field Functions 
     bool hasSkillGroup() const { return this->skillGroup_ != nullptr;};
     void deleteSkillGroup() { this->skillGroup_ = nullptr;};
-    inline int64_t skillGroup() const { DARABONBA_PTR_GET_DEFAULT(skillGroup_, 0L) };
+    inline int64_t getSkillGroup() const { DARABONBA_PTR_GET_DEFAULT(skillGroup_, 0L) };
     inline CreateOutboundTaskRequest& setSkillGroup(int64_t skillGroup) { DARABONBA_PTR_SET_VALUE(skillGroup_, skillGroup) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
-    inline string startDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
     inline CreateOutboundTaskRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline CreateOutboundTaskRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreateOutboundTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline int32_t taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
+    inline int32_t getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, 0) };
     inline CreateOutboundTaskRequest& setTaskType(int32_t taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> ani_ = nullptr;
-    std::shared_ptr<string> callInfos_ = nullptr;
-    std::shared_ptr<int64_t> departmentId_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> ani_ {};
+    shared_ptr<string> callInfos_ {};
+    shared_ptr<int64_t> departmentId_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> endDate_ = nullptr;
+    shared_ptr<string> endDate_ {};
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
-    std::shared_ptr<string> extAttrs_ = nullptr;
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> extAttrs_ {};
+    shared_ptr<string> groupName_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<int32_t> model_ = nullptr;
-    std::shared_ptr<int32_t> retryInterval_ = nullptr;
-    std::shared_ptr<int32_t> retryTime_ = nullptr;
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> model_ {};
+    shared_ptr<int32_t> retryInterval_ {};
+    shared_ptr<int32_t> retryTime_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> skillGroup_ = nullptr;
+    shared_ptr<int64_t> skillGroup_ {};
     // This parameter is required.
-    std::shared_ptr<string> startDate_ = nullptr;
+    shared_ptr<string> startDate_ {};
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> taskType_ = nullptr;
+    shared_ptr<int32_t> taskType_ {};
   };
 
   } // namespace Models

@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentIds_ == nullptr
-        && return this->instanceId_ == nullptr && return this->skillGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->skillGroupId_ == nullptr; };
     // agentIds Field Functions 
     bool hasAgentIds() const { return this->agentIds_ != nullptr;};
     void deleteAgentIds() { this->agentIds_ = nullptr;};
-    inline const vector<int64_t> & agentIds() const { DARABONBA_PTR_GET_CONST(agentIds_, vector<int64_t>) };
-    inline vector<int64_t> agentIds() { DARABONBA_PTR_GET(agentIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getAgentIds() const { DARABONBA_PTR_GET_CONST(agentIds_, vector<int64_t>) };
+    inline vector<int64_t> getAgentIds() { DARABONBA_PTR_GET(agentIds_, vector<int64_t>) };
     inline RemoveAgentFromSkillGroupRequest& setAgentIds(const vector<int64_t> & agentIds) { DARABONBA_PTR_SET_VALUE(agentIds_, agentIds) };
     inline RemoveAgentFromSkillGroupRequest& setAgentIds(vector<int64_t> && agentIds) { DARABONBA_PTR_SET_RVALUE(agentIds_, agentIds) };
 
@@ -48,24 +48,24 @@ namespace Models
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RemoveAgentFromSkillGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // skillGroupId Field Functions 
     bool hasSkillGroupId() const { return this->skillGroupId_ != nullptr;};
     void deleteSkillGroupId() { this->skillGroupId_ = nullptr;};
-    inline int64_t skillGroupId() const { DARABONBA_PTR_GET_DEFAULT(skillGroupId_, 0L) };
+    inline int64_t getSkillGroupId() const { DARABONBA_PTR_GET_DEFAULT(skillGroupId_, 0L) };
     inline RemoveAgentFromSkillGroupRequest& setSkillGroupId(int64_t skillGroupId) { DARABONBA_PTR_SET_VALUE(skillGroupId_, skillGroupId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<int64_t>> agentIds_ = nullptr;
+    shared_ptr<vector<int64_t>> agentIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> skillGroupId_ = nullptr;
+    shared_ptr<int64_t> skillGroupId_ {};
   };
 
   } // namespace Models

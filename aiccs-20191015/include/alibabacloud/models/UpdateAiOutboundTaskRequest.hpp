@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATEAIOUTBOUNDTASKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateAiOutboundTaskRequestRecallRule.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -51,70 +50,112 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class RecallRule : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RecallRule& obj) { 
+        DARABONBA_PTR_TO_JSON(Count, count_);
+        DARABONBA_PTR_TO_JSON(Interval, interval_);
+      };
+      friend void from_json(const Darabonba::Json& j, RecallRule& obj) { 
+        DARABONBA_PTR_FROM_JSON(Count, count_);
+        DARABONBA_PTR_FROM_JSON(Interval, interval_);
+      };
+      RecallRule() = default ;
+      RecallRule(const RecallRule &) = default ;
+      RecallRule(RecallRule &&) = default ;
+      RecallRule(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RecallRule() = default ;
+      RecallRule& operator=(const RecallRule &) = default ;
+      RecallRule& operator=(RecallRule &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->count_ == nullptr
+        && this->interval_ == nullptr; };
+      // count Field Functions 
+      bool hasCount() const { return this->count_ != nullptr;};
+      void deleteCount() { this->count_ = nullptr;};
+      inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+      inline RecallRule& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+      // interval Field Functions 
+      bool hasInterval() const { return this->interval_ != nullptr;};
+      void deleteInterval() { this->interval_ = nullptr;};
+      inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
+      inline RecallRule& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
+
+
+    protected:
+      shared_ptr<int32_t> count_ {};
+      shared_ptr<int32_t> interval_ {};
+    };
+
     virtual bool empty() const override { return this->concurrentRate_ == nullptr
-        && return this->description_ == nullptr && return this->executionTime_ == nullptr && return this->forecastCallRate_ == nullptr && return this->handlerId_ == nullptr && return this->instanceId_ == nullptr
-        && return this->name_ == nullptr && return this->numRepeated_ == nullptr && return this->outboundNums_ == nullptr && return this->recallRule_ == nullptr && return this->taskId_ == nullptr; };
+        && this->description_ == nullptr && this->executionTime_ == nullptr && this->forecastCallRate_ == nullptr && this->handlerId_ == nullptr && this->instanceId_ == nullptr
+        && this->name_ == nullptr && this->numRepeated_ == nullptr && this->outboundNums_ == nullptr && this->recallRule_ == nullptr && this->taskId_ == nullptr; };
     // concurrentRate Field Functions 
     bool hasConcurrentRate() const { return this->concurrentRate_ != nullptr;};
     void deleteConcurrentRate() { this->concurrentRate_ = nullptr;};
-    inline int32_t concurrentRate() const { DARABONBA_PTR_GET_DEFAULT(concurrentRate_, 0) };
+    inline int32_t getConcurrentRate() const { DARABONBA_PTR_GET_DEFAULT(concurrentRate_, 0) };
     inline UpdateAiOutboundTaskRequest& setConcurrentRate(int32_t concurrentRate) { DARABONBA_PTR_SET_VALUE(concurrentRate_, concurrentRate) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateAiOutboundTaskRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // executionTime Field Functions 
     bool hasExecutionTime() const { return this->executionTime_ != nullptr;};
     void deleteExecutionTime() { this->executionTime_ = nullptr;};
-    inline string executionTime() const { DARABONBA_PTR_GET_DEFAULT(executionTime_, "") };
+    inline string getExecutionTime() const { DARABONBA_PTR_GET_DEFAULT(executionTime_, "") };
     inline UpdateAiOutboundTaskRequest& setExecutionTime(string executionTime) { DARABONBA_PTR_SET_VALUE(executionTime_, executionTime) };
 
 
     // forecastCallRate Field Functions 
     bool hasForecastCallRate() const { return this->forecastCallRate_ != nullptr;};
     void deleteForecastCallRate() { this->forecastCallRate_ = nullptr;};
-    inline float forecastCallRate() const { DARABONBA_PTR_GET_DEFAULT(forecastCallRate_, 0.0) };
+    inline float getForecastCallRate() const { DARABONBA_PTR_GET_DEFAULT(forecastCallRate_, 0.0) };
     inline UpdateAiOutboundTaskRequest& setForecastCallRate(float forecastCallRate) { DARABONBA_PTR_SET_VALUE(forecastCallRate_, forecastCallRate) };
 
 
     // handlerId Field Functions 
     bool hasHandlerId() const { return this->handlerId_ != nullptr;};
     void deleteHandlerId() { this->handlerId_ = nullptr;};
-    inline int64_t handlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, 0L) };
+    inline int64_t getHandlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, 0L) };
     inline UpdateAiOutboundTaskRequest& setHandlerId(int64_t handlerId) { DARABONBA_PTR_SET_VALUE(handlerId_, handlerId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateAiOutboundTaskRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateAiOutboundTaskRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // numRepeated Field Functions 
     bool hasNumRepeated() const { return this->numRepeated_ != nullptr;};
     void deleteNumRepeated() { this->numRepeated_ = nullptr;};
-    inline int32_t numRepeated() const { DARABONBA_PTR_GET_DEFAULT(numRepeated_, 0) };
+    inline int32_t getNumRepeated() const { DARABONBA_PTR_GET_DEFAULT(numRepeated_, 0) };
     inline UpdateAiOutboundTaskRequest& setNumRepeated(int32_t numRepeated) { DARABONBA_PTR_SET_VALUE(numRepeated_, numRepeated) };
 
 
     // outboundNums Field Functions 
     bool hasOutboundNums() const { return this->outboundNums_ != nullptr;};
     void deleteOutboundNums() { this->outboundNums_ = nullptr;};
-    inline const vector<string> & outboundNums() const { DARABONBA_PTR_GET_CONST(outboundNums_, vector<string>) };
-    inline vector<string> outboundNums() { DARABONBA_PTR_GET(outboundNums_, vector<string>) };
+    inline const vector<string> & getOutboundNums() const { DARABONBA_PTR_GET_CONST(outboundNums_, vector<string>) };
+    inline vector<string> getOutboundNums() { DARABONBA_PTR_GET(outboundNums_, vector<string>) };
     inline UpdateAiOutboundTaskRequest& setOutboundNums(const vector<string> & outboundNums) { DARABONBA_PTR_SET_VALUE(outboundNums_, outboundNums) };
     inline UpdateAiOutboundTaskRequest& setOutboundNums(vector<string> && outboundNums) { DARABONBA_PTR_SET_RVALUE(outboundNums_, outboundNums) };
 
@@ -122,38 +163,38 @@ namespace Models
     // recallRule Field Functions 
     bool hasRecallRule() const { return this->recallRule_ != nullptr;};
     void deleteRecallRule() { this->recallRule_ = nullptr;};
-    inline const UpdateAiOutboundTaskRequestRecallRule & recallRule() const { DARABONBA_PTR_GET_CONST(recallRule_, UpdateAiOutboundTaskRequestRecallRule) };
-    inline UpdateAiOutboundTaskRequestRecallRule recallRule() { DARABONBA_PTR_GET(recallRule_, UpdateAiOutboundTaskRequestRecallRule) };
-    inline UpdateAiOutboundTaskRequest& setRecallRule(const UpdateAiOutboundTaskRequestRecallRule & recallRule) { DARABONBA_PTR_SET_VALUE(recallRule_, recallRule) };
-    inline UpdateAiOutboundTaskRequest& setRecallRule(UpdateAiOutboundTaskRequestRecallRule && recallRule) { DARABONBA_PTR_SET_RVALUE(recallRule_, recallRule) };
+    inline const UpdateAiOutboundTaskRequest::RecallRule & getRecallRule() const { DARABONBA_PTR_GET_CONST(recallRule_, UpdateAiOutboundTaskRequest::RecallRule) };
+    inline UpdateAiOutboundTaskRequest::RecallRule getRecallRule() { DARABONBA_PTR_GET(recallRule_, UpdateAiOutboundTaskRequest::RecallRule) };
+    inline UpdateAiOutboundTaskRequest& setRecallRule(const UpdateAiOutboundTaskRequest::RecallRule & recallRule) { DARABONBA_PTR_SET_VALUE(recallRule_, recallRule) };
+    inline UpdateAiOutboundTaskRequest& setRecallRule(UpdateAiOutboundTaskRequest::RecallRule && recallRule) { DARABONBA_PTR_SET_RVALUE(recallRule_, recallRule) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline UpdateAiOutboundTaskRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<int32_t> concurrentRate_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<int32_t> concurrentRate_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> executionTime_ = nullptr;
-    std::shared_ptr<float> forecastCallRate_ = nullptr;
+    shared_ptr<string> executionTime_ {};
+    shared_ptr<float> forecastCallRate_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> handlerId_ = nullptr;
+    shared_ptr<int64_t> handlerId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> numRepeated_ = nullptr;
+    shared_ptr<int32_t> numRepeated_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> outboundNums_ = nullptr;
-    std::shared_ptr<UpdateAiOutboundTaskRequestRecallRule> recallRule_ = nullptr;
+    shared_ptr<vector<string>> outboundNums_ {};
+    shared_ptr<UpdateAiOutboundTaskRequest::RecallRule> recallRule_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

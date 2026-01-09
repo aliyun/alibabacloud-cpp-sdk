@@ -48,93 +48,93 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchVersion_ == nullptr
-        && return this->caseId_ == nullptr && return this->caseStatus_ == nullptr && return this->createTimeEnd_ == nullptr && return this->createTimeStart_ == nullptr && return this->currentPage_ == nullptr
-        && return this->instanceId_ == nullptr && return this->pageSize_ == nullptr && return this->phoneNum_ == nullptr && return this->taskId_ == nullptr; };
+        && this->caseId_ == nullptr && this->caseStatus_ == nullptr && this->createTimeEnd_ == nullptr && this->createTimeStart_ == nullptr && this->currentPage_ == nullptr
+        && this->instanceId_ == nullptr && this->pageSize_ == nullptr && this->phoneNum_ == nullptr && this->taskId_ == nullptr; };
     // batchVersion Field Functions 
     bool hasBatchVersion() const { return this->batchVersion_ != nullptr;};
     void deleteBatchVersion() { this->batchVersion_ = nullptr;};
-    inline int32_t batchVersion() const { DARABONBA_PTR_GET_DEFAULT(batchVersion_, 0) };
+    inline int32_t getBatchVersion() const { DARABONBA_PTR_GET_DEFAULT(batchVersion_, 0) };
     inline GetAiOutboundTaskExecDetailRequest& setBatchVersion(int32_t batchVersion) { DARABONBA_PTR_SET_VALUE(batchVersion_, batchVersion) };
 
 
     // caseId Field Functions 
     bool hasCaseId() const { return this->caseId_ != nullptr;};
     void deleteCaseId() { this->caseId_ = nullptr;};
-    inline int64_t caseId() const { DARABONBA_PTR_GET_DEFAULT(caseId_, 0L) };
+    inline int64_t getCaseId() const { DARABONBA_PTR_GET_DEFAULT(caseId_, 0L) };
     inline GetAiOutboundTaskExecDetailRequest& setCaseId(int64_t caseId) { DARABONBA_PTR_SET_VALUE(caseId_, caseId) };
 
 
     // caseStatus Field Functions 
     bool hasCaseStatus() const { return this->caseStatus_ != nullptr;};
     void deleteCaseStatus() { this->caseStatus_ = nullptr;};
-    inline int32_t caseStatus() const { DARABONBA_PTR_GET_DEFAULT(caseStatus_, 0) };
+    inline int32_t getCaseStatus() const { DARABONBA_PTR_GET_DEFAULT(caseStatus_, 0) };
     inline GetAiOutboundTaskExecDetailRequest& setCaseStatus(int32_t caseStatus) { DARABONBA_PTR_SET_VALUE(caseStatus_, caseStatus) };
 
 
     // createTimeEnd Field Functions 
     bool hasCreateTimeEnd() const { return this->createTimeEnd_ != nullptr;};
     void deleteCreateTimeEnd() { this->createTimeEnd_ = nullptr;};
-    inline int64_t createTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(createTimeEnd_, 0L) };
+    inline int64_t getCreateTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(createTimeEnd_, 0L) };
     inline GetAiOutboundTaskExecDetailRequest& setCreateTimeEnd(int64_t createTimeEnd) { DARABONBA_PTR_SET_VALUE(createTimeEnd_, createTimeEnd) };
 
 
     // createTimeStart Field Functions 
     bool hasCreateTimeStart() const { return this->createTimeStart_ != nullptr;};
     void deleteCreateTimeStart() { this->createTimeStart_ = nullptr;};
-    inline int64_t createTimeStart() const { DARABONBA_PTR_GET_DEFAULT(createTimeStart_, 0L) };
+    inline int64_t getCreateTimeStart() const { DARABONBA_PTR_GET_DEFAULT(createTimeStart_, 0L) };
     inline GetAiOutboundTaskExecDetailRequest& setCreateTimeStart(int64_t createTimeStart) { DARABONBA_PTR_SET_VALUE(createTimeStart_, createTimeStart) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetAiOutboundTaskExecDetailRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetAiOutboundTaskExecDetailRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetAiOutboundTaskExecDetailRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // phoneNum Field Functions 
     bool hasPhoneNum() const { return this->phoneNum_ != nullptr;};
     void deletePhoneNum() { this->phoneNum_ = nullptr;};
-    inline string phoneNum() const { DARABONBA_PTR_GET_DEFAULT(phoneNum_, "") };
+    inline string getPhoneNum() const { DARABONBA_PTR_GET_DEFAULT(phoneNum_, "") };
     inline GetAiOutboundTaskExecDetailRequest& setPhoneNum(string phoneNum) { DARABONBA_PTR_SET_VALUE(phoneNum_, phoneNum) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline int64_t taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+    inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
     inline GetAiOutboundTaskExecDetailRequest& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
-    std::shared_ptr<int32_t> batchVersion_ = nullptr;
-    std::shared_ptr<int64_t> caseId_ = nullptr;
-    std::shared_ptr<int32_t> caseStatus_ = nullptr;
-    std::shared_ptr<int64_t> createTimeEnd_ = nullptr;
-    std::shared_ptr<int64_t> createTimeStart_ = nullptr;
+    shared_ptr<int32_t> batchVersion_ {};
+    shared_ptr<int64_t> caseId_ {};
+    shared_ptr<int32_t> caseStatus_ {};
+    shared_ptr<int64_t> createTimeEnd_ {};
+    shared_ptr<int64_t> createTimeStart_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
+    shared_ptr<int32_t> currentPage_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> phoneNum_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> phoneNum_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> taskId_ = nullptr;
+    shared_ptr<int64_t> taskId_ {};
   };
 
   } // namespace Models

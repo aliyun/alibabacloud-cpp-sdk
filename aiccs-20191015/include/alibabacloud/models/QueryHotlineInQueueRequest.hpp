@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->outerGroupId_ == nullptr
-        && return this->outerGroupType_ == nullptr; };
+        && this->outerGroupType_ == nullptr; };
     // outerGroupId Field Functions 
     bool hasOuterGroupId() const { return this->outerGroupId_ != nullptr;};
     void deleteOuterGroupId() { this->outerGroupId_ = nullptr;};
-    inline string outerGroupId() const { DARABONBA_PTR_GET_DEFAULT(outerGroupId_, "") };
+    inline string getOuterGroupId() const { DARABONBA_PTR_GET_DEFAULT(outerGroupId_, "") };
     inline QueryHotlineInQueueRequest& setOuterGroupId(string outerGroupId) { DARABONBA_PTR_SET_VALUE(outerGroupId_, outerGroupId) };
 
 
     // outerGroupType Field Functions 
     bool hasOuterGroupType() const { return this->outerGroupType_ != nullptr;};
     void deleteOuterGroupType() { this->outerGroupType_ = nullptr;};
-    inline string outerGroupType() const { DARABONBA_PTR_GET_DEFAULT(outerGroupType_, "") };
+    inline string getOuterGroupType() const { DARABONBA_PTR_GET_DEFAULT(outerGroupType_, "") };
     inline QueryHotlineInQueueRequest& setOuterGroupType(string outerGroupType) { DARABONBA_PTR_SET_VALUE(outerGroupType_, outerGroupType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> outerGroupId_ = nullptr;
+    shared_ptr<string> outerGroupId_ {};
     // This parameter is required.
-    std::shared_ptr<string> outerGroupType_ = nullptr;
+    shared_ptr<string> outerGroupType_ {};
   };
 
   } // namespace Models

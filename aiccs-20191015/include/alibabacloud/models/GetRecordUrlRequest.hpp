@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acid_ == nullptr
-        && return this->instanceId_ == nullptr && return this->recordType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->recordType_ == nullptr; };
     // acid Field Functions 
     bool hasAcid() const { return this->acid_ != nullptr;};
     void deleteAcid() { this->acid_ = nullptr;};
-    inline string acid() const { DARABONBA_PTR_GET_DEFAULT(acid_, "") };
+    inline string getAcid() const { DARABONBA_PTR_GET_DEFAULT(acid_, "") };
     inline GetRecordUrlRequest& setAcid(string acid) { DARABONBA_PTR_SET_VALUE(acid_, acid) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetRecordUrlRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // recordType Field Functions 
     bool hasRecordType() const { return this->recordType_ != nullptr;};
     void deleteRecordType() { this->recordType_ = nullptr;};
-    inline string recordType() const { DARABONBA_PTR_GET_DEFAULT(recordType_, "") };
+    inline string getRecordType() const { DARABONBA_PTR_GET_DEFAULT(recordType_, "") };
     inline GetRecordUrlRequest& setRecordType(string recordType) { DARABONBA_PTR_SET_VALUE(recordType_, recordType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> acid_ = nullptr;
+    shared_ptr<string> acid_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> recordType_ = nullptr;
+    shared_ptr<string> recordType_ {};
   };
 
   } // namespace Models

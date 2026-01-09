@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentIdsShrink_ == nullptr
-        && return this->instanceId_ == nullptr && return this->skillGroupId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->skillGroupId_ == nullptr; };
     // agentIdsShrink Field Functions 
     bool hasAgentIdsShrink() const { return this->agentIdsShrink_ != nullptr;};
     void deleteAgentIdsShrink() { this->agentIdsShrink_ = nullptr;};
-    inline string agentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(agentIdsShrink_, "") };
+    inline string getAgentIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(agentIdsShrink_, "") };
     inline RemoveAgentFromSkillGroupShrinkRequest& setAgentIdsShrink(string agentIdsShrink) { DARABONBA_PTR_SET_VALUE(agentIdsShrink_, agentIdsShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RemoveAgentFromSkillGroupShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // skillGroupId Field Functions 
     bool hasSkillGroupId() const { return this->skillGroupId_ != nullptr;};
     void deleteSkillGroupId() { this->skillGroupId_ = nullptr;};
-    inline int64_t skillGroupId() const { DARABONBA_PTR_GET_DEFAULT(skillGroupId_, 0L) };
+    inline int64_t getSkillGroupId() const { DARABONBA_PTR_GET_DEFAULT(skillGroupId_, 0L) };
     inline RemoveAgentFromSkillGroupShrinkRequest& setSkillGroupId(int64_t skillGroupId) { DARABONBA_PTR_SET_VALUE(skillGroupId_, skillGroupId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> agentIdsShrink_ = nullptr;
+    shared_ptr<string> agentIdsShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> skillGroupId_ = nullptr;
+    shared_ptr<int64_t> skillGroupId_ {};
   };
 
   } // namespace Models

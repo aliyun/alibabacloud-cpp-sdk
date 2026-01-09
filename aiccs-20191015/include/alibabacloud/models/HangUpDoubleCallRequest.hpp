@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acid_ == nullptr
-        && return this->instanceId_ == nullptr; };
+        && this->instanceId_ == nullptr; };
     // acid Field Functions 
     bool hasAcid() const { return this->acid_ != nullptr;};
     void deleteAcid() { this->acid_ = nullptr;};
-    inline string acid() const { DARABONBA_PTR_GET_DEFAULT(acid_, "") };
+    inline string getAcid() const { DARABONBA_PTR_GET_DEFAULT(acid_, "") };
     inline HangUpDoubleCallRequest& setAcid(string acid) { DARABONBA_PTR_SET_VALUE(acid_, acid) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline HangUpDoubleCallRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
-    std::shared_ptr<string> acid_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> acid_ {};
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

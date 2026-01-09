@@ -48,92 +48,92 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calledNumber_ == nullptr
-        && return this->calledShowNumber_ == nullptr && return this->earlyMediaAsr_ == nullptr && return this->outId_ == nullptr && return this->ownerId_ == nullptr && return this->params_ == nullptr
-        && return this->recordFlag_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->robotId_ == nullptr; };
+        && this->calledShowNumber_ == nullptr && this->earlyMediaAsr_ == nullptr && this->outId_ == nullptr && this->ownerId_ == nullptr && this->params_ == nullptr
+        && this->recordFlag_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->robotId_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};
-    inline string calledNumber() const { DARABONBA_PTR_GET_DEFAULT(calledNumber_, "") };
+    inline string getCalledNumber() const { DARABONBA_PTR_GET_DEFAULT(calledNumber_, "") };
     inline RobotCallRequest& setCalledNumber(string calledNumber) { DARABONBA_PTR_SET_VALUE(calledNumber_, calledNumber) };
 
 
     // calledShowNumber Field Functions 
     bool hasCalledShowNumber() const { return this->calledShowNumber_ != nullptr;};
     void deleteCalledShowNumber() { this->calledShowNumber_ = nullptr;};
-    inline string calledShowNumber() const { DARABONBA_PTR_GET_DEFAULT(calledShowNumber_, "") };
+    inline string getCalledShowNumber() const { DARABONBA_PTR_GET_DEFAULT(calledShowNumber_, "") };
     inline RobotCallRequest& setCalledShowNumber(string calledShowNumber) { DARABONBA_PTR_SET_VALUE(calledShowNumber_, calledShowNumber) };
 
 
     // earlyMediaAsr Field Functions 
     bool hasEarlyMediaAsr() const { return this->earlyMediaAsr_ != nullptr;};
     void deleteEarlyMediaAsr() { this->earlyMediaAsr_ = nullptr;};
-    inline bool earlyMediaAsr() const { DARABONBA_PTR_GET_DEFAULT(earlyMediaAsr_, false) };
+    inline bool getEarlyMediaAsr() const { DARABONBA_PTR_GET_DEFAULT(earlyMediaAsr_, false) };
     inline RobotCallRequest& setEarlyMediaAsr(bool earlyMediaAsr) { DARABONBA_PTR_SET_VALUE(earlyMediaAsr_, earlyMediaAsr) };
 
 
     // outId Field Functions 
     bool hasOutId() const { return this->outId_ != nullptr;};
     void deleteOutId() { this->outId_ = nullptr;};
-    inline string outId() const { DARABONBA_PTR_GET_DEFAULT(outId_, "") };
+    inline string getOutId() const { DARABONBA_PTR_GET_DEFAULT(outId_, "") };
     inline RobotCallRequest& setOutId(string outId) { DARABONBA_PTR_SET_VALUE(outId_, outId) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline RobotCallRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline RobotCallRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // recordFlag Field Functions 
     bool hasRecordFlag() const { return this->recordFlag_ != nullptr;};
     void deleteRecordFlag() { this->recordFlag_ = nullptr;};
-    inline bool recordFlag() const { DARABONBA_PTR_GET_DEFAULT(recordFlag_, false) };
+    inline bool getRecordFlag() const { DARABONBA_PTR_GET_DEFAULT(recordFlag_, false) };
     inline RobotCallRequest& setRecordFlag(bool recordFlag) { DARABONBA_PTR_SET_VALUE(recordFlag_, recordFlag) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline RobotCallRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline RobotCallRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // robotId Field Functions 
     bool hasRobotId() const { return this->robotId_ != nullptr;};
     void deleteRobotId() { this->robotId_ = nullptr;};
-    inline int64_t robotId() const { DARABONBA_PTR_GET_DEFAULT(robotId_, 0L) };
+    inline int64_t getRobotId() const { DARABONBA_PTR_GET_DEFAULT(robotId_, 0L) };
     inline RobotCallRequest& setRobotId(int64_t robotId) { DARABONBA_PTR_SET_VALUE(robotId_, robotId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> calledNumber_ = nullptr;
+    shared_ptr<string> calledNumber_ {};
     // This parameter is required.
-    std::shared_ptr<string> calledShowNumber_ = nullptr;
-    std::shared_ptr<bool> earlyMediaAsr_ = nullptr;
-    std::shared_ptr<string> outId_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<string> params_ = nullptr;
-    std::shared_ptr<bool> recordFlag_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> calledShowNumber_ {};
+    shared_ptr<bool> earlyMediaAsr_ {};
+    shared_ptr<string> outId_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> params_ {};
+    shared_ptr<bool> recordFlag_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> robotId_ = nullptr;
+    shared_ptr<int64_t> robotId_ {};
   };
 
   } // namespace Models

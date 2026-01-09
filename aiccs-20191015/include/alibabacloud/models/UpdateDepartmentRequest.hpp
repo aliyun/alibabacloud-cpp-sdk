@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->departmentId_ == nullptr
-        && return this->departmentName_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->departmentName_ == nullptr && this->instanceId_ == nullptr; };
     // departmentId Field Functions 
     bool hasDepartmentId() const { return this->departmentId_ != nullptr;};
     void deleteDepartmentId() { this->departmentId_ = nullptr;};
-    inline int64_t departmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
+    inline int64_t getDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
     inline UpdateDepartmentRequest& setDepartmentId(int64_t departmentId) { DARABONBA_PTR_SET_VALUE(departmentId_, departmentId) };
 
 
     // departmentName Field Functions 
     bool hasDepartmentName() const { return this->departmentName_ != nullptr;};
     void deleteDepartmentName() { this->departmentName_ = nullptr;};
-    inline string departmentName() const { DARABONBA_PTR_GET_DEFAULT(departmentName_, "") };
+    inline string getDepartmentName() const { DARABONBA_PTR_GET_DEFAULT(departmentName_, "") };
     inline UpdateDepartmentRequest& setDepartmentName(string departmentName) { DARABONBA_PTR_SET_VALUE(departmentName_, departmentName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline UpdateDepartmentRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> departmentId_ = nullptr;
+    shared_ptr<int64_t> departmentId_ {};
     // This parameter is required.
-    std::shared_ptr<string> departmentName_ = nullptr;
+    shared_ptr<string> departmentName_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

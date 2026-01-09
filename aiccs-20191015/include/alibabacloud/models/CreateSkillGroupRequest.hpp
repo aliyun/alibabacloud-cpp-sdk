@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelType_ == nullptr
-        && return this->clientToken_ == nullptr && return this->departmentId_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->instanceId_ == nullptr
-        && return this->skillGroupName_ == nullptr; };
+        && this->clientToken_ == nullptr && this->departmentId_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->instanceId_ == nullptr
+        && this->skillGroupName_ == nullptr; };
     // channelType Field Functions 
     bool hasChannelType() const { return this->channelType_ != nullptr;};
     void deleteChannelType() { this->channelType_ = nullptr;};
-    inline int32_t channelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, 0) };
+    inline int32_t getChannelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, 0) };
     inline CreateSkillGroupRequest& setChannelType(int32_t channelType) { DARABONBA_PTR_SET_VALUE(channelType_, channelType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateSkillGroupRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // departmentId Field Functions 
     bool hasDepartmentId() const { return this->departmentId_ != nullptr;};
     void deleteDepartmentId() { this->departmentId_ = nullptr;};
-    inline int64_t departmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
+    inline int64_t getDepartmentId() const { DARABONBA_PTR_GET_DEFAULT(departmentId_, 0L) };
     inline CreateSkillGroupRequest& setDepartmentId(int64_t departmentId) { DARABONBA_PTR_SET_VALUE(departmentId_, departmentId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateSkillGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
-    inline string displayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+    inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
     inline CreateSkillGroupRequest& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateSkillGroupRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // skillGroupName Field Functions 
     bool hasSkillGroupName() const { return this->skillGroupName_ != nullptr;};
     void deleteSkillGroupName() { this->skillGroupName_ = nullptr;};
-    inline string skillGroupName() const { DARABONBA_PTR_GET_DEFAULT(skillGroupName_, "") };
+    inline string getSkillGroupName() const { DARABONBA_PTR_GET_DEFAULT(skillGroupName_, "") };
     inline CreateSkillGroupRequest& setSkillGroupName(string skillGroupName) { DARABONBA_PTR_SET_VALUE(skillGroupName_, skillGroupName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> channelType_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<int64_t> departmentId_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> displayName_ = nullptr;
+    shared_ptr<int32_t> channelType_ {};
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<int64_t> departmentId_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> displayName_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> skillGroupName_ = nullptr;
+    shared_ptr<string> skillGroupName_ {};
   };
 
   } // namespace Models

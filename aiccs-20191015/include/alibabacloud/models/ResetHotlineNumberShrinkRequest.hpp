@@ -50,105 +50,105 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->enableInbound_ == nullptr && return this->enableInboundEvaluation_ == nullptr && return this->enableOutbound_ == nullptr && return this->enableOutboundEvaluation_ == nullptr && return this->evaluationLevel_ == nullptr
-        && return this->hotlineNumber_ == nullptr && return this->inboundFlowId_ == nullptr && return this->instanceId_ == nullptr && return this->outboundAllDepart_ == nullptr && return this->outboundRangeListShrink_ == nullptr; };
+        && this->enableInbound_ == nullptr && this->enableInboundEvaluation_ == nullptr && this->enableOutbound_ == nullptr && this->enableOutboundEvaluation_ == nullptr && this->evaluationLevel_ == nullptr
+        && this->hotlineNumber_ == nullptr && this->inboundFlowId_ == nullptr && this->instanceId_ == nullptr && this->outboundAllDepart_ == nullptr && this->outboundRangeListShrink_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ResetHotlineNumberShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // enableInbound Field Functions 
     bool hasEnableInbound() const { return this->enableInbound_ != nullptr;};
     void deleteEnableInbound() { this->enableInbound_ = nullptr;};
-    inline bool enableInbound() const { DARABONBA_PTR_GET_DEFAULT(enableInbound_, false) };
+    inline bool getEnableInbound() const { DARABONBA_PTR_GET_DEFAULT(enableInbound_, false) };
     inline ResetHotlineNumberShrinkRequest& setEnableInbound(bool enableInbound) { DARABONBA_PTR_SET_VALUE(enableInbound_, enableInbound) };
 
 
     // enableInboundEvaluation Field Functions 
     bool hasEnableInboundEvaluation() const { return this->enableInboundEvaluation_ != nullptr;};
     void deleteEnableInboundEvaluation() { this->enableInboundEvaluation_ = nullptr;};
-    inline bool enableInboundEvaluation() const { DARABONBA_PTR_GET_DEFAULT(enableInboundEvaluation_, false) };
+    inline bool getEnableInboundEvaluation() const { DARABONBA_PTR_GET_DEFAULT(enableInboundEvaluation_, false) };
     inline ResetHotlineNumberShrinkRequest& setEnableInboundEvaluation(bool enableInboundEvaluation) { DARABONBA_PTR_SET_VALUE(enableInboundEvaluation_, enableInboundEvaluation) };
 
 
     // enableOutbound Field Functions 
     bool hasEnableOutbound() const { return this->enableOutbound_ != nullptr;};
     void deleteEnableOutbound() { this->enableOutbound_ = nullptr;};
-    inline bool enableOutbound() const { DARABONBA_PTR_GET_DEFAULT(enableOutbound_, false) };
+    inline bool getEnableOutbound() const { DARABONBA_PTR_GET_DEFAULT(enableOutbound_, false) };
     inline ResetHotlineNumberShrinkRequest& setEnableOutbound(bool enableOutbound) { DARABONBA_PTR_SET_VALUE(enableOutbound_, enableOutbound) };
 
 
     // enableOutboundEvaluation Field Functions 
     bool hasEnableOutboundEvaluation() const { return this->enableOutboundEvaluation_ != nullptr;};
     void deleteEnableOutboundEvaluation() { this->enableOutboundEvaluation_ = nullptr;};
-    inline bool enableOutboundEvaluation() const { DARABONBA_PTR_GET_DEFAULT(enableOutboundEvaluation_, false) };
+    inline bool getEnableOutboundEvaluation() const { DARABONBA_PTR_GET_DEFAULT(enableOutboundEvaluation_, false) };
     inline ResetHotlineNumberShrinkRequest& setEnableOutboundEvaluation(bool enableOutboundEvaluation) { DARABONBA_PTR_SET_VALUE(enableOutboundEvaluation_, enableOutboundEvaluation) };
 
 
     // evaluationLevel Field Functions 
     bool hasEvaluationLevel() const { return this->evaluationLevel_ != nullptr;};
     void deleteEvaluationLevel() { this->evaluationLevel_ = nullptr;};
-    inline int32_t evaluationLevel() const { DARABONBA_PTR_GET_DEFAULT(evaluationLevel_, 0) };
+    inline int32_t getEvaluationLevel() const { DARABONBA_PTR_GET_DEFAULT(evaluationLevel_, 0) };
     inline ResetHotlineNumberShrinkRequest& setEvaluationLevel(int32_t evaluationLevel) { DARABONBA_PTR_SET_VALUE(evaluationLevel_, evaluationLevel) };
 
 
     // hotlineNumber Field Functions 
     bool hasHotlineNumber() const { return this->hotlineNumber_ != nullptr;};
     void deleteHotlineNumber() { this->hotlineNumber_ = nullptr;};
-    inline string hotlineNumber() const { DARABONBA_PTR_GET_DEFAULT(hotlineNumber_, "") };
+    inline string getHotlineNumber() const { DARABONBA_PTR_GET_DEFAULT(hotlineNumber_, "") };
     inline ResetHotlineNumberShrinkRequest& setHotlineNumber(string hotlineNumber) { DARABONBA_PTR_SET_VALUE(hotlineNumber_, hotlineNumber) };
 
 
     // inboundFlowId Field Functions 
     bool hasInboundFlowId() const { return this->inboundFlowId_ != nullptr;};
     void deleteInboundFlowId() { this->inboundFlowId_ = nullptr;};
-    inline int64_t inboundFlowId() const { DARABONBA_PTR_GET_DEFAULT(inboundFlowId_, 0L) };
+    inline int64_t getInboundFlowId() const { DARABONBA_PTR_GET_DEFAULT(inboundFlowId_, 0L) };
     inline ResetHotlineNumberShrinkRequest& setInboundFlowId(int64_t inboundFlowId) { DARABONBA_PTR_SET_VALUE(inboundFlowId_, inboundFlowId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ResetHotlineNumberShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // outboundAllDepart Field Functions 
     bool hasOutboundAllDepart() const { return this->outboundAllDepart_ != nullptr;};
     void deleteOutboundAllDepart() { this->outboundAllDepart_ = nullptr;};
-    inline bool outboundAllDepart() const { DARABONBA_PTR_GET_DEFAULT(outboundAllDepart_, false) };
+    inline bool getOutboundAllDepart() const { DARABONBA_PTR_GET_DEFAULT(outboundAllDepart_, false) };
     inline ResetHotlineNumberShrinkRequest& setOutboundAllDepart(bool outboundAllDepart) { DARABONBA_PTR_SET_VALUE(outboundAllDepart_, outboundAllDepart) };
 
 
     // outboundRangeListShrink Field Functions 
     bool hasOutboundRangeListShrink() const { return this->outboundRangeListShrink_ != nullptr;};
     void deleteOutboundRangeListShrink() { this->outboundRangeListShrink_ = nullptr;};
-    inline string outboundRangeListShrink() const { DARABONBA_PTR_GET_DEFAULT(outboundRangeListShrink_, "") };
+    inline string getOutboundRangeListShrink() const { DARABONBA_PTR_GET_DEFAULT(outboundRangeListShrink_, "") };
     inline ResetHotlineNumberShrinkRequest& setOutboundRangeListShrink(string outboundRangeListShrink) { DARABONBA_PTR_SET_VALUE(outboundRangeListShrink_, outboundRangeListShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<bool> enableInbound_ = nullptr;
+    shared_ptr<bool> enableInbound_ {};
     // This parameter is required.
-    std::shared_ptr<bool> enableInboundEvaluation_ = nullptr;
+    shared_ptr<bool> enableInboundEvaluation_ {};
     // This parameter is required.
-    std::shared_ptr<bool> enableOutbound_ = nullptr;
+    shared_ptr<bool> enableOutbound_ {};
     // This parameter is required.
-    std::shared_ptr<bool> enableOutboundEvaluation_ = nullptr;
-    std::shared_ptr<int32_t> evaluationLevel_ = nullptr;
+    shared_ptr<bool> enableOutboundEvaluation_ {};
+    shared_ptr<int32_t> evaluationLevel_ {};
     // This parameter is required.
-    std::shared_ptr<string> hotlineNumber_ = nullptr;
-    std::shared_ptr<int64_t> inboundFlowId_ = nullptr;
+    shared_ptr<string> hotlineNumber_ {};
+    shared_ptr<int64_t> inboundFlowId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<bool> outboundAllDepart_ = nullptr;
-    std::shared_ptr<string> outboundRangeListShrink_ = nullptr;
+    shared_ptr<bool> outboundAllDepart_ {};
+    shared_ptr<string> outboundRangeListShrink_ {};
   };
 
   } // namespace Models

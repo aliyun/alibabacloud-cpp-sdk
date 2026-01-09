@@ -38,52 +38,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->callee_ == nullptr && return this->caller_ == nullptr && return this->clientToken_ == nullptr && return this->instanceId_ == nullptr; };
+        && this->callee_ == nullptr && this->caller_ == nullptr && this->clientToken_ == nullptr && this->instanceId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline StartCallRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // callee Field Functions 
     bool hasCallee() const { return this->callee_ != nullptr;};
     void deleteCallee() { this->callee_ = nullptr;};
-    inline string callee() const { DARABONBA_PTR_GET_DEFAULT(callee_, "") };
+    inline string getCallee() const { DARABONBA_PTR_GET_DEFAULT(callee_, "") };
     inline StartCallRequest& setCallee(string callee) { DARABONBA_PTR_SET_VALUE(callee_, callee) };
 
 
     // caller Field Functions 
     bool hasCaller() const { return this->caller_ != nullptr;};
     void deleteCaller() { this->caller_ = nullptr;};
-    inline string caller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
+    inline string getCaller() const { DARABONBA_PTR_GET_DEFAULT(caller_, "") };
     inline StartCallRequest& setCaller(string caller) { DARABONBA_PTR_SET_VALUE(caller_, caller) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline StartCallRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline StartCallRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // This parameter is required.
-    std::shared_ptr<string> callee_ = nullptr;
+    shared_ptr<string> callee_ {};
     // This parameter is required.
-    std::shared_ptr<string> caller_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> caller_ {};
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
   };
 
   } // namespace Models

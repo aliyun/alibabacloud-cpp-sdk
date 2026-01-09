@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callId_ == nullptr
-        && return this->immediateHangup_ == nullptr; };
+        && this->immediateHangup_ == nullptr; };
     // callId Field Functions 
     bool hasCallId() const { return this->callId_ != nullptr;};
     void deleteCallId() { this->callId_ = nullptr;};
-    inline string callId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
+    inline string getCallId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
     inline HangupOperateRequest& setCallId(string callId) { DARABONBA_PTR_SET_VALUE(callId_, callId) };
 
 
     // immediateHangup Field Functions 
     bool hasImmediateHangup() const { return this->immediateHangup_ != nullptr;};
     void deleteImmediateHangup() { this->immediateHangup_ = nullptr;};
-    inline bool immediateHangup() const { DARABONBA_PTR_GET_DEFAULT(immediateHangup_, false) };
+    inline bool getImmediateHangup() const { DARABONBA_PTR_GET_DEFAULT(immediateHangup_, false) };
     inline HangupOperateRequest& setImmediateHangup(bool immediateHangup) { DARABONBA_PTR_SET_VALUE(immediateHangup_, immediateHangup) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> callId_ = nullptr;
-    std::shared_ptr<bool> immediateHangup_ = nullptr;
+    shared_ptr<string> callId_ {};
+    shared_ptr<bool> immediateHangup_ {};
   };
 
   } // namespace Models
