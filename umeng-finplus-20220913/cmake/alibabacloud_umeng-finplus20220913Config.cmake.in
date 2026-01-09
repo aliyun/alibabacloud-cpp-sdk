@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_umeng-finplus20220913Targets.cmake")
+check_required_components("alibabacloud_umeng-finplus20220913")

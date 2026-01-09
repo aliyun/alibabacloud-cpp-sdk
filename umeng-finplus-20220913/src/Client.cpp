@@ -47,7 +47,7 @@ BuildStsAKResponse Client::buildStsAKWithOptions(const BuildStsAKRequest &reques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "BuildStsAK"},
@@ -87,11 +87,11 @@ BuildStsAK2Response Client::buildStsAK2WithOptions(const BuildStsAK2Request &req
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasDataSetId()) {
-    body["dataSetId"] = request.dataSetId();
+    body["dataSetId"] = request.getDataSetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -136,7 +136,7 @@ CancelTaskResponse Client::cancelTaskWithOptions(const CancelTaskRequest &reques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "CancelTask"},
@@ -176,11 +176,11 @@ CancelTask2Response Client::cancelTask2WithOptions(const CancelTask2Request &req
   request.validate();
   json body = {};
   if (!!request.hasBcId()) {
-    body["bcId"] = request.bcId();
+    body["bcId"] = request.getBcId();
   }
 
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -225,27 +225,27 @@ CreateComputeTaskResponse Client::createComputeTaskWithOptions(const CreateCompu
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["appId"] = request.appId();
+    body["appId"] = request.getAppId();
   }
 
   if (!!request.hasDataSetIds()) {
-    body["dataSetIds"] = request.dataSetIds();
+    body["dataSetIds"] = request.getDataSetIds();
   }
 
   if (!!request.hasMorseInfoList()) {
-    body["morseInfoList"] = request.morseInfoList();
+    body["morseInfoList"] = request.getMorseInfoList();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasRemarks()) {
-    body["remarks"] = request.remarks();
+    body["remarks"] = request.getRemarks();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -290,35 +290,35 @@ CreateComputeTask2Response Client::createComputeTask2WithOptions(const CreateCom
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["appId"] = request.appId();
+    body["appId"] = request.getAppId();
   }
 
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasDataSetIds()) {
-    body["dataSetIds"] = request.dataSetIds();
+    body["dataSetIds"] = request.getDataSetIds();
   }
 
   if (!!request.hasMorseInfoList()) {
-    body["morseInfoList"] = request.morseInfoList();
+    body["morseInfoList"] = request.getMorseInfoList();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasRemarks()) {
-    body["remarks"] = request.remarks();
+    body["remarks"] = request.getRemarks();
   }
 
   if (!!request.hasTaskSource()) {
-    body["taskSource"] = request.taskSource();
+    body["taskSource"] = request.getTaskSource();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -363,11 +363,11 @@ CreateDataSetResponse Client::createDataSetWithOptions(const CreateDataSetReques
   request.validate();
   json body = {};
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -412,15 +412,15 @@ CreateDataSet2Response Client::createDataSet2WithOptions(const CreateDataSet2Req
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasName()) {
-    body["name"] = request.name();
+    body["name"] = request.getName();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -454,6 +454,83 @@ CreateDataSet2Response Client::createDataSet2(const CreateDataSet2Request &reque
 }
 
 /**
+ * @summary 创建友准达实例任务
+ *
+ * @param request CreateInstanceTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInstanceTaskResponse
+ */
+CreateInstanceTaskResponse Client::createInstanceTaskWithOptions(const CreateInstanceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasCalbackUrl()) {
+    body["CalbackUrl"] = request.getCalbackUrl();
+  }
+
+  if (!!request.hasClientId()) {
+    body["ClientId"] = request.getClientId();
+  }
+
+  if (!!request.hasDatasetIds()) {
+    body["DatasetIds"] = request.getDatasetIds();
+  }
+
+  if (!!request.hasMonitorType()) {
+    body["MonitorType"] = request.getMonitorType();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOutputConfig()) {
+    body["OutputConfig"] = request.getOutputConfig();
+  }
+
+  if (!!request.hasRequestId()) {
+    body["RequestId"] = request.getRequestId();
+  }
+
+  if (!!request.hasScoreStrategyConfig()) {
+    body["ScoreStrategyConfig"] = request.getScoreStrategyConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateInstanceTask"},
+    {"version" , "2022-09-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/CreateInstanceTask")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInstanceTaskResponse>();
+}
+
+/**
+ * @summary 创建友准达实例任务
+ *
+ * @param request CreateInstanceTaskRequest
+ * @return CreateInstanceTaskResponse
+ */
+CreateInstanceTaskResponse Client::createInstanceTask(const CreateInstanceTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createInstanceTaskWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 友准达-创建知识库
  *
  * @param tmpReq CreateKnowLedgeRequest
@@ -466,12 +543,12 @@ CreateKnowLedgeResponse Client::createKnowLedgeWithOptions(const CreateKnowLedge
   CreateKnowLedgeShrinkRequest request = CreateKnowLedgeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBody()) {
-    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.body(), "body", "json"));
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
   }
 
   json body = {};
   if (!!request.hasBodyShrink()) {
-    body["body"] = request.bodyShrink();
+    body["body"] = request.getBodyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -516,23 +593,23 @@ EncryptInvokeResponse Client::encryptInvokeWithOptions(const EncryptInvokeReques
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasData()) {
-    body["data"] = request.data();
+    body["data"] = request.getData();
   }
 
   if (!!request.hasEncryptKey()) {
-    body["encryptKey"] = request.encryptKey();
+    body["encryptKey"] = request.getEncryptKey();
   }
 
   if (!!request.hasMethodName()) {
-    body["methodName"] = request.methodName();
+    body["methodName"] = request.getMethodName();
   }
 
   if (!!request.hasSign()) {
-    body["sign"] = request.sign();
+    body["sign"] = request.getSign();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -578,12 +655,12 @@ GetCrowdDatasetResponse Client::getCrowdDatasetWithOptions(const GetCrowdDataset
   GetCrowdDatasetShrinkRequest request = GetCrowdDatasetShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBody()) {
-    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.body(), "body", "json"));
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
   }
 
   json query = {};
   if (!!request.hasBodyShrink()) {
-    query["body"] = request.bodyShrink();
+    query["body"] = request.getBodyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -629,12 +706,12 @@ GetKnowledgeDataResponse Client::getKnowledgeDataWithOptions(const GetKnowledgeD
   GetKnowledgeDataShrinkRequest request = GetKnowledgeDataShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBody()) {
-    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.body(), "body", "json"));
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
   }
 
   json query = {};
   if (!!request.hasBodyShrink()) {
-    query["body"] = request.bodyShrink();
+    query["body"] = request.getBodyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -680,12 +757,12 @@ GetYzdInstanceTaskResultResponse Client::getYzdInstanceTaskResultWithOptions(con
   GetYzdInstanceTaskResultShrinkRequest request = GetYzdInstanceTaskResultShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBody()) {
-    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.body(), "body", "json"));
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
   }
 
   json query = {};
   if (!!request.hasBodyShrink()) {
-    query["body"] = request.bodyShrink();
+    query["body"] = request.getBodyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -802,15 +879,15 @@ ListComputeTask2Response Client::listComputeTask2WithOptions(const ListComputeTa
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasPageNum()) {
-    body["pageNum"] = request.pageNum();
+    body["pageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    body["pageSize"] = request.pageSize();
+    body["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -891,15 +968,15 @@ ListDataSet2Response Client::listDataSet2WithOptions(const ListDataSet2Request &
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasPageNo()) {
-    body["pageNo"] = request.pageNo();
+    body["pageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    body["pageSize"] = request.pageSize();
+    body["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -944,7 +1021,7 @@ RemoveDataSetResponse Client::removeDataSetWithOptions(const RemoveDataSetReques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "RemoveDataSet"},
@@ -984,11 +1061,11 @@ RemoveDataSet2Response Client::removeDataSet2WithOptions(const RemoveDataSet2Req
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasDataSetId()) {
-    body["dataSetId"] = request.dataSetId();
+    body["dataSetId"] = request.getDataSetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1034,12 +1111,12 @@ SaveCrowdDatasetAndBindingDatasetResponse Client::saveCrowdDatasetAndBindingData
   SaveCrowdDatasetAndBindingDatasetShrinkRequest request = SaveCrowdDatasetAndBindingDatasetShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBody()) {
-    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.body(), "body", "json"));
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
   }
 
   json body = {};
   if (!!request.hasBodyShrink()) {
-    body["body"] = request.bodyShrink();
+    body["body"] = request.getBodyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1084,7 +1161,7 @@ SelectComputeTaskResponse Client::selectComputeTaskWithOptions(const SelectCompu
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "SelectComputeTask"},
@@ -1124,15 +1201,15 @@ SelectComputeTask2Response Client::selectComputeTask2WithOptions(const SelectCom
   request.validate();
   json body = {};
   if (!!request.hasBcConfirm()) {
-    body["bcConfirm"] = request.bcConfirm();
+    body["bcConfirm"] = request.getBcConfirm();
   }
 
   if (!!request.hasBcId()) {
-    body["bcId"] = request.bcId();
+    body["bcId"] = request.getBcId();
   }
 
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1177,7 +1254,7 @@ SelectDataSetResponse Client::selectDataSetWithOptions(const SelectDataSetReques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "SelectDataSet"},
@@ -1217,11 +1294,11 @@ SelectDataSet2Response Client::selectDataSet2WithOptions(const SelectDataSet2Req
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasDataSetId()) {
-    body["dataSetId"] = request.dataSetId();
+    body["dataSetId"] = request.getDataSetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1266,7 +1343,7 @@ SubmitDataSetTaskResponse Client::submitDataSetTaskWithOptions(const SubmitDataS
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , request.body()}
+    {"body" , request.getBody()}
   }));
   Params params = Params(json({
     {"action" , "SubmitDataSetTask"},
@@ -1306,11 +1383,11 @@ SubmitDataSetTask2Response Client::submitDataSetTask2WithOptions(const SubmitDat
   request.validate();
   json body = {};
   if (!!request.hasClientId()) {
-    body["clientId"] = request.clientId();
+    body["clientId"] = request.getClientId();
   }
 
   if (!!request.hasDataSetId()) {
-    body["dataSetId"] = request.dataSetId();
+    body["dataSetId"] = request.getDataSetId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1356,12 +1433,12 @@ ValidateKnowLedgeResponse Client::validateKnowLedgeWithOptions(const ValidateKno
   ValidateKnowLedgeShrinkRequest request = ValidateKnowLedgeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBody()) {
-    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.body(), "body", "simple"));
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "simple"));
   }
 
   json body = {};
   if (!!request.hasBodyShrink()) {
-    body["body"] = request.bodyShrink();
+    body["body"] = request.getBodyShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

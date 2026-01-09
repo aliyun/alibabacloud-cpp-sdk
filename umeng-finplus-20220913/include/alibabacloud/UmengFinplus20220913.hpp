@@ -165,6 +165,24 @@ namespace UmengFinplus20220913
       Models::CreateDataSet2Response createDataSet2(const Models::CreateDataSet2Request &request);
 
       /**
+       * @summary 创建友准达实例任务
+       *
+       * @param request CreateInstanceTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInstanceTaskResponse
+       */
+      Models::CreateInstanceTaskResponse createInstanceTaskWithOptions(const Models::CreateInstanceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建友准达实例任务
+       *
+       * @param request CreateInstanceTaskRequest
+       * @return CreateInstanceTaskResponse
+       */
+      Models::CreateInstanceTaskResponse createInstanceTask(const Models::CreateInstanceTaskRequest &request);
+
+      /**
        * @summary 友准达-创建知识库
        *
        * @param tmpReq CreateKnowLedgeRequest

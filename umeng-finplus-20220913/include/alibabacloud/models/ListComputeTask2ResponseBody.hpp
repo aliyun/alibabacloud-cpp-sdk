@@ -1,0 +1,312 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTCOMPUTETASK2RESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTCOMPUTETASK2RESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace UmengFinplus20220913
+{
+namespace Models
+{
+  class ListComputeTask2ResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListComputeTask2ResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(Msg, msg_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListComputeTask2ResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(Msg, msg_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    ListComputeTask2ResponseBody() = default ;
+    ListComputeTask2ResponseBody(const ListComputeTask2ResponseBody &) = default ;
+    ListComputeTask2ResponseBody(ListComputeTask2ResponseBody &&) = default ;
+    ListComputeTask2ResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListComputeTask2ResponseBody() = default ;
+    ListComputeTask2ResponseBody& operator=(const ListComputeTask2ResponseBody &) = default ;
+    ListComputeTask2ResponseBody& operator=(ListComputeTask2ResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(data, data_);
+        DARABONBA_PTR_TO_JSON(totalNum, totalNum_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(data, data_);
+        DARABONBA_PTR_FROM_JSON(totalNum, totalNum_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class DataItem : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataItem& obj) { 
+          DARABONBA_PTR_TO_JSON(appId, appId_);
+          DARABONBA_PTR_TO_JSON(bcId, bcId_);
+          DARABONBA_PTR_TO_JSON(computeOssFileTitle, computeOssFileTitle_);
+          DARABONBA_PTR_TO_JSON(datasetIds, datasetIds_);
+          DARABONBA_PTR_TO_JSON(extInfo, extInfo_);
+          DARABONBA_PTR_TO_JSON(fileNum, fileNum_);
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(remarks, remarks_);
+          DARABONBA_PTR_TO_JSON(status, status_);
+          DARABONBA_PTR_TO_JSON(taskResultList, taskResultList_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataItem& obj) { 
+          DARABONBA_PTR_FROM_JSON(appId, appId_);
+          DARABONBA_PTR_FROM_JSON(bcId, bcId_);
+          DARABONBA_PTR_FROM_JSON(computeOssFileTitle, computeOssFileTitle_);
+          DARABONBA_PTR_FROM_JSON(datasetIds, datasetIds_);
+          DARABONBA_PTR_FROM_JSON(extInfo, extInfo_);
+          DARABONBA_PTR_FROM_JSON(fileNum, fileNum_);
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(remarks, remarks_);
+          DARABONBA_PTR_FROM_JSON(status, status_);
+          DARABONBA_PTR_FROM_JSON(taskResultList, taskResultList_);
+        };
+        DataItem() = default ;
+        DataItem(const DataItem &) = default ;
+        DataItem(DataItem &&) = default ;
+        DataItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataItem() = default ;
+        DataItem& operator=(const DataItem &) = default ;
+        DataItem& operator=(DataItem &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class TaskResultList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const TaskResultList& obj) { 
+            DARABONBA_PTR_TO_JSON(bcId, bcId_);
+            DARABONBA_PTR_TO_JSON(code, code_);
+            DARABONBA_PTR_TO_JSON(lineNum, lineNum_);
+          };
+          friend void from_json(const Darabonba::Json& j, TaskResultList& obj) { 
+            DARABONBA_PTR_FROM_JSON(bcId, bcId_);
+            DARABONBA_PTR_FROM_JSON(code, code_);
+            DARABONBA_PTR_FROM_JSON(lineNum, lineNum_);
+          };
+          TaskResultList() = default ;
+          TaskResultList(const TaskResultList &) = default ;
+          TaskResultList(TaskResultList &&) = default ;
+          TaskResultList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TaskResultList() = default ;
+          TaskResultList& operator=(const TaskResultList &) = default ;
+          TaskResultList& operator=(TaskResultList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->bcId_ == nullptr
+        && this->code_ == nullptr && this->lineNum_ == nullptr; };
+          // bcId Field Functions 
+          bool hasBcId() const { return this->bcId_ != nullptr;};
+          void deleteBcId() { this->bcId_ = nullptr;};
+          inline int64_t getBcId() const { DARABONBA_PTR_GET_DEFAULT(bcId_, 0L) };
+          inline TaskResultList& setBcId(int64_t bcId) { DARABONBA_PTR_SET_VALUE(bcId_, bcId) };
+
+
+          // code Field Functions 
+          bool hasCode() const { return this->code_ != nullptr;};
+          void deleteCode() { this->code_ = nullptr;};
+          inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+          inline TaskResultList& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+          // lineNum Field Functions 
+          bool hasLineNum() const { return this->lineNum_ != nullptr;};
+          void deleteLineNum() { this->lineNum_ = nullptr;};
+          inline int64_t getLineNum() const { DARABONBA_PTR_GET_DEFAULT(lineNum_, 0L) };
+          inline TaskResultList& setLineNum(int64_t lineNum) { DARABONBA_PTR_SET_VALUE(lineNum_, lineNum) };
+
+
+        protected:
+          shared_ptr<int64_t> bcId_ {};
+          shared_ptr<int32_t> code_ {};
+          shared_ptr<int64_t> lineNum_ {};
+        };
+
+        virtual bool empty() const override { return this->appId_ == nullptr
+        && this->bcId_ == nullptr && this->computeOssFileTitle_ == nullptr && this->datasetIds_ == nullptr && this->extInfo_ == nullptr && this->fileNum_ == nullptr
+        && this->name_ == nullptr && this->remarks_ == nullptr && this->status_ == nullptr && this->taskResultList_ == nullptr; };
+        // appId Field Functions 
+        bool hasAppId() const { return this->appId_ != nullptr;};
+        void deleteAppId() { this->appId_ = nullptr;};
+        inline int64_t getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0L) };
+        inline DataItem& setAppId(int64_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+        // bcId Field Functions 
+        bool hasBcId() const { return this->bcId_ != nullptr;};
+        void deleteBcId() { this->bcId_ = nullptr;};
+        inline int64_t getBcId() const { DARABONBA_PTR_GET_DEFAULT(bcId_, 0L) };
+        inline DataItem& setBcId(int64_t bcId) { DARABONBA_PTR_SET_VALUE(bcId_, bcId) };
+
+
+        // computeOssFileTitle Field Functions 
+        bool hasComputeOssFileTitle() const { return this->computeOssFileTitle_ != nullptr;};
+        void deleteComputeOssFileTitle() { this->computeOssFileTitle_ = nullptr;};
+        inline string getComputeOssFileTitle() const { DARABONBA_PTR_GET_DEFAULT(computeOssFileTitle_, "") };
+        inline DataItem& setComputeOssFileTitle(string computeOssFileTitle) { DARABONBA_PTR_SET_VALUE(computeOssFileTitle_, computeOssFileTitle) };
+
+
+        // datasetIds Field Functions 
+        bool hasDatasetIds() const { return this->datasetIds_ != nullptr;};
+        void deleteDatasetIds() { this->datasetIds_ = nullptr;};
+        inline string getDatasetIds() const { DARABONBA_PTR_GET_DEFAULT(datasetIds_, "") };
+        inline DataItem& setDatasetIds(string datasetIds) { DARABONBA_PTR_SET_VALUE(datasetIds_, datasetIds) };
+
+
+        // extInfo Field Functions 
+        bool hasExtInfo() const { return this->extInfo_ != nullptr;};
+        void deleteExtInfo() { this->extInfo_ = nullptr;};
+        inline string getExtInfo() const { DARABONBA_PTR_GET_DEFAULT(extInfo_, "") };
+        inline DataItem& setExtInfo(string extInfo) { DARABONBA_PTR_SET_VALUE(extInfo_, extInfo) };
+
+
+        // fileNum Field Functions 
+        bool hasFileNum() const { return this->fileNum_ != nullptr;};
+        void deleteFileNum() { this->fileNum_ = nullptr;};
+        inline int64_t getFileNum() const { DARABONBA_PTR_GET_DEFAULT(fileNum_, 0L) };
+        inline DataItem& setFileNum(int64_t fileNum) { DARABONBA_PTR_SET_VALUE(fileNum_, fileNum) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline DataItem& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // remarks Field Functions 
+        bool hasRemarks() const { return this->remarks_ != nullptr;};
+        void deleteRemarks() { this->remarks_ = nullptr;};
+        inline string getRemarks() const { DARABONBA_PTR_GET_DEFAULT(remarks_, "") };
+        inline DataItem& setRemarks(string remarks) { DARABONBA_PTR_SET_VALUE(remarks_, remarks) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline DataItem& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+        // taskResultList Field Functions 
+        bool hasTaskResultList() const { return this->taskResultList_ != nullptr;};
+        void deleteTaskResultList() { this->taskResultList_ = nullptr;};
+        inline const vector<DataItem::TaskResultList> & getTaskResultList() const { DARABONBA_PTR_GET_CONST(taskResultList_, vector<DataItem::TaskResultList>) };
+        inline vector<DataItem::TaskResultList> getTaskResultList() { DARABONBA_PTR_GET(taskResultList_, vector<DataItem::TaskResultList>) };
+        inline DataItem& setTaskResultList(const vector<DataItem::TaskResultList> & taskResultList) { DARABONBA_PTR_SET_VALUE(taskResultList_, taskResultList) };
+        inline DataItem& setTaskResultList(vector<DataItem::TaskResultList> && taskResultList) { DARABONBA_PTR_SET_RVALUE(taskResultList_, taskResultList) };
+
+
+      protected:
+        shared_ptr<int64_t> appId_ {};
+        shared_ptr<int64_t> bcId_ {};
+        shared_ptr<string> computeOssFileTitle_ {};
+        shared_ptr<string> datasetIds_ {};
+        shared_ptr<string> extInfo_ {};
+        shared_ptr<int64_t> fileNum_ {};
+        shared_ptr<string> name_ {};
+        shared_ptr<string> remarks_ {};
+        shared_ptr<string> status_ {};
+        shared_ptr<vector<DataItem::TaskResultList>> taskResultList_ {};
+      };
+
+      virtual bool empty() const override { return this->data_ == nullptr
+        && this->totalNum_ == nullptr; };
+      // data Field Functions 
+      bool hasData() const { return this->data_ != nullptr;};
+      void deleteData() { this->data_ = nullptr;};
+      inline const vector<Data::DataItem> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<Data::DataItem>) };
+      inline vector<Data::DataItem> getData() { DARABONBA_PTR_GET(data_, vector<Data::DataItem>) };
+      inline Data& setData(const vector<Data::DataItem> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+      inline Data& setData(vector<Data::DataItem> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+      // totalNum Field Functions 
+      bool hasTotalNum() const { return this->totalNum_ != nullptr;};
+      void deleteTotalNum() { this->totalNum_ = nullptr;};
+      inline int32_t getTotalNum() const { DARABONBA_PTR_GET_DEFAULT(totalNum_, 0) };
+      inline Data& setTotalNum(int32_t totalNum) { DARABONBA_PTR_SET_VALUE(totalNum_, totalNum) };
+
+
+    protected:
+      shared_ptr<vector<Data::DataItem>> data_ {};
+      shared_ptr<int32_t> totalNum_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ListComputeTask2ResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const ListComputeTask2ResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ListComputeTask2ResponseBody::Data) };
+    inline ListComputeTask2ResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListComputeTask2ResponseBody::Data) };
+    inline ListComputeTask2ResponseBody& setData(const ListComputeTask2ResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ListComputeTask2ResponseBody& setData(ListComputeTask2ResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // msg Field Functions 
+    bool hasMsg() const { return this->msg_ != nullptr;};
+    void deleteMsg() { this->msg_ = nullptr;};
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline ListComputeTask2ResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ListComputeTask2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline ListComputeTask2ResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    shared_ptr<string> code_ {};
+    shared_ptr<ListComputeTask2ResponseBody::Data> data_ {};
+    shared_ptr<string> msg_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace UmengFinplus20220913
+#endif
