@@ -1815,6 +1815,23 @@ namespace Cloudauth20190307
       Models::MobileOnlineTimeResponse mobileOnlineTime(const Models::MobileOnlineTimeRequest &request);
 
       /**
+       * @summary 手机号二次放号核验
+       *
+       * @param request MobileRecycledMetaVerifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MobileRecycledMetaVerifyResponse
+       */
+      Models::MobileRecycledMetaVerifyResponse mobileRecycledMetaVerifyWithOptions(const Models::MobileRecycledMetaVerifyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 手机号二次放号核验
+       *
+       * @param request MobileRecycledMetaVerifyRequest
+       * @return MobileRecycledMetaVerifyResponse
+       */
+      Models::MobileRecycledMetaVerifyResponse mobileRecycledMetaVerify(const Models::MobileRecycledMetaVerifyRequest &request);
+
+      /**
        * @summary Modify Black and White List Policy
        *
        * @description - Service Address: cloudauth.aliyuncs.com.

@@ -39,6 +39,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BindMiniProgram, bindMiniProgram_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Creator, creator_);
+        DARABONBA_PTR_TO_JSON(DeviceRiskPlus, deviceRiskPlus_);
         DARABONBA_PTR_TO_JSON(Domain, domain_);
         DARABONBA_PTR_TO_JSON(MiniProgramName, miniProgramName_);
         DARABONBA_PTR_TO_JSON(Modifier, modifier_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BindMiniProgram, bindMiniProgram_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Creator, creator_);
+        DARABONBA_PTR_FROM_JSON(DeviceRiskPlus, deviceRiskPlus_);
         DARABONBA_PTR_FROM_JSON(Domain, domain_);
         DARABONBA_PTR_FROM_JSON(MiniProgramName, miniProgramName_);
         DARABONBA_PTR_FROM_JSON(Modifier, modifier_);
@@ -80,9 +82,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appId_ == nullptr
-        && this->bindMiniProgram_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->domain_ == nullptr && this->miniProgramName_ == nullptr
-        && this->modifier_ == nullptr && this->platform_ == nullptr && this->returnPicCount_ == nullptr && this->returnVideoLength_ == nullptr && this->sceneId_ == nullptr
-        && this->sceneName_ == nullptr && this->status_ == nullptr && this->storeImage_ == nullptr && this->updateTime_ == nullptr; };
+        && this->bindMiniProgram_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->deviceRiskPlus_ == nullptr && this->domain_ == nullptr
+        && this->miniProgramName_ == nullptr && this->modifier_ == nullptr && this->platform_ == nullptr && this->returnPicCount_ == nullptr && this->returnVideoLength_ == nullptr
+        && this->sceneId_ == nullptr && this->sceneName_ == nullptr && this->status_ == nullptr && this->storeImage_ == nullptr && this->updateTime_ == nullptr; };
       // appId Field Functions 
       bool hasAppId() const { return this->appId_ != nullptr;};
       void deleteAppId() { this->appId_ = nullptr;};
@@ -109,6 +111,13 @@ namespace Models
       void deleteCreator() { this->creator_ = nullptr;};
       inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
       inline Scenes& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+      // deviceRiskPlus Field Functions 
+      bool hasDeviceRiskPlus() const { return this->deviceRiskPlus_ != nullptr;};
+      void deleteDeviceRiskPlus() { this->deviceRiskPlus_ = nullptr;};
+      inline string getDeviceRiskPlus() const { DARABONBA_PTR_GET_DEFAULT(deviceRiskPlus_, "") };
+      inline Scenes& setDeviceRiskPlus(string deviceRiskPlus) { DARABONBA_PTR_SET_VALUE(deviceRiskPlus_, deviceRiskPlus) };
 
 
       // domain Field Functions 
@@ -199,6 +208,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // Creator.
       shared_ptr<string> creator_ {};
+      shared_ptr<string> deviceRiskPlus_ {};
       // Bound domain.
       shared_ptr<string> domain_ {};
       // Mini program name.

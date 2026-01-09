@@ -240,6 +240,9 @@
 #include <alibabacloud/models/MobileOnlineTimeRequest.hpp>
 #include <alibabacloud/models/MobileOnlineTimeResponseBody.hpp>
 #include <alibabacloud/models/MobileOnlineTimeResponse.hpp>
+#include <alibabacloud/models/MobileRecycledMetaVerifyRequest.hpp>
+#include <alibabacloud/models/MobileRecycledMetaVerifyResponseBody.hpp>
+#include <alibabacloud/models/MobileRecycledMetaVerifyResponse.hpp>
 #include <alibabacloud/models/ModifyBlackListStrategyRequest.hpp>
 #include <alibabacloud/models/ModifyBlackListStrategyShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyBlackListStrategyResponseBody.hpp>

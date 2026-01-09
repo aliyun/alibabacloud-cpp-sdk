@@ -733,6 +733,10 @@ CreateAntCloudAuthSceneResponse Client::createAntCloudAuthSceneWithOptions(const
     query["CheckFileName"] = request.getCheckFileName();
   }
 
+  if (!!request.hasDeviceRiskPlus()) {
+    query["DeviceRiskPlus"] = request.getDeviceRiskPlus();
+  }
+
   if (!!request.hasMiniProgramName()) {
     query["MiniProgramName"] = request.getMiniProgramName();
   }
@@ -5847,6 +5851,56 @@ MobileOnlineTimeResponse Client::mobileOnlineTime(const MobileOnlineTimeRequest 
 }
 
 /**
+ * @summary 手机号二次放号核验
+ *
+ * @param request MobileRecycledMetaVerifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MobileRecycledMetaVerifyResponse
+ */
+MobileRecycledMetaVerifyResponse Client::mobileRecycledMetaVerifyWithOptions(const MobileRecycledMetaVerifyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.getMobile();
+  }
+
+  if (!!request.hasParamType()) {
+    query["ParamType"] = request.getParamType();
+  }
+
+  if (!!request.hasRegisterDate()) {
+    query["RegisterDate"] = request.getRegisterDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MobileRecycledMetaVerify"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MobileRecycledMetaVerifyResponse>();
+}
+
+/**
+ * @summary 手机号二次放号核验
+ *
+ * @param request MobileRecycledMetaVerifyRequest
+ * @return MobileRecycledMetaVerifyResponse
+ */
+MobileRecycledMetaVerifyResponse Client::mobileRecycledMetaVerify(const MobileRecycledMetaVerifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return mobileRecycledMetaVerifyWithOptions(request, runtime);
+}
+
+/**
  * @summary Modify Black and White List Policy
  *
  * @description - Service Address: cloudauth.aliyuncs.com.
@@ -6624,6 +6678,10 @@ UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthSceneWithOptions(const
 
   if (!!request.hasCheckFileName()) {
     query["CheckFileName"] = request.getCheckFileName();
+  }
+
+  if (!!request.hasDeviceRiskPlus()) {
+    query["DeviceRiskPlus"] = request.getDeviceRiskPlus();
   }
 
   if (!!request.hasMiniProgramName()) {
