@@ -13076,6 +13076,88 @@ DescribeVpcFirewallSummaryInfoResponse Client::describeVpcFirewallSummaryInfo(co
 }
 
 /**
+ * @summary 查询VPC互访的资产信息
+ *
+ * @param request DescribeVpcFirewallTrafficAssetListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallTrafficAssetListResponse
+ */
+DescribeVpcFirewallTrafficAssetListResponse Client::describeVpcFirewallTrafficAssetListWithOptions(const DescribeVpcFirewallTrafficAssetListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasIP()) {
+    query["IP"] = request.getIP();
+  }
+
+  if (!!request.hasIsAITraffic()) {
+    query["IsAITraffic"] = request.getIsAITraffic();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.getSort();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallTrafficAssetList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallTrafficAssetListResponse>();
+}
+
+/**
+ * @summary 查询VPC互访的资产信息
+ *
+ * @param request DescribeVpcFirewallTrafficAssetListRequest
+ * @return DescribeVpcFirewallTrafficAssetListResponse
+ */
+DescribeVpcFirewallTrafficAssetListResponse Client::describeVpcFirewallTrafficAssetList(const DescribeVpcFirewallTrafficAssetListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallTrafficAssetListWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询VPC防火墙资源可用区
  *
  * @param request DescribeVpcFirewallZoneRequest

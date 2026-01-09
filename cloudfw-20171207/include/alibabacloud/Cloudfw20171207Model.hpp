@@ -623,6 +623,9 @@
 #include <alibabacloud/models/DescribeVpcFirewallSummaryInfoRequest.hpp>
 #include <alibabacloud/models/DescribeVpcFirewallSummaryInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeVpcFirewallSummaryInfoResponse.hpp>
+#include <alibabacloud/models/DescribeVpcFirewallTrafficAssetListRequest.hpp>
+#include <alibabacloud/models/DescribeVpcFirewallTrafficAssetListResponseBody.hpp>
+#include <alibabacloud/models/DescribeVpcFirewallTrafficAssetListResponse.hpp>
 #include <alibabacloud/models/DescribeVpcFirewallZoneRequest.hpp>
 #include <alibabacloud/models/DescribeVpcFirewallZoneResponseBody.hpp>
 #include <alibabacloud/models/DescribeVpcFirewallZoneResponse.hpp>

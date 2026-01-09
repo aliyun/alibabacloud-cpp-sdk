@@ -3882,6 +3882,23 @@ namespace Cloudfw20171207
       Models::DescribeVpcFirewallSummaryInfoResponse describeVpcFirewallSummaryInfo(const Models::DescribeVpcFirewallSummaryInfoRequest &request);
 
       /**
+       * @summary 查询VPC互访的资产信息
+       *
+       * @param request DescribeVpcFirewallTrafficAssetListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcFirewallTrafficAssetListResponse
+       */
+      Models::DescribeVpcFirewallTrafficAssetListResponse describeVpcFirewallTrafficAssetListWithOptions(const Models::DescribeVpcFirewallTrafficAssetListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询VPC互访的资产信息
+       *
+       * @param request DescribeVpcFirewallTrafficAssetListRequest
+       * @return DescribeVpcFirewallTrafficAssetListResponse
+       */
+      Models::DescribeVpcFirewallTrafficAssetListResponse describeVpcFirewallTrafficAssetList(const Models::DescribeVpcFirewallTrafficAssetListRequest &request);
+
+      /**
        * @summary 查询VPC防火墙资源可用区
        *
        * @param request DescribeVpcFirewallZoneRequest
