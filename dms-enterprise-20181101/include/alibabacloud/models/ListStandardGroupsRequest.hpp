@@ -33,13 +33,13 @@ namespace Models
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListStandardGroupsRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // The ID of the tenant.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagId_ == nullptr
-        && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr && return this->startTimeBegin_ == nullptr && return this->startTimeEnd_ == nullptr && return this->status_ == nullptr
-        && return this->tid_ == nullptr && return this->triggerType_ == nullptr && return this->useBizDate_ == nullptr; };
+        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTimeBegin_ == nullptr && this->startTimeEnd_ == nullptr && this->status_ == nullptr
+        && this->tid_ == nullptr && this->triggerType_ == nullptr && this->useBizDate_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline ListTaskFlowInstanceRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline ListTaskFlowInstanceRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListTaskFlowInstanceRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // startTimeBegin Field Functions 
     bool hasStartTimeBegin() const { return this->startTimeBegin_ != nullptr;};
     void deleteStartTimeBegin() { this->startTimeBegin_ = nullptr;};
-    inline string startTimeBegin() const { DARABONBA_PTR_GET_DEFAULT(startTimeBegin_, "") };
+    inline string getStartTimeBegin() const { DARABONBA_PTR_GET_DEFAULT(startTimeBegin_, "") };
     inline ListTaskFlowInstanceRequest& setStartTimeBegin(string startTimeBegin) { DARABONBA_PTR_SET_VALUE(startTimeBegin_, startTimeBegin) };
 
 
     // startTimeEnd Field Functions 
     bool hasStartTimeEnd() const { return this->startTimeEnd_ != nullptr;};
     void deleteStartTimeEnd() { this->startTimeEnd_ = nullptr;};
-    inline string startTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(startTimeEnd_, "") };
+    inline string getStartTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(startTimeEnd_, "") };
     inline ListTaskFlowInstanceRequest& setStartTimeEnd(string startTimeEnd) { DARABONBA_PTR_SET_VALUE(startTimeEnd_, startTimeEnd) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ListTaskFlowInstanceRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListTaskFlowInstanceRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // triggerType Field Functions 
     bool hasTriggerType() const { return this->triggerType_ != nullptr;};
     void deleteTriggerType() { this->triggerType_ = nullptr;};
-    inline int32_t triggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, 0) };
+    inline int32_t getTriggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, 0) };
     inline ListTaskFlowInstanceRequest& setTriggerType(int32_t triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
     // useBizDate Field Functions 
     bool hasUseBizDate() const { return this->useBizDate_ != nullptr;};
     void deleteUseBizDate() { this->useBizDate_ = nullptr;};
-    inline bool useBizDate() const { DARABONBA_PTR_GET_DEFAULT(useBizDate_, false) };
+    inline bool getUseBizDate() const { DARABONBA_PTR_GET_DEFAULT(useBizDate_, false) };
     inline ListTaskFlowInstanceRequest& setUseBizDate(bool useBizDate) { DARABONBA_PTR_SET_VALUE(useBizDate_, useBizDate) };
 
 
@@ -115,19 +115,19 @@ namespace Models
     // The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to obtain the ID of the task flow.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // The number of the page to return.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
+    shared_ptr<int32_t> pageIndex_ {};
     // The number of entries to return on each page.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The beginning of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
-    std::shared_ptr<string> startTimeBegin_ = nullptr;
+    shared_ptr<string> startTimeBegin_ {};
     // The end of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
-    std::shared_ptr<string> startTimeEnd_ = nullptr;
+    shared_ptr<string> startTimeEnd_ {};
     // The running status of the task node. Valid values:
     // 
     // - **0**: Waiting for scheduling
@@ -141,20 +141,20 @@ namespace Models
     // - **4**: Run successfully
     // 
     // - **5**: Completed
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<int32_t> status_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
     // The mode in which the task flow is triggered. Valid values:
     // 
     // *   **0**: The task flow is automatically triggered based on periodic scheduling.
     // *   **1**: The task flow is manually triggered.
-    std::shared_ptr<int32_t> triggerType_ = nullptr;
+    shared_ptr<int32_t> triggerType_ {};
     // Adjust filter conditions:
     // 
     // - true: StartTimeBegin and StartTimeEnd are the time range for filtering services.
     // 
     // - false: StartTimeBegin and StartTimeEnd are the time range for the task to run.
-    std::shared_ptr<bool> useBizDate_ = nullptr;
+    shared_ptr<bool> useBizDate_ {};
   };
 
   } // namespace Models

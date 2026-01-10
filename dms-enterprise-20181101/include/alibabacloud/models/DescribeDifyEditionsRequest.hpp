@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->dataRegion_ == nullptr; };
+        && this->dataRegion_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DescribeDifyEditionsRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // dataRegion Field Functions 
     bool hasDataRegion() const { return this->dataRegion_ != nullptr;};
     void deleteDataRegion() { this->dataRegion_ = nullptr;};
-    inline string dataRegion() const { DARABONBA_PTR_GET_DEFAULT(dataRegion_, "") };
+    inline string getDataRegion() const { DARABONBA_PTR_GET_DEFAULT(dataRegion_, "") };
     inline DescribeDifyEditionsRequest& setDataRegion(string dataRegion) { DARABONBA_PTR_SET_VALUE(dataRegion_, dataRegion) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> dataRegion_ = nullptr;
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> dataRegion_ {};
   };
 
   } // namespace Models

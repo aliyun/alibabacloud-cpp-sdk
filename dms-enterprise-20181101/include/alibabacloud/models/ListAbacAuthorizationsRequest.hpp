@@ -38,60 +38,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->policyId_ == nullptr && return this->policySource_ == nullptr && return this->tid_ == nullptr; };
+        && this->pageSize_ == nullptr && this->policyId_ == nullptr && this->policySource_ == nullptr && this->tid_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListAbacAuthorizationsRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListAbacAuthorizationsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline ListAbacAuthorizationsRequest& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // policySource Field Functions 
     bool hasPolicySource() const { return this->policySource_ != nullptr;};
     void deletePolicySource() { this->policySource_ = nullptr;};
-    inline string policySource() const { DARABONBA_PTR_GET_DEFAULT(policySource_, "") };
+    inline string getPolicySource() const { DARABONBA_PTR_GET_DEFAULT(policySource_, "") };
     inline ListAbacAuthorizationsRequest& setPolicySource(string policySource) { DARABONBA_PTR_SET_VALUE(policySource_, policySource) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListAbacAuthorizationsRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // The page number.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries on each page.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The ID of the policy.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // The type of the policy. The value can be custom or system.
     // 
     // Valid values:
     // 
     // *   USER_DEFINE
     // *   SYSTEM
-    std::shared_ptr<string> policySource_ = nullptr;
+    shared_ptr<string> policySource_ {};
     // The ID of the tenant.
     // 
     // > To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

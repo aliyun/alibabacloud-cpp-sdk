@@ -33,7 +33,7 @@ namespace Models
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline int64_t workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
+    inline int64_t getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
     inline DeleteWorkspaceRequest& setWorkspaceId(int64_t workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the DMS workspace.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> workspaceId_ = nullptr;
+    shared_ptr<int64_t> workspaceId_ {};
   };
 
   } // namespace Models

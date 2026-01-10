@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagId_ == nullptr
-        && return this->tid_ == nullptr; };
+        && this->tid_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline DeleteTaskFlowRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline DeleteTaskFlowRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to obtain the ID of the task flow.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

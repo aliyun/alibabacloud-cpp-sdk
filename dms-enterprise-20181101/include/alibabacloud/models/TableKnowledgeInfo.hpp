@@ -42,26 +42,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetDescription_ == nullptr
-        && return this->assetModifiedGmt_ == nullptr && return this->columnList_ == nullptr && return this->description_ == nullptr && return this->summary_ == nullptr && return this->tableName_ == nullptr; };
+        && this->assetModifiedGmt_ == nullptr && this->columnList_ == nullptr && this->description_ == nullptr && this->summary_ == nullptr && this->tableName_ == nullptr; };
     // assetDescription Field Functions 
     bool hasAssetDescription() const { return this->assetDescription_ != nullptr;};
     void deleteAssetDescription() { this->assetDescription_ = nullptr;};
-    inline string assetDescription() const { DARABONBA_PTR_GET_DEFAULT(assetDescription_, "") };
+    inline string getAssetDescription() const { DARABONBA_PTR_GET_DEFAULT(assetDescription_, "") };
     inline TableKnowledgeInfo& setAssetDescription(string assetDescription) { DARABONBA_PTR_SET_VALUE(assetDescription_, assetDescription) };
 
 
     // assetModifiedGmt Field Functions 
     bool hasAssetModifiedGmt() const { return this->assetModifiedGmt_ != nullptr;};
     void deleteAssetModifiedGmt() { this->assetModifiedGmt_ = nullptr;};
-    inline string assetModifiedGmt() const { DARABONBA_PTR_GET_DEFAULT(assetModifiedGmt_, "") };
+    inline string getAssetModifiedGmt() const { DARABONBA_PTR_GET_DEFAULT(assetModifiedGmt_, "") };
     inline TableKnowledgeInfo& setAssetModifiedGmt(string assetModifiedGmt) { DARABONBA_PTR_SET_VALUE(assetModifiedGmt_, assetModifiedGmt) };
 
 
     // columnList Field Functions 
     bool hasColumnList() const { return this->columnList_ != nullptr;};
     void deleteColumnList() { this->columnList_ = nullptr;};
-    inline const vector<ColumnKnowledgeInfo> & columnList() const { DARABONBA_PTR_GET_CONST(columnList_, vector<ColumnKnowledgeInfo>) };
-    inline vector<ColumnKnowledgeInfo> columnList() { DARABONBA_PTR_GET(columnList_, vector<ColumnKnowledgeInfo>) };
+    inline const vector<ColumnKnowledgeInfo> & getColumnList() const { DARABONBA_PTR_GET_CONST(columnList_, vector<ColumnKnowledgeInfo>) };
+    inline vector<ColumnKnowledgeInfo> getColumnList() { DARABONBA_PTR_GET(columnList_, vector<ColumnKnowledgeInfo>) };
     inline TableKnowledgeInfo& setColumnList(const vector<ColumnKnowledgeInfo> & columnList) { DARABONBA_PTR_SET_VALUE(columnList_, columnList) };
     inline TableKnowledgeInfo& setColumnList(vector<ColumnKnowledgeInfo> && columnList) { DARABONBA_PTR_SET_RVALUE(columnList_, columnList) };
 
@@ -69,31 +69,31 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline TableKnowledgeInfo& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // summary Field Functions 
     bool hasSummary() const { return this->summary_ != nullptr;};
     void deleteSummary() { this->summary_ = nullptr;};
-    inline string summary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
+    inline string getSummary() const { DARABONBA_PTR_GET_DEFAULT(summary_, "") };
     inline TableKnowledgeInfo& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
     // tableName Field Functions 
     bool hasTableName() const { return this->tableName_ != nullptr;};
     void deleteTableName() { this->tableName_ = nullptr;};
-    inline string tableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+    inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
     inline TableKnowledgeInfo& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
 
 
   protected:
-    std::shared_ptr<string> assetDescription_ = nullptr;
-    std::shared_ptr<string> assetModifiedGmt_ = nullptr;
-    std::shared_ptr<vector<ColumnKnowledgeInfo>> columnList_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> summary_ = nullptr;
-    std::shared_ptr<string> tableName_ = nullptr;
+    shared_ptr<string> assetDescription_ {};
+    shared_ptr<string> assetModifiedGmt_ {};
+    shared_ptr<vector<ColumnKnowledgeInfo>> columnList_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> summary_ {};
+    shared_ptr<string> tableName_ {};
   };
 
   } // namespace Models

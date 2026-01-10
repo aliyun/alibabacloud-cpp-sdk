@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTSTANDARDGROUPSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListStandardGroupsResponseBodyStandardGroupList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,59 +38,151 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class StandardGroupList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const StandardGroupList& obj) { 
+        DARABONBA_PTR_TO_JSON(DbType, dbType_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(GroupId, groupId_);
+        DARABONBA_PTR_TO_JSON(GroupMode, groupMode_);
+        DARABONBA_PTR_TO_JSON(GroupName, groupName_);
+        DARABONBA_PTR_TO_JSON(LastMenderId, lastMenderId_);
+      };
+      friend void from_json(const Darabonba::Json& j, StandardGroupList& obj) { 
+        DARABONBA_PTR_FROM_JSON(DbType, dbType_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
+        DARABONBA_PTR_FROM_JSON(GroupMode, groupMode_);
+        DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
+        DARABONBA_PTR_FROM_JSON(LastMenderId, lastMenderId_);
+      };
+      StandardGroupList() = default ;
+      StandardGroupList(const StandardGroupList &) = default ;
+      StandardGroupList(StandardGroupList &&) = default ;
+      StandardGroupList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~StandardGroupList() = default ;
+      StandardGroupList& operator=(const StandardGroupList &) = default ;
+      StandardGroupList& operator=(StandardGroupList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dbType_ == nullptr
+        && this->description_ == nullptr && this->groupId_ == nullptr && this->groupMode_ == nullptr && this->groupName_ == nullptr && this->lastMenderId_ == nullptr; };
+      // dbType Field Functions 
+      bool hasDbType() const { return this->dbType_ != nullptr;};
+      void deleteDbType() { this->dbType_ = nullptr;};
+      inline string getDbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
+      inline StandardGroupList& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline StandardGroupList& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // groupId Field Functions 
+      bool hasGroupId() const { return this->groupId_ != nullptr;};
+      void deleteGroupId() { this->groupId_ = nullptr;};
+      inline int64_t getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+      inline StandardGroupList& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
+
+
+      // groupMode Field Functions 
+      bool hasGroupMode() const { return this->groupMode_ != nullptr;};
+      void deleteGroupMode() { this->groupMode_ = nullptr;};
+      inline string getGroupMode() const { DARABONBA_PTR_GET_DEFAULT(groupMode_, "") };
+      inline StandardGroupList& setGroupMode(string groupMode) { DARABONBA_PTR_SET_VALUE(groupMode_, groupMode) };
+
+
+      // groupName Field Functions 
+      bool hasGroupName() const { return this->groupName_ != nullptr;};
+      void deleteGroupName() { this->groupName_ = nullptr;};
+      inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+      inline StandardGroupList& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
+
+
+      // lastMenderId Field Functions 
+      bool hasLastMenderId() const { return this->lastMenderId_ != nullptr;};
+      void deleteLastMenderId() { this->lastMenderId_ = nullptr;};
+      inline int64_t getLastMenderId() const { DARABONBA_PTR_GET_DEFAULT(lastMenderId_, 0L) };
+      inline StandardGroupList& setLastMenderId(int64_t lastMenderId) { DARABONBA_PTR_SET_VALUE(lastMenderId_, lastMenderId) };
+
+
+    protected:
+      // The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
+      shared_ptr<string> dbType_ {};
+      // The description of the security rule set.
+      shared_ptr<string> description_ {};
+      // The ID of the security rule set.
+      shared_ptr<int64_t> groupId_ {};
+      // The control mode. Valid values:
+      // 
+      // *   **NONE_CONTROL**: Flexible Management
+      // *   **STABLE**: Stable Change
+      // *   **COMMON**: Security Collaboration
+      shared_ptr<string> groupMode_ {};
+      // The name of the security rule set.
+      shared_ptr<string> groupName_ {};
+      // The ID of the user who queries the security sets.
+      shared_ptr<int64_t> lastMenderId_ {};
+    };
+
     virtual bool empty() const override { return this->errorCode_ == nullptr
-        && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr && return this->standardGroupList_ == nullptr && return this->success_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->requestId_ == nullptr && this->standardGroupList_ == nullptr && this->success_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline ListStandardGroupsResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline ListStandardGroupsResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListStandardGroupsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // standardGroupList Field Functions 
     bool hasStandardGroupList() const { return this->standardGroupList_ != nullptr;};
     void deleteStandardGroupList() { this->standardGroupList_ = nullptr;};
-    inline const vector<ListStandardGroupsResponseBodyStandardGroupList> & standardGroupList() const { DARABONBA_PTR_GET_CONST(standardGroupList_, vector<ListStandardGroupsResponseBodyStandardGroupList>) };
-    inline vector<ListStandardGroupsResponseBodyStandardGroupList> standardGroupList() { DARABONBA_PTR_GET(standardGroupList_, vector<ListStandardGroupsResponseBodyStandardGroupList>) };
-    inline ListStandardGroupsResponseBody& setStandardGroupList(const vector<ListStandardGroupsResponseBodyStandardGroupList> & standardGroupList) { DARABONBA_PTR_SET_VALUE(standardGroupList_, standardGroupList) };
-    inline ListStandardGroupsResponseBody& setStandardGroupList(vector<ListStandardGroupsResponseBodyStandardGroupList> && standardGroupList) { DARABONBA_PTR_SET_RVALUE(standardGroupList_, standardGroupList) };
+    inline const vector<ListStandardGroupsResponseBody::StandardGroupList> & getStandardGroupList() const { DARABONBA_PTR_GET_CONST(standardGroupList_, vector<ListStandardGroupsResponseBody::StandardGroupList>) };
+    inline vector<ListStandardGroupsResponseBody::StandardGroupList> getStandardGroupList() { DARABONBA_PTR_GET(standardGroupList_, vector<ListStandardGroupsResponseBody::StandardGroupList>) };
+    inline ListStandardGroupsResponseBody& setStandardGroupList(const vector<ListStandardGroupsResponseBody::StandardGroupList> & standardGroupList) { DARABONBA_PTR_SET_VALUE(standardGroupList_, standardGroupList) };
+    inline ListStandardGroupsResponseBody& setStandardGroupList(vector<ListStandardGroupsResponseBody::StandardGroupList> && standardGroupList) { DARABONBA_PTR_SET_RVALUE(standardGroupList_, standardGroupList) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ListStandardGroupsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The error code returned if the request fails.
-    std::shared_ptr<string> errorCode_ = nullptr;
+    shared_ptr<string> errorCode_ {};
     // The error message returned if the request fails.
-    std::shared_ptr<string> errorMessage_ = nullptr;
+    shared_ptr<string> errorMessage_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The security rule sets returned.
-    std::shared_ptr<vector<ListStandardGroupsResponseBodyStandardGroupList>> standardGroupList_ = nullptr;
+    shared_ptr<vector<ListStandardGroupsResponseBody::StandardGroupList>> standardGroupList_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**: The request was successful.
     // *   **false**: The request failed.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tableGuid_ == nullptr
-        && return this->tid_ == nullptr; };
+        && this->tid_ == nullptr; };
     // tableGuid Field Functions 
     bool hasTableGuid() const { return this->tableGuid_ != nullptr;};
     void deleteTableGuid() { this->tableGuid_ = nullptr;};
-    inline string tableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
+    inline string getTableGuid() const { DARABONBA_PTR_GET_DEFAULT(tableGuid_, "") };
     inline GetMetaTableColumnRequest& setTableGuid(string tableGuid) { DARABONBA_PTR_SET_VALUE(tableGuid_, tableGuid) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline GetMetaTableColumnRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // *   If the database to which the table belongs is a physical database, you can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to obtain the value of this parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableGuid_ = nullptr;
+    shared_ptr<string> tableGuid_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

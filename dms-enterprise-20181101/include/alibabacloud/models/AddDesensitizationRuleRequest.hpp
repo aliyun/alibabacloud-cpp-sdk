@@ -42,12 +42,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->functionParams_ == nullptr
-        && return this->functionType_ == nullptr && return this->ruleDescription_ == nullptr && return this->ruleName_ == nullptr && return this->ruleType_ == nullptr && return this->tid_ == nullptr; };
+        && this->functionType_ == nullptr && this->ruleDescription_ == nullptr && this->ruleName_ == nullptr && this->ruleType_ == nullptr && this->tid_ == nullptr; };
     // functionParams Field Functions 
     bool hasFunctionParams() const { return this->functionParams_ != nullptr;};
     void deleteFunctionParams() { this->functionParams_ = nullptr;};
-    inline const vector<map<string, string>> & functionParams() const { DARABONBA_PTR_GET_CONST(functionParams_, vector<map<string, string>>) };
-    inline vector<map<string, string>> functionParams() { DARABONBA_PTR_GET(functionParams_, vector<map<string, string>>) };
+    inline const vector<map<string, string>> & getFunctionParams() const { DARABONBA_PTR_GET_CONST(functionParams_, vector<map<string, string>>) };
+    inline vector<map<string, string>> getFunctionParams() { DARABONBA_PTR_GET(functionParams_, vector<map<string, string>>) };
     inline AddDesensitizationRuleRequest& setFunctionParams(const vector<map<string, string>> & functionParams) { DARABONBA_PTR_SET_VALUE(functionParams_, functionParams) };
     inline AddDesensitizationRuleRequest& setFunctionParams(vector<map<string, string>> && functionParams) { DARABONBA_PTR_SET_RVALUE(functionParams_, functionParams) };
 
@@ -55,41 +55,41 @@ namespace Models
     // functionType Field Functions 
     bool hasFunctionType() const { return this->functionType_ != nullptr;};
     void deleteFunctionType() { this->functionType_ = nullptr;};
-    inline string functionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
+    inline string getFunctionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
     inline AddDesensitizationRuleRequest& setFunctionType(string functionType) { DARABONBA_PTR_SET_VALUE(functionType_, functionType) };
 
 
     // ruleDescription Field Functions 
     bool hasRuleDescription() const { return this->ruleDescription_ != nullptr;};
     void deleteRuleDescription() { this->ruleDescription_ = nullptr;};
-    inline string ruleDescription() const { DARABONBA_PTR_GET_DEFAULT(ruleDescription_, "") };
+    inline string getRuleDescription() const { DARABONBA_PTR_GET_DEFAULT(ruleDescription_, "") };
     inline AddDesensitizationRuleRequest& setRuleDescription(string ruleDescription) { DARABONBA_PTR_SET_VALUE(ruleDescription_, ruleDescription) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline AddDesensitizationRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
     // ruleType Field Functions 
     bool hasRuleType() const { return this->ruleType_ != nullptr;};
     void deleteRuleType() { this->ruleType_ = nullptr;};
-    inline string ruleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+    inline string getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
     inline AddDesensitizationRuleRequest& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline AddDesensitizationRuleRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // The parameters of the algorithm.
-    std::shared_ptr<vector<map<string, string>>> functionParams_ = nullptr;
+    shared_ptr<vector<map<string, string>>> functionParams_ {};
     // The type of the masking algorithm.
     // 
     // Valid values:
@@ -111,13 +111,13 @@ namespace Models
     // *   MD5: masks characters by using the MD5 algorithm.
     // 
     // This parameter is required.
-    std::shared_ptr<string> functionType_ = nullptr;
+    shared_ptr<string> functionType_ {};
     // The description of the rule.
-    std::shared_ptr<string> ruleDescription_ = nullptr;
+    shared_ptr<string> ruleDescription_ {};
     // The name of the rule.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
     // The masking algorithm.
     // 
     // Valid values:
@@ -171,11 +171,11 @@ namespace Models
     //     <!-- -->
     // 
     // This parameter is required.
-    std::shared_ptr<string> ruleType_ = nullptr;
+    shared_ptr<string> ruleType_ {};
     // The tenant ID.
     // 
     // >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

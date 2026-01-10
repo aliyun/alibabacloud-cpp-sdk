@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeConfig_ == nullptr
-        && return this->nodeId_ == nullptr && return this->tid_ == nullptr; };
+        && this->nodeId_ == nullptr && this->tid_ == nullptr; };
     // nodeConfig Field Functions 
     bool hasNodeConfig() const { return this->nodeConfig_ != nullptr;};
     void deleteNodeConfig() { this->nodeConfig_ = nullptr;};
-    inline string nodeConfig() const { DARABONBA_PTR_GET_DEFAULT(nodeConfig_, "") };
+    inline string getNodeConfig() const { DARABONBA_PTR_GET_DEFAULT(nodeConfig_, "") };
     inline UpdateTaskConfigRequest& setNodeConfig(string nodeConfig) { DARABONBA_PTR_SET_VALUE(nodeConfig_, nodeConfig) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline UpdateTaskConfigRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline UpdateTaskConfigRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The advanced configuration for the node. The value of this parameter must be a JSON string.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeConfig_ = nullptr;
+    shared_ptr<string> nodeConfig_ {};
     // The ID of the task node. You can call the [GetTaskInstanceRelation](https://help.aliyun.com/document_detail/424711.html) operation to query the node ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

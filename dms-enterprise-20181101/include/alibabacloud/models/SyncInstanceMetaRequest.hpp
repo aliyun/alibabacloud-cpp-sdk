@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ignoreTable_ == nullptr
-        && return this->instanceId_ == nullptr && return this->tid_ == nullptr; };
+        && this->instanceId_ == nullptr && this->tid_ == nullptr; };
     // ignoreTable Field Functions 
     bool hasIgnoreTable() const { return this->ignoreTable_ != nullptr;};
     void deleteIgnoreTable() { this->ignoreTable_ = nullptr;};
-    inline bool ignoreTable() const { DARABONBA_PTR_GET_DEFAULT(ignoreTable_, false) };
+    inline bool getIgnoreTable() const { DARABONBA_PTR_GET_DEFAULT(ignoreTable_, false) };
     inline SyncInstanceMetaRequest& setIgnoreTable(bool ignoreTable) { DARABONBA_PTR_SET_VALUE(ignoreTable_, ignoreTable) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SyncInstanceMetaRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline SyncInstanceMetaRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -61,15 +61,15 @@ namespace Models
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> ignoreTable_ = nullptr;
+    shared_ptr<bool> ignoreTable_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The ID of the tenant.
     // 
     // > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the Manage DMS tenants topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

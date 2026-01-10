@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logic_ == nullptr
-        && return this->tableId_ == nullptr && return this->tid_ == nullptr; };
+        && this->tableId_ == nullptr && this->tid_ == nullptr; };
     // logic Field Functions 
     bool hasLogic() const { return this->logic_ != nullptr;};
     void deleteLogic() { this->logic_ = nullptr;};
-    inline bool logic() const { DARABONBA_PTR_GET_DEFAULT(logic_, false) };
+    inline bool getLogic() const { DARABONBA_PTR_GET_DEFAULT(logic_, false) };
     inline ListColumnsRequest& setLogic(bool logic) { DARABONBA_PTR_SET_VALUE(logic_, logic) };
 
 
     // tableId Field Functions 
     bool hasTableId() const { return this->tableId_ != nullptr;};
     void deleteTableId() { this->tableId_ = nullptr;};
-    inline string tableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, "") };
+    inline string getTableId() const { DARABONBA_PTR_GET_DEFAULT(tableId_, "") };
     inline ListColumnsRequest& setTableId(string tableId) { DARABONBA_PTR_SET_VALUE(tableId_, tableId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListColumnsRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -61,13 +61,13 @@ namespace Models
     // 
     // *   **true**: The database is a logical database.
     // *   **false**: The database is a physical database.
-    std::shared_ptr<bool> logic_ = nullptr;
+    shared_ptr<bool> logic_ {};
     // The ID of the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to obtain the table ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> tableId_ = nullptr;
+    shared_ptr<string> tableId_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

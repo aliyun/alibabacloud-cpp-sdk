@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETDATAIMPORTSQLRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETDATAIMPORTSQLRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetDataImportSQLResponseBodySQLDetail.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,59 +37,91 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class SQLDetail : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SQLDetail& obj) { 
+        DARABONBA_PTR_TO_JSON(ExecSql, execSql_);
+      };
+      friend void from_json(const Darabonba::Json& j, SQLDetail& obj) { 
+        DARABONBA_PTR_FROM_JSON(ExecSql, execSql_);
+      };
+      SQLDetail() = default ;
+      SQLDetail(const SQLDetail &) = default ;
+      SQLDetail(SQLDetail &&) = default ;
+      SQLDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SQLDetail() = default ;
+      SQLDetail& operator=(const SQLDetail &) = default ;
+      SQLDetail& operator=(SQLDetail &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->execSql_ == nullptr; };
+      // execSql Field Functions 
+      bool hasExecSql() const { return this->execSql_ != nullptr;};
+      void deleteExecSql() { this->execSql_ = nullptr;};
+      inline string getExecSql() const { DARABONBA_PTR_GET_DEFAULT(execSql_, "") };
+      inline SQLDetail& setExecSql(string execSql) { DARABONBA_PTR_SET_VALUE(execSql_, execSql) };
+
+
+    protected:
+      // The SQL script.
+      shared_ptr<string> execSql_ {};
+    };
+
     virtual bool empty() const override { return this->errorCode_ == nullptr
-        && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr && return this->SQLDetail_ == nullptr && return this->success_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->requestId_ == nullptr && this->SQLDetail_ == nullptr && this->success_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline GetDataImportSQLResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline GetDataImportSQLResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetDataImportSQLResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // SQLDetail Field Functions 
     bool hasSQLDetail() const { return this->SQLDetail_ != nullptr;};
     void deleteSQLDetail() { this->SQLDetail_ = nullptr;};
-    inline const GetDataImportSQLResponseBodySQLDetail & SQLDetail() const { DARABONBA_PTR_GET_CONST(SQLDetail_, GetDataImportSQLResponseBodySQLDetail) };
-    inline GetDataImportSQLResponseBodySQLDetail SQLDetail() { DARABONBA_PTR_GET(SQLDetail_, GetDataImportSQLResponseBodySQLDetail) };
-    inline GetDataImportSQLResponseBody& setSQLDetail(const GetDataImportSQLResponseBodySQLDetail & SQLDetail) { DARABONBA_PTR_SET_VALUE(SQLDetail_, SQLDetail) };
-    inline GetDataImportSQLResponseBody& setSQLDetail(GetDataImportSQLResponseBodySQLDetail && SQLDetail) { DARABONBA_PTR_SET_RVALUE(SQLDetail_, SQLDetail) };
+    inline const GetDataImportSQLResponseBody::SQLDetail & getSQLDetail() const { DARABONBA_PTR_GET_CONST(SQLDetail_, GetDataImportSQLResponseBody::SQLDetail) };
+    inline GetDataImportSQLResponseBody::SQLDetail getSQLDetail() { DARABONBA_PTR_GET(SQLDetail_, GetDataImportSQLResponseBody::SQLDetail) };
+    inline GetDataImportSQLResponseBody& setSQLDetail(const GetDataImportSQLResponseBody::SQLDetail & sQLDetail) { DARABONBA_PTR_SET_VALUE(SQLDetail_, sQLDetail) };
+    inline GetDataImportSQLResponseBody& setSQLDetail(GetDataImportSQLResponseBody::SQLDetail && sQLDetail) { DARABONBA_PTR_SET_RVALUE(SQLDetail_, sQLDetail) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetDataImportSQLResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The error code returned if the request failed.
-    std::shared_ptr<string> errorCode_ = nullptr;
+    shared_ptr<string> errorCode_ {};
     // The error message returned if the request failed.
-    std::shared_ptr<string> errorMessage_ = nullptr;
+    shared_ptr<string> errorMessage_ {};
     // The request ID. You can use the ID to locate logs and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The details of SQL statements.
-    std::shared_ptr<GetDataImportSQLResponseBodySQLDetail> SQLDetail_ = nullptr;
+    shared_ptr<GetDataImportSQLResponseBody::SQLDetail> SQLDetail_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nodeContent_ == nullptr
-        && return this->nodeId_ == nullptr; };
+        && this->nodeId_ == nullptr; };
     // nodeContent Field Functions 
     bool hasNodeContent() const { return this->nodeContent_ != nullptr;};
     void deleteNodeContent() { this->nodeContent_ = nullptr;};
-    inline string nodeContent() const { DARABONBA_PTR_GET_DEFAULT(nodeContent_, "") };
+    inline string getNodeContent() const { DARABONBA_PTR_GET_DEFAULT(nodeContent_, "") };
     inline UpdateTaskContentV2Request& setNodeContent(string nodeContent) { DARABONBA_PTR_SET_VALUE(nodeContent_, nodeContent) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+    inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline UpdateTaskContentV2Request& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The node configurations after modification.
     // 
     // >  We recommend that you change the SQL type from SELECT to INSERT/CREATE.
-    std::shared_ptr<string> nodeContent_ = nullptr;
+    shared_ptr<string> nodeContent_ {};
     // The ID of the task node. You can call the [GetTaskInstanceRelation](https://help.aliyun.com/document_detail/424711.html) operation to query the node ID.
-    std::shared_ptr<string> nodeId_ = nullptr;
+    shared_ptr<string> nodeId_ {};
   };
 
   } // namespace Models

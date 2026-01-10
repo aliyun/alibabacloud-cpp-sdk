@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_ADDTASKFLOWEDGESRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_ADDTASKFLOWEDGESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AddTaskFlowEdgesResponseBodyEdgeIds.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,59 +38,92 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class EdgeIds : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EdgeIds& obj) { 
+        DARABONBA_PTR_TO_JSON(EdgeId, edgeId_);
+      };
+      friend void from_json(const Darabonba::Json& j, EdgeIds& obj) { 
+        DARABONBA_PTR_FROM_JSON(EdgeId, edgeId_);
+      };
+      EdgeIds() = default ;
+      EdgeIds(const EdgeIds &) = default ;
+      EdgeIds(EdgeIds &&) = default ;
+      EdgeIds(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EdgeIds() = default ;
+      EdgeIds& operator=(const EdgeIds &) = default ;
+      EdgeIds& operator=(EdgeIds &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->edgeId_ == nullptr; };
+      // edgeId Field Functions 
+      bool hasEdgeId() const { return this->edgeId_ != nullptr;};
+      void deleteEdgeId() { this->edgeId_ = nullptr;};
+      inline const vector<int64_t> & getEdgeId() const { DARABONBA_PTR_GET_CONST(edgeId_, vector<int64_t>) };
+      inline vector<int64_t> getEdgeId() { DARABONBA_PTR_GET(edgeId_, vector<int64_t>) };
+      inline EdgeIds& setEdgeId(const vector<int64_t> & edgeId) { DARABONBA_PTR_SET_VALUE(edgeId_, edgeId) };
+      inline EdgeIds& setEdgeId(vector<int64_t> && edgeId) { DARABONBA_PTR_SET_RVALUE(edgeId_, edgeId) };
+
+
+    protected:
+      shared_ptr<vector<int64_t>> edgeId_ {};
+    };
+
     virtual bool empty() const override { return this->edgeIds_ == nullptr
-        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // edgeIds Field Functions 
     bool hasEdgeIds() const { return this->edgeIds_ != nullptr;};
     void deleteEdgeIds() { this->edgeIds_ = nullptr;};
-    inline const AddTaskFlowEdgesResponseBodyEdgeIds & edgeIds() const { DARABONBA_PTR_GET_CONST(edgeIds_, AddTaskFlowEdgesResponseBodyEdgeIds) };
-    inline AddTaskFlowEdgesResponseBodyEdgeIds edgeIds() { DARABONBA_PTR_GET(edgeIds_, AddTaskFlowEdgesResponseBodyEdgeIds) };
-    inline AddTaskFlowEdgesResponseBody& setEdgeIds(const AddTaskFlowEdgesResponseBodyEdgeIds & edgeIds) { DARABONBA_PTR_SET_VALUE(edgeIds_, edgeIds) };
-    inline AddTaskFlowEdgesResponseBody& setEdgeIds(AddTaskFlowEdgesResponseBodyEdgeIds && edgeIds) { DARABONBA_PTR_SET_RVALUE(edgeIds_, edgeIds) };
+    inline const AddTaskFlowEdgesResponseBody::EdgeIds & getEdgeIds() const { DARABONBA_PTR_GET_CONST(edgeIds_, AddTaskFlowEdgesResponseBody::EdgeIds) };
+    inline AddTaskFlowEdgesResponseBody::EdgeIds getEdgeIds() { DARABONBA_PTR_GET(edgeIds_, AddTaskFlowEdgesResponseBody::EdgeIds) };
+    inline AddTaskFlowEdgesResponseBody& setEdgeIds(const AddTaskFlowEdgesResponseBody::EdgeIds & edgeIds) { DARABONBA_PTR_SET_VALUE(edgeIds_, edgeIds) };
+    inline AddTaskFlowEdgesResponseBody& setEdgeIds(AddTaskFlowEdgesResponseBody::EdgeIds && edgeIds) { DARABONBA_PTR_SET_RVALUE(edgeIds_, edgeIds) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline AddTaskFlowEdgesResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline AddTaskFlowEdgesResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline AddTaskFlowEdgesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline AddTaskFlowEdgesResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The list of task flow edge IDs.
-    std::shared_ptr<AddTaskFlowEdgesResponseBodyEdgeIds> edgeIds_ = nullptr;
+    shared_ptr<AddTaskFlowEdgesResponseBody::EdgeIds> edgeIds_ {};
     // The error code returned if the request failed.
-    std::shared_ptr<string> errorCode_ = nullptr;
+    shared_ptr<string> errorCode_ {};
     // The error message returned if the request failed.
-    std::shared_ptr<string> errorMessage_ = nullptr;
+    shared_ptr<string> errorMessage_ {};
     // The ID of the request. You can use the ID to query logs and troubleshoot issues.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**: The request was successful.
     // *   **false**: The request failed.
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

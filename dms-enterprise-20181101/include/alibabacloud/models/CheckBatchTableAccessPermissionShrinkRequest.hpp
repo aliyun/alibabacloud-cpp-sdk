@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbId_ == nullptr
-        && return this->logic_ == nullptr && return this->permissionType_ == nullptr && return this->tableNameListShrink_ == nullptr && return this->tid_ == nullptr; };
+        && this->logic_ == nullptr && this->permissionType_ == nullptr && this->tableNameListShrink_ == nullptr && this->tid_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
-    inline int64_t dbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0L) };
+    inline int64_t getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0L) };
     inline CheckBatchTableAccessPermissionShrinkRequest& setDbId(int64_t dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
 
 
     // logic Field Functions 
     bool hasLogic() const { return this->logic_ != nullptr;};
     void deleteLogic() { this->logic_ = nullptr;};
-    inline bool logic() const { DARABONBA_PTR_GET_DEFAULT(logic_, false) };
+    inline bool getLogic() const { DARABONBA_PTR_GET_DEFAULT(logic_, false) };
     inline CheckBatchTableAccessPermissionShrinkRequest& setLogic(bool logic) { DARABONBA_PTR_SET_VALUE(logic_, logic) };
 
 
     // permissionType Field Functions 
     bool hasPermissionType() const { return this->permissionType_ != nullptr;};
     void deletePermissionType() { this->permissionType_ = nullptr;};
-    inline string permissionType() const { DARABONBA_PTR_GET_DEFAULT(permissionType_, "") };
+    inline string getPermissionType() const { DARABONBA_PTR_GET_DEFAULT(permissionType_, "") };
     inline CheckBatchTableAccessPermissionShrinkRequest& setPermissionType(string permissionType) { DARABONBA_PTR_SET_VALUE(permissionType_, permissionType) };
 
 
     // tableNameListShrink Field Functions 
     bool hasTableNameListShrink() const { return this->tableNameListShrink_ != nullptr;};
     void deleteTableNameListShrink() { this->tableNameListShrink_ = nullptr;};
-    inline string tableNameListShrink() const { DARABONBA_PTR_GET_DEFAULT(tableNameListShrink_, "") };
+    inline string getTableNameListShrink() const { DARABONBA_PTR_GET_DEFAULT(tableNameListShrink_, "") };
     inline CheckBatchTableAccessPermissionShrinkRequest& setTableNameListShrink(string tableNameListShrink) { DARABONBA_PTR_SET_VALUE(tableNameListShrink_, tableNameListShrink) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline CheckBatchTableAccessPermissionShrinkRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> dbId_ = nullptr;
-    std::shared_ptr<bool> logic_ = nullptr;
+    shared_ptr<int64_t> dbId_ {};
+    shared_ptr<bool> logic_ {};
     // This parameter is required.
-    std::shared_ptr<string> permissionType_ = nullptr;
+    shared_ptr<string> permissionType_ {};
     // This parameter is required.
-    std::shared_ptr<string> tableNameListShrink_ = nullptr;
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<string> tableNameListShrink_ {};
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

@@ -35,34 +35,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptMekDataBase64_ == nullptr
-        && return this->mekId_ == nullptr && return this->projectId_ == nullptr; };
+        && this->mekId_ == nullptr && this->projectId_ == nullptr; };
     // encryptMekDataBase64 Field Functions 
     bool hasEncryptMekDataBase64() const { return this->encryptMekDataBase64_ != nullptr;};
     void deleteEncryptMekDataBase64() { this->encryptMekDataBase64_ = nullptr;};
-    inline string encryptMekDataBase64() const { DARABONBA_PTR_GET_DEFAULT(encryptMekDataBase64_, "") };
+    inline string getEncryptMekDataBase64() const { DARABONBA_PTR_GET_DEFAULT(encryptMekDataBase64_, "") };
     inline ImportMasterKeyVO& setEncryptMekDataBase64(string encryptMekDataBase64) { DARABONBA_PTR_SET_VALUE(encryptMekDataBase64_, encryptMekDataBase64) };
 
 
     // mekId Field Functions 
     bool hasMekId() const { return this->mekId_ != nullptr;};
     void deleteMekId() { this->mekId_ = nullptr;};
-    inline int64_t mekId() const { DARABONBA_PTR_GET_DEFAULT(mekId_, 0L) };
+    inline int64_t getMekId() const { DARABONBA_PTR_GET_DEFAULT(mekId_, 0L) };
     inline ImportMasterKeyVO& setMekId(int64_t mekId) { DARABONBA_PTR_SET_VALUE(mekId_, mekId) };
 
 
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
-    inline const vector<int64_t> & projectId() const { DARABONBA_PTR_GET_CONST(projectId_, vector<int64_t>) };
-    inline vector<int64_t> projectId() { DARABONBA_PTR_GET(projectId_, vector<int64_t>) };
+    inline const vector<int64_t> & getProjectId() const { DARABONBA_PTR_GET_CONST(projectId_, vector<int64_t>) };
+    inline vector<int64_t> getProjectId() { DARABONBA_PTR_GET(projectId_, vector<int64_t>) };
     inline ImportMasterKeyVO& setProjectId(const vector<int64_t> & projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
     inline ImportMasterKeyVO& setProjectId(vector<int64_t> && projectId) { DARABONBA_PTR_SET_RVALUE(projectId_, projectId) };
 
 
   protected:
-    std::shared_ptr<string> encryptMekDataBase64_ = nullptr;
-    std::shared_ptr<int64_t> mekId_ = nullptr;
-    std::shared_ptr<vector<int64_t>> projectId_ = nullptr;
+    shared_ptr<string> encryptMekDataBase64_ {};
+    shared_ptr<int64_t> mekId_ {};
+    shared_ptr<vector<int64_t>> projectId_ {};
   };
 
   } // namespace Models

@@ -53,108 +53,108 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cipherSuite_ == nullptr
-        && return this->enclaveData_ == nullptr && return this->encryptPublicKeyPem_ == nullptr && return this->encryptPublicKeyType_ == nullptr && return this->modifiedDate_ == nullptr && return this->publicKey_ == nullptr
-        && return this->publicKeyRaBase64_ == nullptr && return this->publicKeyRaType_ == nullptr && return this->quoteReport_ == nullptr && return this->signPublicKeyPem_ == nullptr && return this->signPublicKeyType_ == nullptr
-        && return this->trustedMrEnclave_ == nullptr; };
+        && this->enclaveData_ == nullptr && this->encryptPublicKeyPem_ == nullptr && this->encryptPublicKeyType_ == nullptr && this->modifiedDate_ == nullptr && this->publicKey_ == nullptr
+        && this->publicKeyRaBase64_ == nullptr && this->publicKeyRaType_ == nullptr && this->quoteReport_ == nullptr && this->signPublicKeyPem_ == nullptr && this->signPublicKeyType_ == nullptr
+        && this->trustedMrEnclave_ == nullptr; };
     // cipherSuite Field Functions 
     bool hasCipherSuite() const { return this->cipherSuite_ != nullptr;};
     void deleteCipherSuite() { this->cipherSuite_ = nullptr;};
-    inline string cipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, "") };
+    inline string getCipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, "") };
     inline TeeEvidenceVO& setCipherSuite(string cipherSuite) { DARABONBA_PTR_SET_VALUE(cipherSuite_, cipherSuite) };
 
 
     // enclaveData Field Functions 
     bool hasEnclaveData() const { return this->enclaveData_ != nullptr;};
     void deleteEnclaveData() { this->enclaveData_ = nullptr;};
-    inline string enclaveData() const { DARABONBA_PTR_GET_DEFAULT(enclaveData_, "") };
+    inline string getEnclaveData() const { DARABONBA_PTR_GET_DEFAULT(enclaveData_, "") };
     inline TeeEvidenceVO& setEnclaveData(string enclaveData) { DARABONBA_PTR_SET_VALUE(enclaveData_, enclaveData) };
 
 
     // encryptPublicKeyPem Field Functions 
     bool hasEncryptPublicKeyPem() const { return this->encryptPublicKeyPem_ != nullptr;};
     void deleteEncryptPublicKeyPem() { this->encryptPublicKeyPem_ = nullptr;};
-    inline string encryptPublicKeyPem() const { DARABONBA_PTR_GET_DEFAULT(encryptPublicKeyPem_, "") };
+    inline string getEncryptPublicKeyPem() const { DARABONBA_PTR_GET_DEFAULT(encryptPublicKeyPem_, "") };
     inline TeeEvidenceVO& setEncryptPublicKeyPem(string encryptPublicKeyPem) { DARABONBA_PTR_SET_VALUE(encryptPublicKeyPem_, encryptPublicKeyPem) };
 
 
     // encryptPublicKeyType Field Functions 
     bool hasEncryptPublicKeyType() const { return this->encryptPublicKeyType_ != nullptr;};
     void deleteEncryptPublicKeyType() { this->encryptPublicKeyType_ = nullptr;};
-    inline string encryptPublicKeyType() const { DARABONBA_PTR_GET_DEFAULT(encryptPublicKeyType_, "") };
+    inline string getEncryptPublicKeyType() const { DARABONBA_PTR_GET_DEFAULT(encryptPublicKeyType_, "") };
     inline TeeEvidenceVO& setEncryptPublicKeyType(string encryptPublicKeyType) { DARABONBA_PTR_SET_VALUE(encryptPublicKeyType_, encryptPublicKeyType) };
 
 
     // modifiedDate Field Functions 
     bool hasModifiedDate() const { return this->modifiedDate_ != nullptr;};
     void deleteModifiedDate() { this->modifiedDate_ = nullptr;};
-    inline string modifiedDate() const { DARABONBA_PTR_GET_DEFAULT(modifiedDate_, "") };
+    inline string getModifiedDate() const { DARABONBA_PTR_GET_DEFAULT(modifiedDate_, "") };
     inline TeeEvidenceVO& setModifiedDate(string modifiedDate) { DARABONBA_PTR_SET_VALUE(modifiedDate_, modifiedDate) };
 
 
     // publicKey Field Functions 
     bool hasPublicKey() const { return this->publicKey_ != nullptr;};
     void deletePublicKey() { this->publicKey_ = nullptr;};
-    inline string publicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
+    inline string getPublicKey() const { DARABONBA_PTR_GET_DEFAULT(publicKey_, "") };
     inline TeeEvidenceVO& setPublicKey(string publicKey) { DARABONBA_PTR_SET_VALUE(publicKey_, publicKey) };
 
 
     // publicKeyRaBase64 Field Functions 
     bool hasPublicKeyRaBase64() const { return this->publicKeyRaBase64_ != nullptr;};
     void deletePublicKeyRaBase64() { this->publicKeyRaBase64_ = nullptr;};
-    inline string publicKeyRaBase64() const { DARABONBA_PTR_GET_DEFAULT(publicKeyRaBase64_, "") };
+    inline string getPublicKeyRaBase64() const { DARABONBA_PTR_GET_DEFAULT(publicKeyRaBase64_, "") };
     inline TeeEvidenceVO& setPublicKeyRaBase64(string publicKeyRaBase64) { DARABONBA_PTR_SET_VALUE(publicKeyRaBase64_, publicKeyRaBase64) };
 
 
     // publicKeyRaType Field Functions 
     bool hasPublicKeyRaType() const { return this->publicKeyRaType_ != nullptr;};
     void deletePublicKeyRaType() { this->publicKeyRaType_ = nullptr;};
-    inline string publicKeyRaType() const { DARABONBA_PTR_GET_DEFAULT(publicKeyRaType_, "") };
+    inline string getPublicKeyRaType() const { DARABONBA_PTR_GET_DEFAULT(publicKeyRaType_, "") };
     inline TeeEvidenceVO& setPublicKeyRaType(string publicKeyRaType) { DARABONBA_PTR_SET_VALUE(publicKeyRaType_, publicKeyRaType) };
 
 
     // quoteReport Field Functions 
     bool hasQuoteReport() const { return this->quoteReport_ != nullptr;};
     void deleteQuoteReport() { this->quoteReport_ = nullptr;};
-    inline string quoteReport() const { DARABONBA_PTR_GET_DEFAULT(quoteReport_, "") };
+    inline string getQuoteReport() const { DARABONBA_PTR_GET_DEFAULT(quoteReport_, "") };
     inline TeeEvidenceVO& setQuoteReport(string quoteReport) { DARABONBA_PTR_SET_VALUE(quoteReport_, quoteReport) };
 
 
     // signPublicKeyPem Field Functions 
     bool hasSignPublicKeyPem() const { return this->signPublicKeyPem_ != nullptr;};
     void deleteSignPublicKeyPem() { this->signPublicKeyPem_ = nullptr;};
-    inline string signPublicKeyPem() const { DARABONBA_PTR_GET_DEFAULT(signPublicKeyPem_, "") };
+    inline string getSignPublicKeyPem() const { DARABONBA_PTR_GET_DEFAULT(signPublicKeyPem_, "") };
     inline TeeEvidenceVO& setSignPublicKeyPem(string signPublicKeyPem) { DARABONBA_PTR_SET_VALUE(signPublicKeyPem_, signPublicKeyPem) };
 
 
     // signPublicKeyType Field Functions 
     bool hasSignPublicKeyType() const { return this->signPublicKeyType_ != nullptr;};
     void deleteSignPublicKeyType() { this->signPublicKeyType_ = nullptr;};
-    inline string signPublicKeyType() const { DARABONBA_PTR_GET_DEFAULT(signPublicKeyType_, "") };
+    inline string getSignPublicKeyType() const { DARABONBA_PTR_GET_DEFAULT(signPublicKeyType_, "") };
     inline TeeEvidenceVO& setSignPublicKeyType(string signPublicKeyType) { DARABONBA_PTR_SET_VALUE(signPublicKeyType_, signPublicKeyType) };
 
 
     // trustedMrEnclave Field Functions 
     bool hasTrustedMrEnclave() const { return this->trustedMrEnclave_ != nullptr;};
     void deleteTrustedMrEnclave() { this->trustedMrEnclave_ = nullptr;};
-    inline const vector<string> & trustedMrEnclave() const { DARABONBA_PTR_GET_CONST(trustedMrEnclave_, vector<string>) };
-    inline vector<string> trustedMrEnclave() { DARABONBA_PTR_GET(trustedMrEnclave_, vector<string>) };
+    inline const vector<string> & getTrustedMrEnclave() const { DARABONBA_PTR_GET_CONST(trustedMrEnclave_, vector<string>) };
+    inline vector<string> getTrustedMrEnclave() { DARABONBA_PTR_GET(trustedMrEnclave_, vector<string>) };
     inline TeeEvidenceVO& setTrustedMrEnclave(const vector<string> & trustedMrEnclave) { DARABONBA_PTR_SET_VALUE(trustedMrEnclave_, trustedMrEnclave) };
     inline TeeEvidenceVO& setTrustedMrEnclave(vector<string> && trustedMrEnclave) { DARABONBA_PTR_SET_RVALUE(trustedMrEnclave_, trustedMrEnclave) };
 
 
   protected:
-    std::shared_ptr<string> cipherSuite_ = nullptr;
-    std::shared_ptr<string> enclaveData_ = nullptr;
-    std::shared_ptr<string> encryptPublicKeyPem_ = nullptr;
-    std::shared_ptr<string> encryptPublicKeyType_ = nullptr;
-    std::shared_ptr<string> modifiedDate_ = nullptr;
-    std::shared_ptr<string> publicKey_ = nullptr;
-    std::shared_ptr<string> publicKeyRaBase64_ = nullptr;
-    std::shared_ptr<string> publicKeyRaType_ = nullptr;
-    std::shared_ptr<string> quoteReport_ = nullptr;
-    std::shared_ptr<string> signPublicKeyPem_ = nullptr;
-    std::shared_ptr<string> signPublicKeyType_ = nullptr;
-    std::shared_ptr<vector<string>> trustedMrEnclave_ = nullptr;
+    shared_ptr<string> cipherSuite_ {};
+    shared_ptr<string> enclaveData_ {};
+    shared_ptr<string> encryptPublicKeyPem_ {};
+    shared_ptr<string> encryptPublicKeyType_ {};
+    shared_ptr<string> modifiedDate_ {};
+    shared_ptr<string> publicKey_ {};
+    shared_ptr<string> publicKeyRaBase64_ {};
+    shared_ptr<string> publicKeyRaType_ {};
+    shared_ptr<string> quoteReport_ {};
+    shared_ptr<string> signPublicKeyPem_ {};
+    shared_ptr<string> signPublicKeyType_ {};
+    shared_ptr<vector<string>> trustedMrEnclave_ {};
   };
 
   } // namespace Models

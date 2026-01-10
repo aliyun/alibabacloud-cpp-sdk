@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobDetailId_ == nullptr
-        && return this->tid_ == nullptr; };
+        && this->tid_ == nullptr; };
     // jobDetailId Field Functions 
     bool hasJobDetailId() const { return this->jobDetailId_ != nullptr;};
     void deleteJobDetailId() { this->jobDetailId_ = nullptr;};
-    inline int64_t jobDetailId() const { DARABONBA_PTR_GET_DEFAULT(jobDetailId_, 0L) };
+    inline int64_t getJobDetailId() const { DARABONBA_PTR_GET_DEFAULT(jobDetailId_, 0L) };
     inline GetOnlineDDLProgressRequest& setJobDetailId(int64_t jobDetailId) { DARABONBA_PTR_SET_VALUE(jobDetailId_, jobDetailId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline GetOnlineDDLProgressRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the OnlineDDL SQL task details. You can call the [ListDBTaskSQLJobDetail](https://help.aliyun.com/document_detail/207073.html) operation to obtain the task detail ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> jobDetailId_ = nullptr;
+    shared_ptr<int64_t> jobDetailId_ {};
     // The ID of the tenant.
     // 
     // > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

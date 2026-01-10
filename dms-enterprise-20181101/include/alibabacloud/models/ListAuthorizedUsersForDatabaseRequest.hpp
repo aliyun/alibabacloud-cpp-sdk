@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbId_ == nullptr
-        && return this->logic_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchKey_ == nullptr && return this->tid_ == nullptr; };
+        && this->logic_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchKey_ == nullptr && this->tid_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
-    inline string dbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, "") };
+    inline string getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, "") };
     inline ListAuthorizedUsersForDatabaseRequest& setDbId(string dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
 
 
     // logic Field Functions 
     bool hasLogic() const { return this->logic_ != nullptr;};
     void deleteLogic() { this->logic_ = nullptr;};
-    inline bool logic() const { DARABONBA_PTR_GET_DEFAULT(logic_, false) };
+    inline bool getLogic() const { DARABONBA_PTR_GET_DEFAULT(logic_, false) };
     inline ListAuthorizedUsersForDatabaseRequest& setLogic(bool logic) { DARABONBA_PTR_SET_VALUE(logic_, logic) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline ListAuthorizedUsersForDatabaseRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline ListAuthorizedUsersForDatabaseRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // searchKey Field Functions 
     bool hasSearchKey() const { return this->searchKey_ != nullptr;};
     void deleteSearchKey() { this->searchKey_ = nullptr;};
-    inline string searchKey() const { DARABONBA_PTR_GET_DEFAULT(searchKey_, "") };
+    inline string getSearchKey() const { DARABONBA_PTR_GET_DEFAULT(searchKey_, "") };
     inline ListAuthorizedUsersForDatabaseRequest& setSearchKey(string searchKey) { DARABONBA_PTR_SET_VALUE(searchKey_, searchKey) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListAuthorizedUsersForDatabaseRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -90,22 +90,22 @@ namespace Models
     // *   To query the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dbId_ = nullptr;
+    shared_ptr<string> dbId_ {};
     // Specifies whether the database is a logical database. Valid values:
     // 
     // *   **true.**: The database is a logical database
     // *   **false**: The database is a physical database.
-    std::shared_ptr<bool> logic_ = nullptr;
+    shared_ptr<bool> logic_ {};
     // The page number.
-    std::shared_ptr<string> pageNumber_ = nullptr;
+    shared_ptr<string> pageNumber_ {};
     // The number of entries to return on each page.
-    std::shared_ptr<string> pageSize_ = nullptr;
+    shared_ptr<string> pageSize_ {};
     // The keyword that is used for the search.
-    std::shared_ptr<string> searchKey_ = nullptr;
+    shared_ptr<string> searchKey_ {};
     // The ID of the tenant.
     // 
     // > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

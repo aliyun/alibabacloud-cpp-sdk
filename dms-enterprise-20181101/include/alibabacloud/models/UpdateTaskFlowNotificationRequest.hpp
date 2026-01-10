@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagId_ == nullptr
-        && return this->dagNotificationFail_ == nullptr && return this->dagNotificationSla_ == nullptr && return this->dagNotificationSuccess_ == nullptr && return this->tid_ == nullptr; };
+        && this->dagNotificationFail_ == nullptr && this->dagNotificationSla_ == nullptr && this->dagNotificationSuccess_ == nullptr && this->tid_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline UpdateTaskFlowNotificationRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // dagNotificationFail Field Functions 
     bool hasDagNotificationFail() const { return this->dagNotificationFail_ != nullptr;};
     void deleteDagNotificationFail() { this->dagNotificationFail_ = nullptr;};
-    inline bool dagNotificationFail() const { DARABONBA_PTR_GET_DEFAULT(dagNotificationFail_, false) };
+    inline bool getDagNotificationFail() const { DARABONBA_PTR_GET_DEFAULT(dagNotificationFail_, false) };
     inline UpdateTaskFlowNotificationRequest& setDagNotificationFail(bool dagNotificationFail) { DARABONBA_PTR_SET_VALUE(dagNotificationFail_, dagNotificationFail) };
 
 
     // dagNotificationSla Field Functions 
     bool hasDagNotificationSla() const { return this->dagNotificationSla_ != nullptr;};
     void deleteDagNotificationSla() { this->dagNotificationSla_ = nullptr;};
-    inline bool dagNotificationSla() const { DARABONBA_PTR_GET_DEFAULT(dagNotificationSla_, false) };
+    inline bool getDagNotificationSla() const { DARABONBA_PTR_GET_DEFAULT(dagNotificationSla_, false) };
     inline UpdateTaskFlowNotificationRequest& setDagNotificationSla(bool dagNotificationSla) { DARABONBA_PTR_SET_VALUE(dagNotificationSla_, dagNotificationSla) };
 
 
     // dagNotificationSuccess Field Functions 
     bool hasDagNotificationSuccess() const { return this->dagNotificationSuccess_ != nullptr;};
     void deleteDagNotificationSuccess() { this->dagNotificationSuccess_ = nullptr;};
-    inline bool dagNotificationSuccess() const { DARABONBA_PTR_GET_DEFAULT(dagNotificationSuccess_, false) };
+    inline bool getDagNotificationSuccess() const { DARABONBA_PTR_GET_DEFAULT(dagNotificationSuccess_, false) };
     inline UpdateTaskFlowNotificationRequest& setDagNotificationSuccess(bool dagNotificationSuccess) { DARABONBA_PTR_SET_VALUE(dagNotificationSuccess_, dagNotificationSuccess) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline UpdateTaskFlowNotificationRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -78,23 +78,23 @@ namespace Models
     // The unique ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // Specifies whether to enable notifications for failed task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> dagNotificationFail_ = nullptr;
+    shared_ptr<bool> dagNotificationFail_ {};
     // Specifies whether to enable SLA global notifications for task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> dagNotificationSla_ = nullptr;
+    shared_ptr<bool> dagNotificationSla_ {};
     // Specifies whether to enable notifications for successful task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> dagNotificationSuccess_ = nullptr;
+    shared_ptr<bool> dagNotificationSuccess_ {};
     // The ID of the tenant.
     // 
     // >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

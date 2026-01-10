@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagId_ == nullptr
-        && return this->edgesShrink_ == nullptr && return this->tid_ == nullptr; };
+        && this->edgesShrink_ == nullptr && this->tid_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline UpdateTaskFlowRelationsShrinkRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // edgesShrink Field Functions 
     bool hasEdgesShrink() const { return this->edgesShrink_ != nullptr;};
     void deleteEdgesShrink() { this->edgesShrink_ = nullptr;};
-    inline string edgesShrink() const { DARABONBA_PTR_GET_DEFAULT(edgesShrink_, "") };
+    inline string getEdgesShrink() const { DARABONBA_PTR_GET_DEFAULT(edgesShrink_, "") };
     inline UpdateTaskFlowRelationsShrinkRequest& setEdgesShrink(string edgesShrink) { DARABONBA_PTR_SET_VALUE(edgesShrink_, edgesShrink) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline UpdateTaskFlowRelationsShrinkRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // The list of task flow edges to be updated.
-    std::shared_ptr<string> edgesShrink_ = nullptr;
+    shared_ptr<string> edgesShrink_ {};
     // The ID of the tenant.
     // 
     // >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

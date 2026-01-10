@@ -36,34 +36,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionDetail_ == nullptr
-        && return this->orderId_ == nullptr && return this->realLoginUserUid_ == nullptr && return this->tid_ == nullptr; };
+        && this->orderId_ == nullptr && this->realLoginUserUid_ == nullptr && this->tid_ == nullptr; };
     // actionDetail Field Functions 
     bool hasActionDetail() const { return this->actionDetail_ != nullptr;};
     void deleteActionDetail() { this->actionDetail_ = nullptr;};
-    inline     const Darabonba::Json & actionDetail() const { DARABONBA_GET(actionDetail_) };
-    Darabonba::Json & actionDetail() { DARABONBA_GET(actionDetail_) };
+    inline     const Darabonba::Json & getActionDetail() const { DARABONBA_GET(actionDetail_) };
+    Darabonba::Json & getActionDetail() { DARABONBA_GET(actionDetail_) };
     inline ExecuteDataCorrectRequest& setActionDetail(const Darabonba::Json & actionDetail) { DARABONBA_SET_VALUE(actionDetail_, actionDetail) };
-    inline ExecuteDataCorrectRequest& setActionDetail(Darabonba::Json & actionDetail) { DARABONBA_SET_RVALUE(actionDetail_, actionDetail) };
+    inline ExecuteDataCorrectRequest& setActionDetail(Darabonba::Json && actionDetail) { DARABONBA_SET_RVALUE(actionDetail_, actionDetail) };
 
 
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline int64_t orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
+    inline int64_t getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
     inline ExecuteDataCorrectRequest& setOrderId(int64_t orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // realLoginUserUid Field Functions 
     bool hasRealLoginUserUid() const { return this->realLoginUserUid_ != nullptr;};
     void deleteRealLoginUserUid() { this->realLoginUserUid_ = nullptr;};
-    inline string realLoginUserUid() const { DARABONBA_PTR_GET_DEFAULT(realLoginUserUid_, "") };
+    inline string getRealLoginUserUid() const { DARABONBA_PTR_GET_DEFAULT(realLoginUserUid_, "") };
     inline ExecuteDataCorrectRequest& setRealLoginUserUid(string realLoginUserUid) { DARABONBA_PTR_SET_VALUE(realLoginUserUid_, realLoginUserUid) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline string tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, "") };
+    inline string getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, "") };
     inline ExecuteDataCorrectRequest& setTid(string tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -80,15 +80,15 @@ namespace Models
     //     "backupData" : true // Specify whether to back up data. 
     //   }
     // ```
-    Darabonba::Json actionDetail_ = nullptr;
+    Darabonba::Json actionDetail_ {};
     // The ID of the ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to query the ID of the ticket.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> orderId_ = nullptr;
+    shared_ptr<int64_t> orderId_ {};
     // The ID of the Alibaba Cloud account that is used to call the API operation.
-    std::shared_ptr<string> realLoginUserUid_ = nullptr;
+    shared_ptr<string> realLoginUserUid_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
-    std::shared_ptr<string> tid_ = nullptr;
+    shared_ptr<string> tid_ {};
   };
 
   } // namespace Models

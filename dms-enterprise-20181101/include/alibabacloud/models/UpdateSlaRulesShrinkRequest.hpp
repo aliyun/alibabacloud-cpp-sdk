@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagId_ == nullptr
-        && return this->slaRuleListShrink_ == nullptr && return this->tid_ == nullptr; };
+        && this->slaRuleListShrink_ == nullptr && this->tid_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline UpdateSLARulesShrinkRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // slaRuleListShrink Field Functions 
     bool hasSlaRuleListShrink() const { return this->slaRuleListShrink_ != nullptr;};
     void deleteSlaRuleListShrink() { this->slaRuleListShrink_ = nullptr;};
-    inline string slaRuleListShrink() const { DARABONBA_PTR_GET_DEFAULT(slaRuleListShrink_, "") };
+    inline string getSlaRuleListShrink() const { DARABONBA_PTR_GET_DEFAULT(slaRuleListShrink_, "") };
     inline UpdateSLARulesShrinkRequest& setSlaRuleListShrink(string slaRuleListShrink) { DARABONBA_PTR_SET_VALUE(slaRuleListShrink_, slaRuleListShrink) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline UpdateSLARulesShrinkRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // The list of SLA rules.
-    std::shared_ptr<string> slaRuleListShrink_ = nullptr;
+    shared_ptr<string> slaRuleListShrink_ {};
     // The ID of the tenant.
     // 
     // > :To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

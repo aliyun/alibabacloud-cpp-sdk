@@ -42,74 +42,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columnFilterShrink_ == nullptr
-        && return this->filterEndTime_ == nullptr && return this->filterStartTime_ == nullptr && return this->filterTableListShrink_ == nullptr && return this->filterTypeListShrink_ == nullptr && return this->orderId_ == nullptr
-        && return this->tid_ == nullptr; };
+        && this->filterEndTime_ == nullptr && this->filterStartTime_ == nullptr && this->filterTableListShrink_ == nullptr && this->filterTypeListShrink_ == nullptr && this->orderId_ == nullptr
+        && this->tid_ == nullptr; };
     // columnFilterShrink Field Functions 
     bool hasColumnFilterShrink() const { return this->columnFilterShrink_ != nullptr;};
     void deleteColumnFilterShrink() { this->columnFilterShrink_ = nullptr;};
-    inline string columnFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(columnFilterShrink_, "") };
+    inline string getColumnFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(columnFilterShrink_, "") };
     inline SearchDataTrackResultShrinkRequest& setColumnFilterShrink(string columnFilterShrink) { DARABONBA_PTR_SET_VALUE(columnFilterShrink_, columnFilterShrink) };
 
 
     // filterEndTime Field Functions 
     bool hasFilterEndTime() const { return this->filterEndTime_ != nullptr;};
     void deleteFilterEndTime() { this->filterEndTime_ = nullptr;};
-    inline string filterEndTime() const { DARABONBA_PTR_GET_DEFAULT(filterEndTime_, "") };
+    inline string getFilterEndTime() const { DARABONBA_PTR_GET_DEFAULT(filterEndTime_, "") };
     inline SearchDataTrackResultShrinkRequest& setFilterEndTime(string filterEndTime) { DARABONBA_PTR_SET_VALUE(filterEndTime_, filterEndTime) };
 
 
     // filterStartTime Field Functions 
     bool hasFilterStartTime() const { return this->filterStartTime_ != nullptr;};
     void deleteFilterStartTime() { this->filterStartTime_ = nullptr;};
-    inline string filterStartTime() const { DARABONBA_PTR_GET_DEFAULT(filterStartTime_, "") };
+    inline string getFilterStartTime() const { DARABONBA_PTR_GET_DEFAULT(filterStartTime_, "") };
     inline SearchDataTrackResultShrinkRequest& setFilterStartTime(string filterStartTime) { DARABONBA_PTR_SET_VALUE(filterStartTime_, filterStartTime) };
 
 
     // filterTableListShrink Field Functions 
     bool hasFilterTableListShrink() const { return this->filterTableListShrink_ != nullptr;};
     void deleteFilterTableListShrink() { this->filterTableListShrink_ = nullptr;};
-    inline string filterTableListShrink() const { DARABONBA_PTR_GET_DEFAULT(filterTableListShrink_, "") };
+    inline string getFilterTableListShrink() const { DARABONBA_PTR_GET_DEFAULT(filterTableListShrink_, "") };
     inline SearchDataTrackResultShrinkRequest& setFilterTableListShrink(string filterTableListShrink) { DARABONBA_PTR_SET_VALUE(filterTableListShrink_, filterTableListShrink) };
 
 
     // filterTypeListShrink Field Functions 
     bool hasFilterTypeListShrink() const { return this->filterTypeListShrink_ != nullptr;};
     void deleteFilterTypeListShrink() { this->filterTypeListShrink_ = nullptr;};
-    inline string filterTypeListShrink() const { DARABONBA_PTR_GET_DEFAULT(filterTypeListShrink_, "") };
+    inline string getFilterTypeListShrink() const { DARABONBA_PTR_GET_DEFAULT(filterTypeListShrink_, "") };
     inline SearchDataTrackResultShrinkRequest& setFilterTypeListShrink(string filterTypeListShrink) { DARABONBA_PTR_SET_VALUE(filterTypeListShrink_, filterTypeListShrink) };
 
 
     // orderId Field Functions 
     bool hasOrderId() const { return this->orderId_ != nullptr;};
     void deleteOrderId() { this->orderId_ = nullptr;};
-    inline int64_t orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
+    inline int64_t getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, 0L) };
     inline SearchDataTrackResultShrinkRequest& setOrderId(int64_t orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline SearchDataTrackResultShrinkRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // The condition to filter columns.
-    std::shared_ptr<string> columnFilterShrink_ = nullptr;
+    shared_ptr<string> columnFilterShrink_ {};
     // The end time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
-    std::shared_ptr<string> filterEndTime_ = nullptr;
+    shared_ptr<string> filterEndTime_ {};
     // The start time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
-    std::shared_ptr<string> filterStartTime_ = nullptr;
+    shared_ptr<string> filterStartTime_ {};
     // The names of the tables for which you want to track data operations.
-    std::shared_ptr<string> filterTableListShrink_ = nullptr;
+    shared_ptr<string> filterTableListShrink_ {};
     // The types of data operations that you want to track.
-    std::shared_ptr<string> filterTypeListShrink_ = nullptr;
+    shared_ptr<string> filterTypeListShrink_ {};
     // The ID of the ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to query the ticket ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> orderId_ = nullptr;
+    shared_ptr<int64_t> orderId_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

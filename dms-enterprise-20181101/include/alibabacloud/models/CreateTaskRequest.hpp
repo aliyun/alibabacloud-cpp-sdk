@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagId_ == nullptr
-        && return this->graphParam_ == nullptr && return this->nodeContent_ == nullptr && return this->nodeName_ == nullptr && return this->nodeOutput_ == nullptr && return this->nodeType_ == nullptr
-        && return this->tid_ == nullptr && return this->timeVariables_ == nullptr; };
+        && this->graphParam_ == nullptr && this->nodeContent_ == nullptr && this->nodeName_ == nullptr && this->nodeOutput_ == nullptr && this->nodeType_ == nullptr
+        && this->tid_ == nullptr && this->timeVariables_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline CreateTaskRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // graphParam Field Functions 
     bool hasGraphParam() const { return this->graphParam_ != nullptr;};
     void deleteGraphParam() { this->graphParam_ = nullptr;};
-    inline string graphParam() const { DARABONBA_PTR_GET_DEFAULT(graphParam_, "") };
+    inline string getGraphParam() const { DARABONBA_PTR_GET_DEFAULT(graphParam_, "") };
     inline CreateTaskRequest& setGraphParam(string graphParam) { DARABONBA_PTR_SET_VALUE(graphParam_, graphParam) };
 
 
     // nodeContent Field Functions 
     bool hasNodeContent() const { return this->nodeContent_ != nullptr;};
     void deleteNodeContent() { this->nodeContent_ = nullptr;};
-    inline string nodeContent() const { DARABONBA_PTR_GET_DEFAULT(nodeContent_, "") };
+    inline string getNodeContent() const { DARABONBA_PTR_GET_DEFAULT(nodeContent_, "") };
     inline CreateTaskRequest& setNodeContent(string nodeContent) { DARABONBA_PTR_SET_VALUE(nodeContent_, nodeContent) };
 
 
     // nodeName Field Functions 
     bool hasNodeName() const { return this->nodeName_ != nullptr;};
     void deleteNodeName() { this->nodeName_ = nullptr;};
-    inline string nodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
+    inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
     inline CreateTaskRequest& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
 
 
     // nodeOutput Field Functions 
     bool hasNodeOutput() const { return this->nodeOutput_ != nullptr;};
     void deleteNodeOutput() { this->nodeOutput_ = nullptr;};
-    inline string nodeOutput() const { DARABONBA_PTR_GET_DEFAULT(nodeOutput_, "") };
+    inline string getNodeOutput() const { DARABONBA_PTR_GET_DEFAULT(nodeOutput_, "") };
     inline CreateTaskRequest& setNodeOutput(string nodeOutput) { DARABONBA_PTR_SET_VALUE(nodeOutput_, nodeOutput) };
 
 
     // nodeType Field Functions 
     bool hasNodeType() const { return this->nodeType_ != nullptr;};
     void deleteNodeType() { this->nodeType_ = nullptr;};
-    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
     inline CreateTaskRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline CreateTaskRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // timeVariables Field Functions 
     bool hasTimeVariables() const { return this->timeVariables_ != nullptr;};
     void deleteTimeVariables() { this->timeVariables_ = nullptr;};
-    inline string timeVariables() const { DARABONBA_PTR_GET_DEFAULT(timeVariables_, "") };
+    inline string getTimeVariables() const { DARABONBA_PTR_GET_DEFAULT(timeVariables_, "") };
     inline CreateTaskRequest& setTimeVariables(string timeVariables) { DARABONBA_PTR_SET_VALUE(timeVariables_, timeVariables) };
 
 
@@ -106,27 +106,27 @@ namespace Models
     // The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // The position of the node on the Directed Acyclic Graph (DAG).
-    std::shared_ptr<string> graphParam_ = nullptr;
+    shared_ptr<string> graphParam_ {};
     // The configuration of the node.
-    std::shared_ptr<string> nodeContent_ = nullptr;
+    shared_ptr<string> nodeContent_ {};
     // The name of the node that you want to create.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeName_ = nullptr;
+    shared_ptr<string> nodeName_ {};
     // The output variables configured for the task.
-    std::shared_ptr<string> nodeOutput_ = nullptr;
+    shared_ptr<string> nodeOutput_ {};
     // The type of the node that you want to create. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> nodeType_ = nullptr;
+    shared_ptr<string> nodeType_ {};
     // The tenant ID.
     // 
     // >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
     // The time variables configured for the node.
-    std::shared_ptr<string> timeVariables_ = nullptr;
+    shared_ptr<string> timeVariables_ {};
   };
 
   } // namespace Models

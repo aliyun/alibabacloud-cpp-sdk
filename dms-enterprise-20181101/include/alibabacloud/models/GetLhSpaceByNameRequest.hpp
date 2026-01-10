@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->spaceName_ == nullptr
-        && return this->tid_ == nullptr; };
+        && this->tid_ == nullptr; };
     // spaceName Field Functions 
     bool hasSpaceName() const { return this->spaceName_ != nullptr;};
     void deleteSpaceName() { this->spaceName_ = nullptr;};
-    inline string spaceName() const { DARABONBA_PTR_GET_DEFAULT(spaceName_, "") };
+    inline string getSpaceName() const { DARABONBA_PTR_GET_DEFAULT(spaceName_, "") };
     inline GetLhSpaceByNameRequest& setSpaceName(string spaceName) { DARABONBA_PTR_SET_VALUE(spaceName_, spaceName) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline GetLhSpaceByNameRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The name of the workspace.
     // 
     // This parameter is required.
-    std::shared_ptr<string> spaceName_ = nullptr;
+    shared_ptr<string> spaceName_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

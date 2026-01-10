@@ -42,67 +42,67 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databasePassword_ == nullptr
-        && return this->databaseUser_ == nullptr && return this->host_ == nullptr && return this->instanceId_ == nullptr && return this->instanceRegion_ == nullptr && return this->port_ == nullptr
-        && return this->realLoginUserUid_ == nullptr; };
+        && this->databaseUser_ == nullptr && this->host_ == nullptr && this->instanceId_ == nullptr && this->instanceRegion_ == nullptr && this->port_ == nullptr
+        && this->realLoginUserUid_ == nullptr; };
     // databasePassword Field Functions 
     bool hasDatabasePassword() const { return this->databasePassword_ != nullptr;};
     void deleteDatabasePassword() { this->databasePassword_ = nullptr;};
-    inline string databasePassword() const { DARABONBA_PTR_GET_DEFAULT(databasePassword_, "") };
+    inline string getDatabasePassword() const { DARABONBA_PTR_GET_DEFAULT(databasePassword_, "") };
     inline SimplyAddInstanceRequest& setDatabasePassword(string databasePassword) { DARABONBA_PTR_SET_VALUE(databasePassword_, databasePassword) };
 
 
     // databaseUser Field Functions 
     bool hasDatabaseUser() const { return this->databaseUser_ != nullptr;};
     void deleteDatabaseUser() { this->databaseUser_ = nullptr;};
-    inline string databaseUser() const { DARABONBA_PTR_GET_DEFAULT(databaseUser_, "") };
+    inline string getDatabaseUser() const { DARABONBA_PTR_GET_DEFAULT(databaseUser_, "") };
     inline SimplyAddInstanceRequest& setDatabaseUser(string databaseUser) { DARABONBA_PTR_SET_VALUE(databaseUser_, databaseUser) };
 
 
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
-    inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+    inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline SimplyAddInstanceRequest& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline SimplyAddInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceRegion Field Functions 
     bool hasInstanceRegion() const { return this->instanceRegion_ != nullptr;};
     void deleteInstanceRegion() { this->instanceRegion_ = nullptr;};
-    inline string instanceRegion() const { DARABONBA_PTR_GET_DEFAULT(instanceRegion_, "") };
+    inline string getInstanceRegion() const { DARABONBA_PTR_GET_DEFAULT(instanceRegion_, "") };
     inline SimplyAddInstanceRequest& setInstanceRegion(string instanceRegion) { DARABONBA_PTR_SET_VALUE(instanceRegion_, instanceRegion) };
 
 
     // port Field Functions 
     bool hasPort() const { return this->port_ != nullptr;};
     void deletePort() { this->port_ = nullptr;};
-    inline int32_t port() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
     inline SimplyAddInstanceRequest& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
     // realLoginUserUid Field Functions 
     bool hasRealLoginUserUid() const { return this->realLoginUserUid_ != nullptr;};
     void deleteRealLoginUserUid() { this->realLoginUserUid_ = nullptr;};
-    inline string realLoginUserUid() const { DARABONBA_PTR_GET_DEFAULT(realLoginUserUid_, "") };
+    inline string getRealLoginUserUid() const { DARABONBA_PTR_GET_DEFAULT(realLoginUserUid_, "") };
     inline SimplyAddInstanceRequest& setRealLoginUserUid(string realLoginUserUid) { DARABONBA_PTR_SET_VALUE(realLoginUserUid_, realLoginUserUid) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> databasePassword_ = nullptr;
+    shared_ptr<string> databasePassword_ {};
     // This parameter is required.
-    std::shared_ptr<string> databaseUser_ = nullptr;
-    std::shared_ptr<string> host_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instanceRegion_ = nullptr;
-    std::shared_ptr<int32_t> port_ = nullptr;
-    std::shared_ptr<string> realLoginUserUid_ = nullptr;
+    shared_ptr<string> databaseUser_ {};
+    shared_ptr<string> host_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> instanceRegion_ {};
+    shared_ptr<int32_t> port_ {};
+    shared_ptr<string> realLoginUserUid_ {};
   };
 
   } // namespace Models

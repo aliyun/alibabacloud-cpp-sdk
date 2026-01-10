@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->tid_ == nullptr
-        && return this->uid_ == nullptr; };
+        && this->uid_ == nullptr; };
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline DeleteUserRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline string uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
+    inline string getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
     inline DeleteUserRequest& setUid(string uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the tenant. 
     // 
     // >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://www.alibabacloud.com/help/en/data-management-service/latest/manage-dms-tenants) topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
     // The unique ID (UID) of Alibaba Cloud account to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> uid_ = nullptr;
+    shared_ptr<string> uid_ {};
   };
 
   } // namespace Models

@@ -36,46 +36,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderResultType_ == nullptr
-        && return this->pluginType_ == nullptr && return this->searchDateType_ == nullptr && return this->tid_ == nullptr; };
+        && this->pluginType_ == nullptr && this->searchDateType_ == nullptr && this->tid_ == nullptr; };
     // orderResultType Field Functions 
     bool hasOrderResultType() const { return this->orderResultType_ != nullptr;};
     void deleteOrderResultType() { this->orderResultType_ = nullptr;};
-    inline string orderResultType() const { DARABONBA_PTR_GET_DEFAULT(orderResultType_, "") };
+    inline string getOrderResultType() const { DARABONBA_PTR_GET_DEFAULT(orderResultType_, "") };
     inline GetDataArchiveCountRequest& setOrderResultType(string orderResultType) { DARABONBA_PTR_SET_VALUE(orderResultType_, orderResultType) };
 
 
     // pluginType Field Functions 
     bool hasPluginType() const { return this->pluginType_ != nullptr;};
     void deletePluginType() { this->pluginType_ = nullptr;};
-    inline string pluginType() const { DARABONBA_PTR_GET_DEFAULT(pluginType_, "") };
+    inline string getPluginType() const { DARABONBA_PTR_GET_DEFAULT(pluginType_, "") };
     inline GetDataArchiveCountRequest& setPluginType(string pluginType) { DARABONBA_PTR_SET_VALUE(pluginType_, pluginType) };
 
 
     // searchDateType Field Functions 
     bool hasSearchDateType() const { return this->searchDateType_ != nullptr;};
     void deleteSearchDateType() { this->searchDateType_ = nullptr;};
-    inline string searchDateType() const { DARABONBA_PTR_GET_DEFAULT(searchDateType_, "") };
+    inline string getSearchDateType() const { DARABONBA_PTR_GET_DEFAULT(searchDateType_, "") };
     inline GetDataArchiveCountRequest& setSearchDateType(string searchDateType) { DARABONBA_PTR_SET_VALUE(searchDateType_, searchDateType) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline GetDataArchiveCountRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // The type of the identity. Default value: AS_ADMIN.
-    std::shared_ptr<string> orderResultType_ = nullptr;
+    shared_ptr<string> orderResultType_ {};
     // The plugin type. Default value: DATA_ARCHIVE.
-    std::shared_ptr<string> pluginType_ = nullptr;
+    shared_ptr<string> pluginType_ {};
     // The time when the ticket is modified or created. The statistics of data archiving tickets are calculated based on the creation time.
-    std::shared_ptr<string> searchDateType_ = nullptr;
+    shared_ptr<string> searchDateType_ {};
     // The tenant ID.
     // 
     // >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

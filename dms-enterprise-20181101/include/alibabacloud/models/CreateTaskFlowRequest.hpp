@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagName_ == nullptr
-        && return this->description_ == nullptr && return this->scenarioId_ == nullptr && return this->tid_ == nullptr; };
+        && this->description_ == nullptr && this->scenarioId_ == nullptr && this->tid_ == nullptr; };
     // dagName Field Functions 
     bool hasDagName() const { return this->dagName_ != nullptr;};
     void deleteDagName() { this->dagName_ = nullptr;};
-    inline string dagName() const { DARABONBA_PTR_GET_DEFAULT(dagName_, "") };
+    inline string getDagName() const { DARABONBA_PTR_GET_DEFAULT(dagName_, "") };
     inline CreateTaskFlowRequest& setDagName(string dagName) { DARABONBA_PTR_SET_VALUE(dagName_, dagName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateTaskFlowRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // scenarioId Field Functions 
     bool hasScenarioId() const { return this->scenarioId_ != nullptr;};
     void deleteScenarioId() { this->scenarioId_ = nullptr;};
-    inline int64_t scenarioId() const { DARABONBA_PTR_GET_DEFAULT(scenarioId_, 0L) };
+    inline int64_t getScenarioId() const { DARABONBA_PTR_GET_DEFAULT(scenarioId_, 0L) };
     inline CreateTaskFlowRequest& setScenarioId(int64_t scenarioId) { DARABONBA_PTR_SET_VALUE(scenarioId_, scenarioId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline CreateTaskFlowRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -69,13 +69,13 @@ namespace Models
     // The name of the task flow.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dagName_ = nullptr;
+    shared_ptr<string> dagName_ {};
     // The description of the task flow.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The ID of the scenario.
-    std::shared_ptr<int64_t> scenarioId_ = nullptr;
+    shared_ptr<int64_t> scenarioId_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEUPLOADOSSFILEJOBREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEUPLOADOSSFILEJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateUploadOSSFileJobRequestUploadTarget.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,36 +35,97 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class UploadTarget : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const UploadTarget& obj) { 
+        DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
+        DARABONBA_PTR_TO_JSON(Endpoint, endpoint_);
+        DARABONBA_PTR_TO_JSON(ObjectName, objectName_);
+      };
+      friend void from_json(const Darabonba::Json& j, UploadTarget& obj) { 
+        DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
+        DARABONBA_PTR_FROM_JSON(Endpoint, endpoint_);
+        DARABONBA_PTR_FROM_JSON(ObjectName, objectName_);
+      };
+      UploadTarget() = default ;
+      UploadTarget(const UploadTarget &) = default ;
+      UploadTarget(UploadTarget &&) = default ;
+      UploadTarget(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~UploadTarget() = default ;
+      UploadTarget& operator=(const UploadTarget &) = default ;
+      UploadTarget& operator=(UploadTarget &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->bucketName_ == nullptr
+        && this->endpoint_ == nullptr && this->objectName_ == nullptr; };
+      // bucketName Field Functions 
+      bool hasBucketName() const { return this->bucketName_ != nullptr;};
+      void deleteBucketName() { this->bucketName_ = nullptr;};
+      inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+      inline UploadTarget& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
+
+
+      // endpoint Field Functions 
+      bool hasEndpoint() const { return this->endpoint_ != nullptr;};
+      void deleteEndpoint() { this->endpoint_ = nullptr;};
+      inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
+      inline UploadTarget& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
+
+
+      // objectName Field Functions 
+      bool hasObjectName() const { return this->objectName_ != nullptr;};
+      void deleteObjectName() { this->objectName_ = nullptr;};
+      inline string getObjectName() const { DARABONBA_PTR_GET_DEFAULT(objectName_, "") };
+      inline UploadTarget& setObjectName(string objectName) { DARABONBA_PTR_SET_VALUE(objectName_, objectName) };
+
+
+    protected:
+      // The name of the OSS bucket.
+      // 
+      // This parameter is required.
+      shared_ptr<string> bucketName_ {};
+      // The endpoint of the OSS bucket.
+      // 
+      // This parameter is required.
+      shared_ptr<string> endpoint_ {};
+      // The name of the OSS object.
+      // 
+      // This parameter is required.
+      shared_ptr<string> objectName_ {};
+    };
+
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->fileSource_ == nullptr && return this->tid_ == nullptr && return this->uploadTarget_ == nullptr; };
+        && this->fileSource_ == nullptr && this->tid_ == nullptr && this->uploadTarget_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline CreateUploadOSSFileJobRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileSource Field Functions 
     bool hasFileSource() const { return this->fileSource_ != nullptr;};
     void deleteFileSource() { this->fileSource_ = nullptr;};
-    inline string fileSource() const { DARABONBA_PTR_GET_DEFAULT(fileSource_, "") };
+    inline string getFileSource() const { DARABONBA_PTR_GET_DEFAULT(fileSource_, "") };
     inline CreateUploadOSSFileJobRequest& setFileSource(string fileSource) { DARABONBA_PTR_SET_VALUE(fileSource_, fileSource) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline CreateUploadOSSFileJobRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // uploadTarget Field Functions 
     bool hasUploadTarget() const { return this->uploadTarget_ != nullptr;};
     void deleteUploadTarget() { this->uploadTarget_ = nullptr;};
-    inline const CreateUploadOSSFileJobRequestUploadTarget & uploadTarget() const { DARABONBA_PTR_GET_CONST(uploadTarget_, CreateUploadOSSFileJobRequestUploadTarget) };
-    inline CreateUploadOSSFileJobRequestUploadTarget uploadTarget() { DARABONBA_PTR_GET(uploadTarget_, CreateUploadOSSFileJobRequestUploadTarget) };
-    inline CreateUploadOSSFileJobRequest& setUploadTarget(const CreateUploadOSSFileJobRequestUploadTarget & uploadTarget) { DARABONBA_PTR_SET_VALUE(uploadTarget_, uploadTarget) };
-    inline CreateUploadOSSFileJobRequest& setUploadTarget(CreateUploadOSSFileJobRequestUploadTarget && uploadTarget) { DARABONBA_PTR_SET_RVALUE(uploadTarget_, uploadTarget) };
+    inline const CreateUploadOSSFileJobRequest::UploadTarget & getUploadTarget() const { DARABONBA_PTR_GET_CONST(uploadTarget_, CreateUploadOSSFileJobRequest::UploadTarget) };
+    inline CreateUploadOSSFileJobRequest::UploadTarget getUploadTarget() { DARABONBA_PTR_GET(uploadTarget_, CreateUploadOSSFileJobRequest::UploadTarget) };
+    inline CreateUploadOSSFileJobRequest& setUploadTarget(const CreateUploadOSSFileJobRequest::UploadTarget & uploadTarget) { DARABONBA_PTR_SET_VALUE(uploadTarget_, uploadTarget) };
+    inline CreateUploadOSSFileJobRequest& setUploadTarget(CreateUploadOSSFileJobRequest::UploadTarget && uploadTarget) { DARABONBA_PTR_SET_RVALUE(uploadTarget_, uploadTarget) };
 
 
   protected:
@@ -74,7 +134,7 @@ namespace Models
     // > The file name must end with .txt or .sql. For example, the file name can be text.txt.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // The purpose of the file upload task. Valid values:
     // 
     // *   **datacorrect**: The file is uploaded to change data.
@@ -83,15 +143,15 @@ namespace Models
     // *   **sqlreview**: The file is uploaded for SQL review.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileSource_ = nullptr;
+    shared_ptr<string> fileSource_ {};
     // The ID of the tenant.
     // 
     // > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
     // The information about the OSS file to be uploaded.
     // 
     // This parameter is required.
-    std::shared_ptr<CreateUploadOSSFileJobRequestUploadTarget> uploadTarget_ = nullptr;
+    shared_ptr<CreateUploadOSSFileJobRequest::UploadTarget> uploadTarget_ {};
   };
 
   } // namespace Models

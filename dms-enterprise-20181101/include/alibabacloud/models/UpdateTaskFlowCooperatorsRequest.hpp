@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cooperatorIds_ == nullptr
-        && return this->dagId_ == nullptr && return this->tid_ == nullptr; };
+        && this->dagId_ == nullptr && this->tid_ == nullptr; };
     // cooperatorIds Field Functions 
     bool hasCooperatorIds() const { return this->cooperatorIds_ != nullptr;};
     void deleteCooperatorIds() { this->cooperatorIds_ = nullptr;};
-    inline const vector<string> & cooperatorIds() const { DARABONBA_PTR_GET_CONST(cooperatorIds_, vector<string>) };
-    inline vector<string> cooperatorIds() { DARABONBA_PTR_GET(cooperatorIds_, vector<string>) };
+    inline const vector<string> & getCooperatorIds() const { DARABONBA_PTR_GET_CONST(cooperatorIds_, vector<string>) };
+    inline vector<string> getCooperatorIds() { DARABONBA_PTR_GET(cooperatorIds_, vector<string>) };
     inline UpdateTaskFlowCooperatorsRequest& setCooperatorIds(const vector<string> & cooperatorIds) { DARABONBA_PTR_SET_VALUE(cooperatorIds_, cooperatorIds) };
     inline UpdateTaskFlowCooperatorsRequest& setCooperatorIds(vector<string> && cooperatorIds) { DARABONBA_PTR_SET_RVALUE(cooperatorIds_, cooperatorIds) };
 
@@ -48,28 +48,28 @@ namespace Models
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline UpdateTaskFlowCooperatorsRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline UpdateTaskFlowCooperatorsRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // The IDs of the users who are involved in the task flow to be updated.
-    std::shared_ptr<vector<string>> cooperatorIds_ = nullptr;
+    shared_ptr<vector<string>> cooperatorIds_ {};
     // The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // The ID of the tenant.
     // 
     // > :To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

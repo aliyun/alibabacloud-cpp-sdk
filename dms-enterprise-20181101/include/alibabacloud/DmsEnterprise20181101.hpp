@@ -404,7 +404,7 @@ namespace DmsEnterprise20181101
        * @param runtime runtime options for this request RuntimeOptions
        * @return ChatWithDesensitizeSSEResponse
        */
-      FutrueGenerator<Models::ChatWithDesensitizeSSEResponse> chatWithDesensitizeSSEWithSSE(const Models::ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::ChatWithDesensitizeSSEResponse> chatWithDesensitizeSSEWithSSE(const Models::ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 带有DMS脱敏能力的聊天SSE API接口

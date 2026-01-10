@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerIds_ == nullptr
-        && return this->ownerType_ == nullptr && return this->resourceId_ == nullptr && return this->tid_ == nullptr; };
+        && this->ownerType_ == nullptr && this->resourceId_ == nullptr && this->tid_ == nullptr; };
     // ownerIds Field Functions 
     bool hasOwnerIds() const { return this->ownerIds_ != nullptr;};
     void deleteOwnerIds() { this->ownerIds_ = nullptr;};
-    inline string ownerIds() const { DARABONBA_PTR_GET_DEFAULT(ownerIds_, "") };
+    inline string getOwnerIds() const { DARABONBA_PTR_GET_DEFAULT(ownerIds_, "") };
     inline SetOwnersRequest& setOwnerIds(string ownerIds) { DARABONBA_PTR_SET_VALUE(ownerIds_, ownerIds) };
 
 
     // ownerType Field Functions 
     bool hasOwnerType() const { return this->ownerType_ != nullptr;};
     void deleteOwnerType() { this->ownerType_ = nullptr;};
-    inline string ownerType() const { DARABONBA_PTR_GET_DEFAULT(ownerType_, "") };
+    inline string getOwnerType() const { DARABONBA_PTR_GET_DEFAULT(ownerType_, "") };
     inline SetOwnersRequest& setOwnerType(string ownerType) { DARABONBA_PTR_SET_VALUE(ownerType_, ownerType) };
 
 
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
-    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline SetOwnersRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline SetOwnersRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -71,7 +71,7 @@ namespace Models
     // >  The value of the OwnerIds parameter is that of the UserId parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ownerIds_ = nullptr;
+    shared_ptr<string> ownerIds_ {};
     // The type of the owner. Valid values:
     // 
     // *   INSTANCE: an owner of an instance.
@@ -81,7 +81,7 @@ namespace Models
     // *   LOGIC_TABLE: an owner of a logical table.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ownerType_ = nullptr;
+    shared_ptr<string> ownerType_ {};
     // The ID of the resource. The ID of the resource varies with the owner type. The owner types and resource IDs have the following mappings:
     // 
     // *   INSTANCE: the ID of an instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to query the ID of the instance.
@@ -91,11 +91,11 @@ namespace Models
     // *   LOGIC_DATABASE: the ID of a logical table. You can call the [ListLogicTables](https://help.aliyun.com/document_detail/141875.html) operation to query the ID of the logical table.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceId_ = nullptr;
+    shared_ptr<string> resourceId_ {};
     // The ID of the tenant.
     // 
     // >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

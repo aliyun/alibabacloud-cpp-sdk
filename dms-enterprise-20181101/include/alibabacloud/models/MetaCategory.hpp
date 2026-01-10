@@ -47,48 +47,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && return this->createTime_ == nullptr && return this->depth_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr && return this->ownerIds_ == nullptr
-        && return this->ownerNickNames_ == nullptr && return this->parentCategoryId_ == nullptr && return this->remark_ == nullptr; };
+        && this->createTime_ == nullptr && this->depth_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->ownerIds_ == nullptr
+        && this->ownerNickNames_ == nullptr && this->parentCategoryId_ == nullptr && this->remark_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
-    inline int64_t categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
+    inline int64_t getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
     inline MetaCategory& setCategoryId(int64_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
-    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline MetaCategory& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // depth Field Functions 
     bool hasDepth() const { return this->depth_ != nullptr;};
     void deleteDepth() { this->depth_ = nullptr;};
-    inline int32_t depth() const { DARABONBA_PTR_GET_DEFAULT(depth_, 0) };
+    inline int32_t getDepth() const { DARABONBA_PTR_GET_DEFAULT(depth_, 0) };
     inline MetaCategory& setDepth(int32_t depth) { DARABONBA_PTR_SET_VALUE(depth_, depth) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline MetaCategory& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline MetaCategory& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // ownerIds Field Functions 
     bool hasOwnerIds() const { return this->ownerIds_ != nullptr;};
     void deleteOwnerIds() { this->ownerIds_ = nullptr;};
-    inline const vector<int64_t> & ownerIds() const { DARABONBA_PTR_GET_CONST(ownerIds_, vector<int64_t>) };
-    inline vector<int64_t> ownerIds() { DARABONBA_PTR_GET(ownerIds_, vector<int64_t>) };
+    inline const vector<int64_t> & getOwnerIds() const { DARABONBA_PTR_GET_CONST(ownerIds_, vector<int64_t>) };
+    inline vector<int64_t> getOwnerIds() { DARABONBA_PTR_GET(ownerIds_, vector<int64_t>) };
     inline MetaCategory& setOwnerIds(const vector<int64_t> & ownerIds) { DARABONBA_PTR_SET_VALUE(ownerIds_, ownerIds) };
     inline MetaCategory& setOwnerIds(vector<int64_t> && ownerIds) { DARABONBA_PTR_SET_RVALUE(ownerIds_, ownerIds) };
 
@@ -96,8 +96,8 @@ namespace Models
     // ownerNickNames Field Functions 
     bool hasOwnerNickNames() const { return this->ownerNickNames_ != nullptr;};
     void deleteOwnerNickNames() { this->ownerNickNames_ = nullptr;};
-    inline const vector<string> & ownerNickNames() const { DARABONBA_PTR_GET_CONST(ownerNickNames_, vector<string>) };
-    inline vector<string> ownerNickNames() { DARABONBA_PTR_GET(ownerNickNames_, vector<string>) };
+    inline const vector<string> & getOwnerNickNames() const { DARABONBA_PTR_GET_CONST(ownerNickNames_, vector<string>) };
+    inline vector<string> getOwnerNickNames() { DARABONBA_PTR_GET(ownerNickNames_, vector<string>) };
     inline MetaCategory& setOwnerNickNames(const vector<string> & ownerNickNames) { DARABONBA_PTR_SET_VALUE(ownerNickNames_, ownerNickNames) };
     inline MetaCategory& setOwnerNickNames(vector<string> && ownerNickNames) { DARABONBA_PTR_SET_RVALUE(ownerNickNames_, ownerNickNames) };
 
@@ -105,27 +105,27 @@ namespace Models
     // parentCategoryId Field Functions 
     bool hasParentCategoryId() const { return this->parentCategoryId_ != nullptr;};
     void deleteParentCategoryId() { this->parentCategoryId_ = nullptr;};
-    inline int64_t parentCategoryId() const { DARABONBA_PTR_GET_DEFAULT(parentCategoryId_, 0L) };
+    inline int64_t getParentCategoryId() const { DARABONBA_PTR_GET_DEFAULT(parentCategoryId_, 0L) };
     inline MetaCategory& setParentCategoryId(int64_t parentCategoryId) { DARABONBA_PTR_SET_VALUE(parentCategoryId_, parentCategoryId) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline MetaCategory& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
   protected:
-    std::shared_ptr<int64_t> categoryId_ = nullptr;
-    std::shared_ptr<string> createTime_ = nullptr;
-    std::shared_ptr<int32_t> depth_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<vector<int64_t>> ownerIds_ = nullptr;
-    std::shared_ptr<vector<string>> ownerNickNames_ = nullptr;
-    std::shared_ptr<int64_t> parentCategoryId_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<int64_t> categoryId_ {};
+    shared_ptr<string> createTime_ {};
+    shared_ptr<int32_t> depth_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<vector<int64_t>> ownerIds_ {};
+    shared_ptr<vector<string>> ownerNickNames_ {};
+    shared_ptr<int64_t> parentCategoryId_ {};
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

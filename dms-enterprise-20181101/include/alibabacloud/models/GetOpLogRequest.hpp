@@ -44,71 +44,71 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseName_ == nullptr
-        && return this->endTime_ == nullptr && return this->module_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->startTime_ == nullptr
-        && return this->tid_ == nullptr && return this->userNick_ == nullptr; };
+        && this->endTime_ == nullptr && this->module_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr
+        && this->tid_ == nullptr && this->userNick_ == nullptr; };
     // databaseName Field Functions 
     bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
     void deleteDatabaseName() { this->databaseName_ = nullptr;};
-    inline string databaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
     inline GetOpLogRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline GetOpLogRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline string module() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
+    inline string getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
     inline GetOpLogRequest& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline GetOpLogRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetOpLogRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
     inline GetOpLogRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline GetOpLogRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // userNick Field Functions 
     bool hasUserNick() const { return this->userNick_ != nullptr;};
     void deleteUserNick() { this->userNick_ = nullptr;};
-    inline string userNick() const { DARABONBA_PTR_GET_DEFAULT(userNick_, "") };
+    inline string getUserNick() const { DARABONBA_PTR_GET_DEFAULT(userNick_, "") };
     inline GetOpLogRequest& setUserNick(string userNick) { DARABONBA_PTR_SET_VALUE(userNick_, userNick) };
 
 
   protected:
     // DatabaseName.
-    std::shared_ptr<string> databaseName_ = nullptr;
+    shared_ptr<string> databaseName_ {};
     // The end of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The functional module for which you want to query operation logs. If you do not specify this parameter, operation logs for all functional modules are returned. Valid values:
     // 
     // *   **PERMISSION**: permissions
@@ -135,11 +135,11 @@ namespace Models
     // *   **DATALINK_MANAGE** :DBLink management
     // *   **DATASEC_MANAGE**: sensitive data management
     // *   **SELL**: sales
-    std::shared_ptr<string> module_ = nullptr;
+    shared_ptr<string> module_ {};
     // The number of the page to return. Pages start from page 1.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values:
     // 
     // *   30
@@ -147,15 +147,15 @@ namespace Models
     // *   100
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The beginning of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> startTime_ = nullptr;
+    shared_ptr<string> startTime_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
     // UserNick.
-    std::shared_ptr<string> userNick_ = nullptr;
+    shared_ptr<string> userNick_ {};
   };
 
   } // namespace Models

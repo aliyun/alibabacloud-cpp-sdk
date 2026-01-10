@@ -50,88 +50,88 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbType_ == nullptr
-        && return this->envType_ == nullptr && return this->instanceSource_ == nullptr && return this->instanceState_ == nullptr && return this->netType_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->realLoginUserUid_ == nullptr && return this->region_ == nullptr && return this->searchKey_ == nullptr && return this->tid_ == nullptr; };
+        && this->envType_ == nullptr && this->instanceSource_ == nullptr && this->instanceState_ == nullptr && this->netType_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->realLoginUserUid_ == nullptr && this->region_ == nullptr && this->searchKey_ == nullptr && this->tid_ == nullptr; };
     // dbType Field Functions 
     bool hasDbType() const { return this->dbType_ != nullptr;};
     void deleteDbType() { this->dbType_ = nullptr;};
-    inline string dbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
+    inline string getDbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
     inline ListInstancesRequest& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
 
 
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
-    inline string envType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline ListInstancesRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // instanceSource Field Functions 
     bool hasInstanceSource() const { return this->instanceSource_ != nullptr;};
     void deleteInstanceSource() { this->instanceSource_ = nullptr;};
-    inline string instanceSource() const { DARABONBA_PTR_GET_DEFAULT(instanceSource_, "") };
+    inline string getInstanceSource() const { DARABONBA_PTR_GET_DEFAULT(instanceSource_, "") };
     inline ListInstancesRequest& setInstanceSource(string instanceSource) { DARABONBA_PTR_SET_VALUE(instanceSource_, instanceSource) };
 
 
     // instanceState Field Functions 
     bool hasInstanceState() const { return this->instanceState_ != nullptr;};
     void deleteInstanceState() { this->instanceState_ = nullptr;};
-    inline string instanceState() const { DARABONBA_PTR_GET_DEFAULT(instanceState_, "") };
+    inline string getInstanceState() const { DARABONBA_PTR_GET_DEFAULT(instanceState_, "") };
     inline ListInstancesRequest& setInstanceState(string instanceState) { DARABONBA_PTR_SET_VALUE(instanceState_, instanceState) };
 
 
     // netType Field Functions 
     bool hasNetType() const { return this->netType_ != nullptr;};
     void deleteNetType() { this->netType_ = nullptr;};
-    inline string netType() const { DARABONBA_PTR_GET_DEFAULT(netType_, "") };
+    inline string getNetType() const { DARABONBA_PTR_GET_DEFAULT(netType_, "") };
     inline ListInstancesRequest& setNetType(string netType) { DARABONBA_PTR_SET_VALUE(netType_, netType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListInstancesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // realLoginUserUid Field Functions 
     bool hasRealLoginUserUid() const { return this->realLoginUserUid_ != nullptr;};
     void deleteRealLoginUserUid() { this->realLoginUserUid_ = nullptr;};
-    inline string realLoginUserUid() const { DARABONBA_PTR_GET_DEFAULT(realLoginUserUid_, "") };
+    inline string getRealLoginUserUid() const { DARABONBA_PTR_GET_DEFAULT(realLoginUserUid_, "") };
     inline ListInstancesRequest& setRealLoginUserUid(string realLoginUserUid) { DARABONBA_PTR_SET_VALUE(realLoginUserUid_, realLoginUserUid) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ListInstancesRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // searchKey Field Functions 
     bool hasSearchKey() const { return this->searchKey_ != nullptr;};
     void deleteSearchKey() { this->searchKey_ = nullptr;};
-    inline string searchKey() const { DARABONBA_PTR_GET_DEFAULT(searchKey_, "") };
+    inline string getSearchKey() const { DARABONBA_PTR_GET_DEFAULT(searchKey_, "") };
     inline ListInstancesRequest& setSearchKey(string searchKey) { DARABONBA_PTR_SET_VALUE(searchKey_, searchKey) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListInstancesRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
   protected:
     // The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
-    std::shared_ptr<string> dbType_ = nullptr;
+    shared_ptr<string> dbType_ {};
     // The type of the environment to which the database instance belongs. Valid values:
     // 
     // *   **product:** production environment
@@ -142,34 +142,34 @@ namespace Models
     // *   **uat**: user acceptance testing (UAT) environment
     // *   **pet**: stress testing environment
     // *   **stag:** staging environment
-    std::shared_ptr<string> envType_ = nullptr;
+    shared_ptr<string> envType_ {};
     // The source of the database instance. Valid values:
     // 
     // *   **PUBLIC_OWN**: a self-managed database instance that is deployed on the Internet
     // *   **RDS**: an ApsaraDB RDS instance
     // *   **ECS_OWN**: a self-managed database that is deployed on an Elastic Compute Service (ECS) instance
     // *   **VPC_IDC**: a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC)
-    std::shared_ptr<string> instanceSource_ = nullptr;
+    shared_ptr<string> instanceSource_ {};
     // The status of the database instance. Valid values:
     // 
     // *   **NORMAL**
     // *   **DISABLE**
-    std::shared_ptr<string> instanceState_ = nullptr;
+    shared_ptr<string> instanceState_ {};
     // The network type of the database instance. Valid values:
     // 
     // *   **CLASSIC:** classic network
     // *   **VPC:** VPC
-    std::shared_ptr<string> netType_ = nullptr;
+    shared_ptr<string> netType_ {};
     // The number of the page to return.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. The number cannot exceed 100.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> realLoginUserUid_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> realLoginUserUid_ {};
+    shared_ptr<string> region_ {};
     // The keyword that is used to search for database instances.
-    std::shared_ptr<string> searchKey_ = nullptr;
+    shared_ptr<string> searchKey_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

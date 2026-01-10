@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunId_ == nullptr
-        && return this->duration_ == nullptr; };
+        && this->duration_ == nullptr; };
     // aliyunId Field Functions 
     bool hasAliyunId() const { return this->aliyunId_ != nullptr;};
     void deleteAliyunId() { this->aliyunId_ = nullptr;};
-    inline string aliyunId() const { DARABONBA_PTR_GET_DEFAULT(aliyunId_, "") };
+    inline string getAliyunId() const { DARABONBA_PTR_GET_DEFAULT(aliyunId_, "") };
     inline StsApplyVO& setAliyunId(string aliyunId) { DARABONBA_PTR_SET_VALUE(aliyunId_, aliyunId) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int64_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
+    inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
     inline StsApplyVO& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
   protected:
-    std::shared_ptr<string> aliyunId_ = nullptr;
-    std::shared_ptr<int64_t> duration_ = nullptr;
+    shared_ptr<string> aliyunId_ {};
+    shared_ptr<int64_t> duration_ {};
   };
 
   } // namespace Models

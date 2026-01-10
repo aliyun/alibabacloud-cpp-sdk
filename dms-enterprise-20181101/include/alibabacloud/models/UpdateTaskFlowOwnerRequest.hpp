@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dagId_ == nullptr
-        && return this->newOwnerId_ == nullptr && return this->tid_ == nullptr; };
+        && this->newOwnerId_ == nullptr && this->tid_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
-    inline int64_t dagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
+    inline int64_t getDagId() const { DARABONBA_PTR_GET_DEFAULT(dagId_, 0L) };
     inline UpdateTaskFlowOwnerRequest& setDagId(int64_t dagId) { DARABONBA_PTR_SET_VALUE(dagId_, dagId) };
 
 
     // newOwnerId Field Functions 
     bool hasNewOwnerId() const { return this->newOwnerId_ != nullptr;};
     void deleteNewOwnerId() { this->newOwnerId_ = nullptr;};
-    inline string newOwnerId() const { DARABONBA_PTR_GET_DEFAULT(newOwnerId_, "") };
+    inline string getNewOwnerId() const { DARABONBA_PTR_GET_DEFAULT(newOwnerId_, "") };
     inline UpdateTaskFlowOwnerRequest& setNewOwnerId(string newOwnerId) { DARABONBA_PTR_SET_VALUE(newOwnerId_, newOwnerId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline UpdateTaskFlowOwnerRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -60,15 +60,15 @@ namespace Models
     // The ID of the task flow. You can call the [ListTaskFlowInstance](https://help.aliyun.com/document_detail/424689.html) operation to query the task flow ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dagId_ = nullptr;
+    shared_ptr<int64_t> dagId_ {};
     // The user ID of the new owner. You can call the [GetUser](https://help.aliyun.com/document_detail/147098.html) or [ListUsers](https://help.aliyun.com/document_detail/141938.html) operation to query the user ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> newOwnerId_ = nullptr;
+    shared_ptr<string> newOwnerId_ {};
     // The ID of the tenant.
     // 
     // >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

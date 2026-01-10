@@ -33,13 +33,13 @@ namespace Models
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
-    inline int32_t dbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0) };
+    inline int32_t getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0) };
     inline GenMetaKnowledgeAssetRequest& setDbId(int32_t dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> dbId_ = nullptr;
+    shared_ptr<int32_t> dbId_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbId_ == nullptr
-        && return this->sqlContent_ == nullptr && return this->tid_ == nullptr; };
+        && this->sqlContent_ == nullptr && this->tid_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
-    inline int64_t dbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0L) };
+    inline int64_t getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, 0L) };
     inline AnalyzeSQLLineageRequest& setDbId(int64_t dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
 
 
     // sqlContent Field Functions 
     bool hasSqlContent() const { return this->sqlContent_ != nullptr;};
     void deleteSqlContent() { this->sqlContent_ = nullptr;};
-    inline string sqlContent() const { DARABONBA_PTR_GET_DEFAULT(sqlContent_, "") };
+    inline string getSqlContent() const { DARABONBA_PTR_GET_DEFAULT(sqlContent_, "") };
     inline AnalyzeSQLLineageRequest& setSqlContent(string sqlContent) { DARABONBA_PTR_SET_VALUE(sqlContent_, sqlContent) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline AnalyzeSQLLineageRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -62,15 +62,15 @@ namespace Models
     // >  You can call one of the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html), [ListDatabases](https://help.aliyun.com/document_detail/141873.html), and [GetDatabase](https://help.aliyun.com/document_detail/141869.html) operations to obtain the database ID provided in the DatabaseId response parameter.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> dbId_ = nullptr;
+    shared_ptr<int64_t> dbId_ {};
     // The SQL statement.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sqlContent_ = nullptr;
+    shared_ptr<string> sqlContent_ {};
     // The tenant ID.
     // 
     // >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

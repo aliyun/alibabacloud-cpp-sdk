@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorDetail_ == nullptr
-        && return this->values_ == nullptr; };
+        && this->values_ == nullptr; };
     // errorDetail Field Functions 
     bool hasErrorDetail() const { return this->errorDetail_ != nullptr;};
     void deleteErrorDetail() { this->errorDetail_ = nullptr;};
-    inline string errorDetail() const { DARABONBA_PTR_GET_DEFAULT(errorDetail_, "") };
+    inline string getErrorDetail() const { DARABONBA_PTR_GET_DEFAULT(errorDetail_, "") };
     inline PartitionError& setErrorDetail(string errorDetail) { DARABONBA_PTR_SET_VALUE(errorDetail_, errorDetail) };
 
 
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline const vector<string> & values() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
-    inline vector<string> values() { DARABONBA_PTR_GET(values_, vector<string>) };
+    inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+    inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
     inline PartitionError& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
     inline PartitionError& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
 
 
   protected:
-    std::shared_ptr<string> errorDetail_ = nullptr;
-    std::shared_ptr<vector<string>> values_ = nullptr;
+    shared_ptr<string> errorDetail_ {};
+    shared_ptr<vector<string>> values_ {};
   };
 
   } // namespace Models

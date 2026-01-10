@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->spaceId_ == nullptr
-        && return this->tid_ == nullptr && return this->userId_ == nullptr; };
+        && this->tid_ == nullptr && this->userId_ == nullptr; };
     // spaceId Field Functions 
     bool hasSpaceId() const { return this->spaceId_ != nullptr;};
     void deleteSpaceId() { this->spaceId_ = nullptr;};
-    inline int64_t spaceId() const { DARABONBA_PTR_GET_DEFAULT(spaceId_, 0L) };
+    inline int64_t getSpaceId() const { DARABONBA_PTR_GET_DEFAULT(spaceId_, 0L) };
     inline ListLhTaskFlowAndScenarioRequest& setSpaceId(int64_t spaceId) { DARABONBA_PTR_SET_VALUE(spaceId_, spaceId) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListLhTaskFlowAndScenarioRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline int64_t userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
+    inline int64_t getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
     inline ListLhTaskFlowAndScenarioRequest& setUserId(int64_t userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
@@ -60,11 +60,11 @@ namespace Models
     // The ID of the workspace. You can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to obtain the workspace ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> spaceId_ = nullptr;
+    shared_ptr<int64_t> spaceId_ {};
     // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
     // The ID of the user. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain the user ID.
-    std::shared_ptr<int64_t> userId_ = nullptr;
+    shared_ptr<int64_t> userId_ {};
   };
 
   } // namespace Models

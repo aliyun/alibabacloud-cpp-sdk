@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationId_ == nullptr
-        && return this->identityType_ == nullptr && return this->tid_ == nullptr; };
+        && this->identityType_ == nullptr && this->tid_ == nullptr; };
     // authorizationId Field Functions 
     bool hasAuthorizationId() const { return this->authorizationId_ != nullptr;};
     void deleteAuthorizationId() { this->authorizationId_ = nullptr;};
-    inline int64_t authorizationId() const { DARABONBA_PTR_GET_DEFAULT(authorizationId_, 0L) };
+    inline int64_t getAuthorizationId() const { DARABONBA_PTR_GET_DEFAULT(authorizationId_, 0L) };
     inline DeleteAbacAuthorizationRequest& setAuthorizationId(int64_t authorizationId) { DARABONBA_PTR_SET_VALUE(authorizationId_, authorizationId) };
 
 
     // identityType Field Functions 
     bool hasIdentityType() const { return this->identityType_ != nullptr;};
     void deleteIdentityType() { this->identityType_ = nullptr;};
-    inline string identityType() const { DARABONBA_PTR_GET_DEFAULT(identityType_, "") };
+    inline string getIdentityType() const { DARABONBA_PTR_GET_DEFAULT(identityType_, "") };
     inline DeleteAbacAuthorizationRequest& setIdentityType(string identityType) { DARABONBA_PTR_SET_VALUE(identityType_, identityType) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline DeleteAbacAuthorizationRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
@@ -60,7 +60,7 @@ namespace Models
     // The authorization ID.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> authorizationId_ = nullptr;
+    shared_ptr<int64_t> authorizationId_ {};
     // The type of object to which you want to attach the policy.********
     // 
     // Valid values:
@@ -69,11 +69,11 @@ namespace Models
     // *   ROLE
     // 
     // This parameter is required.
-    std::shared_ptr<string> identityType_ = nullptr;
+    shared_ptr<string> identityType_ {};
     // The ID of the tenant.
     // 
     // > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
   };
 
   } // namespace Models

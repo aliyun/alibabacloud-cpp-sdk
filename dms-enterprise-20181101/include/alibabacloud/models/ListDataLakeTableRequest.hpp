@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogName_ == nullptr
-        && return this->dataRegion_ == nullptr && return this->dbName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->tableNamePattern_ == nullptr
-        && return this->tableType_ == nullptr && return this->tid_ == nullptr && return this->workspaceId_ == nullptr; };
+        && this->dataRegion_ == nullptr && this->dbName_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->tableNamePattern_ == nullptr
+        && this->tableType_ == nullptr && this->tid_ == nullptr && this->workspaceId_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
-    inline string catalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
+    inline string getCatalogName() const { DARABONBA_PTR_GET_DEFAULT(catalogName_, "") };
     inline ListDataLakeTableRequest& setCatalogName(string catalogName) { DARABONBA_PTR_SET_VALUE(catalogName_, catalogName) };
 
 
     // dataRegion Field Functions 
     bool hasDataRegion() const { return this->dataRegion_ != nullptr;};
     void deleteDataRegion() { this->dataRegion_ = nullptr;};
-    inline string dataRegion() const { DARABONBA_PTR_GET_DEFAULT(dataRegion_, "") };
+    inline string getDataRegion() const { DARABONBA_PTR_GET_DEFAULT(dataRegion_, "") };
     inline ListDataLakeTableRequest& setDataRegion(string dataRegion) { DARABONBA_PTR_SET_VALUE(dataRegion_, dataRegion) };
 
 
     // dbName Field Functions 
     bool hasDbName() const { return this->dbName_ != nullptr;};
     void deleteDbName() { this->dbName_ = nullptr;};
-    inline string dbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
+    inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline ListDataLakeTableRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListDataLakeTableRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDataLakeTableRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // tableNamePattern Field Functions 
     bool hasTableNamePattern() const { return this->tableNamePattern_ != nullptr;};
     void deleteTableNamePattern() { this->tableNamePattern_ = nullptr;};
-    inline string tableNamePattern() const { DARABONBA_PTR_GET_DEFAULT(tableNamePattern_, "") };
+    inline string getTableNamePattern() const { DARABONBA_PTR_GET_DEFAULT(tableNamePattern_, "") };
     inline ListDataLakeTableRequest& setTableNamePattern(string tableNamePattern) { DARABONBA_PTR_SET_VALUE(tableNamePattern_, tableNamePattern) };
 
 
     // tableType Field Functions 
     bool hasTableType() const { return this->tableType_ != nullptr;};
     void deleteTableType() { this->tableType_ = nullptr;};
-    inline string tableType() const { DARABONBA_PTR_GET_DEFAULT(tableType_, "") };
+    inline string getTableType() const { DARABONBA_PTR_GET_DEFAULT(tableType_, "") };
     inline ListDataLakeTableRequest& setTableType(string tableType) { DARABONBA_PTR_SET_VALUE(tableType_, tableType) };
 
 
     // tid Field Functions 
     bool hasTid() const { return this->tid_ != nullptr;};
     void deleteTid() { this->tid_ = nullptr;};
-    inline int64_t tid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
+    inline int64_t getTid() const { DARABONBA_PTR_GET_DEFAULT(tid_, 0L) };
     inline ListDataLakeTableRequest& setTid(int64_t tid) { DARABONBA_PTR_SET_VALUE(tid_, tid) };
 
 
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
-    inline int64_t workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
+    inline int64_t getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, 0L) };
     inline ListDataLakeTableRequest& setWorkspaceId(int64_t workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
 
 
@@ -115,24 +115,24 @@ namespace Models
     // The name of the data catalog.
     // 
     // This parameter is required.
-    std::shared_ptr<string> catalogName_ = nullptr;
+    shared_ptr<string> catalogName_ {};
     // The region where the data lake resides.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dataRegion_ = nullptr;
+    shared_ptr<string> dataRegion_ {};
     // The database name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> dbName_ = nullptr;
+    shared_ptr<string> dbName_ {};
     // The number of records per page. Valid values: 1 to 100.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   If **NextToken** is empty, there is no next page.
     // *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The regular expression that is used to match the names of metadata tables.
-    std::shared_ptr<string> tableNamePattern_ = nullptr;
+    shared_ptr<string> tableNamePattern_ {};
     // The type of the data table. Valid values:
     // 
     // *   MANAGED_TABLE
@@ -140,13 +140,13 @@ namespace Models
     // *   VIRTUAL_VIEW
     // *   INDEX_TABLE
     // *   MATERIALIZED_VIEW
-    std::shared_ptr<string> tableType_ = nullptr;
+    shared_ptr<string> tableType_ {};
     // The ID of the tenant.
     // 
     // > To view the ID of the tenant, go to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
-    std::shared_ptr<int64_t> tid_ = nullptr;
+    shared_ptr<int64_t> tid_ {};
     // The workspace ID.
-    std::shared_ptr<int64_t> workspaceId_ = nullptr;
+    shared_ptr<int64_t> workspaceId_ {};
   };
 
   } // namespace Models
