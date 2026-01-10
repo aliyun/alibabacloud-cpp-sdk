@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ToolInfo & data() const { DARABONBA_PTR_GET_CONST(data_, ToolInfo) };
-    inline ToolInfo data() { DARABONBA_PTR_GET(data_, ToolInfo) };
+    inline const ToolInfo & getData() const { DARABONBA_PTR_GET_CONST(data_, ToolInfo) };
+    inline ToolInfo getData() { DARABONBA_PTR_GET(data_, ToolInfo) };
     inline GetToolOutput& setData(const ToolInfo & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline GetToolOutput& setData(ToolInfo && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -46,13 +46,13 @@ namespace Models
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline GetToolOutput& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<ToolInfo> data_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<ToolInfo> data_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

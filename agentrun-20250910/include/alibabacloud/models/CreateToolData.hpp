@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->sourceType_ == nullptr && return this->toolType_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->sourceType_ == nullptr && this->toolType_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
-    inline string createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+    inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
     inline CreateToolData& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
     inline CreateToolData& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateToolData& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline CreateToolData& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // toolType Field Functions 
     bool hasToolType() const { return this->toolType_ != nullptr;};
     void deleteToolType() { this->toolType_ = nullptr;};
-    inline string toolType() const { DARABONBA_PTR_GET_DEFAULT(toolType_, "") };
+    inline string getToolType() const { DARABONBA_PTR_GET_DEFAULT(toolType_, "") };
     inline CreateToolData& setToolType(string toolType) { DARABONBA_PTR_SET_VALUE(toolType_, toolType) };
 
 
   protected:
-    std::shared_ptr<string> createdAt_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> sourceType_ = nullptr;
-    std::shared_ptr<string> toolType_ = nullptr;
+    shared_ptr<string> createdAt_ {};
+    shared_ptr<string> id_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> sourceType_ {};
+    shared_ptr<string> toolType_ {};
   };
 
   } // namespace Models

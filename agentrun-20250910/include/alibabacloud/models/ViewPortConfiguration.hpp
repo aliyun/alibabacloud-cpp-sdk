@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->height_ == nullptr
-        && return this->width_ == nullptr; };
+        && this->width_ == nullptr; };
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};
-    inline float height() const { DARABONBA_PTR_GET_DEFAULT(height_, 0.0) };
+    inline float getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0.0) };
     inline ViewPortConfiguration& setHeight(float height) { DARABONBA_PTR_SET_VALUE(height_, height) };
 
 
     // width Field Functions 
     bool hasWidth() const { return this->width_ != nullptr;};
     void deleteWidth() { this->width_ = nullptr;};
-    inline float width() const { DARABONBA_PTR_GET_DEFAULT(width_, 0.0) };
+    inline float getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0.0) };
     inline ViewPortConfiguration& setWidth(float width) { DARABONBA_PTR_SET_VALUE(width_, width) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // 视口高度（像素）
     // 
     // This parameter is required.
-    std::shared_ptr<float> height_ = nullptr;
+    shared_ptr<float> height_ {};
     // 视口宽度（像素）
     // 
     // This parameter is required.
-    std::shared_ptr<float> width_ = nullptr;
+    shared_ptr<float> width_ {};
   };
 
   } // namespace Models

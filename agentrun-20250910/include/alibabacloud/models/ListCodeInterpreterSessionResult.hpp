@@ -35,19 +35,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ListCodeInterpreterSessionResult& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const CodeInterpreterSessionListOut & data() const { DARABONBA_PTR_GET_CONST(data_, CodeInterpreterSessionListOut) };
-    inline CodeInterpreterSessionListOut data() { DARABONBA_PTR_GET(data_, CodeInterpreterSessionListOut) };
+    inline const CodeInterpreterSessionListOut & getData() const { DARABONBA_PTR_GET_CONST(data_, CodeInterpreterSessionListOut) };
+    inline CodeInterpreterSessionListOut getData() { DARABONBA_PTR_GET(data_, CodeInterpreterSessionListOut) };
     inline ListCodeInterpreterSessionResult& setData(const CodeInterpreterSessionListOut & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline ListCodeInterpreterSessionResult& setData(CodeInterpreterSessionListOut && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -55,15 +55,15 @@ namespace Models
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListCodeInterpreterSessionResult& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<CodeInterpreterSessionListOut> data_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<CodeInterpreterSessionListOut> data_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

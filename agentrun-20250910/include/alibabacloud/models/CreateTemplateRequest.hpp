@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateTemplateInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateTemplateInput) };
-    inline CreateTemplateInput body() { DARABONBA_PTR_GET(body_, CreateTemplateInput) };
+    inline const CreateTemplateInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateTemplateInput) };
+    inline CreateTemplateInput getBody() { DARABONBA_PTR_GET(body_, CreateTemplateInput) };
     inline CreateTemplateRequest& setBody(const CreateTemplateInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateTemplateRequest& setBody(CreateTemplateInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // 创建模板所需的完整配置信息，包括模板名称、类型、资源规格、网络配置等
     // 
     // This parameter is required.
-    std::shared_ptr<CreateTemplateInput> body_ = nullptr;
+    shared_ptr<CreateTemplateInput> body_ {};
   };
 
   } // namespace Models

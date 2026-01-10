@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->identityId_ == nullptr
-        && return this->name_ == nullptr && return this->networkConfiguration_ == nullptr && return this->type_ == nullptr; };
+        && this->name_ == nullptr && this->networkConfiguration_ == nullptr && this->type_ == nullptr; };
     // identityId Field Functions 
     bool hasIdentityId() const { return this->identityId_ != nullptr;};
     void deleteIdentityId() { this->identityId_ = nullptr;};
-    inline string identityId() const { DARABONBA_PTR_GET_DEFAULT(identityId_, "") };
+    inline string getIdentityId() const { DARABONBA_PTR_GET_DEFAULT(identityId_, "") };
     inline CreateGatewayInput& setIdentityId(string identityId) { DARABONBA_PTR_SET_VALUE(identityId_, identityId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateGatewayInput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // networkConfiguration Field Functions 
     bool hasNetworkConfiguration() const { return this->networkConfiguration_ != nullptr;};
     void deleteNetworkConfiguration() { this->networkConfiguration_ = nullptr;};
-    inline const GatewayNetworkConfiguration & networkConfiguration() const { DARABONBA_PTR_GET_CONST(networkConfiguration_, GatewayNetworkConfiguration) };
-    inline GatewayNetworkConfiguration networkConfiguration() { DARABONBA_PTR_GET(networkConfiguration_, GatewayNetworkConfiguration) };
+    inline const GatewayNetworkConfiguration & getNetworkConfiguration() const { DARABONBA_PTR_GET_CONST(networkConfiguration_, GatewayNetworkConfiguration) };
+    inline GatewayNetworkConfiguration getNetworkConfiguration() { DARABONBA_PTR_GET(networkConfiguration_, GatewayNetworkConfiguration) };
     inline CreateGatewayInput& setNetworkConfiguration(const GatewayNetworkConfiguration & networkConfiguration) { DARABONBA_PTR_SET_VALUE(networkConfiguration_, networkConfiguration) };
     inline CreateGatewayInput& setNetworkConfiguration(GatewayNetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
 
@@ -64,15 +64,15 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateGatewayInput& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> identityId_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<GatewayNetworkConfiguration> networkConfiguration_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> identityId_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<GatewayNetworkConfiguration> networkConfiguration_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

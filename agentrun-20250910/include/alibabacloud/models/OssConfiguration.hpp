@@ -38,51 +38,51 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->mountPoint_ == nullptr && return this->permission_ == nullptr && return this->prefix_ == nullptr && return this->region_ == nullptr; };
+        && this->mountPoint_ == nullptr && this->permission_ == nullptr && this->prefix_ == nullptr && this->region_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
-    inline string bucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+    inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
     inline OssConfiguration& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
 
 
     // mountPoint Field Functions 
     bool hasMountPoint() const { return this->mountPoint_ != nullptr;};
     void deleteMountPoint() { this->mountPoint_ = nullptr;};
-    inline string mountPoint() const { DARABONBA_PTR_GET_DEFAULT(mountPoint_, "") };
+    inline string getMountPoint() const { DARABONBA_PTR_GET_DEFAULT(mountPoint_, "") };
     inline OssConfiguration& setMountPoint(string mountPoint) { DARABONBA_PTR_SET_VALUE(mountPoint_, mountPoint) };
 
 
     // permission Field Functions 
     bool hasPermission() const { return this->permission_ != nullptr;};
     void deletePermission() { this->permission_ = nullptr;};
-    inline string permission() const { DARABONBA_PTR_GET_DEFAULT(permission_, "") };
+    inline string getPermission() const { DARABONBA_PTR_GET_DEFAULT(permission_, "") };
     inline OssConfiguration& setPermission(string permission) { DARABONBA_PTR_SET_VALUE(permission_, permission) };
 
 
     // prefix Field Functions 
     bool hasPrefix() const { return this->prefix_ != nullptr;};
     void deletePrefix() { this->prefix_ = nullptr;};
-    inline string prefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline string getPrefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
     inline OssConfiguration& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline OssConfiguration& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> bucketName_ = nullptr;
+    shared_ptr<string> bucketName_ {};
     // This parameter is required.
-    std::shared_ptr<string> mountPoint_ = nullptr;
-    std::shared_ptr<string> permission_ = nullptr;
+    shared_ptr<string> mountPoint_ {};
+    shared_ptr<string> permission_ {};
     // This parameter is required.
-    std::shared_ptr<string> prefix_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> prefix_ {};
+    shared_ptr<string> region_ {};
   };
 
   } // namespace Models

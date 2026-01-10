@@ -40,62 +40,62 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failureThreshold_ == nullptr
-        && return this->httpGetUrl_ == nullptr && return this->initialDelaySeconds_ == nullptr && return this->periodSeconds_ == nullptr && return this->successThreshold_ == nullptr && return this->timeoutSeconds_ == nullptr; };
+        && this->httpGetUrl_ == nullptr && this->initialDelaySeconds_ == nullptr && this->periodSeconds_ == nullptr && this->successThreshold_ == nullptr && this->timeoutSeconds_ == nullptr; };
     // failureThreshold Field Functions 
     bool hasFailureThreshold() const { return this->failureThreshold_ != nullptr;};
     void deleteFailureThreshold() { this->failureThreshold_ = nullptr;};
-    inline int32_t failureThreshold() const { DARABONBA_PTR_GET_DEFAULT(failureThreshold_, 0) };
+    inline int32_t getFailureThreshold() const { DARABONBA_PTR_GET_DEFAULT(failureThreshold_, 0) };
     inline HealthCheckConfig& setFailureThreshold(int32_t failureThreshold) { DARABONBA_PTR_SET_VALUE(failureThreshold_, failureThreshold) };
 
 
     // httpGetUrl Field Functions 
     bool hasHttpGetUrl() const { return this->httpGetUrl_ != nullptr;};
     void deleteHttpGetUrl() { this->httpGetUrl_ = nullptr;};
-    inline string httpGetUrl() const { DARABONBA_PTR_GET_DEFAULT(httpGetUrl_, "") };
+    inline string getHttpGetUrl() const { DARABONBA_PTR_GET_DEFAULT(httpGetUrl_, "") };
     inline HealthCheckConfig& setHttpGetUrl(string httpGetUrl) { DARABONBA_PTR_SET_VALUE(httpGetUrl_, httpGetUrl) };
 
 
     // initialDelaySeconds Field Functions 
     bool hasInitialDelaySeconds() const { return this->initialDelaySeconds_ != nullptr;};
     void deleteInitialDelaySeconds() { this->initialDelaySeconds_ = nullptr;};
-    inline int32_t initialDelaySeconds() const { DARABONBA_PTR_GET_DEFAULT(initialDelaySeconds_, 0) };
+    inline int32_t getInitialDelaySeconds() const { DARABONBA_PTR_GET_DEFAULT(initialDelaySeconds_, 0) };
     inline HealthCheckConfig& setInitialDelaySeconds(int32_t initialDelaySeconds) { DARABONBA_PTR_SET_VALUE(initialDelaySeconds_, initialDelaySeconds) };
 
 
     // periodSeconds Field Functions 
     bool hasPeriodSeconds() const { return this->periodSeconds_ != nullptr;};
     void deletePeriodSeconds() { this->periodSeconds_ = nullptr;};
-    inline int32_t periodSeconds() const { DARABONBA_PTR_GET_DEFAULT(periodSeconds_, 0) };
+    inline int32_t getPeriodSeconds() const { DARABONBA_PTR_GET_DEFAULT(periodSeconds_, 0) };
     inline HealthCheckConfig& setPeriodSeconds(int32_t periodSeconds) { DARABONBA_PTR_SET_VALUE(periodSeconds_, periodSeconds) };
 
 
     // successThreshold Field Functions 
     bool hasSuccessThreshold() const { return this->successThreshold_ != nullptr;};
     void deleteSuccessThreshold() { this->successThreshold_ = nullptr;};
-    inline int32_t successThreshold() const { DARABONBA_PTR_GET_DEFAULT(successThreshold_, 0) };
+    inline int32_t getSuccessThreshold() const { DARABONBA_PTR_GET_DEFAULT(successThreshold_, 0) };
     inline HealthCheckConfig& setSuccessThreshold(int32_t successThreshold) { DARABONBA_PTR_SET_VALUE(successThreshold_, successThreshold) };
 
 
     // timeoutSeconds Field Functions 
     bool hasTimeoutSeconds() const { return this->timeoutSeconds_ != nullptr;};
     void deleteTimeoutSeconds() { this->timeoutSeconds_ = nullptr;};
-    inline int32_t timeoutSeconds() const { DARABONBA_PTR_GET_DEFAULT(timeoutSeconds_, 0) };
+    inline int32_t getTimeoutSeconds() const { DARABONBA_PTR_GET_DEFAULT(timeoutSeconds_, 0) };
     inline HealthCheckConfig& setTimeoutSeconds(int32_t timeoutSeconds) { DARABONBA_PTR_SET_VALUE(timeoutSeconds_, timeoutSeconds) };
 
 
   protected:
     // 在将容器视为不健康之前，连续失败的健康检查次数
-    std::shared_ptr<int32_t> failureThreshold_ = nullptr;
+    shared_ptr<int32_t> failureThreshold_ {};
     // 用于健康检查的HTTP GET请求的URL地址
-    std::shared_ptr<string> httpGetUrl_ = nullptr;
+    shared_ptr<string> httpGetUrl_ {};
     // 在容器启动后，首次执行健康检查前的延迟时间（秒）
-    std::shared_ptr<int32_t> initialDelaySeconds_ = nullptr;
+    shared_ptr<int32_t> initialDelaySeconds_ {};
     // 执行健康检查的时间间隔（秒）
-    std::shared_ptr<int32_t> periodSeconds_ = nullptr;
+    shared_ptr<int32_t> periodSeconds_ {};
     // 在将容器视为健康之前，连续成功的健康检查次数
-    std::shared_ptr<int32_t> successThreshold_ = nullptr;
+    shared_ptr<int32_t> successThreshold_ {};
     // 健康检查的超时时间（秒）
-    std::shared_ptr<int32_t> timeoutSeconds_ = nullptr;
+    shared_ptr<int32_t> timeoutSeconds_ {};
   };
 
   } // namespace Models

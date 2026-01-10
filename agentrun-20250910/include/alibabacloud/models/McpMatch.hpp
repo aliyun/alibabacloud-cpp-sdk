@@ -34,14 +34,14 @@ namespace Models
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline const MCPPathMatch & path() const { DARABONBA_PTR_GET_CONST(path_, MCPPathMatch) };
-    inline MCPPathMatch path() { DARABONBA_PTR_GET(path_, MCPPathMatch) };
+    inline const MCPPathMatch & getPath() const { DARABONBA_PTR_GET_CONST(path_, MCPPathMatch) };
+    inline MCPPathMatch getPath() { DARABONBA_PTR_GET(path_, MCPPathMatch) };
     inline MCPMatch& setPath(const MCPPathMatch & path) { DARABONBA_PTR_SET_VALUE(path_, path) };
     inline MCPMatch& setPath(MCPPathMatch && path) { DARABONBA_PTR_SET_RVALUE(path_, path) };
 
 
   protected:
-    std::shared_ptr<MCPPathMatch> path_ = nullptr;
+    shared_ptr<MCPPathMatch> path_ {};
   };
 
   } // namespace Models

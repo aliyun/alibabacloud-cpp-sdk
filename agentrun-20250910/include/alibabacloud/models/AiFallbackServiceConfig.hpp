@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->passThroughModelName_ == nullptr
-        && return this->serviceId_ == nullptr && return this->targetModelName_ == nullptr; };
+        && this->serviceId_ == nullptr && this->targetModelName_ == nullptr; };
     // passThroughModelName Field Functions 
     bool hasPassThroughModelName() const { return this->passThroughModelName_ != nullptr;};
     void deletePassThroughModelName() { this->passThroughModelName_ = nullptr;};
-    inline bool passThroughModelName() const { DARABONBA_PTR_GET_DEFAULT(passThroughModelName_, false) };
+    inline bool getPassThroughModelName() const { DARABONBA_PTR_GET_DEFAULT(passThroughModelName_, false) };
     inline AiFallbackServiceConfig& setPassThroughModelName(bool passThroughModelName) { DARABONBA_PTR_SET_VALUE(passThroughModelName_, passThroughModelName) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline AiFallbackServiceConfig& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // targetModelName Field Functions 
     bool hasTargetModelName() const { return this->targetModelName_ != nullptr;};
     void deleteTargetModelName() { this->targetModelName_ = nullptr;};
-    inline string targetModelName() const { DARABONBA_PTR_GET_DEFAULT(targetModelName_, "") };
+    inline string getTargetModelName() const { DARABONBA_PTR_GET_DEFAULT(targetModelName_, "") };
     inline AiFallbackServiceConfig& setTargetModelName(string targetModelName) { DARABONBA_PTR_SET_VALUE(targetModelName_, targetModelName) };
 
 
   protected:
-    std::shared_ptr<bool> passThroughModelName_ = nullptr;
-    std::shared_ptr<string> serviceId_ = nullptr;
-    std::shared_ptr<string> targetModelName_ = nullptr;
+    shared_ptr<bool> passThroughModelName_ {};
+    shared_ptr<string> serviceId_ {};
+    shared_ptr<string> targetModelName_ {};
   };
 
   } // namespace Models

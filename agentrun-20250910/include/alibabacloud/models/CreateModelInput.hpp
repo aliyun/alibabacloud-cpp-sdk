@@ -43,34 +43,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && return this->apiKey_ == nullptr && return this->desc_ == nullptr && return this->models_ == nullptr && return this->name_ == nullptr && return this->provider_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->apiKey_ == nullptr && this->desc_ == nullptr && this->models_ == nullptr && this->name_ == nullptr && this->provider_ == nullptr
+        && this->type_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
-    inline string address() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline CreateModelInput& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
 
 
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
-    inline string apiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+    inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
     inline CreateModelInput& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
 
 
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
-    inline string desc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+    inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
     inline CreateModelInput& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
 
 
     // models Field Functions 
     bool hasModels() const { return this->models_ != nullptr;};
     void deleteModels() { this->models_ = nullptr;};
-    inline const vector<string> & models() const { DARABONBA_PTR_GET_CONST(models_, vector<string>) };
-    inline vector<string> models() { DARABONBA_PTR_GET(models_, vector<string>) };
+    inline const vector<string> & getModels() const { DARABONBA_PTR_GET_CONST(models_, vector<string>) };
+    inline vector<string> getModels() { DARABONBA_PTR_GET(models_, vector<string>) };
     inline CreateModelInput& setModels(const vector<string> & models) { DARABONBA_PTR_SET_VALUE(models_, models) };
     inline CreateModelInput& setModels(vector<string> && models) { DARABONBA_PTR_SET_RVALUE(models_, models) };
 
@@ -78,32 +78,32 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateModelInput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // provider Field Functions 
     bool hasProvider() const { return this->provider_ != nullptr;};
     void deleteProvider() { this->provider_ = nullptr;};
-    inline string provider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+    inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
     inline CreateModelInput& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateModelInput& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> address_ = nullptr;
-    std::shared_ptr<string> apiKey_ = nullptr;
-    std::shared_ptr<string> desc_ = nullptr;
-    std::shared_ptr<vector<string>> models_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> provider_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> address_ {};
+    shared_ptr<string> apiKey_ {};
+    shared_ptr<string> desc_ {};
+    shared_ptr<vector<string>> models_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> provider_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

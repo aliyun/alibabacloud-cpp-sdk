@@ -43,26 +43,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoDeploy_ == nullptr
-        && return this->backendScene_ == nullptr && return this->customDomainIds_ == nullptr && return this->gatewayType_ == nullptr && return this->policyConfigs_ == nullptr && return this->serviceConfigs_ == nullptr; };
+        && this->backendScene_ == nullptr && this->customDomainIds_ == nullptr && this->gatewayType_ == nullptr && this->policyConfigs_ == nullptr && this->serviceConfigs_ == nullptr; };
     // autoDeploy Field Functions 
     bool hasAutoDeploy() const { return this->autoDeploy_ != nullptr;};
     void deleteAutoDeploy() { this->autoDeploy_ = nullptr;};
-    inline bool autoDeploy() const { DARABONBA_PTR_GET_DEFAULT(autoDeploy_, false) };
+    inline bool getAutoDeploy() const { DARABONBA_PTR_GET_DEFAULT(autoDeploy_, false) };
     inline LLMDeployConfig& setAutoDeploy(bool autoDeploy) { DARABONBA_PTR_SET_VALUE(autoDeploy_, autoDeploy) };
 
 
     // backendScene Field Functions 
     bool hasBackendScene() const { return this->backendScene_ != nullptr;};
     void deleteBackendScene() { this->backendScene_ = nullptr;};
-    inline string backendScene() const { DARABONBA_PTR_GET_DEFAULT(backendScene_, "") };
+    inline string getBackendScene() const { DARABONBA_PTR_GET_DEFAULT(backendScene_, "") };
     inline LLMDeployConfig& setBackendScene(string backendScene) { DARABONBA_PTR_SET_VALUE(backendScene_, backendScene) };
 
 
     // customDomainIds Field Functions 
     bool hasCustomDomainIds() const { return this->customDomainIds_ != nullptr;};
     void deleteCustomDomainIds() { this->customDomainIds_ = nullptr;};
-    inline const vector<string> & customDomainIds() const { DARABONBA_PTR_GET_CONST(customDomainIds_, vector<string>) };
-    inline vector<string> customDomainIds() { DARABONBA_PTR_GET(customDomainIds_, vector<string>) };
+    inline const vector<string> & getCustomDomainIds() const { DARABONBA_PTR_GET_CONST(customDomainIds_, vector<string>) };
+    inline vector<string> getCustomDomainIds() { DARABONBA_PTR_GET(customDomainIds_, vector<string>) };
     inline LLMDeployConfig& setCustomDomainIds(const vector<string> & customDomainIds) { DARABONBA_PTR_SET_VALUE(customDomainIds_, customDomainIds) };
     inline LLMDeployConfig& setCustomDomainIds(vector<string> && customDomainIds) { DARABONBA_PTR_SET_RVALUE(customDomainIds_, customDomainIds) };
 
@@ -70,15 +70,15 @@ namespace Models
     // gatewayType Field Functions 
     bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
     void deleteGatewayType() { this->gatewayType_ = nullptr;};
-    inline string gatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
+    inline string getGatewayType() const { DARABONBA_PTR_GET_DEFAULT(gatewayType_, "") };
     inline LLMDeployConfig& setGatewayType(string gatewayType) { DARABONBA_PTR_SET_VALUE(gatewayType_, gatewayType) };
 
 
     // policyConfigs Field Functions 
     bool hasPolicyConfigs() const { return this->policyConfigs_ != nullptr;};
     void deletePolicyConfigs() { this->policyConfigs_ = nullptr;};
-    inline const vector<PolicyConfig> & policyConfigs() const { DARABONBA_PTR_GET_CONST(policyConfigs_, vector<PolicyConfig>) };
-    inline vector<PolicyConfig> policyConfigs() { DARABONBA_PTR_GET(policyConfigs_, vector<PolicyConfig>) };
+    inline const vector<PolicyConfig> & getPolicyConfigs() const { DARABONBA_PTR_GET_CONST(policyConfigs_, vector<PolicyConfig>) };
+    inline vector<PolicyConfig> getPolicyConfigs() { DARABONBA_PTR_GET(policyConfigs_, vector<PolicyConfig>) };
     inline LLMDeployConfig& setPolicyConfigs(const vector<PolicyConfig> & policyConfigs) { DARABONBA_PTR_SET_VALUE(policyConfigs_, policyConfigs) };
     inline LLMDeployConfig& setPolicyConfigs(vector<PolicyConfig> && policyConfigs) { DARABONBA_PTR_SET_RVALUE(policyConfigs_, policyConfigs) };
 
@@ -86,19 +86,19 @@ namespace Models
     // serviceConfigs Field Functions 
     bool hasServiceConfigs() const { return this->serviceConfigs_ != nullptr;};
     void deleteServiceConfigs() { this->serviceConfigs_ = nullptr;};
-    inline const vector<TargetServiceConfig> & serviceConfigs() const { DARABONBA_PTR_GET_CONST(serviceConfigs_, vector<TargetServiceConfig>) };
-    inline vector<TargetServiceConfig> serviceConfigs() { DARABONBA_PTR_GET(serviceConfigs_, vector<TargetServiceConfig>) };
+    inline const vector<TargetServiceConfig> & getServiceConfigs() const { DARABONBA_PTR_GET_CONST(serviceConfigs_, vector<TargetServiceConfig>) };
+    inline vector<TargetServiceConfig> getServiceConfigs() { DARABONBA_PTR_GET(serviceConfigs_, vector<TargetServiceConfig>) };
     inline LLMDeployConfig& setServiceConfigs(const vector<TargetServiceConfig> & serviceConfigs) { DARABONBA_PTR_SET_VALUE(serviceConfigs_, serviceConfigs) };
     inline LLMDeployConfig& setServiceConfigs(vector<TargetServiceConfig> && serviceConfigs) { DARABONBA_PTR_SET_RVALUE(serviceConfigs_, serviceConfigs) };
 
 
   protected:
-    std::shared_ptr<bool> autoDeploy_ = nullptr;
-    std::shared_ptr<string> backendScene_ = nullptr;
-    std::shared_ptr<vector<string>> customDomainIds_ = nullptr;
-    std::shared_ptr<string> gatewayType_ = nullptr;
-    std::shared_ptr<vector<PolicyConfig>> policyConfigs_ = nullptr;
-    std::shared_ptr<vector<TargetServiceConfig>> serviceConfigs_ = nullptr;
+    shared_ptr<bool> autoDeploy_ {};
+    shared_ptr<string> backendScene_ {};
+    shared_ptr<vector<string>> customDomainIds_ {};
+    shared_ptr<string> gatewayType_ {};
+    shared_ptr<vector<PolicyConfig>> policyConfigs_ {};
+    shared_ptr<vector<TargetServiceConfig>> serviceConfigs_ {};
   };
 
   } // namespace Models

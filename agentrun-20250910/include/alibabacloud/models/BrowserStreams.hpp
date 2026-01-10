@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->automationStream_ == nullptr
-        && return this->liveViewStream_ == nullptr; };
+        && this->liveViewStream_ == nullptr; };
     // automationStream Field Functions 
     bool hasAutomationStream() const { return this->automationStream_ != nullptr;};
     void deleteAutomationStream() { this->automationStream_ = nullptr;};
-    inline const BrowserAutomationStream & automationStream() const { DARABONBA_PTR_GET_CONST(automationStream_, BrowserAutomationStream) };
-    inline BrowserAutomationStream automationStream() { DARABONBA_PTR_GET(automationStream_, BrowserAutomationStream) };
+    inline const BrowserAutomationStream & getAutomationStream() const { DARABONBA_PTR_GET_CONST(automationStream_, BrowserAutomationStream) };
+    inline BrowserAutomationStream getAutomationStream() { DARABONBA_PTR_GET(automationStream_, BrowserAutomationStream) };
     inline BrowserStreams& setAutomationStream(const BrowserAutomationStream & automationStream) { DARABONBA_PTR_SET_VALUE(automationStream_, automationStream) };
     inline BrowserStreams& setAutomationStream(BrowserAutomationStream && automationStream) { DARABONBA_PTR_SET_RVALUE(automationStream_, automationStream) };
 
@@ -47,15 +47,15 @@ namespace Models
     // liveViewStream Field Functions 
     bool hasLiveViewStream() const { return this->liveViewStream_ != nullptr;};
     void deleteLiveViewStream() { this->liveViewStream_ = nullptr;};
-    inline const BrowserLiveViewStream & liveViewStream() const { DARABONBA_PTR_GET_CONST(liveViewStream_, BrowserLiveViewStream) };
-    inline BrowserLiveViewStream liveViewStream() { DARABONBA_PTR_GET(liveViewStream_, BrowserLiveViewStream) };
+    inline const BrowserLiveViewStream & getLiveViewStream() const { DARABONBA_PTR_GET_CONST(liveViewStream_, BrowserLiveViewStream) };
+    inline BrowserLiveViewStream getLiveViewStream() { DARABONBA_PTR_GET(liveViewStream_, BrowserLiveViewStream) };
     inline BrowserStreams& setLiveViewStream(const BrowserLiveViewStream & liveViewStream) { DARABONBA_PTR_SET_VALUE(liveViewStream_, liveViewStream) };
     inline BrowserStreams& setLiveViewStream(BrowserLiveViewStream && liveViewStream) { DARABONBA_PTR_SET_RVALUE(liveViewStream_, liveViewStream) };
 
 
   protected:
-    std::shared_ptr<BrowserAutomationStream> automationStream_ = nullptr;
-    std::shared_ptr<BrowserLiveViewStream> liveViewStream_ = nullptr;
+    shared_ptr<BrowserAutomationStream> automationStream_ {};
+    shared_ptr<BrowserLiveViewStream> liveViewStream_ {};
   };
 
   } // namespace Models

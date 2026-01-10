@@ -37,26 +37,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeEndpointName_ == nullptr
-        && return this->description_ == nullptr && return this->routingConfiguration_ == nullptr && return this->targetVersion_ == nullptr; };
+        && this->description_ == nullptr && this->routingConfiguration_ == nullptr && this->targetVersion_ == nullptr; };
     // agentRuntimeEndpointName Field Functions 
     bool hasAgentRuntimeEndpointName() const { return this->agentRuntimeEndpointName_ != nullptr;};
     void deleteAgentRuntimeEndpointName() { this->agentRuntimeEndpointName_ = nullptr;};
-    inline string agentRuntimeEndpointName() const { DARABONBA_PTR_GET_DEFAULT(agentRuntimeEndpointName_, "") };
+    inline string getAgentRuntimeEndpointName() const { DARABONBA_PTR_GET_DEFAULT(agentRuntimeEndpointName_, "") };
     inline CreateAgentRuntimeEndpointInput& setAgentRuntimeEndpointName(string agentRuntimeEndpointName) { DARABONBA_PTR_SET_VALUE(agentRuntimeEndpointName_, agentRuntimeEndpointName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAgentRuntimeEndpointInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // routingConfiguration Field Functions 
     bool hasRoutingConfiguration() const { return this->routingConfiguration_ != nullptr;};
     void deleteRoutingConfiguration() { this->routingConfiguration_ = nullptr;};
-    inline const RoutingConfiguration & routingConfiguration() const { DARABONBA_PTR_GET_CONST(routingConfiguration_, RoutingConfiguration) };
-    inline RoutingConfiguration routingConfiguration() { DARABONBA_PTR_GET(routingConfiguration_, RoutingConfiguration) };
+    inline const RoutingConfiguration & getRoutingConfiguration() const { DARABONBA_PTR_GET_CONST(routingConfiguration_, RoutingConfiguration) };
+    inline RoutingConfiguration getRoutingConfiguration() { DARABONBA_PTR_GET(routingConfiguration_, RoutingConfiguration) };
     inline CreateAgentRuntimeEndpointInput& setRoutingConfiguration(const RoutingConfiguration & routingConfiguration) { DARABONBA_PTR_SET_VALUE(routingConfiguration_, routingConfiguration) };
     inline CreateAgentRuntimeEndpointInput& setRoutingConfiguration(RoutingConfiguration && routingConfiguration) { DARABONBA_PTR_SET_RVALUE(routingConfiguration_, routingConfiguration) };
 
@@ -64,17 +64,17 @@ namespace Models
     // targetVersion Field Functions 
     bool hasTargetVersion() const { return this->targetVersion_ != nullptr;};
     void deleteTargetVersion() { this->targetVersion_ = nullptr;};
-    inline string targetVersion() const { DARABONBA_PTR_GET_DEFAULT(targetVersion_, "") };
+    inline string getTargetVersion() const { DARABONBA_PTR_GET_DEFAULT(targetVersion_, "") };
     inline CreateAgentRuntimeEndpointInput& setTargetVersion(string targetVersion) { DARABONBA_PTR_SET_VALUE(targetVersion_, targetVersion) };
 
 
   protected:
-    std::shared_ptr<string> agentRuntimeEndpointName_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> agentRuntimeEndpointName_ {};
+    shared_ptr<string> description_ {};
     // 智能体运行时端点的路由配置，支持多版本权重分配
-    std::shared_ptr<RoutingConfiguration> routingConfiguration_ = nullptr;
+    shared_ptr<RoutingConfiguration> routingConfiguration_ {};
     // 智能体运行时的目标版本
-    std::shared_ptr<string> targetVersion_ = nullptr;
+    shared_ptr<string> targetVersion_ {};
   };
 
   } // namespace Models

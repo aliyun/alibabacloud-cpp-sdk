@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainId_ == nullptr
-        && return this->targetConfiguration_ == nullptr; };
+        && this->targetConfiguration_ == nullptr; };
     // domainId Field Functions 
     bool hasDomainId() const { return this->domainId_ != nullptr;};
     void deleteDomainId() { this->domainId_ = nullptr;};
-    inline string domainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
+    inline string getDomainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
     inline UpdateTargetConfigurationInput& setDomainId(string domainId) { DARABONBA_PTR_SET_VALUE(domainId_, domainId) };
 
 
     // targetConfiguration Field Functions 
     bool hasTargetConfiguration() const { return this->targetConfiguration_ != nullptr;};
     void deleteTargetConfiguration() { this->targetConfiguration_ = nullptr;};
-    inline const TargetConfiguration & targetConfiguration() const { DARABONBA_PTR_GET_CONST(targetConfiguration_, TargetConfiguration) };
-    inline TargetConfiguration targetConfiguration() { DARABONBA_PTR_GET(targetConfiguration_, TargetConfiguration) };
+    inline const TargetConfiguration & getTargetConfiguration() const { DARABONBA_PTR_GET_CONST(targetConfiguration_, TargetConfiguration) };
+    inline TargetConfiguration getTargetConfiguration() { DARABONBA_PTR_GET(targetConfiguration_, TargetConfiguration) };
     inline UpdateTargetConfigurationInput& setTargetConfiguration(const TargetConfiguration & targetConfiguration) { DARABONBA_PTR_SET_VALUE(targetConfiguration_, targetConfiguration) };
     inline UpdateTargetConfigurationInput& setTargetConfiguration(TargetConfiguration && targetConfiguration) { DARABONBA_PTR_SET_RVALUE(targetConfiguration_, targetConfiguration) };
 
 
   protected:
-    std::shared_ptr<string> domainId_ = nullptr;
-    std::shared_ptr<TargetConfiguration> targetConfiguration_ = nullptr;
+    shared_ptr<string> domainId_ {};
+    shared_ptr<TargetConfiguration> targetConfiguration_ {};
   };
 
   } // namespace Models

@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->publisher_ == nullptr; };
+        && this->publisher_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline PublishRuntimeVersionInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // publisher Field Functions 
     bool hasPublisher() const { return this->publisher_ != nullptr;};
     void deletePublisher() { this->publisher_ = nullptr;};
-    inline string publisher() const { DARABONBA_PTR_GET_DEFAULT(publisher_, "") };
+    inline string getPublisher() const { DARABONBA_PTR_GET_DEFAULT(publisher_, "") };
     inline PublishRuntimeVersionInput& setPublisher(string publisher) { DARABONBA_PTR_SET_VALUE(publisher_, publisher) };
 
 
   protected:
     // 此版本的描述
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // 发布此版本的用户或系统标识
-    std::shared_ptr<string> publisher_ = nullptr;
+    shared_ptr<string> publisher_ {};
   };
 
   } // namespace Models

@@ -48,27 +48,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialName_ == nullptr
-        && return this->description_ == nullptr && return this->modelInfoConfigs_ == nullptr && return this->modelServiceName_ == nullptr && return this->modelType_ == nullptr && return this->networkConfiguration_ == nullptr
-        && return this->provider_ == nullptr && return this->providerSettings_ == nullptr; };
+        && this->description_ == nullptr && this->modelInfoConfigs_ == nullptr && this->modelServiceName_ == nullptr && this->modelType_ == nullptr && this->networkConfiguration_ == nullptr
+        && this->provider_ == nullptr && this->providerSettings_ == nullptr; };
     // credentialName Field Functions 
     bool hasCredentialName() const { return this->credentialName_ != nullptr;};
     void deleteCredentialName() { this->credentialName_ = nullptr;};
-    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline string getCredentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
     inline CreateModelServiceInput& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateModelServiceInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // modelInfoConfigs Field Functions 
     bool hasModelInfoConfigs() const { return this->modelInfoConfigs_ != nullptr;};
     void deleteModelInfoConfigs() { this->modelInfoConfigs_ = nullptr;};
-    inline const vector<ModelInfoConfig> & modelInfoConfigs() const { DARABONBA_PTR_GET_CONST(modelInfoConfigs_, vector<ModelInfoConfig>) };
-    inline vector<ModelInfoConfig> modelInfoConfigs() { DARABONBA_PTR_GET(modelInfoConfigs_, vector<ModelInfoConfig>) };
+    inline const vector<ModelInfoConfig> & getModelInfoConfigs() const { DARABONBA_PTR_GET_CONST(modelInfoConfigs_, vector<ModelInfoConfig>) };
+    inline vector<ModelInfoConfig> getModelInfoConfigs() { DARABONBA_PTR_GET(modelInfoConfigs_, vector<ModelInfoConfig>) };
     inline CreateModelServiceInput& setModelInfoConfigs(const vector<ModelInfoConfig> & modelInfoConfigs) { DARABONBA_PTR_SET_VALUE(modelInfoConfigs_, modelInfoConfigs) };
     inline CreateModelServiceInput& setModelInfoConfigs(vector<ModelInfoConfig> && modelInfoConfigs) { DARABONBA_PTR_SET_RVALUE(modelInfoConfigs_, modelInfoConfigs) };
 
@@ -76,22 +76,22 @@ namespace Models
     // modelServiceName Field Functions 
     bool hasModelServiceName() const { return this->modelServiceName_ != nullptr;};
     void deleteModelServiceName() { this->modelServiceName_ = nullptr;};
-    inline string modelServiceName() const { DARABONBA_PTR_GET_DEFAULT(modelServiceName_, "") };
+    inline string getModelServiceName() const { DARABONBA_PTR_GET_DEFAULT(modelServiceName_, "") };
     inline CreateModelServiceInput& setModelServiceName(string modelServiceName) { DARABONBA_PTR_SET_VALUE(modelServiceName_, modelServiceName) };
 
 
     // modelType Field Functions 
     bool hasModelType() const { return this->modelType_ != nullptr;};
     void deleteModelType() { this->modelType_ = nullptr;};
-    inline string modelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
     inline CreateModelServiceInput& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
 
 
     // networkConfiguration Field Functions 
     bool hasNetworkConfiguration() const { return this->networkConfiguration_ != nullptr;};
     void deleteNetworkConfiguration() { this->networkConfiguration_ = nullptr;};
-    inline const NetworkConfiguration & networkConfiguration() const { DARABONBA_PTR_GET_CONST(networkConfiguration_, NetworkConfiguration) };
-    inline NetworkConfiguration networkConfiguration() { DARABONBA_PTR_GET(networkConfiguration_, NetworkConfiguration) };
+    inline const NetworkConfiguration & getNetworkConfiguration() const { DARABONBA_PTR_GET_CONST(networkConfiguration_, NetworkConfiguration) };
+    inline NetworkConfiguration getNetworkConfiguration() { DARABONBA_PTR_GET(networkConfiguration_, NetworkConfiguration) };
     inline CreateModelServiceInput& setNetworkConfiguration(const NetworkConfiguration & networkConfiguration) { DARABONBA_PTR_SET_VALUE(networkConfiguration_, networkConfiguration) };
     inline CreateModelServiceInput& setNetworkConfiguration(NetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
 
@@ -99,32 +99,32 @@ namespace Models
     // provider Field Functions 
     bool hasProvider() const { return this->provider_ != nullptr;};
     void deleteProvider() { this->provider_ = nullptr;};
-    inline string provider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+    inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
     inline CreateModelServiceInput& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
     // providerSettings Field Functions 
     bool hasProviderSettings() const { return this->providerSettings_ != nullptr;};
     void deleteProviderSettings() { this->providerSettings_ = nullptr;};
-    inline const ProviderSettings & providerSettings() const { DARABONBA_PTR_GET_CONST(providerSettings_, ProviderSettings) };
-    inline ProviderSettings providerSettings() { DARABONBA_PTR_GET(providerSettings_, ProviderSettings) };
+    inline const ProviderSettings & getProviderSettings() const { DARABONBA_PTR_GET_CONST(providerSettings_, ProviderSettings) };
+    inline ProviderSettings getProviderSettings() { DARABONBA_PTR_GET(providerSettings_, ProviderSettings) };
     inline CreateModelServiceInput& setProviderSettings(const ProviderSettings & providerSettings) { DARABONBA_PTR_SET_VALUE(providerSettings_, providerSettings) };
     inline CreateModelServiceInput& setProviderSettings(ProviderSettings && providerSettings) { DARABONBA_PTR_SET_RVALUE(providerSettings_, providerSettings) };
 
 
   protected:
-    std::shared_ptr<string> credentialName_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ = nullptr;
+    shared_ptr<string> credentialName_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ {};
     // This parameter is required.
-    std::shared_ptr<string> modelServiceName_ = nullptr;
+    shared_ptr<string> modelServiceName_ {};
     // This parameter is required.
-    std::shared_ptr<string> modelType_ = nullptr;
-    std::shared_ptr<NetworkConfiguration> networkConfiguration_ = nullptr;
+    shared_ptr<string> modelType_ {};
+    shared_ptr<NetworkConfiguration> networkConfiguration_ {};
     // This parameter is required.
-    std::shared_ptr<string> provider_ = nullptr;
+    shared_ptr<string> provider_ {};
     // This parameter is required.
-    std::shared_ptr<ProviderSettings> providerSettings_ = nullptr;
+    shared_ptr<ProviderSettings> providerSettings_ {};
   };
 
   } // namespace Models

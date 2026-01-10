@@ -41,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->CAPConfig_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->schema_ == nullptr && return this->sourceType_ == nullptr && return this->toolType_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->schema_ == nullptr && this->sourceType_ == nullptr && this->toolType_ == nullptr; };
     // CAPConfig Field Functions 
     bool hasCAPConfig() const { return this->CAPConfig_ != nullptr;};
     void deleteCAPConfig() { this->CAPConfig_ = nullptr;};
-    inline const CAPConfig & CAPConfig() const { DARABONBA_PTR_GET_CONST(CAPConfig_, CAPConfig) };
-    inline CAPConfig CAPConfig() { DARABONBA_PTR_GET(CAPConfig_, CAPConfig) };
+    inline const CAPConfig & getCAPConfig() const { DARABONBA_PTR_GET_CONST(CAPConfig_, CAPConfig) };
+    inline CAPConfig getCAPConfig() { DARABONBA_PTR_GET(CAPConfig_, CAPConfig) };
     inline CreateToolInput& setCAPConfig(const CAPConfig & CAPConfig) { DARABONBA_PTR_SET_VALUE(CAPConfig_, CAPConfig) };
     inline CreateToolInput& setCAPConfig(CAPConfig && CAPConfig) { DARABONBA_PTR_SET_RVALUE(CAPConfig_, CAPConfig) };
 
@@ -54,49 +54,49 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateToolInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateToolInput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline string schema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
+    inline string getSchema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
     inline CreateToolInput& setSchema(string schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
 
 
     // sourceType Field Functions 
     bool hasSourceType() const { return this->sourceType_ != nullptr;};
     void deleteSourceType() { this->sourceType_ = nullptr;};
-    inline string sourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline CreateToolInput& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
     // toolType Field Functions 
     bool hasToolType() const { return this->toolType_ != nullptr;};
     void deleteToolType() { this->toolType_ = nullptr;};
-    inline string toolType() const { DARABONBA_PTR_GET_DEFAULT(toolType_, "") };
+    inline string getToolType() const { DARABONBA_PTR_GET_DEFAULT(toolType_, "") };
     inline CreateToolInput& setToolType(string toolType) { DARABONBA_PTR_SET_VALUE(toolType_, toolType) };
 
 
   protected:
-    std::shared_ptr<CAPConfig> CAPConfig_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<CAPConfig> CAPConfig_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // This parameter is required.
-    std::shared_ptr<string> schema_ = nullptr;
+    shared_ptr<string> schema_ {};
     // This parameter is required.
-    std::shared_ptr<string> sourceType_ = nullptr;
+    shared_ptr<string> sourceType_ {};
     // This parameter is required.
-    std::shared_ptr<string> toolType_ = nullptr;
+    shared_ptr<string> toolType_ {};
   };
 
   } // namespace Models

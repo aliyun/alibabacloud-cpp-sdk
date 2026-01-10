@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->version_ == nullptr
-        && return this->weight_ == nullptr; };
+        && this->weight_ == nullptr; };
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline VersionWeight& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
     // weight Field Functions 
     bool hasWeight() const { return this->weight_ != nullptr;};
     void deleteWeight() { this->weight_ = nullptr;};
-    inline float weight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0.0) };
+    inline float getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0.0) };
     inline VersionWeight& setWeight(float weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
   protected:
     // 智能体运行时版本号
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> version_ {};
     // 流量权重比例（0.0-1.0）
-    std::shared_ptr<float> weight_ = nullptr;
+    shared_ptr<float> weight_ {};
   };
 
   } // namespace Models

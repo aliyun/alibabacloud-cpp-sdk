@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateBrowserInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateBrowserInput) };
-    inline CreateBrowserInput body() { DARABONBA_PTR_GET(body_, CreateBrowserInput) };
+    inline const CreateBrowserInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateBrowserInput) };
+    inline CreateBrowserInput getBody() { DARABONBA_PTR_GET(body_, CreateBrowserInput) };
     inline CreateBrowserRequest& setBody(const CreateBrowserInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateBrowserRequest& setBody(CreateBrowserInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<CreateBrowserInput> body_ = nullptr;
+    shared_ptr<CreateBrowserInput> body_ {};
   };
 
   } // namespace Models

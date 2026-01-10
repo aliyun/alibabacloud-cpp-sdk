@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialAuthType_ == nullptr
-        && return this->credentialName_ == nullptr && return this->credentialSourceType_ == nullptr && return this->enabled_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->provider_ == nullptr; };
+        && this->credentialName_ == nullptr && this->credentialSourceType_ == nullptr && this->enabled_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->provider_ == nullptr; };
     // credentialAuthType Field Functions 
     bool hasCredentialAuthType() const { return this->credentialAuthType_ != nullptr;};
     void deleteCredentialAuthType() { this->credentialAuthType_ = nullptr;};
-    inline string credentialAuthType() const { DARABONBA_PTR_GET_DEFAULT(credentialAuthType_, "") };
+    inline string getCredentialAuthType() const { DARABONBA_PTR_GET_DEFAULT(credentialAuthType_, "") };
     inline ListCredentialsRequest& setCredentialAuthType(string credentialAuthType) { DARABONBA_PTR_SET_VALUE(credentialAuthType_, credentialAuthType) };
 
 
     // credentialName Field Functions 
     bool hasCredentialName() const { return this->credentialName_ != nullptr;};
     void deleteCredentialName() { this->credentialName_ = nullptr;};
-    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline string getCredentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
     inline ListCredentialsRequest& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
 
 
     // credentialSourceType Field Functions 
     bool hasCredentialSourceType() const { return this->credentialSourceType_ != nullptr;};
     void deleteCredentialSourceType() { this->credentialSourceType_ = nullptr;};
-    inline string credentialSourceType() const { DARABONBA_PTR_GET_DEFAULT(credentialSourceType_, "") };
+    inline string getCredentialSourceType() const { DARABONBA_PTR_GET_DEFAULT(credentialSourceType_, "") };
     inline ListCredentialsRequest& setCredentialSourceType(string credentialSourceType) { DARABONBA_PTR_SET_VALUE(credentialSourceType_, credentialSourceType) };
 
 
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline ListCredentialsRequest& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListCredentialsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListCredentialsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // provider Field Functions 
     bool hasProvider() const { return this->provider_ != nullptr;};
     void deleteProvider() { this->provider_ = nullptr;};
-    inline string provider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+    inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
     inline ListCredentialsRequest& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
   protected:
     // credentialAuthType
-    std::shared_ptr<string> credentialAuthType_ = nullptr;
+    shared_ptr<string> credentialAuthType_ {};
     // credentialName
-    std::shared_ptr<string> credentialName_ = nullptr;
+    shared_ptr<string> credentialName_ {};
     // credentialSourceType
-    std::shared_ptr<string> credentialSourceType_ = nullptr;
-    std::shared_ptr<bool> enabled_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> provider_ = nullptr;
+    shared_ptr<string> credentialSourceType_ {};
+    shared_ptr<bool> enabled_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> provider_ {};
   };
 
   } // namespace Models

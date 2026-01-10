@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateAgentRuntimeInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateAgentRuntimeInput) };
-    inline CreateAgentRuntimeInput body() { DARABONBA_PTR_GET(body_, CreateAgentRuntimeInput) };
+    inline const CreateAgentRuntimeInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateAgentRuntimeInput) };
+    inline CreateAgentRuntimeInput getBody() { DARABONBA_PTR_GET(body_, CreateAgentRuntimeInput) };
     inline CreateAgentRuntimeRequest& setBody(const CreateAgentRuntimeInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateAgentRuntimeRequest& setBody(CreateAgentRuntimeInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // 创建智能体运行时所需的完整配置信息，包括运行时名称、资源规格、网络配置、协议配置等
     // 
     // This parameter is required.
-    std::shared_ptr<CreateAgentRuntimeInput> body_ = nullptr;
+    shared_ptr<CreateAgentRuntimeInput> body_ {};
   };
 
   } // namespace Models

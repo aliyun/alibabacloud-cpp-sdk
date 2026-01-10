@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aiFallbackConfig_ == nullptr
-        && return this->enable_ == nullptr && return this->type_ == nullptr; };
+        && this->enable_ == nullptr && this->type_ == nullptr; };
     // aiFallbackConfig Field Functions 
     bool hasAiFallbackConfig() const { return this->aiFallbackConfig_ != nullptr;};
     void deleteAiFallbackConfig() { this->aiFallbackConfig_ = nullptr;};
-    inline const AiFallbackConfig & aiFallbackConfig() const { DARABONBA_PTR_GET_CONST(aiFallbackConfig_, AiFallbackConfig) };
-    inline AiFallbackConfig aiFallbackConfig() { DARABONBA_PTR_GET(aiFallbackConfig_, AiFallbackConfig) };
+    inline const AiFallbackConfig & getAiFallbackConfig() const { DARABONBA_PTR_GET_CONST(aiFallbackConfig_, AiFallbackConfig) };
+    inline AiFallbackConfig getAiFallbackConfig() { DARABONBA_PTR_GET(aiFallbackConfig_, AiFallbackConfig) };
     inline PolicyConfig& setAiFallbackConfig(const AiFallbackConfig & aiFallbackConfig) { DARABONBA_PTR_SET_VALUE(aiFallbackConfig_, aiFallbackConfig) };
     inline PolicyConfig& setAiFallbackConfig(AiFallbackConfig && aiFallbackConfig) { DARABONBA_PTR_SET_RVALUE(aiFallbackConfig_, aiFallbackConfig) };
 
@@ -48,21 +48,21 @@ namespace Models
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline PolicyConfig& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline PolicyConfig& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<AiFallbackConfig> aiFallbackConfig_ = nullptr;
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<AiFallbackConfig> aiFallbackConfig_ {};
+    shared_ptr<bool> enable_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

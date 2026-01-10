@@ -33,13 +33,13 @@ namespace Models
     // credentialName Field Functions 
     bool hasCredentialName() const { return this->credentialName_ != nullptr;};
     void deleteCredentialName() { this->credentialName_ = nullptr;};
-    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline string getCredentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
     inline CredentialConfiguration& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
 
 
   protected:
     // 凭证的唯一标识符
-    std::shared_ptr<string> credentialName_ = nullptr;
+    shared_ptr<string> credentialName_ {};
   };
 
   } // namespace Models

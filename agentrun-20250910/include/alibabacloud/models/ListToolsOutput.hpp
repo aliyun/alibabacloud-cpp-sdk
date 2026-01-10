@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->total_ == nullptr; };
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->total_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ToolListItem> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ToolListItem>) };
-    inline vector<ToolListItem> data() { DARABONBA_PTR_GET(data_, vector<ToolListItem>) };
+    inline const vector<ToolListItem> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ToolListItem>) };
+    inline vector<ToolListItem> getData() { DARABONBA_PTR_GET(data_, vector<ToolListItem>) };
     inline ListToolsOutput& setData(const vector<ToolListItem> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline ListToolsOutput& setData(vector<ToolListItem> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -51,29 +51,29 @@ namespace Models
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline ListToolsOutput& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListToolsOutput& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline int32_t total() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+    inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
     inline ListToolsOutput& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
-    std::shared_ptr<vector<ToolListItem>> data_ = nullptr;
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<int32_t> total_ = nullptr;
+    shared_ptr<vector<ToolListItem>> data_ {};
+    shared_ptr<int32_t> pageNum_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int32_t> total_ {};
   };
 
   } // namespace Models

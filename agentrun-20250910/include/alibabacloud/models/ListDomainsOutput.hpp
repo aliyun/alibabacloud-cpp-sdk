@@ -38,12 +38,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->totalCount_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<DomainInfo> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<DomainInfo>) };
-    inline vector<DomainInfo> items() { DARABONBA_PTR_GET(items_, vector<DomainInfo>) };
+    inline const vector<DomainInfo> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<DomainInfo>) };
+    inline vector<DomainInfo> getItems() { DARABONBA_PTR_GET(items_, vector<DomainInfo>) };
     inline ListDomainsOutput& setItems(const vector<DomainInfo> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
     inline ListDomainsOutput& setItems(vector<DomainInfo> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
@@ -51,29 +51,29 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline ListDomainsOutput& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline ListDomainsOutput& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline string totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
+    inline string getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, "") };
     inline ListDomainsOutput& setTotalCount(string totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<vector<DomainInfo>> items_ = nullptr;
-    std::shared_ptr<string> pageNumber_ = nullptr;
-    std::shared_ptr<string> pageSize_ = nullptr;
-    std::shared_ptr<string> totalCount_ = nullptr;
+    shared_ptr<vector<DomainInfo>> items_ {};
+    shared_ptr<string> pageNumber_ {};
+    shared_ptr<string> pageSize_ {};
+    shared_ptr<string> totalCount_ {};
   };
 
   } // namespace Models

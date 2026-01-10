@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aiServiceConfig_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // aiServiceConfig Field Functions 
     bool hasAiServiceConfig() const { return this->aiServiceConfig_ != nullptr;};
     void deleteAiServiceConfig() { this->aiServiceConfig_ = nullptr;};
-    inline const AiServiceConfig & aiServiceConfig() const { DARABONBA_PTR_GET_CONST(aiServiceConfig_, AiServiceConfig) };
-    inline AiServiceConfig aiServiceConfig() { DARABONBA_PTR_GET(aiServiceConfig_, AiServiceConfig) };
+    inline const AiServiceConfig & getAiServiceConfig() const { DARABONBA_PTR_GET_CONST(aiServiceConfig_, AiServiceConfig) };
+    inline AiServiceConfig getAiServiceConfig() { DARABONBA_PTR_GET(aiServiceConfig_, AiServiceConfig) };
     inline ServiceConfig& setAiServiceConfig(const AiServiceConfig & aiServiceConfig) { DARABONBA_PTR_SET_VALUE(aiServiceConfig_, aiServiceConfig) };
     inline ServiceConfig& setAiServiceConfig(AiServiceConfig && aiServiceConfig) { DARABONBA_PTR_SET_RVALUE(aiServiceConfig_, aiServiceConfig) };
 
@@ -46,13 +46,13 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ServiceConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<AiServiceConfig> aiServiceConfig_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<AiServiceConfig> aiServiceConfig_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

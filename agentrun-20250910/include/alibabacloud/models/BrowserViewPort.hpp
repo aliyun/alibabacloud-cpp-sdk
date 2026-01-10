@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->height_ == nullptr
-        && return this->width_ == nullptr; };
+        && this->width_ == nullptr; };
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};
-    inline double height() const { DARABONBA_PTR_GET_DEFAULT(height_, 0.0) };
+    inline double getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0.0) };
     inline BrowserViewPort& setHeight(double height) { DARABONBA_PTR_SET_VALUE(height_, height) };
 
 
     // width Field Functions 
     bool hasWidth() const { return this->width_ != nullptr;};
     void deleteWidth() { this->width_ = nullptr;};
-    inline double width() const { DARABONBA_PTR_GET_DEFAULT(width_, 0.0) };
+    inline double getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0.0) };
     inline BrowserViewPort& setWidth(double width) { DARABONBA_PTR_SET_VALUE(width_, width) };
 
 
   protected:
-    std::shared_ptr<double> height_ = nullptr;
-    std::shared_ptr<double> width_ = nullptr;
+    shared_ptr<double> height_ {};
+    shared_ptr<double> width_ {};
   };
 
   } // namespace Models

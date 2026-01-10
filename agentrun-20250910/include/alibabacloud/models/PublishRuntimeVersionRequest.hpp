@@ -34,14 +34,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const PublishRuntimeVersionInput & body() const { DARABONBA_PTR_GET_CONST(body_, PublishRuntimeVersionInput) };
-    inline PublishRuntimeVersionInput body() { DARABONBA_PTR_GET(body_, PublishRuntimeVersionInput) };
+    inline const PublishRuntimeVersionInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, PublishRuntimeVersionInput) };
+    inline PublishRuntimeVersionInput getBody() { DARABONBA_PTR_GET(body_, PublishRuntimeVersionInput) };
     inline PublishRuntimeVersionRequest& setBody(const PublishRuntimeVersionInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline PublishRuntimeVersionRequest& setBody(PublishRuntimeVersionInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<PublishRuntimeVersionInput> body_ = nullptr;
+    shared_ptr<PublishRuntimeVersionInput> body_ {};
   };
 
   } // namespace Models

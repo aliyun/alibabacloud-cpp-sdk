@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->data_ == nullptr
-        && return this->message_ == nullptr && return this->success_ == nullptr; };
+        && this->message_ == nullptr && this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const CreateToolData & data() const { DARABONBA_PTR_GET_CONST(data_, CreateToolData) };
-    inline CreateToolData data() { DARABONBA_PTR_GET(data_, CreateToolData) };
+    inline const CreateToolData & getData() const { DARABONBA_PTR_GET_CONST(data_, CreateToolData) };
+    inline CreateToolData getData() { DARABONBA_PTR_GET(data_, CreateToolData) };
     inline CreateToolOutput& setData(const CreateToolData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline CreateToolOutput& setData(CreateToolData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
@@ -48,21 +48,21 @@ namespace Models
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline CreateToolOutput& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline CreateToolOutput& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<CreateToolData> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<CreateToolData> data_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

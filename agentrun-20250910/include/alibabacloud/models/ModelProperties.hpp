@@ -33,12 +33,12 @@ namespace Models
     // contextSize Field Functions 
     bool hasContextSize() const { return this->contextSize_ != nullptr;};
     void deleteContextSize() { this->contextSize_ = nullptr;};
-    inline int32_t contextSize() const { DARABONBA_PTR_GET_DEFAULT(contextSize_, 0) };
+    inline int32_t getContextSize() const { DARABONBA_PTR_GET_DEFAULT(contextSize_, 0) };
     inline ModelProperties& setContextSize(int32_t contextSize) { DARABONBA_PTR_SET_VALUE(contextSize_, contextSize) };
 
 
   protected:
-    std::shared_ptr<int32_t> contextSize_ = nullptr;
+    shared_ptr<int32_t> contextSize_ {};
   };
 
   } // namespace Models

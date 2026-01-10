@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->streamEndpoint_ == nullptr
-        && return this->streamStatus_ == nullptr; };
+        && this->streamStatus_ == nullptr; };
     // streamEndpoint Field Functions 
     bool hasStreamEndpoint() const { return this->streamEndpoint_ != nullptr;};
     void deleteStreamEndpoint() { this->streamEndpoint_ = nullptr;};
-    inline string streamEndpoint() const { DARABONBA_PTR_GET_DEFAULT(streamEndpoint_, "") };
+    inline string getStreamEndpoint() const { DARABONBA_PTR_GET_DEFAULT(streamEndpoint_, "") };
     inline BrowserAutomationStream& setStreamEndpoint(string streamEndpoint) { DARABONBA_PTR_SET_VALUE(streamEndpoint_, streamEndpoint) };
 
 
     // streamStatus Field Functions 
     bool hasStreamStatus() const { return this->streamStatus_ != nullptr;};
     void deleteStreamStatus() { this->streamStatus_ = nullptr;};
-    inline string streamStatus() const { DARABONBA_PTR_GET_DEFAULT(streamStatus_, "") };
+    inline string getStreamStatus() const { DARABONBA_PTR_GET_DEFAULT(streamStatus_, "") };
     inline BrowserAutomationStream& setStreamStatus(string streamStatus) { DARABONBA_PTR_SET_VALUE(streamStatus_, streamStatus) };
 
 
   protected:
-    std::shared_ptr<string> streamEndpoint_ = nullptr;
-    std::shared_ptr<string> streamStatus_ = nullptr;
+    shared_ptr<string> streamEndpoint_ {};
+    shared_ptr<string> streamStatus_ {};
   };
 
   } // namespace Models

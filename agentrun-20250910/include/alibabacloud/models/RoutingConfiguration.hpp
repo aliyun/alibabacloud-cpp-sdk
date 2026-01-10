@@ -35,15 +35,15 @@ namespace Models
     // versionWeights Field Functions 
     bool hasVersionWeights() const { return this->versionWeights_ != nullptr;};
     void deleteVersionWeights() { this->versionWeights_ = nullptr;};
-    inline const vector<VersionWeight> & versionWeights() const { DARABONBA_PTR_GET_CONST(versionWeights_, vector<VersionWeight>) };
-    inline vector<VersionWeight> versionWeights() { DARABONBA_PTR_GET(versionWeights_, vector<VersionWeight>) };
+    inline const vector<VersionWeight> & getVersionWeights() const { DARABONBA_PTR_GET_CONST(versionWeights_, vector<VersionWeight>) };
+    inline vector<VersionWeight> getVersionWeights() { DARABONBA_PTR_GET(versionWeights_, vector<VersionWeight>) };
     inline RoutingConfiguration& setVersionWeights(const vector<VersionWeight> & versionWeights) { DARABONBA_PTR_SET_VALUE(versionWeights_, versionWeights) };
     inline RoutingConfiguration& setVersionWeights(vector<VersionWeight> && versionWeights) { DARABONBA_PTR_SET_RVALUE(versionWeights_, versionWeights) };
 
 
   protected:
     // 不同版本的流量权重配置
-    std::shared_ptr<vector<VersionWeight>> versionWeights_ = nullptr;
+    shared_ptr<vector<VersionWeight>> versionWeights_ {};
   };
 
   } // namespace Models

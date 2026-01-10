@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateSandboxInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateSandboxInput) };
-    inline CreateSandboxInput body() { DARABONBA_PTR_GET(body_, CreateSandboxInput) };
+    inline const CreateSandboxInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateSandboxInput) };
+    inline CreateSandboxInput getBody() { DARABONBA_PTR_GET(body_, CreateSandboxInput) };
     inline CreateSandboxRequest& setBody(const CreateSandboxInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateSandboxRequest& setBody(CreateSandboxInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // 创建沙箱所需的配置信息，包括模板名称、沙箱名称等
     // 
     // This parameter is required.
-    std::shared_ptr<CreateSandboxInput> body_ = nullptr;
+    shared_ptr<CreateSandboxInput> body_ {};
   };
 
   } // namespace Models

@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endpointName_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchMode_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchMode_ == nullptr; };
     // endpointName Field Functions 
     bool hasEndpointName() const { return this->endpointName_ != nullptr;};
     void deleteEndpointName() { this->endpointName_ = nullptr;};
-    inline string endpointName() const { DARABONBA_PTR_GET_DEFAULT(endpointName_, "") };
+    inline string getEndpointName() const { DARABONBA_PTR_GET_DEFAULT(endpointName_, "") };
     inline ListAgentRuntimeEndpointsRequest& setEndpointName(string endpointName) { DARABONBA_PTR_SET_VALUE(endpointName_, endpointName) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListAgentRuntimeEndpointsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListAgentRuntimeEndpointsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // searchMode Field Functions 
     bool hasSearchMode() const { return this->searchMode_ != nullptr;};
     void deleteSearchMode() { this->searchMode_ = nullptr;};
-    inline string searchMode() const { DARABONBA_PTR_GET_DEFAULT(searchMode_, "") };
+    inline string getSearchMode() const { DARABONBA_PTR_GET_DEFAULT(searchMode_, "") };
     inline ListAgentRuntimeEndpointsRequest& setSearchMode(string searchMode) { DARABONBA_PTR_SET_VALUE(searchMode_, searchMode) };
 
 
   protected:
     // 根据端点名称进行模糊匹配过滤
-    std::shared_ptr<string> endpointName_ = nullptr;
+    shared_ptr<string> endpointName_ {};
     // 当前页码，从1开始计数
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // 每页返回的记录数量
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // 查询模式，支持精确查询和模糊查询
-    std::shared_ptr<string> searchMode_ = nullptr;
+    shared_ptr<string> searchMode_ {};
   };
 
   } // namespace Models

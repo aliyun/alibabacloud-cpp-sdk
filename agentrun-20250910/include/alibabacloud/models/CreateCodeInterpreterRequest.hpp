@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateCodeInterpreterInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateCodeInterpreterInput) };
-    inline CreateCodeInterpreterInput body() { DARABONBA_PTR_GET(body_, CreateCodeInterpreterInput) };
+    inline const CreateCodeInterpreterInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateCodeInterpreterInput) };
+    inline CreateCodeInterpreterInput getBody() { DARABONBA_PTR_GET(body_, CreateCodeInterpreterInput) };
     inline CreateCodeInterpreterRequest& setBody(const CreateCodeInterpreterInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateCodeInterpreterRequest& setBody(CreateCodeInterpreterInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<CreateCodeInterpreterInput> body_ = nullptr;
+    shared_ptr<CreateCodeInterpreterInput> body_ {};
   };
 
   } // namespace Models

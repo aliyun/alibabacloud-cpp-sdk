@@ -36,12 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->llmConfig_ == nullptr
-        && return this->mcpAPI_ == nullptr && return this->targetType_ == nullptr; };
+        && this->mcpAPI_ == nullptr && this->targetType_ == nullptr; };
     // llmConfig Field Functions 
     bool hasLlmConfig() const { return this->llmConfig_ != nullptr;};
     void deleteLlmConfig() { this->llmConfig_ = nullptr;};
-    inline const LLMAPIConfiguration & llmConfig() const { DARABONBA_PTR_GET_CONST(llmConfig_, LLMAPIConfiguration) };
-    inline LLMAPIConfiguration llmConfig() { DARABONBA_PTR_GET(llmConfig_, LLMAPIConfiguration) };
+    inline const LLMAPIConfiguration & getLlmConfig() const { DARABONBA_PTR_GET_CONST(llmConfig_, LLMAPIConfiguration) };
+    inline LLMAPIConfiguration getLlmConfig() { DARABONBA_PTR_GET(llmConfig_, LLMAPIConfiguration) };
     inline Target& setLlmConfig(const LLMAPIConfiguration & llmConfig) { DARABONBA_PTR_SET_VALUE(llmConfig_, llmConfig) };
     inline Target& setLlmConfig(LLMAPIConfiguration && llmConfig) { DARABONBA_PTR_SET_RVALUE(llmConfig_, llmConfig) };
 
@@ -49,8 +49,8 @@ namespace Models
     // mcpAPI Field Functions 
     bool hasMcpAPI() const { return this->mcpAPI_ != nullptr;};
     void deleteMcpAPI() { this->mcpAPI_ = nullptr;};
-    inline const MCPAPI & mcpAPI() const { DARABONBA_PTR_GET_CONST(mcpAPI_, MCPAPI) };
-    inline MCPAPI mcpAPI() { DARABONBA_PTR_GET(mcpAPI_, MCPAPI) };
+    inline const MCPAPI & getMcpAPI() const { DARABONBA_PTR_GET_CONST(mcpAPI_, MCPAPI) };
+    inline MCPAPI getMcpAPI() { DARABONBA_PTR_GET(mcpAPI_, MCPAPI) };
     inline Target& setMcpAPI(const MCPAPI & mcpAPI) { DARABONBA_PTR_SET_VALUE(mcpAPI_, mcpAPI) };
     inline Target& setMcpAPI(MCPAPI && mcpAPI) { DARABONBA_PTR_SET_RVALUE(mcpAPI_, mcpAPI) };
 
@@ -58,14 +58,14 @@ namespace Models
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
-    inline string targetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
+    inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
     inline Target& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
 
 
   protected:
-    std::shared_ptr<LLMAPIConfiguration> llmConfig_ = nullptr;
-    std::shared_ptr<MCPAPI> mcpAPI_ = nullptr;
-    std::shared_ptr<string> targetType_ = nullptr;
+    shared_ptr<LLMAPIConfiguration> llmConfig_ {};
+    shared_ptr<MCPAPI> mcpAPI_ {};
+    shared_ptr<string> targetType_ {};
   };
 
   } // namespace Models

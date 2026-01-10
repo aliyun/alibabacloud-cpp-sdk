@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentThought_ == nullptr
-        && return this->multiToolCall_ == nullptr && return this->streamToolCall_ == nullptr && return this->toolCall_ == nullptr && return this->vision_ == nullptr; };
+        && this->multiToolCall_ == nullptr && this->streamToolCall_ == nullptr && this->toolCall_ == nullptr && this->vision_ == nullptr; };
     // agentThought Field Functions 
     bool hasAgentThought() const { return this->agentThought_ != nullptr;};
     void deleteAgentThought() { this->agentThought_ = nullptr;};
-    inline bool agentThought() const { DARABONBA_PTR_GET_DEFAULT(agentThought_, false) };
+    inline bool getAgentThought() const { DARABONBA_PTR_GET_DEFAULT(agentThought_, false) };
     inline ModelFeatures& setAgentThought(bool agentThought) { DARABONBA_PTR_SET_VALUE(agentThought_, agentThought) };
 
 
     // multiToolCall Field Functions 
     bool hasMultiToolCall() const { return this->multiToolCall_ != nullptr;};
     void deleteMultiToolCall() { this->multiToolCall_ = nullptr;};
-    inline bool multiToolCall() const { DARABONBA_PTR_GET_DEFAULT(multiToolCall_, false) };
+    inline bool getMultiToolCall() const { DARABONBA_PTR_GET_DEFAULT(multiToolCall_, false) };
     inline ModelFeatures& setMultiToolCall(bool multiToolCall) { DARABONBA_PTR_SET_VALUE(multiToolCall_, multiToolCall) };
 
 
     // streamToolCall Field Functions 
     bool hasStreamToolCall() const { return this->streamToolCall_ != nullptr;};
     void deleteStreamToolCall() { this->streamToolCall_ = nullptr;};
-    inline bool streamToolCall() const { DARABONBA_PTR_GET_DEFAULT(streamToolCall_, false) };
+    inline bool getStreamToolCall() const { DARABONBA_PTR_GET_DEFAULT(streamToolCall_, false) };
     inline ModelFeatures& setStreamToolCall(bool streamToolCall) { DARABONBA_PTR_SET_VALUE(streamToolCall_, streamToolCall) };
 
 
     // toolCall Field Functions 
     bool hasToolCall() const { return this->toolCall_ != nullptr;};
     void deleteToolCall() { this->toolCall_ = nullptr;};
-    inline bool toolCall() const { DARABONBA_PTR_GET_DEFAULT(toolCall_, false) };
+    inline bool getToolCall() const { DARABONBA_PTR_GET_DEFAULT(toolCall_, false) };
     inline ModelFeatures& setToolCall(bool toolCall) { DARABONBA_PTR_SET_VALUE(toolCall_, toolCall) };
 
 
     // vision Field Functions 
     bool hasVision() const { return this->vision_ != nullptr;};
     void deleteVision() { this->vision_ = nullptr;};
-    inline bool vision() const { DARABONBA_PTR_GET_DEFAULT(vision_, false) };
+    inline bool getVision() const { DARABONBA_PTR_GET_DEFAULT(vision_, false) };
     inline ModelFeatures& setVision(bool vision) { DARABONBA_PTR_SET_VALUE(vision_, vision) };
 
 
   protected:
-    std::shared_ptr<bool> agentThought_ = nullptr;
-    std::shared_ptr<bool> multiToolCall_ = nullptr;
-    std::shared_ptr<bool> streamToolCall_ = nullptr;
-    std::shared_ptr<bool> toolCall_ = nullptr;
-    std::shared_ptr<bool> vision_ = nullptr;
+    shared_ptr<bool> agentThought_ {};
+    shared_ptr<bool> multiToolCall_ {};
+    shared_ptr<bool> streamToolCall_ {};
+    shared_ptr<bool> toolCall_ {};
+    shared_ptr<bool> vision_ {};
   };
 
   } // namespace Models

@@ -34,8 +34,8 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UpdateAgentRuntimeEndpointInput & body() const { DARABONBA_PTR_GET_CONST(body_, UpdateAgentRuntimeEndpointInput) };
-    inline UpdateAgentRuntimeEndpointInput body() { DARABONBA_PTR_GET(body_, UpdateAgentRuntimeEndpointInput) };
+    inline const UpdateAgentRuntimeEndpointInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, UpdateAgentRuntimeEndpointInput) };
+    inline UpdateAgentRuntimeEndpointInput getBody() { DARABONBA_PTR_GET(body_, UpdateAgentRuntimeEndpointInput) };
     inline UpdateAgentRuntimeEndpointRequest& setBody(const UpdateAgentRuntimeEndpointInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline UpdateAgentRuntimeEndpointRequest& setBody(UpdateAgentRuntimeEndpointInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -44,7 +44,7 @@ namespace Models
     // 包含要更新的智能体运行时端点配置信息的请求体
     // 
     // This parameter is required.
-    std::shared_ptr<UpdateAgentRuntimeEndpointInput> body_ = nullptr;
+    shared_ptr<UpdateAgentRuntimeEndpointInput> body_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,13 @@ namespace Models
     // agentRuntimeVersion Field Functions 
     bool hasAgentRuntimeVersion() const { return this->agentRuntimeVersion_ != nullptr;};
     void deleteAgentRuntimeVersion() { this->agentRuntimeVersion_ = nullptr;};
-    inline string agentRuntimeVersion() const { DARABONBA_PTR_GET_DEFAULT(agentRuntimeVersion_, "") };
+    inline string getAgentRuntimeVersion() const { DARABONBA_PTR_GET_DEFAULT(agentRuntimeVersion_, "") };
     inline GetAgentRuntimeRequest& setAgentRuntimeVersion(string agentRuntimeVersion) { DARABONBA_PTR_SET_VALUE(agentRuntimeVersion_, agentRuntimeVersion) };
 
 
   protected:
     // 指定要获取的智能体运行时版本，如果不指定则返回最新版本
-    std::shared_ptr<string> agentRuntimeVersion_ = nullptr;
+    shared_ptr<string> agentRuntimeVersion_ {};
   };
 
   } // namespace Models

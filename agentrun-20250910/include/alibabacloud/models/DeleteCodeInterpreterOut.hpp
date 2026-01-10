@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->codeInterpreterId_ == nullptr
-        && return this->codeInterpreterName_ == nullptr && return this->status_ == nullptr; };
+        && this->codeInterpreterName_ == nullptr && this->status_ == nullptr; };
     // codeInterpreterId Field Functions 
     bool hasCodeInterpreterId() const { return this->codeInterpreterId_ != nullptr;};
     void deleteCodeInterpreterId() { this->codeInterpreterId_ = nullptr;};
-    inline string codeInterpreterId() const { DARABONBA_PTR_GET_DEFAULT(codeInterpreterId_, "") };
+    inline string getCodeInterpreterId() const { DARABONBA_PTR_GET_DEFAULT(codeInterpreterId_, "") };
     inline DeleteCodeInterpreterOut& setCodeInterpreterId(string codeInterpreterId) { DARABONBA_PTR_SET_VALUE(codeInterpreterId_, codeInterpreterId) };
 
 
     // codeInterpreterName Field Functions 
     bool hasCodeInterpreterName() const { return this->codeInterpreterName_ != nullptr;};
     void deleteCodeInterpreterName() { this->codeInterpreterName_ = nullptr;};
-    inline string codeInterpreterName() const { DARABONBA_PTR_GET_DEFAULT(codeInterpreterName_, "") };
+    inline string getCodeInterpreterName() const { DARABONBA_PTR_GET_DEFAULT(codeInterpreterName_, "") };
     inline DeleteCodeInterpreterOut& setCodeInterpreterName(string codeInterpreterName) { DARABONBA_PTR_SET_VALUE(codeInterpreterName_, codeInterpreterName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DeleteCodeInterpreterOut& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> codeInterpreterId_ = nullptr;
-    std::shared_ptr<string> codeInterpreterName_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> codeInterpreterId_ {};
+    shared_ptr<string> codeInterpreterName_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

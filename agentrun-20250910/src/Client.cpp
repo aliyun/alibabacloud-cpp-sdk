@@ -48,11 +48,11 @@ ActivateTemplateMCPResponse Client::activateTemplateMCPWithOptions(const string 
   request.validate();
   json body = {};
   if (!!request.hasEnabledTools()) {
-    body["enabledTools"] = request.enabledTools();
+    body["enabledTools"] = request.getEnabledTools();
   }
 
   if (!!request.hasTransport()) {
-    body["transport"] = request.transport();
+    body["transport"] = request.getTransport();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -99,7 +99,7 @@ CreateAgentRuntimeResponse Client::createAgentRuntimeWithOptions(const CreateAge
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateAgentRuntime"},
@@ -143,7 +143,7 @@ CreateAgentRuntimeEndpointResponse Client::createAgentRuntimeEndpointWithOptions
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateAgentRuntimeEndpoint"},
@@ -187,7 +187,7 @@ CreateBrowserResponse Client::createBrowserWithOptions(const CreateBrowserReques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateBrowser"},
@@ -231,7 +231,7 @@ CreateCodeInterpreterResponse Client::createCodeInterpreterWithOptions(const Cre
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateCodeInterpreter"},
@@ -273,7 +273,7 @@ CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredent
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateCredential"},
@@ -302,108 +302,6 @@ CreateCredentialResponse Client::createCredential(const CreateCredentialRequest 
 }
 
 /**
- * @summary create memory store
- *
- * @param request CreateMemoryRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return CreateMemoryResponse
- */
-CreateMemoryResponse Client::createMemoryWithOptions(const CreateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasLongTtl()) {
-    body["longTtl"] = request.longTtl();
-  }
-
-  if (!!request.hasName()) {
-    body["name"] = request.name();
-  }
-
-  if (!!request.hasShortTtl()) {
-    body["shortTtl"] = request.shortTtl();
-  }
-
-  if (!!request.hasStrategy()) {
-    body["strategy"] = request.strategy();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "CreateMemory"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories")},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CreateMemoryResponse>();
-}
-
-/**
- * @summary create memory store
- *
- * @param request CreateMemoryRequest
- * @return CreateMemoryResponse
- */
-CreateMemoryResponse Client::createMemory(const CreateMemoryRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return createMemoryWithOptions(request, headers, runtime);
-}
-
-/**
- * @summary create event
- *
- * @param request CreateMemoryEventRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return CreateMemoryEventResponse
- */
-CreateMemoryEventResponse Client::createMemoryEventWithOptions(const string &memoryName, const CreateMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasEvents()) {
-    body["events"] = request.events();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "CreateMemoryEvent"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/events")},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CreateMemoryEventResponse>();
-}
-
-/**
- * @summary create event
- *
- * @param request CreateMemoryEventRequest
- * @return CreateMemoryEventResponse
- */
-CreateMemoryEventResponse Client::createMemoryEvent(const string &memoryName, const CreateMemoryEventRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return createMemoryEventWithOptions(memoryName, request, headers, runtime);
-}
-
-/**
  * @summary 新增模型
  *
  * @param request CreateModelProxyRequest
@@ -415,7 +313,7 @@ CreateModelProxyResponse Client::createModelProxyWithOptions(const CreateModelPr
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateModelProxy"},
@@ -455,7 +353,7 @@ CreateModelServiceResponse Client::createModelServiceWithOptions(const CreateMod
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateModelService"},
@@ -497,7 +395,7 @@ CreateSandboxResponse Client::createSandboxWithOptions(const CreateSandboxReques
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateSandbox"},
@@ -541,7 +439,7 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateTemplate"},
@@ -764,42 +662,6 @@ DeleteCredentialResponse Client::deleteCredential(const string &credentialName) 
 }
 
 /**
- * @summary delete memory store
- *
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return DeleteMemoryResponse
- */
-DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &memoryName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DeleteMemory"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName))},
-    {"method" , "DELETE"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DeleteMemoryResponse>();
-}
-
-/**
- * @summary delete memory store
- *
- * @return DeleteMemoryResponse
- */
-DeleteMemoryResponse Client::deleteMemory(const string &memoryName) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return deleteMemoryWithOptions(memoryName, headers, runtime);
-}
-
-/**
  * @summary 删除模型
  *
  * @param headers map
@@ -959,15 +821,15 @@ GetAccessTokenResponse Client::getAccessTokenWithOptions(const GetAccessTokenReq
   request.validate();
   json query = {};
   if (!!request.hasResourceId()) {
-    query["resourceId"] = request.resourceId();
+    query["resourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceName()) {
-    query["resourceName"] = request.resourceName();
+    query["resourceName"] = request.getResourceName();
   }
 
   if (!!request.hasResourceType()) {
-    query["resourceType"] = request.resourceType();
+    query["resourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1014,7 +876,7 @@ GetAgentRuntimeResponse Client::getAgentRuntimeWithOptions(const string &agentRu
   request.validate();
   json query = {};
   if (!!request.hasAgentRuntimeVersion()) {
-    query["agentRuntimeVersion"] = request.agentRuntimeVersion();
+    query["agentRuntimeVersion"] = request.getAgentRuntimeVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1202,148 +1064,6 @@ GetCredentialResponse Client::getCredential(const string &credentialName) {
 }
 
 /**
- * @summary GetMemory
- *
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetMemoryResponse
- */
-GetMemoryResponse Client::getMemoryWithOptions(const string &memoryName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetMemory"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName))},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetMemoryResponse>();
-}
-
-/**
- * @summary GetMemory
- *
- * @return GetMemoryResponse
- */
-GetMemoryResponse Client::getMemory(const string &memoryName) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return getMemoryWithOptions(memoryName, headers, runtime);
-}
-
-/**
- * @summary get event
- *
- * @param request GetMemoryEventRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetMemoryEventResponse
- */
-GetMemoryEventResponse Client::getMemoryEventWithOptions(const string &memoryName, const string &sessionId, const string &eventId, const GetMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasFrom()) {
-    query["from"] = request.from();
-  }
-
-  if (!!request.hasTo()) {
-    query["to"] = request.to();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetMemoryEvent"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId) , "/events/" , Darabonba::Encode::Encoder::percentEncode(eventId))},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetMemoryEventResponse>();
-}
-
-/**
- * @summary get event
- *
- * @param request GetMemoryEventRequest
- * @return GetMemoryEventResponse
- */
-GetMemoryEventResponse Client::getMemoryEvent(const string &memoryName, const string &sessionId, const string &eventId, const GetMemoryEventRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return getMemoryEventWithOptions(memoryName, sessionId, eventId, request, headers, runtime);
-}
-
-/**
- * @summary 获取内存会话详情
- *
- * @description 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
- *
- * @param request GetMemorySessionRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetMemorySessionResponse
- */
-GetMemorySessionResponse Client::getMemorySessionWithOptions(const string &memoryName, const string &sessionId, const GetMemorySessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasFrom()) {
-    query["from"] = request.from();
-  }
-
-  if (!!request.hasSize()) {
-    query["size"] = request.size();
-  }
-
-  if (!!request.hasTo()) {
-    query["to"] = request.to();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetMemorySession"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId))},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetMemorySessionResponse>();
-}
-
-/**
- * @summary 获取内存会话详情
- *
- * @description 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
- *
- * @param request GetMemorySessionRequest
- * @return GetMemorySessionResponse
- */
-GetMemorySessionResponse Client::getMemorySession(const string &memoryName, const string &sessionId, const GetMemorySessionRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return getMemorySessionWithOptions(memoryName, sessionId, request, headers, runtime);
-}
-
-/**
  * @summary 查看model
  *
  * @param headers map
@@ -1509,19 +1229,19 @@ ListAgentRuntimeEndpointsResponse Client::listAgentRuntimeEndpointsWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasEndpointName()) {
-    query["endpointName"] = request.endpointName();
+    query["endpointName"] = request.getEndpointName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchMode()) {
-    query["searchMode"] = request.searchMode();
+    query["searchMode"] = request.getSearchMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1568,11 +1288,11 @@ ListAgentRuntimeVersionsResponse Client::listAgentRuntimeVersionsWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1619,23 +1339,23 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
   request.validate();
   json query = {};
   if (!!request.hasAgentRuntimeName()) {
-    query["agentRuntimeName"] = request.agentRuntimeName();
+    query["agentRuntimeName"] = request.getAgentRuntimeName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchMode()) {
-    query["searchMode"] = request.searchMode();
+    query["searchMode"] = request.getSearchMode();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1684,19 +1404,19 @@ ListBrowsersResponse Client::listBrowsersWithOptions(const ListBrowsersRequest &
   request.validate();
   json query = {};
   if (!!request.hasBrowserName()) {
-    query["browserName"] = request.browserName();
+    query["browserName"] = request.getBrowserName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1745,15 +1465,15 @@ ListCodeInterpretersResponse Client::listCodeInterpretersWithOptions(const ListC
   request.validate();
   json query = {};
   if (!!request.hasCodeInterpreterName()) {
-    query["codeInterpreterName"] = request.codeInterpreterName();
+    query["codeInterpreterName"] = request.getCodeInterpreterName();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1800,31 +1520,31 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
   request.validate();
   json query = {};
   if (!!request.hasCredentialAuthType()) {
-    query["credentialAuthType"] = request.credentialAuthType();
+    query["credentialAuthType"] = request.getCredentialAuthType();
   }
 
   if (!!request.hasCredentialName()) {
-    query["credentialName"] = request.credentialName();
+    query["credentialName"] = request.getCredentialName();
   }
 
   if (!!request.hasCredentialSourceType()) {
-    query["credentialSourceType"] = request.credentialSourceType();
+    query["credentialSourceType"] = request.getCredentialSourceType();
   }
 
   if (!!request.hasEnabled()) {
-    query["enabled"] = request.enabled();
+    query["enabled"] = request.getEnabled();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProvider()) {
-    query["provider"] = request.provider();
+    query["provider"] = request.getProvider();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1858,177 +1578,6 @@ ListCredentialsResponse Client::listCredentials(const ListCredentialsRequest &re
 }
 
 /**
- * @summary ListMemory
- *
- * @param request ListMemoryRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListMemoryResponse
- */
-ListMemoryResponse Client::listMemoryWithOptions(const ListMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
-  }
-
-  if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
-  }
-
-  if (!!request.hasPattern()) {
-    query["pattern"] = request.pattern();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ListMemory"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories")},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListMemoryResponse>();
-}
-
-/**
- * @summary ListMemory
- *
- * @param request ListMemoryRequest
- * @return ListMemoryResponse
- */
-ListMemoryResponse Client::listMemory(const ListMemoryRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return listMemoryWithOptions(request, headers, runtime);
-}
-
-/**
- * @summary list events
- *
- * @param request ListMemoryEventRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListMemoryEventResponse
- */
-ListMemoryEventResponse Client::listMemoryEventWithOptions(const string &memoryName, const string &sessionId, const ListMemoryEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasFrom()) {
-    query["from"] = request.from();
-  }
-
-  if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
-  }
-
-  if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
-  }
-
-  if (!!request.hasTo()) {
-    query["to"] = request.to();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ListMemoryEvent"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions/" , Darabonba::Encode::Encoder::percentEncode(sessionId) , "/events")},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListMemoryEventResponse>();
-}
-
-/**
- * @summary list events
- *
- * @param request ListMemoryEventRequest
- * @return ListMemoryEventResponse
- */
-ListMemoryEventResponse Client::listMemoryEvent(const string &memoryName, const string &sessionId, const ListMemoryEventRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return listMemoryEventWithOptions(memoryName, sessionId, request, headers, runtime);
-}
-
-/**
- * @summary 列出内存会话
- *
- * @description 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
- *
- * @param request ListMemorySessionsRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListMemorySessionsResponse
- */
-ListMemorySessionsResponse Client::listMemorySessionsWithOptions(const string &memoryName, const ListMemorySessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasFrom()) {
-    query["from"] = request.from();
-  }
-
-  if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
-  }
-
-  if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
-  }
-
-  if (!!request.hasTo()) {
-    query["to"] = request.to();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ListMemorySessions"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/sessions")},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListMemorySessionsResponse>();
-}
-
-/**
- * @summary 列出内存会话
- *
- * @description 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
- *
- * @param request ListMemorySessionsRequest
- * @return ListMemorySessionsResponse
- */
-ListMemorySessionsResponse Client::listMemorySessions(const string &memoryName, const ListMemorySessionsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return listMemorySessionsWithOptions(memoryName, request, headers, runtime);
-}
-
-/**
  * @summary 查询支持的模型提供商及其模型
  *
  * @param request ListModelProvidersRequest
@@ -2040,23 +1589,23 @@ ListModelProvidersResponse Client::listModelProvidersWithOptions(const ListModel
   request.validate();
   json query = {};
   if (!!request.hasModelName()) {
-    query["modelName"] = request.modelName();
+    query["modelName"] = request.getModelName();
   }
 
   if (!!request.hasModelType()) {
-    query["modelType"] = request.modelType();
+    query["modelType"] = request.getModelType();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProvider()) {
-    query["provider"] = request.provider();
+    query["provider"] = request.getProvider();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2101,19 +1650,19 @@ ListModelProxiesResponse Client::listModelProxiesWithOptions(const ListModelProx
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProxyMode()) {
-    query["proxyMode"] = request.proxyMode();
+    query["proxyMode"] = request.getProxyMode();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2158,23 +1707,23 @@ ListModelServicesResponse Client::listModelServicesWithOptions(const ListModelSe
   request.validate();
   json query = {};
   if (!!request.hasModelType()) {
-    query["modelType"] = request.modelType();
+    query["modelType"] = request.getModelType();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProvider()) {
-    query["provider"] = request.provider();
+    query["provider"] = request.getProvider();
   }
 
   if (!!request.hasProviderType()) {
-    query["providerType"] = request.providerType();
+    query["providerType"] = request.getProviderType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2221,23 +1770,23 @@ ListSandboxesResponse Client::listSandboxesWithOptions(const ListSandboxesReques
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasTemplateName()) {
-    query["templateName"] = request.templateName();
+    query["templateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTemplateType()) {
-    query["templateType"] = request.templateType();
+    query["templateType"] = request.getTemplateType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2286,23 +1835,23 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasTemplateName()) {
-    query["templateName"] = request.templateName();
+    query["templateName"] = request.getTemplateName();
   }
 
   if (!!request.hasTemplateType()) {
-    query["templateType"] = request.templateType();
+    query["templateType"] = request.getTemplateType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2351,7 +1900,7 @@ PublishRuntimeVersionResponse Client::publishRuntimeVersionWithOptions(const str
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "PublishRuntimeVersion"},
@@ -2379,67 +1928,6 @@ PublishRuntimeVersionResponse Client::publishRuntimeVersion(const string &agentR
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return publishRuntimeVersionWithOptions(agentRuntimeId, request, headers, runtime);
-}
-
-/**
- * @summary RetrieveMemory
- *
- * @param request RetrieveMemoryRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return RetrieveMemoryResponse
- */
-RetrieveMemoryResponse Client::retrieveMemoryWithOptions(const string &memoryName, const RetrieveMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasFrom()) {
-    body["from"] = request.from();
-  }
-
-  if (!!request.hasQuery()) {
-    body["query"] = request.query();
-  }
-
-  if (!!request.hasStore()) {
-    body["store"] = request.store();
-  }
-
-  if (!!request.hasTo()) {
-    body["to"] = request.to();
-  }
-
-  if (!!request.hasTopk()) {
-    body["topk"] = request.topk();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "RetrieveMemory"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName) , "/records")},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<RetrieveMemoryResponse>();
-}
-
-/**
- * @summary RetrieveMemory
- *
- * @param request RetrieveMemoryRequest
- * @return RetrieveMemoryResponse
- */
-RetrieveMemoryResponse Client::retrieveMemory(const string &memoryName, const RetrieveMemoryRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return retrieveMemoryWithOptions(memoryName, request, headers, runtime);
 }
 
 /**
@@ -2532,7 +2020,7 @@ UpdateAgentRuntimeResponse Client::updateAgentRuntimeWithOptions(const string &a
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateAgentRuntime"},
@@ -2574,7 +2062,7 @@ UpdateAgentRuntimeEndpointResponse Client::updateAgentRuntimeEndpointWithOptions
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateAgentRuntimeEndpoint"},
@@ -2614,7 +2102,7 @@ UpdateCredentialResponse Client::updateCredentialWithOptions(const string &crede
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateCredential"},
@@ -2643,59 +2131,6 @@ UpdateCredentialResponse Client::updateCredential(const string &credentialName, 
 }
 
 /**
- * @summary Update Memory
- *
- * @param request UpdateMemoryRequest
- * @param headers map
- * @param runtime runtime options for this request RuntimeOptions
- * @return UpdateMemoryResponse
- */
-UpdateMemoryResponse Client::updateMemoryWithOptions(const string &memoryName, const UpdateMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasLongTtl()) {
-    body["longTtl"] = request.longTtl();
-  }
-
-  if (!!request.hasShortTtl()) {
-    body["shortTtl"] = request.shortTtl();
-  }
-
-  if (!!request.hasStrategy()) {
-    body["strategy"] = request.strategy();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "UpdateMemory"},
-    {"version" , "2025-09-10"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryName))},
-    {"method" , "PUT"},
-    {"authType" , "AK"},
-    {"style" , "ROA"},
-    {"reqBodyType" , "json"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UpdateMemoryResponse>();
-}
-
-/**
- * @summary Update Memory
- *
- * @param request UpdateMemoryRequest
- * @return UpdateMemoryResponse
- */
-UpdateMemoryResponse Client::updateMemory(const string &memoryName, const UpdateMemoryRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  map<string, string> headers = {};
-  return updateMemoryWithOptions(memoryName, request, headers, runtime);
-}
-
-/**
  * @summary 更新模型
  *
  * @param request UpdateModelProxyRequest
@@ -2707,7 +2142,7 @@ UpdateModelProxyResponse Client::updateModelProxyWithOptions(const string &model
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateModelProxy"},
@@ -2747,7 +2182,7 @@ UpdateModelServiceResponse Client::updateModelServiceWithOptions(const string &m
   request.validate();
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateModelService"},
@@ -2789,13 +2224,13 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const string &templateN
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateTemplate"},

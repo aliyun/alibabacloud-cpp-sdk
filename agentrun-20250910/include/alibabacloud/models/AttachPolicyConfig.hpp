@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->className_ == nullptr
-        && return this->config_ == nullptr && return this->name_ == nullptr; };
+        && this->config_ == nullptr && this->name_ == nullptr; };
     // className Field Functions 
     bool hasClassName() const { return this->className_ != nullptr;};
     void deleteClassName() { this->className_ = nullptr;};
-    inline string className() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
+    inline string getClassName() const { DARABONBA_PTR_GET_DEFAULT(className_, "") };
     inline AttachPolicyConfig& setClassName(string className) { DARABONBA_PTR_SET_VALUE(className_, className) };
 
 
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
-    inline string config() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline AttachPolicyConfig& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AttachPolicyConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> className_ = nullptr;
-    std::shared_ptr<string> config_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> className_ {};
+    shared_ptr<string> config_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

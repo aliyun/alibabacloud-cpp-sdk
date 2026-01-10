@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->modelName_ == nullptr
-        && return this->modelType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->provider_ == nullptr; };
+        && this->modelType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->provider_ == nullptr; };
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
-    inline string modelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline ListModelProvidersRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
     // modelType Field Functions 
     bool hasModelType() const { return this->modelType_ != nullptr;};
     void deleteModelType() { this->modelType_ = nullptr;};
-    inline string modelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
     inline ListModelProvidersRequest& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
     inline ListModelProvidersRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
     inline ListModelProvidersRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // provider Field Functions 
     bool hasProvider() const { return this->provider_ != nullptr;};
     void deleteProvider() { this->provider_ = nullptr;};
-    inline string provider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
+    inline string getProvider() const { DARABONBA_PTR_GET_DEFAULT(provider_, "") };
     inline ListModelProvidersRequest& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
   protected:
-    std::shared_ptr<string> modelName_ = nullptr;
-    std::shared_ptr<string> modelType_ = nullptr;
-    std::shared_ptr<string> pageNumber_ = nullptr;
-    std::shared_ptr<string> pageSize_ = nullptr;
-    std::shared_ptr<string> provider_ = nullptr;
+    shared_ptr<string> modelName_ {};
+    shared_ptr<string> modelType_ {};
+    shared_ptr<string> pageNumber_ {};
+    shared_ptr<string> pageSize_ {};
+    shared_ptr<string> provider_ {};
   };
 
   } // namespace Models

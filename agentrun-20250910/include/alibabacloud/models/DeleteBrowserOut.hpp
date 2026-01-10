@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->browserId_ == nullptr
-        && return this->browserName_ == nullptr && return this->status_ == nullptr; };
+        && this->browserName_ == nullptr && this->status_ == nullptr; };
     // browserId Field Functions 
     bool hasBrowserId() const { return this->browserId_ != nullptr;};
     void deleteBrowserId() { this->browserId_ = nullptr;};
-    inline string browserId() const { DARABONBA_PTR_GET_DEFAULT(browserId_, "") };
+    inline string getBrowserId() const { DARABONBA_PTR_GET_DEFAULT(browserId_, "") };
     inline DeleteBrowserOut& setBrowserId(string browserId) { DARABONBA_PTR_SET_VALUE(browserId_, browserId) };
 
 
     // browserName Field Functions 
     bool hasBrowserName() const { return this->browserName_ != nullptr;};
     void deleteBrowserName() { this->browserName_ = nullptr;};
-    inline string browserName() const { DARABONBA_PTR_GET_DEFAULT(browserName_, "") };
+    inline string getBrowserName() const { DARABONBA_PTR_GET_DEFAULT(browserName_, "") };
     inline DeleteBrowserOut& setBrowserName(string browserName) { DARABONBA_PTR_SET_VALUE(browserName_, browserName) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DeleteBrowserOut& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    std::shared_ptr<string> browserId_ = nullptr;
-    std::shared_ptr<string> browserName_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> browserId_ {};
+    shared_ptr<string> browserName_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

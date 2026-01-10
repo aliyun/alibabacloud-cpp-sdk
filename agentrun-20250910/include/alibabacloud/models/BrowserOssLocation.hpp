@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucket_ == nullptr
-        && return this->prefix_ == nullptr; };
+        && this->prefix_ == nullptr; };
     // bucket Field Functions 
     bool hasBucket() const { return this->bucket_ != nullptr;};
     void deleteBucket() { this->bucket_ = nullptr;};
-    inline string bucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
+    inline string getBucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
     inline BrowserOssLocation& setBucket(string bucket) { DARABONBA_PTR_SET_VALUE(bucket_, bucket) };
 
 
     // prefix Field Functions 
     bool hasPrefix() const { return this->prefix_ != nullptr;};
     void deletePrefix() { this->prefix_ = nullptr;};
-    inline string prefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline string getPrefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
     inline BrowserOssLocation& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
   protected:
-    std::shared_ptr<string> bucket_ = nullptr;
-    std::shared_ptr<string> prefix_ = nullptr;
+    shared_ptr<string> bucket_ {};
+    shared_ptr<string> prefix_ {};
   };
 
   } // namespace Models

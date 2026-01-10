@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->exposedUriPath_ == nullptr && return this->mcpStatisticsEnable_ == nullptr && return this->protocol_ == nullptr && return this->toolId_ == nullptr; };
+        && this->exposedUriPath_ == nullptr && this->mcpStatisticsEnable_ == nullptr && this->protocol_ == nullptr && this->toolId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline MCPAPIConfiguration& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // exposedUriPath Field Functions 
     bool hasExposedUriPath() const { return this->exposedUriPath_ != nullptr;};
     void deleteExposedUriPath() { this->exposedUriPath_ = nullptr;};
-    inline string exposedUriPath() const { DARABONBA_PTR_GET_DEFAULT(exposedUriPath_, "") };
+    inline string getExposedUriPath() const { DARABONBA_PTR_GET_DEFAULT(exposedUriPath_, "") };
     inline MCPAPIConfiguration& setExposedUriPath(string exposedUriPath) { DARABONBA_PTR_SET_VALUE(exposedUriPath_, exposedUriPath) };
 
 
     // mcpStatisticsEnable Field Functions 
     bool hasMcpStatisticsEnable() const { return this->mcpStatisticsEnable_ != nullptr;};
     void deleteMcpStatisticsEnable() { this->mcpStatisticsEnable_ = nullptr;};
-    inline bool mcpStatisticsEnable() const { DARABONBA_PTR_GET_DEFAULT(mcpStatisticsEnable_, false) };
+    inline bool getMcpStatisticsEnable() const { DARABONBA_PTR_GET_DEFAULT(mcpStatisticsEnable_, false) };
     inline MCPAPIConfiguration& setMcpStatisticsEnable(bool mcpStatisticsEnable) { DARABONBA_PTR_SET_VALUE(mcpStatisticsEnable_, mcpStatisticsEnable) };
 
 
     // protocol Field Functions 
     bool hasProtocol() const { return this->protocol_ != nullptr;};
     void deleteProtocol() { this->protocol_ = nullptr;};
-    inline string protocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+    inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
     inline MCPAPIConfiguration& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
     // toolId Field Functions 
     bool hasToolId() const { return this->toolId_ != nullptr;};
     void deleteToolId() { this->toolId_ = nullptr;};
-    inline string toolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
+    inline string getToolId() const { DARABONBA_PTR_GET_DEFAULT(toolId_, "") };
     inline MCPAPIConfiguration& setToolId(string toolId) { DARABONBA_PTR_SET_VALUE(toolId_, toolId) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> exposedUriPath_ = nullptr;
-    std::shared_ptr<bool> mcpStatisticsEnable_ = nullptr;
-    std::shared_ptr<string> protocol_ = nullptr;
-    std::shared_ptr<string> toolId_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> exposedUriPath_ {};
+    shared_ptr<bool> mcpStatisticsEnable_ {};
+    shared_ptr<string> protocol_ {};
+    shared_ptr<string> toolId_ {};
   };
 
   } // namespace Models

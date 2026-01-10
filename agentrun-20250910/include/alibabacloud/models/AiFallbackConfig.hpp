@@ -35,14 +35,14 @@ namespace Models
     // serviceConfigs Field Functions 
     bool hasServiceConfigs() const { return this->serviceConfigs_ != nullptr;};
     void deleteServiceConfigs() { this->serviceConfigs_ = nullptr;};
-    inline const vector<AiFallbackServiceConfig> & serviceConfigs() const { DARABONBA_PTR_GET_CONST(serviceConfigs_, vector<AiFallbackServiceConfig>) };
-    inline vector<AiFallbackServiceConfig> serviceConfigs() { DARABONBA_PTR_GET(serviceConfigs_, vector<AiFallbackServiceConfig>) };
+    inline const vector<AiFallbackServiceConfig> & getServiceConfigs() const { DARABONBA_PTR_GET_CONST(serviceConfigs_, vector<AiFallbackServiceConfig>) };
+    inline vector<AiFallbackServiceConfig> getServiceConfigs() { DARABONBA_PTR_GET(serviceConfigs_, vector<AiFallbackServiceConfig>) };
     inline AiFallbackConfig& setServiceConfigs(const vector<AiFallbackServiceConfig> & serviceConfigs) { DARABONBA_PTR_SET_VALUE(serviceConfigs_, serviceConfigs) };
     inline AiFallbackConfig& setServiceConfigs(vector<AiFallbackServiceConfig> && serviceConfigs) { DARABONBA_PTR_SET_RVALUE(serviceConfigs_, serviceConfigs) };
 
 
   protected:
-    std::shared_ptr<vector<AiFallbackServiceConfig>> serviceConfigs_ = nullptr;
+    shared_ptr<vector<AiFallbackServiceConfig>> serviceConfigs_ {};
   };
 
   } // namespace Models

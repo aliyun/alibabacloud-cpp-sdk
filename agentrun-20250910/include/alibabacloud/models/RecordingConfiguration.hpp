@@ -33,19 +33,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && return this->ossLocation_ == nullptr; };
+        && this->ossLocation_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline RecordingConfiguration& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // ossLocation Field Functions 
     bool hasOssLocation() const { return this->ossLocation_ != nullptr;};
     void deleteOssLocation() { this->ossLocation_ = nullptr;};
-    inline const OssConfiguration & ossLocation() const { DARABONBA_PTR_GET_CONST(ossLocation_, OssConfiguration) };
-    inline OssConfiguration ossLocation() { DARABONBA_PTR_GET(ossLocation_, OssConfiguration) };
+    inline const OssConfiguration & getOssLocation() const { DARABONBA_PTR_GET_CONST(ossLocation_, OssConfiguration) };
+    inline OssConfiguration getOssLocation() { DARABONBA_PTR_GET(ossLocation_, OssConfiguration) };
     inline RecordingConfiguration& setOssLocation(const OssConfiguration & ossLocation) { DARABONBA_PTR_SET_VALUE(ossLocation_, ossLocation) };
     inline RecordingConfiguration& setOssLocation(OssConfiguration && ossLocation) { DARABONBA_PTR_SET_RVALUE(ossLocation_, ossLocation) };
 
@@ -54,8 +54,8 @@ namespace Models
     // 是否启用录制
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enabled_ = nullptr;
-    std::shared_ptr<OssConfiguration> ossLocation_ = nullptr;
+    shared_ptr<bool> enabled_ {};
+    shared_ptr<OssConfiguration> ossLocation_ {};
   };
 
   } // namespace Models

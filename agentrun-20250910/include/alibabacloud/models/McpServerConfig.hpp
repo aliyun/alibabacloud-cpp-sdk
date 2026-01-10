@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->serverUrl_ == nullptr
-        && return this->ssePath_ == nullptr && return this->transportType_ == nullptr; };
+        && this->ssePath_ == nullptr && this->transportType_ == nullptr; };
     // serverUrl Field Functions 
     bool hasServerUrl() const { return this->serverUrl_ != nullptr;};
     void deleteServerUrl() { this->serverUrl_ = nullptr;};
-    inline string serverUrl() const { DARABONBA_PTR_GET_DEFAULT(serverUrl_, "") };
+    inline string getServerUrl() const { DARABONBA_PTR_GET_DEFAULT(serverUrl_, "") };
     inline MCPServerConfig& setServerUrl(string serverUrl) { DARABONBA_PTR_SET_VALUE(serverUrl_, serverUrl) };
 
 
     // ssePath Field Functions 
     bool hasSsePath() const { return this->ssePath_ != nullptr;};
     void deleteSsePath() { this->ssePath_ = nullptr;};
-    inline string ssePath() const { DARABONBA_PTR_GET_DEFAULT(ssePath_, "") };
+    inline string getSsePath() const { DARABONBA_PTR_GET_DEFAULT(ssePath_, "") };
     inline MCPServerConfig& setSsePath(string ssePath) { DARABONBA_PTR_SET_VALUE(ssePath_, ssePath) };
 
 
     // transportType Field Functions 
     bool hasTransportType() const { return this->transportType_ != nullptr;};
     void deleteTransportType() { this->transportType_ = nullptr;};
-    inline string transportType() const { DARABONBA_PTR_GET_DEFAULT(transportType_, "") };
+    inline string getTransportType() const { DARABONBA_PTR_GET_DEFAULT(transportType_, "") };
     inline MCPServerConfig& setTransportType(string transportType) { DARABONBA_PTR_SET_VALUE(transportType_, transportType) };
 
 
   protected:
-    std::shared_ptr<string> serverUrl_ = nullptr;
-    std::shared_ptr<string> ssePath_ = nullptr;
-    std::shared_ptr<string> transportType_ = nullptr;
+    shared_ptr<string> serverUrl_ {};
+    shared_ptr<string> ssePath_ {};
+    shared_ptr<string> transportType_ {};
   };
 
   } // namespace Models

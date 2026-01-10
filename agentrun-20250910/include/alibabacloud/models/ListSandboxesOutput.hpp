@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->nextToken_ == nullptr; };
+        && this->nextToken_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const vector<Sandbox> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<Sandbox>) };
-    inline vector<Sandbox> items() { DARABONBA_PTR_GET(items_, vector<Sandbox>) };
+    inline const vector<Sandbox> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<Sandbox>) };
+    inline vector<Sandbox> getItems() { DARABONBA_PTR_GET(items_, vector<Sandbox>) };
     inline ListSandboxesOutput& setItems(const vector<Sandbox> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
     inline ListSandboxesOutput& setItems(vector<Sandbox> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
@@ -47,14 +47,14 @@ namespace Models
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListSandboxesOutput& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<Sandbox>> items_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<vector<Sandbox>> items_ {};
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

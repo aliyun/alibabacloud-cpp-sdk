@@ -41,19 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checksum_ == nullptr
-        && return this->command_ == nullptr && return this->language_ == nullptr && return this->ossBucketName_ == nullptr && return this->ossObjectName_ == nullptr && return this->zipFile_ == nullptr; };
+        && this->command_ == nullptr && this->language_ == nullptr && this->ossBucketName_ == nullptr && this->ossObjectName_ == nullptr && this->zipFile_ == nullptr; };
     // checksum Field Functions 
     bool hasChecksum() const { return this->checksum_ != nullptr;};
     void deleteChecksum() { this->checksum_ = nullptr;};
-    inline string checksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
+    inline string getChecksum() const { DARABONBA_PTR_GET_DEFAULT(checksum_, "") };
     inline CodeConfiguration& setChecksum(string checksum) { DARABONBA_PTR_SET_VALUE(checksum_, checksum) };
 
 
     // command Field Functions 
     bool hasCommand() const { return this->command_ != nullptr;};
     void deleteCommand() { this->command_ = nullptr;};
-    inline const vector<string> & command() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
-    inline vector<string> command() { DARABONBA_PTR_GET(command_, vector<string>) };
+    inline const vector<string> & getCommand() const { DARABONBA_PTR_GET_CONST(command_, vector<string>) };
+    inline vector<string> getCommand() { DARABONBA_PTR_GET(command_, vector<string>) };
     inline CodeConfiguration& setCommand(const vector<string> & command) { DARABONBA_PTR_SET_VALUE(command_, command) };
     inline CodeConfiguration& setCommand(vector<string> && command) { DARABONBA_PTR_SET_RVALUE(command_, command) };
 
@@ -61,42 +61,42 @@ namespace Models
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline CodeConfiguration& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // ossBucketName Field Functions 
     bool hasOssBucketName() const { return this->ossBucketName_ != nullptr;};
     void deleteOssBucketName() { this->ossBucketName_ = nullptr;};
-    inline string ossBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
+    inline string getOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(ossBucketName_, "") };
     inline CodeConfiguration& setOssBucketName(string ossBucketName) { DARABONBA_PTR_SET_VALUE(ossBucketName_, ossBucketName) };
 
 
     // ossObjectName Field Functions 
     bool hasOssObjectName() const { return this->ossObjectName_ != nullptr;};
     void deleteOssObjectName() { this->ossObjectName_ = nullptr;};
-    inline string ossObjectName() const { DARABONBA_PTR_GET_DEFAULT(ossObjectName_, "") };
+    inline string getOssObjectName() const { DARABONBA_PTR_GET_DEFAULT(ossObjectName_, "") };
     inline CodeConfiguration& setOssObjectName(string ossObjectName) { DARABONBA_PTR_SET_VALUE(ossObjectName_, ossObjectName) };
 
 
     // zipFile Field Functions 
     bool hasZipFile() const { return this->zipFile_ != nullptr;};
     void deleteZipFile() { this->zipFile_ = nullptr;};
-    inline string zipFile() const { DARABONBA_PTR_GET_DEFAULT(zipFile_, "") };
+    inline string getZipFile() const { DARABONBA_PTR_GET_DEFAULT(zipFile_, "") };
     inline CodeConfiguration& setZipFile(string zipFile) { DARABONBA_PTR_SET_VALUE(zipFile_, zipFile) };
 
 
   protected:
     // 代码包的CRC-64校验值。如果提供了checksum，则函数计算会校验代码包的checksum是否和提供的一致
-    std::shared_ptr<string> checksum_ = nullptr;
+    shared_ptr<string> checksum_ {};
     // 在运行时中运行的命令（例如：[\"python\"]）
-    std::shared_ptr<vector<string>> command_ = nullptr;
+    shared_ptr<vector<string>> command_ {};
     // 代码运行时的编程语言，如 python3、nodejs 等
-    std::shared_ptr<string> language_ = nullptr;
-    std::shared_ptr<string> ossBucketName_ = nullptr;
-    std::shared_ptr<string> ossObjectName_ = nullptr;
+    shared_ptr<string> language_ {};
+    shared_ptr<string> ossBucketName_ {};
+    shared_ptr<string> ossObjectName_ {};
     // 智能体代码ZIP包的Base64编码
-    std::shared_ptr<string> zipFile_ = nullptr;
+    shared_ptr<string> zipFile_ {};
   };
 
   } // namespace Models

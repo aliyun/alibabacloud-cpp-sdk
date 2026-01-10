@@ -37,42 +37,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->networkMode_ == nullptr
-        && return this->securityGroupId_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchIds_ == nullptr; };
+        && this->securityGroupId_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
     // networkMode Field Functions 
     bool hasNetworkMode() const { return this->networkMode_ != nullptr;};
     void deleteNetworkMode() { this->networkMode_ = nullptr;};
-    inline string networkMode() const { DARABONBA_PTR_GET_DEFAULT(networkMode_, "") };
+    inline string getNetworkMode() const { DARABONBA_PTR_GET_DEFAULT(networkMode_, "") };
     inline NetworkConfiguration& setNetworkMode(string networkMode) { DARABONBA_PTR_SET_VALUE(networkMode_, networkMode) };
 
 
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
-    inline string securityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
     inline NetworkConfiguration& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
 
 
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline NetworkConfiguration& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
     // vswitchIds Field Functions 
     bool hasVswitchIds() const { return this->vswitchIds_ != nullptr;};
     void deleteVswitchIds() { this->vswitchIds_ = nullptr;};
-    inline const vector<string> & vswitchIds() const { DARABONBA_PTR_GET_CONST(vswitchIds_, vector<string>) };
-    inline vector<string> vswitchIds() { DARABONBA_PTR_GET(vswitchIds_, vector<string>) };
+    inline const vector<string> & getVswitchIds() const { DARABONBA_PTR_GET_CONST(vswitchIds_, vector<string>) };
+    inline vector<string> getVswitchIds() { DARABONBA_PTR_GET(vswitchIds_, vector<string>) };
     inline NetworkConfiguration& setVswitchIds(const vector<string> & vswitchIds) { DARABONBA_PTR_SET_VALUE(vswitchIds_, vswitchIds) };
     inline NetworkConfiguration& setVswitchIds(vector<string> && vswitchIds) { DARABONBA_PTR_SET_RVALUE(vswitchIds_, vswitchIds) };
 
 
   protected:
-    std::shared_ptr<string> networkMode_ = nullptr;
-    std::shared_ptr<string> securityGroupId_ = nullptr;
-    std::shared_ptr<string> vpcId_ = nullptr;
-    std::shared_ptr<vector<string>> vswitchIds_ = nullptr;
+    shared_ptr<string> networkMode_ {};
+    shared_ptr<string> securityGroupId_ {};
+    shared_ptr<string> vpcId_ {};
+    shared_ptr<vector<string>> vswitchIds_ {};
   };
 
   } // namespace Models

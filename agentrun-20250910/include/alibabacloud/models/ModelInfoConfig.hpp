@@ -40,12 +40,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->modelFeatures_ == nullptr
-        && return this->modelName_ == nullptr && return this->modelParameterRules_ == nullptr && return this->modelProperties_ == nullptr; };
+        && this->modelName_ == nullptr && this->modelParameterRules_ == nullptr && this->modelProperties_ == nullptr; };
     // modelFeatures Field Functions 
     bool hasModelFeatures() const { return this->modelFeatures_ != nullptr;};
     void deleteModelFeatures() { this->modelFeatures_ = nullptr;};
-    inline const ModelFeatures & modelFeatures() const { DARABONBA_PTR_GET_CONST(modelFeatures_, ModelFeatures) };
-    inline ModelFeatures modelFeatures() { DARABONBA_PTR_GET(modelFeatures_, ModelFeatures) };
+    inline const ModelFeatures & getModelFeatures() const { DARABONBA_PTR_GET_CONST(modelFeatures_, ModelFeatures) };
+    inline ModelFeatures getModelFeatures() { DARABONBA_PTR_GET(modelFeatures_, ModelFeatures) };
     inline ModelInfoConfig& setModelFeatures(const ModelFeatures & modelFeatures) { DARABONBA_PTR_SET_VALUE(modelFeatures_, modelFeatures) };
     inline ModelInfoConfig& setModelFeatures(ModelFeatures && modelFeatures) { DARABONBA_PTR_SET_RVALUE(modelFeatures_, modelFeatures) };
 
@@ -53,15 +53,15 @@ namespace Models
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
-    inline string modelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline ModelInfoConfig& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
     // modelParameterRules Field Functions 
     bool hasModelParameterRules() const { return this->modelParameterRules_ != nullptr;};
     void deleteModelParameterRules() { this->modelParameterRules_ = nullptr;};
-    inline const vector<ModelParameterRule> & modelParameterRules() const { DARABONBA_PTR_GET_CONST(modelParameterRules_, vector<ModelParameterRule>) };
-    inline vector<ModelParameterRule> modelParameterRules() { DARABONBA_PTR_GET(modelParameterRules_, vector<ModelParameterRule>) };
+    inline const vector<ModelParameterRule> & getModelParameterRules() const { DARABONBA_PTR_GET_CONST(modelParameterRules_, vector<ModelParameterRule>) };
+    inline vector<ModelParameterRule> getModelParameterRules() { DARABONBA_PTR_GET(modelParameterRules_, vector<ModelParameterRule>) };
     inline ModelInfoConfig& setModelParameterRules(const vector<ModelParameterRule> & modelParameterRules) { DARABONBA_PTR_SET_VALUE(modelParameterRules_, modelParameterRules) };
     inline ModelInfoConfig& setModelParameterRules(vector<ModelParameterRule> && modelParameterRules) { DARABONBA_PTR_SET_RVALUE(modelParameterRules_, modelParameterRules) };
 
@@ -69,17 +69,17 @@ namespace Models
     // modelProperties Field Functions 
     bool hasModelProperties() const { return this->modelProperties_ != nullptr;};
     void deleteModelProperties() { this->modelProperties_ = nullptr;};
-    inline const ModelProperties & modelProperties() const { DARABONBA_PTR_GET_CONST(modelProperties_, ModelProperties) };
-    inline ModelProperties modelProperties() { DARABONBA_PTR_GET(modelProperties_, ModelProperties) };
+    inline const ModelProperties & getModelProperties() const { DARABONBA_PTR_GET_CONST(modelProperties_, ModelProperties) };
+    inline ModelProperties getModelProperties() { DARABONBA_PTR_GET(modelProperties_, ModelProperties) };
     inline ModelInfoConfig& setModelProperties(const ModelProperties & modelProperties) { DARABONBA_PTR_SET_VALUE(modelProperties_, modelProperties) };
     inline ModelInfoConfig& setModelProperties(ModelProperties && modelProperties) { DARABONBA_PTR_SET_RVALUE(modelProperties_, modelProperties) };
 
 
   protected:
-    std::shared_ptr<ModelFeatures> modelFeatures_ = nullptr;
-    std::shared_ptr<string> modelName_ = nullptr;
-    std::shared_ptr<vector<ModelParameterRule>> modelParameterRules_ = nullptr;
-    std::shared_ptr<ModelProperties> modelProperties_ = nullptr;
+    shared_ptr<ModelFeatures> modelFeatures_ {};
+    shared_ptr<string> modelName_ {};
+    shared_ptr<vector<ModelParameterRule>> modelParameterRules_ {};
+    shared_ptr<ModelProperties> modelProperties_ {};
   };
 
   } // namespace Models

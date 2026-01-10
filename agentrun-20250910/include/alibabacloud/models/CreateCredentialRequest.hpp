@@ -34,14 +34,14 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const CreateCredentialInput & body() const { DARABONBA_PTR_GET_CONST(body_, CreateCredentialInput) };
-    inline CreateCredentialInput body() { DARABONBA_PTR_GET(body_, CreateCredentialInput) };
+    inline const CreateCredentialInput & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateCredentialInput) };
+    inline CreateCredentialInput getBody() { DARABONBA_PTR_GET(body_, CreateCredentialInput) };
     inline CreateCredentialRequest& setBody(const CreateCredentialInput & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateCredentialRequest& setBody(CreateCredentialInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
-    std::shared_ptr<CreateCredentialInput> body_ = nullptr;
+    shared_ptr<CreateCredentialInput> body_ {};
   };
 
   } // namespace Models

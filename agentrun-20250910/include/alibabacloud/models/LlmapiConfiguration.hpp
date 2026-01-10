@@ -45,13 +45,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aiProtocols_ == nullptr
-        && return this->attachPolicyConfigs_ == nullptr && return this->basePath_ == nullptr && return this->deployConfigs_ == nullptr && return this->modelCategory_ == nullptr && return this->removeBasePathOnForward_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->attachPolicyConfigs_ == nullptr && this->basePath_ == nullptr && this->deployConfigs_ == nullptr && this->modelCategory_ == nullptr && this->removeBasePathOnForward_ == nullptr
+        && this->type_ == nullptr; };
     // aiProtocols Field Functions 
     bool hasAiProtocols() const { return this->aiProtocols_ != nullptr;};
     void deleteAiProtocols() { this->aiProtocols_ = nullptr;};
-    inline const vector<string> & aiProtocols() const { DARABONBA_PTR_GET_CONST(aiProtocols_, vector<string>) };
-    inline vector<string> aiProtocols() { DARABONBA_PTR_GET(aiProtocols_, vector<string>) };
+    inline const vector<string> & getAiProtocols() const { DARABONBA_PTR_GET_CONST(aiProtocols_, vector<string>) };
+    inline vector<string> getAiProtocols() { DARABONBA_PTR_GET(aiProtocols_, vector<string>) };
     inline LLMAPIConfiguration& setAiProtocols(const vector<string> & aiProtocols) { DARABONBA_PTR_SET_VALUE(aiProtocols_, aiProtocols) };
     inline LLMAPIConfiguration& setAiProtocols(vector<string> && aiProtocols) { DARABONBA_PTR_SET_RVALUE(aiProtocols_, aiProtocols) };
 
@@ -59,8 +59,8 @@ namespace Models
     // attachPolicyConfigs Field Functions 
     bool hasAttachPolicyConfigs() const { return this->attachPolicyConfigs_ != nullptr;};
     void deleteAttachPolicyConfigs() { this->attachPolicyConfigs_ = nullptr;};
-    inline const vector<AttachPolicyConfig> & attachPolicyConfigs() const { DARABONBA_PTR_GET_CONST(attachPolicyConfigs_, vector<AttachPolicyConfig>) };
-    inline vector<AttachPolicyConfig> attachPolicyConfigs() { DARABONBA_PTR_GET(attachPolicyConfigs_, vector<AttachPolicyConfig>) };
+    inline const vector<AttachPolicyConfig> & getAttachPolicyConfigs() const { DARABONBA_PTR_GET_CONST(attachPolicyConfigs_, vector<AttachPolicyConfig>) };
+    inline vector<AttachPolicyConfig> getAttachPolicyConfigs() { DARABONBA_PTR_GET(attachPolicyConfigs_, vector<AttachPolicyConfig>) };
     inline LLMAPIConfiguration& setAttachPolicyConfigs(const vector<AttachPolicyConfig> & attachPolicyConfigs) { DARABONBA_PTR_SET_VALUE(attachPolicyConfigs_, attachPolicyConfigs) };
     inline LLMAPIConfiguration& setAttachPolicyConfigs(vector<AttachPolicyConfig> && attachPolicyConfigs) { DARABONBA_PTR_SET_RVALUE(attachPolicyConfigs_, attachPolicyConfigs) };
 
@@ -68,15 +68,15 @@ namespace Models
     // basePath Field Functions 
     bool hasBasePath() const { return this->basePath_ != nullptr;};
     void deleteBasePath() { this->basePath_ = nullptr;};
-    inline string basePath() const { DARABONBA_PTR_GET_DEFAULT(basePath_, "") };
+    inline string getBasePath() const { DARABONBA_PTR_GET_DEFAULT(basePath_, "") };
     inline LLMAPIConfiguration& setBasePath(string basePath) { DARABONBA_PTR_SET_VALUE(basePath_, basePath) };
 
 
     // deployConfigs Field Functions 
     bool hasDeployConfigs() const { return this->deployConfigs_ != nullptr;};
     void deleteDeployConfigs() { this->deployConfigs_ = nullptr;};
-    inline const vector<LLMDeployConfig> & deployConfigs() const { DARABONBA_PTR_GET_CONST(deployConfigs_, vector<LLMDeployConfig>) };
-    inline vector<LLMDeployConfig> deployConfigs() { DARABONBA_PTR_GET(deployConfigs_, vector<LLMDeployConfig>) };
+    inline const vector<LLMDeployConfig> & getDeployConfigs() const { DARABONBA_PTR_GET_CONST(deployConfigs_, vector<LLMDeployConfig>) };
+    inline vector<LLMDeployConfig> getDeployConfigs() { DARABONBA_PTR_GET(deployConfigs_, vector<LLMDeployConfig>) };
     inline LLMAPIConfiguration& setDeployConfigs(const vector<LLMDeployConfig> & deployConfigs) { DARABONBA_PTR_SET_VALUE(deployConfigs_, deployConfigs) };
     inline LLMAPIConfiguration& setDeployConfigs(vector<LLMDeployConfig> && deployConfigs) { DARABONBA_PTR_SET_RVALUE(deployConfigs_, deployConfigs) };
 
@@ -84,32 +84,32 @@ namespace Models
     // modelCategory Field Functions 
     bool hasModelCategory() const { return this->modelCategory_ != nullptr;};
     void deleteModelCategory() { this->modelCategory_ = nullptr;};
-    inline string modelCategory() const { DARABONBA_PTR_GET_DEFAULT(modelCategory_, "") };
+    inline string getModelCategory() const { DARABONBA_PTR_GET_DEFAULT(modelCategory_, "") };
     inline LLMAPIConfiguration& setModelCategory(string modelCategory) { DARABONBA_PTR_SET_VALUE(modelCategory_, modelCategory) };
 
 
     // removeBasePathOnForward Field Functions 
     bool hasRemoveBasePathOnForward() const { return this->removeBasePathOnForward_ != nullptr;};
     void deleteRemoveBasePathOnForward() { this->removeBasePathOnForward_ = nullptr;};
-    inline bool removeBasePathOnForward() const { DARABONBA_PTR_GET_DEFAULT(removeBasePathOnForward_, false) };
+    inline bool getRemoveBasePathOnForward() const { DARABONBA_PTR_GET_DEFAULT(removeBasePathOnForward_, false) };
     inline LLMAPIConfiguration& setRemoveBasePathOnForward(bool removeBasePathOnForward) { DARABONBA_PTR_SET_VALUE(removeBasePathOnForward_, removeBasePathOnForward) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline LLMAPIConfiguration& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<vector<string>> aiProtocols_ = nullptr;
-    std::shared_ptr<vector<AttachPolicyConfig>> attachPolicyConfigs_ = nullptr;
-    std::shared_ptr<string> basePath_ = nullptr;
-    std::shared_ptr<vector<LLMDeployConfig>> deployConfigs_ = nullptr;
-    std::shared_ptr<string> modelCategory_ = nullptr;
-    std::shared_ptr<bool> removeBasePathOnForward_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<vector<string>> aiProtocols_ {};
+    shared_ptr<vector<AttachPolicyConfig>> attachPolicyConfigs_ {};
+    shared_ptr<string> basePath_ {};
+    shared_ptr<vector<LLMDeployConfig>> deployConfigs_ {};
+    shared_ptr<string> modelCategory_ {};
+    shared_ptr<bool> removeBasePathOnForward_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

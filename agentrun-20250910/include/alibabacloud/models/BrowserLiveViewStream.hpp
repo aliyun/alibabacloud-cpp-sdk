@@ -33,12 +33,12 @@ namespace Models
     // streamEndpoint Field Functions 
     bool hasStreamEndpoint() const { return this->streamEndpoint_ != nullptr;};
     void deleteStreamEndpoint() { this->streamEndpoint_ = nullptr;};
-    inline string streamEndpoint() const { DARABONBA_PTR_GET_DEFAULT(streamEndpoint_, "") };
+    inline string getStreamEndpoint() const { DARABONBA_PTR_GET_DEFAULT(streamEndpoint_, "") };
     inline BrowserLiveViewStream& setStreamEndpoint(string streamEndpoint) { DARABONBA_PTR_SET_VALUE(streamEndpoint_, streamEndpoint) };
 
 
   protected:
-    std::shared_ptr<string> streamEndpoint_ = nullptr;
+    shared_ptr<string> streamEndpoint_ {};
   };
 
   } // namespace Models

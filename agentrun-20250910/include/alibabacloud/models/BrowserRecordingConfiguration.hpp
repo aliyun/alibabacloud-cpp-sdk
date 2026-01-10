@@ -33,26 +33,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && return this->ossLocation_ == nullptr; };
+        && this->ossLocation_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline BrowserRecordingConfiguration& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // ossLocation Field Functions 
     bool hasOssLocation() const { return this->ossLocation_ != nullptr;};
     void deleteOssLocation() { this->ossLocation_ = nullptr;};
-    inline const BrowserOssLocation & ossLocation() const { DARABONBA_PTR_GET_CONST(ossLocation_, BrowserOssLocation) };
-    inline BrowserOssLocation ossLocation() { DARABONBA_PTR_GET(ossLocation_, BrowserOssLocation) };
+    inline const BrowserOssLocation & getOssLocation() const { DARABONBA_PTR_GET_CONST(ossLocation_, BrowserOssLocation) };
+    inline BrowserOssLocation getOssLocation() { DARABONBA_PTR_GET(ossLocation_, BrowserOssLocation) };
     inline BrowserRecordingConfiguration& setOssLocation(const BrowserOssLocation & ossLocation) { DARABONBA_PTR_SET_VALUE(ossLocation_, ossLocation) };
     inline BrowserRecordingConfiguration& setOssLocation(BrowserOssLocation && ossLocation) { DARABONBA_PTR_SET_RVALUE(ossLocation_, ossLocation) };
 
 
   protected:
-    std::shared_ptr<bool> enabled_ = nullptr;
-    std::shared_ptr<BrowserOssLocation> ossLocation_ = nullptr;
+    shared_ptr<bool> enabled_ {};
+    shared_ptr<BrowserOssLocation> ossLocation_ {};
   };
 
   } // namespace Models
