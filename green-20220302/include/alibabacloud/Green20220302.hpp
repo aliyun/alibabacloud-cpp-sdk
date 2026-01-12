@@ -276,6 +276,23 @@ namespace Green20220302
       Models::ManualModerationResultResponse manualModerationResult(const Models::ManualModerationResultRequest &request);
 
       /**
+       * @summary 多模态AgentAPI同步检测接口
+       *
+       * @param request MultiModalAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MultiModalAgentResponse
+       */
+      Models::MultiModalAgentResponse multiModalAgentWithOptions(const Models::MultiModalAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 多模态AgentAPI同步检测接口
+       *
+       * @param request MultiModalAgentRequest
+       * @return MultiModalAgentResponse
+       */
+      Models::MultiModalAgentResponse multiModalAgent(const Models::MultiModalAgentRequest &request);
+
+      /**
        * @summary 同步检测接口
        *
        * @param request MultiModalGuardRequest

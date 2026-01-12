@@ -705,6 +705,52 @@ ManualModerationResultResponse Client::manualModerationResult(const ManualModera
 }
 
 /**
+ * @summary 多模态AgentAPI同步检测接口
+ *
+ * @param request MultiModalAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultiModalAgentResponse
+ */
+MultiModalAgentResponse Client::multiModalAgentWithOptions(const MultiModalAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppID()) {
+    body["AppID"] = request.getAppID();
+  }
+
+  if (!!request.hasServiceParameters()) {
+    body["ServiceParameters"] = request.getServiceParameters();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "MultiModalAgent"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MultiModalAgentResponse>();
+}
+
+/**
+ * @summary 多模态AgentAPI同步检测接口
+ *
+ * @param request MultiModalAgentRequest
+ * @return MultiModalAgentResponse
+ */
+MultiModalAgentResponse Client::multiModalAgent(const MultiModalAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return multiModalAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary 同步检测接口
  *
  * @param request MultiModalGuardRequest

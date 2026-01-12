@@ -43,6 +43,9 @@
 #include <alibabacloud/models/ManualModerationResultRequest.hpp>
 #include <alibabacloud/models/ManualModerationResultResponseBody.hpp>
 #include <alibabacloud/models/ManualModerationResultResponse.hpp>
+#include <alibabacloud/models/MultiModalAgentRequest.hpp>
+#include <alibabacloud/models/MultiModalAgentResponseBody.hpp>
+#include <alibabacloud/models/MultiModalAgentResponse.hpp>
 #include <alibabacloud/models/MultiModalGuardRequest.hpp>
 #include <alibabacloud/models/MultiModalGuardResponseBody.hpp>
 #include <alibabacloud/models/MultiModalGuardResponse.hpp>
