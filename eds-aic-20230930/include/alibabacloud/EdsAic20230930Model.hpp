@@ -9,6 +9,12 @@
 #include <alibabacloud/models/AuthorizeAndroidInstanceRequest.hpp>
 #include <alibabacloud/models/AuthorizeAndroidInstanceResponseBody.hpp>
 #include <alibabacloud/models/AuthorizeAndroidInstanceResponse.hpp>
+#include <alibabacloud/models/BackupAndroidInstanceRequest.hpp>
+#include <alibabacloud/models/BackupAndroidInstanceResponseBody.hpp>
+#include <alibabacloud/models/BackupAndroidInstanceResponse.hpp>
+#include <alibabacloud/models/BackupAppRequest.hpp>
+#include <alibabacloud/models/BackupAppResponseBody.hpp>
+#include <alibabacloud/models/BackupAppResponse.hpp>
 #include <alibabacloud/models/BackupFileRequest.hpp>
 #include <alibabacloud/models/BackupFileResponseBody.hpp>
 #include <alibabacloud/models/BackupFileResponse.hpp>
@@ -216,6 +222,12 @@
 #include <alibabacloud/models/RebootAndroidInstancesInGroupRequest.hpp>
 #include <alibabacloud/models/RebootAndroidInstancesInGroupResponseBody.hpp>
 #include <alibabacloud/models/RebootAndroidInstancesInGroupResponse.hpp>
+#include <alibabacloud/models/RecoverAndroidInstanceRequest.hpp>
+#include <alibabacloud/models/RecoverAndroidInstanceResponseBody.hpp>
+#include <alibabacloud/models/RecoverAndroidInstanceResponse.hpp>
+#include <alibabacloud/models/RecoverAppRequest.hpp>
+#include <alibabacloud/models/RecoverAppResponseBody.hpp>
+#include <alibabacloud/models/RecoverAppResponse.hpp>
 #include <alibabacloud/models/RecoveryFileRequest.hpp>
 #include <alibabacloud/models/RecoveryFileResponseBody.hpp>
 #include <alibabacloud/models/RecoveryFileResponse.hpp>
