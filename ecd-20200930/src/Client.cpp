@@ -978,6 +978,8 @@ AttachEndUserResponse Client::attachEndUser(const AttachEndUserRequest &request)
 }
 
 /**
+ * @summary Assigns multiple cloud computers to users in a batch.
+ *
  * @description *   The cloud computers for which you want to change their policies must be in the Running state.
  * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
  * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
@@ -1035,6 +1037,8 @@ BatchModifyEntitlementResponse Client::batchModifyEntitlementWithOptions(const B
 }
 
 /**
+ * @summary Assigns multiple cloud computers to users in a batch.
+ *
  * @description *   The cloud computers for which you want to change their policies must be in the Running state.
  * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
  * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
@@ -4901,6 +4905,10 @@ CreateSimpleOfficeSiteResponse Client::createSimpleOfficeSiteWithOptions(const C
 
   if (!!request.hasDomainName()) {
     query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEid()) {
+    query["Eid"] = request.getEid();
   }
 
   if (!!request.hasEnableAdminAccess()) {
@@ -11395,6 +11403,10 @@ DescribeSnatTableEntriesResponse Client::describeSnatTableEntries(const Describe
 DescribeSubnetsResponse Client::describeSubnetsWithOptions(const DescribeSubnetsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEid()) {
+    query["Eid"] = request.getEid();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }

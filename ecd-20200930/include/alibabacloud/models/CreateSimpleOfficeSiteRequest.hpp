@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CloudBoxOfficeSite, cloudBoxOfficeSite_);
       DARABONBA_PTR_TO_JSON(DesktopAccessType, desktopAccessType_);
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+      DARABONBA_PTR_TO_JSON(Eid, eid_);
       DARABONBA_PTR_TO_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_TO_JSON(EnableInternetAccess, enableInternetAccess_);
       DARABONBA_PTR_TO_JSON(NeedVerifyZeroDevice, needVerifyZeroDevice_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CloudBoxOfficeSite, cloudBoxOfficeSite_);
       DARABONBA_PTR_FROM_JSON(DesktopAccessType, desktopAccessType_);
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(Eid, eid_);
       DARABONBA_PTR_FROM_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_FROM_JSON(EnableInternetAccess, enableInternetAccess_);
       DARABONBA_PTR_FROM_JSON(NeedVerifyZeroDevice, needVerifyZeroDevice_);
@@ -71,8 +73,8 @@ namespace Models
     virtual bool empty() const override { return this->accountType_ == nullptr
         && this->authorityHost_ == nullptr && this->bandwidth_ == nullptr && this->cenId_ == nullptr && this->cenOwnerId_ == nullptr && this->cidrBlock_ == nullptr
         && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->cloudBoxOfficeSite_ == nullptr && this->desktopAccessType_ == nullptr && this->domainName_ == nullptr
-        && this->enableAdminAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->needVerifyZeroDevice_ == nullptr && this->officeSiteName_ == nullptr && this->regionId_ == nullptr
-        && this->tenantId_ == nullptr && this->vSwitchId_ == nullptr && this->verifyCode_ == nullptr && this->vpcType_ == nullptr; };
+        && this->eid_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->needVerifyZeroDevice_ == nullptr && this->officeSiteName_ == nullptr
+        && this->regionId_ == nullptr && this->tenantId_ == nullptr && this->vSwitchId_ == nullptr && this->verifyCode_ == nullptr && this->vpcType_ == nullptr; };
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateSimpleOfficeSiteRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // eid Field Functions 
+    bool hasEid() const { return this->eid_ != nullptr;};
+    void deleteEid() { this->eid_ = nullptr;};
+    inline string getEid() const { DARABONBA_PTR_GET_DEFAULT(eid_, "") };
+    inline CreateSimpleOfficeSiteRequest& setEid(string eid) { DARABONBA_PTR_SET_VALUE(eid_, eid) };
 
 
     // enableAdminAccess Field Functions 
@@ -262,6 +271,7 @@ namespace Models
     // >  The VPC connection depends on Alibaba Cloud PrivateLink. You can use PrivateLink for free. When you set this parameter to VPC or Any, PrivateLink is automatically activated.````
     shared_ptr<string> desktopAccessType_ {};
     shared_ptr<string> domainName_ {};
+    shared_ptr<string> eid_ {};
     // Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
     // 
     // Valid values:

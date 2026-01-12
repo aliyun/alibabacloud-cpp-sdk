@@ -65,10 +65,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DomainName, domainName_);
         DARABONBA_PTR_TO_JSON(DomainPassword, domainPassword_);
         DARABONBA_PTR_TO_JSON(DomainUserName, domainUserName_);
+        DARABONBA_PTR_TO_JSON(Eid, eid_);
         DARABONBA_PTR_TO_JSON(EnableAdminAccess, enableAdminAccess_);
         DARABONBA_PTR_TO_JSON(EnableCrossDesktopAccess, enableCrossDesktopAccess_);
         DARABONBA_PTR_TO_JSON(EnableInternetAccess, enableInternetAccess_);
         DARABONBA_PTR_TO_JSON(EnableServiceRoute, enableServiceRoute_);
+        DARABONBA_PTR_TO_JSON(EnvType, envType_);
         DARABONBA_PTR_TO_JSON(FileSystemIds, fileSystemIds_);
         DARABONBA_PTR_TO_JSON(IsLdap, isLdap_);
         DARABONBA_PTR_TO_JSON(LdapUrl, ldapUrl_);
@@ -130,10 +132,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
         DARABONBA_PTR_FROM_JSON(DomainPassword, domainPassword_);
         DARABONBA_PTR_FROM_JSON(DomainUserName, domainUserName_);
+        DARABONBA_PTR_FROM_JSON(Eid, eid_);
         DARABONBA_PTR_FROM_JSON(EnableAdminAccess, enableAdminAccess_);
         DARABONBA_PTR_FROM_JSON(EnableCrossDesktopAccess, enableCrossDesktopAccess_);
         DARABONBA_PTR_FROM_JSON(EnableInternetAccess, enableInternetAccess_);
         DARABONBA_PTR_FROM_JSON(EnableServiceRoute, enableServiceRoute_);
+        DARABONBA_PTR_FROM_JSON(EnvType, envType_);
         DARABONBA_PTR_FROM_JSON(FileSystemIds, fileSystemIds_);
         DARABONBA_PTR_FROM_JSON(IsLdap, isLdap_);
         DARABONBA_PTR_FROM_JSON(LdapUrl, ldapUrl_);
@@ -407,14 +411,14 @@ namespace Models
         && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->cloudBoxOfficeSite_ == nullptr && this->creationTime_ == nullptr && this->customAccessPoint_ == nullptr
         && this->customDnsAddress_ == nullptr && this->customSecurityGroupId_ == nullptr && this->desktopAccessType_ == nullptr && this->desktopCount_ == nullptr && this->desktopVpcEndpoint_ == nullptr
         && this->dnsAddress_ == nullptr && this->dnsUserName_ == nullptr && this->domainName_ == nullptr && this->domainPassword_ == nullptr && this->domainUserName_ == nullptr
-        && this->enableAdminAccess_ == nullptr && this->enableCrossDesktopAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->enableServiceRoute_ == nullptr && this->fileSystemIds_ == nullptr
-        && this->isLdap_ == nullptr && this->ldapUrl_ == nullptr && this->logs_ == nullptr && this->mfaEnabled_ == nullptr && this->name_ == nullptr
-        && this->needVerifyLoginRisk_ == nullptr && this->needVerifyZeroDevice_ == nullptr && this->networkPackageId_ == nullptr && this->nmVersion_ == nullptr && this->officeSiteId_ == nullptr
-        && this->officeSiteType_ == nullptr && this->ouName_ == nullptr && this->protocolType_ == nullptr && this->rdsLicenseAddress_ == nullptr && this->rdsLicenseDomainName_ == nullptr
-        && this->rdsLicenseStatus_ == nullptr && this->resourceAmounts_ == nullptr && this->securityProtection_ == nullptr && this->ssoEnabled_ == nullptr && this->ssoType_ == nullptr
-        && this->status_ == nullptr && this->subDnsAddress_ == nullptr && this->subDomainName_ == nullptr && this->subnetMode_ == nullptr && this->tenantId_ == nullptr
-        && this->totalEdsCount_ == nullptr && this->totalEdsCountForGroup_ == nullptr && this->totalResourceAmount_ == nullptr && this->trustPassword_ == nullptr && this->vSwitchIds_ == nullptr
-        && this->vpcId_ == nullptr && this->vpcType_ == nullptr; };
+        && this->eid_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableCrossDesktopAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->enableServiceRoute_ == nullptr
+        && this->envType_ == nullptr && this->fileSystemIds_ == nullptr && this->isLdap_ == nullptr && this->ldapUrl_ == nullptr && this->logs_ == nullptr
+        && this->mfaEnabled_ == nullptr && this->name_ == nullptr && this->needVerifyLoginRisk_ == nullptr && this->needVerifyZeroDevice_ == nullptr && this->networkPackageId_ == nullptr
+        && this->nmVersion_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteType_ == nullptr && this->ouName_ == nullptr && this->protocolType_ == nullptr
+        && this->rdsLicenseAddress_ == nullptr && this->rdsLicenseDomainName_ == nullptr && this->rdsLicenseStatus_ == nullptr && this->resourceAmounts_ == nullptr && this->securityProtection_ == nullptr
+        && this->ssoEnabled_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr && this->subDnsAddress_ == nullptr && this->subDomainName_ == nullptr
+        && this->subnetMode_ == nullptr && this->tenantId_ == nullptr && this->totalEdsCount_ == nullptr && this->totalEdsCountForGroup_ == nullptr && this->totalResourceAmount_ == nullptr
+        && this->trustPassword_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->vpcType_ == nullptr; };
       // ADConnectors Field Functions 
       bool hasADConnectors() const { return this->ADConnectors_ != nullptr;};
       void deleteADConnectors() { this->ADConnectors_ = nullptr;};
@@ -603,6 +607,13 @@ namespace Models
       inline OfficeSites& setDomainUserName(string domainUserName) { DARABONBA_PTR_SET_VALUE(domainUserName_, domainUserName) };
 
 
+      // eid Field Functions 
+      bool hasEid() const { return this->eid_ != nullptr;};
+      void deleteEid() { this->eid_ = nullptr;};
+      inline string getEid() const { DARABONBA_PTR_GET_DEFAULT(eid_, "") };
+      inline OfficeSites& setEid(string eid) { DARABONBA_PTR_SET_VALUE(eid_, eid) };
+
+
       // enableAdminAccess Field Functions 
       bool hasEnableAdminAccess() const { return this->enableAdminAccess_ != nullptr;};
       void deleteEnableAdminAccess() { this->enableAdminAccess_ = nullptr;};
@@ -629,6 +640,13 @@ namespace Models
       void deleteEnableServiceRoute() { this->enableServiceRoute_ = nullptr;};
       inline bool getEnableServiceRoute() const { DARABONBA_PTR_GET_DEFAULT(enableServiceRoute_, false) };
       inline OfficeSites& setEnableServiceRoute(bool enableServiceRoute) { DARABONBA_PTR_SET_VALUE(enableServiceRoute_, enableServiceRoute) };
+
+
+      // envType Field Functions 
+      bool hasEnvType() const { return this->envType_ != nullptr;};
+      void deleteEnvType() { this->envType_ = nullptr;};
+      inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+      inline OfficeSites& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
       // fileSystemIds Field Functions 
@@ -935,6 +953,7 @@ namespace Models
       shared_ptr<string> domainPassword_ {};
       // The username of the domain administrator.
       shared_ptr<string> domainUserName_ {};
+      shared_ptr<string> eid_ {};
       // Indicates whether the local administrator permissions are granted to users that are authorized to use cloud computers in the office network.
       // 
       // Valid values:
@@ -948,6 +967,7 @@ namespace Models
       shared_ptr<bool> enableInternetAccess_ {};
       // Indicates whether route access control is enabled for cloud services.
       shared_ptr<bool> enableServiceRoute_ {};
+      shared_ptr<string> envType_ {};
       // An array of File Storage NAS (NAS) file system IDs.
       shared_ptr<vector<string>> fileSystemIds_ {};
       shared_ptr<bool> isLdap_ {};

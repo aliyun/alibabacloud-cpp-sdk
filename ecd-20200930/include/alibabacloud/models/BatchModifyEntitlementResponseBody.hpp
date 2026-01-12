@@ -146,6 +146,7 @@ namespace Models
 
 
     protected:
+      // The assignment results.
       shared_ptr<vector<Entitlements::AssignModels>> assignModels_ {};
       // The result.
       // 
@@ -180,6 +181,7 @@ namespace Models
 
 
   protected:
+    // The results.
     shared_ptr<BatchModifyEntitlementResponseBody::Entitlements> entitlements_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
