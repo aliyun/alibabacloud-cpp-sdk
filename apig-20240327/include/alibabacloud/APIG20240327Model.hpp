@@ -40,7 +40,7 @@
 #include <alibabacloud/models/HttpRouteMatch.hpp>
 #include <alibabacloud/models/HttpRoute.hpp>
 #include <alibabacloud/models/JwtIdentityConfig.hpp>
-#include <alibabacloud/models/KmsConfig.hpp>
+#include <alibabacloud/models/KMSConfig.hpp>
 #include <alibabacloud/models/LabelDetail.hpp>
 #include <alibabacloud/models/McpServerConfig.hpp>
 #include <alibabacloud/models/ParentResourceInfo.hpp>
@@ -275,9 +275,9 @@
 #include <alibabacloud/models/RemoveConsumerAuthorizationRuleResponse.hpp>
 #include <alibabacloud/models/RestartGatewayResponseBody.hpp>
 #include <alibabacloud/models/RestartGatewayResponse.hpp>
-#include <alibabacloud/models/SyncMcpServersRequest.hpp>
-#include <alibabacloud/models/SyncMcpServersResponseBody.hpp>
-#include <alibabacloud/models/SyncMcpServersResponse.hpp>
+#include <alibabacloud/models/SyncMCPServersRequest.hpp>
+#include <alibabacloud/models/SyncMCPServersResponseBody.hpp>
+#include <alibabacloud/models/SyncMCPServersResponse.hpp>
 #include <alibabacloud/models/UnDeployMcpServerResponseBody.hpp>
 #include <alibabacloud/models/UnDeployMcpServerResponse.hpp>
 #include <alibabacloud/models/UndeployHttpApiRequest.hpp>

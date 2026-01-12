@@ -5383,6 +5383,10 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
     body["name"] = request.getName();
   }
 
+  if (!!request.hasPolicyConfigs()) {
+    body["policyConfigs"] = request.getPolicyConfigs();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
