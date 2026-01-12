@@ -342,6 +342,46 @@ CreateKnowledgeBaseResponse Client::createKnowledgeBase(const CreateKnowledgeBas
 }
 
 /**
+ * @summary 添加记忆存储
+ *
+ * @param request CreateMemoryCollectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMemoryCollectionResponse
+ */
+CreateMemoryCollectionResponse Client::createMemoryCollectionWithOptions(const CreateMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMemoryCollection"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memory-collections")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMemoryCollectionResponse>();
+}
+
+/**
+ * @summary 添加记忆存储
+ *
+ * @param request CreateMemoryCollectionRequest
+ * @return CreateMemoryCollectionResponse
+ */
+CreateMemoryCollectionResponse Client::createMemoryCollection(const CreateMemoryCollectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMemoryCollectionWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 新增模型
  *
  * @param request CreateModelProxyRequest
@@ -735,6 +775,42 @@ DeleteKnowledgeBaseResponse Client::deleteKnowledgeBase(const string &knowledgeB
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
+}
+
+/**
+ * @summary 删除记忆存储
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMemoryCollectionResponse
+ */
+DeleteMemoryCollectionResponse Client::deleteMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMemoryCollection"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memory-collections/" , Darabonba::Encode::Encoder::percentEncode(memoryCollectionName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMemoryCollectionResponse>();
+}
+
+/**
+ * @summary 删除记忆存储
+ *
+ * @return DeleteMemoryCollectionResponse
+ */
+DeleteMemoryCollectionResponse Client::deleteMemoryCollection(const string &memoryCollectionName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMemoryCollectionWithOptions(memoryCollectionName, headers, runtime);
 }
 
 /**
@@ -1173,6 +1249,42 @@ GetKnowledgeBaseResponse Client::getKnowledgeBase(const string &knowledgeBaseNam
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getKnowledgeBaseWithOptions(knowledgeBaseName, headers, runtime);
+}
+
+/**
+ * @summary 查询记忆存储详情
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryCollectionResponse
+ */
+GetMemoryCollectionResponse Client::getMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemoryCollection"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memory-collections/" , Darabonba::Encode::Encoder::percentEncode(memoryCollectionName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryCollectionResponse>();
+}
+
+/**
+ * @summary 查询记忆存储详情
+ *
+ * @return GetMemoryCollectionResponse
+ */
+GetMemoryCollectionResponse Client::getMemoryCollection(const string &memoryCollectionName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryCollectionWithOptions(memoryCollectionName, headers, runtime);
 }
 
 /**
@@ -1740,6 +1852,67 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listKnowledgeBasesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询记忆存储列表
+ *
+ * @param request ListMemoryCollectionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemoryCollectionsResponse
+ */
+ListMemoryCollectionsResponse Client::listMemoryCollectionsWithOptions(const ListMemoryCollectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMemoryCollectionName()) {
+    query["memoryCollectionName"] = request.getMemoryCollectionName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemoryCollections"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memory-collections")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemoryCollectionsResponse>();
+}
+
+/**
+ * @summary 查询记忆存储列表
+ *
+ * @param request ListMemoryCollectionsRequest
+ * @return ListMemoryCollectionsResponse
+ */
+ListMemoryCollectionsResponse Client::listMemoryCollections(const ListMemoryCollectionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemoryCollectionsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2333,6 +2506,46 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const string &knowledgeB
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateKnowledgeBaseWithOptions(knowledgeBaseName, request, headers, runtime);
+}
+
+/**
+ * @summary 修改记忆存储信息
+ *
+ * @param request UpdateMemoryCollectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMemoryCollectionResponse
+ */
+UpdateMemoryCollectionResponse Client::updateMemoryCollectionWithOptions(const string &memoryCollectionName, const UpdateMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMemoryCollection"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/memory-collections/" , Darabonba::Encode::Encoder::percentEncode(memoryCollectionName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMemoryCollectionResponse>();
+}
+
+/**
+ * @summary 修改记忆存储信息
+ *
+ * @param request UpdateMemoryCollectionRequest
+ * @return UpdateMemoryCollectionResponse
+ */
+UpdateMemoryCollectionResponse Client::updateMemoryCollection(const string &memoryCollectionName, const UpdateMemoryCollectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMemoryCollectionWithOptions(memoryCollectionName, request, headers, runtime);
 }
 
 /**

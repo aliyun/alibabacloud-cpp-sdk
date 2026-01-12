@@ -163,6 +163,24 @@ namespace AgentRun20250910
       Models::CreateKnowledgeBaseResponse createKnowledgeBase(const Models::CreateKnowledgeBaseRequest &request);
 
       /**
+       * @summary 添加记忆存储
+       *
+       * @param request CreateMemoryCollectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryCollectionResponse
+       */
+      Models::CreateMemoryCollectionResponse createMemoryCollectionWithOptions(const Models::CreateMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加记忆存储
+       *
+       * @param request CreateMemoryCollectionRequest
+       * @return CreateMemoryCollectionResponse
+       */
+      Models::CreateMemoryCollectionResponse createMemoryCollection(const Models::CreateMemoryCollectionRequest &request);
+
+      /**
        * @summary 新增模型
        *
        * @param request CreateModelProxyRequest
@@ -349,6 +367,22 @@ namespace AgentRun20250910
        * @return DeleteKnowledgeBaseResponse
        */
       Models::DeleteKnowledgeBaseResponse deleteKnowledgeBase(const string &knowledgeBaseName);
+
+      /**
+       * @summary 删除记忆存储
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryCollectionResponse
+       */
+      Models::DeleteMemoryCollectionResponse deleteMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除记忆存储
+       *
+       * @return DeleteMemoryCollectionResponse
+       */
+      Models::DeleteMemoryCollectionResponse deleteMemoryCollection(const string &memoryCollectionName);
 
       /**
        * @summary 删除模型
@@ -545,6 +579,22 @@ namespace AgentRun20250910
        * @return GetKnowledgeBaseResponse
        */
       Models::GetKnowledgeBaseResponse getKnowledgeBase(const string &knowledgeBaseName);
+
+      /**
+       * @summary 查询记忆存储详情
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryCollectionResponse
+       */
+      Models::GetMemoryCollectionResponse getMemoryCollectionWithOptions(const string &memoryCollectionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询记忆存储详情
+       *
+       * @return GetMemoryCollectionResponse
+       */
+      Models::GetMemoryCollectionResponse getMemoryCollection(const string &memoryCollectionName);
 
       /**
        * @summary 查看model
@@ -759,6 +809,24 @@ namespace AgentRun20250910
        * @return ListKnowledgeBasesResponse
        */
       Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
+
+      /**
+       * @summary 查询记忆存储列表
+       *
+       * @param request ListMemoryCollectionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoryCollectionsResponse
+       */
+      Models::ListMemoryCollectionsResponse listMemoryCollectionsWithOptions(const Models::ListMemoryCollectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询记忆存储列表
+       *
+       * @param request ListMemoryCollectionsRequest
+       * @return ListMemoryCollectionsResponse
+       */
+      Models::ListMemoryCollectionsResponse listMemoryCollections(const Models::ListMemoryCollectionsRequest &request);
 
       /**
        * @summary 查询支持的模型提供商及其模型
@@ -991,6 +1059,24 @@ namespace AgentRun20250910
        * @return UpdateKnowledgeBaseResponse
        */
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const string &knowledgeBaseName, const Models::UpdateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 修改记忆存储信息
+       *
+       * @param request UpdateMemoryCollectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryCollectionResponse
+       */
+      Models::UpdateMemoryCollectionResponse updateMemoryCollectionWithOptions(const string &memoryCollectionName, const Models::UpdateMemoryCollectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改记忆存储信息
+       *
+       * @param request UpdateMemoryCollectionRequest
+       * @return UpdateMemoryCollectionResponse
+       */
+      Models::UpdateMemoryCollectionResponse updateMemoryCollection(const string &memoryCollectionName, const Models::UpdateMemoryCollectionRequest &request);
 
       /**
        * @summary 更新模型

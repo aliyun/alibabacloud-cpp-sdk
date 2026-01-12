@@ -225,6 +225,8 @@
 #include <alibabacloud/models/CreateCredentialResponse.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/CreateKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/CreateMemoryCollectionRequest.hpp>
+#include <alibabacloud/models/CreateMemoryCollectionResponse.hpp>
 #include <alibabacloud/models/CreateModelProxyRequest.hpp>
 #include <alibabacloud/models/CreateModelProxyResponse.hpp>
 #include <alibabacloud/models/CreateModelServiceRequest.hpp>
@@ -239,6 +241,7 @@
 #include <alibabacloud/models/DeleteCodeInterpreterResponse.hpp>
 #include <alibabacloud/models/DeleteCredentialResponse.hpp>
 #include <alibabacloud/models/DeleteKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/DeleteMemoryCollectionResponse.hpp>
 #include <alibabacloud/models/DeleteModelProxyResponse.hpp>
 #include <alibabacloud/models/DeleteModelServiceResponse.hpp>
 #include <alibabacloud/models/DeleteSandboxResponse.hpp>
@@ -253,6 +256,7 @@
 #include <alibabacloud/models/GetCodeInterpreterResponse.hpp>
 #include <alibabacloud/models/GetCredentialResponse.hpp>
 #include <alibabacloud/models/GetKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/GetMemoryCollectionResponse.hpp>
 #include <alibabacloud/models/GetModelProxyResponse.hpp>
 #include <alibabacloud/models/GetModelServiceResponse.hpp>
 #include <alibabacloud/models/GetSandboxResponse.hpp>
@@ -271,6 +275,8 @@
 #include <alibabacloud/models/ListCredentialsResponse.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesRequest.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResponse.hpp>
+#include <alibabacloud/models/ListMemoryCollectionsRequest.hpp>
+#include <alibabacloud/models/ListMemoryCollectionsResponse.hpp>
 #include <alibabacloud/models/ListModelProvidersRequest.hpp>
 #include <alibabacloud/models/ListModelProvidersResponseBody.hpp>
 #include <alibabacloud/models/ListModelProvidersResponse.hpp>
@@ -294,6 +300,8 @@
 #include <alibabacloud/models/UpdateCredentialResponse.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/UpdateKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/UpdateMemoryCollectionRequest.hpp>
+#include <alibabacloud/models/UpdateMemoryCollectionResponse.hpp>
 #include <alibabacloud/models/UpdateModelProxyRequest.hpp>
 #include <alibabacloud/models/UpdateModelProxyResponse.hpp>
 #include <alibabacloud/models/UpdateModelServiceRequest.hpp>
