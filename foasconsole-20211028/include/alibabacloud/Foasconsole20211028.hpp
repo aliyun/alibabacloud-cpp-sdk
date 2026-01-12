@@ -241,6 +241,23 @@ namespace Foasconsole20211028
       Models::ModifyElasticResourceSpecResponse modifyElasticResourceSpec(const Models::ModifyElasticResourceSpecRequest &request);
 
       /**
+       * @summary 对包年实例升降配，对按量实例修改resource quota
+       *
+       * @param tmpReq ModifyInstanceSpecRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceSpecResponse
+       */
+      Models::ModifyInstanceSpecResponse modifyInstanceSpecWithOptions(const Models::ModifyInstanceSpecRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 对包年实例升降配，对按量实例修改resource quota
+       *
+       * @param request ModifyInstanceSpecRequest
+       * @return ModifyInstanceSpecResponse
+       */
+      Models::ModifyInstanceSpecResponse modifyInstanceSpec(const Models::ModifyInstanceSpecRequest &request);
+
+      /**
        * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
        *
        * @summary 修改集群交换机

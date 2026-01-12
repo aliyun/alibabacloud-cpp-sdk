@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ha_ == nullptr
-        && return this->haResourceSpecShrink_ == nullptr && return this->haVSwitchIdsShrink_ == nullptr && return this->haZoneId_ == nullptr && return this->instanceId_ == nullptr && return this->region_ == nullptr
-        && return this->resourceSpecShrink_ == nullptr; };
+        && this->haResourceSpecShrink_ == nullptr && this->haVSwitchIdsShrink_ == nullptr && this->haZoneId_ == nullptr && this->instanceId_ == nullptr && this->region_ == nullptr
+        && this->resourceSpecShrink_ == nullptr; };
     // ha Field Functions 
     bool hasHa() const { return this->ha_ != nullptr;};
     void deleteHa() { this->ha_ = nullptr;};
-    inline bool ha() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
+    inline bool getHa() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
     inline ModifyPrepayInstanceSpecShrinkRequest& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
 
 
     // haResourceSpecShrink Field Functions 
     bool hasHaResourceSpecShrink() const { return this->haResourceSpecShrink_ != nullptr;};
     void deleteHaResourceSpecShrink() { this->haResourceSpecShrink_ = nullptr;};
-    inline string haResourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(haResourceSpecShrink_, "") };
+    inline string getHaResourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(haResourceSpecShrink_, "") };
     inline ModifyPrepayInstanceSpecShrinkRequest& setHaResourceSpecShrink(string haResourceSpecShrink) { DARABONBA_PTR_SET_VALUE(haResourceSpecShrink_, haResourceSpecShrink) };
 
 
     // haVSwitchIdsShrink Field Functions 
     bool hasHaVSwitchIdsShrink() const { return this->haVSwitchIdsShrink_ != nullptr;};
     void deleteHaVSwitchIdsShrink() { this->haVSwitchIdsShrink_ = nullptr;};
-    inline string haVSwitchIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(haVSwitchIdsShrink_, "") };
+    inline string getHaVSwitchIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(haVSwitchIdsShrink_, "") };
     inline ModifyPrepayInstanceSpecShrinkRequest& setHaVSwitchIdsShrink(string haVSwitchIdsShrink) { DARABONBA_PTR_SET_VALUE(haVSwitchIdsShrink_, haVSwitchIdsShrink) };
 
 
     // haZoneId Field Functions 
     bool hasHaZoneId() const { return this->haZoneId_ != nullptr;};
     void deleteHaZoneId() { this->haZoneId_ = nullptr;};
-    inline string haZoneId() const { DARABONBA_PTR_GET_DEFAULT(haZoneId_, "") };
+    inline string getHaZoneId() const { DARABONBA_PTR_GET_DEFAULT(haZoneId_, "") };
     inline ModifyPrepayInstanceSpecShrinkRequest& setHaZoneId(string haZoneId) { DARABONBA_PTR_SET_VALUE(haZoneId_, haZoneId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyPrepayInstanceSpecShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ModifyPrepayInstanceSpecShrinkRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceSpecShrink Field Functions 
     bool hasResourceSpecShrink() const { return this->resourceSpecShrink_ != nullptr;};
     void deleteResourceSpecShrink() { this->resourceSpecShrink_ = nullptr;};
-    inline string resourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceSpecShrink_, "") };
+    inline string getResourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceSpecShrink_, "") };
     inline ModifyPrepayInstanceSpecShrinkRequest& setResourceSpecShrink(string resourceSpecShrink) { DARABONBA_PTR_SET_VALUE(resourceSpecShrink_, resourceSpecShrink) };
 
 
   protected:
-    std::shared_ptr<bool> ha_ = nullptr;
-    std::shared_ptr<string> haResourceSpecShrink_ = nullptr;
-    std::shared_ptr<string> haVSwitchIdsShrink_ = nullptr;
-    std::shared_ptr<string> haZoneId_ = nullptr;
+    shared_ptr<bool> ha_ {};
+    shared_ptr<string> haResourceSpecShrink_ {};
+    shared_ptr<string> haVSwitchIdsShrink_ {};
+    shared_ptr<string> haZoneId_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // This parameter is required.
-    std::shared_ptr<string> resourceSpecShrink_ = nullptr;
+    shared_ptr<string> resourceSpecShrink_ {};
   };
 
   } // namespace Models

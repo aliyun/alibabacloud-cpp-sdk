@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->architectureType_ == nullptr
-        && return this->region_ == nullptr; };
+        && this->region_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};
-    inline string architectureType() const { DARABONBA_PTR_GET_DEFAULT(architectureType_, "") };
+    inline string getArchitectureType() const { DARABONBA_PTR_GET_DEFAULT(architectureType_, "") };
     inline DescribeSupportedZonesRequest& setArchitectureType(string architectureType) { DARABONBA_PTR_SET_VALUE(architectureType_, architectureType) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeSupportedZonesRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
   protected:
-    std::shared_ptr<string> architectureType_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> architectureType_ {};
+    shared_ptr<string> region_ {};
   };
 
   } // namespace Models

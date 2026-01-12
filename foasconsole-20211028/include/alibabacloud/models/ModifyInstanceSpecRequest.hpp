@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_QUERYMODIFYINSTANCEPRICEREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_QUERYMODIFYINSTANCEPRICEREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_MODIFYINSTANCESPECREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYINSTANCESPECREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,9 +11,9 @@ namespace Foasconsole20211028
 {
 namespace Models
 {
-  class QueryModifyInstancePriceRequest : public Darabonba::Model {
+  class ModifyInstanceSpecRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const QueryModifyInstancePriceRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const ModifyInstanceSpecRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Ha, ha_);
       DARABONBA_PTR_TO_JSON(HaResourceSpec, haResourceSpec_);
       DARABONBA_PTR_TO_JSON(HaVSwitchIds, haVSwitchIds_);
@@ -23,7 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceSpec, resourceSpec_);
       DARABONBA_PTR_TO_JSON(UsePromotionCode, usePromotionCode_);
     };
-    friend void from_json(const Darabonba::Json& j, QueryModifyInstancePriceRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, ModifyInstanceSpecRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Ha, ha_);
       DARABONBA_PTR_FROM_JSON(HaResourceSpec, haResourceSpec_);
       DARABONBA_PTR_FROM_JSON(HaVSwitchIds, haVSwitchIds_);
@@ -33,13 +33,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceSpec, resourceSpec_);
       DARABONBA_PTR_FROM_JSON(UsePromotionCode, usePromotionCode_);
     };
-    QueryModifyInstancePriceRequest() = default ;
-    QueryModifyInstancePriceRequest(const QueryModifyInstancePriceRequest &) = default ;
-    QueryModifyInstancePriceRequest(QueryModifyInstancePriceRequest &&) = default ;
-    QueryModifyInstancePriceRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~QueryModifyInstancePriceRequest() = default ;
-    QueryModifyInstancePriceRequest& operator=(const QueryModifyInstancePriceRequest &) = default ;
-    QueryModifyInstancePriceRequest& operator=(QueryModifyInstancePriceRequest &&) = default ;
+    ModifyInstanceSpecRequest() = default ;
+    ModifyInstanceSpecRequest(const ModifyInstanceSpecRequest &) = default ;
+    ModifyInstanceSpecRequest(ModifyInstanceSpecRequest &&) = default ;
+    ModifyInstanceSpecRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyInstanceSpecRequest() = default ;
+    ModifyInstanceSpecRequest& operator=(const ModifyInstanceSpecRequest &) = default ;
+    ModifyInstanceSpecRequest& operator=(ModifyInstanceSpecRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -137,16 +137,16 @@ namespace Models
     bool hasHa() const { return this->ha_ != nullptr;};
     void deleteHa() { this->ha_ = nullptr;};
     inline bool getHa() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
-    inline QueryModifyInstancePriceRequest& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
+    inline ModifyInstanceSpecRequest& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
 
 
     // haResourceSpec Field Functions 
     bool hasHaResourceSpec() const { return this->haResourceSpec_ != nullptr;};
     void deleteHaResourceSpec() { this->haResourceSpec_ = nullptr;};
-    inline const QueryModifyInstancePriceRequest::HaResourceSpec & getHaResourceSpec() const { DARABONBA_PTR_GET_CONST(haResourceSpec_, QueryModifyInstancePriceRequest::HaResourceSpec) };
-    inline QueryModifyInstancePriceRequest::HaResourceSpec getHaResourceSpec() { DARABONBA_PTR_GET(haResourceSpec_, QueryModifyInstancePriceRequest::HaResourceSpec) };
-    inline QueryModifyInstancePriceRequest& setHaResourceSpec(const QueryModifyInstancePriceRequest::HaResourceSpec & haResourceSpec) { DARABONBA_PTR_SET_VALUE(haResourceSpec_, haResourceSpec) };
-    inline QueryModifyInstancePriceRequest& setHaResourceSpec(QueryModifyInstancePriceRequest::HaResourceSpec && haResourceSpec) { DARABONBA_PTR_SET_RVALUE(haResourceSpec_, haResourceSpec) };
+    inline const ModifyInstanceSpecRequest::HaResourceSpec & getHaResourceSpec() const { DARABONBA_PTR_GET_CONST(haResourceSpec_, ModifyInstanceSpecRequest::HaResourceSpec) };
+    inline ModifyInstanceSpecRequest::HaResourceSpec getHaResourceSpec() { DARABONBA_PTR_GET(haResourceSpec_, ModifyInstanceSpecRequest::HaResourceSpec) };
+    inline ModifyInstanceSpecRequest& setHaResourceSpec(const ModifyInstanceSpecRequest::HaResourceSpec & haResourceSpec) { DARABONBA_PTR_SET_VALUE(haResourceSpec_, haResourceSpec) };
+    inline ModifyInstanceSpecRequest& setHaResourceSpec(ModifyInstanceSpecRequest::HaResourceSpec && haResourceSpec) { DARABONBA_PTR_SET_RVALUE(haResourceSpec_, haResourceSpec) };
 
 
     // haVSwitchIds Field Functions 
@@ -154,50 +154,50 @@ namespace Models
     void deleteHaVSwitchIds() { this->haVSwitchIds_ = nullptr;};
     inline const vector<string> & getHaVSwitchIds() const { DARABONBA_PTR_GET_CONST(haVSwitchIds_, vector<string>) };
     inline vector<string> getHaVSwitchIds() { DARABONBA_PTR_GET(haVSwitchIds_, vector<string>) };
-    inline QueryModifyInstancePriceRequest& setHaVSwitchIds(const vector<string> & haVSwitchIds) { DARABONBA_PTR_SET_VALUE(haVSwitchIds_, haVSwitchIds) };
-    inline QueryModifyInstancePriceRequest& setHaVSwitchIds(vector<string> && haVSwitchIds) { DARABONBA_PTR_SET_RVALUE(haVSwitchIds_, haVSwitchIds) };
+    inline ModifyInstanceSpecRequest& setHaVSwitchIds(const vector<string> & haVSwitchIds) { DARABONBA_PTR_SET_VALUE(haVSwitchIds_, haVSwitchIds) };
+    inline ModifyInstanceSpecRequest& setHaVSwitchIds(vector<string> && haVSwitchIds) { DARABONBA_PTR_SET_RVALUE(haVSwitchIds_, haVSwitchIds) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
-    inline QueryModifyInstancePriceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+    inline ModifyInstanceSpecRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
     inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
-    inline QueryModifyInstancePriceRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
+    inline ModifyInstanceSpecRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
     inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
-    inline QueryModifyInstancePriceRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+    inline ModifyInstanceSpecRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceSpec Field Functions 
     bool hasResourceSpec() const { return this->resourceSpec_ != nullptr;};
     void deleteResourceSpec() { this->resourceSpec_ = nullptr;};
-    inline const QueryModifyInstancePriceRequest::ResourceSpec & getResourceSpec() const { DARABONBA_PTR_GET_CONST(resourceSpec_, QueryModifyInstancePriceRequest::ResourceSpec) };
-    inline QueryModifyInstancePriceRequest::ResourceSpec getResourceSpec() { DARABONBA_PTR_GET(resourceSpec_, QueryModifyInstancePriceRequest::ResourceSpec) };
-    inline QueryModifyInstancePriceRequest& setResourceSpec(const QueryModifyInstancePriceRequest::ResourceSpec & resourceSpec) { DARABONBA_PTR_SET_VALUE(resourceSpec_, resourceSpec) };
-    inline QueryModifyInstancePriceRequest& setResourceSpec(QueryModifyInstancePriceRequest::ResourceSpec && resourceSpec) { DARABONBA_PTR_SET_RVALUE(resourceSpec_, resourceSpec) };
+    inline const ModifyInstanceSpecRequest::ResourceSpec & getResourceSpec() const { DARABONBA_PTR_GET_CONST(resourceSpec_, ModifyInstanceSpecRequest::ResourceSpec) };
+    inline ModifyInstanceSpecRequest::ResourceSpec getResourceSpec() { DARABONBA_PTR_GET(resourceSpec_, ModifyInstanceSpecRequest::ResourceSpec) };
+    inline ModifyInstanceSpecRequest& setResourceSpec(const ModifyInstanceSpecRequest::ResourceSpec & resourceSpec) { DARABONBA_PTR_SET_VALUE(resourceSpec_, resourceSpec) };
+    inline ModifyInstanceSpecRequest& setResourceSpec(ModifyInstanceSpecRequest::ResourceSpec && resourceSpec) { DARABONBA_PTR_SET_RVALUE(resourceSpec_, resourceSpec) };
 
 
     // usePromotionCode Field Functions 
     bool hasUsePromotionCode() const { return this->usePromotionCode_ != nullptr;};
     void deleteUsePromotionCode() { this->usePromotionCode_ = nullptr;};
     inline bool getUsePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
-    inline QueryModifyInstancePriceRequest& setUsePromotionCode(bool usePromotionCode) { DARABONBA_PTR_SET_VALUE(usePromotionCode_, usePromotionCode) };
+    inline ModifyInstanceSpecRequest& setUsePromotionCode(bool usePromotionCode) { DARABONBA_PTR_SET_VALUE(usePromotionCode_, usePromotionCode) };
 
 
   protected:
     shared_ptr<bool> ha_ {};
-    shared_ptr<QueryModifyInstancePriceRequest::HaResourceSpec> haResourceSpec_ {};
+    shared_ptr<ModifyInstanceSpecRequest::HaResourceSpec> haResourceSpec_ {};
     shared_ptr<vector<string>> haVSwitchIds_ {};
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -205,7 +205,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> region_ {};
     // This parameter is required.
-    shared_ptr<QueryModifyInstancePriceRequest::ResourceSpec> resourceSpec_ {};
+    shared_ptr<ModifyInstanceSpecRequest::ResourceSpec> resourceSpec_ {};
     shared_ptr<bool> usePromotionCode_ {};
   };
 

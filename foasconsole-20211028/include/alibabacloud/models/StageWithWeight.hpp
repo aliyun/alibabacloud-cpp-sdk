@@ -34,32 +34,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->stepIndex_ == nullptr
-        && return this->stepName_ == nullptr && return this->weight_ == nullptr; };
+        && this->stepName_ == nullptr && this->weight_ == nullptr; };
     // stepIndex Field Functions 
     bool hasStepIndex() const { return this->stepIndex_ != nullptr;};
     void deleteStepIndex() { this->stepIndex_ = nullptr;};
-    inline int32_t stepIndex() const { DARABONBA_PTR_GET_DEFAULT(stepIndex_, 0) };
+    inline int32_t getStepIndex() const { DARABONBA_PTR_GET_DEFAULT(stepIndex_, 0) };
     inline StageWithWeight& setStepIndex(int32_t stepIndex) { DARABONBA_PTR_SET_VALUE(stepIndex_, stepIndex) };
 
 
     // stepName Field Functions 
     bool hasStepName() const { return this->stepName_ != nullptr;};
     void deleteStepName() { this->stepName_ = nullptr;};
-    inline string stepName() const { DARABONBA_PTR_GET_DEFAULT(stepName_, "") };
+    inline string getStepName() const { DARABONBA_PTR_GET_DEFAULT(stepName_, "") };
     inline StageWithWeight& setStepName(string stepName) { DARABONBA_PTR_SET_VALUE(stepName_, stepName) };
 
 
     // weight Field Functions 
     bool hasWeight() const { return this->weight_ != nullptr;};
     void deleteWeight() { this->weight_ = nullptr;};
-    inline int32_t weight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
+    inline int32_t getWeight() const { DARABONBA_PTR_GET_DEFAULT(weight_, 0) };
     inline StageWithWeight& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
   protected:
-    std::shared_ptr<int32_t> stepIndex_ = nullptr;
-    std::shared_ptr<string> stepName_ = nullptr;
-    std::shared_ptr<int32_t> weight_ = nullptr;
+    shared_ptr<int32_t> stepIndex_ {};
+    shared_ptr<string> stepName_ {};
+    shared_ptr<int32_t> weight_ {};
   };
 
   } // namespace Models

@@ -2,11 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateInstanceRequestHaResourceSpec.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateInstanceRequestResourceSpec.hpp>
-#include <alibabacloud/models/CreateInstanceRequestStorage.hpp>
-#include <alibabacloud/models/CreateInstanceRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -72,67 +68,268 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
+    class Storage : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Storage& obj) { 
+        DARABONBA_PTR_TO_JSON(FullyManaged, fullyManaged_);
+        DARABONBA_PTR_TO_JSON(Oss, oss_);
+      };
+      friend void from_json(const Darabonba::Json& j, Storage& obj) { 
+        DARABONBA_PTR_FROM_JSON(FullyManaged, fullyManaged_);
+        DARABONBA_PTR_FROM_JSON(Oss, oss_);
+      };
+      Storage() = default ;
+      Storage(const Storage &) = default ;
+      Storage(Storage &&) = default ;
+      Storage(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Storage() = default ;
+      Storage& operator=(const Storage &) = default ;
+      Storage& operator=(Storage &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Oss : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Oss& obj) { 
+          DARABONBA_PTR_TO_JSON(Bucket, bucket_);
+        };
+        friend void from_json(const Darabonba::Json& j, Oss& obj) { 
+          DARABONBA_PTR_FROM_JSON(Bucket, bucket_);
+        };
+        Oss() = default ;
+        Oss(const Oss &) = default ;
+        Oss(Oss &&) = default ;
+        Oss(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Oss() = default ;
+        Oss& operator=(const Oss &) = default ;
+        Oss& operator=(Oss &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bucket_ == nullptr; };
+        // bucket Field Functions 
+        bool hasBucket() const { return this->bucket_ != nullptr;};
+        void deleteBucket() { this->bucket_ = nullptr;};
+        inline string getBucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
+        inline Oss& setBucket(string bucket) { DARABONBA_PTR_SET_VALUE(bucket_, bucket) };
+
+
+      protected:
+        shared_ptr<string> bucket_ {};
+      };
+
+      virtual bool empty() const override { return this->fullyManaged_ == nullptr
+        && this->oss_ == nullptr; };
+      // fullyManaged Field Functions 
+      bool hasFullyManaged() const { return this->fullyManaged_ != nullptr;};
+      void deleteFullyManaged() { this->fullyManaged_ = nullptr;};
+      inline bool getFullyManaged() const { DARABONBA_PTR_GET_DEFAULT(fullyManaged_, false) };
+      inline Storage& setFullyManaged(bool fullyManaged) { DARABONBA_PTR_SET_VALUE(fullyManaged_, fullyManaged) };
+
+
+      // oss Field Functions 
+      bool hasOss() const { return this->oss_ != nullptr;};
+      void deleteOss() { this->oss_ = nullptr;};
+      inline const Storage::Oss & getOss() const { DARABONBA_PTR_GET_CONST(oss_, Storage::Oss) };
+      inline Storage::Oss getOss() { DARABONBA_PTR_GET(oss_, Storage::Oss) };
+      inline Storage& setOss(const Storage::Oss & oss) { DARABONBA_PTR_SET_VALUE(oss_, oss) };
+      inline Storage& setOss(Storage::Oss && oss) { DARABONBA_PTR_SET_RVALUE(oss_, oss) };
+
+
+    protected:
+      shared_ptr<bool> fullyManaged_ {};
+      shared_ptr<Storage::Oss> oss_ {};
+    };
+
+    class ResourceSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(MemoryGB, memoryGB_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(MemoryGB, memoryGB_);
+      };
+      ResourceSpec() = default ;
+      ResourceSpec(const ResourceSpec &) = default ;
+      ResourceSpec(ResourceSpec &&) = default ;
+      ResourceSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceSpec() = default ;
+      ResourceSpec& operator=(const ResourceSpec &) = default ;
+      ResourceSpec& operator=(ResourceSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cpu_ == nullptr
+        && this->memoryGB_ == nullptr; };
+      // cpu Field Functions 
+      bool hasCpu() const { return this->cpu_ != nullptr;};
+      void deleteCpu() { this->cpu_ = nullptr;};
+      inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
+      inline ResourceSpec& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // memoryGB Field Functions 
+      bool hasMemoryGB() const { return this->memoryGB_ != nullptr;};
+      void deleteMemoryGB() { this->memoryGB_ = nullptr;};
+      inline int32_t getMemoryGB() const { DARABONBA_PTR_GET_DEFAULT(memoryGB_, 0) };
+      inline ResourceSpec& setMemoryGB(int32_t memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
+
+
+    protected:
+      shared_ptr<int32_t> cpu_ {};
+      shared_ptr<int32_t> memoryGB_ {};
+    };
+
+    class HaResourceSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const HaResourceSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(MemoryGB, memoryGB_);
+      };
+      friend void from_json(const Darabonba::Json& j, HaResourceSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(MemoryGB, memoryGB_);
+      };
+      HaResourceSpec() = default ;
+      HaResourceSpec(const HaResourceSpec &) = default ;
+      HaResourceSpec(HaResourceSpec &&) = default ;
+      HaResourceSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~HaResourceSpec() = default ;
+      HaResourceSpec& operator=(const HaResourceSpec &) = default ;
+      HaResourceSpec& operator=(HaResourceSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cpu_ == nullptr
+        && this->memoryGB_ == nullptr; };
+      // cpu Field Functions 
+      bool hasCpu() const { return this->cpu_ != nullptr;};
+      void deleteCpu() { this->cpu_ = nullptr;};
+      inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
+      inline HaResourceSpec& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // memoryGB Field Functions 
+      bool hasMemoryGB() const { return this->memoryGB_ != nullptr;};
+      void deleteMemoryGB() { this->memoryGB_ = nullptr;};
+      inline int32_t getMemoryGB() const { DARABONBA_PTR_GET_DEFAULT(memoryGB_, 0) };
+      inline HaResourceSpec& setMemoryGB(int32_t memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
+
+
+    protected:
+      shared_ptr<int32_t> cpu_ {};
+      shared_ptr<int32_t> memoryGB_ {};
+    };
+
     virtual bool empty() const override { return this->architectureType_ == nullptr
-        && return this->autoRenew_ == nullptr && return this->chargeType_ == nullptr && return this->duration_ == nullptr && return this->extra_ == nullptr && return this->ha_ == nullptr
-        && return this->haResourceSpec_ == nullptr && return this->haVSwitchIds_ == nullptr && return this->instanceName_ == nullptr && return this->monitorType_ == nullptr && return this->pricingCycle_ == nullptr
-        && return this->promotionCode_ == nullptr && return this->region_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceSpec_ == nullptr && return this->storage_ == nullptr
-        && return this->tag_ == nullptr && return this->usePromotionCode_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->duration_ == nullptr && this->extra_ == nullptr && this->ha_ == nullptr
+        && this->haResourceSpec_ == nullptr && this->haVSwitchIds_ == nullptr && this->instanceName_ == nullptr && this->monitorType_ == nullptr && this->pricingCycle_ == nullptr
+        && this->promotionCode_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->storage_ == nullptr
+        && this->tag_ == nullptr && this->usePromotionCode_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};
-    inline string architectureType() const { DARABONBA_PTR_GET_DEFAULT(architectureType_, "") };
+    inline string getArchitectureType() const { DARABONBA_PTR_GET_DEFAULT(architectureType_, "") };
     inline CreateInstanceRequest& setArchitectureType(string architectureType) { DARABONBA_PTR_SET_VALUE(architectureType_, architectureType) };
 
 
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
-    inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+    inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateInstanceRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline CreateInstanceRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline CreateInstanceRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // extra Field Functions 
     bool hasExtra() const { return this->extra_ != nullptr;};
     void deleteExtra() { this->extra_ = nullptr;};
-    inline string extra() const { DARABONBA_PTR_GET_DEFAULT(extra_, "") };
+    inline string getExtra() const { DARABONBA_PTR_GET_DEFAULT(extra_, "") };
     inline CreateInstanceRequest& setExtra(string extra) { DARABONBA_PTR_SET_VALUE(extra_, extra) };
 
 
     // ha Field Functions 
     bool hasHa() const { return this->ha_ != nullptr;};
     void deleteHa() { this->ha_ = nullptr;};
-    inline bool ha() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
+    inline bool getHa() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
     inline CreateInstanceRequest& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
 
 
     // haResourceSpec Field Functions 
     bool hasHaResourceSpec() const { return this->haResourceSpec_ != nullptr;};
     void deleteHaResourceSpec() { this->haResourceSpec_ = nullptr;};
-    inline const CreateInstanceRequestHaResourceSpec & haResourceSpec() const { DARABONBA_PTR_GET_CONST(haResourceSpec_, CreateInstanceRequestHaResourceSpec) };
-    inline CreateInstanceRequestHaResourceSpec haResourceSpec() { DARABONBA_PTR_GET(haResourceSpec_, CreateInstanceRequestHaResourceSpec) };
-    inline CreateInstanceRequest& setHaResourceSpec(const CreateInstanceRequestHaResourceSpec & haResourceSpec) { DARABONBA_PTR_SET_VALUE(haResourceSpec_, haResourceSpec) };
-    inline CreateInstanceRequest& setHaResourceSpec(CreateInstanceRequestHaResourceSpec && haResourceSpec) { DARABONBA_PTR_SET_RVALUE(haResourceSpec_, haResourceSpec) };
+    inline const CreateInstanceRequest::HaResourceSpec & getHaResourceSpec() const { DARABONBA_PTR_GET_CONST(haResourceSpec_, CreateInstanceRequest::HaResourceSpec) };
+    inline CreateInstanceRequest::HaResourceSpec getHaResourceSpec() { DARABONBA_PTR_GET(haResourceSpec_, CreateInstanceRequest::HaResourceSpec) };
+    inline CreateInstanceRequest& setHaResourceSpec(const CreateInstanceRequest::HaResourceSpec & haResourceSpec) { DARABONBA_PTR_SET_VALUE(haResourceSpec_, haResourceSpec) };
+    inline CreateInstanceRequest& setHaResourceSpec(CreateInstanceRequest::HaResourceSpec && haResourceSpec) { DARABONBA_PTR_SET_RVALUE(haResourceSpec_, haResourceSpec) };
 
 
     // haVSwitchIds Field Functions 
     bool hasHaVSwitchIds() const { return this->haVSwitchIds_ != nullptr;};
     void deleteHaVSwitchIds() { this->haVSwitchIds_ = nullptr;};
-    inline const vector<string> & haVSwitchIds() const { DARABONBA_PTR_GET_CONST(haVSwitchIds_, vector<string>) };
-    inline vector<string> haVSwitchIds() { DARABONBA_PTR_GET(haVSwitchIds_, vector<string>) };
+    inline const vector<string> & getHaVSwitchIds() const { DARABONBA_PTR_GET_CONST(haVSwitchIds_, vector<string>) };
+    inline vector<string> getHaVSwitchIds() { DARABONBA_PTR_GET(haVSwitchIds_, vector<string>) };
     inline CreateInstanceRequest& setHaVSwitchIds(const vector<string> & haVSwitchIds) { DARABONBA_PTR_SET_VALUE(haVSwitchIds_, haVSwitchIds) };
     inline CreateInstanceRequest& setHaVSwitchIds(vector<string> && haVSwitchIds) { DARABONBA_PTR_SET_RVALUE(haVSwitchIds_, haVSwitchIds) };
 
@@ -140,84 +337,84 @@ namespace Models
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline CreateInstanceRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // monitorType Field Functions 
     bool hasMonitorType() const { return this->monitorType_ != nullptr;};
     void deleteMonitorType() { this->monitorType_ = nullptr;};
-    inline string monitorType() const { DARABONBA_PTR_GET_DEFAULT(monitorType_, "") };
+    inline string getMonitorType() const { DARABONBA_PTR_GET_DEFAULT(monitorType_, "") };
     inline CreateInstanceRequest& setMonitorType(string monitorType) { DARABONBA_PTR_SET_VALUE(monitorType_, monitorType) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline CreateInstanceRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline CreateInstanceRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline CreateInstanceRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceSpec Field Functions 
     bool hasResourceSpec() const { return this->resourceSpec_ != nullptr;};
     void deleteResourceSpec() { this->resourceSpec_ = nullptr;};
-    inline const CreateInstanceRequestResourceSpec & resourceSpec() const { DARABONBA_PTR_GET_CONST(resourceSpec_, CreateInstanceRequestResourceSpec) };
-    inline CreateInstanceRequestResourceSpec resourceSpec() { DARABONBA_PTR_GET(resourceSpec_, CreateInstanceRequestResourceSpec) };
-    inline CreateInstanceRequest& setResourceSpec(const CreateInstanceRequestResourceSpec & resourceSpec) { DARABONBA_PTR_SET_VALUE(resourceSpec_, resourceSpec) };
-    inline CreateInstanceRequest& setResourceSpec(CreateInstanceRequestResourceSpec && resourceSpec) { DARABONBA_PTR_SET_RVALUE(resourceSpec_, resourceSpec) };
+    inline const CreateInstanceRequest::ResourceSpec & getResourceSpec() const { DARABONBA_PTR_GET_CONST(resourceSpec_, CreateInstanceRequest::ResourceSpec) };
+    inline CreateInstanceRequest::ResourceSpec getResourceSpec() { DARABONBA_PTR_GET(resourceSpec_, CreateInstanceRequest::ResourceSpec) };
+    inline CreateInstanceRequest& setResourceSpec(const CreateInstanceRequest::ResourceSpec & resourceSpec) { DARABONBA_PTR_SET_VALUE(resourceSpec_, resourceSpec) };
+    inline CreateInstanceRequest& setResourceSpec(CreateInstanceRequest::ResourceSpec && resourceSpec) { DARABONBA_PTR_SET_RVALUE(resourceSpec_, resourceSpec) };
 
 
     // storage Field Functions 
     bool hasStorage() const { return this->storage_ != nullptr;};
     void deleteStorage() { this->storage_ = nullptr;};
-    inline const CreateInstanceRequestStorage & storage() const { DARABONBA_PTR_GET_CONST(storage_, CreateInstanceRequestStorage) };
-    inline CreateInstanceRequestStorage storage() { DARABONBA_PTR_GET(storage_, CreateInstanceRequestStorage) };
-    inline CreateInstanceRequest& setStorage(const CreateInstanceRequestStorage & storage) { DARABONBA_PTR_SET_VALUE(storage_, storage) };
-    inline CreateInstanceRequest& setStorage(CreateInstanceRequestStorage && storage) { DARABONBA_PTR_SET_RVALUE(storage_, storage) };
+    inline const CreateInstanceRequest::Storage & getStorage() const { DARABONBA_PTR_GET_CONST(storage_, CreateInstanceRequest::Storage) };
+    inline CreateInstanceRequest::Storage getStorage() { DARABONBA_PTR_GET(storage_, CreateInstanceRequest::Storage) };
+    inline CreateInstanceRequest& setStorage(const CreateInstanceRequest::Storage & storage) { DARABONBA_PTR_SET_VALUE(storage_, storage) };
+    inline CreateInstanceRequest& setStorage(CreateInstanceRequest::Storage && storage) { DARABONBA_PTR_SET_RVALUE(storage_, storage) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateInstanceRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateInstanceRequestTag>) };
-    inline vector<CreateInstanceRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateInstanceRequestTag>) };
-    inline CreateInstanceRequest& setTag(const vector<CreateInstanceRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateInstanceRequest& setTag(vector<CreateInstanceRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateInstanceRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateInstanceRequest::Tag>) };
+    inline vector<CreateInstanceRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateInstanceRequest::Tag>) };
+    inline CreateInstanceRequest& setTag(const vector<CreateInstanceRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateInstanceRequest& setTag(vector<CreateInstanceRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // usePromotionCode Field Functions 
     bool hasUsePromotionCode() const { return this->usePromotionCode_ != nullptr;};
     void deleteUsePromotionCode() { this->usePromotionCode_ = nullptr;};
-    inline bool usePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
+    inline bool getUsePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
     inline CreateInstanceRequest& setUsePromotionCode(bool usePromotionCode) { DARABONBA_PTR_SET_VALUE(usePromotionCode_, usePromotionCode) };
 
 
     // vSwitchIds Field Functions 
     bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
     void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
-    inline const vector<string> & vSwitchIds() const { DARABONBA_PTR_GET_CONST(vSwitchIds_, vector<string>) };
-    inline vector<string> vSwitchIds() { DARABONBA_PTR_GET(vSwitchIds_, vector<string>) };
+    inline const vector<string> & getVSwitchIds() const { DARABONBA_PTR_GET_CONST(vSwitchIds_, vector<string>) };
+    inline vector<string> getVSwitchIds() { DARABONBA_PTR_GET(vSwitchIds_, vector<string>) };
     inline CreateInstanceRequest& setVSwitchIds(const vector<string> & vSwitchIds) { DARABONBA_PTR_SET_VALUE(vSwitchIds_, vSwitchIds) };
     inline CreateInstanceRequest& setVSwitchIds(vector<string> && vSwitchIds) { DARABONBA_PTR_SET_RVALUE(vSwitchIds_, vSwitchIds) };
 
@@ -225,37 +422,37 @@ namespace Models
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
-    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
     inline CreateInstanceRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
   protected:
-    std::shared_ptr<string> architectureType_ = nullptr;
-    std::shared_ptr<bool> autoRenew_ = nullptr;
+    shared_ptr<string> architectureType_ {};
+    shared_ptr<bool> autoRenew_ {};
     // This parameter is required.
-    std::shared_ptr<string> chargeType_ = nullptr;
-    std::shared_ptr<int32_t> duration_ = nullptr;
-    std::shared_ptr<string> extra_ = nullptr;
-    std::shared_ptr<bool> ha_ = nullptr;
-    std::shared_ptr<CreateInstanceRequestHaResourceSpec> haResourceSpec_ = nullptr;
-    std::shared_ptr<vector<string>> haVSwitchIds_ = nullptr;
+    shared_ptr<string> chargeType_ {};
+    shared_ptr<int32_t> duration_ {};
+    shared_ptr<string> extra_ {};
+    shared_ptr<bool> ha_ {};
+    shared_ptr<CreateInstanceRequest::HaResourceSpec> haResourceSpec_ {};
+    shared_ptr<vector<string>> haVSwitchIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> monitorType_ = nullptr;
-    std::shared_ptr<string> pricingCycle_ = nullptr;
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> instanceName_ {};
+    shared_ptr<string> monitorType_ {};
+    shared_ptr<string> pricingCycle_ {};
+    shared_ptr<string> promotionCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<CreateInstanceRequestResourceSpec> resourceSpec_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<CreateInstanceRequest::ResourceSpec> resourceSpec_ {};
     // This parameter is required.
-    std::shared_ptr<CreateInstanceRequestStorage> storage_ = nullptr;
-    std::shared_ptr<vector<CreateInstanceRequestTag>> tag_ = nullptr;
-    std::shared_ptr<bool> usePromotionCode_ = nullptr;
+    shared_ptr<CreateInstanceRequest::Storage> storage_ {};
+    shared_ptr<vector<CreateInstanceRequest::Tag>> tag_ {};
+    shared_ptr<bool> usePromotionCode_ {};
     // This parameter is required.
-    std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
+    shared_ptr<vector<string>> vSwitchIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> vpcId_ = nullptr;
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

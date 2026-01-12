@@ -38,48 +38,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->tagResponseId_ == nullptr; };
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr && this->tagResponseId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline UntagResourcesResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline UntagResourcesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UntagResourcesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline UntagResourcesResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
     // tagResponseId Field Functions 
     bool hasTagResponseId() const { return this->tagResponseId_ != nullptr;};
     void deleteTagResponseId() { this->tagResponseId_ = nullptr;};
-    inline string tagResponseId() const { DARABONBA_PTR_GET_DEFAULT(tagResponseId_, "") };
+    inline string getTagResponseId() const { DARABONBA_PTR_GET_DEFAULT(tagResponseId_, "") };
     inline UntagResourcesResponseBody& setTagResponseId(string tagResponseId) { DARABONBA_PTR_SET_VALUE(tagResponseId_, tagResponseId) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
-    std::shared_ptr<string> tagResponseId_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+    shared_ptr<string> tagResponseId_ {};
   };
 
   } // namespace Models

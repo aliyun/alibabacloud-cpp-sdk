@@ -47,20 +47,20 @@ ConvertHybridInstanceResponse Client::convertHybridInstanceWithOptions(const Con
   ConvertHybridInstanceShrinkRequest request = ConvertHybridInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    query["ResourceSpec"] = request.resourceSpecShrink();
+    query["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -103,40 +103,40 @@ ConvertInstanceResponse Client::convertInstanceWithOptions(const ConvertInstance
   ConvertInstanceShrinkRequest request = ConvertInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNamespaceResourceSpecs()) {
-    request.setNamespaceResourceSpecsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.namespaceResourceSpecs(), "NamespaceResourceSpecs", "json"));
+    request.setNamespaceResourceSpecsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNamespaceResourceSpecs(), "NamespaceResourceSpecs", "json"));
   }
 
   json body = {};
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasIsAutoRenew()) {
-    body["IsAutoRenew"] = request.isAutoRenew();
+    body["IsAutoRenew"] = request.getIsAutoRenew();
   }
 
   if (!!request.hasNamespaceResourceSpecsShrink()) {
-    body["NamespaceResourceSpecs"] = request.namespaceResourceSpecsShrink();
+    body["NamespaceResourceSpecs"] = request.getNamespaceResourceSpecsShrink();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasPromotionCode()) {
-    body["PromotionCode"] = request.promotionCode();
+    body["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasUsePromotionCode()) {
-    body["UsePromotionCode"] = request.usePromotionCode();
+    body["UsePromotionCode"] = request.getUsePromotionCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -178,11 +178,11 @@ ConvertPrepayInstanceResponse Client::convertPrepayInstanceWithOptions(const Con
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -225,108 +225,108 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
   CreateInstanceShrinkRequest request = CreateInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHaResourceSpec()) {
-    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec(), "HaResourceSpec", "json"));
+    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaResourceSpec(), "HaResourceSpec", "json"));
   }
 
   if (!!tmpReq.hasHaVSwitchIds()) {
-    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds(), "HaVSwitchIds", "json"));
+    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaVSwitchIds(), "HaVSwitchIds", "json"));
   }
 
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   if (!!tmpReq.hasStorage()) {
-    request.setStorageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.storage(), "Storage", "json"));
+    request.setStorageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStorage(), "Storage", "json"));
   }
 
   if (!!tmpReq.hasTag()) {
-    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tag(), "Tag", "json"));
+    request.setTagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTag(), "Tag", "json"));
   }
 
   if (!!tmpReq.hasVSwitchIds()) {
-    request.setVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.vSwitchIds(), "VSwitchIds", "json"));
+    request.setVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVSwitchIds(), "VSwitchIds", "json"));
   }
 
   json body = {};
   if (!!request.hasArchitectureType()) {
-    body["ArchitectureType"] = request.architectureType();
+    body["ArchitectureType"] = request.getArchitectureType();
   }
 
   if (!!request.hasAutoRenew()) {
-    body["AutoRenew"] = request.autoRenew();
+    body["AutoRenew"] = request.getAutoRenew();
   }
 
   if (!!request.hasChargeType()) {
-    body["ChargeType"] = request.chargeType();
+    body["ChargeType"] = request.getChargeType();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasExtra()) {
-    body["Extra"] = request.extra();
+    body["Extra"] = request.getExtra();
   }
 
   if (!!request.hasHa()) {
-    body["Ha"] = request.ha();
+    body["Ha"] = request.getHa();
   }
 
   if (!!request.hasHaResourceSpecShrink()) {
-    body["HaResourceSpec"] = request.haResourceSpecShrink();
+    body["HaResourceSpec"] = request.getHaResourceSpecShrink();
   }
 
   if (!!request.hasHaVSwitchIdsShrink()) {
-    body["HaVSwitchIds"] = request.haVSwitchIdsShrink();
+    body["HaVSwitchIds"] = request.getHaVSwitchIdsShrink();
   }
 
   if (!!request.hasInstanceName()) {
-    body["InstanceName"] = request.instanceName();
+    body["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasMonitorType()) {
-    body["MonitorType"] = request.monitorType();
+    body["MonitorType"] = request.getMonitorType();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasPromotionCode()) {
-    body["PromotionCode"] = request.promotionCode();
+    body["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceGroupId()) {
-    body["ResourceGroupId"] = request.resourceGroupId();
+    body["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    body["ResourceSpec"] = request.resourceSpecShrink();
+    body["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   if (!!request.hasStorageShrink()) {
-    body["Storage"] = request.storageShrink();
+    body["Storage"] = request.getStorageShrink();
   }
 
   if (!!request.hasTagShrink()) {
-    body["Tag"] = request.tagShrink();
+    body["Tag"] = request.getTagShrink();
   }
 
   if (!!request.hasUsePromotionCode()) {
-    body["UsePromotionCode"] = request.usePromotionCode();
+    body["UsePromotionCode"] = request.getUsePromotionCode();
   }
 
   if (!!request.hasVSwitchIdsShrink()) {
-    body["VSwitchIds"] = request.vSwitchIdsShrink();
+    body["VSwitchIds"] = request.getVSwitchIdsShrink();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -369,28 +369,28 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
   CreateNamespaceShrinkRequest request = CreateNamespaceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   json body = {};
   if (!!request.hasHa()) {
-    body["Ha"] = request.ha();
+    body["Ha"] = request.getHa();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    body["ResourceSpec"] = request.resourceSpecShrink();
+    body["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -432,11 +432,11 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -478,15 +478,15 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -529,7 +529,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
   DescribeInstancesShrinkRequest request = DescribeInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -573,7 +573,7 @@ DescribeNamespacesResponse Client::describeNamespacesWithOptions(const DescribeN
   DescribeNamespacesShrinkRequest request = DescribeNamespacesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
 
   map<string, string> query = Utils::Utils::query(request.toMap());
@@ -687,23 +687,23 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -746,20 +746,20 @@ ModifyElasticResourceSpecResponse Client::modifyElasticResourceSpecWithOptions(c
   ModifyElasticResourceSpecShrinkRequest request = ModifyElasticResourceSpecShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    body["ResourceSpec"] = request.resourceSpecShrink();
+    body["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -791,6 +791,90 @@ ModifyElasticResourceSpecResponse Client::modifyElasticResourceSpec(const Modify
 }
 
 /**
+ * @summary 对包年实例升降配，对按量实例修改resource quota
+ *
+ * @param tmpReq ModifyInstanceSpecRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceSpecResponse
+ */
+ModifyInstanceSpecResponse Client::modifyInstanceSpecWithOptions(const ModifyInstanceSpecRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyInstanceSpecShrinkRequest request = ModifyInstanceSpecShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHaResourceSpec()) {
+    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaResourceSpec(), "HaResourceSpec", "json"));
+  }
+
+  if (!!tmpReq.hasHaVSwitchIds()) {
+    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaVSwitchIds(), "HaVSwitchIds", "json"));
+  }
+
+  if (!!tmpReq.hasResourceSpec()) {
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasHa()) {
+    body["Ha"] = request.getHa();
+  }
+
+  if (!!request.hasHaResourceSpecShrink()) {
+    body["HaResourceSpec"] = request.getHaResourceSpecShrink();
+  }
+
+  if (!!request.hasHaVSwitchIdsShrink()) {
+    body["HaVSwitchIds"] = request.getHaVSwitchIdsShrink();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    body["PromotionCode"] = request.getPromotionCode();
+  }
+
+  if (!!request.hasRegion()) {
+    body["Region"] = request.getRegion();
+  }
+
+  if (!!request.hasResourceSpecShrink()) {
+    body["ResourceSpec"] = request.getResourceSpecShrink();
+  }
+
+  if (!!request.hasUsePromotionCode()) {
+    body["UsePromotionCode"] = request.getUsePromotionCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceSpec"},
+    {"version" , "2021-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceSpecResponse>();
+}
+
+/**
+ * @summary 对包年实例升降配，对按量实例修改resource quota
+ *
+ * @param request ModifyInstanceSpecRequest
+ * @return ModifyInstanceSpecResponse
+ */
+ModifyInstanceSpecResponse Client::modifyInstanceSpec(const ModifyInstanceSpecRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceSpecWithOptions(request, runtime);
+}
+
+/**
  * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
  *
  * @summary 修改集群交换机
@@ -804,24 +888,24 @@ ModifyInstanceVswitchResponse Client::modifyInstanceVswitchWithOptions(const Mod
   ModifyInstanceVswitchShrinkRequest request = ModifyInstanceVswitchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHaVSwitchIds()) {
-    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds(), "HaVSwitchIds", "json"));
+    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaVSwitchIds(), "HaVSwitchIds", "json"));
   }
 
   if (!!tmpReq.hasVSwitchIds()) {
-    request.setVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.vSwitchIds(), "VSwitchIds", "json"));
+    request.setVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVSwitchIds(), "VSwitchIds", "json"));
   }
 
   json body = {};
   if (!!request.hasHaVSwitchIdsShrink()) {
-    body["HaVSwitchIds"] = request.haVSwitchIdsShrink();
+    body["HaVSwitchIds"] = request.getHaVSwitchIdsShrink();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasVSwitchIdsShrink()) {
-    body["VSwitchIds"] = request.vSwitchIdsShrink();
+    body["VSwitchIds"] = request.getVSwitchIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -866,37 +950,37 @@ ModifyNamespaceSpecV2Response Client::modifyNamespaceSpecV2WithOptions(const Mod
   ModifyNamespaceSpecV2ShrinkRequest request = ModifyNamespaceSpecV2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasElasticResourceSpec()) {
-    request.setElasticResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.elasticResourceSpec(), "ElasticResourceSpec", "json"));
+    request.setElasticResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getElasticResourceSpec(), "ElasticResourceSpec", "json"));
   }
 
   if (!!tmpReq.hasGuaranteedResourceSpec()) {
-    request.setGuaranteedResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.guaranteedResourceSpec(), "GuaranteedResourceSpec", "json"));
+    request.setGuaranteedResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGuaranteedResourceSpec(), "GuaranteedResourceSpec", "json"));
   }
 
   json query = {};
   if (!!request.hasHa()) {
-    query["Ha"] = request.ha();
+    query["Ha"] = request.getHa();
   }
 
   json body = {};
   if (!!request.hasElasticResourceSpecShrink()) {
-    body["ElasticResourceSpec"] = request.elasticResourceSpecShrink();
+    body["ElasticResourceSpec"] = request.getElasticResourceSpecShrink();
   }
 
   if (!!request.hasGuaranteedResourceSpecShrink()) {
-    body["GuaranteedResourceSpec"] = request.guaranteedResourceSpecShrink();
+    body["GuaranteedResourceSpec"] = request.getGuaranteedResourceSpecShrink();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -942,44 +1026,44 @@ ModifyPrepayInstanceSpecResponse Client::modifyPrepayInstanceSpecWithOptions(con
   ModifyPrepayInstanceSpecShrinkRequest request = ModifyPrepayInstanceSpecShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHaResourceSpec()) {
-    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec(), "HaResourceSpec", "json"));
+    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaResourceSpec(), "HaResourceSpec", "json"));
   }
 
   if (!!tmpReq.hasHaVSwitchIds()) {
-    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds(), "HaVSwitchIds", "json"));
+    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaVSwitchIds(), "HaVSwitchIds", "json"));
   }
 
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   json body = {};
   if (!!request.hasHa()) {
-    body["Ha"] = request.ha();
+    body["Ha"] = request.getHa();
   }
 
   if (!!request.hasHaResourceSpecShrink()) {
-    body["HaResourceSpec"] = request.haResourceSpecShrink();
+    body["HaResourceSpec"] = request.getHaResourceSpecShrink();
   }
 
   if (!!request.hasHaVSwitchIdsShrink()) {
-    body["HaVSwitchIds"] = request.haVSwitchIdsShrink();
+    body["HaVSwitchIds"] = request.getHaVSwitchIdsShrink();
   }
 
   if (!!request.hasHaZoneId()) {
-    body["HaZoneId"] = request.haZoneId();
+    body["HaZoneId"] = request.getHaZoneId();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    body["ResourceSpec"] = request.resourceSpecShrink();
+    body["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1026,24 +1110,24 @@ ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpecWithOptions(c
   ModifyPrepayNamespaceSpecShrinkRequest request = ModifyPrepayNamespaceSpecShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    body["ResourceSpec"] = request.resourceSpecShrink();
+    body["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1088,40 +1172,40 @@ QueryConvertInstancePriceResponse Client::queryConvertInstancePriceWithOptions(c
   QueryConvertInstancePriceShrinkRequest request = QueryConvertInstancePriceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasNamespaceResourceSpecs()) {
-    request.setNamespaceResourceSpecsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.namespaceResourceSpecs(), "NamespaceResourceSpecs", "json"));
+    request.setNamespaceResourceSpecsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNamespaceResourceSpecs(), "NamespaceResourceSpecs", "json"));
   }
 
   json body = {};
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasIsAutoRenew()) {
-    body["IsAutoRenew"] = request.isAutoRenew();
+    body["IsAutoRenew"] = request.getIsAutoRenew();
   }
 
   if (!!request.hasNamespaceResourceSpecsShrink()) {
-    body["NamespaceResourceSpecs"] = request.namespaceResourceSpecsShrink();
+    body["NamespaceResourceSpecs"] = request.getNamespaceResourceSpecsShrink();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasPromotionCode()) {
-    body["PromotionCode"] = request.promotionCode();
+    body["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasUsePromotionCode()) {
-    body["UsePromotionCode"] = request.usePromotionCode();
+    body["UsePromotionCode"] = request.getUsePromotionCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1163,11 +1247,11 @@ QueryConvertPrepayInstancePriceResponse Client::queryConvertPrepayInstancePriceW
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1210,84 +1294,84 @@ QueryCreateInstancePriceResponse Client::queryCreateInstancePriceWithOptions(con
   QueryCreateInstancePriceShrinkRequest request = QueryCreateInstancePriceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHaResourceSpec()) {
-    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec(), "HaResourceSpec", "json"));
+    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaResourceSpec(), "HaResourceSpec", "json"));
   }
 
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   if (!!tmpReq.hasStorage()) {
-    request.setStorageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.storage(), "Storage", "json"));
+    request.setStorageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStorage(), "Storage", "json"));
   }
 
   if (!!tmpReq.hasVSwitchIds()) {
-    request.setVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.vSwitchIds(), "VSwitchIds", "json"));
+    request.setVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVSwitchIds(), "VSwitchIds", "json"));
   }
 
   json body = {};
   if (!!request.hasArchitectureType()) {
-    body["ArchitectureType"] = request.architectureType();
+    body["ArchitectureType"] = request.getArchitectureType();
   }
 
   if (!!request.hasAutoRenew()) {
-    body["AutoRenew"] = request.autoRenew();
+    body["AutoRenew"] = request.getAutoRenew();
   }
 
   if (!!request.hasChargeType()) {
-    body["ChargeType"] = request.chargeType();
+    body["ChargeType"] = request.getChargeType();
   }
 
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasExtra()) {
-    body["Extra"] = request.extra();
+    body["Extra"] = request.getExtra();
   }
 
   if (!!request.hasHa()) {
-    body["Ha"] = request.ha();
+    body["Ha"] = request.getHa();
   }
 
   if (!!request.hasHaResourceSpecShrink()) {
-    body["HaResourceSpec"] = request.haResourceSpecShrink();
+    body["HaResourceSpec"] = request.getHaResourceSpecShrink();
   }
 
   if (!!request.hasInstanceName()) {
-    body["InstanceName"] = request.instanceName();
+    body["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasPromotionCode()) {
-    body["PromotionCode"] = request.promotionCode();
+    body["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    body["ResourceSpec"] = request.resourceSpecShrink();
+    body["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   if (!!request.hasStorageShrink()) {
-    body["Storage"] = request.storageShrink();
+    body["Storage"] = request.getStorageShrink();
   }
 
   if (!!request.hasUsePromotionCode()) {
-    body["UsePromotionCode"] = request.usePromotionCode();
+    body["UsePromotionCode"] = request.getUsePromotionCode();
   }
 
   if (!!request.hasVSwitchIdsShrink()) {
-    body["VSwitchIds"] = request.vSwitchIdsShrink();
+    body["VSwitchIds"] = request.getVSwitchIdsShrink();
   }
 
   if (!!request.hasVpcId()) {
-    body["VpcId"] = request.vpcId();
+    body["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1330,48 +1414,48 @@ QueryModifyInstancePriceResponse Client::queryModifyInstancePriceWithOptions(con
   QueryModifyInstancePriceShrinkRequest request = QueryModifyInstancePriceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHaResourceSpec()) {
-    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec(), "HaResourceSpec", "json"));
+    request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaResourceSpec(), "HaResourceSpec", "json"));
   }
 
   if (!!tmpReq.hasHaVSwitchIds()) {
-    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds(), "HaVSwitchIds", "json"));
+    request.setHaVSwitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaVSwitchIds(), "HaVSwitchIds", "json"));
   }
 
   if (!!tmpReq.hasResourceSpec()) {
-    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec(), "ResourceSpec", "json"));
+    request.setResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceSpec(), "ResourceSpec", "json"));
   }
 
   json body = {};
   if (!!request.hasHa()) {
-    body["Ha"] = request.ha();
+    body["Ha"] = request.getHa();
   }
 
   if (!!request.hasHaResourceSpecShrink()) {
-    body["HaResourceSpec"] = request.haResourceSpecShrink();
+    body["HaResourceSpec"] = request.getHaResourceSpecShrink();
   }
 
   if (!!request.hasHaVSwitchIdsShrink()) {
-    body["HaVSwitchIds"] = request.haVSwitchIdsShrink();
+    body["HaVSwitchIds"] = request.getHaVSwitchIdsShrink();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPromotionCode()) {
-    body["PromotionCode"] = request.promotionCode();
+    body["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasResourceSpecShrink()) {
-    body["ResourceSpec"] = request.resourceSpecShrink();
+    body["ResourceSpec"] = request.getResourceSpecShrink();
   }
 
   if (!!request.hasUsePromotionCode()) {
-    body["UsePromotionCode"] = request.usePromotionCode();
+    body["UsePromotionCode"] = request.getUsePromotionCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1413,27 +1497,27 @@ QueryRenewInstancePriceResponse Client::queryRenewInstancePriceWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasPromotionCode()) {
-    body["PromotionCode"] = request.promotionCode();
+    body["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasUsePromotionCode()) {
-    body["UsePromotionCode"] = request.usePromotionCode();
+    body["UsePromotionCode"] = request.getUsePromotionCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1475,27 +1559,27 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
   request.validate();
   json body = {};
   if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
+    body["Duration"] = request.getDuration();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPricingCycle()) {
-    body["PricingCycle"] = request.pricingCycle();
+    body["PricingCycle"] = request.getPricingCycle();
   }
 
   if (!!request.hasPromotionCode()) {
-    body["PromotionCode"] = request.promotionCode();
+    body["PromotionCode"] = request.getPromotionCode();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasUsePromotionCode()) {
-    body["UsePromotionCode"] = request.usePromotionCode();
+    body["UsePromotionCode"] = request.getUsePromotionCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1537,19 +1621,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1591,23 +1675,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasAll()) {
-    query["All"] = request.all();
+    query["All"] = request.getAll();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceId()) {
-    query["ResourceId"] = request.resourceId();
+    query["ResourceId"] = request.getResourceId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

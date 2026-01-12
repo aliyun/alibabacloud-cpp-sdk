@@ -38,42 +38,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentStage_ == nullptr
-        && return this->message_ == nullptr && return this->status_ == nullptr && return this->totalStageWithWeight_ == nullptr; };
+        && this->message_ == nullptr && this->status_ == nullptr && this->totalStageWithWeight_ == nullptr; };
     // currentStage Field Functions 
     bool hasCurrentStage() const { return this->currentStage_ != nullptr;};
     void deleteCurrentStage() { this->currentStage_ = nullptr;};
-    inline int32_t currentStage() const { DARABONBA_PTR_GET_DEFAULT(currentStage_, 0) };
+    inline int32_t getCurrentStage() const { DARABONBA_PTR_GET_DEFAULT(currentStage_, 0) };
     inline ClusterStage& setCurrentStage(int32_t currentStage) { DARABONBA_PTR_SET_VALUE(currentStage_, currentStage) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ClusterStage& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ClusterStage& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // totalStageWithWeight Field Functions 
     bool hasTotalStageWithWeight() const { return this->totalStageWithWeight_ != nullptr;};
     void deleteTotalStageWithWeight() { this->totalStageWithWeight_ = nullptr;};
-    inline const vector<StageWithWeight> & totalStageWithWeight() const { DARABONBA_PTR_GET_CONST(totalStageWithWeight_, vector<StageWithWeight>) };
-    inline vector<StageWithWeight> totalStageWithWeight() { DARABONBA_PTR_GET(totalStageWithWeight_, vector<StageWithWeight>) };
+    inline const vector<StageWithWeight> & getTotalStageWithWeight() const { DARABONBA_PTR_GET_CONST(totalStageWithWeight_, vector<StageWithWeight>) };
+    inline vector<StageWithWeight> getTotalStageWithWeight() { DARABONBA_PTR_GET(totalStageWithWeight_, vector<StageWithWeight>) };
     inline ClusterStage& setTotalStageWithWeight(const vector<StageWithWeight> & totalStageWithWeight) { DARABONBA_PTR_SET_VALUE(totalStageWithWeight_, totalStageWithWeight) };
     inline ClusterStage& setTotalStageWithWeight(vector<StageWithWeight> && totalStageWithWeight) { DARABONBA_PTR_SET_RVALUE(totalStageWithWeight_, totalStageWithWeight) };
 
 
   protected:
-    std::shared_ptr<int32_t> currentStage_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<vector<StageWithWeight>> totalStageWithWeight_ = nullptr;
+    shared_ptr<int32_t> currentStage_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<vector<StageWithWeight>> totalStageWithWeight_ {};
   };
 
   } // namespace Models

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(Elastic, elastic_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(Elastic, elastic_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
@@ -48,90 +50,98 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->architectureType_ == nullptr
-        && return this->chargeType_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->namespaceName_ == nullptr && return this->pageIndex_ == nullptr
-        && return this->pageSize_ == nullptr && return this->region_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tagsShrink_ == nullptr; };
+        && this->chargeType_ == nullptr && this->elastic_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->namespaceName_ == nullptr
+        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->tagsShrink_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};
-    inline string architectureType() const { DARABONBA_PTR_GET_DEFAULT(architectureType_, "") };
+    inline string getArchitectureType() const { DARABONBA_PTR_GET_DEFAULT(architectureType_, "") };
     inline DescribeInstancesShrinkRequest& setArchitectureType(string architectureType) { DARABONBA_PTR_SET_VALUE(architectureType_, architectureType) };
 
 
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
-    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline DescribeInstancesShrinkRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // elastic Field Functions 
+    bool hasElastic() const { return this->elastic_ != nullptr;};
+    void deleteElastic() { this->elastic_ = nullptr;};
+    inline bool getElastic() const { DARABONBA_PTR_GET_DEFAULT(elastic_, false) };
+    inline DescribeInstancesShrinkRequest& setElastic(bool elastic) { DARABONBA_PTR_SET_VALUE(elastic_, elastic) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeInstancesShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
-    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline DescribeInstancesShrinkRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // namespaceName Field Functions 
     bool hasNamespaceName() const { return this->namespaceName_ != nullptr;};
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
-    inline string namespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
+    inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline DescribeInstancesShrinkRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline DescribeInstancesShrinkRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeInstancesShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeInstancesShrinkRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeInstancesShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
-    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline string getTagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
     inline DescribeInstancesShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
   protected:
-    std::shared_ptr<string> architectureType_ = nullptr;
-    std::shared_ptr<string> chargeType_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> instanceName_ = nullptr;
-    std::shared_ptr<string> namespaceName_ = nullptr;
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<string> architectureType_ {};
+    shared_ptr<string> chargeType_ {};
+    shared_ptr<bool> elastic_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> instanceName_ {};
+    shared_ptr<string> namespaceName_ {};
+    shared_ptr<int32_t> pageIndex_ {};
+    shared_ptr<int32_t> pageSize_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> tagsShrink_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> tagsShrink_ {};
   };
 
   } // namespace Models

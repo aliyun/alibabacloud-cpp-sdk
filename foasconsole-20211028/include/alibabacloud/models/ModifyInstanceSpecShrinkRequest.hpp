@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_QUERYMODIFYINSTANCEPRICESHRINKREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_QUERYMODIFYINSTANCEPRICESHRINKREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_MODIFYINSTANCESPECSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYINSTANCESPECSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,9 +10,9 @@ namespace Foasconsole20211028
 {
 namespace Models
 {
-  class QueryModifyInstancePriceShrinkRequest : public Darabonba::Model {
+  class ModifyInstanceSpecShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const QueryModifyInstancePriceShrinkRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const ModifyInstanceSpecShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Ha, ha_);
       DARABONBA_PTR_TO_JSON(HaResourceSpec, haResourceSpecShrink_);
       DARABONBA_PTR_TO_JSON(HaVSwitchIds, haVSwitchIdsShrink_);
@@ -22,7 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceSpec, resourceSpecShrink_);
       DARABONBA_PTR_TO_JSON(UsePromotionCode, usePromotionCode_);
     };
-    friend void from_json(const Darabonba::Json& j, QueryModifyInstancePriceShrinkRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, ModifyInstanceSpecShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Ha, ha_);
       DARABONBA_PTR_FROM_JSON(HaResourceSpec, haResourceSpecShrink_);
       DARABONBA_PTR_FROM_JSON(HaVSwitchIds, haVSwitchIdsShrink_);
@@ -32,13 +32,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceSpec, resourceSpecShrink_);
       DARABONBA_PTR_FROM_JSON(UsePromotionCode, usePromotionCode_);
     };
-    QueryModifyInstancePriceShrinkRequest() = default ;
-    QueryModifyInstancePriceShrinkRequest(const QueryModifyInstancePriceShrinkRequest &) = default ;
-    QueryModifyInstancePriceShrinkRequest(QueryModifyInstancePriceShrinkRequest &&) = default ;
-    QueryModifyInstancePriceShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~QueryModifyInstancePriceShrinkRequest() = default ;
-    QueryModifyInstancePriceShrinkRequest& operator=(const QueryModifyInstancePriceShrinkRequest &) = default ;
-    QueryModifyInstancePriceShrinkRequest& operator=(QueryModifyInstancePriceShrinkRequest &&) = default ;
+    ModifyInstanceSpecShrinkRequest() = default ;
+    ModifyInstanceSpecShrinkRequest(const ModifyInstanceSpecShrinkRequest &) = default ;
+    ModifyInstanceSpecShrinkRequest(ModifyInstanceSpecShrinkRequest &&) = default ;
+    ModifyInstanceSpecShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyInstanceSpecShrinkRequest() = default ;
+    ModifyInstanceSpecShrinkRequest& operator=(const ModifyInstanceSpecShrinkRequest &) = default ;
+    ModifyInstanceSpecShrinkRequest& operator=(ModifyInstanceSpecShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -50,56 +50,56 @@ namespace Models
     bool hasHa() const { return this->ha_ != nullptr;};
     void deleteHa() { this->ha_ = nullptr;};
     inline bool getHa() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
-    inline QueryModifyInstancePriceShrinkRequest& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
+    inline ModifyInstanceSpecShrinkRequest& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
 
 
     // haResourceSpecShrink Field Functions 
     bool hasHaResourceSpecShrink() const { return this->haResourceSpecShrink_ != nullptr;};
     void deleteHaResourceSpecShrink() { this->haResourceSpecShrink_ = nullptr;};
     inline string getHaResourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(haResourceSpecShrink_, "") };
-    inline QueryModifyInstancePriceShrinkRequest& setHaResourceSpecShrink(string haResourceSpecShrink) { DARABONBA_PTR_SET_VALUE(haResourceSpecShrink_, haResourceSpecShrink) };
+    inline ModifyInstanceSpecShrinkRequest& setHaResourceSpecShrink(string haResourceSpecShrink) { DARABONBA_PTR_SET_VALUE(haResourceSpecShrink_, haResourceSpecShrink) };
 
 
     // haVSwitchIdsShrink Field Functions 
     bool hasHaVSwitchIdsShrink() const { return this->haVSwitchIdsShrink_ != nullptr;};
     void deleteHaVSwitchIdsShrink() { this->haVSwitchIdsShrink_ = nullptr;};
     inline string getHaVSwitchIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(haVSwitchIdsShrink_, "") };
-    inline QueryModifyInstancePriceShrinkRequest& setHaVSwitchIdsShrink(string haVSwitchIdsShrink) { DARABONBA_PTR_SET_VALUE(haVSwitchIdsShrink_, haVSwitchIdsShrink) };
+    inline ModifyInstanceSpecShrinkRequest& setHaVSwitchIdsShrink(string haVSwitchIdsShrink) { DARABONBA_PTR_SET_VALUE(haVSwitchIdsShrink_, haVSwitchIdsShrink) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
-    inline QueryModifyInstancePriceShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+    inline ModifyInstanceSpecShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
     inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
-    inline QueryModifyInstancePriceShrinkRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
+    inline ModifyInstanceSpecShrinkRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
     inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
-    inline QueryModifyInstancePriceShrinkRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+    inline ModifyInstanceSpecShrinkRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceSpecShrink Field Functions 
     bool hasResourceSpecShrink() const { return this->resourceSpecShrink_ != nullptr;};
     void deleteResourceSpecShrink() { this->resourceSpecShrink_ = nullptr;};
     inline string getResourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceSpecShrink_, "") };
-    inline QueryModifyInstancePriceShrinkRequest& setResourceSpecShrink(string resourceSpecShrink) { DARABONBA_PTR_SET_VALUE(resourceSpecShrink_, resourceSpecShrink) };
+    inline ModifyInstanceSpecShrinkRequest& setResourceSpecShrink(string resourceSpecShrink) { DARABONBA_PTR_SET_VALUE(resourceSpecShrink_, resourceSpecShrink) };
 
 
     // usePromotionCode Field Functions 
     bool hasUsePromotionCode() const { return this->usePromotionCode_ != nullptr;};
     void deleteUsePromotionCode() { this->usePromotionCode_ = nullptr;};
     inline bool getUsePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
-    inline QueryModifyInstancePriceShrinkRequest& setUsePromotionCode(bool usePromotionCode) { DARABONBA_PTR_SET_VALUE(usePromotionCode_, usePromotionCode) };
+    inline ModifyInstanceSpecShrinkRequest& setUsePromotionCode(bool usePromotionCode) { DARABONBA_PTR_SET_VALUE(usePromotionCode_, usePromotionCode) };
 
 
   protected:

@@ -40,60 +40,60 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->duration_ == nullptr
-        && return this->instanceId_ == nullptr && return this->pricingCycle_ == nullptr && return this->promotionCode_ == nullptr && return this->region_ == nullptr && return this->usePromotionCode_ == nullptr; };
+        && this->instanceId_ == nullptr && this->pricingCycle_ == nullptr && this->promotionCode_ == nullptr && this->region_ == nullptr && this->usePromotionCode_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline RenewInstanceRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline RenewInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline RenewInstanceRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline RenewInstanceRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline RenewInstanceRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // usePromotionCode Field Functions 
     bool hasUsePromotionCode() const { return this->usePromotionCode_ != nullptr;};
     void deleteUsePromotionCode() { this->usePromotionCode_ = nullptr;};
-    inline bool usePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
+    inline bool getUsePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
     inline RenewInstanceRequest& setUsePromotionCode(bool usePromotionCode) { DARABONBA_PTR_SET_VALUE(usePromotionCode_, usePromotionCode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> duration_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> pricingCycle_ = nullptr;
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> pricingCycle_ {};
+    shared_ptr<string> promotionCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<bool> usePromotionCode_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<bool> usePromotionCode_ {};
   };
 
   } // namespace Models

@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_MODIFYPREPAYNAMESPACESPECREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_MODIFYPREPAYNAMESPACESPECREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ModifyPrepayNamespaceSpecRequestResourceSpec.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,47 +35,91 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(MemoryGB, memoryGB_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(MemoryGB, memoryGB_);
+      };
+      ResourceSpec() = default ;
+      ResourceSpec(const ResourceSpec &) = default ;
+      ResourceSpec(ResourceSpec &&) = default ;
+      ResourceSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceSpec() = default ;
+      ResourceSpec& operator=(const ResourceSpec &) = default ;
+      ResourceSpec& operator=(ResourceSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cpu_ == nullptr
+        && this->memoryGB_ == nullptr; };
+      // cpu Field Functions 
+      bool hasCpu() const { return this->cpu_ != nullptr;};
+      void deleteCpu() { this->cpu_ = nullptr;};
+      inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
+      inline ResourceSpec& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // memoryGB Field Functions 
+      bool hasMemoryGB() const { return this->memoryGB_ != nullptr;};
+      void deleteMemoryGB() { this->memoryGB_ = nullptr;};
+      inline int32_t getMemoryGB() const { DARABONBA_PTR_GET_DEFAULT(memoryGB_, 0) };
+      inline ResourceSpec& setMemoryGB(int32_t memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
+
+
+    protected:
+      // This parameter is required.
+      shared_ptr<int32_t> cpu_ {};
+      // This parameter is required.
+      shared_ptr<int32_t> memoryGB_ {};
+    };
+
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->namespace_ == nullptr && return this->region_ == nullptr && return this->resourceSpec_ == nullptr; };
+        && this->namespace_ == nullptr && this->region_ == nullptr && this->resourceSpec_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyPrepayNamespaceSpecRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ModifyPrepayNamespaceSpecRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ModifyPrepayNamespaceSpecRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceSpec Field Functions 
     bool hasResourceSpec() const { return this->resourceSpec_ != nullptr;};
     void deleteResourceSpec() { this->resourceSpec_ = nullptr;};
-    inline const ModifyPrepayNamespaceSpecRequestResourceSpec & resourceSpec() const { DARABONBA_PTR_GET_CONST(resourceSpec_, ModifyPrepayNamespaceSpecRequestResourceSpec) };
-    inline ModifyPrepayNamespaceSpecRequestResourceSpec resourceSpec() { DARABONBA_PTR_GET(resourceSpec_, ModifyPrepayNamespaceSpecRequestResourceSpec) };
-    inline ModifyPrepayNamespaceSpecRequest& setResourceSpec(const ModifyPrepayNamespaceSpecRequestResourceSpec & resourceSpec) { DARABONBA_PTR_SET_VALUE(resourceSpec_, resourceSpec) };
-    inline ModifyPrepayNamespaceSpecRequest& setResourceSpec(ModifyPrepayNamespaceSpecRequestResourceSpec && resourceSpec) { DARABONBA_PTR_SET_RVALUE(resourceSpec_, resourceSpec) };
+    inline const ModifyPrepayNamespaceSpecRequest::ResourceSpec & getResourceSpec() const { DARABONBA_PTR_GET_CONST(resourceSpec_, ModifyPrepayNamespaceSpecRequest::ResourceSpec) };
+    inline ModifyPrepayNamespaceSpecRequest::ResourceSpec getResourceSpec() { DARABONBA_PTR_GET(resourceSpec_, ModifyPrepayNamespaceSpecRequest::ResourceSpec) };
+    inline ModifyPrepayNamespaceSpecRequest& setResourceSpec(const ModifyPrepayNamespaceSpecRequest::ResourceSpec & resourceSpec) { DARABONBA_PTR_SET_VALUE(resourceSpec_, resourceSpec) };
+    inline ModifyPrepayNamespaceSpecRequest& setResourceSpec(ModifyPrepayNamespaceSpecRequest::ResourceSpec && resourceSpec) { DARABONBA_PTR_SET_RVALUE(resourceSpec_, resourceSpec) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
     // This parameter is required.
-    std::shared_ptr<ModifyPrepayNamespaceSpecRequestResourceSpec> resourceSpec_ = nullptr;
+    shared_ptr<ModifyPrepayNamespaceSpecRequest::ResourceSpec> resourceSpec_ {};
   };
 
   } // namespace Models

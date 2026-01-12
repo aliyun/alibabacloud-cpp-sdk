@@ -35,12 +35,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterStage_ == nullptr
-        && return this->status_ == nullptr && return this->subStatus_ == nullptr; };
+        && this->status_ == nullptr && this->subStatus_ == nullptr; };
     // clusterStage Field Functions 
     bool hasClusterStage() const { return this->clusterStage_ != nullptr;};
     void deleteClusterStage() { this->clusterStage_ = nullptr;};
-    inline const ClusterStage & clusterStage() const { DARABONBA_PTR_GET_CONST(clusterStage_, ClusterStage) };
-    inline ClusterStage clusterStage() { DARABONBA_PTR_GET(clusterStage_, ClusterStage) };
+    inline const ClusterStage & getClusterStage() const { DARABONBA_PTR_GET_CONST(clusterStage_, ClusterStage) };
+    inline ClusterStage getClusterStage() { DARABONBA_PTR_GET(clusterStage_, ClusterStage) };
     inline ClusterState& setClusterStage(const ClusterStage & clusterStage) { DARABONBA_PTR_SET_VALUE(clusterStage_, clusterStage) };
     inline ClusterState& setClusterStage(ClusterStage && clusterStage) { DARABONBA_PTR_SET_RVALUE(clusterStage_, clusterStage) };
 
@@ -48,21 +48,21 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ClusterState& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // subStatus Field Functions 
     bool hasSubStatus() const { return this->subStatus_ != nullptr;};
     void deleteSubStatus() { this->subStatus_ = nullptr;};
-    inline string subStatus() const { DARABONBA_PTR_GET_DEFAULT(subStatus_, "") };
+    inline string getSubStatus() const { DARABONBA_PTR_GET_DEFAULT(subStatus_, "") };
     inline ClusterState& setSubStatus(string subStatus) { DARABONBA_PTR_SET_VALUE(subStatus_, subStatus) };
 
 
   protected:
-    std::shared_ptr<ClusterStage> clusterStage_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> subStatus_ = nullptr;
+    shared_ptr<ClusterStage> clusterStage_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> subStatus_ {};
   };
 
   } // namespace Models

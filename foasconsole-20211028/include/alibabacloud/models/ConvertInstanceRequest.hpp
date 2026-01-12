@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_CONVERTINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ConvertInstanceRequestNamespaceResourceSpecs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -45,82 +44,172 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class NamespaceResourceSpecs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const NamespaceResourceSpecs& obj) { 
+        DARABONBA_PTR_TO_JSON(Namespace, namespace_);
+        DARABONBA_PTR_TO_JSON(ResourceSpec, resourceSpec_);
+      };
+      friend void from_json(const Darabonba::Json& j, NamespaceResourceSpecs& obj) { 
+        DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
+        DARABONBA_PTR_FROM_JSON(ResourceSpec, resourceSpec_);
+      };
+      NamespaceResourceSpecs() = default ;
+      NamespaceResourceSpecs(const NamespaceResourceSpecs &) = default ;
+      NamespaceResourceSpecs(NamespaceResourceSpecs &&) = default ;
+      NamespaceResourceSpecs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~NamespaceResourceSpecs() = default ;
+      NamespaceResourceSpecs& operator=(const NamespaceResourceSpecs &) = default ;
+      NamespaceResourceSpecs& operator=(NamespaceResourceSpecs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ResourceSpec : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ResourceSpec& obj) { 
+          DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+          DARABONBA_PTR_TO_JSON(MemoryGB, memoryGB_);
+        };
+        friend void from_json(const Darabonba::Json& j, ResourceSpec& obj) { 
+          DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+          DARABONBA_PTR_FROM_JSON(MemoryGB, memoryGB_);
+        };
+        ResourceSpec() = default ;
+        ResourceSpec(const ResourceSpec &) = default ;
+        ResourceSpec(ResourceSpec &&) = default ;
+        ResourceSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ResourceSpec() = default ;
+        ResourceSpec& operator=(const ResourceSpec &) = default ;
+        ResourceSpec& operator=(ResourceSpec &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->cpu_ == nullptr
+        && this->memoryGB_ == nullptr; };
+        // cpu Field Functions 
+        bool hasCpu() const { return this->cpu_ != nullptr;};
+        void deleteCpu() { this->cpu_ = nullptr;};
+        inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
+        inline ResourceSpec& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+        // memoryGB Field Functions 
+        bool hasMemoryGB() const { return this->memoryGB_ != nullptr;};
+        void deleteMemoryGB() { this->memoryGB_ = nullptr;};
+        inline int32_t getMemoryGB() const { DARABONBA_PTR_GET_DEFAULT(memoryGB_, 0) };
+        inline ResourceSpec& setMemoryGB(int32_t memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
+
+
+      protected:
+        // This parameter is required.
+        shared_ptr<int32_t> cpu_ {};
+        // This parameter is required.
+        shared_ptr<int32_t> memoryGB_ {};
+      };
+
+      virtual bool empty() const override { return this->namespace_ == nullptr
+        && this->resourceSpec_ == nullptr; };
+      // namespace Field Functions 
+      bool hasNamespace() const { return this->namespace_ != nullptr;};
+      void deleteNamespace() { this->namespace_ = nullptr;};
+      inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+      inline NamespaceResourceSpecs& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
+
+
+      // resourceSpec Field Functions 
+      bool hasResourceSpec() const { return this->resourceSpec_ != nullptr;};
+      void deleteResourceSpec() { this->resourceSpec_ = nullptr;};
+      inline const NamespaceResourceSpecs::ResourceSpec & getResourceSpec() const { DARABONBA_PTR_GET_CONST(resourceSpec_, NamespaceResourceSpecs::ResourceSpec) };
+      inline NamespaceResourceSpecs::ResourceSpec getResourceSpec() { DARABONBA_PTR_GET(resourceSpec_, NamespaceResourceSpecs::ResourceSpec) };
+      inline NamespaceResourceSpecs& setResourceSpec(const NamespaceResourceSpecs::ResourceSpec & resourceSpec) { DARABONBA_PTR_SET_VALUE(resourceSpec_, resourceSpec) };
+      inline NamespaceResourceSpecs& setResourceSpec(NamespaceResourceSpecs::ResourceSpec && resourceSpec) { DARABONBA_PTR_SET_RVALUE(resourceSpec_, resourceSpec) };
+
+
+    protected:
+      // This parameter is required.
+      shared_ptr<string> namespace_ {};
+      // This parameter is required.
+      shared_ptr<NamespaceResourceSpecs::ResourceSpec> resourceSpec_ {};
+    };
+
     virtual bool empty() const override { return this->duration_ == nullptr
-        && return this->instanceId_ == nullptr && return this->isAutoRenew_ == nullptr && return this->namespaceResourceSpecs_ == nullptr && return this->pricingCycle_ == nullptr && return this->promotionCode_ == nullptr
-        && return this->region_ == nullptr && return this->usePromotionCode_ == nullptr; };
+        && this->instanceId_ == nullptr && this->isAutoRenew_ == nullptr && this->namespaceResourceSpecs_ == nullptr && this->pricingCycle_ == nullptr && this->promotionCode_ == nullptr
+        && this->region_ == nullptr && this->usePromotionCode_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int32_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
+    inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline ConvertInstanceRequest& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ConvertInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // isAutoRenew Field Functions 
     bool hasIsAutoRenew() const { return this->isAutoRenew_ != nullptr;};
     void deleteIsAutoRenew() { this->isAutoRenew_ = nullptr;};
-    inline bool isAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(isAutoRenew_, false) };
+    inline bool getIsAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(isAutoRenew_, false) };
     inline ConvertInstanceRequest& setIsAutoRenew(bool isAutoRenew) { DARABONBA_PTR_SET_VALUE(isAutoRenew_, isAutoRenew) };
 
 
     // namespaceResourceSpecs Field Functions 
     bool hasNamespaceResourceSpecs() const { return this->namespaceResourceSpecs_ != nullptr;};
     void deleteNamespaceResourceSpecs() { this->namespaceResourceSpecs_ = nullptr;};
-    inline const vector<ConvertInstanceRequestNamespaceResourceSpecs> & namespaceResourceSpecs() const { DARABONBA_PTR_GET_CONST(namespaceResourceSpecs_, vector<ConvertInstanceRequestNamespaceResourceSpecs>) };
-    inline vector<ConvertInstanceRequestNamespaceResourceSpecs> namespaceResourceSpecs() { DARABONBA_PTR_GET(namespaceResourceSpecs_, vector<ConvertInstanceRequestNamespaceResourceSpecs>) };
-    inline ConvertInstanceRequest& setNamespaceResourceSpecs(const vector<ConvertInstanceRequestNamespaceResourceSpecs> & namespaceResourceSpecs) { DARABONBA_PTR_SET_VALUE(namespaceResourceSpecs_, namespaceResourceSpecs) };
-    inline ConvertInstanceRequest& setNamespaceResourceSpecs(vector<ConvertInstanceRequestNamespaceResourceSpecs> && namespaceResourceSpecs) { DARABONBA_PTR_SET_RVALUE(namespaceResourceSpecs_, namespaceResourceSpecs) };
+    inline const vector<ConvertInstanceRequest::NamespaceResourceSpecs> & getNamespaceResourceSpecs() const { DARABONBA_PTR_GET_CONST(namespaceResourceSpecs_, vector<ConvertInstanceRequest::NamespaceResourceSpecs>) };
+    inline vector<ConvertInstanceRequest::NamespaceResourceSpecs> getNamespaceResourceSpecs() { DARABONBA_PTR_GET(namespaceResourceSpecs_, vector<ConvertInstanceRequest::NamespaceResourceSpecs>) };
+    inline ConvertInstanceRequest& setNamespaceResourceSpecs(const vector<ConvertInstanceRequest::NamespaceResourceSpecs> & namespaceResourceSpecs) { DARABONBA_PTR_SET_VALUE(namespaceResourceSpecs_, namespaceResourceSpecs) };
+    inline ConvertInstanceRequest& setNamespaceResourceSpecs(vector<ConvertInstanceRequest::NamespaceResourceSpecs> && namespaceResourceSpecs) { DARABONBA_PTR_SET_RVALUE(namespaceResourceSpecs_, namespaceResourceSpecs) };
 
 
     // pricingCycle Field Functions 
     bool hasPricingCycle() const { return this->pricingCycle_ != nullptr;};
     void deletePricingCycle() { this->pricingCycle_ = nullptr;};
-    inline string pricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
+    inline string getPricingCycle() const { DARABONBA_PTR_GET_DEFAULT(pricingCycle_, "") };
     inline ConvertInstanceRequest& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
     // promotionCode Field Functions 
     bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
     void deletePromotionCode() { this->promotionCode_ = nullptr;};
-    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline string getPromotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
     inline ConvertInstanceRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline ConvertInstanceRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // usePromotionCode Field Functions 
     bool hasUsePromotionCode() const { return this->usePromotionCode_ != nullptr;};
     void deleteUsePromotionCode() { this->usePromotionCode_ = nullptr;};
-    inline bool usePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
+    inline bool getUsePromotionCode() const { DARABONBA_PTR_GET_DEFAULT(usePromotionCode_, false) };
     inline ConvertInstanceRequest& setUsePromotionCode(bool usePromotionCode) { DARABONBA_PTR_SET_VALUE(usePromotionCode_, usePromotionCode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> duration_ = nullptr;
+    shared_ptr<int32_t> duration_ {};
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<bool> isAutoRenew_ = nullptr;
+    shared_ptr<bool> isAutoRenew_ {};
     // This parameter is required.
-    std::shared_ptr<vector<ConvertInstanceRequestNamespaceResourceSpecs>> namespaceResourceSpecs_ = nullptr;
+    shared_ptr<vector<ConvertInstanceRequest::NamespaceResourceSpecs>> namespaceResourceSpecs_ {};
     // This parameter is required.
-    std::shared_ptr<string> pricingCycle_ = nullptr;
-    std::shared_ptr<string> promotionCode_ = nullptr;
+    shared_ptr<string> pricingCycle_ {};
+    shared_ptr<string> promotionCode_ {};
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<bool> usePromotionCode_ = nullptr;
+    shared_ptr<string> region_ {};
+    shared_ptr<bool> usePromotionCode_ {};
   };
 
   } // namespace Models
