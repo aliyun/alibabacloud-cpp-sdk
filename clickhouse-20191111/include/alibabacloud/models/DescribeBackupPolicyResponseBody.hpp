@@ -40,54 +40,54 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupRetentionPeriod_ == nullptr
-        && return this->backupSize_ == nullptr && return this->preferredBackupPeriod_ == nullptr && return this->preferredBackupTime_ == nullptr && return this->requestId_ == nullptr && return this->switch_ == nullptr; };
+        && this->backupSize_ == nullptr && this->preferredBackupPeriod_ == nullptr && this->preferredBackupTime_ == nullptr && this->requestId_ == nullptr && this->switch_ == nullptr; };
     // backupRetentionPeriod Field Functions 
     bool hasBackupRetentionPeriod() const { return this->backupRetentionPeriod_ != nullptr;};
     void deleteBackupRetentionPeriod() { this->backupRetentionPeriod_ = nullptr;};
-    inline int32_t backupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPeriod_, 0) };
+    inline int32_t getBackupRetentionPeriod() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPeriod_, 0) };
     inline DescribeBackupPolicyResponseBody& setBackupRetentionPeriod(int32_t backupRetentionPeriod) { DARABONBA_PTR_SET_VALUE(backupRetentionPeriod_, backupRetentionPeriod) };
 
 
     // backupSize Field Functions 
     bool hasBackupSize() const { return this->backupSize_ != nullptr;};
     void deleteBackupSize() { this->backupSize_ = nullptr;};
-    inline string backupSize() const { DARABONBA_PTR_GET_DEFAULT(backupSize_, "") };
+    inline string getBackupSize() const { DARABONBA_PTR_GET_DEFAULT(backupSize_, "") };
     inline DescribeBackupPolicyResponseBody& setBackupSize(string backupSize) { DARABONBA_PTR_SET_VALUE(backupSize_, backupSize) };
 
 
     // preferredBackupPeriod Field Functions 
     bool hasPreferredBackupPeriod() const { return this->preferredBackupPeriod_ != nullptr;};
     void deletePreferredBackupPeriod() { this->preferredBackupPeriod_ = nullptr;};
-    inline string preferredBackupPeriod() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupPeriod_, "") };
+    inline string getPreferredBackupPeriod() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupPeriod_, "") };
     inline DescribeBackupPolicyResponseBody& setPreferredBackupPeriod(string preferredBackupPeriod) { DARABONBA_PTR_SET_VALUE(preferredBackupPeriod_, preferredBackupPeriod) };
 
 
     // preferredBackupTime Field Functions 
     bool hasPreferredBackupTime() const { return this->preferredBackupTime_ != nullptr;};
     void deletePreferredBackupTime() { this->preferredBackupTime_ = nullptr;};
-    inline string preferredBackupTime() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupTime_, "") };
+    inline string getPreferredBackupTime() const { DARABONBA_PTR_GET_DEFAULT(preferredBackupTime_, "") };
     inline DescribeBackupPolicyResponseBody& setPreferredBackupTime(string preferredBackupTime) { DARABONBA_PTR_SET_VALUE(preferredBackupTime_, preferredBackupTime) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeBackupPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // switch Field Functions 
     bool hasSwitch() const { return this->switch_ != nullptr;};
     void deleteSwitch() { this->switch_ = nullptr;};
-    inline string _switch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
+    inline string getSwitch() const { DARABONBA_PTR_GET_DEFAULT(switch_, "") };
     inline DescribeBackupPolicyResponseBody& setSwitch(string _switch) { DARABONBA_PTR_SET_VALUE(switch_, _switch) };
 
 
   protected:
     // The retention period for the backup data. By default, the backup data is retained for seven days. Valid values: 7 to 730. Unit: day.
-    std::shared_ptr<int32_t> backupRetentionPeriod_ = nullptr;
+    shared_ptr<int32_t> backupRetentionPeriod_ {};
     // The size of the backup data. Unit: MB.
-    std::shared_ptr<string> backupSize_ = nullptr;
+    shared_ptr<string> backupSize_ {};
     // The day of a week when the system regularly backs up data. Valid values:
     // 
     // *   **Monday**
@@ -97,16 +97,16 @@ namespace Models
     // *   **Friday**
     // *   **Saturday**
     // *   **Sunday**
-    std::shared_ptr<string> preferredBackupPeriod_ = nullptr;
+    shared_ptr<string> preferredBackupPeriod_ {};
     // The backup window. The time is displayed in Coordinated Universal Time (UTC).
-    std::shared_ptr<string> preferredBackupTime_ = nullptr;
+    shared_ptr<string> preferredBackupTime_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the backup feature is enabled. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<string> switch_ = nullptr;
+    shared_ptr<string> switch_ {};
   };
 
   } // namespace Models

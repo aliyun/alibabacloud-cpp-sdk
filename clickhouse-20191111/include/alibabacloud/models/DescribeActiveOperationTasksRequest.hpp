@@ -60,138 +60,138 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowCancel_ == nullptr
-        && return this->allowChange_ == nullptr && return this->changeLevel_ == nullptr && return this->dbType_ == nullptr && return this->insName_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->productId_ == nullptr && return this->region_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr && return this->status_ == nullptr && return this->taskType_ == nullptr; };
+        && this->allowChange_ == nullptr && this->changeLevel_ == nullptr && this->dbType_ == nullptr && this->insName_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productId_ == nullptr && this->region_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr && this->status_ == nullptr && this->taskType_ == nullptr; };
     // allowCancel Field Functions 
     bool hasAllowCancel() const { return this->allowCancel_ != nullptr;};
     void deleteAllowCancel() { this->allowCancel_ = nullptr;};
-    inline int32_t allowCancel() const { DARABONBA_PTR_GET_DEFAULT(allowCancel_, 0) };
+    inline int32_t getAllowCancel() const { DARABONBA_PTR_GET_DEFAULT(allowCancel_, 0) };
     inline DescribeActiveOperationTasksRequest& setAllowCancel(int32_t allowCancel) { DARABONBA_PTR_SET_VALUE(allowCancel_, allowCancel) };
 
 
     // allowChange Field Functions 
     bool hasAllowChange() const { return this->allowChange_ != nullptr;};
     void deleteAllowChange() { this->allowChange_ = nullptr;};
-    inline int32_t allowChange() const { DARABONBA_PTR_GET_DEFAULT(allowChange_, 0) };
+    inline int32_t getAllowChange() const { DARABONBA_PTR_GET_DEFAULT(allowChange_, 0) };
     inline DescribeActiveOperationTasksRequest& setAllowChange(int32_t allowChange) { DARABONBA_PTR_SET_VALUE(allowChange_, allowChange) };
 
 
     // changeLevel Field Functions 
     bool hasChangeLevel() const { return this->changeLevel_ != nullptr;};
     void deleteChangeLevel() { this->changeLevel_ = nullptr;};
-    inline string changeLevel() const { DARABONBA_PTR_GET_DEFAULT(changeLevel_, "") };
+    inline string getChangeLevel() const { DARABONBA_PTR_GET_DEFAULT(changeLevel_, "") };
     inline DescribeActiveOperationTasksRequest& setChangeLevel(string changeLevel) { DARABONBA_PTR_SET_VALUE(changeLevel_, changeLevel) };
 
 
     // dbType Field Functions 
     bool hasDbType() const { return this->dbType_ != nullptr;};
     void deleteDbType() { this->dbType_ = nullptr;};
-    inline string dbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
+    inline string getDbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
     inline DescribeActiveOperationTasksRequest& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
 
 
     // insName Field Functions 
     bool hasInsName() const { return this->insName_ != nullptr;};
     void deleteInsName() { this->insName_ = nullptr;};
-    inline string insName() const { DARABONBA_PTR_GET_DEFAULT(insName_, "") };
+    inline string getInsName() const { DARABONBA_PTR_GET_DEFAULT(insName_, "") };
     inline DescribeActiveOperationTasksRequest& setInsName(string insName) { DARABONBA_PTR_SET_VALUE(insName_, insName) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline DescribeActiveOperationTasksRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline DescribeActiveOperationTasksRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline DescribeActiveOperationTasksRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeActiveOperationTasksRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // productId Field Functions 
     bool hasProductId() const { return this->productId_ != nullptr;};
     void deleteProductId() { this->productId_ = nullptr;};
-    inline string productId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
+    inline string getProductId() const { DARABONBA_PTR_GET_DEFAULT(productId_, "") };
     inline DescribeActiveOperationTasksRequest& setProductId(string productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline DescribeActiveOperationTasksRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline DescribeActiveOperationTasksRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline DescribeActiveOperationTasksRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
-    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
     inline DescribeActiveOperationTasksRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline DescribeActiveOperationTasksRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // taskType Field Functions 
     bool hasTaskType() const { return this->taskType_ != nullptr;};
     void deleteTaskType() { this->taskType_ = nullptr;};
-    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline string getTaskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
     inline DescribeActiveOperationTasksRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
 
 
   protected:
-    std::shared_ptr<int32_t> allowCancel_ = nullptr;
-    std::shared_ptr<int32_t> allowChange_ = nullptr;
-    std::shared_ptr<string> changeLevel_ = nullptr;
-    std::shared_ptr<string> dbType_ = nullptr;
-    std::shared_ptr<string> insName_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<string> productId_ = nullptr;
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    std::shared_ptr<string> securityToken_ = nullptr;
-    std::shared_ptr<int32_t> status_ = nullptr;
-    std::shared_ptr<string> taskType_ = nullptr;
+    shared_ptr<int32_t> allowCancel_ {};
+    shared_ptr<int32_t> allowChange_ {};
+    shared_ptr<string> changeLevel_ {};
+    shared_ptr<string> dbType_ {};
+    shared_ptr<string> insName_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> productId_ {};
+    shared_ptr<string> region_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> securityToken_ {};
+    shared_ptr<int32_t> status_ {};
+    shared_ptr<string> taskType_ {};
   };
 
   } // namespace Models

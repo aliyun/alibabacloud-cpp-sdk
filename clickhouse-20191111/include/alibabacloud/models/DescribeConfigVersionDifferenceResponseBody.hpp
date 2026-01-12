@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->newConfigXML_ == nullptr
-        && return this->oldConfigXML_ == nullptr && return this->requestId_ == nullptr; };
+        && this->oldConfigXML_ == nullptr && this->requestId_ == nullptr; };
     // newConfigXML Field Functions 
     bool hasNewConfigXML() const { return this->newConfigXML_ != nullptr;};
     void deleteNewConfigXML() { this->newConfigXML_ = nullptr;};
-    inline string newConfigXML() const { DARABONBA_PTR_GET_DEFAULT(newConfigXML_, "") };
+    inline string getNewConfigXML() const { DARABONBA_PTR_GET_DEFAULT(newConfigXML_, "") };
     inline DescribeConfigVersionDifferenceResponseBody& setNewConfigXML(string newConfigXML) { DARABONBA_PTR_SET_VALUE(newConfigXML_, newConfigXML) };
 
 
     // oldConfigXML Field Functions 
     bool hasOldConfigXML() const { return this->oldConfigXML_ != nullptr;};
     void deleteOldConfigXML() { this->oldConfigXML_ = nullptr;};
-    inline string oldConfigXML() const { DARABONBA_PTR_GET_DEFAULT(oldConfigXML_, "") };
+    inline string getOldConfigXML() const { DARABONBA_PTR_GET_DEFAULT(oldConfigXML_, "") };
     inline DescribeConfigVersionDifferenceResponseBody& setOldConfigXML(string oldConfigXML) { DARABONBA_PTR_SET_VALUE(oldConfigXML_, oldConfigXML) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeConfigVersionDifferenceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The values of the configuration parameters after the values of the configuration parameters are changed.
-    std::shared_ptr<string> newConfigXML_ = nullptr;
+    shared_ptr<string> newConfigXML_ {};
     // The values of the configuration parameters before the values of the configuration parameters are changed.
-    std::shared_ptr<string> oldConfigXML_ = nullptr;
+    shared_ptr<string> oldConfigXML_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

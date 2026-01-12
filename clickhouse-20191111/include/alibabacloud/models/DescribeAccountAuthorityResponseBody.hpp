@@ -45,20 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->allowDatabases_ == nullptr && return this->allowDictionaries_ == nullptr && return this->ddlAuthority_ == nullptr && return this->dmlAuthority_ == nullptr && return this->requestId_ == nullptr
-        && return this->totalDatabases_ == nullptr && return this->totalDictionaries_ == nullptr; };
+        && this->allowDatabases_ == nullptr && this->allowDictionaries_ == nullptr && this->ddlAuthority_ == nullptr && this->dmlAuthority_ == nullptr && this->requestId_ == nullptr
+        && this->totalDatabases_ == nullptr && this->totalDictionaries_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
-    inline string accountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
     inline DescribeAccountAuthorityResponseBody& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
     // allowDatabases Field Functions 
     bool hasAllowDatabases() const { return this->allowDatabases_ != nullptr;};
     void deleteAllowDatabases() { this->allowDatabases_ = nullptr;};
-    inline const vector<string> & allowDatabases() const { DARABONBA_PTR_GET_CONST(allowDatabases_, vector<string>) };
-    inline vector<string> allowDatabases() { DARABONBA_PTR_GET(allowDatabases_, vector<string>) };
+    inline const vector<string> & getAllowDatabases() const { DARABONBA_PTR_GET_CONST(allowDatabases_, vector<string>) };
+    inline vector<string> getAllowDatabases() { DARABONBA_PTR_GET(allowDatabases_, vector<string>) };
     inline DescribeAccountAuthorityResponseBody& setAllowDatabases(const vector<string> & allowDatabases) { DARABONBA_PTR_SET_VALUE(allowDatabases_, allowDatabases) };
     inline DescribeAccountAuthorityResponseBody& setAllowDatabases(vector<string> && allowDatabases) { DARABONBA_PTR_SET_RVALUE(allowDatabases_, allowDatabases) };
 
@@ -66,8 +66,8 @@ namespace Models
     // allowDictionaries Field Functions 
     bool hasAllowDictionaries() const { return this->allowDictionaries_ != nullptr;};
     void deleteAllowDictionaries() { this->allowDictionaries_ = nullptr;};
-    inline const vector<string> & allowDictionaries() const { DARABONBA_PTR_GET_CONST(allowDictionaries_, vector<string>) };
-    inline vector<string> allowDictionaries() { DARABONBA_PTR_GET(allowDictionaries_, vector<string>) };
+    inline const vector<string> & getAllowDictionaries() const { DARABONBA_PTR_GET_CONST(allowDictionaries_, vector<string>) };
+    inline vector<string> getAllowDictionaries() { DARABONBA_PTR_GET(allowDictionaries_, vector<string>) };
     inline DescribeAccountAuthorityResponseBody& setAllowDictionaries(const vector<string> & allowDictionaries) { DARABONBA_PTR_SET_VALUE(allowDictionaries_, allowDictionaries) };
     inline DescribeAccountAuthorityResponseBody& setAllowDictionaries(vector<string> && allowDictionaries) { DARABONBA_PTR_SET_RVALUE(allowDictionaries_, allowDictionaries) };
 
@@ -75,29 +75,29 @@ namespace Models
     // ddlAuthority Field Functions 
     bool hasDdlAuthority() const { return this->ddlAuthority_ != nullptr;};
     void deleteDdlAuthority() { this->ddlAuthority_ = nullptr;};
-    inline bool ddlAuthority() const { DARABONBA_PTR_GET_DEFAULT(ddlAuthority_, false) };
+    inline bool getDdlAuthority() const { DARABONBA_PTR_GET_DEFAULT(ddlAuthority_, false) };
     inline DescribeAccountAuthorityResponseBody& setDdlAuthority(bool ddlAuthority) { DARABONBA_PTR_SET_VALUE(ddlAuthority_, ddlAuthority) };
 
 
     // dmlAuthority Field Functions 
     bool hasDmlAuthority() const { return this->dmlAuthority_ != nullptr;};
     void deleteDmlAuthority() { this->dmlAuthority_ = nullptr;};
-    inline string dmlAuthority() const { DARABONBA_PTR_GET_DEFAULT(dmlAuthority_, "") };
+    inline string getDmlAuthority() const { DARABONBA_PTR_GET_DEFAULT(dmlAuthority_, "") };
     inline DescribeAccountAuthorityResponseBody& setDmlAuthority(string dmlAuthority) { DARABONBA_PTR_SET_VALUE(dmlAuthority_, dmlAuthority) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAccountAuthorityResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalDatabases Field Functions 
     bool hasTotalDatabases() const { return this->totalDatabases_ != nullptr;};
     void deleteTotalDatabases() { this->totalDatabases_ = nullptr;};
-    inline const vector<string> & totalDatabases() const { DARABONBA_PTR_GET_CONST(totalDatabases_, vector<string>) };
-    inline vector<string> totalDatabases() { DARABONBA_PTR_GET(totalDatabases_, vector<string>) };
+    inline const vector<string> & getTotalDatabases() const { DARABONBA_PTR_GET_CONST(totalDatabases_, vector<string>) };
+    inline vector<string> getTotalDatabases() { DARABONBA_PTR_GET(totalDatabases_, vector<string>) };
     inline DescribeAccountAuthorityResponseBody& setTotalDatabases(const vector<string> & totalDatabases) { DARABONBA_PTR_SET_VALUE(totalDatabases_, totalDatabases) };
     inline DescribeAccountAuthorityResponseBody& setTotalDatabases(vector<string> && totalDatabases) { DARABONBA_PTR_SET_RVALUE(totalDatabases_, totalDatabases) };
 
@@ -105,35 +105,35 @@ namespace Models
     // totalDictionaries Field Functions 
     bool hasTotalDictionaries() const { return this->totalDictionaries_ != nullptr;};
     void deleteTotalDictionaries() { this->totalDictionaries_ = nullptr;};
-    inline const vector<string> & totalDictionaries() const { DARABONBA_PTR_GET_CONST(totalDictionaries_, vector<string>) };
-    inline vector<string> totalDictionaries() { DARABONBA_PTR_GET(totalDictionaries_, vector<string>) };
+    inline const vector<string> & getTotalDictionaries() const { DARABONBA_PTR_GET_CONST(totalDictionaries_, vector<string>) };
+    inline vector<string> getTotalDictionaries() { DARABONBA_PTR_GET(totalDictionaries_, vector<string>) };
     inline DescribeAccountAuthorityResponseBody& setTotalDictionaries(const vector<string> & totalDictionaries) { DARABONBA_PTR_SET_VALUE(totalDictionaries_, totalDictionaries) };
     inline DescribeAccountAuthorityResponseBody& setTotalDictionaries(vector<string> && totalDictionaries) { DARABONBA_PTR_SET_RVALUE(totalDictionaries_, totalDictionaries) };
 
 
   protected:
     // The name of the database account.
-    std::shared_ptr<string> accountName_ = nullptr;
+    shared_ptr<string> accountName_ {};
     // Databases to which permissions have been granted.
-    std::shared_ptr<vector<string>> allowDatabases_ = nullptr;
+    shared_ptr<vector<string>> allowDatabases_ {};
     // Dictionaries to which permissions have been granted.
-    std::shared_ptr<vector<string>> allowDictionaries_ = nullptr;
+    shared_ptr<vector<string>> allowDictionaries_ {};
     // Indicates whether the database account has DDL permissions. Valid values:
     // 
     // *   **true**: has DDL permissions.
     // *   **false**: does not have DDL permissions.
-    std::shared_ptr<bool> ddlAuthority_ = nullptr;
+    shared_ptr<bool> ddlAuthority_ {};
     // Indicates whether the database account has DML permissions. Valid values:
     // 
     // *   **all**
     // *   **readOnly,modify**
-    std::shared_ptr<string> dmlAuthority_ = nullptr;
+    shared_ptr<string> dmlAuthority_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // All databases.
-    std::shared_ptr<vector<string>> totalDatabases_ = nullptr;
+    shared_ptr<vector<string>> totalDatabases_ {};
     // All dictionaries.
-    std::shared_ptr<vector<string>> totalDictionaries_ = nullptr;
+    shared_ptr<vector<string>> totalDictionaries_ {};
   };
 
   } // namespace Models

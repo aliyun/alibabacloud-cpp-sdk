@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->needRestart_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // needRestart Field Functions 
     bool hasNeedRestart() const { return this->needRestart_ != nullptr;};
     void deleteNeedRestart() { this->needRestart_ = nullptr;};
-    inline bool needRestart() const { DARABONBA_PTR_GET_DEFAULT(needRestart_, false) };
+    inline bool getNeedRestart() const { DARABONBA_PTR_GET_DEFAULT(needRestart_, false) };
     inline CheckModifyConfigNeedRestartResponseBody& setNeedRestart(bool needRestart) { DARABONBA_PTR_SET_VALUE(needRestart_, needRestart) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckModifyConfigNeedRestartResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
@@ -52,9 +52,9 @@ namespace Models
     // 
     // *   **true**: The cluster was restarted.
     // *   **false**: The cluster was not restarted.
-    std::shared_ptr<bool> needRestart_ = nullptr;
+    shared_ptr<bool> needRestart_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

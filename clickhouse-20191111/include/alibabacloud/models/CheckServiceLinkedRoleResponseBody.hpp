@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hasServiceLinkedRole_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // hasServiceLinkedRole Field Functions 
     bool hasHasServiceLinkedRole() const { return this->hasServiceLinkedRole_ != nullptr;};
     void deleteHasServiceLinkedRole() { this->hasServiceLinkedRole_ = nullptr;};
-    inline bool hasServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(hasServiceLinkedRole_, false) };
+    inline bool getHasServiceLinkedRole() const { DARABONBA_PTR_GET_DEFAULT(hasServiceLinkedRole_, false) };
     inline CheckServiceLinkedRoleResponseBody& setHasServiceLinkedRole(bool hasServiceLinkedRole) { DARABONBA_PTR_SET_VALUE(hasServiceLinkedRole_, hasServiceLinkedRole) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CheckServiceLinkedRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // Indicates whether a service-linked role is created for ApsaraDB for ClickHouse.
-    std::shared_ptr<bool> hasServiceLinkedRole_ = nullptr;
+    shared_ptr<bool> hasServiceLinkedRole_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

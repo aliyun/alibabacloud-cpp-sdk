@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->changeId_ == nullptr
-        && return this->DBClusterId_ == nullptr; };
+        && this->DBClusterId_ == nullptr; };
     // changeId Field Functions 
     bool hasChangeId() const { return this->changeId_ != nullptr;};
     void deleteChangeId() { this->changeId_ = nullptr;};
-    inline string changeId() const { DARABONBA_PTR_GET_DEFAULT(changeId_, "") };
+    inline string getChangeId() const { DARABONBA_PTR_GET_DEFAULT(changeId_, "") };
     inline DescribeConfigVersionDifferenceRequest& setChangeId(string changeId) { DARABONBA_PTR_SET_VALUE(changeId_, changeId) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeConfigVersionDifferenceRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the change record. You can call the [DescribeConfigHistory](https://help.aliyun.com/document_detail/452209.html) operation to query the ID of the change record.
     // 
     // This parameter is required.
-    std::shared_ptr<string> changeId_ = nullptr;
+    shared_ptr<string> changeId_ {};
     // The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
   };
 
   } // namespace Models
