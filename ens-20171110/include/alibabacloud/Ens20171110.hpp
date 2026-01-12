@@ -1921,6 +1921,23 @@ namespace Ens20171110
       Models::DescribeClusterKubeConfigResponse describeClusterKubeConfig(const Models::DescribeClusterKubeConfigRequest &request);
 
       /**
+       * @summary 查询集群列表
+       *
+       * @param request DescribeClustersV1Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClustersV1Response
+       */
+      Models::DescribeClustersV1Response describeClustersV1WithOptions(const Models::DescribeClustersV1Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询集群列表
+       *
+       * @param request DescribeClustersV1Request
+       * @return DescribeClustersV1Response
+       */
+      Models::DescribeClustersV1Response describeClustersV1(const Models::DescribeClustersV1Request &request);
+
+      /**
        * @summary Queries the results of creating an instance.
        *
        * @param request DescribeCreatePrePaidInstanceResultRequest
@@ -4005,7 +4022,7 @@ namespace Ens20171110
       Models::ListAICPublicKeysResponse listAICPublicKeys(const Models::ListAICPublicKeysRequest &request);
 
       /**
-       * @summary 查询可用的组件列表
+       * @summary Querying the details of a cluster component
        *
        * @param request ListAddonsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4014,7 +4031,7 @@ namespace Ens20171110
       Models::ListAddonsResponse listAddonsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询可用的组件列表
+       * @summary Querying the details of a cluster component
        *
        * @return ListAddonsResponse
        */
@@ -4055,7 +4072,7 @@ namespace Ens20171110
       Models::ListBucketsResponse listBuckets(const Models::ListBucketsRequest &request);
 
       /**
-       * @summary 查询集群已安装的组件实例列表
+       * @summary List of Installed Addon Instances in the Cluster
        *
        * @param request ListClusterAddonInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4064,7 +4081,7 @@ namespace Ens20171110
       Models::ListClusterAddonInstancesResponse listClusterAddonInstancesWithOptions(const Models::ListClusterAddonInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询集群已安装的组件实例列表
+       * @summary List of Installed Addon Instances in the Cluster
        *
        * @param request ListClusterAddonInstancesRequest
        * @return ListClusterAddonInstancesResponse

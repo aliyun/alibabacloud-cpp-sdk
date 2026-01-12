@@ -5818,6 +5818,56 @@ DescribeClusterKubeConfigResponse Client::describeClusterKubeConfig(const Descri
 }
 
 /**
+ * @summary 查询集群列表
+ *
+ * @param request DescribeClustersV1Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClustersV1Response
+ */
+DescribeClustersV1Response Client::describeClustersV1WithOptions(const DescribeClustersV1Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasEnsRegionId()) {
+    query["EnsRegionId"] = request.getEnsRegionId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClustersV1"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClustersV1Response>();
+}
+
+/**
+ * @summary 查询集群列表
+ *
+ * @param request DescribeClustersV1Request
+ * @return DescribeClustersV1Response
+ */
+DescribeClustersV1Response Client::describeClustersV1(const DescribeClustersV1Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClustersV1WithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the results of creating an instance.
  *
  * @param request DescribeCreatePrePaidInstanceResultRequest
@@ -11912,7 +11962,7 @@ ListAICPublicKeysResponse Client::listAICPublicKeys(const ListAICPublicKeysReque
 }
 
 /**
- * @summary 查询可用的组件列表
+ * @summary Querying the details of a cluster component
  *
  * @param request ListAddonsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11935,7 +11985,7 @@ ListAddonsResponse Client::listAddonsWithOptions(const Darabonba::RuntimeOptions
 }
 
 /**
- * @summary 查询可用的组件列表
+ * @summary Querying the details of a cluster component
  *
  * @return ListAddonsResponse
  */
@@ -12065,7 +12115,7 @@ ListBucketsResponse Client::listBuckets(const ListBucketsRequest &request) {
 }
 
 /**
- * @summary 查询集群已安装的组件实例列表
+ * @summary List of Installed Addon Instances in the Cluster
  *
  * @param request ListClusterAddonInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12096,7 +12146,7 @@ ListClusterAddonInstancesResponse Client::listClusterAddonInstancesWithOptions(c
 }
 
 /**
- * @summary 查询集群已安装的组件实例列表
+ * @summary List of Installed Addon Instances in the Cluster
  *
  * @param request ListClusterAddonInstancesRequest
  * @return ListClusterAddonInstancesResponse

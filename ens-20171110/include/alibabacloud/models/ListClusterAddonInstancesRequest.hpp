@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
   };
